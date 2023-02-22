@@ -1,0 +1,98 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page-container">
+    <div class="page">
+
+        @* Part of Option1: This element covers all contents in the viewport if the viewport is not mobile (z-index: 60) *@
+        @* <ClosedStageCurtain /> *@
+
+        @* Part of Option2: On large screens (desktop) shows instructions and animation controls *@
+        @*
+        <div class="left-negative-space">
+            @if (ExternalLayoutControls)
+            {
+                <article class="animate-app external-layout-controls">
+                    <AppAnimations 
+                        FirstAnimationCallback="PlayFirstAnimation"
+                        SecondAnimationCallback="PlaySecondAnimation"
+                        ThirdAnimationCallback="PlayThirdAnimation"
+                        FourthAnimationCallback="PlayFourthAnimation"
+                        FifthAnimationCallback="PlayFifthAnimation" />
+                </article>
+            }
+            else 
+            {
+                <p>
+                    Download this app today on any mobile device using the QR code on the right!
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                    Or use your mobile browser to install this progressive web app (PWA) as an app on your device's homescreen!
+                </p>
+                <br />
+                <button class="btn btn-danger" @onclick="SetExternalLayoutControlsToTrue">Animations</button>
+            }
+        </div>
+        *@
+
+        <main class="main @AnimateMain">
+
+            @* Buttons (z-index: 40) *@
+            <NavButtons 
+                StatusA="@NavButtonAStatus" 
+                StatusB="@NavButtonBStatus" 
+                StatusC="@NavButtonCStatus" 
+                StatusD="@NavButtonDStatus" 
+                StatusE="@NavButtonEStatus" 
+                UpdateNavCallback="UpdateNav" />
+
+            @* Panels (z-index: 30) *@
+            <NavPanels 
+                NavPanelAStatus="@NavPanelAStatus" 
+                NavPanelBStatus="@NavPanelBStatus" 
+                NavPanelCStatus="@NavPanelCStatus" 
+                NavPanelDStatus="@NavPanelDStatus"
+                NavPanelEStatus="@NavPanelEStatus" 
+                UpdateNavCallback="UpdateNavFromRoute" 
+                ShowLayoutControlsCallback="ShowLayoutControls" />
+
+            @* Behind Panel (z-index: 20) *@
+            <div class="behind-panel @BehindPanel" @onclick="UpdateNavFromBehindPanel"></div>
+
+            @* original Main items (z-index: auto) *@
+            <div class="container-fluid header" @onclick="(()=>UpdateNavFromAppTitle('C'))">
+                <a class="navbar-brand" href="">MobileNav Template</a>
+            </div>
+            <div class="top-row fixed-top px-4">
+                <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            </div>
+            <article class="content @ContentBlur">
+                @Body
+            </article>
+            
+            @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
+            <article class="animate-app @LayoutControls @ContentBlur">
+                <AppAnimations 
+                    FirstAnimationCallback="PlayFirstAnimation"
+                    SecondAnimationCallback="PlaySecondAnimation"
+                    ThirdAnimationCallback="PlayThirdAnimation"
+                    FourthAnimationCallback="PlayFourthAnimation"
+                    FifthAnimationCallback="PlayFifthAnimation" />
+            </article>
+        </main>
+
+        @* Part of Option2 && Option3: QR Code (for lookup via mobile) *@
+        @*
+        <div class="right-negative-space">
+            <div class="qr-code">
+                <img src="media/images/frame.png" class="qr-code-image" />
+            </div>
+        </div>
+        *@
+
+        @* Discontinue Button (z-index: 50, position: fixed) *@
+        <div class="continuous-animate-stop @DiscontinueButton">
+            <button class="btn btn-danger" @onclick="StopMainAnimation">Discontinue</button>
+        </div>
+    </div>
+</div>

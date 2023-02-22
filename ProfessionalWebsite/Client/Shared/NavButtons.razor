@@ -1,0 +1,42 @@
+﻿<div class="container-one">
+    <div class="container-two">
+        <div class="nav-button @StatusA" @onclick="(()=>UpdateNav('A'))">
+            <span class="button-icon fa-solid fa-magnet" aria-hidden="true"></span>
+            <span class="button-label">Animate</span>
+        </div>
+        <div class="nav-button @StatusB" @onclick="(()=>UpdateNav('B'))">
+            <span class="button-icon fa-solid fa-hand-spock" aria-hidden="true"></span>
+            <span class="button-label">Spinners</span>
+        </div>
+        <div class="nav-button @StatusC" @onclick="(()=>UpdateNav('C'))">
+            <span class="button-icon fa-solid fa-house" aria-hidden="true"></span>
+            <span class="button-label">Home</span>
+        </div>
+        <div class="nav-button @StatusD" @onclick="(()=>UpdateNav('D'))">
+            <span class="button-icon fa-solid fa-plus" aria-hidden="true"></span>
+            <span class="button-label">Counter</span>
+        </div>
+        <div class="nav-button @StatusE" @onclick="(()=>UpdateNav('E'))">
+            <span class="button-icon fa-solid fa-cloud" aria-hidden="true"></span>
+            <span class="button-label">Weather</span>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public string StatusA { get; set; } = "";
+    [Parameter]
+    public string StatusB { get; set; } = "";
+    [Parameter]
+    public string StatusC { get; set; } = "";
+    [Parameter]
+    public string StatusD { get; set; } = "";
+    [Parameter]
+    public string StatusE { get; set; } = "";
+    [Parameter]
+    public EventCallback<char> UpdateNavCallback { get; set; }
+    private async Task UpdateNav(char character) =>
+        await UpdateNavCallback.InvokeAsync(character);
+}

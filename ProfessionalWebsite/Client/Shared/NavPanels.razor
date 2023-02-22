@@ -1,0 +1,195 @@
+﻿<NavPanelContainer PanelPosition="" NavPanelStatus="@NavPanelAStatus">
+    <div class="nav-item panel-header" @onclick="(()=>ShowLayoutControls('A'))">
+        <NavLink class="nav-link">
+            <span class="icon fa-solid fa-magnet" aria-hidden="true"></span>Animate App
+        </NavLink>
+    </div>
+    <div class="panel-scrollablesection">
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="firstitem1">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="helloworld1">    
+                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="lastitem1">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            </NavLink>
+        </div>
+    </div>
+</NavPanelContainer>
+<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@NavPanelBStatus">
+    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('B'))">
+        <NavLink class="nav-link" href="loadingspinners">
+            <span class="icon fa-solid fa-hand-spock" aria-hidden="true"></span>Spinners
+        </NavLink>
+    </div>
+    <div class="panel-scrollablesection">
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="firstitem2">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            </NavLink>
+        </div>
+        <CollapsingSection IconClasses="icon fa-solid fa-wand-magic-sparkles" ParentButtonText="Expandable Section">
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+                <NavLink class="nav-link" href="multipagedata">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Multi-Page Data
+                </NavLink>
+            </div>
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+                    <NavLink class="nav-link" href="blankitem">
+                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+                    </NavLink>
+                </div>
+            }
+        </CollapsingSection>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="lastitem2">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            </NavLink>
+        </div>
+    </div>
+</NavPanelContainer>
+<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@NavPanelCStatus">
+    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('C'))">
+        <NavLink class="nav-link" href="home">
+            <span class="icon fa-solid fa-house" aria-hidden="true"></span>Home
+        </NavLink>
+    </div>
+    <div class="panel-scrollablesection">
+        @* Could not turn panel items into components due to onclick syntax conflicts (would require restructuring classes) *@
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="firstitem3">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="helloworld2">
+                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
+            </NavLink>
+        </div>
+        <CollapsingSection IconClasses="icon fa fa-star" ParentButtonText="Expandable Section">
+            @for (int i = 0; i < 8; i++)
+            {
+                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                    <NavLink class="nav-link" href="blankitem">
+                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+                    </NavLink>
+                </div>
+            }
+        </CollapsingSection>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="multipagedata">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Multi-Page Data
+            </NavLink>
+        </div>
+        <CollapsingSection IconClasses="icon fa fa-trash" ParentButtonText="Other Expandable Section">
+            @for (int i = 0; i < 2; i++)
+            {
+                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                    <NavLink class="nav-link" href="blankitem">
+                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+                    </NavLink>
+                </div>
+            }
+        </CollapsingSection>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="testpage">
+                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Test Page
+            </NavLink>
+        </div>
+        @for (int i = 0; i < 11; i++)
+        {
+            <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="blankitem">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+                </NavLink>
+            </div>
+        }
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="lastitem3">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            </NavLink>
+        </div>
+    </div>
+</NavPanelContainer>
+<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@NavPanelDStatus">
+    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('D'))">
+        <NavLink class="nav-link" href="counter">
+            <span class="icon fa-solid fa-plus" aria-hidden="true"></span>Counter
+        </NavLink>
+    </div>
+    <div class="panel-scrollablesection">
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="firstitem4">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            </NavLink>
+        </div>
+        @for (int i = 0; i < 12; i++)
+        {
+            <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+                <NavLink class="nav-link" href="blankitem">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+                </NavLink>
+            </div>
+        }
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="lastitem4">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            </NavLink>
+        </div>
+    </div>
+</NavPanelContainer>
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@NavPanelEStatus">
+    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('E'))">
+        <NavLink class="nav-link" href="fetchdata">
+            <span class="icon fa-solid fa-cloud" aria-hidden="true"></span>Weather Forecast
+        </NavLink>
+    </div>
+    <div class="panel-scrollablesection">
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="firstitem5">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="helloworld3">    
+                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="lastitem5">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            </NavLink>
+        </div>
+    </div>
+</NavPanelContainer>
+
+@code {
+    [Parameter]
+    public string NavPanelAStatus { get; set; } = "";
+    [Parameter]
+    public string NavPanelBStatus { get; set; } = "";
+    [Parameter]
+    public string NavPanelCStatus { get; set; } = "";
+    [Parameter]
+    public string NavPanelDStatus { get; set; } = "";
+    [Parameter]
+    public string NavPanelEStatus { get; set; } = "";
+
+    [Parameter]
+    public EventCallback<char> UpdateNavCallback { get; set; }
+    private async Task UpdateNavFromRoute(char character) =>
+        await UpdateNavCallback.InvokeAsync(character);
+
+    [Parameter]
+    public EventCallback<char> ShowLayoutControlsCallback { get; set; }
+    private async Task ShowLayoutControls(char character) =>
+        await ShowLayoutControlsCallback.InvokeAsync(character);
+}

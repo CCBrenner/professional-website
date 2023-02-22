@@ -1,0 +1,118 @@
+
+/* start Mobile view */
+
+.icon[b-6ox9c9i5sk] {
+    color: #eee;
+    width: 1.8rem;
+    font-size: 0.9rem;
+    vertical-align: text-top;
+    top: -1px;
+}
+
+.navlink[b-6ox9c9i5sk] {
+    border-left: 4px solid lightgrey;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex: 1;
+}
+
+.nav-item[b-6ox9c9i5sk] {
+    font-size: 0.9rem;
+}
+
+    .nav-item[b-6ox9c9i5sk]  a {
+        color: #eee;
+        border-radius: 12px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+        .nav-item[b-6ox9c9i5sk]  a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: #eee;
+            border: 1px solid black;
+        }
+
+        .nav-item[b-6ox9c9i5sk]  a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #eee;
+        }
+
+    .nav-item[b-6ox9c9i5sk]  i {
+        color: #eee;
+    }
+
+.panel-header[b-6ox9c9i5sk] {
+    background-color: rgba(255,255,255,0.25);
+    color: #eee;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+    .panel-header[b-6ox9c9i5sk]  a {
+        color: #eee;
+    }
+
+        .panel-header[b-6ox9c9i5sk]  a.active {
+            background-color: rgba(255,255,255,0.0);
+        }
+
+        .panel-header[b-6ox9c9i5sk]  a:hover {
+            background-color: rgba(255,255,255,0.0);
+        }
+
+.panel-scrollablesection[b-6ox9c9i5sk] {
+    overflow-y: auto;
+    max-height: calc(var(--panel-height) - 68px - 0.5rem);
+    border-radius: 12px;
+    padding: 0px 0.4rem;
+}
+
+.collapsible-item[b-6ox9c9i5sk] {
+    margin-left: 28px;
+    padding-left: 0.4rem;
+    border-left: 4px solid grey;
+}
+
+/* start Plugable statuses */
+
+.button-on-show-panel[b-6ox9c9i5sk] {
+    display: block;
+    position: fixed;
+    transition: display 0.2s;
+}
+
+.layout-controls-on[b-6ox9c9i5sk] {
+    background-color: var(--app-background-color);
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    height: calc(100% - calc(var(--top-bar-height) + var(--footer-height)));
+    width: 100%;
+    top: var(--top-bar-height);
+    z-index: 10;
+}
+
+/* end Plugable statuses */
+
+.layout-control-item[b-6ox9c9i5sk] {
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Part of Option 2 */
+/*
+@media (min-width: 78vh) {
+
+    .panel-scrollablesection {
+        height: calc(100% - 52px);
+    }
+}
+*/

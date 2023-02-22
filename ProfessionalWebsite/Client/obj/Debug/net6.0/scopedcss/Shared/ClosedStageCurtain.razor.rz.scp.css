@@ -1,0 +1,30 @@
+.larger-than-mobile[b-uquen1h5a4] {
+    background-color: var(--app-background-color);
+    width: 100vw;
+    height: 100vh;
+    z-index: 60;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.ltm-section[b-uquen1h5a4] {
+    padding: 8px;
+}
+
+.larger-than-mobile-image[b-uquen1h5a4] {
+    width: auto;
+    height: 50vh;
+    border-radius: 35px;
+    padding: 20px;
+}
+
+@media (min-width: 78vh) {
+
+    .larger-than-mobile[b-uquen1h5a4] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

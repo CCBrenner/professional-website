@@ -1,0 +1,65 @@
+﻿<h3>App Animations</h3>
+<br />
+<div class="layout-control-item">
+    <button class="btn btn-primary" @onclick="PlayFirst">Bombastic</button>
+    &nbsp;&nbsp;
+    <input class="form-check-input" type="checkbox" @bind="@FirstAnimationContinuous" />
+    &nbsp;Continuous
+</div>
+<div class="layout-control-item">
+    <button class="btn btn-primary" @onclick="PlaySecond">Sky Walker</button>
+    &nbsp;&nbsp;
+    <input class="form-check-input" type="checkbox" @bind="@SecondAnimationContinuous" />
+    &nbsp;Continuous
+</div>
+<div class="layout-control-item">
+    <button class="btn btn-primary" @onclick="PlayThird">Kitchen Sink</button>
+    &nbsp;&nbsp;
+    <input class="form-check-input" type="checkbox" @bind="@ThirdAnimationContinuous" />
+    &nbsp;Continuous
+</div>
+<div class="layout-control-item">
+    <button class="btn btn-primary" @onclick="PlayFourth">Flipster</button>
+    &nbsp;&nbsp;
+    <input class="form-check-input" type="checkbox" @bind="@FourthAnimationContinuous" />
+    &nbsp;Continuous
+</div>
+<div class="layout-control-item">
+    <button class="btn btn-primary" @onclick="PlayFifth">Asteroid</button>
+    &nbsp;&nbsp;
+    <input class="form-check-input" type="checkbox" @bind="@FifthAnimationContinuous" />
+    &nbsp;Continuous
+</div>
+
+@code
+{
+    private bool FirstAnimationContinuous = false;
+    [Parameter]
+    public EventCallback<bool> FirstAnimationCallback { get; set; }
+    private async Task PlayFirst() =>
+        await FirstAnimationCallback.InvokeAsync(FirstAnimationContinuous);
+
+    private bool SecondAnimationContinuous = false;
+    [Parameter]
+    public EventCallback<bool> SecondAnimationCallback { get; set; }
+    private async Task PlaySecond() =>
+        await SecondAnimationCallback.InvokeAsync(SecondAnimationContinuous);
+
+    private bool ThirdAnimationContinuous = false;
+    [Parameter]
+    public EventCallback<bool> ThirdAnimationCallback { get; set; }
+    private async Task PlayThird() =>
+        await ThirdAnimationCallback.InvokeAsync(ThirdAnimationContinuous);
+
+    private bool FourthAnimationContinuous = false;
+    [Parameter]
+    public EventCallback<bool> FourthAnimationCallback { get; set; }
+    private async Task PlayFourth() =>
+        await FourthAnimationCallback.InvokeAsync(FourthAnimationContinuous);
+
+    private bool FifthAnimationContinuous = false;
+    [Parameter]
+    public EventCallback<bool> FifthAnimationCallback { get; set; }
+    private async Task PlayFifth() =>
+        await FifthAnimationCallback.InvokeAsync(FifthAnimationContinuous);
+}
