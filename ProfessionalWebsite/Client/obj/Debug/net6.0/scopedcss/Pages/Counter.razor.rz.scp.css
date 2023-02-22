@@ -1,0 +1,76 @@
+.page-container[b-8dvgtn8bwx] {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 0px 16px 0px;
+}
+.no-margin[b-8dvgtn8bwx] {
+    margin: 0px;
+}
+.count[b-8dvgtn8bwx] {
+    font-size: 2rem;
+}
+.size-shape-btn-color[b-8dvgtn8bwx] {
+    background-color: orange;
+}
+.cube-container[b-8dvgtn8bwx] {
+    background-color: lightgrey;
+    border-radius: 8px;
+    padding: 4px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+.posicube-container[b-8dvgtn8bwx] {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+    align-content: center;
+    overflow-y: auto;
+}
+.negacube-container[b-8dvgtn8bwx] {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    overflow-y: auto;
+}
+.cube[b-8dvgtn8bwx] {
+    margin: 1px;
+    display: inline-block;
+}
+.posicube[b-8dvgtn8bwx] {
+    background-color: green;
+}
+.negacube[b-8dvgtn8bwx] {
+    background-color: darkred;
+}
+
+/* controlled via razor class (C# adds and removes classes to element) */
+.cube-circle[b-8dvgtn8bwx] {
+    border-radius: 50%;
+}
+
+.cube-diamond[b-8dvgtn8bwx] {
+    transform: rotate(45deg);  /* turns element 45deg */
+    margin: 3px;  /* visually rotated leave corners overlapping (same spacing as before), so increase space around each */
+}
+/*
+.example-class {
+    animation: deg45-offset 1s linear infinite;
+}
+    @keyframes deg45-offset {
+    0% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+*/
+

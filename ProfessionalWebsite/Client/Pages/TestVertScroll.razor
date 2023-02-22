@@ -1,0 +1,11 @@
+﻿@for (int i = 1; i < @LineCount; i++)
+{
+    <p>Line @i: For scrollability and visiblity purposes :)</p>
+}
+<p>Last Line: For scrollability and visiblity purposes :)</p>
+
+@code
+{
+    [Parameter]
+    public int LineCount { get; set; }
+}

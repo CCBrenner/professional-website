@@ -197,14 +197,14 @@
       "netstandard.dll": "sha256-\/CRbZZ6en3BoMsR5fhsJCTE9TYhik+E7KU+O9cBdC9c=",
       "System.Private.CoreLib.dll": "sha256-ftEeXsH4HQ3J6VlVJuI3mbfqZxGyNtYVxuIQD\/8waHw=",
       "ProfessionalWebsite.Shared.dll": "sha256-tGIce0FE8jJsRgXTA+0C4wCXgoZe5ATwjI3SUsbmfVk=",
-      "ProfessionalWebsite.Client.dll": "sha256-oXbVa9pQuyCY01Uz36XdA3vLtX4Fl97ORjiJ7LLUx5I="
+      "ProfessionalWebsite.Client.dll": "sha256-+ruYZZ2lv1mLxihrQMAbGdKshGu9ZrlkbvQLzDZtS7M="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "ProfessionalWebsite.Shared.pdb": "sha256-18fvTreoooBUyu6PFgNHlfaw3o9q+eWcUCwf1scEEb8=",
-      "ProfessionalWebsite.Client.pdb": "sha256-pMB6RtFkc7hIYHc2ZiVakYtDvXGAhpVVNYQdmMXPt1I="
+      "ProfessionalWebsite.Client.pdb": "sha256-bOunuyaUa3YOC5QV7Bi88DUrPQNFSZr+4KdQYnW3vJY="
     },
     "runtime": {
       "dotnet.6.0.12.vcefaxtcla.js": "sha256-qD0QxS71qYTQZMj+JDk0IXr28ewa+pSDzShFKSNkQ+0=",

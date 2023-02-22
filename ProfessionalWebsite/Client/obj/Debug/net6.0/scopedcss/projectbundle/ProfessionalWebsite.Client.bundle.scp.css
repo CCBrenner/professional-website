@@ -1,3 +1,178 @@
+/* /Pages/Counter.razor.rz.scp.css */
+.page-container[b-8dvgtn8bwx] {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 0px 16px 0px;
+}
+.no-margin[b-8dvgtn8bwx] {
+    margin: 0px;
+}
+.count[b-8dvgtn8bwx] {
+    font-size: 2rem;
+}
+.size-shape-btn-color[b-8dvgtn8bwx] {
+    background-color: orange;
+}
+.cube-container[b-8dvgtn8bwx] {
+    background-color: lightgrey;
+    border-radius: 8px;
+    padding: 4px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+.posicube-container[b-8dvgtn8bwx] {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+    align-content: center;
+    overflow-y: auto;
+}
+.negacube-container[b-8dvgtn8bwx] {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    overflow-y: auto;
+}
+.cube[b-8dvgtn8bwx] {
+    margin: 1px;
+    display: inline-block;
+}
+.posicube[b-8dvgtn8bwx] {
+    background-color: green;
+}
+.negacube[b-8dvgtn8bwx] {
+    background-color: darkred;
+}
+
+/* controlled via razor class (C# adds and removes classes to element) */
+.cube-circle[b-8dvgtn8bwx] {
+    border-radius: 50%;
+}
+
+.cube-diamond[b-8dvgtn8bwx] {
+    transform: rotate(45deg);  /* turns element 45deg */
+    margin: 3px;  /* visually rotated leave corners overlapping (same spacing as before), so increase space around each */
+}
+/*
+.example-class {
+    animation: deg45-offset 1s linear infinite;
+}
+    @keyframes deg45-offset {
+    0% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+*/
+
+/* /Pages/LoadingSpinners.razor.rz.scp.css */
+.spinner-container[b-jbnftievc7] {
+    justify-content: center;
+    align-content: center;
+    height: calc(var(--content-height) - 18px);
+    font-size: 3.5em;
+}
+
+.loader1[b-jbnftievc7] {
+    margin: auto;
+    border: 6px solid lightgrey;
+    border-radius: 50%;
+    border-top: 6px solid blue;
+    width: 70px;
+    height: 70px;
+    animation: spinner-b-jbnftievc7 1.3s ease infinite;
+}
+.loader2[b-jbnftievc7] {
+    margin: auto;
+    border: 6px solid lightgrey;
+    /*border-radius: 50%;*/ /* compare this class with .loader1 - notice anything? */
+    border-top: 6px solid red;
+    width: 80px;
+    height: 80px;
+    animation: anti-spinner-b-jbnftievc7 3s linear infinite;
+}
+
+.loader3[b-jbnftievc7] {
+    margin: auto;
+    border: 14px solid green;
+    border-radius: 50%;
+    border-top: 10px solid green;
+    border-right: 10px solid red;
+    border-bottom: 10px solid blue;
+    border-left: 10px solid yellow;
+    width: 80px;
+    height: 80px;
+    animation: spinner-b-jbnftievc7 1s linear infinite;
+}
+.loader4[b-jbnftievc7] {
+    margin: auto;
+    border: 30px solid pink;
+    border-radius: 50%;
+    border-top: 10px solid pink;
+    border-bottom: 10px solid pink;
+    width: 80px;
+    height: 120px;
+    animation: anti-spinner-b-jbnftievc7 4s ease-in-out infinite;
+}
+.flipper1[b-jbnftievc7] {
+    margin: auto;
+    border: 14px solid green;
+    border-radius: 50%;
+    border-top: 10px solid brown;
+    border-right: 10px solid hotpink;
+    border-bottom: 10px solid purple;
+    border-left: 10px solid orange;
+    outline: 5px solid aquamarine;
+    width: 80px;
+    height: 80px;
+    animation: flipper-b-jbnftievc7 5s ease-in-out infinite;
+}
+
+@keyframes spinner-b-jbnftievc7 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes anti-spinner-b-jbnftievc7 {
+    0% {
+        transform: rotate(1125deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes flipper-b-jbnftievc7 {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg) rotate(0deg);
+    }
+    33% {
+        transform: rotateY(360deg) rotateX(0deg) rotate(0deg);
+    }
+    67% {
+        transform: rotateY(360deg) rotateX(360deg) rotate(0deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg) rotate(720deg);
+    }
+}
+
+
 /* /Shared/AppAnimations.razor.rz.scp.css */
 
 .layout-control-item[b-7hzgm0yr8p] {
