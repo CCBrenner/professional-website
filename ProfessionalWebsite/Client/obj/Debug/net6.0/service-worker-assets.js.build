@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-R0VUMjUySWxvfDHCHdlU2hLQGUD8UMzgtpxhP9i1aqw=",
+      "hash": "sha256-O1qLitaj3hIojUGLUDilH8ifHMkxev3AWtZr+pwZrIk=",
       "url": "css\/app.css"
     },
     {
@@ -53,7 +53,7 @@
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-ozNZWd2lB2Jzbhnq1h+a22wFaqrxbMV9ET3\/cVAZyWQ=",
+      "hash": "sha256-q6GwNlgVPfqZAK4cH0NEPafZTVLK8fVha\/KIxQnWkm8=",
       "url": "index.html"
     },
     {
@@ -869,11 +869,11 @@
       "url": "_framework\/ProfessionalWebsite.Shared.pdb"
     },
     {
-      "hash": "sha256-vdj+AB5GE7bMpSnz0ebWZ\/dlRpNUmTBSlqTtYNg8XLw=",
+      "hash": "sha256-IMADGcqsaBJXQJPUPz2rPhC56w5oEfSK+wk0gt9pVdI=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-pZPXVYg9od7rlU1+9ZYEuklWPanZq+Kpl3iVZfBdQHs=",
+      "hash": "sha256-7IZedvJKqADABycLLM\/UddZwiCWIR7GunW2felpZaX8=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -881,9 +881,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-Iv\/uKGIuq5GNBmuLCshctq3qEVnkPXCvx4uRcJJHf9Q=",
+      "hash": "sha256-KEvRIVc98rU7rDfrIj\/ga0ZDaQ7BEwuCk6mYc1S5we4=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "Enb6jGBV"
+  "version": "hWbrsoJr"
 };

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "pb2wdbXIZKQW9Pg05R9BYpm5XT7J6X8H0JiM/Wzd95A=",
+  "Source": "RazorClassLibraryOne",
+  "BasePath": "_content/RazorClassLibraryOne",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RazorClassLibraryOne\\wwwroot",
+      "Source": "RazorClassLibraryOne",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibraryOne",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\bundle\\RazorClassLibraryOne.styles.css",
+      "SourceId": "RazorClassLibraryOne",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/RazorClassLibraryOne",
+      "RelativePath": "RazorClassLibraryOne.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\bundle\\RazorClassLibraryOne.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RazorClassLibraryOne.bundle.scp.css",
+      "SourceId": "RazorClassLibraryOne",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/RazorClassLibraryOne",
+      "RelativePath": "RazorClassLibraryOne.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RazorClassLibraryOne.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\background.png",
+      "SourceId": "RazorClassLibraryOne",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibraryOne",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "RazorClassLibraryOne",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\",
+      "BasePath": "_content/RazorClassLibraryOne",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    }
+  ]
+}

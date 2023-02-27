@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RazorClassLibraryOne.bundle.scp.css",
+      "PackagePath": "staticwebassets\\RazorClassLibraryOne.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\background.png",
+      "PackagePath": "staticwebassets\\background.png"
+    },
+    {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\RazorClassLibraryOne\\wwwroot\\exampleJsInterop.js",
+      "PackagePath": "staticwebassets\\exampleJsInterop.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.RazorClassLibraryOne.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.RazorClassLibraryOne.props",
+      "PackagePath": "build\\RazorClassLibraryOne.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.RazorClassLibraryOne.props",
+      "PackagePath": "buildMultiTargeting\\RazorClassLibraryOne.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.RazorClassLibraryOne.props",
+      "PackagePath": "buildTransitive\\RazorClassLibraryOne.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

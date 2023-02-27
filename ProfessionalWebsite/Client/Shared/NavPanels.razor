@@ -1,171 +1,282 @@
 ﻿<NavPanelContainer PanelPosition="" NavPanelStatus="@NavPanelAStatus">
     <div class="nav-item panel-header" @onclick="(()=>ShowLayoutControls('A'))">
         <NavLink class="nav-link">
-            <span class="icon fa-solid fa-magnet" aria-hidden="true"></span>Animate App
+            <span class="icon fa-solid fa-magnet" aria-hidden="true"></span>Projects
         </NavLink>
     </div>
     <div class="panel-scrollablesection">
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="firstitem1">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            <NavLink class="nav-link" href="stats">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Stats
             </NavLink>
         </div>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="helloworld1">    
-                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
+            <NavLink class="nav-link" href="matchgame">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Match Game
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>ShowLayoutControls('A'))">
+            <NavLink class="nav-link" href="thispwa">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>This PWA
             </NavLink>
         </div>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="lastitem1">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            <NavLink class="nav-link" href="hideandseek">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Hide & Seek
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="twodecks">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Two Decks
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="issuetracker">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Issue Tracker
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="gofish">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Go Fish
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="beehivemgmtsystem">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Bee Hive Mgmt System
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="phpcmsandprocessbook">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>PHP CMS & Process Book
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="ecommerce">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>E-commerce
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="spinners">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Spinners
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="djangopollingapp">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Polling App (Django)
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
+            <NavLink class="nav-link" href="contact">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
             </NavLink>
         </div>
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@NavPanelBStatus">
     <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('B'))">
-        <NavLink class="nav-link" href="loadingspinners">
-            <span class="icon fa-solid fa-hand-spock" aria-hidden="true"></span>Spinners
+        <NavLink class="nav-link" href="knowhow">
+            <span class="icon fa-solid fa-hand-spock" aria-hidden="true"></span>Know-How
         </NavLink>
     </div>
     <div class="panel-scrollablesection">
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="firstitem2">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            <NavLink class="nav-link" href="knowhow:overview">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Overview
             </NavLink>
         </div>
-        <CollapsingSection IconClasses="icon fa-solid fa-wand-magic-sparkles" ParentButtonText="Expandable Section">
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-                <NavLink class="nav-link" href="multipagedata">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Multi-Page Data
-                </NavLink>
-            </div>
-            @for (int i = 0; i < 3; i++)
-            {
-                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-                    <NavLink class="nav-link" href="blankitem">
-                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
-                    </NavLink>
-                </div>
-            }
-        </CollapsingSection>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="lastitem2">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            <NavLink class="nav-link" href="knowhow:approach">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Approach
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:csharp">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>C#
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:javascript">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>JS
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:python">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Python
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:php">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>PHP
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:styling">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Styling
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="knowhow:certifications">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Certifications
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
+            <NavLink class="nav-link" href="contact">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
             </NavLink>
         </div>
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@NavPanelCStatus">
     <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('C'))">
-        <NavLink class="nav-link" href="home">
-            <span class="icon fa-solid fa-house" aria-hidden="true"></span>Home
+        <NavLink class="nav-link" href="collyn">
+            <span class="icon fa-solid fa-house" aria-hidden="true"></span>Collyn Brenner
         </NavLink>
     </div>
     <div class="panel-scrollablesection">
         @* Could not turn panel items into components due to onclick syntax conflicts (would require restructuring classes) *@
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="firstitem3">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="helloworld2">
-                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
-            </NavLink>
-        </div>
-        <CollapsingSection IconClasses="icon fa fa-star" ParentButtonText="Expandable Section">
-            @for (int i = 0; i < 8; i++)
-            {
-                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                    <NavLink class="nav-link" href="blankitem">
-                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
-                    </NavLink>
-                </div>
-            }
-        </CollapsingSection>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="multipagedata">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Multi-Page Data
-            </NavLink>
-        </div>
-        <CollapsingSection IconClasses="icon fa fa-trash" ParentButtonText="Other Expandable Section">
-            @for (int i = 0; i < 2; i++)
-            {
-                <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                    <NavLink class="nav-link" href="blankitem">
-                        <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
-                    </NavLink>
-                </div>
-            }
-        </CollapsingSection>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="testpage">
-                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Test Page
-            </NavLink>
-        </div>
-        @for (int i = 0; i < 11; i++)
-        {
-            <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="blankitem">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
+        <CollapsingSection IconClasses="icon fa fa-star" ParentButtonText="Biography">
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#background">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Background
                 </NavLink>
             </div>
-        }
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#workhistory">
+                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Work History
+                </NavLink>
+            </div>  
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#educationhistory">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Education History
+                </NavLink>
+            </div>
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#noteabledones">
+                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Noteable "Done"s
+                </NavLink>
+            </div>
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#inspirations">
+                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Inspirations
+                </NavLink>
+            </div>
+            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+                <NavLink class="nav-link" href="collyn#goals">
+                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Goals
+                </NavLink>
+            </div>
+        </CollapsingSection>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="lastitem3">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            <NavLink class="nav-link" href="projects">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Projects
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="knowhow">
+                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Know-How
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="invent">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Invent
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="articles">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Articles
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="contact">
+                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Contact
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
+            <NavLink class="nav-link" href="contact">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Feedback
             </NavLink>
         </div>
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@NavPanelDStatus">
     <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('D'))">
-        <NavLink class="nav-link" href="counter">
-            <span class="icon fa-solid fa-plus" aria-hidden="true"></span>Counter
+        <NavLink class="nav-link" href="invent">
+            <span class="icon fa-solid fa-plus" aria-hidden="true"></span>Invent
         </NavLink>
     </div>
     <div class="panel-scrollablesection">
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="firstitem4">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            <NavLink class="nav-link" href="invent:overview">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Overview
             </NavLink>
         </div>
-        @for (int i = 0; i < 12; i++)
-        {
-            <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-                <NavLink class="nav-link" href="blankitem">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Blank Item
-                </NavLink>
-            </div>
-        }
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="lastitem4">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            <NavLink class="nav-link" href="invent:testifyvictory">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Testify Victory [T^V]
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="invent:onechurch">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>OneChurch
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="invent:imfreeapp">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>"I'm Free" App
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="invent:sophiapp">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Sophi App
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
+            <NavLink class="nav-link" href="invent:contact">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
             </NavLink>
         </div>
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@NavPanelEStatus">
     <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('E'))">
-        <NavLink class="nav-link" href="fetchdata">
-            <span class="icon fa-solid fa-cloud" aria-hidden="true"></span>Weather Forecast
+        <NavLink class="nav-link" href="articles">
+            <span class="icon fa-solid fa-cloud" aria-hidden="true"></span>Articles
         </NavLink>
     </div>
     <div class="panel-scrollablesection">
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
-            <NavLink class="nav-link" href="firstitem5">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>First Item
+            <NavLink class="nav-link" href="our-incredible-future">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Our Incredible Future
             </NavLink>
         </div>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
-            <NavLink class="nav-link" href="helloworld3">    
-                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Hello, world!
+            <NavLink class="nav-link" href="nurse-heros-and-nothing-engineers">    
+                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Nurse Heros & Nothing Engineers
             </NavLink>
         </div>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
-            <NavLink class="nav-link" href="lastitem5">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Last Item
+            <NavLink class="nav-link" href="emergent-unpredicatble-artifacts">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Unpredictable Emergent Artifacts
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="your-preferred-thought-types-are-limiting-you">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Your Preferred Thought Types are Limiting You
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="critical-thinking-is-being-taught-last">
+                <span class="icon fa-solid fa-house" aria-hidden="true"></span>Critical Thinking Is Being Taught Last
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="the-young-persons-dilemma">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>The Young Person's Dilemma
+            </NavLink>
+        </div>
+        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
+            <NavLink class="nav-link" href="contact">
+                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
             </NavLink>
         </div>
     </div>
