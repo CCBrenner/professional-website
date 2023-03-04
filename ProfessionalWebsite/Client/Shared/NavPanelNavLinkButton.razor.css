@@ -1,0 +1,67 @@
+﻿.icon {
+    color: #eee;
+    width: 1.8rem;
+    font-size: 0.9rem;
+    vertical-align: text-top;
+    top: -1px;
+}
+
+.navlink {
+    border-left: 4px solid lightgrey;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex: 1;
+}
+
+.nav-item {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+    .nav-item ::deep a {
+        color: #eee;
+        border-radius: 12px;
+        min-height: 3rem;
+        display: flex;
+        align-items: center;
+    }
+
+        .nav-item ::deep a.active {
+            background-color: rgba(255,255,255,0.25);
+            color: #eee;
+            border: 1px solid black;
+        }
+
+        .nav-item ::deep a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #eee;
+        }
+
+    .nav-item ::deep span {
+        padding-right: 10px;
+    }
+
+    .nav-item ::deep i {
+        color: #eee;
+    }
+
+.panel-header {
+    background-color: rgba(255,255,255,0.25);
+    color: #eee;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+    .panel-header ::deep a {
+        color: #eee;
+        height: 3rem;
+    }
+
+        .panel-header ::deep a.active {
+            background-color: rgba(255,255,255,0.0);
+        }
+
+        .panel-header ::deep a:hover {
+            background-color: rgba(255,255,255,0.0);
+        }

@@ -2,58 +2,61 @@
 @using ProfessionalWebsite.Client.Services;
 @inject ICounterService CounterService
 
-<PageTitle>Counter - MobileNav Template</PageTitle>
+<PageTitle>Counter - Collyn Brenner</PageTitle>
 
-<div class="page-container">
-    <div class="cube-container my-2">
-        @* Both of these are good candidates for component virtualization (render elements that are visible from the viewport first) *@
-        <div class="posicube-container">
-            @for (int i = 0; i < @CounterService.Count; i++)
-            {
-                <div class="cube posicube @CubeShape" style="height: @CubeSize; width: @CubeSize; background-color: @CubeColor;"></div>
-            }
+<ProjectsPageTemplate>
+    <div class="page-container">
+        <div class="cube-container my-2">
+            @* Both of these are good candidates for component virtualization (render elements that are visible from the viewport first) *@
+            <div class="posicube-container">
+                @for (int i = 0; i < @CounterService.Count; i++)
+                {
+                    <div class="cube posicube @CubeShape" style="height: @CubeSize; width: @CubeSize; background-color: @CubeColor;"></div>
+                }
+            </div>
+            <div class="negacube-container">
+                @for (int j = 0; j > @CounterService.Count; j--)
+                {
+                    <div class="cube negacube @CubeShape" style="height: @CubeSize; width: @CubeSize; background-color: @CubeColor;"></div>
+                }
+            </div>
         </div>
-        <div class="negacube-container">
-            @for (int j = 0; j > @CounterService.Count; j--)
-            {
-                <div class="cube negacube @CubeShape" style="height: @CubeSize; width: @CubeSize; background-color: @CubeColor;"></div>
-            }
+        <h1 class="no-margin">Counter</h1>
+
+        <p role="status" class="count no-margin">@CounterService.Count</p>
+
+        <div>
+            Amount&nbsp;
+            <input @bind="CounterService.Amount" />
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-danger mt-1" @onclick="CounterService.ResetCount"><i class="fa-solid fa-rotate-left"></i></button>
+            <button class="btn btn-secondary mt-1" @onclick="CounterService.DecrementCount"><i class="fa-solid fa-minus"></i></button>
+            <button class="btn btn-primary mt-1" @onclick="CounterService.IncrementCount"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="mt-2">
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('T'))">XS</button>  @* 'T' for "Tiny" *@
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('S'))">S</button>
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('M'))">M</button>
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('L'))">L</button>
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('H'))">XL</button>  @* 'H' for "Huge" *@
+        </div>
+        <div class="mt-2">
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('S'))"><i class="fa-solid fa-square"></i></button>
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('C'))"><i class="fa-solid fa-circle"></i></button>
+            <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('D'))"><i class="fa-solid fa-diamond"></i></button>
+        </div>
+        <div class="mt-2">
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('R'))" style="background-color: red;">&nbsp;&nbsp;&nbsp;</button>
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('B'))" style="background-color: blue;">&nbsp;&nbsp;&nbsp;</button>
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('G'))" style="background-color: green;">&nbsp;&nbsp;&nbsp;</button>
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('Y'))" style="background-color: yellow;">&nbsp;&nbsp;&nbsp;</button>
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('U'))" style="background-color: purple;">&nbsp;&nbsp;&nbsp;</button>
+            <button class="btn mt-1" @onclick="(()=>SetCubeColor('I'))" style="background-color: deeppink;">&nbsp;&nbsp;&nbsp;</button>
         </div>
     </div>
-    <h1 class="no-margin">Counter</h1>
+</ProjectsPageTemplate>
 
-    <p role="status" class="count no-margin">@CounterService.Count</p>
-
-    <div>
-        Amount&nbsp;
-        <input @bind="CounterService.Amount" />
-    </div>
-    <div class="mt-2">
-        <button class="btn btn-danger mt-1" @onclick="CounterService.ResetCount"><i class="fa-solid fa-rotate-left"></i></button>
-        <button class="btn btn-secondary mt-1" @onclick="CounterService.DecrementCount"><i class="fa-solid fa-minus"></i></button>
-        <button class="btn btn-primary mt-1" @onclick="CounterService.IncrementCount"><i class="fa-solid fa-plus"></i></button>
-    </div>
-    <div class="mt-2">
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('T'))">XS</button>  @* 'T' for "Tiny" *@
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('S'))">S</button>
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('M'))">M</button>
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('L'))">L</button>
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeSize('H'))">XL</button>  @* 'H' for "Huge" *@
-    </div>
-    <div class="mt-2">
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('S'))"><i class="fa-solid fa-square"></i></button>
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('C'))"><i class="fa-solid fa-circle"></i></button>
-        <button class="btn size-shape-btn-color mt-1" @onclick="(()=>SetCubeShape('D'))"><i class="fa-solid fa-diamond"></i></button>
-    </div>
-    <div class="mt-2">
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('R'))" style="background-color: red;">&nbsp;&nbsp;&nbsp;</button>
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('B'))" style="background-color: blue;">&nbsp;&nbsp;&nbsp;</button>
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('G'))" style="background-color: green;">&nbsp;&nbsp;&nbsp;</button>
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('Y'))" style="background-color: yellow;">&nbsp;&nbsp;&nbsp;</button>
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('U'))" style="background-color: purple;">&nbsp;&nbsp;&nbsp;</button>
-        <button class="btn mt-1" @onclick="(()=>SetCubeColor('I'))" style="background-color: deeppink;">&nbsp;&nbsp;&nbsp;</button>
-    </div>
-</div>
 
 @code{
     public string CubeSize { get; set; } = "7px";

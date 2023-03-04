@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavService NavService
 
 <div class="page-container">
     <div class="page">
@@ -35,49 +36,63 @@
         </div>
         *@
 
-        <main class="main @AnimateMain">
+        <main class="main @NavService.AnimateMain">
 
             @* Buttons (z-index: 40) *@
-            <NavButtons 
-                StatusA="@NavButtonAStatus" 
-                StatusB="@NavButtonBStatus" 
-                StatusC="@NavButtonCStatus" 
-                StatusD="@NavButtonDStatus" 
-                StatusE="@NavButtonEStatus" 
-                UpdateNavCallback="UpdateNav" />
+            <NavButtons StatusA="@NavService.NavButtonAStatus"
+                        StatusB="@NavService.NavButtonBStatus"
+                        StatusC="@NavService.NavButtonCStatus"
+                        StatusD="@NavService.NavButtonDStatus"
+                        StatusE="@NavService.NavButtonEStatus"
+                        UpdateNavCallback="NavService.UpdateNav" />
 
             @* Panels (z-index: 30) *@
-            <NavPanels 
-                NavPanelAStatus="@NavPanelAStatus" 
-                NavPanelBStatus="@NavPanelBStatus" 
-                NavPanelCStatus="@NavPanelCStatus" 
-                NavPanelDStatus="@NavPanelDStatus"
-                NavPanelEStatus="@NavPanelEStatus" 
-                UpdateNavCallback="UpdateNavFromRoute" 
-                ShowLayoutControlsCallback="ShowLayoutControls" />
+            <NavPanels NavPanelAStatus="@NavService.NavPanelAStatus"
+                       NavPanelBStatus="@NavService.NavPanelBStatus"
+                       NavPanelCStatus="@NavService.NavPanelCStatus"
+                       NavPanelDStatus="@NavService.NavPanelDStatus"
+                       NavPanelEStatus="@NavService.NavPanelEStatus"
+                       UpdateNavCallback="NavService.UpdateNavFromPanel"
+                       ShowLayoutControlsCallback="NavService.ShowLayoutControls" />
 
             @* Behind Panel (z-index: 20) *@
-            <div class="behind-panel @BehindPanel" @onclick="UpdateNavFromBehindPanel"></div>
+            <div class="behind-panel @NavService.BehindPanel" @onclick="NavService.UpdateNavFromBehindPanel"></div>
 
             @* original Main items (z-index: auto) *@
-            <div class="container-fluid header" @onclick="(()=>UpdateNavFromAppTitle('C'))">
-                <a class="navbar-brand" href="">Collyn Brenner's Hello World</a>
+            <div class="container-fluid header" @onclick="(()=>NavService.UpdateNavFromAppTitle('C'))">
+                <a class="navbar-brand" href="#contact">
+                    <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
+                    &nbsp;
+                    @* Only one of the below will show at a time based on CSS *@
+                    <span class="title-size-largest">Collyn Brenner's Developer Portfolio</span>
+                    <span class="title-size-four">Collyn Brenner's Dev Portfolio</span>
+                    <span class="title-size-three">Collyn's Developer Portfolio</span>
+                    <span class="title-size-two">Collyn's Dev Portfolio</span>
+                    <span class="title-size-one">Collyn's Portfolio</span>
+                    @* On hover *@
+                    <div class="navbar-brand-onhover">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact Me
+                    </div>
+                </a>
             </div>
+            @* Below is not used. *@
+            @*
             <div class="top-row fixed-top px-4">
                 <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
             </div>
-            <article class="content @ContentBlur">
+            *@
+            <article class="content @NavService.ContentBlur">
                 @Body
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
-            <article class="animate-app @LayoutControls @ContentBlur">
-                <AppAnimations 
-                    FirstAnimationCallback="PlayFirstAnimation"
-                    SecondAnimationCallback="PlaySecondAnimation"
-                    ThirdAnimationCallback="PlayThirdAnimation"
-                    FourthAnimationCallback="PlayFourthAnimation"
-                    FifthAnimationCallback="PlayFifthAnimation" />
+            <article class="animate-app @NavService.LayoutControls @NavService.ContentBlur">
+                <AppAnimations FirstAnimationCallback="NavService.PlayFirstAnimation"
+                               SecondAnimationCallback="NavService.PlaySecondAnimation"
+                               ThirdAnimationCallback="NavService.PlayThirdAnimation"
+                               FourthAnimationCallback="NavService.PlayFourthAnimation"
+                               FifthAnimationCallback="NavService.PlayFifthAnimation" />
             </article>
         </main>
 
@@ -91,8 +106,8 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @DiscontinueButton">
-            <button class="btn btn-danger" @onclick="StopMainAnimation">Discontinue</button>
+        <div class="continuous-animate-stop @NavService.DiscontinueButton">
+            <button class="btn btn-danger" @onclick="NavService.StopMainAnimation">Discontinue</button>
         </div>
     </div>
 </div>

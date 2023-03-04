@@ -1,6 +1,7 @@
 ﻿namespace ProfessionalWebsite.Client.Shared
 {
-    public partial class MainLayout
+    /*
+    public class MainLayout
     {
         private bool buttonAIsOn = false;
         private bool buttonBIsOn = false;
@@ -330,5 +331,5 @@
             AnimateMain = "";
             DiscontinueButton = "";
         }
-    }
+    }*/
 }

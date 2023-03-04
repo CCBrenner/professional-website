@@ -87,11 +87,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
     .header a {
         color: #eee;
-    } 
+    }
+
+.navbar-brand > i { color: #eee; }
+.title-size-four { display: none; }
+.title-size-three { display: none; }
+.title-size-largest { display: none; }
+.title-size-one { display: none; }
+.navbar-brand-onhover { display: none; font-size: 1.08rem; }
 
 .top-row {
     background-color: #f7f7f7;
@@ -140,7 +148,6 @@
 .content {
     color: var(--app-color);
     position: absolute;
-    padding: 16px 16px 0px 16px;
     height: calc(100% - calc(var(--footer-height) + var(--top-bar-height)));
     width: 100%;
     overflow-y: auto;
@@ -230,7 +237,6 @@
 
     .content {
         height: calc(100% - var(--top-bar-height));
-        padding: 16px 44px 0px 44px;
     }
 
     .layout-controls-on {
@@ -302,9 +308,18 @@
         height: 100%;
     }
     .header {
-        padding: 0px 40px;
+        padding: 0px 14px;
         display: flex;
         justify-content: flex-start;
+    }
+
+    .title-size-two { display: none; }
+    .title-size-one { display: block; }
+    .navbar-brand:hover > .navbar-brand-icon-one { display: none; }
+    .navbar-brand:hover > .title-size-one { display: none; }
+    .navbar-brand:hover > .navbar-brand-onhover {
+        display: block;
+        width: 179px;
     }
     .navbar-brand {
         padding: 14px;
@@ -316,6 +331,31 @@
         background-color: rgba(255, 255, 255, 0.25);
         border-radius: 8px;
     }
+}
+
+@media (min-width: 1100px) {
+    .title-size-one { display: none; }
+    .title-size-two { display: block; }
+    .navbar-brand:hover > .title-size-two { display: none; }
+    .navbar-brand:hover > .navbar-brand-onhover { width: 219px; }
+}
+@media (min-width: 1200px) {
+    .title-size-two { display: none; }
+    .title-size-three { display: block; }
+    .navbar-brand:hover > .title-size-three { display: none; }
+    .navbar-brand:hover > .navbar-brand-onhover { width: 276px; }
+}
+@media (min-width: 1300px) {
+    .title-size-three { display: none; }
+    .title-size-four { display: block; }
+    .navbar-brand:hover > .title-size-four { display: none; }
+    .navbar-brand:hover > .navbar-brand-onhover { width: 297px; }
+}
+@media (min-width: 1400px) {
+    .title-size-four { display: none; }
+    .title-size-largest { display: block; }
+    .navbar-brand:hover > .title-size-largest { display: none; }
+    .navbar-brand:hover > .navbar-brand-onhover { width: 352px; }
 }
 
 /* start Animations keyframes */

@@ -1,11 +1,50 @@
-﻿@page "/home"
+﻿
 @page "/"
+@page "/home"
 @page "/collyn"
 
-<HelloWorld />
+<PageTitle>Home - Collyn Brenner</PageTitle>
 
-<Component1/>
-
-<Contact/>
+<DrawerPageTemplate HeaderIconClasses="fa-solid fa-book" HeaderText="Biography">
+    <DrawerContent>
+        <DrawerNavLinkButton Href="collyn#introduction" IconClasses="" ButtonText="Introduction" />
+        <DrawerNavLinkButton Href="collyn#background" IconClasses="" ButtonText="Background" />
+        <DrawerNavLinkButton Href="collyn#workhistory" IconClasses="" ButtonText="Work History" />
+        <DrawerNavLinkButton Href="collyn#educationhistory" IconClasses="" ButtonText="Education History" />
+        <DrawerNavLinkButton Href="collyn#noteabledones" IconClasses="" ButtonText='Notable "Done"s' />
+        <DrawerNavLinkButton Href="collyn#inspirations" IconClasses="" ButtonText="Inspirations" />
+        <DrawerNavLinkButton Href="collyn#goals" IconClasses="" ButtonText="Goals" />
+        <DrawerNavLinkButton Href="collyn#projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" />
+        <DrawerNavLinkButton Href="collyn#knowhow" IconClasses="fa-solid fa-flask" ButtonText="Know-How" />
+        <DrawerNavLinkButton Href="collyn#invent" IconClasses="fa-solid fa-book" ButtonText="Invent" />
+        <DrawerNavLinkButton Href="collyn#articles" IconClasses="fa-solid fa-warehouse" ButtonText="Articles" />
+        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
+        <DrawerNavLinkButton Href="collyn#feedback" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" />
+    </DrawerContent>
+    <PageContent>
+        <PageContainer>
+            <div style="width: 100%; height: 100%; height: 100%;">This is the page</div>
+            <div id="introduction" class=""></div>
+            <div id="background" class=""></div>
+            <div id="workhistory" class=""></div>
+            <div id="educationhistory" class=""></div>
+            <div id="noteabledones" class=""></div>
+            <div id="inspirations" class=""></div>
+            <div id="goals" class=""></div>
+            <div id="projects" class=""></div>
+            <ProjectsPromo />
+            <div id="knowhow" class=""></div>
+            <KnowHowPromo />
+            <div id="invent" class=""></div>
+            <InventPromo />
+            <div id="articles" class=""></div>
+            <ArticlesPromo />
+            <div id="contact" class=""></div>
+            <Contact />
+            <div id="feedback" class=""></div>
+            <Feedback/>
+        </PageContainer>
+    </PageContent>
+</DrawerPageTemplate>
 
 @code { }

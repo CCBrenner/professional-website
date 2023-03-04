@@ -1,249 +1,281 @@
-﻿<NavPanelContainer PanelPosition="" NavPanelStatus="@NavPanelAStatus">
-    <div class="nav-item panel-header" @onclick="(()=>ShowLayoutControls('A'))">
-        <NavLink class="nav-link">
-            <span class="icon fa-solid fa-magnet" aria-hidden="true"></span>Projects
-        </NavLink>
-    </div>
+﻿
+@inject NavService NavService
+
+<NavPanelContainer PanelPosition="" NavPanelStatus="@NavPanelAStatus">
+    <NavPanelNavLinkButton Href="projects"
+                           TopLvlClasses="panel-header"
+                           IconClasses="fa-solid fa-diagram-project"
+                           ButtonText="Projects"
+                           Section="'A'"
+                           ButtonClickCallback="NavService.UpdateNavFromPanel"/>
     <div class="panel-scrollablesection">
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="stats">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Stats
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="matchgame">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Match Game
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>ShowLayoutControls('A'))">
-            <NavLink class="nav-link" href="thispwa">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>This PWA
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="hideandseek">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Hide & Seek
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="twodecks">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Two Decks
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="issuetracker">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Issue Tracker
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="gofish">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Go Fish
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="beehivemgmtsystem">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Bee Hive Mgmt System
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="phpcmsandprocessbook">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>PHP CMS & Process Book
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="ecommerce">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>E-commerce
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="spinners">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Spinners
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="djangopollingapp">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Polling App (Django)
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('A'))">
-            <NavLink class="nav-link" href="contact">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
-            </NavLink>
-        </div>
+        <NavPanelNavLinkButton Href="stats"
+                               IconClasses="fa-solid fa-chart-line"
+                               ButtonText="Statistics"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="matchgame"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Match Game"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="thispwa"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="This PWA"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="hideandseek"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Hide & Seek"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="twodecks"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Two Decks"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="issuetracker"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Issue Tracker"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="gofish"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Go Fish"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="beehivemgmtsystem"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Bee Hive Mgmt System"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="phpcmsandprocessbook"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="PHP CMS & Process Book"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="counter"
+                               IconClasses="fa-solid fa-plus"
+                               ButtonText="Counter"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="ecommerce"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="E-commerce"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="spinners"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Spinners"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="djangopollingapp"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Polling App (Django/Python)"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="contact"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Contact"
+                               Section="'A'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@NavPanelBStatus">
-    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('B'))">
-        <NavLink class="nav-link" href="knowhow">
-            <span class="icon fa-solid fa-hand-spock" aria-hidden="true"></span>Know-How
-        </NavLink>
-    </div>
+    <NavPanelNavLinkButton Href="knowhow"
+                           TopLvlClasses="panel-header"
+                           IconClasses="fa-solid fa-flask"
+                           ButtonText="Know-How"
+                           Section="'B'"
+                           ButtonClickCallback="NavService.UpdateNavFromPanel" />
     <div class="panel-scrollablesection">
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:overview">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Overview
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:approach">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Approach
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:csharp">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>C#
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:javascript">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>JS
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:python">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Python
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:php">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>PHP
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:styling">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Styling
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="knowhow:certifications">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Certifications
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('B'))">
-            <NavLink class="nav-link" href="contact">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
-            </NavLink>
-        </div>
+        <NavPanelNavLinkButton Href="knowhow#overview"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Overview"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#approach"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Approach"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#csharp"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="C#"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#javascript"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="JS"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#python"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Python"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#php"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="PHP"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#styling"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Styling"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="projects"
+                               IconClasses="fa-solid fa-diagram-project"
+                               ButtonText="Projects"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="knowhow#certifications"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Certifications"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="contact"
+                               IconClasses="fa-solid fa-envelope"
+                               ButtonText="Contact"
+                               Section="'B'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@NavPanelCStatus">
-    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('C'))">
-        <NavLink class="nav-link" href="collyn">
-            <span class="icon fa-solid fa-house" aria-hidden="true"></span>Collyn Brenner
-        </NavLink>
-    </div>
+    <NavPanelNavLinkButton Href="collyn"
+                           TopLvlClasses="panel-header"
+                           IconClasses="fa-solid fa-book"
+                           ButtonText="Collyn Brenner"
+                           Section="'C'"
+                           ButtonClickCallback="NavService.UpdateNavFromPanel" />
     <div class="panel-scrollablesection">
-        @* Could not turn panel items into components due to onclick syntax conflicts (would require restructuring classes) *@
-        <CollapsingSection IconClasses="icon fa fa-star" ParentButtonText="Biography">
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#background">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Background
-                </NavLink>
-            </div>
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#workhistory">
-                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Work History
-                </NavLink>
-            </div>  
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#educationhistory">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Education History
-                </NavLink>
-            </div>
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#noteabledones">
-                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Noteable "Done"s
-                </NavLink>
-            </div>
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#inspirations">
-                    <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Inspirations
-                </NavLink>
-            </div>
-            <div class="nav-item collapsible-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-                <NavLink class="nav-link" href="collyn#goals">
-                    <span class="icon fa-solid fa-house" aria-hidden="true"></span>Goals
-                </NavLink>
-            </div>
-        </CollapsingSection>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="projects">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Projects
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="knowhow">
-                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Know-How
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="invent">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Invent
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="articles">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Articles
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="contact">
-                <span class="icon fa-solid fa-vials" aria-hidden="true"></span>Contact
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('C'))">
-            <NavLink class="nav-link" href="contact">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Feedback
-            </NavLink>
-        </div>
+        <NavPanelNavLinkButton Href="collyn#background"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Background"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#workhistory"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Work History"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#educationhistory"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Education History"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#noteabledones"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText='Noteable "Done"s'
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#inspirations"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Inspirations"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#goals"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Goals"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#contact"
+                               IconClasses="fa-solid fa-envelope"
+                               ButtonText="Contact"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="collyn#feedback"
+                               IconClasses="fa-solid fa-rotate-left"
+                               ButtonText="Feedback"
+                               Section="'C'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@NavPanelDStatus">
-    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('D'))">
-        <NavLink class="nav-link" href="invent">
-            <span class="icon fa-solid fa-plus" aria-hidden="true"></span>Invent
-        </NavLink>
-    </div>
+    <NavPanelNavLinkButton Href="invent"
+                           TopLvlClasses="panel-header"
+                           IconClasses="fa-solid fa-warehouse"
+                           ButtonText="Invent"
+                           Section="'D'"
+                           ButtonClickCallback="NavService.UpdateNavFromPanel" />
     <div class="panel-scrollablesection">
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:overview">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Overview
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:testifyvictory">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Testify Victory [T^V]
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:onechurch">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>OneChurch
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:imfreeapp">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>"I'm Free" App
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:sophiapp">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Sophi App
-            </NavLink>
-        </div>
-        <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('D'))">
-            <NavLink class="nav-link" href="invent:contact">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
-            </NavLink>
-        </div>
+        <NavPanelNavLinkButton Href="invent#overview"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Overview"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#futurevision"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Future Vision App"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#unifiedchurch"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Unified Church App"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#hangoutavailability"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Hang Out Availability App"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#philosophyorientation"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Philosophy Orientation App"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#controllerkeyboardprototype"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Controller Keyboard Prototype"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#audiogame"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Audio Game"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="invent#contact"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Contact"
+                               Section="'D'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@NavPanelEStatus">
-    <div class="nav-item panel-header" @onclick="(()=>UpdateNavFromRoute('E'))">
-        <NavLink class="nav-link" href="articles">
-            <span class="icon fa-solid fa-cloud" aria-hidden="true"></span>Articles
-        </NavLink>
-    </div>
+    <NavPanelNavLinkButton Href="articles"
+                           TopLvlClasses="panel-header"
+                           IconClasses="fa-solid fa-newspaper"
+                           ButtonText="Articles"
+                           Section="'E'"
+                           ButtonClickCallback="NavService.UpdateNavFromPanel" />
     <div class="panel-scrollablesection">
+        <NavPanelNavLinkButton Href="article/our-incredible-future"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Our Incredible Future"
+                               Section="'E'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="article/hierarchy-of-desires-and-the-engineers-struggle"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Hierarchy of Desires & the Engineer's Struggle"
+                               Section="'E'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="article/business-manager-or-technologist-what-is-the-end-of-your-means"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Business Manager or Technologist: What is the End of your Means?"
+                               Section="'E'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="article/essentialism-vs-existentialism-the-modern-worlds-dilemma-and-an-opportunity-for-christian-faith"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Essentialism vs. Existentialism: The Modern World's Dilemma & An Opportunity for Christian Faith"
+                               Section="'E'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        <NavPanelNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"
+                               IconClasses="fa-solid fa-wand-magic-sparkles"
+                               ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry"
+                               Section="'E'"
+                               ButtonClickCallback="NavService.UpdateNavFromPanel" />
+        @* potnetially include some of the below articles; keeping as ideas for future articles *@
+        @*
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
             <NavLink class="nav-link" href="our-incredible-future">
                 <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Our Incredible Future
@@ -276,9 +308,10 @@
         </div>
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
             <NavLink class="nav-link" href="contact">
-                <span class="icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></span>Contact
+                <span class="icon fa-solid fa-envelope" aria-hidden="true"></span>Contact
             </NavLink>
         </div>
+        *@
     </div>
 </NavPanelContainer>
 

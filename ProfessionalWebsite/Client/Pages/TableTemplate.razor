@@ -1,0 +1,26 @@
+﻿@* vvv used for type-matching of item in Items to RowTemplate(item) vvv *@
+@typeparam TItem
+
+<table>
+    <thead>
+        <tr>@TableHeader</tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Items)
+            @if (RowTemplate != null)
+            {
+                <tr>@RowTemplate(item)</tr>
+            }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public RenderFragment? TableHeader { get; set; }
+    @* TItem is a made up type in this component for purpose of 
+    using context/Context in parent/consuming component of this template *@
+    [Parameter]
+    public RenderFragment<TItem>? RowTemplate { get; set; }
+    [Parameter]
+    public List<TItem> Items { get; set; }
+}

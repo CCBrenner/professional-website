@@ -1,0 +1,26 @@
+﻿<div class="drawer-page-template">
+    <div class="drawer-lvl-one @DrawerLvlOneStatus">
+        <div class="drawer-lvl-two @DrawerLvlTwoStatus">
+            <div class="drawer-header">
+                <div class="drawer-header-text">
+                    <span class="icon @HeaderIconClasses" aria-hidden="true"></span>
+                    @HeaderText
+                </div>
+                <div class="internal-toggle @InternalToggleStatus" @onclick="ToggleDrawer">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="drawer-content-container">
+                @DrawerContent
+            </div>
+        </div>
+    </div>
+    <div class="external-toggle @ExternalToggleStatus" @onclick="ToggleDrawer">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="page-content">
+        @PageContent
+    </div>
+</div>
+
+@code { }

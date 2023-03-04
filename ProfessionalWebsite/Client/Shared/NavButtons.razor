@@ -1,23 +1,26 @@
-﻿<div class="container-one">
+﻿
+@inject NavService NavService
+
+<div class="container-one">
     <div class="container-two">
         <div class="nav-button @StatusA" @onclick="(()=>UpdateNav('A'))">
-            <span class="button-icon fa-solid fa-magnet" aria-hidden="true"></span>
+            <span class="button-icon fa-solid fa-diagram-project" aria-hidden="true"></span>
             <span class="button-label">Projects</span>
         </div>
         <div class="nav-button @StatusB" @onclick="(()=>UpdateNav('B'))">
-            <span class="button-icon fa-solid fa-hand-spock" aria-hidden="true"></span>
+            <span class="button-icon fa-solid fa-flask" aria-hidden="true"></span>
             <span class="button-label">Know-How</span>
         </div>
         <div class="nav-button @StatusC" @onclick="(()=>UpdateNav('C'))">
-            <span class="button-icon fa-solid fa-house" aria-hidden="true"></span>
+            <span class="button-icon fa-solid fa-book" aria-hidden="true"></span>
             <span class="button-label">Collyn</span>
         </div>
         <div class="nav-button @StatusD" @onclick="(()=>UpdateNav('D'))">
-            <span class="button-icon fa-solid fa-plus" aria-hidden="true"></span>
+            <span class="button-icon fa-solid fa-warehouse" aria-hidden="true"></span>
             <span class="button-label">Invent</span>
         </div>
         <div class="nav-button @StatusE" @onclick="(()=>UpdateNav('E'))">
-            <span class="button-icon fa-solid fa-cloud" aria-hidden="true"></span>
+            <span class="button-icon fa-solid fa-newspaper" aria-hidden="true"></span>
             <span class="button-label">Articles</span>
         </div>
     </div>

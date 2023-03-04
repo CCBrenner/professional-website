@@ -1,0 +1,25 @@
+﻿
+<div class="nav-item" @onclick="UpdateNavFromRoute">
+    <NavLink class="nav-link" href="@Href">
+        @if (IconClasses != "")
+        {
+            <span class="icon @IconClasses" aria-hidden="true"></span>
+        }
+        @ButtonText
+    </NavLink>
+</div>
+
+@code {
+    [Parameter]
+    public string Href { get; set; }
+    [Parameter]
+    public string IconClasses { get; set; } = "";
+    [Parameter]
+    public string ButtonText { get; set; }
+    [Parameter]
+    public char Section { get; set; }
+    [Parameter]
+    public EventCallback<char> ButtonClickCallback { get; set; }
+    private async Task UpdateNavFromRoute() =>
+        await ButtonClickCallback.InvokeAsync(Section);
+}
