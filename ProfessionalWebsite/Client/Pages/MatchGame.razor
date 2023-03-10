@@ -1,0 +1,110 @@
+﻿
+@page "/matchgame"
+
+<ProjectsPageTemplate>
+    <div class="table-container">
+        <table class="table1">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    @if (GameStatus == MatchGameStatus.Ready)
+                    {
+                        <td class="text-row">@TimerText</td>
+                    }
+                    else if (GameStatus == MatchGameStatus.Playing)
+                    {
+                        <td class="text-row">
+                            Matches: @matchesFound/8
+                        </td>
+                        <td class="text-row" @onclick="UserSelectsNewGamePrompt">
+                            @TimerText<br />
+                        </td>
+                    }
+                    else if (GameStatus == MatchGameStatus.Done)
+                    {
+                        <td class="text-row">
+                            @TimerText&nbsp;
+                        </td>
+                        <td class="text-row" @onclick="UserSelectsNewGamePrompt">
+                            <span class="new-game">New Game</span>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[0].Visibility">@Blocks[0].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[0]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[1].Visibility">@Blocks[1].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[1]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[2].Visibility">@Blocks[2].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[2]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[3].Visibility">@Blocks[3].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[3]))"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[4].Visibility">@Blocks[4].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[4]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[5].Visibility">@Blocks[5].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[5]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[6].Visibility">@Blocks[6].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[6]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[7].Visibility">@Blocks[7].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[7]))"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[8].Visibility">@Blocks[8].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[8]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[9].Visibility">@Blocks[9].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[9]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[10].Visibility">@Blocks[10].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[10]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[11].Visibility">@Blocks[11].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[11]))"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[12].Visibility">@Blocks[12].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[12]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[13].Visibility">@Blocks[13].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[13]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[14].Visibility">@Blocks[14].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[14]))"></div>
+                    </td>
+                    <td class="emoji-td">
+                        <span class="animal-emoji @Blocks[15].Visibility">@Blocks[15].AnimalEmoji</span>
+                        <div class="emoji-button" @onclick="(()=>UserSelectsBlock(Blocks[15]))"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ProjectsPageTemplate>
+
+@code { }

@@ -498,16 +498,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "ProfessionalWebsite.Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/ProfessionalWebsite.Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProfessionalWebsite.Shared.dll": {}
-        }
       }
     },
     "net6.0/browser-wasm": {
@@ -1000,16 +990,6 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
-      "ProfessionalWebsite.Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/ProfessionalWebsite.Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProfessionalWebsite.Shared.dll": {}
         }
       }
     }
@@ -1773,18 +1753,12 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "ProfessionalWebsite.Shared/1.0.0": {
-      "type": "project",
-      "path": "../Shared/ProfessionalWebsite.Shared.csproj",
-      "msbuildProject": "../Shared/ProfessionalWebsite.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.11",
-      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.11",
-      "ProfessionalWebsite.Shared >= 1.0.0"
+      "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.11"
     ]
   },
   "packageFolders": {
@@ -1813,11 +1787,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
-              "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

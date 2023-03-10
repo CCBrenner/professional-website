@@ -7,9 +7,9 @@
     </thead>
     <tbody>
         @foreach (var item in Items)
-            @if (RowTemplate != null)
+            @if (TableRows != null)
             {
-                <tr>@RowTemplate(item)</tr>
+                <tr>@TableRows(item)</tr>
             }
     </tbody>
 </table>
@@ -20,7 +20,7 @@
     @* TItem is a made up type in this component for purpose of 
     using context/Context in parent/consuming component of this template *@
     [Parameter]
-    public RenderFragment<TItem>? RowTemplate { get; set; }
+    public RenderFragment<TItem>? TableRows { get; set; }
     [Parameter]
     public List<TItem> Items { get; set; }
 }

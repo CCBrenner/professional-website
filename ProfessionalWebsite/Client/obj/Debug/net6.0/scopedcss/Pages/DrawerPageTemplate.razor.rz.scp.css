@@ -12,6 +12,14 @@
     height: calc(calc(100vh - var(--top-bar-height)) - var(--footer-height));
 }
 
+@media (min-width: 78vh) {
+    .page-content[b-r6bg92lucv] {
+        flex: 1;
+        overflow-y: auto;
+        height: calc(100vh - var(--top-bar-height));
+    }
+}
+
 @media (min-width: 1008px) {
     .drawer-page-template[b-r6bg92lucv] {
         display: flex;
@@ -99,12 +107,6 @@
         .external-toggle:hover[b-r6bg92lucv] {
             cursor: pointer;
         }
-
-    .page-content[b-r6bg92lucv] {
-        flex: 1;
-        overflow-y: auto;
-        height: calc(100vh - var(--top-bar-height));
-    }
 
     /* start Pluggable classes */
     .drawer-lvl-one-visible[b-r6bg92lucv] {

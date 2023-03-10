@@ -1,6 +1,6 @@
 {
-  "name": "Collyn Brenner's Profile PWA",
-  "short_name": "Collyn's Profile PWA'",
+  "name": "Collyn Brenner's Developer Portfolio",
+  "short_name": "Collyn's Dev Portfolio",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

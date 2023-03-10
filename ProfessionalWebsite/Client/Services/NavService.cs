@@ -173,7 +173,11 @@ namespace ProfessionalWebsite.Client.Services
             ContentBlur = buttonState ? "content-blur" : "";
         private void UpdateLocation(char character)
         {
-            SetAllLocationsToFalse();
+            locationIsA = false;
+            locationIsB = false;
+            locationIsC = false;
+            locationIsD = false;
+            locationIsE = false;
             switch (character)
             {
                 case 'A':
@@ -192,14 +196,6 @@ namespace ProfessionalWebsite.Client.Services
                     locationIsE = true;
                     break;
             }
-        }
-        private void SetAllLocationsToFalse()
-        {
-            locationIsA = false;
-            locationIsB = false;
-            locationIsC = false;
-            locationIsD = false;
-            locationIsE = false;
         }
 
         // Animations

@@ -1,0 +1,15 @@
+
+.construction-container[b-gjsk2lehkp] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: #eee;
+    border-radius: 12px;
+}
+
+.construction[b-gjsk2lehkp] {
+    width: 50%;
+}

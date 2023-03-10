@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ProfessionalWebsite.Shared": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:50385;http://localhost:50386"
+    }
+  }
+}

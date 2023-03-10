@@ -1,0 +1,15 @@
+﻿
+.construction-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: #eee;
+    border-radius: 12px;
+}
+
+.construction {
+    width: 50%;
+}

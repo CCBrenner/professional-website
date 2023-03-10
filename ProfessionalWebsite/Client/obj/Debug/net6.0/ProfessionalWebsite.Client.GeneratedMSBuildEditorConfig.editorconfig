@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNQcm9tby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/ArticlesUnderConstruction.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNVbmRlckNvbnN0cnVjdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/Contact.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdHNQcm9tby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/ProjectsUnderConstruction.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdHNVbmRlckNvbnN0cnVjdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/TableTemplate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFibGVUZW1wbGF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/TestVertScroll.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdFZlcnRTY3JvbGwucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/UnderConstruction.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVW5kZXJDb25zdHJ1Y3Rpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Shared/SurveyPrompt.razor]
@@ -124,9 +128,17 @@ build_metadata.AdditionalFiles.CssScope = b-r6bg92lucv
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hZGluZ1NwaW5uZXJzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-jbnftievc7
 
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/MatchGame.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0Y2hHYW1lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-cliwmzypxj
+
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/PageContainer.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZUNvbnRhaW5lci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-fddm30vvql
+
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/UnderConstruction.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVW5kZXJDb25zdHJ1Y3Rpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-gjsk2lehkp
 
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Shared/AppAnimations.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFwcEFuaW1hdGlvbnMucmF6b3I=

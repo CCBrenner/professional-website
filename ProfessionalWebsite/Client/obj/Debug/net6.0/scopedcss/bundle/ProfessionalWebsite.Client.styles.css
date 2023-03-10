@@ -132,6 +132,14 @@
     height: calc(calc(100vh - var(--top-bar-height)) - var(--footer-height));
 }
 
+@media (min-width: 78vh) {
+    .page-content[b-r6bg92lucv] {
+        flex: 1;
+        overflow-y: auto;
+        height: calc(100vh - var(--top-bar-height));
+    }
+}
+
 @media (min-width: 1008px) {
     .drawer-page-template[b-r6bg92lucv] {
         display: flex;
@@ -219,12 +227,6 @@
         .external-toggle:hover[b-r6bg92lucv] {
             cursor: pointer;
         }
-
-    .page-content[b-r6bg92lucv] {
-        flex: 1;
-        overflow-y: auto;
-        height: calc(100vh - var(--top-bar-height));
-    }
 
     /* start Pluggable classes */
     .drawer-lvl-one-visible[b-r6bg92lucv] {
@@ -342,10 +344,115 @@
 }
 
 
+/* /Pages/MatchGame.razor.rz.scp.css */
+
+.table-container[b-cliwmzypxj] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table1[b-cliwmzypxj] {
+    width: 100%;
+    max-width: 80vh;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .table1 > tbody[b-cliwmzypxj] {
+        width: 100%;
+        height: 100%;
+    }
+
+tr[b-cliwmzypxj] {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    flex: 1;
+}
+
+td[b-cliwmzypxj] {
+    display: flex;
+    margin: 1px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #eee;
+    flex: 1;
+    font-size: 4rem;
+}
+
+.emoji-td[b-cliwmzypxj] {
+    position: relative;
+}
+
+.animal-emoji[b-cliwmzypxj] {
+    visibility: hidden;
+}
+
+.emoji-button[b-cliwmzypxj] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.text-row[b-cliwmzypxj] {
+    font-size: 1.73rem;
+    visibility: visible;
+}
+
+.new-game[b-cliwmzypxj] {
+    background-color: green;
+    padding: 7px 14px 7px 14px;
+    border-radius: 10px;
+}
+
+.new-game:hover[b-cliwmzypxj] {
+    cursor: pointer;
+}
+
+/* start Pluggable classes */
+.block-showing[b-cliwmzypxj] {
+    visibility: visible;
+}
+/* end Pluggable classes */
+
+@media (min-width: 78vh) {
+    .text-row[b-cliwmzypxj] {
+        font-size: 2.5rem;
+    }
+    .table1[b-cliwmzypxj] {
+        height: 100%;
+    }
+}
 /* /Pages/PageContainer.razor.rz.scp.css */
 .page-container[b-fddm30vvql] {
     padding: 10px;
     height: 100%;
+}
+/* /Pages/UnderConstruction.razor.rz.scp.css */
+
+.construction-container[b-gjsk2lehkp] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: #eee;
+    border-radius: 12px;
+}
+
+.construction[b-gjsk2lehkp] {
+    width: 50%;
 }
 /* /Shared/AppAnimations.razor.rz.scp.css */
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "91PYVwB0bp1N7m+H4X+y8wBRylicJjjVA8QSy16iA2c=",
+  "Hash": "A15Wewc9S71ir4zZvhUjcwnQ08+B0r0sWol2V2IXlVY=",
   "Source": "ProfessionalWebsite.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -695,40 +695,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net6.0\\ProfessionalWebsite.Client.pdb"
-    },
-    {
-      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.dll",
-      "SourceId": "ProfessionalWebsite.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/ProfessionalWebsite.Shared.dll",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "runtime",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\bin\\Debug\\net6.0\\ProfessionalWebsite.Shared.dll"
-    },
-    {
-      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.pdb",
-      "SourceId": "ProfessionalWebsite.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/ProfessionalWebsite.Shared.pdb",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorWebAssemblyResource",
-      "AssetTraitValue": "symbol",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\bin\\Debug\\net6.0\\ProfessionalWebsite.Shared.pdb"
     },
     {
       "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.AppContext.dll",
@@ -5032,23 +4998,6 @@
       "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll"
     },
     {
-      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\obj\\Debug\\net6.0\\build-gz\\Jgg5x3PM.gz",
-      "SourceId": "ProfessionalWebsite.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/ProfessionalWebsite.Shared.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.dll"
-    },
-    {
       "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\obj\\Debug\\net6.0\\build-gz\\jpv3TqD6.gz",
       "SourceId": "ProfessionalWebsite.Client",
       "SourceType": "Computed",
@@ -5829,23 +5778,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.TextWriterTraceListener.dll"
-    },
-    {
-      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\obj\\Debug\\net6.0\\build-gz\\reH5hTG8.gz",
-      "SourceId": "ProfessionalWebsite.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/ProfessionalWebsite.Shared.pdb.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.pdb",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\ProfessionalWebsite.Shared.pdb"
     },
     {
       "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\obj\\Debug\\net6.0\\build-gz\\RELwRyEj.gz",
