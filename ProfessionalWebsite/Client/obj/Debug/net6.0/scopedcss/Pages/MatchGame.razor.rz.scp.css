@@ -1,7 +1,8 @@
 
 .table-container[b-cliwmzypxj] {
+    padding-top: 40px;
     width: 100%;
-    height: 100%;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +38,7 @@ td[b-cliwmzypxj] {
     background-color: #333;
     color: #eee;
     flex: 1;
-    font-size: 4rem;
+    font-size: 3.4rem;
 }
 
 .emoji-td[b-cliwmzypxj] {
@@ -84,5 +85,18 @@ td[b-cliwmzypxj] {
     }
     .table1[b-cliwmzypxj] {
         height: 100%;
+    }
+    td[b-cliwmzypxj] {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 1008px) {
+    .table-container[b-cliwmzypxj] {
+        padding-top: 0px;
+        height: 100%;
+    }
+    td[b-cliwmzypxj] {
+        font-size: 4.7rem;
     }
 }

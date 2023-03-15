@@ -48,20 +48,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVsbG9Xb3JsZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/Invent.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/InventPromo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50UHJvbW8ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/KnowHow.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS25vd0hvdy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/KnowHowPromo.razor]
@@ -123,6 +111,18 @@ build_metadata.AdditionalFiles.CssScope = b-rn1yhbxamf
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/DrawerPageTemplate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJhd2VyUGFnZVRlbXBsYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-r6bg92lucv
+
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-oiel5bdph5
+
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/Invent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ec2crac19g
+
+[C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/KnowHow.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS25vd0hvdy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5cko639osi
 
 [C:/Users/Collyn B - VotP/Desktop/Professional/Software Engineering/projects/gh_clone_hosting/professional-website/ProfessionalWebsite/Client/Pages/LoadingSpinners.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9hZGluZ1NwaW5uZXJzLnJhem9y

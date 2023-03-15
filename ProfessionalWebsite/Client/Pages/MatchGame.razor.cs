@@ -13,7 +13,7 @@ namespace ProfessionalWebsite.Client.Pages
         
         private int matchesFound;
         private bool isComparingForMatch = false;
-        private Block lastTextBlockClicked = new Block() { Id = -1, AnimalEmoji = "", Visibility = "non-used string", IsMatched = false };
+        private Block lastBlockClicked = new Block() { Id = -1, AnimalEmoji = "", Visibility = "non-used string", IsMatched = false };
 
         private System.Timers.Timer timer;
         private int tenthsOfSecondsElapsed;
@@ -85,15 +85,15 @@ namespace ProfessionalWebsite.Client.Pages
                 if (isComparingForMatch == false)
                 {
                     block.Visibility = "block-showing";
-                    lastTextBlockClicked = block;
+                    lastBlockClicked = block;
                     isComparingForMatch = true;
                 }
-                else if (block.Id == lastTextBlockClicked.Id) { }
-                else if (block.AnimalEmoji == lastTextBlockClicked.AnimalEmoji)
+                else if (block.Id == lastBlockClicked.Id) { }
+                else if (block.AnimalEmoji == lastBlockClicked.AnimalEmoji)
                 {
                     matchesFound++;
                     block.IsMatched = true;
-                    lastTextBlockClicked.IsMatched = true;
+                    lastBlockClicked.IsMatched = true;
                     block.Visibility = "block-showing";
                     isComparingForMatch = false;
                     if (matchesFound >= 8)
@@ -101,8 +101,9 @@ namespace ProfessionalWebsite.Client.Pages
                 }
                 else
                 {
-                    lastTextBlockClicked.Visibility = "";
-                    isComparingForMatch = false;
+                    lastBlockClicked.Visibility = "";
+                    block.Visibility = "block-showing";
+                    lastBlockClicked = block;
                 }
             }
         }

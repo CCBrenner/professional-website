@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfessionalWebsite.Client"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfessionalWebsite.Shared", "ProfessionalWebsite\Shared\ProfessionalWebsite.Shared.csproj", "{32597C38-429A-4490-8911-918617A179FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfessionalWebsite.Tests", "ProfessionalWebsite.Tests\ProfessionalWebsite.Tests.csproj", "{1725D55F-3652-46F4-AEE0-F070701240E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfessionalWebsite.Tests", "ProfessionalWebsite.Tests\ProfessionalWebsite.Tests.csproj", "{1725D55F-3652-46F4-AEE0-F070701240E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

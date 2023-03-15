@@ -11,15 +11,17 @@
 
 @code {
     [Parameter]
+    public bool IsNavLink { get; set; } = true;
+    [Parameter]
     public string Href { get; set; }
     [Parameter]
-    public string IconClasses { get; set; } = "";
+    public string IconClasses { get; set; } = "fa-regular fa-circle";
     [Parameter]
     public string ButtonText { get; set; }
     [Parameter]
     public char Section { get; set; }
     [Parameter]
-    public EventCallback<char> ButtonClickCallback { get; set; }
+    public EventCallback<char> OnClickCallback { get; set; }
     private async Task UpdateNavFromRoute() =>
-        await ButtonClickCallback.InvokeAsync(Section);
+        await OnClickCallback.InvokeAsync(Section);
 }

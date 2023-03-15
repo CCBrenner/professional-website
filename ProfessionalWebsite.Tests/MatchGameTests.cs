@@ -18,7 +18,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, matchGame.Blocks[2].IsMatched);
         }
         [TestMethod]
-        public void TestClickingSecondBlockNotMatchingFirstBlockMakesBothHidden()
+        public void TestClickingSecondBlockNotMatchingFirstBlockHidesFirstAndShowsSecond()
         {
             MatchGame matchGame = new MatchGame();
             matchGame.Blocks[2].AnimalEmoji = "🦊";
@@ -27,11 +27,11 @@ namespace ProfessionalWebsite.Tests
             matchGame.UserSelectsBlock(matchGame.Blocks[5]);  // user clicks row 2, column 2; it's not a match
             Assert.AreEqual("", matchGame.Blocks[2].Visibility);
             Assert.AreEqual(false, matchGame.Blocks[2].IsMatched);
-            Assert.AreEqual("", matchGame.Blocks[5].Visibility);
+            Assert.AreEqual("block-showing", matchGame.Blocks[5].Visibility);
             Assert.AreEqual(false, matchGame.Blocks[5].IsMatched);
         }
         [TestMethod]
-        public void TestInitalMatchMakesBothBlocksVisible()
+        public void TestInitalMatchMakesBothBlocksVisibleAndMatched()
         {
             MatchGame matchGame = new MatchGame();
             matchGame.Blocks[2].AnimalEmoji = "🦊";
