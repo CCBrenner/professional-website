@@ -6,6 +6,7 @@
     position: sticky;
     right: 6px;
     bottom: calc(var(--footer-height) + 6px);
+    margin-bottom: 50px;
 }
 
 .toggle-all-sections[b-oiel5bdph5] {

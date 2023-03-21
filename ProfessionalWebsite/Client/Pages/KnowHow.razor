@@ -20,31 +20,46 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
-                        Overview
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[0].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                            Overview
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                            Approach
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                        Approach
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[2].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                            C#
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                        C#
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[3].IsCurrentPromo)
+                {
+                    <div class="section-container">
                     <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
                         JavaScript
                     </div>
@@ -52,41 +67,125 @@
                         <UnderConstruction />
                     </div>
                 </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                        Python
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[4].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                            Python
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[5].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                            PHP
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                        PHP
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[6].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                            Styling
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[7].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                            Certifications
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                        Styling
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
-                        Certifications
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
+                }
+                @if (sectionsLogic.ASectionIsCurrentlyPromo)
+                {
+                    @if (!sectionsLogic.Sections[0].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                                Overview
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                                Approach
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[2].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                                C#
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[3].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                                JS
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[4].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                                Python
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[5].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                                PHP
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[6].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                                Styling
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[7].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                                Certifications
+                            </div>
+                        </div>
+                    }
+                }
                 <div class="toggle-all-sections-container">
                     <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                        @if (!sectionsLogic.AllSectionsAreCollapsed)
+                        @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
                         {
                             <span class="fa-solid fa-minimize"></span>
                         }

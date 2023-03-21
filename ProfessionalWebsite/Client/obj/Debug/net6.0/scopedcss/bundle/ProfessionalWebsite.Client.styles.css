@@ -257,6 +257,7 @@
     position: sticky;
     right: 6px;
     bottom: calc(var(--footer-height) + 6px);
+    margin-bottom: 50px;
 }
 
 .toggle-all-sections[b-oiel5bdph5] {
@@ -352,6 +353,7 @@
     position: sticky;
     right: 6px;
     bottom: calc(var(--footer-height) + 6px);
+    margin-bottom: 50px;
 }
 
 .toggle-all-sections[b-ec2crac19g] {
@@ -449,6 +451,7 @@
     position: sticky;
     right: 6px;
     bottom: calc(var(--footer-height) + 6px);
+    margin-bottom: 50px;
 }
 
 .toggle-all-sections[b-5cko639osi] {

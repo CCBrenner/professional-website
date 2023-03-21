@@ -18,65 +18,152 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
-                        Overview
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[0].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                            Overview
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                            Future Vision App
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                        Future Vision App
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[2].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                            Unified Church App
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[3].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                            Hang Out Availability App
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                        Unified Church App
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[4].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                            Philosophy Orientation App
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                        <UnderConstruction />
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[5].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                            Controller Keyboard Prototype
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
-                        Hang Out Availability App
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[6].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                            Audio Games
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                        Philosophy Orientation App
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                        Controller Keyboard Prototype
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
-                <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                        Audio Games
-                    </div>
-                    <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
+                }
+                @if (sectionsLogic.ASectionIsCurrentlyPromo)
+                {
+                    @if (!sectionsLogic.Sections[0].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                                Overview
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                                Future Vision App
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[2].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                                Unified Church App
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[3].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                                Hang Out Availability App
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[4].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                                Philosophy Orientation App
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[5].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                                Controller Keyboard Prototype
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[6].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                                Audio Games
+                            </div>
+                        </div>
+                    }
+                }
                 <div class="toggle-all-sections-container">
                     <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                        @if (!sectionsLogic.AllSectionsAreCollapsed)
+                        @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
                         {
                             <span class="fa-solid fa-minimize"></span>
                         }
