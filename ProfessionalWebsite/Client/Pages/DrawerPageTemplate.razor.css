@@ -9,7 +9,7 @@
 }
 
 .page-content {
-    height: calc(calc(100vh - var(--top-bar-height)) - var(--footer-height));
+    /*height: calc(calc(100vh - var(--top-bar-height)) - var(--footer-height));*/
 }
 
 @media (min-width: 78vh) {

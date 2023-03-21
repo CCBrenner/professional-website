@@ -19,9 +19,9 @@
     [Parameter]
     public string ButtonText { get; set; }
     [Parameter]
-    public char Section { get; set; }
+    public int Section { get; set; }
     [Parameter]
-    public EventCallback<char> ButtonClickCallback { get; set; }
+    public EventCallback<int> ButtonClickCallback { get; set; }
     private async Task UpdateNavFromRoute() =>
         await ButtonClickCallback.InvokeAsync(Section);
 }

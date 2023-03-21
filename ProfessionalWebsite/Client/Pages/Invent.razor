@@ -1,5 +1,7 @@
 ﻿@page "/invent"
 
+@inject NavService NavService
+
 <PageTitle>Invent - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-warehouse" HeaderText="Invent">
@@ -11,100 +13,81 @@
         <DrawerNavLinkButton Href="invent#philosophyorientation" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(4))" />
         <DrawerNavLinkButton Href="invent#controllerkeyboardprototype" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(5))" />
         <DrawerNavLinkButton Href="invent#audiogames" ButtonText="Audio Games" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(6))" />
-        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
+        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, "Contact"))' />
     </DrawerContent>
     <PageContent>
-        <PageContainer>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
-                    Overview
+        <div class="sub-page-container">
+            <div class="sections-container">
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                        Overview
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                        Future Vision App
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                    Future Vision App
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                        Unified Church App
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                        Hang Out Availability App
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                    Unified Church App
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                        Philosophy Orientation App
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                        Controller Keyboard Prototype
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
-                    Hang Out Availability App
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                        Audio Games
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                    Philosophy Orientation App
-                </div>
-                <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                    Controller Keyboard Prototype
-                </div>
-                <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                    Audio Games
-                </div>
-                <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="toggle-all-sections-container">
+                    <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
+                        @if (!sectionsLogic.AllSectionsAreCollapsed)
+                        {
+                            <span class="fa-solid fa-minimize"></span>
+                        }
+                        else
+                        {
+                            <span class="fa-solid fa-maximize"></span>
+                        }
+                    </div>
                 </div>
             </div>
-            <div class="toggle-all-sections-container">
-                <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                    @if (!sectionsLogic.AllSectionsAreCollapsed)
-                    {
-                        <span class="fa-solid fa-minimize"></span>
-                    }
-                    else
-                    {
-                        <span class="fa-solid fa-maximize"></span>
-                    }
-                </div>
-            </div>
-        </PageContainer>
+        </div>
     </PageContent>
 </DrawerPageTemplate>
 

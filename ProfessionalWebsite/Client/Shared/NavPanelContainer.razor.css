@@ -41,7 +41,7 @@
 
 /* start Plugable statuses */
 
-.button-on-show-panel {
+.panel-visible {
     visibility: visible;
     opacity: 1;
     transition: visibility 0.2s, opacity 0.2s;

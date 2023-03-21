@@ -3,6 +3,9 @@
 @page "/home"
 @page "/collyn"
 
+@implements IDisposable
+@inject NavService NavService
+
 <PageTitle>Home - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-book" HeaderText="Biography">
@@ -14,171 +17,249 @@
         <DrawerNavLinkButton Href="collyn#noteabledones" ButtonText='Notable "Done"s' OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(4))" />
         <DrawerNavLinkButton Href="collyn#inspirations" ButtonText="Inspirations" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(5))" />
         <DrawerNavLinkButton Href="collyn#goals" ButtonText="Goals" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(6))" />
-        <DrawerNavLinkButton Href="collyn#projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(7))" />
-        <DrawerNavLinkButton Href="collyn#knowhow" IconClasses="fa-solid fa-flask" ButtonText="Know-How" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(8))" />
-        <DrawerNavLinkButton Href="collyn#invent" IconClasses="fa-solid fa-book" ButtonText="Invent" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(9))" />
-        <DrawerNavLinkButton Href="collyn#articles" IconClasses="fa-solid fa-warehouse" ButtonText="Articles" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(10))" />
+        <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" OnClickCallback="(()=>NavService.RouteUserAndUpdateNav(0))" />
+        <DrawerNavLinkButton Href="knowhow" IconClasses="fa-solid fa-flask" ButtonText="Know-How" OnClickCallback="(()=>NavService.RouteUserAndUpdateNav(1))" />
+        <DrawerNavLinkButton Href="invent" IconClasses="fa-solid fa-warehouse" ButtonText="Invent" OnClickCallback="(()=>NavService.RouteUserAndUpdateNav(3))" />
+        <DrawerNavLinkButton Href="articles" IconClasses="fa-solid fa-newspaper" ButtonText="Articles" OnClickCallback="(()=>NavService.RouteUserAndUpdateNav(4))" />
         <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(11))" />
         <DrawerNavLinkButton Href="collyn#feedback" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(12))" />
     </DrawerContent>
     <PageContent>
-        <PageContainer>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
-                    Introduction
+            <div class="sub-page-container">
+                <div class="sections-container">
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[0].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                            Introduction
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                            <UnderConstruction />
+                            <button @onclick="(()=>NavService.ShowLayoutControls(0))">ShowLayoutControl</button>
+                            <button @onclick="(()=>NavService.PlayAnimation(1, false))">PlayAnimation1</button>
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                            Background
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[2].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                            Work History
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[3].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                            Education History
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[4].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                        Notable "Done"s
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[5].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                            Inspirations
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[6].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                            Goals
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @*
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                            Projects
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[8].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(8))">
+                            Know-How
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[8].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[9].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(9))">
+                            Invent
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[9].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[10].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(10))">
+                            Articles
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[10].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>*@
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[11].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
+                            Contact
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[11].IsCollapsedContent">
+                            <UnderConstruction />
+                            @* <Contact /> *@
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[12].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[12].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(12))">
+                            Feedback
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[12].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (sectionsLogic.ASectionIsCurrentlyPromo)
+                {
+                    @if (!sectionsLogic.Sections[0].IsCurrentPromo)
                     {
-                        <div>This is the content.</div>
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                                Introduction
+                            </div>
+                        </div>
                     }
+                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                                Background
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[2].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                                Work History
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[3].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                                Education History
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[4].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                                Notable "Done"s
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[5].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                                Inspirations
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[6].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                                Goals
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[11].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader"       @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
+                                Contact
+                            </div>
+                        </div>
+                    }
+                    @if (!sectionsLogic.Sections[12].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[12].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(12))">
+                                Feedback
+                            </div>
+                        </div>
+                    }
+                }
+                <div class="toggle-all-sections-container">
+                    <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
+                        @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
+                        {
+                            <span class="fa-solid fa-minimize"></span>
+                        }
+                        else
+                        {
+                            <span class="fa-solid fa-maximize"></span>
+                        }
+                    </div>
                 </div>
             </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                    Background
-                </div>
-                <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                    Work History
-                </div>
-                <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
-                    Education History
-                </div>
-                <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                    Notable "Done"s
-                </div>
-                <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                    Inspirations
-                </div>
-                <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                    Goals
-                </div>
-                <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
-                    Projects
-                </div>
-                <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[8].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(8))">
-                    Know-How
-                </div>
-                <div class="section-content @sectionsLogic.Sections[8].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[9].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(9))">
-                    Invent
-                </div>
-                <div class="section-content @sectionsLogic.Sections[9].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[10].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(10))">
-                    Articles
-                </div>
-                <div class="section-content @sectionsLogic.Sections[10].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
-                    Contact
-                </div>
-                <div class="section-content @sectionsLogic.Sections[11].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[12].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(12))">
-                    Feedback
-                </div>
-                <div class="section-content @sectionsLogic.Sections[12].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="toggle-all-sections-container">
-                <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                    @if (!sectionsLogic.AllSectionsAreCollapsed)
-                    {
-                        <span class="fa-solid fa-minimize"></span>
-                    }
-                    else
-                    {
-                        <span class="fa-solid fa-maximize"></span>
-                    }
-                </div>
-            </div>
-        </PageContainer>
+        </div>
     </PageContent>
 </DrawerPageTemplate>
 
@@ -199,4 +280,18 @@
         new CollapsingPageSection(),
         new CollapsingPageSection(),
     });
+
+    protected override void OnInitialized()
+    {
+        if (NavService.NavigateToSection == "Contact")
+        {
+            sectionsLogic.CollapseAllShowOne(11);  // 11 = section index of Contact in sectionsLogic
+            sectionsLogic.PromoteSection(11);
+        }
+    }
+    void IDisposable.Dispose()
+    {
+        if (NavService.NavigateToSection == "Contact")
+            NavService.ResetNavigateToSection();
+    }
 }

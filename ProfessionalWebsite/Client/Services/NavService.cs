@@ -1,346 +1,134 @@
-﻿using ProfessionalWebsite.Client.Services.Contracts;
+﻿using Microsoft.AspNetCore.Components;
+using ProfessionalWebsite.Client.Services.Contracts;
 
 namespace ProfessionalWebsite.Client.Services
 {
     public class NavService : INavService
     {
-        // a button is ON when a user clicks on it and panel and behindpanel appear
-        private bool buttonAIsOn = false;
-        private bool buttonBIsOn = false;
-        private bool buttonCIsOn = false;
-        private bool buttonDIsOn = false;
-        private bool buttonEIsOn = false;
-
-        // populates "highlight-button" when respective "button_IsOn" is true
-        public string NavButtonAStatus { get; set; } = "";
-        public string NavButtonBStatus { get; set; } = "";
-        public string NavButtonCStatus { get; set; } = "highlight-button";
-        public string NavButtonDStatus { get; set; } = "";
-        public string NavButtonEStatus { get; set; } = "";
-
-        // populates "button-on-show-panel" when respective "button_IsOn" is true
-        public string NavPanelAStatus { get; set; } = "";
-        public string NavPanelBStatus { get; set; } = "";
-        public string NavPanelCStatus { get; set; } = "";
-        public string NavPanelDStatus { get; set; } = "";
-        public string NavPanelEStatus { get; set; } = "";
-
-        // "locationIs_" is used for when no buttons are ON; highlights button of current location
-        private bool locationIsA = false;
-        private bool locationIsB = false;
-        private bool locationIsC = true;
-        private bool locationIsD = false;
-        private bool locationIsE = false;
-
-        // For BehindPanel
-        private bool globalNavButtonState = false;
-        public string BehindPanel { get; set; } = "";
-        private char CurrentButton = 'Z';
-
-        // blurs page content; populates "content-blur" class
-        public string ContentBlur { get; set; } = "";
-
-        public string LayoutControls { get; set; } = "";
-        public string AnimateMain { get; set; } = "";
-        public string DiscontinueButton { get; set; } = "";
-
-        public bool ExternalLayoutControls { get; set; } = false;
-        
-        // Methods:
-        public void UpdateNav(char buttonId)
+        public NavService() 
         {
-            CurrentButton = buttonId;
-            switch (buttonId)
+            AssociatedNav = new List<AssociatedNavButtonAndPanel>()
             {
-                case 'A':
-                    buttonAIsOn = UpdateButtonStates(buttonAIsOn);
-                    globalNavButtonState = buttonAIsOn;
-                    break;
-                case 'B':
-                    buttonBIsOn = UpdateButtonStates(buttonBIsOn);
-                    globalNavButtonState = buttonBIsOn;
-                    break;
-                case 'C':
-                    buttonCIsOn = UpdateButtonStates(buttonCIsOn);
-                    globalNavButtonState = buttonCIsOn;
-                    break;
-                case 'D':
-                    buttonDIsOn = UpdateButtonStates(buttonDIsOn);
-                    globalNavButtonState = buttonDIsOn;
-                    break;
-                case 'E':
-                    buttonEIsOn = UpdateButtonStates(buttonEIsOn);
-                    globalNavButtonState = buttonEIsOn;
-                    break;
+                new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
+                new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
+                new AssociatedNavButtonAndPanel() { NavButtonStatus = "highlight-button", NavPanelStatus = "", IsThisLocation = true },
+                new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
+                new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
+            };
+            globalNavButtonState = "";
+            currentButton = 2;
+            behindPanel = "";
+            contentBlur = "";
+            layoutControls = "";
+            animateMain = "";
+            discontinueButton = "";
+            navigateToSection = "";
+        }
+
+        public List<AssociatedNavButtonAndPanel> AssociatedNav;
+
+        [Inject]
+        public NavigationManager NavigationManager { get; }
+
+        // For BehindPanel (the following three members:)
+        private string globalNavButtonState;
+        private int currentButton;
+        public string BehindPanel { get { return behindPanel; } }
+        private string behindPanel;
+        public string ContentBlur { get { return contentBlur; } }
+        private string contentBlur;
+        public string LayoutControls { get { return layoutControls; } }
+        private string layoutControls;
+        public string AnimateMain { get { return animateMain; } }
+        private string animateMain;
+        public string DiscontinueButton { get { return discontinueButton; } }
+        private string discontinueButton;
+        public string NavigateToSection { get { return navigateToSection; } }
+        private string navigateToSection;
+        public event Action<string> OnAnimateMain;
+
+        // Methods:
+        public void UpdateNav(int buttonId)
+        {
+            currentButton = buttonId;  // For UpdateNavFromBehindPanel() only
+
+            if (AssociatedNav[buttonId].NavPanelStatus == "panel-visible")
+                AssociatedNav[buttonId].NavPanelStatus = "";
+            else
+            {
+                foreach (var nav in AssociatedNav)
+                    nav.NavPanelStatus = "";
+                AssociatedNav[buttonId].NavPanelStatus = "panel-visible";
             }
-            UpdateButtons();
-            UpdatePanels();
-            UpdateBehindPanel();
-            UpdateContentBlur(globalNavButtonState);
+            globalNavButtonState = AssociatedNav[buttonId].NavPanelStatus;
+
+            foreach (var nav in AssociatedNav)
+                nav.NavButtonStatus =
+                    nav.NavPanelStatus == "" && !nav.IsThisLocation 
+                    || globalNavButtonState == "panel-visible" && nav.NavPanelStatus == "" && nav.IsThisLocation
+                    ? ""
+                    : "highlight-button";
+
+            behindPanel = globalNavButtonState == "panel-visible" ? "button-on-show-behind-panel" : "";
+            contentBlur = globalNavButtonState == "panel-visible" ? "content-blur" : "";
         }
         public void UpdateNavFromBehindPanel() =>
-            UpdateNav(CurrentButton);
-        public void UpdateNavFromPanel(char character)
+            UpdateNav(currentButton);
+        public void RouteUserAndUpdateNav(int index)
         {
-            UpdateLocation(character);
-            LayoutControls = "";
-            AnimateMain = "";
-            UpdateNav(character);
-        }
-        public void UpdateNavFromDrawer(char character)
-        {
-            UpdateNavFromPanel(character);
-            NavPanelAStatus = "";
-            NavPanelBStatus = "";
-            NavPanelCStatus = "";
-            NavPanelDStatus = "";
-            NavPanelEStatus = "";
-            BehindPanel = "";
-            ContentBlur = "";
-        }
-        public void UpdateNavFromAppTitle(char character)
-        {
-            UpdateLocation(character);
-            SetAllButtonStatesToFalse();
-            UpdateButtons();
-            LayoutControls = "";
-            AnimateMain = "";
-            switch (character)
+            foreach (var nav in AssociatedNav)
             {
-                case 'A':
-                    NavButtonAStatus = "highlight-button";
-                    break;
-                case 'B':
-                    NavButtonBStatus = "highlight-button";
-                    break;
-                case 'C':
-                    NavButtonCStatus = "highlight-button";
-                    break;
-                case 'D':
-                    NavButtonDStatus = "highlight-button";
-                    break;
-                case 'E':
-                    NavButtonEStatus = "highlight-button";
-                    break;
+                nav.NavButtonStatus = "";
+                nav.NavPanelStatus = "";
+                nav.IsThisLocation = false;
             }
+            AssociatedNav[index].NavButtonStatus = "highlight-button";
+            AssociatedNav[index].IsThisLocation = true;
+            layoutControls = "";
+            animateMain = "";
+            behindPanel = "";
+            contentBlur = "";
         }
-        private bool UpdateButtonStates(bool buttonState)
+        public void NavigateToCollapsibleSectionOfOtherPage(int index, string section)  // needs tests
         {
-            if (buttonState)
-                return false;
-            else
-            {
-                SetAllButtonStatesToFalse();
-                return true;
-            }
+            RouteUserAndUpdateNav(index);
+            navigateToSection = section;  // section is a conditional that the destination component's OnInitialized() method uses to update the page to show only the specified section's contents
         }
-        private void SetAllButtonStatesToFalse()
-        {
-            buttonAIsOn = false;
-            buttonBIsOn = false;
-            buttonCIsOn = false;
-            buttonDIsOn = false;
-            buttonEIsOn = false;
-        }
-        private void UpdateButtons()
-        {
-            NavButtonAStatus = UpdateButton(buttonAIsOn, locationIsA);
-            NavButtonBStatus = UpdateButton(buttonBIsOn, locationIsB);
-            NavButtonCStatus = UpdateButton(buttonCIsOn, locationIsC);
-            NavButtonDStatus = UpdateButton(buttonDIsOn, locationIsD);
-            NavButtonEStatus = UpdateButton(buttonEIsOn, locationIsE);
-        }
-        private string UpdateButton(bool buttonState, bool locationState)
-        {
-            if (!buttonState && !locationState || globalNavButtonState && locationState && !buttonState)
-                return "";
-            else
-                return "highlight-button";
-        }
-        private void UpdatePanels()
-        {
-            NavPanelAStatus = UpdatePanel(buttonAIsOn);
-            NavPanelBStatus = UpdatePanel(buttonBIsOn);
-            NavPanelCStatus = UpdatePanel(buttonCIsOn);
-            NavPanelDStatus = UpdatePanel(buttonDIsOn);
-            NavPanelEStatus = UpdatePanel(buttonEIsOn);
-        }
-        private string UpdatePanel(bool buttonState) =>
-            buttonState ? "button-on-show-panel" : "";
-        private void UpdateBehindPanel() =>
-            BehindPanel = globalNavButtonState ? "button-on-show-behind-panel" : "";
-        private string UpdateContentBlur(bool buttonState) =>
-            ContentBlur = buttonState ? "content-blur" : "";
-        private void UpdateLocation(char character)
-        {
-            locationIsA = false;
-            locationIsB = false;
-            locationIsC = false;
-            locationIsD = false;
-            locationIsE = false;
-            switch (character)
-            {
-                case 'A':
-                    locationIsA = true;
-                    break;
-                case 'B':
-                    locationIsB = true;
-                    break;
-                case 'C':
-                    locationIsC = true;
-                    break;
-                case 'D':
-                    locationIsD = true;
-                    break;
-                case 'E':
-                    locationIsE = true;
-                    break;
-            }
-        }
+        public void ResetNavigateToSection() =>  // needs tests
+            navigateToSection = "";
 
         // Animations
-        public void ShowLayoutControls(char character)
+        public void ShowLayoutControls(int index)
         {
-            UpdateLocation(character);
-            UpdateNav(character);
-            LayoutControls = "layout-controls-on";
+            RouteUserAndUpdateNav(index);
+            AssociatedNav[index].NavPanelStatus = "";
+            layoutControls = "layout-controls-on";
         }
-        public void SetExternalLayoutControlsToTrue() =>
-            ExternalLayoutControls = true;
-        public void PlayFirstAnimation(bool isContinuous)
+        public void PlayAnimation(int animation, bool isContinuous)
         {
             if (isContinuous)
-            {
-                if (AnimateMain == "main1-infinite")
-                {
-                    AnimateMain = "";
-                    DiscontinueButton = "";
-                }
+                if (AnimateMain == $"main{animation}-infinite")
+                    SetAnimateMainAndDiscontinueButton("", "");
                 else
-                {
-                    AnimateMain = "main1-infinite";
-                    DiscontinueButton = "discontinue-button-on";
-                }
-            }
+                    SetAnimateMainAndDiscontinueButton($"main{animation}-infinite", "discontinue-button-on");
             else
-            {
-                if (AnimateMain == "main1")
-                    AnimateMain = "";
+                if (AnimateMain == $"main{animation}")
+                    SetAnimateMainAndDiscontinueButton("", "");
                 else
-                {
-                    AnimateMain = "main1";
-                    DiscontinueButton = "";
-                }
-            }
+                    SetAnimateMainAndDiscontinueButton($"main{animation}", "");
         }
-        public void PlaySecondAnimation(bool isContinuous)
+        private void SetAnimateMainAndDiscontinueButton(string animation, string discontinue)
         {
-            if (isContinuous)
-            {
-                if (AnimateMain == "main2-infinite")
-                {
-                    AnimateMain = "";
-                    DiscontinueButton = "";
-                }
-                else
-                {
-                    AnimateMain = "main2-infinite";
-                    DiscontinueButton = "discontinue-button-on";
-                }
-            }
-            else
-            {
-                if (AnimateMain == "main2")
-                    AnimateMain = "";
-                else
-                {
-                    AnimateMain = "main2";
-                    DiscontinueButton = "";
-                }
-            }
+            animateMain = animation;
+            RaiseEventOnAnimateMain(AnimateMain);
+            discontinueButton = discontinue;
         }
-        public void PlayThirdAnimation(bool isContinuous)
+        private void RaiseEventOnAnimateMain(string animation)
         {
-            if (isContinuous)
-            {
-                if (AnimateMain == "main3-infinite")
-                {
-                    AnimateMain = "";
-                    DiscontinueButton = "";
-                }
-                else
-                {
-                    AnimateMain = "main3-infinite";
-                    DiscontinueButton = "discontinue-button-on";
-                }
-            }
-            else
-            {
-                if (AnimateMain == "main3")
-                    AnimateMain = "";
-                else
-                {
-                    AnimateMain = "main3";
-                    DiscontinueButton = "";
-                }
-            }
+            if (OnAnimateMain != null)
+                OnAnimateMain?.Invoke(animation);
         }
-        public void PlayFourthAnimation(bool isContinuous)
-        {
-            if (isContinuous)
-            {
-                if (AnimateMain == "main4-infinite")
-                {
-                    AnimateMain = "";
-                    DiscontinueButton = "";
-                }
-                else
-                {
-                    AnimateMain = "main4-infinite";
-                    DiscontinueButton = "discontinue-button-on";
-                }
-            }
-            else
-            {
-                if (AnimateMain == "main4")
-                    AnimateMain = "";
-                else
-                {
-                    AnimateMain = "main4";
-                    DiscontinueButton = "";
-                }
-            }
-        }
-        public void PlayFifthAnimation(bool isContinuous)
-        {
-            if (isContinuous)
-            {
-                if (AnimateMain == "main5-infinite")
-                {
-                    AnimateMain = "";
-                    DiscontinueButton = "";
-                }
-                else
-                {
-                    AnimateMain = "main5-infinite";
-                    DiscontinueButton = "discontinue-button-on";
-                }
-            }
-            else
-            {
-                if (AnimateMain == "main5")
-                    AnimateMain = "";
-                else
-                {
-                    AnimateMain = "main5";
-                    DiscontinueButton = "";
-                }
-            }
-        }
-        public void StopMainAnimation()
-        {
-            AnimateMain = "";
-            DiscontinueButton = "";
-        }
+        public void StopMainAnimation() =>
+            SetAnimateMainAndDiscontinueButton("", "");
     }
 }

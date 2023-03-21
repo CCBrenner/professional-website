@@ -3,23 +3,23 @@
 
 <div class="container-one">
     <div class="container-two">
-        <div class="nav-button @StatusA" @onclick="(()=>UpdateNav('A'))">
+        <div class="nav-button @StatusA" @onclick="(()=>UpdateNav(0))">
             <span class="button-icon fa-solid fa-diagram-project" aria-hidden="true"></span>
             <span class="button-label">Projects</span>
         </div>
-        <div class="nav-button @StatusB" @onclick="(()=>UpdateNav('B'))">
+        <div class="nav-button @StatusB" @onclick="(()=>UpdateNav(1))">
             <span class="button-icon fa-solid fa-flask" aria-hidden="true"></span>
             <span class="button-label">Know-How</span>
         </div>
-        <div class="nav-button @StatusC" @onclick="(()=>UpdateNav('C'))">
+        <div class="nav-button @StatusC" @onclick="(()=>UpdateNav(2))">
             <span class="button-icon fa-solid fa-book" aria-hidden="true"></span>
             <span class="button-label">Collyn</span>
         </div>
-        <div class="nav-button @StatusD" @onclick="(()=>UpdateNav('D'))">
+        <div class="nav-button @StatusD" @onclick="(()=>UpdateNav(3))">
             <span class="button-icon fa-solid fa-warehouse" aria-hidden="true"></span>
             <span class="button-label">Invent</span>
         </div>
-        <div class="nav-button @StatusE" @onclick="(()=>UpdateNav('E'))">
+        <div class="nav-button @StatusE" @onclick="(()=>UpdateNav(4))">
             <span class="button-icon fa-solid fa-newspaper" aria-hidden="true"></span>
             <span class="button-label">Articles</span>
         </div>
@@ -39,7 +39,7 @@
     [Parameter]
     public string StatusE { get; set; } = "";
     [Parameter]
-    public EventCallback<char> UpdateNavCallback { get; set; }
-    private async Task UpdateNav(char character) =>
-        await UpdateNavCallback.InvokeAsync(character);
+    public EventCallback<int> UpdateNavCallback { get; set; }
+    private async Task UpdateNav(int index) =>
+        await UpdateNavCallback.InvokeAsync(index);
 }

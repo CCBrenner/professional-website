@@ -1,10 +1,12 @@
 ﻿
+@inject NavService NavService
+
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-newspaper" HeaderText="Articles">
     <DrawerContent>
         <DrawerNavLinkButton Href="article/our-incredible-future" 
                              IconClasses="fa-solid fa-newspaper"
                              ButtonText="Our Incredible Future" />
-        <DrawerNavLinkButton Href="article/hierarchy-of-desires-and-the-engineers-struggle" 
+        @*<DrawerNavLinkButton Href="article/hierarchy-of-desires-and-the-engineers-struggle" 
                              IconClasses="fa-solid fa-newspaper"
                              ButtonText="Hierarchy of Desires & the Engineer's Struggle" />
         <DrawerNavLinkButton Href="article/business-manager-or-technologist-what-is-the-end-of-your-means" 
@@ -13,12 +15,13 @@
         <DrawerNavLinkButton Href="article/essentialism-vs-existentialism-the-modern-worlds-dilemma-and-an-opportunity-for-christian-faith" 
                              IconClasses="fa-solid fa-newspaper"
                              ButtonText="Essentialism vs. Existentialism: The Modern World's Dilemma & An Opportunity for Christian Faith" />
-        <DrawerNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"                        
+        <DrawerNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"
                              IconClasses="fa-solid fa-newspaper"
-                             ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry" />
+                             ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry" />*@
         <DrawerNavLinkButton Href="collyn#contact" 
                              IconClasses="fa-solid fa-envelope"
-                             ButtonText="Contact" />
+                             ButtonText="Contact" 
+                             OnClickCallback='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, "Contact"))' />
     </DrawerContent>
     <PageContent>
         <PageContainer>

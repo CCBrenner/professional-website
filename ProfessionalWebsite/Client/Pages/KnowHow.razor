@@ -1,5 +1,7 @@
 ﻿@page "/knowhow"
 
+@inject NavService NavService
+
 <PageTitle>Know-How - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-vial" HeaderText="Know-How">
@@ -13,111 +15,89 @@
         <DrawerNavLinkButton Href="knowhow#styling" ButtonText="Styling" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(6))" />
         <DrawerNavLinkButton Href="knowhow#certifications" ButtonText="Certifications" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(7))" />
         <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" />
-        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
+        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, "Contact"))' />
     </DrawerContent>
     <PageContent>
-        <PageContainer>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
-                    Overview
+        <div class="sub-page-container">
+            <div class="sections-container">
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                        Overview
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                        Approach
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                    Approach
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                        C#
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                        JavaScript
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                    C#
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                        Python
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                        PHP
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
-                    JavaScript
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                        Styling
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-                <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="section-container">
+                    <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                        Certifications
+                    </div>
+                    <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
+                        <UnderConstruction />
+                    </div>
                 </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                    Python
-                </div>
-                <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                    PHP
-                </div>
-                <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                    Styling
-                </div>
-                <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
-                </div>
-            </div>
-            <div class="section-container">
-                <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
-                    Certifications
-                </div>
-                <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
-                    @for (int i = 0; i < 30; i++)
-                    {
-                        <div>This is the content.</div>
-                    }
+                <div class="toggle-all-sections-container">
+                    <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
+                        @if (!sectionsLogic.AllSectionsAreCollapsed)
+                        {
+                            <span class="fa-solid fa-minimize"></span>
+                        }
+                        else
+                        {
+                            <span class="fa-solid fa-maximize"></span>
+                        }
+                    </div>
                 </div>
             </div>
-            <div class="toggle-all-sections-container">
-                <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                    @if (!sectionsLogic.AllSectionsAreCollapsed)
-                    {
-                        <span class="fa-solid fa-minimize"></span>
-                    }
-                    else
-                    {
-                        <span class="fa-solid fa-maximize"></span>
-                    }
-                </div>
-            </div>
-        </PageContainer>
+        </div>
     </PageContent>
 </DrawerPageTemplate>
 

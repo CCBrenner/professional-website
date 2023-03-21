@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@implements IDisposable
 @inject NavService NavService
 
 <div class="page-container">
@@ -36,31 +37,31 @@
         </div>
         *@
 
-        <main class="main @NavService.AnimateMain">
+        <main class="main @AnimateMain">
 
             @* Buttons (z-index: 40) *@
-            <NavButtons StatusA="@NavService.NavButtonAStatus"
-                        StatusB="@NavService.NavButtonBStatus"
-                        StatusC="@NavService.NavButtonCStatus"
-                        StatusD="@NavService.NavButtonDStatus"
-                        StatusE="@NavService.NavButtonEStatus"
+            <NavButtons StatusA="@NavService.AssociatedNav[0].NavButtonStatus"
+                        StatusB="@NavService.AssociatedNav[1].NavButtonStatus"
+                        StatusC="@NavService.AssociatedNav[2].NavButtonStatus"
+                        StatusD="@NavService.AssociatedNav[3].NavButtonStatus"
+                        StatusE="@NavService.AssociatedNav[4].NavButtonStatus"
                         UpdateNavCallback="NavService.UpdateNav" />
 
             @* Panels (z-index: 30) *@
-            <NavPanels NavPanelAStatus="@NavService.NavPanelAStatus"
-                       NavPanelBStatus="@NavService.NavPanelBStatus"
-                       NavPanelCStatus="@NavService.NavPanelCStatus"
-                       NavPanelDStatus="@NavService.NavPanelDStatus"
-                       NavPanelEStatus="@NavService.NavPanelEStatus"
-                       UpdateNavCallback="NavService.UpdateNavFromPanel"
+            <NavPanels NavPanelAStatus="@NavService.AssociatedNav[0].NavPanelStatus"
+                       NavPanelBStatus="@NavService.AssociatedNav[1].NavPanelStatus"
+                       NavPanelCStatus="@NavService.AssociatedNav[2].NavPanelStatus"
+                       NavPanelDStatus="@NavService.AssociatedNav[3].NavPanelStatus"
+                       NavPanelEStatus="@NavService.AssociatedNav[4].NavPanelStatus"
+                       UpdateNavCallback="NavService.RouteUserAndUpdateNav"
                        ShowLayoutControlsCallback="NavService.ShowLayoutControls" />
 
             @* Behind Panel (z-index: 20) *@
             <div class="behind-panel @NavService.BehindPanel" @onclick="NavService.UpdateNavFromBehindPanel"></div>
 
             @* original Main items (z-index: auto) *@
-            <div class="container-fluid header" @onclick="(()=>NavService.UpdateNavFromAppTitle('C'))">
-                <a class="navbar-brand" href="#contact">
+            <div class="container-fluid header">
+                <a class="navbar-brand" href="#contact" @onclick="(()=>NavService.RouteUserAndUpdateNav(2))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -88,11 +89,7 @@
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
             <article class="animate-app @NavService.LayoutControls @NavService.ContentBlur">
-                <AppAnimations FirstAnimationCallback="NavService.PlayFirstAnimation"
-                               SecondAnimationCallback="NavService.PlaySecondAnimation"
-                               ThirdAnimationCallback="NavService.PlayThirdAnimation"
-                               FourthAnimationCallback="NavService.PlayFourthAnimation"
-                               FifthAnimationCallback="NavService.PlayFifthAnimation" />
+                <AppAnimations/>
             </article>
         </main>
 
@@ -111,3 +108,22 @@
         </div>
     </div>
 </div>
+
+@code {
+    // All code here is for animating the "main" element
+        // (event is required due to this layout component needing to re-render)
+        // (it is weird when a child has to tell their parent what to do)
+
+    private string AnimateMain = "";
+
+    protected override void OnInitialized() =>
+        NavService.OnAnimateMain += UpdateAnimateMain;
+    void IDisposable.Dispose() =>
+        NavService.OnAnimateMain -= UpdateAnimateMain;
+
+    private void UpdateAnimateMain(string animation)
+    {
+        AnimateMain = animation;
+        StateHasChanged();
+    }
+}
