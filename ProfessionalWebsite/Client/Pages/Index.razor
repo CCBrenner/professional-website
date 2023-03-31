@@ -25,8 +25,8 @@
         <DrawerNavLinkButton Href="collyn#feedback" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(12))" />
     </DrawerContent>
     <PageContent>
-            <div class="sub-page-container">
-                <div class="sections-container">
+        <div class="sub-page-container">
+            <div class="sections-container">
                 @if (!sectionsLogic.ASectionIsCurrentlyPromo
                 || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[0].IsCurrentPromo)
                 {
@@ -35,21 +35,20 @@
                             Introduction
                         </div>
                         <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
-                            <UnderConstruction />
-                            <button @onclick="(()=>NavService.ShowLayoutControls(0))">ShowLayoutControl</button>
-                            <button @onclick="(()=>NavService.PlayAnimation(1, false))">PlayAnimation1</button>
-                        </div>
-                    </div>
-                }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
-                {
-                    <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                            Background
-                        </div>
-                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
-                            <UnderConstruction />
+                            <p>Hey, how are you today? I’m Collyn Brenner - Welcome to my developer portfolio!</p>
+                            <p>Here you can find out who I am including my interests, creations, abilities, ideas and plans for the future. You can also check out the <i>Articles</i> section for further commentary on various topics.
+                            </p>
+                            <p>
+                                This portfolio's contents have professional relevance (as is expected from a portfolio), but it is also designed to give the beginning programmer a leg up and a map of the landscape I have traversed. It is for this reason that you may perceive it to be more personable than expected. I take care to adhere to business-optimal standards of professionalism as a necessity in the workplace, but here I am aiming to go beyond just that and instead to try and aid those who wish to follow in a similar path as the way which I have come. 
+                            </p>
+                            <br/>
+                            <h2><b><i>Integrity is Integral</i></b></h2>
+                            <br/>
+                            <p>In any serious endeavor, a person can most often use extra help. This help, however, must be a reliable help and one that is unchanging in the fundamentals. For me, <b>integrity is integral</b>.</p>
+                            <p>I would like to demonstrate my dependability and integrity for you, because I know what it is like to have full confidence in something/someone that ends up failing you. Take me on as one of your dependencies for growth. No matter how deep in the weeds you might get, you have to <u>keep moving forward</u> with your <u>eyes on the prize</u> and with the <u>mission in mind</u>.</p>
+                            <p>
+                                I invite you to enjoy the content found here wherever possible. This website is for you. If you have any questions or want to get in contact with me, please don’t hesitate - send me a message here: *“Contact” button*
+                            </P>
                         </div>
                     </div>
                 }
@@ -61,7 +60,56 @@
                             Work History
                         </div>
                         <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
-                            <UnderConstruction />
+                            <div class="text-center">
+                                <button class="btn @SelectedWorkHistoryContent[0]" @onclick="(()=>UpdateWorkHistorySectionContent(0))">BlueSky</button>
+                                <button class="btn @SelectedWorkHistoryContent[1]" @onclick="(()=>UpdateWorkHistorySectionContent(1))">SVP</button>
+                                <button class="btn @SelectedWorkHistoryContent[2]" @onclick="(()=>UpdateWorkHistorySectionContent(2))">Other Roles</button>
+                            </div>
+                            <br/>
+                            @if (SelectedWorkHistoryContent[0] == "btn-primary")
+                            {
+                                <p>
+                                    <b>BlueSky Synergy (primarily in-person) - January 2022 to Present</b>
+                                    <br/>
+                                    <ul>
+                                        <li>Tier 1 Technical Support for Travel Healthcare Staffing SaaS</li>
+                                        <li>Hired to eventually replace one of their technical support employees</li>
+                                        <li>Quickly became the go-to person for handling customer API questions and documentation</li>
+                                        <li>Revamped and augmented their entire knowledge base which had been neglected for some time (needed)</li>
+                                        <li>Became an Agile stockholder for two development teams that were using agile methodology</li>
+                                        <li>Performed manual testing/QA for BlueSky Mobile app</li>
+                                        <li>Advised on system improvements based on customer knowledge as pain points presented themselves</li>
+                                    </ul>
+                                </p>
+                            }
+                            @if (SelectedWorkHistoryContent[1] == "btn-primary")
+                            {
+                                <p>
+                                    <b>SVP Worldwide (fully remote) - July 2020 to December 2021</b>
+                                    <br/>
+                                    <ul>
+                                        <li>E-Commerce Order Systems Management and Embroidery Software Support Representative</li>
+                                        <li>Hired as Consumer Orders Representative (customer support)</li>
+                                        <li>Recognized for technical competence and ability to learn systems fast and in great depth</li>
+                                        <li>Brought onto Embroidery Software Support team to provide technical support in embroidery design and communications software; worked in Jira for software development improvements</li>
+                                        <li>Became fill-in for Mass Order Management team member and learned systems in-depth to become a technical support person for the support teams</li>
+                                        <li>Was trained in JDE, CyberSource, and Elastic Path for logistics, transactional, and order management processes respectively</li>
+                                        <li>In summary, became a member of three teams simultaneously and recognized as an asset that would willingly diversify his skill set to supply a demand when presented</li>
+                                    </ul>
+                                </p>  
+                            }
+                            @if (SelectedWorkHistoryContent[2] == "btn-primary")
+                            {
+                                <p>Other roles served elsewhere:</p>
+                                <ul>
+                                    <li>Valet</li>
+                                    <li>Director’s Assistant</li>
+                                    <li>Lifeguard</li>
+                                    <li>Waiter</li>
+                                    <li>Caterer</li>
+                                    <li>Gig Driver</li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 }
@@ -73,7 +121,25 @@
                             Education History
                         </div>
                         <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                            <UnderConstruction />
+                            <p>
+                                Formal Academic Education
+                            </p>
+                            <ul>
+                                <li>K-10 - Attended The New Testament Christian School in Plymouth, MA</li>
+                                <li>11-12 - Attended Plymouth Public High School</li>
+                                <li>Undergraduate degree - Bachelors of Science in Computer Information Technology</li>
+                            </ul>
+                            <p>
+                                Extracurricular Programming Courses Completed
+                            </p>
+                            <ul>
+                                <li>Free Code Camp (my introduction to coding (JavaScript))</li>
+                                <li>Udemy’s “The Complete Bootcamp from Zero to Hero in Python by Jose Portilla (introduction to Python)</li>
+                                <li>Django Polling App: Tutorial in the Django framework (Python) by YouTuber CoreyMS</li>
+                                <li>JavaScript Essential Training by LinkedIn Learning (previously Lynda.com)</li>
+                                <li>PHP Essential Training by LinkedIn Learning (previously Lynda.com)</li>
+                                <li>O'Reilly Learning’s HeadFirst C# online textbook course</li>
+                            </ul>
                         </div>
                     </div>
                 }
@@ -85,7 +151,12 @@
                         Notable "Done"s
                     </div>
                     <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
-                        <UnderConstruction />
+                        <ul>
+                            <li>Top-performing collegiate cross-country runner at TNU (NCAA DII)</li>
+                            <li>Designed app + store catering production system/solution for Chick-fil-A; optimized for time and resource utilization</li>
+                            <li>Balanced full-time school, full-time work, married life, and developing software engineering skills for a year</li>
+                            <li>Ran 2,000 miles in 2019 (5.48 mi./da. avg., 37.38 mi./wk. avg.); ran 70 miles/week for 2 months; completed a 32.2-mile ultra marathon</li>
+                        </ul>
                     </div>
                 </div>
                 }
@@ -97,7 +168,17 @@
                             Inspirations
                         </div>
                         <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
-                            <UnderConstruction />
+                            <ul>
+                                <li>My Father, Craig Brenner</li>
+                                <li>Tom Brady</li>
+                                <li>Michael Phelps</li>
+                                <li>Ed Sheeran</li>
+                                <li>Jesus of Nazareth</li>
+                                <li>Pastor of my teenage years - Pastor David Shaw</li>
+                                <li>Jordan Peterson</li>
+                                <li>Elon Musk</li>
+                                <li>Peter Thiel</li>
+                            </ul>
                         </div>
                     </div>
                 }
@@ -109,43 +190,12 @@
                             Goals
                         </div>
                         <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
-                            <UnderConstruction />
+                            <p>My goal is to build things that help people and help people build things. I am proud to have found such a constructive trajectory as an option for my life, having so much potential if only given the chance (the requirement of all opportunities). </p>
+                            <p>I am excited for what the future holds as we walk forward into it. Optimism is my possession, and with what the future has to offer, I personally believe it is the only way to meet it again and again.</p>
+                            <p>Please visit the <i>Invent</i> section above for details on my ideas for the future.</p> 
                         </div>
                     </div>
                 }
-                @*
-                    <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
-                            Projects
-                        </div>
-                        <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
-                            <UnderConstruction />
-                        </div>
-                    </div>
-                    <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[8].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(8))">
-                            Know-How
-                        </div>
-                        <div class="section-content @sectionsLogic.Sections[8].IsCollapsedContent">
-                            <UnderConstruction />
-                        </div>
-                    </div>
-                    <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[9].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(9))">
-                            Invent
-                        </div>
-                        <div class="section-content @sectionsLogic.Sections[9].IsCollapsedContent">
-                            <UnderConstruction />
-                        </div>
-                    </div>
-                    <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[10].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(10))">
-                            Articles
-                        </div>
-                        <div class="section-content @sectionsLogic.Sections[10].IsCollapsedContent">
-                            <UnderConstruction />
-                        </div>
-                    </div>*@
                 @if (!sectionsLogic.ASectionIsCurrentlyPromo
                 || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[11].IsCurrentPromo)
                 {
@@ -154,8 +204,7 @@
                             Contact
                         </div>
                         <div class="section-content @sectionsLogic.Sections[11].IsCollapsedContent">
-                            <UnderConstruction />
-                            @* <Contact /> *@
+                            <Contact />
                         </div>
                     </div>
                 }
@@ -171,6 +220,29 @@
                         </div>
                     </div>
                 }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                            Background
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                            <p>This brief background is concerned with the most notable aspects that I believe have formed me into the person I am today. Without being too exhaustive, here is a brief look:</p>
+                            <ul>
+                                <li>I grew up in the state of Massachusetts just north of Cape Cod (which can be considered the vacation land of southern Mass). It is about an hour south of Boston.</li>
+                                <li>Both of my parents were the youngest of their siblings. With me being their eldest child, I did not have any advantage of sympathies regarding having to face all life challeges first out of all my siblings. My parents both grew up in New York and are highschool sweethearts.</li>
+                                <li>I grew up in a non-denominational private Christian school. The decision to put me in a Christian school comes from a long history of Nazarene theological affiliations on my mom’s side of the family. If you don’t know, Nazarenes are Christians with a particular emphasis on living lives characterized by God’s holiness via a certain doctrinal tradition.</li>
+                                <li>I started making sense of different Christian doctrines when I was in college, though my faith first took on substance when I was 13 with through an NYI ministry called Nazarene Youth Bible Quizzing.</li>
+                                <li>I was sheltered as a kid and utilized reason quite a bit, innately wanting to understand how and why everything worked the way it did. I was and still am creative and innovative (iteratively deconstructive & reconstructive) in nature.</li>
+                                <li>I was taught as a kid that strangers were dangerous, and at the time I took that to mean all people who were strange (except for my family) are dangerous. Since most people are strange, each person's strangeness and the need to fear them became a focal point for me as a kid. I still struggle with relational longevity (you could call it "interpersonal maintenance") today, but by no measure do I consider myself to be a victim of it.</li>
+                                <li>I was good at academics growing up but was not a top performer. For more on my key life experiences involving my grades in school, please view <a href="#">this article (link).</a></li>
+                                <li>While I was first introduced to computers when I was 7, I first took interest in business at 13 when I was brought to my dad’s work to migrate physical server racks between locations (they were moving to a new larger building). Kiva Systems (the company that my dad managed IT infrastructure and security for) was acquired by Amazon in 2012 while he was working for Kiva. They made robots that moved shelves around a warehouse to bring to packagers who would take items off the mobile shelves and package them to be shipped. This eliminated having to pay people to walk around a warehouse to find each item that needed to be shipped for an online order. It significantly increased efficiency due to being able to add more bots for increased service and configure the paths of all bots in a fulfillment sequence that optimizes for shortest path for all bots in the warehouse, which relates to the greater optimization of least time spent per order filled.</li>
+                                <li>I found that I was not prepared to make life trajectory decisions when I was attending college. I changed my major 4 times, and after going from Commercial Music to IT at Trevecca, to then joining and leaving the Belmont School of Nursing, I went back to Trevecca to graduate with an undergraduate in Computer Information Technology. I wanted to build things that help people. Later on I foud out that I also like to help people build things.</li>
+                            </ul>
+                        </div>
+                    </div>
+                }
                 @if (sectionsLogic.ASectionIsCurrentlyPromo)
                 {
                     @if (!sectionsLogic.Sections[0].IsCurrentPromo)
@@ -178,14 +250,6 @@
                         <div class="section-container">
                             <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
                                 Introduction
-                            </div>
-                        </div>
-                    }
-                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
-                    {
-                        <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                                Background
                             </div>
                         </div>
                     }
@@ -232,7 +296,7 @@
                     @if (!sectionsLogic.Sections[11].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader"       @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
+                            <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
                                 Contact
                             </div>
                         </div>
@@ -245,16 +309,24 @@
                             </div>
                         </div>
                     }
+                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                                Background
+                            </div>
+                        </div>
+                    }
                 }
                 <div class="toggle-all-sections-container">
                     <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
                         @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
                         {
-                            <span class="fa-solid fa-minimize"></span>
+                            <span class="fa-solid fa-down-left-and-up-right-to-center"></span>
                         }
                         else
                         {
-                            <span class="fa-solid fa-maximize"></span>
+                            <span class="fa-solid fa-up-right-and-down-left-from-center"></span>
                         }
                     </div>
                 </div>
@@ -264,6 +336,8 @@
 </DrawerPageTemplate>
 
 @code {
+    private List<string> SelectedWorkHistoryContent = new List<string>() { "btn-primary", "btn-secondary", "btn-secondary" };
+
     private CollapsingPageSectionsLogic sectionsLogic = new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()
     {
         new CollapsingPageSection(),
@@ -293,5 +367,12 @@
     {
         if (NavService.NavigateToSection == "Contact")
             NavService.ResetNavigateToSection();
+    }
+
+    private void UpdateWorkHistorySectionContent(int selection)
+    {
+        for (int i = 0; i < SelectedWorkHistoryContent.Count(); i++)
+            SelectedWorkHistoryContent[i] = "btn-secondary";
+        SelectedWorkHistoryContent[selection] = "btn-primary";
     }
 }

@@ -1,4 +1,3 @@
-
 .toggle-all-sections-container[b-ec2crac19g] {
     width: 100%;
     display: flex;
@@ -19,45 +18,55 @@
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0,0,0,.0.4) 10px 10px inset;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .sub-page-container[b-ec2crac19g] {
+    background-color: rgba(128, 139, 150, 0.65);
     height: 100%;
     display: flex;
     justify-content: center;
     padding: 10px 6px 6px 6px;
+    text-align: left;
 }
 
 .sections-container[b-ec2crac19g] {
     width: 100%;
     max-width: 1100px;
+    min-height: calc(calc(var(--content-height) + var(--footer-height)) - 14px);
 }
 
 .section-container[b-ec2crac19g] {
     width: 100%;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
 }
 
 .section-header[b-ec2crac19g] {
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #bbb;
-    color: #111;
+    background-color: rgba(54, 20, 70, 1);
+    color: #eee;
     width: 100%;
     height: 45px;
     border-radius: 6px 6px 0px 0px;
+    text-align: center;
     font-size: 1.1rem;
     padding: 8px 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02), 0 3px 7px 0 rgba(0, 0, 0, 0.02);
 }
 
 .section-content[b-ec2crac19g] {
+    background-color: #eee;
     width: 100%;
     transition: height 0.2s;
     border-radius: 0px 0px 6px 6px;
+    padding: 18px;
 }
+
+    .section-content > h2[b-ec2crac19g] {
+        text-align: center;
+    }
 
 /* start Pluggable classes */
 
@@ -72,9 +81,15 @@
 /* end Pluggable classes */
 
 @media (min-width: 78vh) {
+    .sub-page-container[b-ec2crac19g] {
+        height: auto;
+        min-height: 100%;
+    }
+
     .toggle-all-sections-container[b-ec2crac19g] {
         justify-content: start;
     }
+
     .toggle-all-sections[b-ec2crac19g] {
         bottom: 6px;
     }
@@ -85,6 +100,10 @@
 }
 
 @media (min-width: 1008px) {
+    .sub-page-container[b-ec2crac19g] {
+        background-color: rgba(128, 139, 150, 0.45);
+    }
+
     .toggle-all-sections[b-ec2crac19g] {
         width: 50px;
         height: 50px;

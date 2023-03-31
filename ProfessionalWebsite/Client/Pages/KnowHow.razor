@@ -37,7 +37,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
-                            Approach
+                            Languages
                         </div>
                         <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
                             <UnderConstruction />
@@ -49,7 +49,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
-                            C#
+                            Stacks
                         </div>
                         <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
                             <UnderConstruction />
@@ -61,7 +61,7 @@
                 {
                     <div class="section-container">
                     <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
-                        JavaScript
+                            Web Front-End
                     </div>
                     <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
                         <UnderConstruction />
@@ -73,7 +73,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
-                            Python
+                            UX/UI - User Experience & User Interface plus Modeling Software
                         </div>
                         <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
                             <UnderConstruction />
@@ -85,7 +85,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
-                            PHP
+                            Cloud Deployment Solutions, Agile Project Management Software, + Containers
                         </div>
                         <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
                             <UnderConstruction />
@@ -97,7 +97,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
-                            Styling
+                            Databases
                         </div>
                         <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
                             <UnderConstruction />
@@ -109,10 +109,85 @@
                 {
                     <div class="section-container">
                         <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
-                            Certifications
+                            Testing
                         </div>
                         <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
                             <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[8].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[8].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(8))">
+                            CLI
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[8].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[9].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[9].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(9))">
+                            Programming Paradigms & Methodologies
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[9].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[10].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[10].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(10))">
+                            Repositories
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[10].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[11].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
+                            Game Development
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[11].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[12].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[12].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(12))">
+                            Operating Systems
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[12].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
+                    </div>
+                }
+                @if (!sectionsLogic.ASectionIsCurrentlyPromo
+                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[13].IsCurrentPromo)
+                {
+                    <div class="section-container">
+                        <div class="section-header @sectionsLogic.Sections[13].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(13))">
+                            Why Programming?
+                        </div>
+                        <div class="section-content @sectionsLogic.Sections[13].IsCollapsedContent">
+                            <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
+                            <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
+                            <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
+                            <p>You get to use logic in ways that enhance the livelihood of people. It has a curious way of creating more opportunities for flourishing in multiple exponential ways. The efficiency of reducing required workload when utilizing software technologies is something I find wonderful. It offers the opportunity to sculpt a repeatable user experience, which allows for the heavy lifting to be done once and based on reliable scientific discoveries for optimizing a user’s return on time invested while using the technology.</p>
                         </div>
                     </div>
                 }
@@ -187,11 +262,11 @@
                     <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
                         @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
                         {
-                            <span class="fa-solid fa-minimize"></span>
+                            <span class="fa-solid fa-down-left-and-up-right-to-center"></span>
                         }
                         else
                         {
-                            <span class="fa-solid fa-maximize"></span>
+                            <span class="fa-solid fa-up-right-and-down-left-from-center"></span>
                         }
                     </div>
                 </div>
@@ -203,6 +278,12 @@
 @code { 
     private CollapsingPageSectionsLogic sectionsLogic = new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()
     {
+        new CollapsingPageSection(),
+        new CollapsingPageSection(),
+        new CollapsingPageSection(),
+        new CollapsingPageSection(),
+        new CollapsingPageSection(),
+        new CollapsingPageSection(),
         new CollapsingPageSection(),
         new CollapsingPageSection(),
         new CollapsingPageSection(),

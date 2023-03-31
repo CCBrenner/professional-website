@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-aNlzwDE6uFD+e5q8IbECaqOvuXe02H97r+r0nEZhr18=",
+      "hash": "sha256-Os8DmOd88p+7LqdwldIBWvWEealhzynpG9lePPysYs4=",
       "url": "css\/app.css"
     },
     {
@@ -73,7 +73,7 @@
       "url": "media\/images\/icon-512.png"
     },
     {
-      "hash": "sha256-uYnyRv3Mgqc29fuZe+B\/m88BvGcKu9+t3hPtMZwLMFQ=",
+      "hash": "sha256-AwHQh2tzDRvrZvqjRNpJaWYgEF0CgLDcH0eKC5TDXa0=",
       "url": "ProfessionalWebsite.Client.styles.css"
     },
     {
@@ -861,11 +861,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-z6M4DmK7955eaqWjo2P0iKATHgdM1ifsrzOmq2fgx4o=",
+      "hash": "sha256-AveNdEUoDOBWnGmmvstSt\/47BgvFZS4AJGFDvsHA87s=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-43RZFAcjPYi9UDZItqSCrEYLbTdQ2fZ7RCceyBmLZNU=",
+      "hash": "sha256-duAcvW+k0XCo1k5bIs9akmv4sLQ0YPgPqByT5OKFzUQ=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -873,9 +873,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-u\/ygKcFywLqGQAZFZbfr7kQfRFnY7VFG4Qk48NRvB9Q=",
+      "hash": "sha256-VLdNSh6N4mRjdA4X3etyC5Kt6Wl061rdqAH5jvN43g0=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "\/twP4Ibm"
+  "version": "1oeSY8YP"
 };
