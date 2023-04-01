@@ -77,7 +77,7 @@
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
                                Section="2"
-                               ButtonClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@NavService.AssociatedNav[1].NavPanelStatus">
@@ -129,7 +129,7 @@
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
                                Section="2"
-                               ButtonClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@NavService.AssociatedNav[2].NavPanelStatus">
@@ -151,7 +151,7 @@
         <NavPanelNavLinkButton Href="collyn#educationhistory"
                                ButtonText="Education History"
                                Section="2"
-                               ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="SectionIndex2AsPromoDestination" />
         <NavPanelNavLinkButton Href="collyn#noteabledones"
                                ButtonText='Noteable "Done"s'
                                Section="2"
@@ -168,7 +168,7 @@
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
                                Section="2"
-                               ButtonClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
         <NavPanelNavLinkButton Href="collyn#feedback"
                                IconClasses="fa-solid fa-rotate-left"
                                ButtonText="Feedback"
@@ -216,7 +216,7 @@
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
                                Section="2"
-                               ButtonClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@NavService.AssociatedNav[4].NavPanelStatus">
@@ -255,7 +255,7 @@
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
                                Section="2"
-                               ButtonClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
         @* potnetially include some of the below articles; keeping as ideas for future articles *@
         @*
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
@@ -319,6 +319,9 @@
     private async Task ShowLayoutControls(int index) =>
         await ShowLayoutControlsCallback.InvokeAsync(index);
 
-    private void NavigateToCollapsibleSectionOfOtherPage(int section) =>
-        NavService.NavigateToCollapsibleSectionOfOtherPage(section, "Contact");
+    private void SectionIndex2AsPromoDestination(int pageIndex) =>
+        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 2);
+
+    private void SectionIndex6AsPromoDestination(int pageIndex) =>
+        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
 }

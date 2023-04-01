@@ -39,7 +39,6 @@ namespace ProfessionalWebsite.Client.Pages
         {
             if (!isCollapsed)
                 isCurrentPromo = true;
-
         }
         public void Demote() =>
             isCurrentPromo = false;

@@ -62,7 +62,7 @@
                              IconClasses="fa-solid fa-envelope"
                              ButtonText="Contact"
                              Section="2"
-                             OnClickCallback="NavigateToCollapsibleSectionOfOtherPage" />
+                             OnClickCallback="SectionIndex6AsPromoDestination" />
     </DrawerContent>
     <PageContent>
         <PageContainer>
@@ -74,6 +74,6 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
-    private void NavigateToCollapsibleSectionOfOtherPage(int section) =>
-        NavService.NavigateToCollapsibleSectionOfOtherPage(section, "Contact");
+    private void SectionIndex6AsPromoDestination(int pageIndex) =>
+        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
 }

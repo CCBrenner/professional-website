@@ -833,23 +833,13 @@ namespace ProfessionalWebsite.Tests
 
             // Uses method that is tested above (RouteUserAndUpdateNav()), so skip testing for that. No test duplicates.
 
-            NavService.NavigateToCollapsibleSectionOfOtherPage(2, "Contact");
-            Assert.AreEqual("Contact", NavService.NavigateToSection);
+            NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6);
+            Assert.AreEqual(false, NavService.SectionedPages[2].Sections[6].IsCollapsed);
+            Assert.AreEqual(true, NavService.SectionedPages[2].Sections[1].IsCollapsed);
+            Assert.AreEqual(true, NavService.SectionedPages[2].Sections[7].IsCollapsed);
+            Assert.AreEqual(true, NavService.SectionedPages[2].Sections[5].IsCollapsed);
+            Assert.AreEqual(true, NavService.SectionedPages[2].Sections[0].IsCollapsed);
         }
         // end NavigateToCollapsibleSectionOfOtherPage() tests
-        // start ResetNavigateToSection() tests
-        [TestMethod]
-        public void TestResetNavigateToSection()
-        {
-            NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
-            Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
-            Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
-
-            NavService.ResetNavigateToSection();
-            Assert.AreEqual("", NavService.NavigateToSection);
-        }
-        // end ResetNavigateToSection() tests
     }
 }

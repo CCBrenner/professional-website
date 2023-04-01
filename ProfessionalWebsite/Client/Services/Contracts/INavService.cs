@@ -9,7 +9,6 @@
         public string LayoutControls { get; }
         public string AnimateMain { get; }
         public string DiscontinueButton { get; }
-        public string NavigateToSection { get; }
 
 
         // Methods:

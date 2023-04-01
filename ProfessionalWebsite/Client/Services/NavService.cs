@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
+using ProfessionalWebsite.Client.Pages;
 using ProfessionalWebsite.Client.Services.Contracts;
+using System.Collections.Generic;
 
 namespace ProfessionalWebsite.Client.Services
 {
@@ -15,6 +17,31 @@ namespace ProfessionalWebsite.Client.Services
                 new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
                 new AssociatedNavButtonAndPanel() { NavButtonStatus = "", NavPanelStatus = "", IsThisLocation = false },
             };
+
+            List<CollapsingPageSection> sectionsList = new List<CollapsingPageSection>();
+            for (int i = 0; i < 14; i++)
+                sectionsList.Add(new CollapsingPageSection());
+            CollapsingPageSectionsLogic pageIndexOfOne = new CollapsingPageSectionsLogic(sectionsList);
+
+            sectionsList = new List<CollapsingPageSection>();
+            for (int i = 0; i < 9; i++)
+                sectionsList.Add(new CollapsingPageSection());
+            CollapsingPageSectionsLogic pageIndexOfTwo = new CollapsingPageSectionsLogic(sectionsList);
+
+            sectionsList = new List<CollapsingPageSection>();
+            for (int i = 0; i < 7; i++)
+                sectionsList.Add(new CollapsingPageSection());
+            CollapsingPageSectionsLogic pageIndexOfThree = new CollapsingPageSectionsLogic(sectionsList);
+
+            SectionedPages = new List<CollapsingPageSectionsLogic>()
+            {
+                new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()),
+                pageIndexOfOne,
+                pageIndexOfTwo,
+                pageIndexOfThree,
+                new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()),
+            };
+
             globalNavButtonState = "";
             currentButton = 2;
             behindPanel = "";
@@ -22,10 +49,10 @@ namespace ProfessionalWebsite.Client.Services
             layoutControls = "";
             animateMain = "";
             discontinueButton = "";
-            navigateToSection = "";
         }
 
         public List<AssociatedNavButtonAndPanel> AssociatedNav;
+        public List<CollapsingPageSectionsLogic> SectionedPages;
 
         [Inject]
         public NavigationManager NavigationManager { get; }
@@ -43,9 +70,8 @@ namespace ProfessionalWebsite.Client.Services
         private string animateMain;
         public string DiscontinueButton { get { return discontinueButton; } }
         private string discontinueButton;
-        public string NavigateToSection { get { return navigateToSection; } }
-        private string navigateToSection;
         public event Action<string> OnAnimateMain;
+        public event Action<int> OnPromoSectionOfPage;
 
         // Methods:
         public void UpdateNav(int buttonId)
@@ -89,13 +115,17 @@ namespace ProfessionalWebsite.Client.Services
             behindPanel = "";
             contentBlur = "";
         }
-        public void NavigateToCollapsibleSectionOfOtherPage(int index, string section)  // needs tests
+        public void NavigateToCollapsibleSectionOfOtherPage(int pageIndex, int sectionIndex)  // needs tests
         {
-            RouteUserAndUpdateNav(index);
-            navigateToSection = section;  // section is a conditional that the destination component's OnInitialized() method uses to update the page to show only the specified section's contents
+            RouteUserAndUpdateNav(pageIndex);
+            SectionedPages[pageIndex].CollapseAllShowOne(sectionIndex);
+            RaiseEventOnPromoSectionOfPageIndexOne(sectionIndex);
         }
-        public void ResetNavigateToSection() =>  // needs tests
-            navigateToSection = "";
+        public void RaiseEventOnPromoSectionOfPageIndexOne(int sectionIndex)
+        {
+            if (OnPromoSectionOfPage != null)
+                OnPromoSectionOfPage?.Invoke(sectionIndex);
+        }
 
         // Animations
         public void ShowLayoutControls(int index)

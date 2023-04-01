@@ -1,189 +1,260 @@
 ﻿@page "/knowhow"
 
 @inject NavService NavService
+@implements IDisposable
 
 <PageTitle>Know-How - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-vial" HeaderText="Know-How">
     <DrawerContent>
-        <DrawerNavLinkButton Href="knowhow#overview" ButtonText="Overview" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(0))" />
-        <DrawerNavLinkButton Href="knowhow#approach" ButtonText="Approach" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(1))" />
-        <DrawerNavLinkButton Href="knowhow#csharp" ButtonText="C#" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(2))" />
-        <DrawerNavLinkButton Href="knowhow#javascript" ButtonText="JS" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(3))" />
-        <DrawerNavLinkButton Href="knowhow#python" ButtonText="Python" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(4))" />
-        <DrawerNavLinkButton Href="knowhow#php" ButtonText="PHP" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(5))" />
-        <DrawerNavLinkButton Href="knowhow#styling" ButtonText="Styling" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(6))" />
-        <DrawerNavLinkButton Href="knowhow#certifications" ButtonText="Certifications" OnClickCallback="(()=>sectionsLogic.CollapseAllShowOne(7))" />
+        <DrawerNavLinkButton Href="knowhow#overview" ButtonText="Overview" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(0))" />
+        <DrawerNavLinkButton Href="knowhow#approach" ButtonText="Approach" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(1))" />
+        <DrawerNavLinkButton Href="knowhow#csharp" ButtonText="C#" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(2))" />
+        <DrawerNavLinkButton Href="knowhow#javascript" ButtonText="JS" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(3))" />
+        <DrawerNavLinkButton Href="knowhow#python" ButtonText="Python" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(4))" />
+        <DrawerNavLinkButton Href="knowhow#php" ButtonText="PHP" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(5))" />
+        <DrawerNavLinkButton Href="knowhow#styling" ButtonText="Styling" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(6))" />
+        <DrawerNavLinkButton Href="knowhow#certifications" ButtonText="Certifications" OnClickCallback="(()=>NavService.SectionedPages[1].CollapseAllShowOne(7))" />
         <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" />
-        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, "Contact"))' />
+        <DrawerNavLinkButton Href="collyn#contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6))" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[0].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[0].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[0].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(0))">
                             Overview
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[0].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[0].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[0].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[1].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[1].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[1].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(1))">
                             Languages
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[1].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[1].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[1].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[2].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[2].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[2].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(2))">
                             Stacks
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[2].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[2].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[2].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[3].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[3].IsCurrentPromo)
                 {
                     <div class="section-container">
-                    <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[3].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(3))">
                             Web Front-End
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[3].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
+                        </div>
+                        <div class="section-content @NavService.SectionedPages[1].Sections[3].IsCollapsedContent">
+                            <UnderConstruction />
+                        </div>
                     </div>
-                    <div class="section-content @sectionsLogic.Sections[3].IsCollapsedContent">
-                        <UnderConstruction />
-                    </div>
-                </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[4].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[4].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[4].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(4))">
                             UX/UI - User Experience & User Interface plus Modeling Software
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[4].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[4].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[4].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[5].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[5].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[5].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(5))">
                             Cloud Deployment Solutions, Agile Project Management Software, + Containers
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[5].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[5].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[5].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[6].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[6].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[6].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(6))">
                             Databases
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[6].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[6].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[6].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[7].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[7].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[7].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(7))">
                             Testing
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[7].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[7].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[7].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[8].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[8].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[8].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(8))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[8].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(8))">
                             CLI
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[8].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[8].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[8].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[9].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[9].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[9].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(9))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[9].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(9))">
                             Programming Paradigms & Methodologies
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[9].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[9].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[9].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[10].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[10].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[10].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(10))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[10].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(10))">
                             Repositories
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[10].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[10].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[10].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[11].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[11].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[11].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(11))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[11].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(11))">
                             Game Development
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[11].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[11].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[11].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[12].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[12].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[12].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(12))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[12].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(12))">
                             Operating Systems
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[12].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[12].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[12].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!sectionsLogic.ASectionIsCurrentlyPromo
-                || sectionsLogic.ASectionIsCurrentlyPromo && sectionsLogic.Sections[13].IsCurrentPromo)
+                @if (!NavService.SectionedPages[1].ASectionIsCurrentlyPromo
+                || NavService.SectionedPages[1].ASectionIsCurrentlyPromo && NavService.SectionedPages[1].Sections[13].IsCurrentPromo)
                 {
                     <div class="section-container">
-                        <div class="section-header @sectionsLogic.Sections[13].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(13))">
+                        <div class="section-header @NavService.SectionedPages[1].Sections[13].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(13))">
                             Why Programming?
+                            &nbsp;
+                            @if(NavService.SectionedPages[1].Sections[13].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @sectionsLogic.Sections[13].IsCollapsedContent">
+                        <div class="section-content @NavService.SectionedPages[1].Sections[13].IsCollapsedContent">
                             <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
                             <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
                             <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
@@ -191,76 +262,92 @@
                         </div>
                     </div>
                 }
-                @if (sectionsLogic.ASectionIsCurrentlyPromo)
+                @if (NavService.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
-                    @if (!sectionsLogic.Sections[0].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[0].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(0))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[0].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(0))">
                                 Overview
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[1].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[1].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[1].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(1))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[1].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(1))">
                                 Approach
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[2].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[2].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[2].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(2))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[2].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(2))">
                                 C#
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[3].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[3].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(3))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[3].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(3))">
                                 JS
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[4].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[4].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(4))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[4].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(4))">
                                 Python
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[5].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[5].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(5))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[5].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(5))">
                                 PHP
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[6].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[6].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(6))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[6].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(6))">
                                 Styling
+                                &nbsp;
+                                <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!sectionsLogic.Sections[7].IsCurrentPromo)
+                    @if (!NavService.SectionedPages[1].Sections[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @sectionsLogic.Sections[7].IsCollapsedHeader" @onclick="(()=>sectionsLogic.ToggleCollapseSingle(7))">
+                            <div class="section-header @NavService.SectionedPages[1].Sections[7].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[1].ToggleCollapseSingle(7))">
                                 Certifications
+                                &nbsp;
+                                <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
                 }
                 <div class="toggle-all-sections-container">
-                    <div class="toggle-all-sections" @onclick="sectionsLogic.ToggleAllSections">
-                        @if (sectionsLogic.SectionsStatus == SectionsStatus.AllAreOpen)
+                    <div class="toggle-all-sections" @onclick="NavService.SectionedPages[1].ToggleAllSections">
+                        @if (NavService.SectionedPages[1].SectionsStatus == SectionsStatus.AllAreOpen)
                         {
                             <span class="fa-solid fa-down-left-and-up-right-to-center"></span>
                         }
@@ -276,21 +363,14 @@
 </DrawerPageTemplate>
 
 @code { 
-    private CollapsingPageSectionsLogic sectionsLogic = new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()
+    protected override void OnInitialized() =>
+        NavService.OnPromoSectionOfPage += PromoteSection;
+    void IDisposable.Dispose() =>
+        NavService.OnPromoSectionOfPage -= PromoteSection;
+
+    private void PromoteSection(int sectionIndex)
     {
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-        new CollapsingPageSection(),
-    });
+        NavService.SectionedPages[1].CollapseAllShowOne(sectionIndex);
+        StateHasChanged();
+    }
 }

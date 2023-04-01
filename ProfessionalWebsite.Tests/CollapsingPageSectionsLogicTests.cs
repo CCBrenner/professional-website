@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace ProfessionalWebsite.Tests
 {
@@ -36,7 +35,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[0].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
@@ -55,7 +54,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -70,7 +69,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -85,7 +84,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -93,7 +92,6 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[5].IsCollapsed);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
 
             sectionsLogic.ToggleCollapseSingle(4);
             Assert.AreEqual(true, sectionsLogic.Sections[4].IsCollapsed);
@@ -101,14 +99,14 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[5].IsCollapsed);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
         }
         [TestMethod]
         public void TestToggleCollapseSingleIfCollapsedThenOpen()
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -116,7 +114,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[5].IsCollapsed);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
 
             sectionsLogic.ToggleCollapseSingle(4);
             Assert.AreEqual(true, sectionsLogic.Sections[4].IsCollapsed);
@@ -124,7 +122,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[5].IsCollapsed);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
 
             sectionsLogic.ToggleCollapseSingle(4);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
@@ -132,14 +130,14 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[5].IsCollapsed);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+                        Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
         }
         [TestMethod]
         public void TestToggleCollapseSingleSingleOpenSectionMeansPromoteOpenSection()
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -200,7 +198,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -235,7 +233,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -272,6 +270,55 @@ namespace ProfessionalWebsite.Tests
             sectionsLogic.ToggleCollapseSingle(12);
             Assert.AreEqual(SectionsStatus.AllAreOpen, sectionsLogic.SectionsStatus);
         }
+        [TestMethod]
+        public void TestToggleCollapseSingleStartingAllOpenAndEachClosedPromotesTheLastSectionThatIsOpen()
+        {
+            CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
+            Assert.AreEqual(13, sectionsLogic.Sections.Count());
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
+            Assert.AreEqual(SectionsStatus.AllAreOpen, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
+            Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
+
+            // 13 sections in TestConfiguration()
+            sectionsLogic.ToggleCollapseSingle(0);
+            sectionsLogic.ToggleCollapseSingle(1);
+            sectionsLogic.ToggleCollapseSingle(2);
+            sectionsLogic.ToggleCollapseSingle(3);
+            sectionsLogic.ToggleCollapseSingle(4);
+            sectionsLogic.ToggleCollapseSingle(5);
+            sectionsLogic.ToggleCollapseSingle(6);
+            sectionsLogic.ToggleCollapseSingle(7);
+            sectionsLogic.ToggleCollapseSingle(8);
+            sectionsLogic.ToggleCollapseSingle(9);
+            sectionsLogic.ToggleCollapseSingle(10);
+            sectionsLogic.ToggleCollapseSingle(11);
+            // index [12] as only section left open
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(true, sectionsLogic.ASectionIsCurrentlyPromo);
+            Assert.AreEqual(SectionsStatus.AtLeastOneIsOpen, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
+            Assert.AreEqual(true, sectionsLogic.Sections[12].IsCurrentPromo);
+            Assert.AreEqual(true, sectionsLogic.Sections[3].IsCollapsed);
+            Assert.AreEqual(false, sectionsLogic.Sections[3].IsCurrentPromo);
+            Assert.AreEqual(true, sectionsLogic.Sections[8].IsCollapsed);
+            Assert.AreEqual(false, sectionsLogic.Sections[8].IsCurrentPromo);
+
+            sectionsLogic.ToggleCollapseSingle(12);
+            Assert.AreEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
+            Assert.AreEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(true, sectionsLogic.Sections[12].IsCollapsed);
+            Assert.AreEqual(false, sectionsLogic.Sections[12].IsCurrentPromo);
+
+            sectionsLogic.ToggleCollapseSingle(7);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(true, sectionsLogic.ASectionIsCurrentlyPromo);
+            Assert.AreEqual(SectionsStatus.AtLeastOneIsOpen, sectionsLogic.SectionsStatus);
+            Assert.AreEqual(false, sectionsLogic.Sections[7].IsCollapsed);
+            Assert.AreEqual(true, sectionsLogic.Sections[7].IsCurrentPromo);
+        }
         // end ToggleCollapseSingle() tests
         // start ToggleAllSections() tests
         [TestMethod]
@@ -279,7 +326,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -296,7 +343,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, sectionsLogic.Sections[8].IsCollapsed);
 
             sectionsLogic.ToggleAllSections();
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[6].IsCollapsed);
@@ -310,7 +357,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -329,7 +376,7 @@ namespace ProfessionalWebsite.Tests
             sectionsLogic.ToggleCollapseSingle(10);
             sectionsLogic.ToggleCollapseSingle(11);
             sectionsLogic.ToggleCollapseSingle(12);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[0].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[1].IsCollapsed);
@@ -345,7 +392,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[12].IsCollapsed);
 
             sectionsLogic.ToggleAllSections();
-            Assert.AreEqual(true, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(true, sectionsLogic.Sections[0].IsCollapsed);
             Assert.AreEqual(true, sectionsLogic.Sections[1].IsCollapsed);
@@ -365,14 +412,14 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
 
             sectionsLogic.CollapseAllShowOne(4);
             sectionsLogic.ToggleCollapseSingle(4);
-            Assert.AreEqual(true, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(true, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(true, sectionsLogic.Sections[6].IsCollapsed);
             Assert.AreEqual(true, sectionsLogic.Sections[9].IsCollapsed);
@@ -381,7 +428,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, sectionsLogic.Sections[8].IsCollapsed);
 
             sectionsLogic.ToggleAllSections();
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[6].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[9].IsCollapsed);
@@ -394,7 +441,7 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -418,13 +465,13 @@ namespace ProfessionalWebsite.Tests
         {
             CollapsingPageSectionsLogic sectionsLogic = TestConfiguration();
             Assert.AreEqual(13, sectionsLogic.Sections.Count());
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(false, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCurrentPromo);
 
             sectionsLogic.PromoteSection(4);
-            Assert.AreEqual(false, sectionsLogic.AllSectionsAreCollapsed);
+            Assert.AreNotEqual(SectionsStatus.AllAreCollapsed, sectionsLogic.SectionsStatus);
             Assert.AreEqual(true, sectionsLogic.ASectionIsCurrentlyPromo);
             Assert.AreEqual(false, sectionsLogic.Sections[4].IsCollapsed);
             Assert.AreEqual(true, sectionsLogic.Sections[4].IsCurrentPromo);
@@ -438,35 +485,5 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, sectionsLogic.Sections[2].IsCurrentPromo);
         }
         // end PromoteSection() tests
-        /*
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        // start () tests
-        // end () tests
-        */
     }
 }

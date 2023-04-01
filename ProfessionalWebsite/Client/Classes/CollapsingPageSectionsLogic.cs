@@ -1,101 +1,77 @@
-﻿namespace ProfessionalWebsite.Client.Pages
+﻿using System;
+
+namespace ProfessionalWebsite.Client.Pages
 {
     public class CollapsingPageSectionsLogic
     {
         public CollapsingPageSectionsLogic(List<CollapsingPageSection> sections)
         {
             Sections = sections;
-            allSectionsAreCollapsed = false;
             aSectionIsCurrentlyPromo = false;
-            aSectionIsCurrentlyOpen = true;
             sectionsStatus = SectionsStatus.AllAreOpen;
+            sectionsExpanded = Sections.Count();
         }
         public List<CollapsingPageSection> Sections;
 
-        public bool AllSectionsAreCollapsed { get { return allSectionsAreCollapsed; } }
-        private bool allSectionsAreCollapsed;
         public bool ASectionIsCurrentlyPromo { get { return aSectionIsCurrentlyPromo; } }
         private bool aSectionIsCurrentlyPromo;
-        public bool ASectionIsCurrentlyOpen { get { return aSectionIsCurrentlyOpen; } }
-        private bool aSectionIsCurrentlyOpen;
         public SectionsStatus SectionsStatus { get { return sectionsStatus; } }
         private SectionsStatus sectionsStatus;
+        public int SectionsExpanded { get { return sectionsExpanded; } }
+        private int sectionsExpanded;
         public void CollapseAllShowOne(int section)
         {
-            CloseAll();
+            DemoteAllSections();
+            foreach (var sec in Sections)
+                sec.ToggleCollapse(true);
             ToggleCollapseSingle(section);
             Sections[section].Promote();
             aSectionIsCurrentlyPromo = true;
-            UpdateASectionIsCurrentlyOpen();
             UpdateSectionsStatus();
         }
         public void ToggleCollapseSingle(int section)
         {
-            DemoteAllSections();
             Sections[section].ToggleCollapse(!Sections[section].IsCollapsed);
-            allSectionsAreCollapsed = true;
-            foreach (var sec in Sections)
+            UpdateSectionsStatus();
+            PromoteIfOnlyOneExpandedSection();
+        }
+        private void PromoteIfOnlyOneExpandedSection()
+        {
+            int expandedSectionsCount = 0;
+            int promoId = 0;
+            for (int i = 0; i < Sections.Count(); i++)
             {
-                if (!sec.IsCollapsed)
+                if (!Sections[i].IsCollapsed)
                 {
-                    allSectionsAreCollapsed = false;
+                    expandedSectionsCount++;
+                    promoId = i;
                 }
             }
-            IfOnlyOneSectionOpenThenMoveThatSectionToTop();
-            UpdateASectionIsCurrentlyOpen();
-            UpdateSectionsStatus();
-        }
-        private void CloseAll()
-        {
-            DemoteAllSections();
-            foreach (var section in Sections)
-            {
-                section.ToggleCollapse(true);
-            }
+            if (expandedSectionsCount == 1)
+                PromoteSection(promoId);
+            else
+                DemoteAllSections();
         }
         public void ToggleAllSections()
         {
-            bool atleastOneSectionIsOpen = false;
-            foreach (var section in Sections)
-            {
-                if (!section.IsCollapsed)
-                {
-                    atleastOneSectionIsOpen = true;
-                    break;
-                }
-            }
+            UpdateSectionsStatus();
 
-            bool allSectionsAreOpen = false;
-            int openSections = 0;
-            foreach (var section in Sections)
+            if (SectionsStatus == SectionsStatus.AllAreOpen)
             {
-                if (!section.IsCollapsed)
+                DemoteAllSections();
+                foreach (var section in Sections)
                 {
-                    openSections++;
+                    section.ToggleCollapse(true);
                 }
-            }
-            if (openSections == Sections.Count()) 
-                allSectionsAreOpen = true;
-
-            if (AllSectionsAreCollapsed || atleastOneSectionIsOpen && !allSectionsAreOpen)
-            {
-                OpenAll();
-                allSectionsAreCollapsed = false;
+                sectionsStatus = SectionsStatus.AllAreCollapsed;
             }
             else
             {
-                CloseAll();
-                allSectionsAreCollapsed = true;
+                DemoteAllSections();
+                foreach (var section in Sections)
+                    section.ToggleCollapse(false);
+                sectionsStatus = SectionsStatus.AllAreOpen;
             }
-            UpdateASectionIsCurrentlyOpen();
-            UpdateSectionsStatus();
-        }
-
-        private void OpenAll()
-        {
-            DemoteAllSections();
-            foreach (var section in Sections)
-                section.ToggleCollapse(false);
         }
         public void PromoteSection(int index)
         {
@@ -108,36 +84,6 @@
             foreach(var section in Sections)
                 section.Demote();
             aSectionIsCurrentlyPromo = false;
-        }
-        private void IfOnlyOneSectionOpenThenMoveThatSectionToTop()
-        {
-            int nonCollapsedCount = 0;
-            int sec = 0;
-            for(int i = 0; i < Sections.Count(); i++)
-            {
-                if (!Sections[i].IsCollapsed)
-                {
-                    nonCollapsedCount++;
-                    sec = i;
-                }
-            }
-
-            if (nonCollapsedCount == 1)
-                PromoteSection(sec);
-            else
-                DemoteAllSections();
-        }
-        private void UpdateASectionIsCurrentlyOpen()
-        {
-            aSectionIsCurrentlyOpen = false;
-            foreach(var section in Sections)
-            {
-                if (!section.IsCollapsed)
-                {
-                    aSectionIsCurrentlyOpen = true;
-                    break;
-                }
-            }
         }
         private void UpdateSectionsStatus()
         {
