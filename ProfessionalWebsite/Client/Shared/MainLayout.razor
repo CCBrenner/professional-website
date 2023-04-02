@@ -55,13 +55,58 @@
                        NavPanelEStatus="@NavService.AssociatedNav[4].NavPanelStatus"
                        UpdateNavCallback="NavService.RouteUserAndUpdateNav"
                        ShowLayoutControlsCallback="NavService.ShowLayoutControls" />
+            <div class="anim-icon" @onclick="ToggleAnimControlsDisplay">
+                <span class="fa-solid fa-magnet" aria-hidden="true"></span>
+            </div>
+            <div class="anim-controls @AnimControlsDisplay">
+                <div class="anim-pair" @onclick="(()=>NavService.PlayAnimation(1, false))">
+                    <div class="anim-regular">
+                        Bombastic
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(1, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(2, false))">
+                        Skywalker
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(2, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(3, false))">
+                        Kitchen Sink
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(3, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(4, false))">
+                        Flipster
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(4, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(5, false))">
+                        Asteroid
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(5, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
 
             @* Behind Panel (z-index: 20) *@
             <div class="behind-panel @NavService.BehindPanel" @onclick="NavService.UpdateNavFromBehindPanel"></div>
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="#contact" @onclick="(()=>NavService.RouteUserAndUpdateNav(2))">
+                <a class="navbar-brand" href="#contact" @onclick="(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -111,10 +156,11 @@
 
 @code {
     // All code here is for animating the "main" element
-        // (event is required due to this layout component needing to re-render)
-        // (it is weird when a child has to tell their parent what to do)
+    // (event is required due to this layout component needing to re-render)
+    // (it is weird when a child has to tell their parent what to do)
 
     private string AnimateMain = "";
+    private string AnimControlsDisplay = "";
 
     protected override void OnInitialized() =>
         NavService.OnAnimateMain += UpdateAnimateMain;
@@ -126,4 +172,6 @@
         AnimateMain = animation;
         StateHasChanged();
     }
+    private void ToggleAnimControlsDisplay() =>
+        AnimControlsDisplay = AnimControlsDisplay == "anim-display" ? "" : "anim-display";
 }

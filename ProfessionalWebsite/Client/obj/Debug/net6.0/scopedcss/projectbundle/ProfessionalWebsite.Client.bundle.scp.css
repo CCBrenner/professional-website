@@ -1068,7 +1068,75 @@ td[b-cliwmzypxj] {
     position: absolute;
 }
 
+.anim-icon[b-gzb0l1unjh] {
+    background-color: rgba(255,255,255,0.25);
+    color: #eee;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 30;
+    top: calc(calc(var(--top-bar-height) - 40px) / 2);
+    right: 10px;
+}
+    .anim-icon:hover[b-gzb0l1unjh] {
+        cursor: pointer;
+    }
 
+.anim-controls[b-gzb0l1unjh] {
+    background-color: rgb(19, 20, 29);
+    color: #eee;
+    width: 250px;
+    display: none;
+    position: absolute;
+    top: calc(var(--top-bar-height) - 6px);
+    right: 5px;
+    z-index: 30;
+    border-radius: 12px;
+    padding-bottom: 6px;
+}
+
+/* start Pluggable */
+.anim-display[b-gzb0l1unjh] {
+    display: block; /* later, change this to an animated appearance */
+}
+/* end Pluggable */
+
+.anim-pair[b-gzb0l1unjh] {
+    display: flex;
+    padding: 6px 6px 0px 6px;
+}
+.anim-regular[b-gzb0l1unjh] {
+    background-color: #0265c8;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 5;
+    margin-right: 4px;
+    border-radius: 12px;
+}
+    .anim-regular:hover[b-gzb0l1unjh] {
+        cursor: pointer;
+    }
+
+.anim-continuous[b-gzb0l1unjh] {
+    background-color: rgba(255,255,255,0.25);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border-radius: 12px;
+}
+    .anim-continuous:hover[b-gzb0l1unjh] {
+        cursor: pointer;
+    }
 /* Part of Option2 */
 /*
 @media (min-width: 78vh) {
@@ -1128,7 +1196,6 @@ td[b-cliwmzypxj] {
         padding: 20px;
     }
 }*/
-
 /* Part of Option3 */
 @media (min-width: 78vh) {
     .main[b-gzb0l1unjh] {
