@@ -108,7 +108,7 @@ namespace ProfessionalWebsite.Client.Classes.HideAndSeekProject
                     if (foundOpponents.Count() > 0)
                     {
                         FoundOpponents.AddRange(foundOpponents);
-                        return $"You found {foundOpponents.Count()} opponent{House.S(foundOpponents.Count())} hiding {location.HidingPlace}<br>";
+                        return $"You found {foundOpponents.Count()} opponent{House.S(foundOpponents.Count())} hiding {location.HidingPlace}.<br>";
                     }
                     else
                         return $"Nobody was hiding {location.HidingPlace}<br>";

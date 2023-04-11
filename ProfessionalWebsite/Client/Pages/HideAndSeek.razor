@@ -75,7 +75,9 @@
                         @((MarkupString)gameController.GameProgress)
                     </p>
                     <p>
-                        @((MarkupString)Status.Replace(" (or click 'Check')", ""))
+                        @((MarkupString)Status
+                        .Replace(" (or click 'Check')", "")
+                        .Replace("Press \"Restart\" to restart to restart the game or press \"Quit\" to quit.", ""))
                     </p>
                 </div>
             </div>
