@@ -1,0 +1,136 @@
+﻿
+/* Styles here are only for Current interface, not Original (which uses only bootstrap). */
+
+.text-prompts-container {
+    padding: 14px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.text-prompts {
+    height: calc(var(--content-height) - 266px);
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 10px;
+    padding: 14px 40px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.game-progress {
+    background-color: darkgrey;
+    color: #111;
+    border-radius: 8px;
+    position: sticky;
+    top: 0px;
+    font-size: 1rem;
+    padding: 4px 10px;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+}
+
+.controls-backdrop {
+    background-color: rgba(54, 20, 70, 0.9);
+    padding: 10px 10px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.save-load {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    .save-load > * {
+        margin: 5px 2px;
+    }
+
+.input-saveload-container {
+    width: 300px;
+    height: 168px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.directions-container {
+    padding: 0px 10px;
+}
+
+.noncompass-directions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.directions-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.direction {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.button-inactive {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.button-selectable {
+    background-color: lightgrey;
+    color: #111;
+    cursor: pointer;
+}
+
+.search-button {
+    background-color: #28a745;
+    color: #eee;
+    cursor: pointer;
+}
+.short-input {
+    max-height: 30px;
+}
+
+@media (min-width: 78vh) {
+    .text-prompts-container {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .text-prompts {
+        height: calc(var(--content-height) - 226px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-prompts-container {
+        padding-right: 150px;
+        padding-left: 150px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .text-prompts-container {
+        padding-right: 220px;
+        padding-left: 220px;
+    }
+}

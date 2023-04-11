@@ -1054,3 +1054,8 @@ C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_c
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\Invent.razor.rz.scp.css
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\KnowHow.razor.rz.scp.css
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\build-gz\pVzWlNAA.gz
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\HideAndSeek.razor.rz.scp.css

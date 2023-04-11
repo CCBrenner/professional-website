@@ -1,0 +1,136 @@
+
+/* Styles here are only for Current interface, not Original (which uses only bootstrap). */
+
+.text-prompts-container[b-huled98q4w] {
+    padding: 14px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.text-prompts[b-huled98q4w] {
+    height: calc(var(--content-height) - 266px);
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 10px;
+    padding: 14px 40px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.game-progress[b-huled98q4w] {
+    background-color: darkgrey;
+    color: #111;
+    border-radius: 8px;
+    position: sticky;
+    top: 0px;
+    font-size: 1rem;
+    padding: 4px 10px;
+}
+
+.controls[b-huled98q4w] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 0px 0px;
+}
+
+.controls-backdrop[b-huled98q4w] {
+    background-color: rgba(54, 20, 70, 0.9);
+    padding: 10px 10px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.save-load[b-huled98q4w] {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    .save-load > *[b-huled98q4w] {
+        margin: 5px 2px;
+    }
+
+.input-saveload-container[b-huled98q4w] {
+    width: 300px;
+    height: 168px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.directions-container[b-huled98q4w] {
+    padding: 0px 10px;
+}
+
+.noncompass-directions-container[b-huled98q4w] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.directions-row[b-huled98q4w] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.direction[b-huled98q4w] {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.button-inactive[b-huled98q4w] {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.button-selectable[b-huled98q4w] {
+    background-color: lightgrey;
+    color: #111;
+    cursor: pointer;
+}
+
+.search-button[b-huled98q4w] {
+    background-color: #28a745;
+    color: #eee;
+    cursor: pointer;
+}
+.short-input[b-huled98q4w] {
+    max-height: 30px;
+}
+
+@media (min-width: 78vh) {
+    .text-prompts-container[b-huled98q4w] {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    .text-prompts[b-huled98q4w] {
+        height: calc(var(--content-height) - 226px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-prompts-container[b-huled98q4w] {
+        padding-right: 150px;
+        padding-left: 150px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .text-prompts-container[b-huled98q4w] {
+        padding-right: 220px;
+        padding-left: 220px;
+    }
+}
