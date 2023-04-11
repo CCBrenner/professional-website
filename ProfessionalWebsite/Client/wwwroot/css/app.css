@@ -155,6 +155,10 @@ li {
     margin-bottom: 12px;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media (min-width: 78vh) {
     :root {
         --app-container-height: var(--app-container-breakpoint1-height);

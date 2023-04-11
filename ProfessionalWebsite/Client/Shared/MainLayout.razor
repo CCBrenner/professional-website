@@ -59,6 +59,7 @@
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
             <div class="anim-controls @AnimControlsDisplay">
+                <h4>Animations</h4>
                 <div class="anim-pair" @onclick="(()=>NavService.PlayAnimation(1, false))">
                     <div class="anim-regular">
                         Bombastic
@@ -98,6 +99,42 @@
                     <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(5, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(7, false))">
+                        FlipOnX
+                    </div>
+                    <div class="anim-continuous"></div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(6, false))">
+                        FlipOnY
+                    </div>
+                    <div class="anim-continuous"></div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(11, false))">
+                        RotateOnZ
+                    </div>
+                    <div class="anim-continuous"></div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(8, false))">
+                        East Is Up
+                    </div>
+                    <div class="anim-continuous"></div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(9, false))">
+                        West Is Up
+                    </div>
+                    <div class="anim-continuous"></div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(10, true))">
+                        SloRo (<span class="fa-solid fa-infinity" aria-hidden="true"></span>)
+                    </div>
+                    <div class="anim-continuous"></div>
                 </div>
             </div>
 

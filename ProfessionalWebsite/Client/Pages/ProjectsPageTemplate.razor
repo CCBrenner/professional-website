@@ -12,10 +12,10 @@
                              ButtonText="Match Game"
                              Section="0"
                              OnClickCallback="NavService.RouteUserAndUpdateNav" />
-        <DrawerNavLinkButton Href="thispwa" 
+        <DrawerNavLinkButton Href="knowhow" 
                              ButtonText="This PWA"
-                             Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             Section="1"
+                             OnClickCallback="SectionIndex14AsPromoDestination" />
       @*<DrawerNavLinkButton Href="hideandseek" 
                              ButtonText="Hide & Seek"
                              Section="0"
@@ -74,6 +74,8 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    private void SectionIndex14AsPromoDestination(int pageIndex) =>
+        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 14);
     private void SectionIndex6AsPromoDestination(int pageIndex) =>
         NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
 }

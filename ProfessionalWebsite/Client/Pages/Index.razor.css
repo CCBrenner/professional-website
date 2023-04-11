@@ -21,6 +21,10 @@
     font-size: 1.5rem;
 }
 
+    .toggle-all-sections:hover {
+        cursor: pointer;
+    }
+
 .sub-page-container {
     background-color: rgba(128, 139, 150, 0.65);
     height: 100%;
@@ -68,12 +72,11 @@
     padding: 18px;
 }
 
-.section-content > h2 {
+.section-content-title {
     text-align: center;
+    padding: 12px 0px;
 }
-
 /* start Pluggable classes */
-
 .collapsed-header {
     border-radius: 6px;
 }

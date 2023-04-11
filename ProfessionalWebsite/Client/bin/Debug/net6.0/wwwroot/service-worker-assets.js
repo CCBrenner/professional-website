@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-Os8DmOd88p+7LqdwldIBWvWEealhzynpG9lePPysYs4=",
+      "hash": "sha256-nb3ztAbWObcJYqPLiXQsr5ugbWU\/Er\/rqhHDgZkGNBU=",
       "url": "css\/app.css"
     },
     {
@@ -61,6 +61,18 @@
       "url": "manifest.json"
     },
     {
+      "hash": "sha256-IF3gQ8ZoVO0o3k81MdV8NzYSPnCeHuxK2ux3bz1p7Jw=",
+      "url": "media\/images\/certifications\/LinkedInLearning_JavaScriptEssentialTraining_May2021.png"
+    },
+    {
+      "hash": "sha256-wqwOVNbxkaANrdUDzhctPOOCUOqwgf3eurlgY+R302A=",
+      "url": "media\/images\/certifications\/LinkedInLearning_PHPEssentialTraining_May2021.png"
+    },
+    {
+      "hash": "sha256-HDHRoR1dPmAFazY4yqO4Il3vtWlGT+v8QjnIOTS1Xfo=",
+      "url": "media\/images\/certifications\/Udemy_2021CompletePythonBootcampFromZerotoHeroinPython_May2021.jpg"
+    },
+    {
       "hash": "sha256-iuIDcV7R85jv3XEhsdk3sD96JC1bzha\/WwZPXnMzcYU=",
       "url": "media\/images\/frame.png"
     },
@@ -73,7 +85,7 @@
       "url": "media\/images\/icon-512.png"
     },
     {
-      "hash": "sha256-\/G3bHMFNCGLL5SjE+0moiu\/dxxuXMseGWGK1Ukr+GVg=",
+      "hash": "sha256-sKUGenHBlo1uYvZSd7ovDm53g5Z+qMuNaF05fppLoUE=",
       "url": "ProfessionalWebsite.Client.styles.css"
     },
     {
@@ -861,11 +873,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-XBC0+NftbDw\/SBrBVCexbCCLqu8r8CUCsbsxaJP\/ZZA=",
+      "hash": "sha256-\/lyF9RgYsUHk0776vGWQ7qv90tv7tfIvzcKG5Hw9GCA=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-IWOU20aOLdR7EBa18EBa2gx47r80CkhNKwubA087fSc=",
+      "hash": "sha256-5cDIMrUvatf2aQtAXSwH92umDKKDxI0cPrBkBELCmGM=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -873,9 +885,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-x8eTBgOmigb45+xSFzMqqZD3kA5pApcIl18KXo6vGyM=",
+      "hash": "sha256-K6xBIvuyfEw0agghd6M3azU6grhyFXyHN7mC2HGybVo=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "A\/EqYHnD"
+  "version": "PJJjdHr+"
 };

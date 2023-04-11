@@ -19,7 +19,7 @@ namespace ProfessionalWebsite.Client.Services
             };
 
             List<CollapsingPageSection> sectionsList = new List<CollapsingPageSection>();
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < 15; i++)
                 sectionsList.Add(new CollapsingPageSection());
             CollapsingPageSectionsLogic pageIndexOfOne = new CollapsingPageSectionsLogic(sectionsList);
 

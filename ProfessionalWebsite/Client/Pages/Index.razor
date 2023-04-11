@@ -40,14 +40,14 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[0].IsCollapsedContent">
-                            <p>Hey, how are you today? I’m Collyn Brenner - Welcome to my developer portfolio!</p>
-                            <p>Here you can find out who I am including my interests, creations, abilities, ideas and plans for the future. You can also check out the <i>Articles</i> section for further commentary on various topics.
+                            <h3 class="section-content-title"><b>Welcome! test4_fourth build after auto load enabled in Service worker</b></h3>
+                            <p>My name is Collyn Brenner. Here you can find out who I am including my interests, creations, abilities, ideas and plans for the future. You can also check out the <i>Articles</i> section for further commentary on various topics.
                             </p>
                             <p>
                                 This portfolio's contents have professional relevance (as is expected from a portfolio), but it is also designed to give the beginning programmer a leg up and a map of the landscape I have traversed. It is for this reason that you may perceive it to be more personable than expected. I take care to adhere to business-optimal standards of professionalism as a necessity in the workplace, but here I am aiming to go beyond just that and instead to try and aid those who wish to follow in a similar path as the way which I have come. 
                             </p>
                             <br/>
-                            <h2><b><i>Integrity is Integral</i></b></h2>
+                            <h4 class="text-center"><b><i>Integrity is Integral</i></b></h4>
                             <br/>
                             <p>In any serious endeavor, a person can most often use extra help. This help, however, must be a reliable help and one that is unchanging in the fundamentals. For me, <b>integrity is integral</b>.</p>
                             <p>I would like to demonstrate my dependability and integrity for you, because I know what it is like to have full confidence in something/someone that ends up failing you. Take me on as one of your dependencies for growth. No matter how deep in the weeds you might get, you have to <u>keep moving forward</u> with your <u>eyes on the prize</u> and with the <u>mission in mind</u>.</p>
@@ -62,7 +62,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @NavService.SectionedPages[2].Sections[1].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[2].ToggleCollapseSingle(1))">
-                            Work History
+                            Employment History
                             &nbsp;
                             @if(NavService.SectionedPages[2].Sections[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
@@ -70,7 +70,8 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[1].IsCollapsedContent">
-                            <div class="text-center">
+                            <h3 class="section-content-title"><b>Employment History</b></h3>
+                            <div>
                                 <button class="btn @SelectedWorkHistoryContent[0]" @onclick="(()=>UpdateWorkHistorySectionContent(0))">BlueSky</button>
                                 <button class="btn @SelectedWorkHistoryContent[1]" @onclick="(()=>UpdateWorkHistorySectionContent(1))">SVP</button>
                                 <button class="btn @SelectedWorkHistoryContent[2]" @onclick="(()=>UpdateWorkHistorySectionContent(2))">Other Roles</button>
@@ -81,6 +82,8 @@
                                 <p>
                                     <b>BlueSky Synergy (primarily in-person) - January 2022 to Present</b>
                                     <br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    Website: <a href="https://www.whatisbluesky.com/" target="blank">whatisbluesky.com</a>
                                     <ul>
                                         <li>Tier 1 Technical Support for Travel Healthcare Staffing SaaS</li>
                                         <li>Hired to eventually replace one of their technical support employees</li>
@@ -97,6 +100,12 @@
                                 <p>
                                     <b>SVP Worldwide (fully remote) - July 2020 to December 2021</b>
                                     <br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    Brands & Products: 
+                                    <a href="https://www.singer.com/" target="blank">Singer</a> || 
+                                    <a href="https://www.husqvarnaviking.com/en-US/" target="blank">Husqvarna Viking</a> || 
+                                    <a href="https://www.pfaff.com/en-us/" target="blank">Pfaff</a> || 
+                                    <a href="https://www.mysewnet.com/" target="blank">MySewNet</a>
                                     <ul>
                                         <li>E-Commerce Order Systems Management and Embroidery Software Support Representative</li>
                                         <li>Hired as Consumer Orders Representative (customer support)</li>
@@ -112,12 +121,12 @@
                             {
                                 <p>Other roles served elsewhere:</p>
                                 <ul>
-                                    <li>Valet</li>
-                                    <li>Director’s Assistant</li>
-                                    <li>Lifeguard</li>
-                                    <li>Waiter</li>
-                                    <li>Caterer</li>
-                                    <li>Gig Driver</li>
+                                    <li>Valet (<a href="https://eagleparking.com/" target="blank">Eagle Parking</a>, Nashville, TN)</li>
+                                    <li>Director’s Assistant (Plymouth Rock Racing, Plymouth, MA)</li>
+                                    <li>Lifeguard (<a href="https://johncarverinn.com/" target="blank">John Carver Inn & Spa</a>, Plymouth, MA)</li>
+                                    <li>Waiter (<a href="https://exquisiteeventservice.com/" target="blank">Exquisite Event Service</a>, Boston, MA)</li>
+                                    <li>Caterer (<a href="https://order.chick-fil-a.com/get-started/catering" target="blank">Chick-fil-A Catering</a>, Nashville, TN)</li>
+                                    <li>Gig Driver (<a href="https://www.ubereats.com/" target="blank">Uber Eats</a>, Nashville, TN)</li>
                                 </ul>
                             }
                         </div>
@@ -136,24 +145,35 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[2].IsCollapsedContent">
-                            <p>
-                                Formal Academic Education
-                            </p>
+                            <h3 class="section-content-title"><b>Education History</b></h3>
+                            <p>Formal Academic Education</p>
                             <ul>
-                                <li>K-10 - Attended The New Testament Christian School in Plymouth, MA</li>
-                                <li>11-12 - Attended Plymouth Public High School</li>
-                                <li>Undergraduate degree - Bachelors of Science in Computer Information Technology</li>
+                                <li>K-10 - Attended The New Testament Christian School (<a href="https://www.tntcsplymouth.com/" target="blank">website</a>), Plymouth, MA</li>
+                                <li>11-12 - Attended Plymouth South High School (<a href="https://www.plymouth.k12.ma.us/Page/651" target="blank">website</a>), Plymouth, MA</li>
+                                <li>Undergraduate degree - Bachelors of Science in Computer Information Technology from Trevecca Nazarene University (<a href="https://www.trevecca.edu/" target="blank">TNU website</a>)</li>
                             </ul>
                             <p>
                                 Extracurricular Programming Courses Completed
                             </p>
                             <ul>
-                                <li>Free Code Camp (my introduction to coding (JavaScript))</li>
-                                <li>Udemy’s “The Complete Bootcamp from Zero to Hero in Python by Jose Portilla (introduction to Python)</li>
-                                <li>Django Polling App: Tutorial in the Django framework (Python) by YouTuber CoreyMS</li>
-                                <li>JavaScript Essential Training by LinkedIn Learning (previously Lynda.com)</li>
-                                <li>PHP Essential Training by LinkedIn Learning (previously Lynda.com)</li>
-                                <li>O'Reilly Learning’s HeadFirst C# online textbook course</li>
+                                <li>
+                                    Free Code Camp (<a href="https://www.freecodecamp.org/" target="blank">website</a>, introduction to JavaScript, first experience with coding)
+                                </li>
+                                <li>
+                                    Udemy’s “The Complete Bootcamp from Zero to Hero in Python" by Jose Portilla (<a href="https://www.udemy.com/course/complete-python-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.US&utm_content=deal4584&utm_term=_._ag_81829991707_._ad_532193666393_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171312_._li_9013190_._pd__._&matchtype=&gclid=Cj0KCQjwla-hBhD7ARIsAM9tQKtcwwKFJsx2Vt9h9MpPKpa6BQoU1-FyF0lNphJpXZBvZrnODO4UpdwaApEwEALw_wcB" target="blank">website</a>, introduction to Python)
+</li>
+                                <li>
+                                    Django Polling App: Tutorial in the Django framework (Python) by YouTuber CoreyMS (<a href="https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p" target="blank">YouTube playlist</a>)
+                                </li>
+                                <li>
+                                    JavaScript Essential Training by LinkedIn Learning (previously Lynda.com)(<a href="" target="blank">certificate</a>, <a href="https://www.linkedin.com/learning/javascript-essential-training" target="blank">website</a>)
+                                </li>
+                                <li>
+                                    PHP Essential Training by LinkedIn Learning (previously Lynda.com) (<a href="https://www.linkedin.com/learning/php-essential-training-2017" target="blank">website</a>)
+                                </li>
+                                <li>
+                                    O'Reilly Learning’s HeadFirst C# online textbook course (<a href="https://www.linkedin.com/learning/certificates/af8b5010f426876420fcfe04dfe4e2678d05e328b1164ba3b2524affa562e73d?trk=backfilled_certificate" target="blank">certificate</a>, <a href="https://www.oreilly.com/library/view/head-first-c/9781491976692/" target="blank">website</a>, introduction to C#)
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -171,6 +191,7 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[3].IsCollapsedContent">
+                            <h3 class="section-content-title"><b>My Notable "Done"s</b></h3>
                             <ul>
                                 <li>Top-performing collegiate cross-country runner at TNU (NCAA DII)</li>
                                 <li>Designed app + store catering production system/solution for Chick-fil-A; optimized for time and resource utilization</li>
@@ -193,17 +214,17 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[4].IsCollapsedContent">
-                            <ul>
-                                <li>My Father, Craig Brenner</li>
-                                <li>Tom Brady</li>
-                                <li>Michael Phelps</li>
-                                <li>Ed Sheeran</li>
-                                <li>Jesus of Nazareth</li>
-                                <li>Pastor of my teenage years - Pastor David Shaw</li>
-                                <li>Jordan Peterson</li>
-                                <li>Elon Musk</li>
-                                <li>Peter Thiel</li>
-                            </ul>
+                            <h3 class="section-content-title"><b>Inspirations</b></h3>
+                            <div class="text-center">
+                                <p>Craig Brenner (father)</p>
+                                <p>Tom Brady</p>
+                                <p>Michael Phelps</p>
+                                <p>Jesus of Nazareth</p>
+                                <p>Pastor David Shaw</p>
+                                <p>Jordan Peterson</p>
+                                <p>Elon Musk</p>
+                                <p>Peter Thiel</p>
+                            </div>
                         </div>
                     </div>
                 }
@@ -212,7 +233,7 @@
                 {
                     <div class="section-container">
                         <div class="section-header @NavService.SectionedPages[2].Sections[5].IsCollapsedHeader" @onclick="(()=>NavService.SectionedPages[2].ToggleCollapseSingle(5))">
-                            Goals
+                            Objectives
                             &nbsp;
                             @if(NavService.SectionedPages[2].Sections[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
@@ -220,8 +241,9 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[5].IsCollapsedContent">
-                            <p>My goal is to build things that help people and help people build things. I am proud to have found such a constructive trajectory as an option for my life, having so much potential if only given the chance (the requirement of all opportunities). </p>
-                            <p>I am excited for what the future holds as we walk forward into it. Optimism is my possession, and with what the future has to offer, I personally believe it is the only way to meet it again and again.</p>
+                        <h3 class="section-content-title"><b>Objectives</b></h3>
+                            <p>My goal is to build things that help people and help people build things. I am proud to have found such a constructive trajectory as an option for my life. It excites me to work with so much potential if only a chosen idea is to be given the opportunity to succeed (the key requirement of all potentialities). </p>
+                            <p>I am excited for what the future holds as we walk forward into it. Optimism is my possession, and with what the future has to offer, I personally believe it is the only way to meet the future, again and again.</p>
                             <p>Please visit the <i>Invent</i> section above for details on my ideas for the future.</p> 
                         </div>
                     </div>
@@ -273,6 +295,7 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @NavService.SectionedPages[2].Sections[8].IsCollapsedContent">
+                        <h3 class="section-content-title"><b>Personal Background</b></h3>
                             <p>This brief background is concerned with the most notable aspects that I believe have formed me into the person I am today. Without being too exhaustive, here is a brief look:</p>
                             <ul>
                                 <li>I grew up in the state of Massachusetts just north of Cape Cod (which can be considered the vacation land of southern Mass). It is about an hour south of Boston.</li>
@@ -282,8 +305,8 @@
                                 <li>I was sheltered as a kid and utilized reason quite a bit, innately wanting to understand how and why everything worked the way it did. I was and still am creative and innovative (iteratively deconstructive & reconstructive) in nature.</li>
                                 <li>I was taught as a kid that strangers were dangerous, and at the time I took that to mean all people who were strange (except for my family) are dangerous. Since most people are strange, each person's strangeness and the need to fear them became a focal point for me as a kid. I still struggle with relational longevity (you could call it "interpersonal maintenance") today, but by no measure do I consider myself to be a victim of it.</li>
                                 <li>I was good at academics growing up but was not a top performer. For more on my key life experiences involving my grades in school, please view <a href="#">this article (link).</a></li>
-                                <li>While I was first introduced to computers when I was 7, I first took interest in business at 13 when I was brought to my dad’s work to migrate physical server racks between locations (they were moving to a new larger building). Kiva Systems (the company that my dad managed IT infrastructure and security for) was acquired by Amazon in 2012 while he was working for Kiva. They made robots that moved shelves around a warehouse to bring to packagers who would take items off the mobile shelves and package them to be shipped. This eliminated having to pay people to walk around a warehouse to find each item that needed to be shipped for an online order. It significantly increased efficiency due to being able to add more bots for increased service and configure the paths of all bots in a fulfillment sequence that optimizes for shortest path for all bots in the warehouse, which relates to the greater optimization of least time spent per order filled.</li>
-                                <li>I found that I was not prepared to make life trajectory decisions when I was attending college. I changed my major 4 times, and after going from Commercial Music to IT at Trevecca, to then joining and leaving the Belmont School of Nursing, I went back to Trevecca to graduate with an undergraduate in Computer Information Technology. I wanted to build things that help people. Later on I foud out that I also like to help people build things.</li>
+                                <li>While I was first introduced to computers when I was 7, I first took interest in business at 13 when I was brought to my dad’s work to migrate server racks from their smaller office to their new larger office building. My father managed an IT infrastructure and security team at Kiva Systems. Kiva designed and built robots that would pick up and move shelves around a warehouse for the fulfillment of online purchases. The technology eliminated having to pay people to walk around a warehouse to find each item that needed to be shipped for an online order. It significantly increased the efficiency of fulfillment proesses due to being able to scale up number of bots on the factory floor and he ability to optimize for shortest distance travelled for every bot on the warehouse floor. My father was employed at Kiva when it was acquired by Amazon in 2012 and although he was among the top performers at the company, Amazon company policy dictated that he be let go after the transition of systems was near complete.</li>
+                                <li>I found that I was not prepared to make life trajectory decisions when I was attending college. I changed my major 4 times, and after going from Commercial Music to IT at Trevecca, to then joining and leaving the Belmont School of Nursing for a year and a half, I went back to Trevecca to graduate with an undergraduate in Computer Information Technology. Through my college years I have come to learn that I like to help people and I like to build things. <br/><br/>I want to help people build things that help people.</li>
                             </ul>
                         </div>
                     </div>

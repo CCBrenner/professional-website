@@ -81,6 +81,18 @@
       "PackagePath": "staticwebassets\\manifest.json"
     },
     {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png",
+      "PackagePath": "staticwebassets\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png"
+    },
+    {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\LinkedInLearning_PHPEssentialTraining_May2021.png",
+      "PackagePath": "staticwebassets\\media\\images\\certifications\\LinkedInLearning_PHPEssentialTraining_May2021.png"
+    },
+    {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\Udemy_2021CompletePythonBootcampFromZerotoHeroinPython_May2021.jpg",
+      "PackagePath": "staticwebassets\\media\\images\\certifications\\Udemy_2021CompletePythonBootcampFromZerotoHeroinPython_May2021.jpg"
+    },
+    {
       "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\frame.png",
       "PackagePath": "staticwebassets\\media\\images\\frame.png"
     },
