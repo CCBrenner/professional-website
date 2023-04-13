@@ -265,19 +265,20 @@
     width: 100%;
     background-color: lightgrey;
     border-radius: 10px;
-    padding: 14px 40px;
     overflow-y: auto;
     text-align: left;
 }
 
 .game-progress[b-huled98q4w] {
-    background-color: darkgrey;
-    color: #111;
+    background-color: rgba(0,0,0,0.6);
+    color: #eee;
     border-radius: 8px;
     position: sticky;
     top: 0px;
     font-size: 1rem;
     padding: 4px 10px;
+    margin: 8px 8px 14px 8px;
+    text-align: center;
 }
 
 .controls[b-huled98q4w] {
@@ -299,6 +300,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 50px;
 }
 
     .save-load > *[b-huled98q4w] {

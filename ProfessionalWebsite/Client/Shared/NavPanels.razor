@@ -18,38 +18,31 @@
                                ButtonText="Match Game"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
-      @*<NavPanelNavLinkButton Href="thispwa"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
+        <NavPanelNavLinkButton Href="knowhow"
                                ButtonText="This PWA"
-                               Section="0"
-                               ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
+                               Section="1"
+                               ButtonClickCallback="SectionIndex15AsPromoDestination" />
         <NavPanelNavLinkButton Href="hideandseek"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Hide & Seek"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="twodecks"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
+      @*<NavPanelNavLinkButton Href="twodecks"
                                ButtonText="Two Decks"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
         <NavPanelNavLinkButton Href="issuetracker"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Issue Tracker"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
         <NavPanelNavLinkButton Href="gofish"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Go Fish"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
         <NavPanelNavLinkButton Href="beehivemgmtsystem"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Bee Hive Mgmt System"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
         <NavPanelNavLinkButton Href="phpcmsandprocessbook"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="PHP CMS & Process Book"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />*@
@@ -59,7 +52,6 @@
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
       @*<NavPanelNavLinkButton Href="ecommerce"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="E-commerce"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />*@
@@ -69,7 +61,6 @@
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />
       @*<NavPanelNavLinkButton Href="djangopollingapp"
-                               IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Polling App (Django/Python)"
                                Section="0"
                                ButtonClickCallback="NavService.RouteUserAndUpdateNav" />*@
@@ -324,4 +315,7 @@
 
     private void SectionIndex6AsPromoDestination(int pageIndex) =>
         NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
+
+    private void SectionIndex15AsPromoDestination(int pageIndex) =>
+        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 15);
 }

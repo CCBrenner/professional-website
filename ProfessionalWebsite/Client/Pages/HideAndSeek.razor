@@ -74,10 +74,12 @@
                     <p class="game-progress">
                         @((MarkupString)gameController.GameProgress)
                     </p>
-                    <p>
+                    <p style="padding: 0px 40px 14px 40px">
                         @((MarkupString)Status
                         .Replace(" (or click 'Check')", "")
-                        .Replace("Press \"Restart\" to restart to restart the game or press \"Quit\" to quit.", ""))
+                        .Replace(
+                            "Press \"Restart\" to restart to restart the game or press \"Quit\" to quit.", 
+                            "<br>Click the red restart button to play again"))
                     </p>
                 </div>
             </div>
@@ -85,10 +87,16 @@
                 <div class="controls-backdrop">
                     <div class="save-load">
                         <button class="btn btn-secondary" @onclick="ShowSaveOptions">
-                            <span class="fa-solid fa-floppy-disk"></span>
+                            @if (ControllerOptions == "save game")
+                            { <span class="fa-solid fa-gamepad"></span> }
+                            else
+                            { <span class="fa-solid fa-floppy-disk"></span> }
                         </button>
                         <button class="btn btn-secondary" @onclick="ShowLoadOptions">
-                            <span class="fa-solid fa-upload"></span>
+                            @if (ControllerOptions == "load game")
+                            { <span class="fa-solid fa-gamepad"></span> }
+                            else
+                            { <span class="fa-solid fa-upload"></span> }
                         </button>
                         <button class="btn btn-danger" @onclick="NewGame">
                             <span class="fa-solid fa-rotate"></span>
