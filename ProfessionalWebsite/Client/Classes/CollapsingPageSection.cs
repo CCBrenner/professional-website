@@ -6,46 +6,42 @@ namespace ProfessionalWebsite.Client.Pages
     {
         public CollapsingPageSection() 
         {
-            isCollapsed = false;
-            isCollapsedHeader = "";
-            isCollapsedContent = "";
-            isCurrentPromo = false;
+            IsCollapsed = false;
+            IsCollapsedHeader = "";
+            IsCollapsedContent = "";
+            IsCurrentPromo = false;
         }
-        public bool IsCollapsed { get { return isCollapsed; } }
-        private bool isCollapsed;
-        public string IsCollapsedHeader { get { return isCollapsedHeader; } }
-        private string isCollapsedHeader;
-        public string IsCollapsedContent { get { return isCollapsedContent; } }
-        private string isCollapsedContent;
-        public bool IsCurrentPromo { get { return isCurrentPromo; } }
-        private bool isCurrentPromo;
+        public bool IsCollapsed { get; private set; }
+        public string IsCollapsedHeader { get; private set; }
+        public string IsCollapsedContent { get; private set; }
+        public bool IsCurrentPromo { get; private set; }
         public void ToggleCollapse()
         {
-            isCollapsed = !IsCollapsed;
+            IsCollapsed = !IsCollapsed;
             UpdateHeaderAndContent();
         }
         public void ToggleCollapse(bool toggle)
         {
-            isCollapsed = toggle;
-            if (IsCollapsed) isCurrentPromo = false;
+            IsCollapsed = toggle;
+            if (IsCollapsed) IsCurrentPromo = false;
             UpdateHeaderAndContent();
         }
         public void CollapseAndDemote()
         {
-            isCollapsed = false;
-            isCurrentPromo = false;
+            IsCollapsed = false;
+            IsCurrentPromo = false;
         }
         public void Promote()
         {
-            if (!isCollapsed)
-                isCurrentPromo = true;
+            if (!IsCollapsed)
+                IsCurrentPromo = true;
         }
         public void Demote() =>
-            isCurrentPromo = false;
+            IsCurrentPromo = false;
         private void UpdateHeaderAndContent()
         {
-            isCollapsedHeader = IsCollapsed ? "collapsed-header" : "";
-            isCollapsedContent = IsCollapsed ? "collapsed-content" : "";
+            IsCollapsedHeader = IsCollapsed ? "collapsed-header" : "";
+            IsCollapsedContent = IsCollapsed ? "collapsed-content" : "";
         }
     }
 }

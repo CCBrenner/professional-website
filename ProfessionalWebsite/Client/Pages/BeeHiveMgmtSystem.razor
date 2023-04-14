@@ -1,0 +1,172 @@
+﻿@using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+
+@page "/beehivemgmtsystem"
+
+<PageTitle>BeeHive Management System - Collyn Brenner</PageTitle>
+
+<ProjectsPageTemplate>
+
+    @* 
+        - Introstruction Page ('X' button in upper right corner and info button/icon 
+            on game screen for openning the introsctruction screen again)
+            - story + mechanics + costs dynamics (each as simple statements)
+        - Controls for adding three different bee workers + Work until next day button
+        - Time option turned off by default with option to turn on
+        - Text field prioviding updated game status (@bind)
+
+        Other task: Update nav for this game (two places).
+
+        Also sidenote, I need to add buttons with links to 
+        the descriptions of each game accessible from game UI.
+    *@
+
+    <div class="current-ui-container">
+
+        <div>
+            <button class="btn @interfaceClasses[0]" @onclick="(()=>SetVisibleUI(ActiveUI.WPA))">WPA Version</button>
+            <button class="btn @interfaceClasses[1]" @onclick="(()=>SetVisibleUI(ActiveUI.VersionOne))">Version 1</button>
+            <button class="btn @interfaceClasses[2]" @onclick="(()=>SetVisibleUI(ActiveUI.VersionTwo))">Version 2</button>
+        </div>
+
+        @if (VisibleUI == ActiveUI.WPA)
+        {
+            <div class="text-prompts-container">
+                <div class="text-prompts">
+                    <p class="status-report">
+                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
+                    </p>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="controls-backdrop">
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.HoneyManufacturer))">
+                        Add - Honey Manufacturer Bee
+                    </button>
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.NectarCollector))">
+                        Add - Nectar Collector Bee
+                    </button>
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.EggCare))">
+                        Add - Egg Care Bee
+                    </button>
+                    <button class="btn control-button-work" @onclick="beeHiveController.WorkTheNextShift">Work Next Shift</button>
+                </div>
+            </div>
+        }
+        @if (VisibleUI == ActiveUI.VersionOne)
+        {
+            <div class="text-prompts-container">
+                <div class="text-prompts">
+                    <p class="status-report">
+                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
+                    </p>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="controls-backdrop">
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.HoneyManufacturer))">
+                        Add - Honey Manufacturer
+                    </button>
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.NectarCollector))">
+                        Add - Nectar Collector
+                    </button>
+                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.EggCare))">
+                        Add - Egg Care
+                    </button>
+                    <button class="btn control-button-work" @onclick="beeHiveController.WorkTheNextShift">
+                        Work Next Shift
+                    </button>
+                </div>
+            </div>
+        }
+        @if (VisibleUI == ActiveUI.VersionTwo)
+        {
+            <div class="text-prompts-container">
+                <div class="text-prompts">
+                    <p class="status-report">
+                        @*@((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))*@
+                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
+                    </p>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="controls-backdrop-v2">
+                    <div class="" style="display: flex;">
+                        <div class="">
+                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                                Honey Manufacturer
+                            </button>
+                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                Nectar Collector
+                            </button>
+                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                Egg Care
+                            </button>
+                        </div>
+                        <button class="btn add-button" @onclick="(()=>AssignBee(selectedWorkerType))">
+                            <span class="fa-solid fa-plus"></span>
+                        </button>
+                    </div>
+                    <button class="btn control-button-work-v2" @onclick="beeHiveController.WorkTheNextShift">
+                        Work Next Shift
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</ProjectsPageTemplate>
+
+@code {
+    private BeeHiveMgmtSystemController beeHiveController = new BeeHiveMgmtSystemController();
+
+    private List<string> interfaceClasses = new List<string>() { "btn-secondary", "btn-primary", "btn-secondary" };
+    private List<string> workertypeButtonsClasses = new List<string>() { "workertype-inactive", "workertype-inactive", "workertype-inactive" };
+
+    private WorkerType selectedWorkerType;
+
+    private ActiveUI VisibleUI = ActiveUI.VersionOne;
+
+    private void SetVisibleUI(ActiveUI uiChoice)
+    {
+        VisibleUI = uiChoice;
+
+        interfaceClasses = interfaceClasses
+            .Select(x => x = "btn-secondary")
+            .ToList();
+
+        if (VisibleUI == ActiveUI.WPA)
+            interfaceClasses[0] = "btn-primary";
+        else if (VisibleUI == ActiveUI.VersionOne)
+            interfaceClasses[1] = "btn-primary";
+        else if (VisibleUI == ActiveUI.VersionTwo)
+            interfaceClasses[2] = "btn-primary";
+    }
+
+    private void UpdateSelectedWorkerType(WorkerType workerType)
+    {
+        selectedWorkerType = workerType;
+
+        workertypeButtonsClasses = workertypeButtonsClasses
+            .Select(x => x = "workertype-inactive")
+            .ToList();
+
+        if (selectedWorkerType == WorkerType.HoneyManufacturer)
+            workertypeButtonsClasses[0] = "workertype-active";
+        else if (selectedWorkerType == WorkerType.NectarCollector)
+            workertypeButtonsClasses[1] = "workertype-active";
+        else if (selectedWorkerType == WorkerType.EggCare)
+            workertypeButtonsClasses[2] = "workertype-active";
+    }
+
+    private void AssignBee(WorkerType workerType)
+    {
+        if (workerType != null)
+            beeHiveController.AssignBee(workerType);
+    }
+
+    private enum ActiveUI
+    {
+        WPA,
+        VersionOne,
+        VersionTwo,
+    }
+}

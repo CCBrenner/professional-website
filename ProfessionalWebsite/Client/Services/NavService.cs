@@ -44,32 +44,24 @@ namespace ProfessionalWebsite.Client.Services
 
             globalNavButtonState = "";
             currentButton = 2;
-            behindPanel = "";
-            contentBlur = "";
-            layoutControls = "";
-            animateMain = "";
-            discontinueButton = "";
+            BehindPanel = "";
+            ContentBlur = "";
+            LayoutControls = "";
+            AnimateMain = "";
+            DiscontinueButton = "";
         }
 
         public List<AssociatedNavButtonAndPanel> AssociatedNav;
         public List<CollapsingPageSectionsLogic> SectionedPages;
 
-        [Inject]
-        public NavigationManager NavigationManager { get; }
-
         // For BehindPanel (the following three members:)
         private string globalNavButtonState;
         private int currentButton;
-        public string BehindPanel { get { return behindPanel; } }
-        private string behindPanel;
-        public string ContentBlur { get { return contentBlur; } }
-        private string contentBlur;
-        public string LayoutControls { get { return layoutControls; } }
-        private string layoutControls;
-        public string AnimateMain { get { return animateMain; } }
-        private string animateMain;
-        public string DiscontinueButton { get { return discontinueButton; } }
-        private string discontinueButton;
+        public string BehindPanel { get; private set; }
+        public string ContentBlur { get; private set; }
+        public string LayoutControls { get; private set; }
+        public string AnimateMain { get; private set; }
+        public string DiscontinueButton { get; private set; }
         public event Action<string> OnAnimateMain;
         public event Action<int> OnPromoSectionOfPage;
 
@@ -95,8 +87,8 @@ namespace ProfessionalWebsite.Client.Services
                     ? ""
                     : "highlight-button";
 
-            behindPanel = globalNavButtonState == "panel-visible" ? "button-on-show-behind-panel" : "";
-            contentBlur = globalNavButtonState == "panel-visible" ? "content-blur" : "";
+            BehindPanel = globalNavButtonState == "panel-visible" ? "button-on-show-behind-panel" : "";
+            ContentBlur = globalNavButtonState == "panel-visible" ? "content-blur" : "";
         }
         public void UpdateNavFromBehindPanel() =>
             UpdateNav(currentButton);
@@ -110,10 +102,10 @@ namespace ProfessionalWebsite.Client.Services
             }
             AssociatedNav[index].NavButtonStatus = "highlight-button";
             AssociatedNav[index].IsThisLocation = true;
-            layoutControls = "";
-            animateMain = "";
-            behindPanel = "";
-            contentBlur = "";
+            LayoutControls = "";
+            AnimateMain = "";
+            BehindPanel = "";
+            ContentBlur = "";
         }
         public void NavigateToCollapsibleSectionOfOtherPage(int pageIndex, int sectionIndex)  // needs tests
         {
@@ -132,7 +124,7 @@ namespace ProfessionalWebsite.Client.Services
         {
             RouteUserAndUpdateNav(index);
             AssociatedNav[index].NavPanelStatus = "";
-            layoutControls = "layout-controls-on";
+            LayoutControls = "layout-controls-on";
         }
         public void PlayAnimation(int animation, bool isContinuous)
         {
@@ -149,9 +141,9 @@ namespace ProfessionalWebsite.Client.Services
         }
         private void SetAnimateMainAndDiscontinueButton(string animation, string discontinue)
         {
-            animateMain = animation;
+            AnimateMain = animation;
             RaiseEventOnAnimateMain(AnimateMain);
-            discontinueButton = discontinue;
+            DiscontinueButton = discontinue;
         }
         private void RaiseEventOnAnimateMain(string animation)
         {

@@ -7,18 +7,15 @@ namespace ProfessionalWebsite.Client.Pages
         public CollapsingPageSectionsLogic(List<CollapsingPageSection> sections)
         {
             Sections = sections;
-            aSectionIsCurrentlyPromo = false;
-            sectionsStatus = SectionsStatus.AllAreOpen;
-            sectionsExpanded = Sections.Count();
+            ASectionIsCurrentlyPromo = false;
+            SectionsStatus = SectionsStatus.AllAreOpen;
+            SectionsExpanded = Sections.Count();
         }
         public List<CollapsingPageSection> Sections;
 
-        public bool ASectionIsCurrentlyPromo { get { return aSectionIsCurrentlyPromo; } }
-        private bool aSectionIsCurrentlyPromo;
-        public SectionsStatus SectionsStatus { get { return sectionsStatus; } }
-        private SectionsStatus sectionsStatus;
-        public int SectionsExpanded { get { return sectionsExpanded; } }
-        private int sectionsExpanded;
+        public bool ASectionIsCurrentlyPromo { get; private set; }
+        public SectionsStatus SectionsStatus { get; private set; }
+        public int SectionsExpanded { get; private set; }
         public void CollapseAllShowOne(int section)
         {
             DemoteAllSections();
@@ -26,7 +23,7 @@ namespace ProfessionalWebsite.Client.Pages
                 sec.ToggleCollapse(true);
             ToggleCollapseSingle(section);
             Sections[section].Promote();
-            aSectionIsCurrentlyPromo = true;
+            ASectionIsCurrentlyPromo = true;
             UpdateSectionsStatus();
         }
         public void ToggleCollapseSingle(int section)
@@ -63,27 +60,27 @@ namespace ProfessionalWebsite.Client.Pages
                 {
                     section.ToggleCollapse(true);
                 }
-                sectionsStatus = SectionsStatus.AllAreCollapsed;
+                SectionsStatus = SectionsStatus.AllAreCollapsed;
             }
             else
             {
                 DemoteAllSections();
                 foreach (var section in Sections)
                     section.ToggleCollapse(false);
-                sectionsStatus = SectionsStatus.AllAreOpen;
+                SectionsStatus = SectionsStatus.AllAreOpen;
             }
         }
         public void PromoteSection(int index)
         {
             DemoteAllSections();
             Sections[index].Promote();
-            aSectionIsCurrentlyPromo = true;
+            ASectionIsCurrentlyPromo = true;
         }
         private void DemoteAllSections()
         {
             foreach(var section in Sections)
                 section.Demote();
-            aSectionIsCurrentlyPromo = false;
+            ASectionIsCurrentlyPromo = false;
         }
         private void UpdateSectionsStatus()
         {
@@ -93,11 +90,11 @@ namespace ProfessionalWebsite.Client.Pages
                     openSections++;
 
             if (openSections == 0)
-                sectionsStatus = SectionsStatus.AllAreCollapsed;
+                SectionsStatus = SectionsStatus.AllAreCollapsed;
             else if (openSections == Sections.Count())
-                sectionsStatus = SectionsStatus.AllAreOpen;
+                SectionsStatus = SectionsStatus.AllAreOpen;
             else
-                sectionsStatus = SectionsStatus.AtLeastOneIsOpen;
+                SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
         }
     }
     public enum SectionsStatus

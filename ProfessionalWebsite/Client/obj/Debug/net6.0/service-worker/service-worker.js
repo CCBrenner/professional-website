@@ -5,4 +5,4 @@
 const appVersion = "version-1.0.1";
 
 self.addEventListener('fetch', () => { });
-/* Manifest version: v03TbVj4 */
+/* Manifest version: mDIZ82e9 */
