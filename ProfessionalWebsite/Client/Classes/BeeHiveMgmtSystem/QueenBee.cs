@@ -55,7 +55,6 @@
                 UnassignedWorkers += eggsToConvert;
             }
         }
-
         private string WorkerStatus(WorkerType workerType)
         {
             int count = 0;
@@ -84,7 +83,7 @@
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
-        protected override void DoJob(HoneyVault honeyVault)
+        protected override void DoJob()
         {
             // Lay egg portion
             Eggs += EGGS_PER_SHIFT;

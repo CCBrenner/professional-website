@@ -10,11 +10,12 @@
         public WorkerType Job { get; set; }
         public abstract float CostPerShift { get; protected set; }
 
-        public void WorkTheNextShift(HoneyVault honeyVault)
+        public void WorkTheNextShift()
         {
+            HoneyVault honeyVault = HoneyVault.Instance;
             if (honeyVault.ConsumeHoney(CostPerShift))
                 DoJob(honeyVault);
         }
-        protected abstract void DoJob(HoneyVault honeyVault);
+        protected abstract void DoJob();
     }
 }

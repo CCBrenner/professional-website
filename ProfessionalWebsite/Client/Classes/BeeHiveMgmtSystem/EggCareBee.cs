@@ -14,8 +14,9 @@
 
         private QueenBee queen;
 
-        protected override void DoJob(HoneyVault honeyVault)
+        protected override void DoJob()
         {
+            HoneyVault honeyVault = HoneyVault.Instance;
             queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);
         }
     }
