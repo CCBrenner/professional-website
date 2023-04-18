@@ -59,3 +59,4 @@ C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_c
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ProfessionalWebsite.Server.pdb
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ProfessionalWebsite.Server.genruntimeconfig.cache
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ref\ProfessionalWebsite.Server.dll
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Server\bin\Debug\net6.0\Newtonsoft.Json.dll

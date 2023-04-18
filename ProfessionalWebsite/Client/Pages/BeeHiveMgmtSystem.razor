@@ -33,7 +33,7 @@
             <div class="text-prompts-container">
                 <div class="text-prompts">
                     <p class="status-report">
-                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
+                        @((MarkupString)beeHiveController.StatusReport)
                     </p>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="text-prompts-container">
                 <div class="text-prompts">
                     <p class="status-report">
-                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
+                        @((MarkupString)beeHiveController.StatusReport)
                     </p>
                 </div>
             </div>
@@ -80,35 +80,115 @@
         }
         @if (VisibleUI == ActiveUI.VersionTwo)
         {
-            <div class="text-prompts-container">
-                <div class="text-prompts">
-                    <p class="status-report">
-                        @*@((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))*@
-                        @((MarkupString)beeHiveController.StatusReport.Replace("\n", "<br>"))
-                    </p>
+            <div class="text-prompts-container-v2">
+                <div class="text-prompts-v2">
+                    @*@((MarkupString)beeHiveController.StatusReport*@
+                    <div class="report">
+                        <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
+                        <div class="row-flex">
+                            <div class="field-flex">
+                                <div>Honey</div>
+                                <div>@beeHiveController.VaultHoney</div>
+                            </div>
+                            <div class="field-flex">
+                                <div>Nectar</div>
+                                <div>@beeHiveController.VaultNectar</div>
+                            </div>
+                        </div>
+                        @if (beeHiveController.VaultNotification != "")
+                        {
+                            <div class="row-flex">
+                                <div class="field-flex text-center" style="color: red;">
+                                    @beeHiveController.VaultNotification
+                                    @if(beeHiveController.VaultHoney < beeHiveController.ConsumptionRate) 
+                                    {
+                                        <br/>
+                                        <div class="try-again" @onclick="beeHiveController.Reset">Try Again</div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="report">
+                        <div class="text-center">Day @beeHiveController.CurrentDay: Queen Bee Report</div>
+                        <div class="row-flex">
+                            <div class="field-flex">
+                                <div>Eggs</div>
+                                <div>@beeHiveController.Eggs</div>
+                            </div>
+                            <div class="field-flex-arrow">=></div>
+                            <div class="field-flex">
+                                <div>Unassigned</div>
+                                <div>@beeHiveController.UnassignedWorkers</div>
+                            </div>
+                        </div>
+                        <div class="row-flex">
+                            <div class="field-flex">
+                                <div>Honey<br/>Makers</div>
+                                <div>@beeHiveController.HoneyManufacturers</div>
+                            </div>
+                            <div class="field-flex">
+                                <div>Nectar<br/>Collectors</div>
+                                <div>@beeHiveController.NectarCollectors</div>
+                            </div>
+                            <div class="field-flex">
+                                <div>Egg<br/>Nurses</div>
+                                <div>@beeHiveController.EggNurses</div>
+                            </div>
+                        </div>
+                        <div class="row-flex">
+                            <div class="field-flex">
+                                <div>Workers Total</div>
+                                <div>@beeHiveController.WorkersTotal</div>
+                            </div>
+                            <div class="field-flex">
+                                <div>Cost Per Shift<br/>(units of Honey)</div>
+                                <div>@beeHiveController.ConsumptionRate</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="controls">
                 <div class="controls-backdrop-v2">
-                    <div class="" style="display: flex;">
-                        <div class="">
-                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                    <div class="" style="display: flex; flex-direction: column">
+                        <div class="selector-row">
+                            <div class="workertype-selector @workertypeButtonsClasses[0]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
                                 Honey Manufacturer
-                            </button>
-                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.NectarCollector))">
-                                Nectar Collector
-                            </button>
-                            <button class="btn workertype-selector" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.EggCare))">
-                                Egg Care
-                            </button>
+                            </div>
+                            @if (selectedWorkerType == WorkerType.HoneyManufacturer)
+                            {
+                                <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
+                                    Assign
+                                </div>
+                            }
                         </div>
-                        <button class="btn add-button" @onclick="(()=>AssignBee(selectedWorkerType))">
-                            <span class="fa-solid fa-plus"></span>
-                        </button>
+                        <div class="selector-row">
+                            <div class="workertype-selector @workertypeButtonsClasses[1]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                Nectar Collector
+                            </div>
+                            @if (selectedWorkerType == WorkerType.NectarCollector)
+                            {
+                                <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
+                                    Assign
+                                </div>
+                            }
+                        </div>
+                        <div class="selector-row">
+                            <div class="workertype-selector @workertypeButtonsClasses[2]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                Egg Care
+                            </div>
+                            @if (selectedWorkerType == WorkerType.EggCare)
+                            {
+                                <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
+                                    Assign
+                                </div>
+                            }
+                        </div>
                     </div>
-                    <button class="btn control-button-work-v2" @onclick="beeHiveController.WorkTheNextShift">
+                    <div class="btn control-button-work-v2" @onclick="WorkShift">
                         Work Next Shift
-                    </button>
+                    </div>
                 </div>
             </div>
         }
@@ -116,14 +196,25 @@
 </ProjectsPageTemplate>
 
 @code {
-    private BeeHiveMgmtSystemController beeHiveController = new BeeHiveMgmtSystemController();
+    private BeeHiveController beeHiveController = new BeeHiveController();
 
-    private List<string> interfaceClasses = new List<string>() { "btn-secondary", "btn-primary", "btn-secondary" };
-    private List<string> workertypeButtonsClasses = new List<string>() { "workertype-inactive", "workertype-inactive", "workertype-inactive" };
+    private List<string> interfaceClasses = new List<string>() 
+    { 
+        "btn-secondary", 
+        "btn-secondary", 
+        "btn-primary" 
+    };
+    private List<string> workertypeButtonsClasses = new List<string>() 
+    { 
+        "workertype-active", 
+        "workertype-inactive", 
+        "workertype-inactive" 
+    };
+    private string assignButtons = "assign-buttons-inactive";
 
-    private WorkerType selectedWorkerType;
+    private WorkerType selectedWorkerType = WorkerType.HoneyManufacturer;
 
-    private ActiveUI VisibleUI = ActiveUI.VersionOne;
+    private ActiveUI VisibleUI = ActiveUI.VersionTwo;
 
     private void SetVisibleUI(ActiveUI uiChoice)
     {
@@ -159,8 +250,22 @@
 
     private void AssignBee(WorkerType workerType)
     {
-        if (workerType != null)
-            beeHiveController.AssignBee(workerType);
+        beeHiveController.AssignBee(workerType);
+
+        if (beeHiveController.UnassignedWorkers >= 1)
+            assignButtons = "assign-buttons-active";
+        else
+            assignButtons = "assign-buttons-inactive";
+    }
+
+    private void WorkShift()
+    {
+        beeHiveController.WorkTheNextShift();
+
+        if (beeHiveController.UnassignedWorkers >= 1)
+            assignButtons = "assign-buttons-active";
+        else
+            assignButtons = "assign-buttons-inactive";
     }
 
     private enum ActiveUI

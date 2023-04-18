@@ -3,6 +3,6 @@
     interface IWorker
     {
         WorkerType Job { get; set; }
-        void WorkTheNextShift();
+        void WorkTheNextShift(HoneyVault honeyVault);
     }
 }

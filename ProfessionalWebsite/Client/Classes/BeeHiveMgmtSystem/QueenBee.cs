@@ -2,28 +2,36 @@
 {
     public class QueenBee : Bee
     {
-        public QueenBee() : base(WorkerType.Queen)
+        public QueenBee(HoneyVault honeyVault) : base(WorkerType.Queen)
         {
+            vault = honeyVault;
+            UnassignedWorkers = 3F;
             AssignBee(WorkerType.HoneyManufacturer);
             AssignBee(WorkerType.NectarCollector);
             AssignBee(WorkerType.EggCare);
             CostPerShift = 2.15F;
+            Eggs = 0F;
+            CurrentDay = 1;
             UpdateStatusReport();
         }
+
+        private HoneyVault vault;
 
         public float EGGS_PER_SHIFT = 0.45F;
         public float HONEY_PER_UNASSIGNED_WORKER = 0.5F;
 
+        public int CurrentDay { get; private set; }
+
         private IWorker[] workers = {};  // another option: private IWorker[] workers = new Worker[0];
         public float Eggs { get; private set; }
-        public float UnassignedWorkers { get; private set; } = 3;
+        public float UnassignedWorkers { get; private set; }
 
         // public event PropertyChangedEventHandler PropertyChanged;  // (uses INotifyPropertyChanged)
 
         public string StatusReport { get; private set; }
         public override float CostPerShift { get; protected set; }
 
-        private void AddWorker(IWorker newWorker) 
+        private void AddWorker(IWorker newWorker)
         {
             if (UnassignedWorkers >= 1)
             {
@@ -59,10 +67,10 @@
         }
         private void UpdateStatusReport()
         { 
-            StatusReport = $"{HoneyVault.StatusReport}" +
+            StatusReport = $"{vault.StatusReport}" +
                 $"\n\nQueen's report:" +
-                $"\nEgg count: {Eggs.ToString("0")}" +
-                $"\nUnassigned workers: {UnassignedWorkers.ToString("0")}" +
+                $"\nEgg count: {Eggs}" +
+                $"\nUnassigned workers: {UnassignedWorkers}" +
                 $"\n{WorkerStatus(WorkerType.HoneyManufacturer)}" +
                 $"\n{WorkerStatus(WorkerType.NectarCollector)}" +
                 $"\n{WorkerStatus(WorkerType.EggCare)}" +
@@ -76,17 +84,20 @@
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
-        protected override void DoJob()
+        protected override void DoJob(HoneyVault honeyVault)
         {
             // Lay egg portion
             Eggs += EGGS_PER_SHIFT;
 
             // Have bees do their jobs
             foreach(IWorker worker in workers)
-                worker.WorkTheNextShift();
+                worker.WorkTheNextShift(vault);
 
             // Feed unassigned workers
-            HoneyVault.ConsumeHoney((float)Math.Floor(UnassignedWorkers) * HONEY_PER_UNASSIGNED_WORKER);
+            vault.ConsumeHoney((float)Math.Floor(UnassignedWorkers) * HONEY_PER_UNASSIGNED_WORKER);
+
+            // A new day
+            CurrentDay++;
 
             // Give status report
             UpdateStatusReport();
@@ -99,5 +110,36 @@
             return count;
         }
         public int GetWorkerCount() => workers.Length;
+
+        public float GetCostPerShift()
+        {
+            float totalCost = 0F;
+
+            // the Queen
+            totalCost += CostPerShift;
+
+            // assigned workers
+            foreach (var worker in workers)
+            {
+                Bee workerBee = (Bee)worker;
+                totalCost += workerBee.CostPerShift;
+            }
+
+            // unassigned workers
+            totalCost += (HONEY_PER_UNASSIGNED_WORKER * (float)Math.Floor(UnassignedWorkers));
+
+            return totalCost;
+        }
+        public void Reset()
+        {
+            workers = new IWorker[0];
+            AssignBee(WorkerType.HoneyManufacturer);
+            AssignBee(WorkerType.NectarCollector);
+            AssignBee(WorkerType.EggCare);
+            Eggs = 0F;
+            UnassignedWorkers = 0F;
+            CurrentDay = 1;
+            UpdateStatusReport();
+        }
     }
 }

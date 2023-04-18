@@ -11,9 +11,9 @@
 
         public override float CostPerShift { get; protected set; }
 
-        protected override void DoJob()
+        protected override void DoJob(HoneyVault honeyVault)
         {
-            HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
+            honeyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
         }
     }
 }

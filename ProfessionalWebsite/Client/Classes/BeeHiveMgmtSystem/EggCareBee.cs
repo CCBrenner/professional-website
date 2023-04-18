@@ -14,7 +14,7 @@
 
         private QueenBee queen;
 
-        protected override void DoJob()
+        protected override void DoJob(HoneyVault honeyVault)
         {
             queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);
         }
