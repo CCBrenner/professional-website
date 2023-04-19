@@ -22,12 +22,14 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
         private const float NECTAR_CONVERSION_RATIO = 0.19F;  // must match HoneyVault singleton value
         private const float LOW_LEVEL_WARNING = 10F;  // must match HoneyVault singleton value
 
-        private HoneyVault honeyVault;
+        private HoneyVault honeyVault = HoneyVault.Instance;
 
         [TestInitialize]
         public void Initialize()
         {
-            honeyVault = HoneyVault.Instance;  // initialize new singleton for each test method
+            honeyVault.Reset();
+            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
+            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
 
         [TestMethod]
@@ -35,11 +37,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
         {
             honeyVault.CollectNectar(23F);
             Assert.AreEqual(nectarStartingAmount + 23F, honeyVault.Nectar);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConsumeHoneyNegativeValueCausesNoChangeToTotalHoney()
@@ -47,22 +44,12 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             honeyVault.CollectNectar(-23F);
             // no change; subtract 0
             Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConvertNectarToHoneyIfMoreToConvertThanAvailableThenConvertOnlyTheNectarThatIsAvailableNotMore()
         {
             honeyVault.ConvertNectarToHoney(133.15F);
             Assert.AreEqual(0, honeyVault.Nectar);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConvertNectarToHoneyIfLessToConvertThanIsAvailableConvertLesserAmtAndSubtractFromTotalNectar()
@@ -70,22 +57,12 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             honeyVault.ConvertNectarToHoney(13.15F);
             Assert.AreEqual(nectarStartingAmount - 13.15F, honeyVault.Nectar);
             Assert.AreEqual(honeyStartingAmount + (13.15F * NECTAR_CONVERSION_RATIO), honeyVault.Honey);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConvertNectarToHoneyIfLessToConvertThanIsAvailableConvertLesserAmtAndAddConvertedHoneyAmountToTotalHoney()
         {
             honeyVault.ConvertNectarToHoney(13.15F);
             Assert.AreEqual(honeyStartingAmount + (13.15F * NECTAR_CONVERSION_RATIO), honeyVault.Honey);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConsumerHoneyIfMoreToConsumeThanHoneyAvailableDontConsumeAndReturnFalse()
@@ -93,11 +70,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             bool result = honeyVault.ConsumeHoney(30F); // greater than starting amount
             Assert.AreEqual(false, result);
             Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestConsumerHoneyIfEnoughHoneyToConsumeThenConsumeHoneyAndReturnTrue()
@@ -105,11 +77,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             bool result = honeyVault.ConsumeHoney(22F); // less than starting amount
             Assert.AreEqual(true, result);
             Assert.AreEqual(honeyStartingAmount - 22F, honeyVault.Honey);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestResetInitializesHoneyAndNectarAmountsForANewAttempt()
@@ -133,11 +100,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             Assert.AreEqual(false, honeyVault.Honey < LOW_LEVEL_WARNING);
             Assert.AreEqual(false, honeyVault.Nectar < LOW_LEVEL_WARNING);
             Assert.AreEqual("", honeyVault.Notifications);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestNotificationsReturnsHoneyLowIfHoneyIsBelowNotifcationThreshold()
@@ -149,11 +111,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             Assert.AreEqual(true, honeyVault.Honey < LOW_LEVEL_WARNING);
             Assert.AreEqual(false, honeyVault.Nectar < LOW_LEVEL_WARNING);*/
             Assert.AreEqual("\nLOW HONEY - ADD A HONEY MANUFACTURER", honeyVault.Notifications);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestNotificationsReturnsNectarLowIfNectarIsBelowNotifcationThreshold()
@@ -165,11 +122,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             Assert.AreEqual(true, honeyVault.Nectar < LOW_LEVEL_WARNING);
             Assert.AreEqual(false, honeyVault.Honey < LOW_LEVEL_WARNING);*/
             Assert.AreEqual("\nLOW NECTAR - ADD A NECTAR COLLECTOR", honeyVault.Notifications);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestNotificationsReturnsNectarAndHoneyLowIfBothAreBelowNotifcationThreshold()
@@ -184,11 +136,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             Assert.AreEqual(true, honeyVault.Nectar < LOW_LEVEL_WARNING);
             string expected = "\nLOW HONEY - ADD A HONEY MANUFACTURER\nLOW NECTAR - ADD A NECTAR COLLECTOR";
             Assert.AreEqual(expected, honeyVault.Notifications);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
         [TestMethod]
         public void TestStatusReportCorrectlyRepresentsHoneyAndNectarInStatusWithoutNotifications()
@@ -198,11 +145,6 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
                 $"\n{honeyVault.Honey} units of Honey" +
                 $"\n{honeyVault.Nectar} units of Nectar";
             Assert.AreEqual(expected, honeyVault.StatusReport);
-
-            // Revert changes for following tests
-            honeyVault.Reset();
-            Assert.AreEqual(honeyStartingAmount, honeyVault.Honey);
-            Assert.AreEqual(nectarStartingAmount, honeyVault.Nectar);
         }
     }
 }

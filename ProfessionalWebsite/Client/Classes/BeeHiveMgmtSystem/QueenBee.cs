@@ -2,57 +2,135 @@
 {
     public class QueenBee : Bee
     {
-        public QueenBee(HoneyVault honeyVault) : base(WorkerType.Queen)
+        public QueenBee() : base(WorkerType.Queen)
         {
-            vault = honeyVault;
-            UnassignedWorkers = 3F;
+            //UnassignedWorkersCount = 3F + settings.QueenUnassignedWorkersCount;
+            UnassignedWorkersCount = 3F;
             AssignBee(WorkerType.HoneyManufacturer);
             AssignBee(WorkerType.NectarCollector);
             AssignBee(WorkerType.EggCare);
-            CostPerShift = 2.15F;
+
+            HiveIsBankrupt = false;
+            //Eggs = settings.QueenEggs;
+            Eggs =  0F;
+            CurrentDay = 1;
+
+            UpdateStatusReport();
+        }
+        public void Reset()
+        {
+            HiveIsBankrupt = false;
+            //UnassignedWorkersCount = 3F + settings.QueenUnassignedWorkersCount;
+            UnassignedWorkersCount = 3F;
+            workers = new IWorker[0];
+            AssignBee(WorkerType.HoneyManufacturer);
+            AssignBee(WorkerType.NectarCollector);
+            AssignBee(WorkerType.EggCare);
+            //Eggs = settings.QueenEggs;
             Eggs = 0F;
             CurrentDay = 1;
             UpdateStatusReport();
         }
+        public void ResetSelfAndReferencedVault()
+        {
+            Reset();
+            vault.Reset();
+        }
 
-        private HoneyVault vault;
+        private IWorker[] workers = { };  // another option: private IWorker[] workers = new Worker[0];
+        /*
+        private Settings settings = Settings.Instance;
+        public float EggsPerShift => settings.QueenEggsPerShift;
+        public float HoneyPerUnassignedWorker => settings.QueenHoneyPerUnassignedWorker;
+        */
+        private HoneyVault vault = HoneyVault.Instance;
 
-        public float EGGS_PER_SHIFT = 0.45F;
-        public float HONEY_PER_UNASSIGNED_WORKER = 0.5F;
+        public float EggsPerShift => 0.45F;
+        public float HoneyPerUnassignedWorker => 0.5F;
 
         public int CurrentDay { get; private set; }
-
-        private IWorker[] workers = {};  // another option: private IWorker[] workers = new Worker[0];
         public float Eggs { get; private set; }
-        public float UnassignedWorkers { get; private set; }
-
-        // public event PropertyChangedEventHandler PropertyChanged;  // (uses INotifyPropertyChanged)
-
+        public int AssignedWorkersCount { get { return workers.Length; } }
+        public float UnassignedWorkersCount { get; private set; }
         public string StatusReport { get; private set; }
-        public override float CostPerShift { get; protected set; }
-
-        private void AddWorker(IWorker newWorker)
-        {
-            if (UnassignedWorkers >= 1)
+        //public override float CostPerShift => settings.QueenCostPerShift;
+        public override float CostPerShift => 2.15F;
+        public bool HiveIsBankrupt { get; private set; }
+        // public event PropertyChangedEventHandler PropertyChanged;  // (uses INotifyPropertyChanged)
+        public float TotalCostPerShift
+        { 
+            get 
             {
-                UnassignedWorkers--;
-                Array.Resize(ref workers, workers.Length + 1);
-                workers[workers.Length - 1] = newWorker;
+                float totalCost = 0F;
+                totalCost += CostPerShift;  // the Queen
+                foreach (Bee worker in workers)
+                    totalCost += worker.CostPerShift;  // assigned workers
+                totalCost += (HoneyPerUnassignedWorker * (float)Math.Floor(UnassignedWorkersCount));  // unassigned workers
+                return totalCost;
             }
+        }
+        public override void WorkTheNextShift()
+        {
+            if (!HiveIsBankrupt)
+            {
+                if (vault.ConsumeHoney(CostPerShift))
+                {
+                    DoJob();
+                    UpdateHiveIsBankrupt();
+                }
+            }
+        }
+        protected override void DoJob()
+        {
+            LayEggs();
+            OrderBeesToDoTheirJobs();
+            FeedUnassignedWorkers();
+            CurrentDay++;
+            UpdateStatusReport();
         }
         public void AssignBee(WorkerType job)
         {
-            if (job == WorkerType.HoneyManufacturer) AddWorker(new HoneyManufacturerBee());
-            else if (job == WorkerType.NectarCollector) AddWorker(new NectarCollectorBee());
-            else if (job == WorkerType.EggCare) AddWorker(new EggCareBee(this));
-            UpdateStatusReport();
+            if (!HiveIsBankrupt)
+            {
+                if (job == WorkerType.HoneyManufacturer) AddWorker(new HoneyManufacturerBee());
+                else if (job == WorkerType.NectarCollector) AddWorker(new NectarCollectorBee());
+                else if (job == WorkerType.EggCare) AddWorker(new EggCareBee(this));
+                UpdateStatusReport();
+            }
         }
         public void CareForEggs(float eggsToConvert)
         {
             if (Eggs >= eggsToConvert)
             {
                 Eggs -= eggsToConvert;
-                UnassignedWorkers += eggsToConvert;
+                UnassignedWorkersCount += eggsToConvert;
+            }
+        }
+        public int GetWorkersCountByWorkerType(WorkerType workerType)
+        {
+            int count = 0;
+            foreach (IWorker worker in workers)
+                if (worker.Job == workerType) count += 1;
+            return count;
+        }
+        private void UpdateHiveIsBankrupt() =>
+            HiveIsBankrupt = vault.Honey < CostPerShift ? true : false;
+        private float LayEggs() => 
+            Eggs += EggsPerShift;
+        private void OrderBeesToDoTheirJobs()
+        {
+            foreach (IWorker worker in workers)
+                worker.WorkTheNextShift();
+        }
+        private void FeedUnassignedWorkers() => 
+            vault.ConsumeHoney((float)Math.Floor(UnassignedWorkersCount) * HoneyPerUnassignedWorker);
+        private void AddWorker(IWorker newWorker)
+        {
+            if (UnassignedWorkersCount >= 1)
+            {
+                UnassignedWorkersCount--;
+                Array.Resize(ref workers, workers.Length + 1);
+                workers[workers.Length - 1] = newWorker;
             }
         }
         private string WorkerStatus(WorkerType workerType)
@@ -69,7 +147,7 @@
             StatusReport = $"{vault.StatusReport}" +
                 $"\n\nQueen's report:" +
                 $"\nEgg count: {Eggs}" +
-                $"\nUnassigned workers: {UnassignedWorkers}" +
+                $"\nUnassigned workers: {UnassignedWorkersCount}" +
                 $"\n{WorkerStatus(WorkerType.HoneyManufacturer)}" +
                 $"\n{WorkerStatus(WorkerType.NectarCollector)}" +
                 $"\n{WorkerStatus(WorkerType.EggCare)}" +
@@ -83,62 +161,5 @@
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
-        protected override void DoJob()
-        {
-            // Lay egg portion
-            Eggs += EGGS_PER_SHIFT;
-
-            // Have bees do their jobs
-            foreach(IWorker worker in workers)
-                worker.WorkTheNextShift(vault);
-
-            // Feed unassigned workers
-            vault.ConsumeHoney((float)Math.Floor(UnassignedWorkers) * HONEY_PER_UNASSIGNED_WORKER);
-
-            // A new day
-            CurrentDay++;
-
-            // Give status report
-            UpdateStatusReport();
-        }
-        public int GetWorkerCount(WorkerType workerType)
-        {
-            int count = 0;
-            foreach (IWorker worker in workers)
-                if (worker.Job == workerType) count += 1;
-            return count;
-        }
-        public int GetWorkerCount() => workers.Length;
-
-        public float GetCostPerShift()
-        {
-            float totalCost = 0F;
-
-            // the Queen
-            totalCost += CostPerShift;
-
-            // assigned workers
-            foreach (var worker in workers)
-            {
-                Bee workerBee = (Bee)worker;
-                totalCost += workerBee.CostPerShift;
-            }
-
-            // unassigned workers
-            totalCost += (HONEY_PER_UNASSIGNED_WORKER * (float)Math.Floor(UnassignedWorkers));
-
-            return totalCost;
-        }
-        public void Reset()
-        {
-            workers = new IWorker[0];
-            AssignBee(WorkerType.HoneyManufacturer);
-            AssignBee(WorkerType.NectarCollector);
-            AssignBee(WorkerType.EggCare);
-            Eggs = 0F;
-            UnassignedWorkers = 0F;
-            CurrentDay = 1;
-            UpdateStatusReport();
-        }
     }
 }

@@ -2,7 +2,19 @@
 {
     public sealed class HoneyVault  // sealed so that it is the only instance due to no classes being able to inherit from it
     {
-        private HoneyVault() { }  // private constructor; not externally accessible
+        private HoneyVault()  // private constructor; not externally accessible
+        {
+            /*
+            nectarConversionRatio = settings.VaultNectarConversionRatio;
+            lowLevelWarning = settings.VaultLowLevelWarning;
+            Honey = settings.VaultHoney;
+            Nectar  = settings.VaultNectar;
+            */
+            nectarConversionRatio = 0.19F;
+            lowLevelWarning = 10F;
+            Honey = 25F;
+            Nectar = 100F;
+        }  
         private static HoneyVault? instance = null;  // single instance definable only during the first GET of the instance
         private static readonly object lockObject = new object();  // used for lock so that only one thread has access to the instance at a time
         public static HoneyVault Instance
@@ -17,20 +29,31 @@
                 }
             }
         }
+        public void Reset()
+        {
+            /*
+            Honey = settings.VaultHoney;
+            Nectar = settings.VaultNectar;
+            */
+            Honey = 25F;
+            Nectar = 100F;
+        }
 
-        private const float NECTAR_CONVERSION_RATIO = 0.19F;
-        private const float LOW_LEVEL_WARNING = 10F;
+        // private Settings settings = Settings.Instance;
 
-        public float Honey { get; private set; } = 25F;
-        public float Nectar { get; private set; } = 100F;
+        private float nectarConversionRatio;
+        private float lowLevelWarning;
+
+        public float Honey { get; private set; }
+        public float Nectar { get; private set; }
         public string Notifications 
         { 
             get 
             {
                 var result = "";
-                if (Honey < LOW_LEVEL_WARNING)
+                if (Honey < lowLevelWarning)
                     result += "\nLOW HONEY - ADD A HONEY MANUFACTURER";
-                if (Nectar < LOW_LEVEL_WARNING)
+                if (Nectar < lowLevelWarning)
                     result += "\nLOW NECTAR - ADD A NECTAR COLLECTOR";
                 return result;
             }
@@ -52,7 +75,7 @@
         {
             amountToConvert = amountToConvert > Nectar ? Nectar : amountToConvert;
             Nectar -= amountToConvert;
-            Honey += amountToConvert * NECTAR_CONVERSION_RATIO;
+            Honey += amountToConvert * nectarConversionRatio;
         }
         public bool ConsumeHoney(float consumptionAmount)
         {
@@ -62,11 +85,6 @@
                 return true;
             }
             return false;
-        }
-        public void Reset()
-        {
-            Honey = 25F;
-            Nectar = 100F;
         }
     }
 }

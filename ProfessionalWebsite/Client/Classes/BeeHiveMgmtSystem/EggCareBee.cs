@@ -4,20 +4,21 @@
     {
         public EggCareBee(QueenBee queen) : base(WorkerType.EggCare)
         {
-            CostPerShift = 1.53F;
             this.queen = queen;
         }
 
-        public const float CARE_PROGRESS_PER_SHIFT = 0.15F;
-
-        public override float CostPerShift { get; protected set; }
-
         private QueenBee queen;
+        /*
+        private Settings settings = Settings.Instance;
+        public float CareProgressPerShift =>
+            settings.EggCareCareProgressPerShift;
+        public override float CostPerShift =>
+            settings.EggCareCostPerShift;
+        */
+        public float CareProgressPerShift = 0.15F;
+        public override float CostPerShift => 1.53F;
 
-        protected override void DoJob()
-        {
-            HoneyVault honeyVault = HoneyVault.Instance;
-            queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);
-        }
+        protected override void DoJob() =>
+            queen.CareForEggs(CareProgressPerShift);
     }
 }

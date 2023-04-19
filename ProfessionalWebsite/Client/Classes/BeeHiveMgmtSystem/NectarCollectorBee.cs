@@ -2,18 +2,21 @@
 {
     class NectarCollectorBee : Bee
     {
-        public NectarCollectorBee() : base(WorkerType.NectarCollector)
-        {
-            CostPerShift = 1.95F;
-        }
+        public NectarCollectorBee() : base(WorkerType.NectarCollector) { }
 
-        public const float NECTAR_COLLECTED_PER_SHIFT = 33.25F;
+        /*
+        private Settings settings = Settings.Instance;
+        public float NectarCollectedPerShift =>
+            settings.NectarCollectarNectarCollectedPerShift;
+        public override float CostPerShift =>
+            settings.NectarCollectorCostPerShift;
+        */
+        private HoneyVault vault = HoneyVault.Instance;
 
-        public override float CostPerShift { get; protected set; }
+        public float NectarCollectedPerShift = 33.25F;
+        public override float CostPerShift => 1.95F;
 
-        protected override void DoJob(HoneyVault honeyVault)
-        {
-            honeyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
-        }
+        protected override void DoJob() =>
+            vault.CollectNectar(NectarCollectedPerShift);
     }
 }
