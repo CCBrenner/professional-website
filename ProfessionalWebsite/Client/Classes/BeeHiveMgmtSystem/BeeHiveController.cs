@@ -8,9 +8,10 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
         {
             beeHive = new BeeHive();
         }
-        public BeeHive beeHive { get; private set; }
+        private BeeHive beeHive;
+        public float QueensHunger => beeHive.Queen.CostPerShift;
         public int CurrentDay => 
-            beeHive.Queen.CurrentDay;
+            beeHive.Queen.CurrentDay; 
         public string StatusReport =>
             beeHive.Queen.StatusReport.Replace("\n", "<br>");
         public float VaultHoney => 
@@ -37,16 +38,19 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             beeHive.Queen.HiveIsBankrupt;
         public float EggsPerShift => 
             beeHive.Queen.EggsPerShift;
-        //public float HoneyPerUnassignedWorker =>
-        //  beeHive.Queen.HoneyPerUnassignedWorker;
-        public float NectarCollectedPerShift => 
-            beeHive.NectarCollectorBee.NectarCollectedPerShift;
+        //public float HoneyPerUnassignedWorker => beeHive.Queen.HoneyPerUnassignedWorker;
+        //public float NectarCollectedPerShift => beeHive.NectarCollectorBee.NectarCollectedPerShift;
         public float NectarCollectionRate =>
-            (float)(Math.Floor(NectarCollectedPerShift * NectarCollectors * 10) / 10);
-        public float NectarProcessedPerShift => 
-            beeHive.HoneyManufacturerBee.NectarProcessedPerShift;
-        public float NectarToHoneyConversionRate =>
-            (float)(Math.Floor(NectarProcessedPerShift * HoneyManufacturers * 10) / 10);
+            (float)(Math.Floor(beeHive.NectarCollectorBee.NectarCollectedPerShift * NectarCollectors * 10) / 10);
+        //public float NectarProcessedPerShift => beeHive.HoneyManufacturerBee.NectarProcessedPerShift;
+        public float NectarReductionRate =>
+            (float)(Math.Floor(beeHive.HoneyManufacturerBee.NectarProcessedPerShift * HoneyManufacturers * 10) / 10);
+        public float HoneyAdditionRate =>
+            (float)(Math.Floor(beeHive.HoneyManufacturerBee.NectarProcessedPerShift * HoneyManufacturers * beeHive.Vault.NectarConversionRatio * 10) / 10);
+        public float NectarTrajectory =>
+            (float)(Math.Floor((NectarCollectionRate - NectarReductionRate) * 10) / 10);
+        public float HoneyTrajectory =>
+            (float)(Math.Floor((HoneyAdditionRate - ConsumptionRate) * 10) / 10);
         public float CareProgressPerShift =>
             beeHive.EggCareBee.CareProgressPerShift;
         public float EggToUnassignedConversionRate =>

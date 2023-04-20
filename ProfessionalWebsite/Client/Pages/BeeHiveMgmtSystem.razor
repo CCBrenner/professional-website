@@ -262,10 +262,12 @@
                                 <div>Nectar</div>
                                 <div>@beeHiveController.VaultNectar</div>
                             </div>
-                            <div class="text-center field-flex-arrow-v3">
+                            <div class="text-center field-flex-arrow-v3 nectar-to-honey-rates">
+                                (-@beeHiveController.NectarReductionRate)
+                                <br/>
                                 =>
-                                <br />
-                                (@beeHiveController.NectarToHoneyConversionRate)
+                                <br/>
+                                (+@beeHiveController.HoneyAdditionRate)
                             </div>
                             <div class="field-flex-v3">
                                 <div>Honey</div>
@@ -283,14 +285,47 @@
                                 (@beeHiveController.ConsumptionRate)
                             </div>
                             <div class="field-flex-v3">
-                                <div class="text-center">Energy to do<br/>Work per Shift</div>
+                                <div class="text-center">Energy for<br>All Bees</div>
                             </div>
                         </div>
 
                         <div class="row-flex-v3">
+                            <div class="field-flex-v3 text-center">
+                                <div>Honey Trajectory</div>
+                                <div>
+                                    (
+                                    @if (beeHiveController.HoneyTrajectory > 0)
+                                    {
+                                        <span>+</span>
+                                    }
+                                    @beeHiveController.HoneyTrajectory
+                                    )
+                                </div>
+                            </div>
                             <div class="field-flex-v3">
                                 <div>Workers</div>
                                 <div>@beeHiveController.WorkersTotal</div>
+                            </div>
+                            <div class="field-flex-v3 text-center">
+                                <div>Nectar Trajectory</div>
+                                <div>
+                                    (
+                                    @if (beeHiveController.NectarTrajectory > 0)
+                                    {
+                                        <span>+</span>
+                                    }
+                                    @beeHiveController.NectarTrajectory
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-flex-v3">
+                            <div class="field-flex-v3">
+                                <div class="text-center">
+                                    If the Queen cannot eat, the Hive goes Bankrupt.
+                                    <br/>
+                                    (Queen's Hunger: @beeHiveController.QueensHunger units of Honey/Shift)
+                                </div>
                             </div>
                         </div>
                         @*

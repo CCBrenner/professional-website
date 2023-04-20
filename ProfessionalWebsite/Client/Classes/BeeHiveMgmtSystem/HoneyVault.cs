@@ -10,7 +10,7 @@
             Honey = settings.VaultHoney;
             Nectar  = settings.VaultNectar;
             */
-            nectarConversionRatio = 0.19F;
+            NectarConversionRatio = 0.19F;
             lowLevelWarning = 10F;
             Honey = 25F;
             Nectar = 100F;
@@ -40,13 +40,12 @@
         }
 
         // private Settings settings = Settings.Instance;
-
-        private float nectarConversionRatio;
         private float lowLevelWarning;
 
         public float Honey { get; private set; }
         public float Nectar { get; private set; }
-        public string Notifications 
+        public float NectarConversionRatio { get; private set; }
+        public string Notifications
         { 
             get 
             {
@@ -75,7 +74,7 @@
         {
             amountToConvert = amountToConvert > Nectar ? Nectar : amountToConvert;
             Nectar -= amountToConvert;
-            Honey += amountToConvert * nectarConversionRatio;
+            Honey += amountToConvert * NectarConversionRatio;
         }
         public bool ConsumeHoney(float consumptionAmount)
         {
