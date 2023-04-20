@@ -200,13 +200,24 @@
     padding: 8px 4px 4px 4px;
 }
 
-.row-flex-v3[b-i8dz12kr23] {
+.row-flex-v3t[b-i8dz12kr23] {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #eee;
     border-radius: 12px;
     margin-top: 4px;
     padding: 8px 4px 4px 4px;
+    font-size: 1.1rem;
+}
+
+.row-flex-v3[b-i8dz12kr23] {
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+    border-radius: 12px;
+    margin-top: 4px;
+    padding: 8px 4px 4px 4px;
+    font-size: 1.1rem;
 }
 
 .field-flex[b-i8dz12kr23] {
@@ -224,11 +235,19 @@
     align-items: center;
     justify-content: center;
     line-height: 1.2;
+    padding: 0px 16px;
 }
 
 .field-flex-arrow[b-i8dz12kr23] {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+.field-flex-arrow-v3[b-i8dz12kr23] {
+    display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1.2;

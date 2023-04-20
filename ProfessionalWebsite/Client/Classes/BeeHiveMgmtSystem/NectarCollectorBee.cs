@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 {
-    class NectarCollectorBee : Bee
+    public class NectarCollectorBee : Bee
     {
         public NectarCollectorBee() : base(WorkerType.NectarCollector) { }
 

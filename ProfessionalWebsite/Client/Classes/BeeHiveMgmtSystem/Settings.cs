@@ -47,6 +47,19 @@
         {
             instance = new Settings();
         }
+        /*
+        // ConcurrentDictionary could be used to solve concurrent thread access issues (if that is the problem w/Settings singleton)
+        ConcurrentDictionary<string, int> dictionary = new ConcurrentDictionary<string, int>()
+        {
+            ["A"] = 12,
+            ["B"] = 2,
+            ["C"] = 3,
+        };
+        public int TestThis()
+        {
+            if (dictionary.TryGetValue("A", out int value)) return value;
+            return 10;
+        }
     }
     */
 }

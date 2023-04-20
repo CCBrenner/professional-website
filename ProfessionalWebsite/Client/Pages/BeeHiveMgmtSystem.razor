@@ -202,19 +202,22 @@
                 <div class="text-prompts-v3">
                     <div class="report">
                         <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
-                        <div class="row-flex">
-                            <div class="field-flex">
+                        <div class="row-flex-v3t">
+                            <div class="field-flex-v3">
                                 <div>Honey</div>
                                 <div>@beeHiveController.VaultHoney</div>
                             </div>
-                            <div class="field-flex">
+                            <div class="field-flex-v3">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="field-flex-v3">
                                 <div>Nectar</div>
                                 <div>@beeHiveController.VaultNectar</div>
                             </div>
                         </div>
                         @if (beeHiveController.VaultNotification != "")
                         {
-                            <div class="row-flex">
+                            <div class="row-flex-v3">
                                 <div class="field-flex text-center" style="color: red;">
                                     @beeHiveController.VaultNotification
                                 </div>
@@ -227,19 +230,71 @@
                             <div class="field-flex-v3">
                                 <div>Queen</div>
                             </div>
-                            <div class="field-flex-arrow">=></div>
+                            <div class="text-center field-flex-arrow-v3">
+                                =>
+                                <br/>
+                                (@beeHiveController.EggsPerShift)
+                            </div>
                             <div class="field-flex-v3">
                                 <div>Eggs</div>
                                 <div>@beeHiveController.Eggs</div>
                             </div>
-                            <div class="field-flex-arrow">=></div>
+                            <div class="text-center field-flex-arrow-v3">
+                                =>
+                                <br/>
+                                (@beeHiveController.EggToUnassignedConversionRate)
+                            </div>
                             <div class="field-flex-v3">
                                 <div>Unassigned</div>
                                 <div>@beeHiveController.UnassignedWorkersCount</div>
                             </div>
                         </div>
+                        <div class="row-flex-v3">
+                            <div class="field-flex-v3">
+                                <div>Flowers</div>
+                            </div>
+                            <div class="text-center field-flex-arrow-v3">
+                                =>
+                                <br />
+                                (@beeHiveController.NectarCollectionRate)
+                            </div>
+                            <div class="field-flex-v3">
+                                <div>Nectar</div>
+                                <div>@beeHiveController.VaultNectar</div>
+                            </div>
+                            <div class="text-center field-flex-arrow-v3">
+                                =>
+                                <br />
+                                (@beeHiveController.NectarToHoneyConversionRate)
+                            </div>
+                            <div class="field-flex-v3">
+                                <div>Honey</div>
+                                <div>@beeHiveController.VaultHoney</div>
+                            </div>
+                        </div>
+                        <div class="row-flex-v3">
+                            <div class="field-flex-v3">
+                                <div>Honey</div>
+                                <div>@beeHiveController.VaultHoney</div>
+                            </div>
+                            <div class="text-center field-flex-arrow-v3">
+                                =>
+                                <br />
+                                (@beeHiveController.ConsumptionRate)
+                            </div>
+                            <div class="field-flex-v3">
+                                <div class="text-center">Energy to do<br/>Work per Shift</div>
+                            </div>
+                        </div>
+
+                        <div class="row-flex-v3">
+                            <div class="field-flex-v3">
+                                <div>Workers</div>
+                                <div>@beeHiveController.WorkersTotal</div>
+                            </div>
+                        </div>
                         @*
-                        <div class="row-flex">
+                    <div class="row-flex-v3">
                             <div class="field-flex">
                                 <div>Honey<br />Makers</div>
                                 <div>@beeHiveController.HoneyManufacturers</div>
@@ -253,7 +308,7 @@
                                 <div>@beeHiveController.EggNurses</div>
                             </div>
                         </div>
-                        <div class="row-flex">
+                    <div class="row-flex-v3">
                             <div class="field-flex">
                                 <div>Workers Total</div>
                                 <div>@beeHiveController.WorkersTotal</div>
@@ -341,7 +396,7 @@
 
     private WorkerType selectedWorkerType = WorkerType.HoneyManufacturer;
 
-    private ActiveUI VisibleUI = ActiveUI.V2;
+    private ActiveUI VisibleUI = ActiveUI.V3;
 
     private void SetVisibleUI(ActiveUI uiChoice)
     {

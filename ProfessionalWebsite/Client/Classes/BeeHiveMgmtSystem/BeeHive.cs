@@ -6,6 +6,11 @@
         public HoneyVault Vault = HoneyVault.Instance;
         public QueenBee Queen = new QueenBee();
 
+        // For using values in view only
+        public NectarCollectorBee NectarCollectorBee = new NectarCollectorBee();
+        public HoneyManufacturerBee HoneyManufacturerBee = new HoneyManufacturerBee();
+        public EggCareBee EggCareBee = new EggCareBee(new QueenBee());
+
         public float ConsumptionRate => 
             (float)(Math.Floor(Queen.TotalCostPerShift * 10) / 10);
 

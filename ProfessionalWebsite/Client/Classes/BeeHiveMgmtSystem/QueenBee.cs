@@ -1,4 +1,7 @@
-﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+
+namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 {
     public class QueenBee : Bee
     {
@@ -44,7 +47,7 @@
         public float HoneyPerUnassignedWorker => settings.QueenHoneyPerUnassignedWorker;
         */
         private HoneyVault vault = HoneyVault.Instance;
-
+        
         public float EggsPerShift => 0.45F;
         public float HoneyPerUnassignedWorker => 0.5F;
 

@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 {
-    class HoneyManufacturerBee : Bee
+    public class HoneyManufacturerBee : Bee
     {
         public HoneyManufacturerBee() : base(WorkerType.HoneyManufacturer) { }
 
