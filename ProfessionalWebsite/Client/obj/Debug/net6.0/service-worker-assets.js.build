@@ -61,6 +61,10 @@
       "url": "manifest.json"
     },
     {
+      "hash": "sha256-\/qqVptDVFBAbIe3FBX5FiyD5PxiM\/WKIbRi8UG2VzsY=",
+      "url": "media\/images\/beeHiveGame\/BeeHiveGameWPA.png"
+    },
+    {
       "hash": "sha256-IF3gQ8ZoVO0o3k81MdV8NzYSPnCeHuxK2ux3bz1p7Jw=",
       "url": "media\/images\/certifications\/LinkedInLearning_JavaScriptEssentialTraining_May2021.png"
     },
@@ -85,7 +89,7 @@
       "url": "media\/images\/icon-512.png"
     },
     {
-      "hash": "sha256-pXluszwRSL\/7k+Ggd9siKPJkNig3c6l0idsoRwqgnlw=",
+      "hash": "sha256-4Wa2iMFg1E4mqBkgmPEcyLI2bOHKVHYm9X7WZweX57Q=",
       "url": "ProfessionalWebsite.Client.styles.css"
     },
     {
@@ -877,11 +881,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-v9+DnyhMZKVZjKqXc0rZC84IYx0cO1OVnoWKqqwANQA=",
+      "hash": "sha256-T41nGcOvOtgnqVpnWhL6Vf6CLiO1le\/+iQHNt0+6D9I=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-OcEKfVNuWaWFc0LX0a1ogsfjG1OPAtiQB\/lPh+5UOdg=",
+      "hash": "sha256-rBONhMwIwX5Yjz0Nvyd8rSd6CBwjVRoIPeQfpJUuykA=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -889,9 +893,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-2ksqSeESq7ZG1oHswehfLOsYcF4ppSOPNw0ML6+IJvQ=",
+      "hash": "sha256-AWp9lJ5vxtkP63To7RQzpjSRNiidrXOnTVh3lad\/20s=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "Prt0Du8G"
+  "version": "LiFwqN7h"
 };

@@ -2,6 +2,64 @@
 
 /* Styles here are only for Current interface, not Original (which uses only bootstrap). */
 
+.positioning-container[b-i8dz12kr23] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container[b-i8dz12kr23] {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.topmost-buttons[b-i8dz12kr23] {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-corner-button-containers[b-i8dz12kr23] {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+}
+
+    .top-corner-button-containers > a[b-i8dz12kr23] {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .top-corner-button-containers:hover[b-i8dz12kr23] {
+        cursor: pointer;
+    }
+
+.settings-button[b-i8dz12kr23] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.wpa-image[b-i8dz12kr23] {
+    width: 100%;
+    height: calc(var(--content-height) - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.wpa-image > img[b-i8dz12kr23] {
+    width: 100%;
+    height: auto;
+}
+
 .text-prompts-container[b-i8dz12kr23] {
     padding: 14px 20px;
     width: 100%;
@@ -266,25 +324,138 @@
     width: 70%;
 }
 
-.nectar-to-honey-rates[b-i8dz12kr23] {
+.rates-and-conversions[b-i8dz12kr23] {
     font-size: 0.9rem;
 }
 
+.vault-honey-nectar[b-i8dz12kr23] {
+    display: flex;
+    align-items: center;
+}
+
+.vault-amounts[b-i8dz12kr23] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trajectories-v3[b-i8dz12kr23] {
+    padding: 0px 8px;
+}
+
+.start-with-timer-on[b-i8dz12kr23] {
+    color: #eee;
+    background-color: darkblue;
+    border-radius: 8px;
+    padding: 4px 10px;
+    width: 70%;
+}
+
+.behindpanel[b-i8dz12kr23] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+.settings-panel[b-i8dz12kr23] {
+    position: absolute;
+    top: calc(calc(var(--content-height) * 0.5) - calc(calc(var(--content-height) - 40px) * 0.5));
+    left: 0;
+    width: 100%;
+    max-width: 520px;
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 4;
+    background-color: rgba(176, 240, 246, 0.85);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    border: 1px solid #777;
+}
+
+.settings-scrollable-section[b-i8dz12kr23] {
+    overflow-y: auto;
+    max-height: calc(var(--content-height) - 210px);
+    height: calc(var(--content-height) - 80px);
+}
+
+.settings-bottom-container[b-i8dz12kr23] {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.settings-close[b-i8dz12kr23] {
+    background-color: navy;
+    width: 30%;
+    height: 40px;
+    color: #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* start Plugable statuses */
+
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
+
+.pm-panel-visible[b-i8dz12kr23] {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.pm-maincontent-blurred[b-i8dz12kr23] {
+    filter: blur(2.5px);
+}
+
+.pm-behindpanel-present[b-i8dz12kr23] {
+    display: block;
+    transition: background-color 0.2s;
+    z-index: 3;
+}
+
+.pm-panelbutton-active[b-i8dz12kr23] {
+    background-color: #444;
+}
+
+/* end Plugable statuses */
+
+@media (min-width: 540px) {
+    .settings-panel[b-i8dz12kr23] {
+        left: calc(50% - 260px);
+    }
+}
+
 @media (min-width: 78vh) {
+    .game-container[b-i8dz12kr23] {
+        max-width: 800px;
+    }
+
     .text-prompts-container[b-i8dz12kr23] {
         padding-right: 60px;
         padding-left: 60px;
     }
-
-    .text-prompts[b-i8dz12kr23] {
-        height: calc(var(--content-height) - 300px);
-    }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
     .text-prompts-container[b-i8dz12kr23] {
         padding-right: 150px;
         padding-left: 150px;
+    }
+
+    .text-prompts-v3[b-i8dz12kr23] {
+        height: calc(var(--content-height) - 200px);
     }
 }
 
@@ -1258,6 +1429,55 @@ td[b-cliwmzypxj] {
     padding: 10px;
     height: 100%;
 }
+/* /Pages/PanelTemplate.razor.rz.scp.css */
+
+.panel[b-q4okaagvrw] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--content-height) - 20px);
+    z-index: 4;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.behindpanel[b-q4okaagvrw] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+/* start Plugable statuses */
+
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
+
+.pm-panel-visible[b-q4okaagvrw] {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.pm-maincontent-blurred[b-q4okaagvrw] {
+    filter: blur(2.5px);
+}
+
+.pm-behindpanel-present[b-q4okaagvrw] {
+    display: block;
+    background-color: rgba(0,0,60,0.06);
+    transition: background-color 0.2s;
+    z-index: 3;
+}
+
+/* end Plugable statuses */
 /* /Pages/UnderConstruction.razor.rz.scp.css */
 
 .construction-container[b-gjsk2lehkp] {
@@ -2383,6 +2603,12 @@ td[b-cliwmzypxj] {
 }
 
 /* start Plugable statuses */
+
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
 
 .panel-visible[b-zgtipjgn14] {
     visibility: visible;

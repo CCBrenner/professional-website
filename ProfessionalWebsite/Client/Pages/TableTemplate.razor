@@ -1,6 +1,7 @@
 ﻿@* vvv used for type-matching of item in Items to RowTemplate(item) vvv *@
-@typeparam TItem
-
+@* This component is not to be used in this project. *@
+@*@typeparam TItem*@
+@*
 <table>
     <thead>
         <tr>@TableHeader</tr>
@@ -13,14 +14,30 @@
             }
     </tbody>
 </table>
+*@
+
+<div style="@styleTest">This is it.</div>
+<div style="width: 100vw; height: 50px;" @onclick='(()=>SetHeight("70px"))'>Click to Change Height</div>
 
 @code {
+    @*
     [Parameter]
     public RenderFragment? TableHeader { get; set; }
     @* TItem is a made up type in this component for purpose of 
-    using context/Context in parent/consuming component of this template *@
+    using context/Context in parent/consuming component of this template 
     [Parameter]
     public RenderFragment<TItem>? TableRows { get; set; }
     [Parameter]
     public List<TItem> Items { get; set; }
+    *@
+
+    private string styleTest => $"background-color: green; width: 100vw; transition: height 2s; {Height} {Display}";
+    private string Height = "height: 50px;";
+    private string Display = "display: block;";
+
+    public void SetHeight(string newValue) =>
+        Height = newValue == "" ? "" : $"height: {newValue}";
+
+    public void SetDisplay(string newValue) =>
+        Display = newValue == "" ? "" : $"display: {newValue}";
 }

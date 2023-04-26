@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\manifest.json"
     },
     {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png",
+      "PackagePath": "staticwebassets\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png"
+    },
+    {
       "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png",
       "PackagePath": "staticwebassets\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png"
     },

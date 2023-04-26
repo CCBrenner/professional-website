@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ProfessionalWebsite.Client;
+using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
 using ProfessionalWebsite.Client.Services;
 using ProfessionalWebsite.Client.Services.Contracts;
 

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Timers;
 
 namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 {
@@ -18,7 +20,12 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             Eggs =  0F;
             CurrentDay = 1;
 
+            TimerIsBeingUsed = false;
+            TimerRunning = false;
+
             UpdateStatusReport();
+
+            InitializeTimer();
         }
         public void Reset()
         {
@@ -33,6 +40,7 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             Eggs = 0F;
             CurrentDay = 1;
             UpdateStatusReport();
+            InitializeTimer();
         }
         public void ResetSelfAndReferencedVault()
         {
@@ -47,7 +55,9 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
         public float HoneyPerUnassignedWorker => settings.QueenHoneyPerUnassignedWorker;
         */
         private HoneyVault vault = HoneyVault.Instance;
-        
+        private System.Timers.Timer timer;
+        private int timerIterationCount;
+
         public float EggsPerShift => 0.45F;
         public float HoneyPerUnassignedWorker => 0.5F;
 
@@ -60,6 +70,10 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
         public override float CostPerShift => 2.15F;
         public bool HiveIsBankrupt { get; private set; }
         // public event PropertyChangedEventHandler PropertyChanged;  // (uses INotifyPropertyChanged)
+        public bool TimerIsBeingUsed;
+        public bool TimerRunning;
+        public event Action<bool> OnTimerInterval;
+        //public event Action<bool> OnTimerToggleFromControls;
         public float TotalCostPerShift
         { 
             get 
@@ -164,5 +178,43 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
+        private void InitializeTimer()
+        {
+            timer = new System.Timers.Timer(1500);
+            timer.Elapsed += new ElapsedEventHandler(PerTimerInterval);
+            timerIterationCount = 0;
+            TimerRunning = false;
+        }
+
+        private void PerTimerInterval(object sender, ElapsedEventArgs e)
+        {
+            if (!TimerIsBeingUsed)
+                StopTimer();
+            else
+            {
+                WorkTheNextShift();
+
+                if (HiveIsBankrupt)
+                    StopTimer();
+
+                RaiseEventOnTimerInterval(true);
+                timerIterationCount++;
+            }
+        }
+        public void StartTimer()
+        {
+            timer.Start();
+            TimerRunning = true;
+        }
+        private void StopTimer()
+        {
+            timer.Stop();
+            TimerRunning = false;
+        }
+        public void RaiseEventOnTimerInterval(bool newInterval)
+        {
+            // upon initial coding, bool here has no use except as a requirement by the event property needing a data type
+            OnTimerInterval?.Invoke(newInterval);
+        }
     }
 }

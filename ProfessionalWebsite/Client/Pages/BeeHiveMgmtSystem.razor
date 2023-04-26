@@ -1,493 +1,440 @@
 ﻿@using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+@using ProfessionalWebsite.Client.Classes.PanelMgmt;
+@implements IDisposable
+@inject NavService NavService
 
 @page "/beehivemgmtsystem"
 
 <PageTitle>BeeHive Management System - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
+    <div class="positioning-container">
+        <div class="game-container">
+            <div class="@panelMgmt.Panels[1].MainContent">
+                <div class="topmost-buttons">
+                    <div class="top-corner-button-containers">
+                        <a href="collyn" @onclick="(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(1, 16))">
+                            <span class="fa-solid fa-circle-info"></span>
+                        </a>
+                    </div>
+                    <div>
+                        <button class="btn @beeHiveView.interfaceClasses[0]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.WPA))">WPA</button>
+                        <button class="btn @beeHiveView.interfaceClasses[1]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.V1))">V1</button>
+                        <button class="btn @beeHiveView.interfaceClasses[2]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.V2))">V2</button>
+                        <button class="btn @beeHiveView.interfaceClasses[3]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.V3))">V3</button>
+                    </div>
+                    @if (beeHiveView.VisibleUIIsV3)
+                    {
+                        <div class="top-corner-button-containers @panelMgmt.Panels[1].PanelButtonStatus">
+                            <div class="settings-button" @onclick="(()=>panelMgmt.ActivatePanel(1))">
+                                <span class="fa-solid fa-gear"></span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="top-corner-button-containers" style="background-color: rgba(0,0,0,0);"></div>
+                    }
+                </div>
+                @if (beeHiveView.VisibleUI == ActiveUI.WPA)
+                {
+                    <div class="wpa-image">
+                        <img src="media/images/beeHiveGame/BeeHiveGameWPA.png">
+                    </div>
+                }
+                @if (beeHiveView.VisibleUI == ActiveUI.V1)
+                {
+                    <div class="text-prompts-container">
+                        <div class="text-prompts">
+                            <p class="status-report">
+                                @((MarkupString)beeHiveController.StatusReport)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="controls-backdrop">
+                            <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.HoneyManufacturer))">
+                                Add - Honey Manufacturer
+                            </button>
+                            <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.NectarCollector))">
+                                Add - Nectar Collector
+                            </button>
+                            <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.EggCare))">
+                                Add - Egg Care
+                            </button>
+                            <button class="btn control-button-work" @onclick="beeHiveController.WorkTheNextShift">
+                                Work Next Shift
+                            </button>
+                        </div>
+                    </div>
+                }
+                @if (beeHiveView.VisibleUI == ActiveUI.V2)
+                {
+                    <div class="text-prompts-container-v2">
+                        <div class="text-prompts-v2">
+                            <div class="report">
+                                <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
+                                <div class="row-flex">
+                                    <div class="field-flex">
+                                        <div>Honey</div>
+                                        <div>@beeHiveController.VaultHoney</div>
+                                    </div>
+                                    <div class="field-flex">
+                                        <div>Nectar</div>
+                                        <div>@beeHiveController.VaultNectar</div>
+                                    </div>
+                                </div>
+                                @if (beeHiveController.VaultNotification != "")
+                                {
+                                    <div class="row-flex">
+                                        <div class="field-flex text-center" style="color: red;">
+                                            @beeHiveController.VaultNotification
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="report">
+                                <div class="text-center">Day @beeHiveController.CurrentDay: Queen Bee Report</div>
+                                <div class="row-flex">
+                                    <div class="field-flex">
+                                        <div>Eggs</div>
+                                        <div>@beeHiveController.Eggs</div>
+                                    </div>
+                                    <div class="field-flex-arrow">=></div>
+                                    <div class="field-flex">
+                                        <div>Unassigned</div>
+                                        <div>@beeHiveController.UnassignedWorkersCount</div>
+                                    </div>
+                                </div>
+                                <div class="row-flex">
+                                    <div class="field-flex">
+                                        <div>Honey<br/>Makers</div>
+                                        <div>@beeHiveController.HoneyManufacturers</div>
+                                    </div>
+                                    <div class="field-flex">
+                                        <div>Nectar<br/>Collectors</div>
+                                        <div>@beeHiveController.NectarCollectors</div>
+                                    </div>
+                                    <div class="field-flex">
+                                        <div>Egg<br/>Nurses</div>
+                                        <div>@beeHiveController.EggNurses</div>
+                                    </div>
+                                </div>
+                                <div class="row-flex">
+                                    <div class="field-flex">
+                                        <div>Workers Total</div>
+                                        <div>@beeHiveController.WorkersTotal</div>
+                                    </div>
+                                    @*
+                                    <div class="field-flex">
+                                        <div>Cost Per Shift<br/>(units of Honey)</div>
+                                        <div>@beeHiveController.ConsumptionRate</div>
+                                    </div>
+                                    *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="controls-backdrop-v2">
+                            @if (beeHiveController.HiveIsBankrupt)
+                            {
+                                <div class="try-again" @onclick="beeHiveController.Reset">Try Again</div>
+                            }
+                            else
+                            {
+                                <div style="display: flex; flex-direction: column">
+                                    <div class="selector-row">
+                                        <div class="workertype-selector @beeHiveView.workertypeButtonsClasses[0]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                                            Honey Manufacturer
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.HoneyManufacturer)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="selector-row">
+                                        <div class="workertype-selector @beeHiveView.workertypeButtonsClasses[1]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                            Nectar Collector
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.NectarCollector)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="selector-row">
+                                        <div class="workertype-selector @beeHiveView.workertypeButtonsClasses[2]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                            Egg Care
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.EggCare)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="btn control-button-work-v2" @onclick="beeHiveView.WorkShift">
+                                    Work Next Shift
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                @if (beeHiveView.VisibleUI == ActiveUI.V3)
+                {
+                    <div class="text-prompts-container-v3 ">
+                        <div class="text-prompts-v3">
+                            <div class="report">
+                                <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
+                                <div class="row-flex-v3t">
+                                    <div class="field-flex-v3">
+                                        <div class="vault-honey-nectar">
+                                            <div class="trajectories-v3">
+                                                <span class="rates-and-conversions">
+                                                    (
+                                                    @if (beeHiveController.HoneyTrajectory > 0)
+                                                    {
+                                                        <span>+</span>
+                                                    }
+                                                    @beeHiveController.HoneyTrajectory
+                                                    )
+                                                </span>
+                                            </div>
+                                            <div class="vault-amounts">
+                                                <div>
+                                                    @beeHiveController.VaultHoney
+                                                </div>
+                                                <div>Honey</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div class="vault-honey-nectar">
+                                            <div class="vault-amounts">
+                                                <div>
+                                                    @beeHiveController.VaultNectar
+                                                </div>
+                                                <div>Nectar</div>
+                                            </div>
+                                            <div class="trajectories-v3">
+                                                <span class="rates-and-conversions">
+                                                    (
+                                                    @if (beeHiveController.NectarTrajectory > 0)
+                                                    {
+                                                        <span>+</span>
+                                                    }
+                                                    @beeHiveController.NectarTrajectory
+                                                    )
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (beeHiveController.VaultNotification != "")
+                                {
+                                    <div class="row-flex-v3">
+                                        <div class="field-flex text-center" style="color: red;">
+                                            @beeHiveController.VaultNotification
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="report">
+                                <div class="text-center">Day @beeHiveController.CurrentDay: Queen Bee Report</div>
+                                <div class="row-flex-v3">
+                                    <div class="field-flex-v3">
+                                        <div>Queen</div>
+                                    </div>
+                                    <div class="text-center field-flex-arrow-v3 rates-and-conversions">
+                                        =>
+                                        <br />
+                                        (@beeHiveController.EggsPerShift)
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.Eggs</div>
+                                        <div>Eggs</div>
+                                    </div>
+                                    <div class="text-center field-flex-arrow-v3 rates-and-conversions">
+                                        =>
+                                        <br />
+                                        (@beeHiveController.EggToUnassignedConversionRate)
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.UnassignedWorkersCount</div>
+                                        <div>Unassigned</div>
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3">
+                                    <div class="field-flex-v3">
+                                        <div>Flowers</div>
+                                    </div>
+                                    <div class="text-center field-flex-arrow-v3 rates-and-conversions">
+                                        =>
+                                        <br />
+                                        (@beeHiveController.NectarCollectionRate)
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.VaultNectar</div>
+                                        <div>Nectar</div>
+                                    </div>
+                                    <div class="text-center field-flex-arrow-v3 rates-and-conversions">
+                                        (-@beeHiveController.NectarReductionRate)
+                                        <br />
+                                        =>
+                                        <br />
+                                        (+@beeHiveController.HoneyAdditionRate)
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.VaultHoney</div>
+                                        <div>Honey</div>
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3">
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.VaultHoney</div>
+                                        <div>Honey</div>
+                                    </div>
+                                    <div class="text-center field-flex-arrow-v3 rates-and-conversions">
+                                        =>
+                                        <br />
+                                        (@beeHiveController.ConsumptionRate)
+                                    </div>
+                                    <div class="field-flex-v3">
+                                        <div class="text-center">Energy for<br>All Bees</div>
+                                    </div>
+                                </div>
 
-    @* 
-        - Introstruction Page ('X' button in upper right corner and info button/icon 
-            on game screen for openning the introsctruction screen again)
-            - story + mechanics + costs dynamics (each as simple statements)
-        - Controls for adding three different bee workers + Work until next day button
-        - Time option turned off by default with option to turn on
-        - Text field prioviding updated game status (@bind)
-
-        Other task: Update nav for this game (two places).
-
-        Also sidenote, I need to add buttons with links to 
-        the descriptions of each game accessible from game UI.
-    *@
-
-    <div class="current-ui-container">
-
-        <div>
-            <button class="btn @interfaceClasses[0]" @onclick="(()=>SetVisibleUI(ActiveUI.WPA))">WPA</button>
-            <button class="btn @interfaceClasses[1]" @onclick="(()=>SetVisibleUI(ActiveUI.V1))">V1</button>
-            <button class="btn @interfaceClasses[2]" @onclick="(()=>SetVisibleUI(ActiveUI.V2))">V2</button>
-            <button class="btn @interfaceClasses[3]" @onclick="(()=>SetVisibleUI(ActiveUI.V3))">V3</button>
+                                <div class="row-flex-v3">
+                                    <div class="field-flex-v3">
+                                        <div>@beeHiveController.WorkersTotal</div>
+                                        <div>Workers</div>
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3">
+                                    <div class="field-flex-v3">
+                                        <div class="text-center">
+                                            As the Queen, no one works if you can't eat.
+                                            <br />
+                                            (Your hunger: @beeHiveController.QueensHunger units of Honey/Shift)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="controls-backdrop-v3">
+                            @if (beeHiveController.HiveIsBankrupt)
+                            {
+                                <div class="try-again" @onclick="beeHiveController.Reset">Try Again</div>
+                            }
+                            else if (beeHiveController.TimerIsBeingUsed && !beeHiveController.TimerRunning)
+                            {
+                                <div style="color: #eee; padding: 18px;">Pressing "Start" will reset your game.</div>
+                                <br />
+                                <div class="start-with-timer-on" @onclick="beeHiveView.StartTimer">Start</div>
+                                <br />
+                                <div style="color: #eee; padding: 18px;">To play un-timed version, deselect "Timed Game Play" setting in settings.</div>
+                            }
+                            else
+                            {
+                                <div style="display: flex; flex-direction: column">
+                                    <div class="selector-row">
+                                        <div class="workertype-selector-v3 @beeHiveView.workertypeButtonsClasses[0]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                                            Honey Manufacturer (@beeHiveController.HoneyManufacturers)
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.HoneyManufacturer)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="selector-row">
+                                        <div class="workertype-selector-v3 @beeHiveView.workertypeButtonsClasses[1]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                            Nectar Collector (@beeHiveController.NectarCollectors)
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.NectarCollector)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="selector-row">
+                                        <div class="workertype-selector-v3 @beeHiveView.workertypeButtonsClasses[2]" @onclick="(()=>beeHiveView.UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                            Egg Nurse (@beeHiveController.EggNurses)
+                                        </div>
+                                        @if (beeHiveView.selectedWorkerType == WorkerType.EggCare)
+                                        {
+                                            <div class="assign-button @beeHiveView.assignButtons" @onclick="(()=>beeHiveView.AssignBee(beeHiveView.selectedWorkerType))">
+                                                Assign
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="btn control-button-work-v3" @onclick="beeHiveView.WorkShift">
+                                    Work Next Shift
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="behindpanel @panelMgmt.Panels[1].BehindPanelStatus" @onclick="panelMgmt.DeactivateAllPanels"></div>
+            <div class="settings-panel @panelMgmt.Panels[1].PanelStatus">
+                <h3 class="text-center">BeeHive Settings</h3>
+                <br/>
+                <div class="settings-scrollable-section">
+                    <div class="">
+                        <label class="form-check-label" for="timerBeingUsed">
+                                <input class="form-check-input" type="checkbox" value="" id="timerBeingUsed" @bind="beeHiveController.TimerIsBeingUsed">
+                            Use Timer (<span style="color: red;"> WARNING: Changing from "unselected" to "selected" will force a game restart. </span>)
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-bottom-container">
+                    <div class="settings-close" @onclick="(()=>panelMgmt.ClosePanel(1))">
+                        Close
+                    </div>
+                </div>
+            </div>
         </div>
-
-        @if (VisibleUI == ActiveUI.WPA)
-        {
-            <div class="text-prompts-container">
-                <div class="text-prompts">
-                    <p class="status-report">
-                        @((MarkupString)beeHiveController.StatusReport)
-                    </p>
-                </div>
-            </div>
-            <div class="controls">
-                <div class="controls-backdrop">
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.HoneyManufacturer))">
-                        Add - Honey Manufacturer Bee
-                    </button>
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.NectarCollector))">
-                        Add - Nectar Collector Bee
-                    </button>
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.EggCare))">
-                        Add - Egg Care Bee
-                    </button>
-                    <button class="btn control-button-work" @onclick="beeHiveController.WorkTheNextShift">Work Next Shift</button>
-                </div>
-            </div>
-        }
-        @if (VisibleUI == ActiveUI.V1)
-        {
-            <div class="text-prompts-container">
-                <div class="text-prompts">
-                    <p class="status-report">
-                        @((MarkupString)beeHiveController.StatusReport)
-                    </p>
-                </div>
-            </div>
-            <div class="controls">
-                <div class="controls-backdrop">
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.HoneyManufacturer))">
-                        Add - Honey Manufacturer
-                    </button>
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.NectarCollector))">
-                        Add - Nectar Collector
-                    </button>
-                    <button class="btn control-button" @onclick="(()=>beeHiveController.AssignBee(WorkerType.EggCare))">
-                        Add - Egg Care
-                    </button>
-                    <button class="btn control-button-work" @onclick="beeHiveController.WorkTheNextShift">
-                        Work Next Shift
-                    </button>
-                </div>
-            </div>
-        }
-        @if (VisibleUI == ActiveUI.V2)
-        {
-            <div class="text-prompts-container-v2">
-                <div class="text-prompts-v2">
-                    <div class="report">
-                        <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
-                        <div class="row-flex">
-                            <div class="field-flex">
-                                <div>Honey</div>
-                                <div>@beeHiveController.VaultHoney</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Nectar</div>
-                                <div>@beeHiveController.VaultNectar</div>
-                            </div>
-                        </div>
-                        @if (beeHiveController.VaultNotification != "")
-                        {
-                            <div class="row-flex">
-                                <div class="field-flex text-center" style="color: red;">
-                                    @beeHiveController.VaultNotification
-                                </div>
-                            </div>
-                        }
-                    </div>
-                    <div class="report">
-                        <div class="text-center">Day @beeHiveController.CurrentDay: Queen Bee Report</div>
-                        <div class="row-flex">
-                            <div class="field-flex">
-                                <div>Eggs</div>
-                                <div>@beeHiveController.Eggs</div>
-                            </div>
-                            <div class="field-flex-arrow">=></div>
-                            <div class="field-flex">
-                                <div>Unassigned</div>
-                                <div>@beeHiveController.UnassignedWorkersCount</div>
-                            </div>
-                        </div>
-                        <div class="row-flex">
-                            <div class="field-flex">
-                                <div>Honey<br/>Makers</div>
-                                <div>@beeHiveController.HoneyManufacturers</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Nectar<br/>Collectors</div>
-                                <div>@beeHiveController.NectarCollectors</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Egg<br/>Nurses</div>
-                                <div>@beeHiveController.EggNurses</div>
-                            </div>
-                        </div>
-                        <div class="row-flex">
-                            <div class="field-flex">
-                                <div>Workers Total</div>
-                                <div>@beeHiveController.WorkersTotal</div>
-                            </div>
-                            @*
-                            <div class="field-flex">
-                                <div>Cost Per Shift<br/>(units of Honey)</div>
-                                <div>@beeHiveController.ConsumptionRate</div>
-                            </div>
-                            *@
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="controls">
-                <div class="controls-backdrop-v2">
-                    @if (beeHiveController.HiveIsBankrupt)
-                    {
-                        <div class="try-again" @onclick="beeHiveController.Reset">Try Again</div>
-                    }
-                    else
-                    {
-                        <div class="" style="display: flex; flex-direction: column">
-                            <div class="selector-row">
-                                <div class="workertype-selector @workertypeButtonsClasses[0]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
-                                    Honey Manufacturer
-                                </div>
-                                @if (selectedWorkerType == WorkerType.HoneyManufacturer)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                            <div class="selector-row">
-                                <div class="workertype-selector @workertypeButtonsClasses[1]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.NectarCollector))">
-                                    Nectar Collector
-                                </div>
-                                @if (selectedWorkerType == WorkerType.NectarCollector)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                            <div class="selector-row">
-                                <div class="workertype-selector @workertypeButtonsClasses[2]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.EggCare))">
-                                    Egg Care
-                                </div>
-                                @if (selectedWorkerType == WorkerType.EggCare)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                        <div class="btn control-button-work-v2" @onclick="WorkShift">
-                            Work Next Shift
-                        </div>
-                    }
-                </div>
-            </div>
-        }
-        @if (VisibleUI == ActiveUI.V3)
-        {
-            <div class="text-prompts-container-v3">
-                <div class="text-prompts-v3">
-                    <div class="report">
-                        <div class="text-center">Day @beeHiveController.CurrentDay: Vault Report</div>
-                        <div class="row-flex-v3t">
-                            <div class="field-flex-v3">
-                                <div>Honey</div>
-                                <div>@beeHiveController.VaultHoney</div>
-                            </div>
-                            <div class="field-flex-v3">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Nectar</div>
-                                <div>@beeHiveController.VaultNectar</div>
-                            </div>
-                        </div>
-                        @if (beeHiveController.VaultNotification != "")
-                        {
-                            <div class="row-flex-v3">
-                                <div class="field-flex text-center" style="color: red;">
-                                    @beeHiveController.VaultNotification
-                                </div>
-                            </div>
-                        }
-                    </div>
-                    <div class="report">
-                        <div class="text-center">Day @beeHiveController.CurrentDay: Queen Bee Report</div>
-                        <div class="row-flex-v3">
-                            <div class="field-flex-v3">
-                                <div>Queen</div>
-                            </div>
-                            <div class="text-center field-flex-arrow-v3">
-                                =>
-                                <br/>
-                                (@beeHiveController.EggsPerShift)
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Eggs</div>
-                                <div>@beeHiveController.Eggs</div>
-                            </div>
-                            <div class="text-center field-flex-arrow-v3">
-                                =>
-                                <br/>
-                                (@beeHiveController.EggToUnassignedConversionRate)
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Unassigned</div>
-                                <div>@beeHiveController.UnassignedWorkersCount</div>
-                            </div>
-                        </div>
-                        <div class="row-flex-v3">
-                            <div class="field-flex-v3">
-                                <div>Flowers</div>
-                            </div>
-                            <div class="text-center field-flex-arrow-v3">
-                                =>
-                                <br />
-                                (@beeHiveController.NectarCollectionRate)
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Nectar</div>
-                                <div>@beeHiveController.VaultNectar</div>
-                            </div>
-                            <div class="text-center field-flex-arrow-v3 nectar-to-honey-rates">
-                                (-@beeHiveController.NectarReductionRate)
-                                <br/>
-                                =>
-                                <br/>
-                                (+@beeHiveController.HoneyAdditionRate)
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Honey</div>
-                                <div>@beeHiveController.VaultHoney</div>
-                            </div>
-                        </div>
-                        <div class="row-flex-v3">
-                            <div class="field-flex-v3">
-                                <div>Honey</div>
-                                <div>@beeHiveController.VaultHoney</div>
-                            </div>
-                            <div class="text-center field-flex-arrow-v3">
-                                =>
-                                <br />
-                                (@beeHiveController.ConsumptionRate)
-                            </div>
-                            <div class="field-flex-v3">
-                                <div class="text-center">Energy for<br>All Bees</div>
-                            </div>
-                        </div>
-
-                        <div class="row-flex-v3">
-                            <div class="field-flex-v3 text-center">
-                                <div>Honey Trajectory</div>
-                                <div>
-                                    (
-                                    @if (beeHiveController.HoneyTrajectory > 0)
-                                    {
-                                        <span>+</span>
-                                    }
-                                    @beeHiveController.HoneyTrajectory
-                                    )
-                                </div>
-                            </div>
-                            <div class="field-flex-v3">
-                                <div>Workers</div>
-                                <div>@beeHiveController.WorkersTotal</div>
-                            </div>
-                            <div class="field-flex-v3 text-center">
-                                <div>Nectar Trajectory</div>
-                                <div>
-                                    (
-                                    @if (beeHiveController.NectarTrajectory > 0)
-                                    {
-                                        <span>+</span>
-                                    }
-                                    @beeHiveController.NectarTrajectory
-                                    )
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-flex-v3">
-                            <div class="field-flex-v3">
-                                <div class="text-center">
-                                    If the Queen cannot eat, the Hive goes Bankrupt.
-                                    <br/>
-                                    (Queen's Hunger: @beeHiveController.QueensHunger units of Honey/Shift)
-                                </div>
-                            </div>
-                        </div>
-                        @*
-                    <div class="row-flex-v3">
-                            <div class="field-flex">
-                                <div>Honey<br />Makers</div>
-                                <div>@beeHiveController.HoneyManufacturers</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Nectar<br />Collectors</div>
-                                <div>@beeHiveController.NectarCollectors</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Egg<br />Nurses</div>
-                                <div>@beeHiveController.EggNurses</div>
-                            </div>
-                        </div>
-                    <div class="row-flex-v3">
-                            <div class="field-flex">
-                                <div>Workers Total</div>
-                                <div>@beeHiveController.WorkersTotal</div>
-                            </div>
-                            <div class="field-flex">
-                                <div>Cost Per Shift<br/>(units of Honey)</div>
-                                <div>@beeHiveController.ConsumptionRate</div>
-                            </div>
-                        </div>
-                        *@
-                    </div>
-                </div>
-            </div>
-            <div class="controls">
-                <div class="controls-backdrop-v3">
-                    @if (beeHiveController.HiveIsBankrupt)
-                    {
-                        <div class="try-again" @onclick="beeHiveController.Reset">Try Again</div>
-                    }
-                    else
-                    {
-                        <div class="" style="display: flex; flex-direction: column">
-                            <div class="selector-row">
-                                <div class="workertype-selector-v3 @workertypeButtonsClasses[0]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
-                                    Honey Manufacturer (@beeHiveController.HoneyManufacturers)
-                                </div>
-                                @if (selectedWorkerType == WorkerType.HoneyManufacturer)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                            <div class="selector-row">
-                                <div class="workertype-selector-v3 @workertypeButtonsClasses[1]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.NectarCollector))">
-                                    Nectar Collector (@beeHiveController.NectarCollectors)
-                                </div>
-                                @if (selectedWorkerType == WorkerType.NectarCollector)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                            <div class="selector-row">
-                                <div class="workertype-selector-v3 @workertypeButtonsClasses[2]" @onclick="(()=>UpdateSelectedWorkerType(WorkerType.EggCare))">
-                                    Egg Nurse (@beeHiveController.EggNurses)
-                                </div>
-                                @if (selectedWorkerType == WorkerType.EggCare)
-                                {
-                                    <div class="assign-button @assignButtons" @onclick="(()=>AssignBee(selectedWorkerType))">
-                                        Assign
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                        <div class="btn control-button-work-v3" @onclick="WorkShift">
-                            Work Next Shift
-                        </div>
-                    }
-                </div>
-            </div>
-        }
-
     </div>
 </ProjectsPageTemplate>
 
 @code {
-    private BeeHiveController beeHiveController = new BeeHiveController();
+    private BeeHiveController beeHiveController = BeeHiveController.Instance;
+    private BeeHiveView beeHiveView = BeeHiveView.Instance;
+    private PanelMgmt panelMgmt = PanelMgmt.Instance;
 
-    private List<string> interfaceClasses = new List<string>() 
-    { 
-        "btn-secondary", 
-        "btn-secondary", 
-        "btn-secondary", 
-        "btn-primary", 
-    };
-    private List<string> workertypeButtonsClasses = new List<string>() 
-    { 
-        "workertype-active", 
-        "workertype-inactive", 
-        "workertype-inactive" 
-    };
-    private string assignButtons = "assign-buttons-inactive";
+    protected override void OnInitialized() =>
+        beeHiveController.BeeHive.Queen.OnTimerInterval += UpdateV3View;
+    void IDisposable.Dispose() =>
+        beeHiveController.BeeHive.Queen.OnTimerInterval -= UpdateV3View;
 
-    private WorkerType selectedWorkerType = WorkerType.HoneyManufacturer;
-
-    private ActiveUI VisibleUI = ActiveUI.V3;
-
-    private void SetVisibleUI(ActiveUI uiChoice)
+    private void UpdateV3View(bool timerInterval)
     {
-        VisibleUI = uiChoice;
-
-        interfaceClasses = interfaceClasses
-            .Select(x => x = "btn-secondary")
-            .ToList();
-
-        if (VisibleUI == ActiveUI.WPA)
-            interfaceClasses[0] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V1)
-            interfaceClasses[1] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V2)
-            interfaceClasses[2] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V3)
-            interfaceClasses[3] = "btn-primary";
-    }
-
-    private void UpdateSelectedWorkerType(WorkerType workerType)
-    {
-        selectedWorkerType = workerType;
-
-        workertypeButtonsClasses = workertypeButtonsClasses
-            .Select(x => x = "workertype-inactive")
-            .ToList();
-
-        if (selectedWorkerType == WorkerType.HoneyManufacturer)
-            workertypeButtonsClasses[0] = "workertype-active";
-        else if (selectedWorkerType == WorkerType.NectarCollector)
-            workertypeButtonsClasses[1] = "workertype-active";
-        else if (selectedWorkerType == WorkerType.EggCare)
-            workertypeButtonsClasses[2] = "workertype-active";
-    }
-
-    private void AssignBee(WorkerType workerType)
-    {
-        beeHiveController.AssignBee(workerType);
-        UpdateAssignButtons();
-    }
-
-    private void WorkShift()
-    {
-        beeHiveController.WorkTheNextShift();
-        UpdateAssignButtons();
-    }
-    private void UpdateAssignButtons() =>
-        assignButtons = (beeHiveController.UnassignedWorkersCount >= 1)
-            ? "assign-buttons-active"
-            : "assign-buttons-inactive";
-
-    private enum ActiveUI
-    {
-        WPA,
-        V1,
-        V2,
-        V3,
+        beeHiveView.UpdateAssignButtons();
+        StateHasChanged();
     }
 }
+
+@*
+    - Introstruction Page ('X' button in upper right corner and info button/icon
+        on game screen for openning the introsctruction screen again)
+        - story + mechanics + costs dynamics (each as simple statements)
+    - Controls for adding three different bee workers + Work until next day button
+    - Time option turned off by default with option to turn on
+    - Text field prioviding updated game status (@bind)
+
+    Other task: Update nav for this game (two places).
+
+    Also sidenote, I need to add buttons with links to
+    the descriptions of each game accessible from game UI.
+*@

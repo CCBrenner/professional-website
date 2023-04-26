@@ -17,7 +17,7 @@ namespace ProfessionalWebsite.Client.Pages
 
         private System.Timers.Timer timer;
         private int tenthsOfSecondsElapsed;
-        public string TimerText { get; set; } = "Find the matches!";
+        public string TimerText { get; set; } = "Find the matches!"; 
 
         public List<Block> Blocks { get; set; } = new List<Block>();
         public Random random = new Random();
@@ -68,9 +68,7 @@ namespace ProfessionalWebsite.Client.Pages
             TimerText = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
             StateHasChanged();
             if (matchesFound >= 8)
-            {
                 timer.Stop();
-            }
         }
         
         public void UserSelectsBlock(Block block)

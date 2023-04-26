@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TFQgGa1OAVLz8Zbv78XYbO1StOpnxpeQ3a+1OK4JASw=",
+  "Hash": "dhU0ddF6XTpL12z/ZrVqFz1YaN8gmO8sX1GDd2V4Grs=",
   "Source": "ProfessionalWebsite.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7189,6 +7189,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\manifest.json"
+    },
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png",
+      "SourceId": "ProfessionalWebsite.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "media/images/beeHiveGame/BeeHiveGameWPA.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png"
     },
     {
       "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png",

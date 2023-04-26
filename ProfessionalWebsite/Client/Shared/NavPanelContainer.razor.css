@@ -41,6 +41,12 @@
 
 /* start Plugable statuses */
 
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
+
 .panel-visible {
     visibility: visible;
     opacity: 1;

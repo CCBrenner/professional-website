@@ -1,6 +1,64 @@
 ﻿
 /* Styles here are only for Current interface, not Original (which uses only bootstrap). */
 
+.positioning-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.topmost-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-corner-button-containers {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+}
+
+    .top-corner-button-containers > a {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .top-corner-button-containers:hover {
+        cursor: pointer;
+    }
+
+.settings-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.wpa-image {
+    width: 100%;
+    height: calc(var(--content-height) - 80px);
+    display: flex;
+    align-items: center;
+}
+
+.wpa-image > img {
+    width: 100%;
+    height: auto;
+}
+
 .text-prompts-container {
     padding: 14px 20px;
     width: 100%;
@@ -265,25 +323,138 @@
     width: 70%;
 }
 
-.nectar-to-honey-rates {
+.rates-and-conversions {
     font-size: 0.9rem;
 }
 
+.vault-honey-nectar {
+    display: flex;
+    align-items: center;
+}
+
+.vault-amounts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trajectories-v3 {
+    padding: 0px 8px;
+}
+
+.start-with-timer-on {
+    color: #eee;
+    background-color: darkblue;
+    border-radius: 8px;
+    padding: 4px 10px;
+    width: 70%;
+}
+
+.behindpanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+.settings-panel {
+    position: absolute;
+    top: calc(calc(var(--content-height) * 0.5) - calc(calc(var(--content-height) - 40px) * 0.5));
+    left: 0;
+    width: 100%;
+    max-width: 520px;
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 4;
+    background-color: rgba(176, 240, 246, 0.85);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    border: 1px solid #777;
+}
+
+.settings-scrollable-section {
+    overflow-y: auto;
+    max-height: calc(var(--content-height) - 210px);
+    height: calc(var(--content-height) - 80px);
+}
+
+.settings-bottom-container {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.settings-close {
+    background-color: navy;
+    width: 30%;
+    height: 40px;
+    color: #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* start Plugable statuses */
+
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
+
+.pm-panel-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.pm-maincontent-blurred {
+    filter: blur(2.5px);
+}
+
+.pm-behindpanel-present {
+    display: block;
+    transition: background-color 0.2s;
+    z-index: 3;
+}
+
+.pm-panelbutton-active {
+    background-color: #444;
+}
+
+/* end Plugable statuses */
+
+@media (min-width: 540px) {
+    .settings-panel {
+        left: calc(50% - 260px);
+    }
+}
+
 @media (min-width: 78vh) {
+    .game-container {
+        max-width: 800px;
+    }
+
     .text-prompts-container {
         padding-right: 60px;
         padding-left: 60px;
     }
-
-    .text-prompts {
-        height: calc(var(--content-height) - 300px);
-    }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1008px) {
     .text-prompts-container {
         padding-right: 150px;
         padding-left: 150px;
+    }
+
+    .text-prompts-v3 {
+        height: calc(var(--content-height) - 200px);
     }
 }
 

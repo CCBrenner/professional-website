@@ -1060,3 +1060,4 @@ C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_c
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\build-gz\pVzWlNAA.gz
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\HideAndSeek.razor.rz.scp.css
 C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\BeeHiveMgmtSystem.razor.rz.scp.css
+C:\Users\Collyn B - VotP\Desktop\Professional\Software Engineering\projects\gh_clone_hosting\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\PanelTemplate.razor.rz.scp.css
