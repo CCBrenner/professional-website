@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\manifest.json"
     },
     {
+      "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveFeedbackLoopsDiagram.png",
+      "PackagePath": "staticwebassets\\media\\images\\beeHiveGame\\BeeHiveFeedbackLoopsDiagram.png"
+    },
+    {
       "Id": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png",
       "PackagePath": "staticwebassets\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png"
     },

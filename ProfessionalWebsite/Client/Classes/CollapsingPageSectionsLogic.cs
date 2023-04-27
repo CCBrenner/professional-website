@@ -4,13 +4,16 @@ namespace ProfessionalWebsite.Client.Pages
 {
     public class CollapsingPageSectionsLogic
     {
-        public CollapsingPageSectionsLogic(List<CollapsingPageSection> sections)
+        public CollapsingPageSectionsLogic(string pagePath, List<CollapsingPageSection> sections)
         {
+            PagePath = pagePath;
             Sections = sections;
             ASectionIsCurrentlyPromo = false;
             SectionsStatus = SectionsStatus.AllAreOpen;
             SectionsExpanded = Sections.Count();
         }
+
+        public string PagePath { get; private set; }
         public List<CollapsingPageSection> Sections;
 
         public bool ASectionIsCurrentlyPromo { get; private set; }

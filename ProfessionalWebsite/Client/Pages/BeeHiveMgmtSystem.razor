@@ -12,11 +12,11 @@
         <div class="game-container">
             <div class="@panelMgmt.Panels[1].MainContent">
                 <div class="topmost-buttons">
-                    <div class="top-corner-button-containers">
-                        <a href="collyn" @onclick="(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(1, 16))">
+                    <a href="knowhow">
+                        <div class="top-corner-button-containers" @onclick='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage("knowhow", 16))'>
                             <span class="fa-solid fa-circle-info"></span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                     <div>
                         <button class="btn @beeHiveView.interfaceClasses[0]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.WPA))">WPA</button>
                         <button class="btn @beeHiveView.interfaceClasses[1]" @onclick="(()=>beeHiveView.SetVisibleUI(ActiveUI.V1))">V1</button>

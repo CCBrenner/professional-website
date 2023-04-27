@@ -21,25 +21,25 @@ namespace ProfessionalWebsite.Client.Services
             List<CollapsingPageSection> sectionsList = new List<CollapsingPageSection>();
             for (int i = 0; i < 17; i++)
                 sectionsList.Add(new CollapsingPageSection());
-            CollapsingPageSectionsLogic pageIndexOfOne = new CollapsingPageSectionsLogic(sectionsList);
+            CollapsingPageSectionsLogic pageIndexOfOne = new CollapsingPageSectionsLogic("knowhow", sectionsList);
 
             sectionsList = new List<CollapsingPageSection>();
             for (int i = 0; i < 9; i++)
                 sectionsList.Add(new CollapsingPageSection());
-            CollapsingPageSectionsLogic pageIndexOfTwo = new CollapsingPageSectionsLogic(sectionsList);
+            CollapsingPageSectionsLogic pageIndexOfTwo = new CollapsingPageSectionsLogic("collyn", sectionsList);
 
             sectionsList = new List<CollapsingPageSection>();
             for (int i = 0; i < 7; i++)
                 sectionsList.Add(new CollapsingPageSection());
-            CollapsingPageSectionsLogic pageIndexOfThree = new CollapsingPageSectionsLogic(sectionsList);
+            CollapsingPageSectionsLogic pageIndexOfThree = new CollapsingPageSectionsLogic("invent", sectionsList);
 
             SectionedPages = new List<CollapsingPageSectionsLogic>()
             {
-                new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()),
+                new CollapsingPageSectionsLogic("projects", new List<CollapsingPageSection>()),  // not used
                 pageIndexOfOne,
                 pageIndexOfTwo,
                 pageIndexOfThree,
-                new CollapsingPageSectionsLogic(new List<CollapsingPageSection>()),
+                new CollapsingPageSectionsLogic("articles", new List<CollapsingPageSection>()),  // not used
             };
 
             globalNavButtonState = "";
@@ -95,11 +95,7 @@ namespace ProfessionalWebsite.Client.Services
         public void RouteUserAndUpdateNav(int index)
         {
             foreach (var nav in AssociatedNav)
-            {
-                nav.NavButtonStatus = "";
-                nav.NavPanelStatus = "";
-                nav.IsThisLocation = false;
-            }
+                nav.Reset();
             AssociatedNav[index].NavButtonStatus = "highlight-button";
             AssociatedNav[index].IsThisLocation = true;
             LayoutControls = "";
@@ -107,11 +103,33 @@ namespace ProfessionalWebsite.Client.Services
             BehindPanel = "";
             ContentBlur = "";
         }
+        public void NavigateToCollapsibleSectionOfOtherPage(string pagePath, int sectionIndex)  // needs tests
+        {
+            int pageIndex = 1000;  // requirement: must be greater than SectionedPages.Count()
+            for (int i = 0; i < SectionedPages.Count; i++)
+            {
+                if (SectionedPages[i].PagePath == pagePath)
+                {
+                    pageIndex = i; 
+                    break;
+                }
+            }
+            NavigateToCollapsibleSectionOfOtherPage(pageIndex, sectionIndex);
+        }
         public void NavigateToCollapsibleSectionOfOtherPage(int pageIndex, int sectionIndex)  // needs tests
         {
-            RouteUserAndUpdateNav(pageIndex);
-            SectionedPages[pageIndex].CollapseAllShowOne(sectionIndex);
-            RaiseEventOnPromoSectionOfPageIndexOne(sectionIndex);
+            try
+            {
+                if (pageIndex < SectionedPages.Count())
+                    throw new Exception();
+                SectionedPages[pageIndex].CollapseAllShowOne(sectionIndex);
+                RouteUserAndUpdateNav(pageIndex);
+                RaiseEventOnPromoSectionOfPageIndexOne(sectionIndex);
+            }
+            catch
+            {
+                Console.WriteLine("PageIndex was greater than the number of SectionedPages in NavService."); // add to data logs (would help to be more specific (was seeing IndexOutOfRange exeptions at one point)
+            }
         }
         public void RaiseEventOnPromoSectionOfPageIndexOne(int sectionIndex)
         {

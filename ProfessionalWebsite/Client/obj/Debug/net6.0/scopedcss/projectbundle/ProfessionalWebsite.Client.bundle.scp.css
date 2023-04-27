@@ -1126,6 +1126,18 @@
         cursor: pointer;
     }
 
+.wpa-image[b-5cko639osi] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+    .wpa-image > img[b-5cko639osi] {
+        width: 100%;
+        height: auto;
+        padding: 20px 0px;
+    }
+
 .sub-page-container[b-5cko639osi] {
     background-color: rgba(128, 139, 150, 0.65);
     height: 100%;
