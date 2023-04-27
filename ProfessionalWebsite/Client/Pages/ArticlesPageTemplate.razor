@@ -1,5 +1,4 @@
-﻿
-@inject NavService NavService
+﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-newspaper" HeaderText="Articles">
     <DrawerContent>
@@ -21,7 +20,7 @@
         <DrawerNavLinkButton Href="collyn#contact" 
                              IconClasses="fa-solid fa-envelope"
                              ButtonText="Contact" 
-                             OnClickCallback='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6))' />
+                             OnClickCallback='(()=>navMgmt.NavigateToCollapsibleSectionOfOtherPage(2, 6))' />
     </DrawerContent>
     <PageContent>
         <PageContainer>
@@ -31,6 +30,8 @@
 </DrawerPageTemplate>
 
 @code {
+    private NavMgmt navMgmt = NavMgmt.Instance;
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

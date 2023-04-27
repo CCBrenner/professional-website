@@ -1,10 +1,9 @@
-﻿
-@inject NavService NavService
+﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
 
 <h3>App Animations</h3>
 <br />
 <div class="layout-control-item">
-    <button class="btn btn-primary" @onclick="(()=>NavService.PlayAnimation(1, FirstAnimationContinuous))">
+    <button class="btn btn-primary" @onclick="(()=>navMgmt.PlayAnimation(1, FirstAnimationContinuous))">
         Bombastic
     </button>
     &nbsp;&nbsp;
@@ -12,7 +11,7 @@
     &nbsp;Continuous
 </div>
 <div class="layout-control-item">
-    <button class="btn btn-primary" @onclick="(()=>NavService.PlayAnimation(2, SecondAnimationContinuous))">
+    <button class="btn btn-primary" @onclick="(()=>navMgmt.PlayAnimation(2, SecondAnimationContinuous))">
         Sky Walker
     </button>
     &nbsp;&nbsp;
@@ -20,7 +19,7 @@
     &nbsp;Continuous
 </div>
 <div class="layout-control-item">
-    <button class="btn btn-primary" @onclick="(()=>NavService.PlayAnimation(3, ThirdAnimationContinuous))">
+    <button class="btn btn-primary" @onclick="(()=>navMgmt.PlayAnimation(3, ThirdAnimationContinuous))">
         Kitchen Sink
     </button>
     &nbsp;&nbsp;
@@ -28,7 +27,7 @@
     &nbsp;Continuous
 </div>
 <div class="layout-control-item">
-    <button class="btn btn-primary" @onclick="(()=>NavService.PlayAnimation(4, FourthAnimationContinuous))">
+    <button class="btn btn-primary" @onclick="(()=>navMgmt.PlayAnimation(4, FourthAnimationContinuous))">
         Flipster
     </button>
     &nbsp;&nbsp;
@@ -36,7 +35,7 @@
     &nbsp;Continuous
 </div>
 <div class="layout-control-item">
-    <button class="btn btn-primary" @onclick="(()=>NavService.PlayAnimation(5, FifthAnimationContinuous))">
+    <button class="btn btn-primary" @onclick="(()=>navMgmt.PlayAnimation(5, FifthAnimationContinuous))">
         Asteroid
     </button>
     &nbsp;&nbsp;
@@ -46,7 +45,10 @@
 
 @code
 {
-    private bool FirstAnimationContinuous = false;@*
+    private NavMgmt navMgmt = NavMgmt.Instance;
+
+    private bool FirstAnimationContinuous = false;
+    @*
     [Parameter]
     public EventCallback<bool> FirstAnimationCallback { get; set; }
     private async Task PlayFirst() =>

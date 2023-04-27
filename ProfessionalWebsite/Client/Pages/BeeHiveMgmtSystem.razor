@@ -1,7 +1,7 @@
 ﻿@using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+@using ProfessionalWebsite.Client.Classes.NavMgmt;
 @using ProfessionalWebsite.Client.Classes.PanelMgmt;
 @implements IDisposable
-@inject NavService NavService
 
 @page "/beehivemgmtsystem"
 
@@ -13,7 +13,7 @@
             <div class="@panelMgmt.Panels[1].MainContent">
                 <div class="topmost-buttons">
                     <a href="knowhow">
-                        <div class="top-corner-button-containers" @onclick='(()=>NavService.NavigateToCollapsibleSectionOfOtherPage("knowhow", 16))'>
+                        <div class="top-corner-button-containers" @onclick='(()=>navMgmt.NavigateToCollapsibleSectionOfOtherPage("knowhow", 16))'>
                             <span class="fa-solid fa-circle-info"></span>
                         </div>
                     </a>
@@ -412,6 +412,7 @@
     private BeeHiveController beeHiveController = BeeHiveController.Instance;
     private BeeHiveView beeHiveView = BeeHiveView.Instance;
     private PanelMgmt panelMgmt = PanelMgmt.Instance;
+    private NavMgmt navMgmt = NavMgmt.Instance;
 
     protected override void OnInitialized() =>
         beeHiveController.BeeHive.Queen.OnTimerInterval += UpdateV3View;

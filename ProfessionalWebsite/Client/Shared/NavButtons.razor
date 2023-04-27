@@ -1,5 +1,4 @@
-﻿
-@inject NavService NavService
+﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
 
 <div class="container-one">
     <div class="container-two">
@@ -28,6 +27,8 @@
 
 @code
 {
+    private NavMgmt navMgmt = NavMgmt.Instance;
+
     [Parameter]
     public string StatusA { get; set; } = "";
     [Parameter]

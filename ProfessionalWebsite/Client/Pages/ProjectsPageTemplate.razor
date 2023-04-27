@@ -1,5 +1,4 @@
-﻿
-@inject NavService NavService
+﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-diagram-project" HeaderText="Projects">
     <DrawerContent>
@@ -7,11 +6,11 @@
                              IconClasses="fa-solid fa-chart-line"
                              ButtonText="Statistics"
                              Section="'A'"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />*@
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
         <DrawerNavLinkButton Href="matchgame" 
                              ButtonText="Match Game"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
         <DrawerNavLinkButton Href="knowhow" 
                              ButtonText="This PWA"
                              Section="1"
@@ -19,45 +18,45 @@
         <DrawerNavLinkButton Href="hideandseek" 
                              ButtonText="Hide & Seek"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
         @*<DrawerNavLinkButton Href="twodecks"
                              ButtonText="Two Decks"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
         <DrawerNavLinkButton Href="issuetracker" 
                              ButtonText="Issue Tracker"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
         <DrawerNavLinkButton Href="gofish" 
                              ButtonText="Go Fish"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />*@
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
         <DrawerNavLinkButton Href="beehivemgmtsystem" 
                              ButtonText="Bee Hive Management System"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
       @*<DrawerNavLinkButton Href="phpcmsandprocessbook"
                              ButtonText="PHP CMS Demo & Process Book"
                              Section="0"
-        OnClickCallback="NavService.RouteUserAndUpdateNav" />*@
+        OnClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
         <DrawerNavLinkButton Href="counter"
                              ButtonText="Counter"
                              IconClasses="fa-solid fa-plus"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
       @*<DrawerNavLinkButton Href="ecommerce" 
                              ButtonText="E-commerce"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />*@
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
         <DrawerNavLinkButton Href="spinners"
                              ButtonText="Spinners"
                              IconClasses="fa-solid fa-hand-spock"
                              Section="0"
-                             OnClickCallback="NavService.RouteUserAndUpdateNav" />
+                             OnClickCallback="navMgmt.RouteUserAndUpdateNav" />
       @*<DrawerNavLinkButton Href="djangopollingapp" 
                              ButtonText="Polling App (Django/Python)"
                              Section="0"
-        OnClickCallback="NavService.RouteUserAndUpdateNav" />*@
+        OnClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
         <DrawerNavLinkButton Href="collyn#contact"
                              IconClasses="fa-solid fa-envelope"
                              ButtonText="Contact"
@@ -72,10 +71,12 @@
 </DrawerPageTemplate>
 
 @code {
+    private NavMgmt navMgmt = NavMgmt.Instance;
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
     private void SectionIndex14AsPromoDestination(int pageIndex) =>
-        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 14);
+        navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 14);
     private void SectionIndex6AsPromoDestination(int pageIndex) =>
-        NavService.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
+        navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
 }

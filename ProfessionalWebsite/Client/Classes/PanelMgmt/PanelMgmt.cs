@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.PanelMgmt
 {
-    public class PanelMgmt
+    public sealed class PanelMgmt
     {
         private PanelMgmt() { }
         private static PanelMgmt instance;

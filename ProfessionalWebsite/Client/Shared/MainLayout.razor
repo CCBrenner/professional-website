@@ -1,6 +1,6 @@
-﻿@inherits LayoutComponentBase
+﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
+@inherits LayoutComponentBase
 @implements IDisposable
-@inject NavService NavService
 
 <div class="page-container">
     <div class="page">
@@ -40,98 +40,98 @@
         <main class="main @AnimateMain">
 
             @* Buttons (z-index: 40) *@
-            <NavButtons StatusA="@NavService.AssociatedNav[0].NavButtonStatus"
-                        StatusB="@NavService.AssociatedNav[1].NavButtonStatus"
-                        StatusC="@NavService.AssociatedNav[2].NavButtonStatus"
-                        StatusD="@NavService.AssociatedNav[3].NavButtonStatus"
-                        StatusE="@NavService.AssociatedNav[4].NavButtonStatus"
-                        UpdateNavCallback="NavService.UpdateNav" />
+            <NavButtons StatusA="@navMgmt.AssociatedNav[0].NavButtonStatus"
+                        StatusB="@navMgmt.AssociatedNav[1].NavButtonStatus"
+                        StatusC="@navMgmt.AssociatedNav[2].NavButtonStatus"
+                        StatusD="@navMgmt.AssociatedNav[3].NavButtonStatus"
+                        StatusE="@navMgmt.AssociatedNav[4].NavButtonStatus"
+                        UpdateNavCallback="navMgmt.UpdateNav" />
 
             @* Panels (z-index: 30) *@
-            <NavPanels NavPanelAStatus="@NavService.AssociatedNav[0].NavPanelStatus"
-                       NavPanelBStatus="@NavService.AssociatedNav[1].NavPanelStatus"
-                       NavPanelCStatus="@NavService.AssociatedNav[2].NavPanelStatus"
-                       NavPanelDStatus="@NavService.AssociatedNav[3].NavPanelStatus"
-                       NavPanelEStatus="@NavService.AssociatedNav[4].NavPanelStatus"
-                       UpdateNavCallback="NavService.RouteUserAndUpdateNav"
-                       ShowLayoutControlsCallback="NavService.ShowLayoutControls" />
+            <NavPanels NavPanelAStatus="@navMgmt.AssociatedNav[0].NavPanelStatus"
+                       NavPanelBStatus="@navMgmt.AssociatedNav[1].NavPanelStatus"
+                       NavPanelCStatus="@navMgmt.AssociatedNav[2].NavPanelStatus"
+                       NavPanelDStatus="@navMgmt.AssociatedNav[3].NavPanelStatus"
+                       NavPanelEStatus="@navMgmt.AssociatedNav[4].NavPanelStatus"
+                       UpdateNavCallback="navMgmt.RouteUserAndUpdateNav"
+                       ShowLayoutControlsCallback="navMgmt.ShowLayoutControls" />
             <div class="anim-icon" @onclick="ToggleAnimControlsDisplay">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
             <div class="anim-controls @AnimControlsDisplay">
                 <h4>Animations</h4>
-                <div class="anim-pair" @onclick="(()=>NavService.PlayAnimation(1, false))">
+                <div class="anim-pair" @onclick="(()=>navMgmt.PlayAnimation(1, false))">
                     <div class="anim-regular">
                         Bombastic
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(1, true))">
+                    <div class="anim-continuous" @onclick="(()=>navMgmt.PlayAnimation(1, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(2, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(2, false))">
                         Skywalker
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(2, true))">
+                    <div class="anim-continuous" @onclick="(()=>navMgmt.PlayAnimation(2, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(3, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(3, false))">
                         Kitchen Sink
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(3, true))">
+                    <div class="anim-continuous" @onclick="(()=>navMgmt.PlayAnimation(3, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(4, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(4, false))">
                         Flipster
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(4, true))">
+                    <div class="anim-continuous" @onclick="(()=>navMgmt.PlayAnimation(4, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(5, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(5, false))">
                         Asteroid
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>NavService.PlayAnimation(5, true))">
+                    <div class="anim-continuous" @onclick="(()=>navMgmt.PlayAnimation(5, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(7, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(7, false))">
                         FlipOnX
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(6, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(6, false))">
                         FlipOnY
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(11, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(11, false))">
                         RotateOnZ
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(8, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(8, false))">
                         East Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(9, false))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(9, false))">
                         West Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>NavService.PlayAnimation(10, true))">
+                    <div class="anim-regular" @onclick="(()=>navMgmt.PlayAnimation(10, true))">
                         SloRo (<span class="fa-solid fa-infinity" aria-hidden="true"></span>)
                     </div>
                     <div class="anim-continuous"></div>
@@ -139,11 +139,11 @@
             </div>
 
             @* Behind Panel (z-index: 20) *@
-            <div class="behind-panel @NavService.BehindPanel" @onclick="NavService.UpdateNavFromBehindPanel"></div>
+            <div class="behind-panel @navMgmt.BehindPanel" @onclick="navMgmt.UpdateNavFromBehindPanel"></div>
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="#contact" @onclick="(()=>NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6))">
+                <a class="navbar-brand" href="#contact" @onclick="(()=>navMgmt.NavigateToCollapsibleSectionOfOtherPage(2, 6))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -165,12 +165,12 @@
                 <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
             </div>
             *@
-            <article class="content @NavService.ContentBlur">
+            <article class="content @navMgmt.ContentBlur">
                 @Body
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
-            <article class="animate-app @NavService.LayoutControls @NavService.ContentBlur">
+            <article class="animate-app @navMgmt.LayoutControls @navMgmt.ContentBlur">
                 <AppAnimations/>
             </article>
         </main>
@@ -185,13 +185,15 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @NavService.DiscontinueButton">
-            <button class="btn btn-danger" @onclick="NavService.StopMainAnimation">Discontinue</button>
+        <div class="continuous-animate-stop @navMgmt.DiscontinueButton">
+            <button class="btn btn-danger" @onclick="navMgmt.StopMainAnimation">Discontinue</button>
         </div>
     </div>
 </div>
 
 @code {
+    private NavMgmt navMgmt = NavMgmt.Instance;
+
     // All code here is for animating the "main" element
     // (event is required due to this layout component needing to re-render)
     // (it is weird when a child has to tell their parent what to do)
@@ -200,9 +202,9 @@
     private string AnimControlsDisplay = "";
 
     protected override void OnInitialized() =>
-        NavService.OnAnimateMain += UpdateAnimateMain;
+        navMgmt.OnAnimateMain += UpdateAnimateMain;
     void IDisposable.Dispose() =>
-        NavService.OnAnimateMain -= UpdateAnimateMain;
+        navMgmt.OnAnimateMain -= UpdateAnimateMain;
 
     private void UpdateAnimateMain(string animation)
     {

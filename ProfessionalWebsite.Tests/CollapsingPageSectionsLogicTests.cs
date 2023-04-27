@@ -1,4 +1,4 @@
-﻿using ProfessionalWebsite.Client.Pages;
+﻿using ProfessionalWebsite.Client.Classes.NavMgmt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
