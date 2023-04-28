@@ -1,15 +1,24 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.PanelMgmt
 {
-    public sealed class PanelMgmt
+    public class PanelMgmt
     {
-        private PanelMgmt() { }
+        private PanelMgmt()
+        {
+            PanelGroupsTable panelGroupsTable = PanelGroupsTable.Instance;
+            PanelsTable panelTable = PanelsTable.Instance;
+
+            PanelGroups = panelGroupsTable.PanelGroups;
+            Panels = panelTable.Panels;
+        }
+
         private static PanelMgmt instance;
         private static object instanceLock = new object();
+
         public static PanelMgmt Instance
         {
             get
             {
-                lock(instanceLock)
+                lock (instanceLock)
                 {
                     if (instance == null)
                         instance = new PanelMgmt();
@@ -20,31 +29,27 @@
 
         public event Action<string> OnPanelMgmtUpdated;
 
-        public List<Panel> Panels { get; set; } = new List<Panel>()
-        {
-            new Panel(  // [0] Global Animations for Main
-                panelActiveStatusClassName: "anim-display", 
-                mainContentClassName: "content-blur",
-                behindPanelStatusClassName: "button-on-show-behind-panel"
-            ),
-            new Panel(),  // [1] BeeHive settings
-        };
+        public List<PanelGroup> PanelGroups { get; private set; }
+        public List<Panel> Panels { get; private set; }
 
         public void DeactivateAllPanels()
         {
             foreach (Panel panel in Panels)
-                panel.SetPanelIsActive(false);
+            {
+                panel.Deactivate();
+                ActivateLocationButtonsOfGroups();
+            }
             RaiseEventOnPanelMgmtUpdated();
         }
-        public void ClosePanel(int selectedPanel)
+        public void DeactivatePanel(int selectedPanel)
         {
-            Panels[selectedPanel].SetPanelIsActive(false);
+            Panels[selectedPanel].Deactivate();
             RaiseEventOnPanelMgmtUpdated();
         }
         public void ActivatePanel(int selectedPanel)
         {
             DeactivateAllPanels();
-            Panels[selectedPanel].SetPanelIsActive(true);
+            Panels[selectedPanel].Activate();
             RaiseEventOnPanelMgmtUpdated();
         }
         public void TogglePanel(int selectedPanel)
@@ -52,16 +57,55 @@
             if (Panels[selectedPanel].PanelStatus == "")
             {
                 DeactivateAllPanels();
-                Panels[selectedPanel].SetPanelIsActive(true);
+                Panels[selectedPanel].Activate();
             }
             else
-               Panels[selectedPanel].TogglePanel();
+                Panels[selectedPanel].TogglePanel();
+
             RaiseEventOnPanelMgmtUpdated();
         }
         private void RaiseEventOnPanelMgmtUpdated()
         {
             if (OnPanelMgmtUpdated != null)
                 OnPanelMgmtUpdated?.Invoke("");
+        }
+        private void ActivateLocationButtonsOfGroups()
+        {
+            if (AllPanelsAreDeactivated())
+            {
+                for (int i = 0; i < Panels.Count; i++)
+                {
+                    List<Panel> panelGroup = GetPanelsOfGroup(i);
+                    foreach (Panel panel in panelGroup)
+                        if (panel == PanelGroups[i].LocationPanel)
+                            panel.ActivateButton();
+                }
+            }
+        }
+        private bool AllPanelsAreDeactivated()
+        {
+            bool panelsAreDeactivated = true;
+            foreach (Panel panel in Panels)
+            {
+                if (panel.PanelStatus != "")
+                {
+                    panelsAreDeactivated = false;
+                    break;
+                }
+            }
+            return panelsAreDeactivated;
+        }
+
+        /* DataTable Queries */
+        private List<Panel> GetPanelsOfGroup(int groupId)
+        {
+            List<Panel> panelsOfGroup = new List<Panel>();
+
+            foreach (Panel panel in Panels)
+                if (panel.PanelGroupId == groupId)
+                    panelsOfGroup.Add(panel);
+
+            return panelsOfGroup;
         }
     }
 }

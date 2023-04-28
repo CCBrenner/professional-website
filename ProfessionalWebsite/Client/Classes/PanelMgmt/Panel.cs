@@ -3,47 +3,59 @@
     public class Panel
     {
         public Panel(
-            string panelActiveStatusClassName = "pm-panel-visible", 
-            string mainContentClassName = "pm-maincontent-blurred",
+            int panelGroupid = -1,
+            string panelActiveStatusClassName = "pm-panel-visible",
+            string blurStatusClassName = "pm-maincontent-blurred",
             string behindPanelStatusClassName = "pm-behindpanel-present",
             string panelButtonClassName = "pm-panelbutton-active"
         )
         {
             this.panelActiveStatusClassName = panelActiveStatusClassName;
-            this.mainContentClassName = mainContentClassName;
+            this.blurStatusClassName = blurStatusClassName;
             this.behindPanelStatusClassName = behindPanelStatusClassName;
             this.panelButtonClassName = panelButtonClassName;
 
+            PanelGroupId = panelGroupid;
             PanelStatus = "";
-            MainContent = "";
+            BlurStatus = "";
             BehindPanelStatus = "";
             PanelButtonStatus = "";
         }
 
         private string panelActiveStatusClassName;
-        private string mainContentClassName;
+        private string blurStatusClassName;
         private string behindPanelStatusClassName;
         private string panelButtonClassName;
 
-        public string PanelStatus;
-        public string MainContent;
-        public string BehindPanelStatus;
-        public string PanelButtonStatus;
+        public int PanelGroupId { get; private set; }
+        public string PanelStatus { get; private set; }
+        public string BlurStatus { get; private set; }
+        public string BehindPanelStatus { get; private set; }
+        public string PanelButtonStatus { get; private set; }
 
+        public void Activate()
+        {
+            PanelStatus = panelActiveStatusClassName;
+            BlurStatus = blurStatusClassName;
+            BehindPanelStatus = behindPanelStatusClassName;
+            PanelButtonStatus = panelButtonClassName;
+        }
+        public void Deactivate()
+        {
+            PanelStatus = "";
+            BlurStatus = "";
+            BehindPanelStatus = "";
+            PanelButtonStatus = "";
+        }
         public void TogglePanel()
         {
-            PanelStatus = PanelStatus == "" ? panelActiveStatusClassName : "";
-            MainContent = MainContent == "" ? mainContentClassName : "";
-            BehindPanelStatus = BehindPanelStatus == "" ? behindPanelStatusClassName : "";
-            PanelButtonStatus = PanelButtonStatus == "" ? panelButtonClassName : "";
+            if (PanelStatus == "")
+                Activate();
+            else
+                Deactivate();
         }
-        public void SetPanelIsActive(bool isActive)
-        {
-            PanelStatus = isActive ? panelActiveStatusClassName : "";
-            MainContent = isActive ? mainContentClassName : "";
-            BehindPanelStatus = isActive ? behindPanelStatusClassName : "";
-            PanelButtonStatus = isActive ? panelButtonClassName : "";
-        }
+        public void ActivateButton() =>
+            PanelButtonStatus = panelButtonClassName;
 
         /*
         Examples of how CSS should be set up for effective transitions:

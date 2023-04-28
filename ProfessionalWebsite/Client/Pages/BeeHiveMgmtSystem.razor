@@ -10,7 +10,7 @@
 <ProjectsPageTemplate>
     <div class="positioning-container">
         <div class="game-container">
-            <div class="@panelMgmt.Panels[1].MainContent">
+            <div class="@panelMgmt.Panels[1].BlurStatus">
                 <div class="topmost-buttons">
                     <a href="knowhow">
                         <div class="top-corner-button-containers" @onclick='(()=>navMgmt.NavigateToCollapsibleSectionOfOtherPage("knowhow", 16))'>
@@ -399,7 +399,7 @@
                     </div>
                 </div>
                 <div class="settings-bottom-container">
-                    <div class="settings-close" @onclick="(()=>panelMgmt.ClosePanel(1))">
+                    <div class="settings-close" @onclick="(()=>panelMgmt.DeactivatePanel(1))">
                         Close
                     </div>
                 </div>
