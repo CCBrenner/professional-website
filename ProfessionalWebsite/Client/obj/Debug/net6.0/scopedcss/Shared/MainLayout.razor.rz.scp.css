@@ -196,7 +196,6 @@
     background-color: rgb(19, 20, 29);
     color: #eee;
     width: 250px;
-    display: none;
     position: absolute;
     top: calc(var(--top-bar-height) - 6px);
     right: 5px;
@@ -205,6 +204,10 @@
     max-height: 55vh;
     border-radius: 12px;
     padding-bottom: 6px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
     .anim-controls > h4[b-gzb0l1unjh] {
@@ -216,10 +219,14 @@
     }
 /* start Pluggable */
 .anim-display[b-gzb0l1unjh] {
-    display: block; /* later, change this to an animated appearance */
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+.pm-panelbutton-active[b-gzb0l1unjh] {
+    background-color: #111;
 }
 /* end Pluggable */
-
 .anim-pair[b-gzb0l1unjh] {
     display: flex;
     padding: 0px 6px 6px 6px;

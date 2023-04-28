@@ -414,10 +414,19 @@
     private PanelMgmt panelMgmt = PanelMgmt.Instance;
     private NavMgmt navMgmt = NavMgmt.Instance;
 
-    protected override void OnInitialized() =>
+    protected override void OnInitialized()
+    {
         beeHiveController.BeeHive.Queen.OnTimerInterval += UpdateV3View;
-    void IDisposable.Dispose() =>
+        panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
+    }
+    void IDisposable.Dispose()
+    {
         beeHiveController.BeeHive.Queen.OnTimerInterval -= UpdateV3View;
+        panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
+    }
+
+    private void UpdateThisComponent(string meaningless) =>
+        StateHasChanged();
 
     private void UpdateV3View(bool timerInterval)
     {

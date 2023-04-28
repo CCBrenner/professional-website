@@ -18,9 +18,15 @@
             }
         }
 
+        public event Action<string> OnPanelMgmtUpdated;
+
         public List<Panel> Panels { get; set; } = new List<Panel>()
         {
-            new Panel(),  // [0] Global Animations for Main
+            new Panel(  // [0] Global Animations for Main
+                panelActiveStatusClassName: "anim-display", 
+                mainContentClassName: "content-blur",
+                behindPanelStatusClassName: "button-on-show-behind-panel"
+            ),
             new Panel(),  // [1] BeeHive settings
         };
 
@@ -28,13 +34,34 @@
         {
             foreach (Panel panel in Panels)
                 panel.SetPanelIsActive(false);
+            RaiseEventOnPanelMgmtUpdated();
         }
-        public void ClosePanel(int selectedPanel) =>
+        public void ClosePanel(int selectedPanel)
+        {
             Panels[selectedPanel].SetPanelIsActive(false);
+            RaiseEventOnPanelMgmtUpdated();
+        }
         public void ActivatePanel(int selectedPanel)
         {
             DeactivateAllPanels();
             Panels[selectedPanel].SetPanelIsActive(true);
+            RaiseEventOnPanelMgmtUpdated();
+        }
+        public void TogglePanel(int selectedPanel)
+        {
+            if (Panels[selectedPanel].PanelStatus == "")
+            {
+                DeactivateAllPanels();
+                Panels[selectedPanel].SetPanelIsActive(true);
+            }
+            else
+               Panels[selectedPanel].TogglePanel();
+            RaiseEventOnPanelMgmtUpdated();
+        }
+        private void RaiseEventOnPanelMgmtUpdated()
+        {
+            if (OnPanelMgmtUpdated != null)
+                OnPanelMgmtUpdated?.Invoke("");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
+@using ProfessionalWebsite.Client.Classes.PanelMgmt;
 @inherits LayoutComponentBase
 @implements IDisposable
 
@@ -55,10 +56,10 @@
                        NavPanelEStatus="@navMgmt.AssociatedNav[4].NavPanelStatus"
                        UpdateNavCallback="navMgmt.RouteUserAndUpdateNav"
                        ShowLayoutControlsCallback="navMgmt.ShowLayoutControls" />
-            <div class="anim-icon" @onclick="ToggleAnimControlsDisplay">
+            <div class="anim-icon @panelMgmt.Panels[0].PanelButtonStatus" @onclick="(()=>panelMgmt.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
-            <div class="anim-controls @AnimControlsDisplay">
+            <div class="anim-controls @panelMgmt.Panels[0].PanelStatus">
                 <h4>Animations</h4>
                 <div class="anim-pair" @onclick="(()=>navMgmt.PlayAnimation(1, false))">
                     <div class="anim-regular">
@@ -165,7 +166,7 @@
                 <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
             </div>
             *@
-            <article class="content @navMgmt.ContentBlur">
+            <article class="content @navMgmt.ContentBlur @panelMgmt.Panels[0].MainContent">
                 @Body
             </article>
             
@@ -193,6 +194,7 @@
 
 @code {
     private NavMgmt navMgmt = NavMgmt.Instance;
+    private PanelMgmt panelMgmt = PanelMgmt.Instance;
 
     // All code here is for animating the "main" element
     // (event is required due to this layout component needing to re-render)
@@ -201,16 +203,27 @@
     private string AnimateMain = "";
     private string AnimControlsDisplay = "";
 
-    protected override void OnInitialized() =>
+    protected override void OnInitialized()
+    {
         navMgmt.OnAnimateMain += UpdateAnimateMain;
-    void IDisposable.Dispose() =>
+        panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
+    }
+    void IDisposable.Dispose()
+    {
         navMgmt.OnAnimateMain -= UpdateAnimateMain;
+        panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
+    }
 
     private void UpdateAnimateMain(string animation)
     {
         AnimateMain = animation;
         StateHasChanged();
     }
+    private void UpdateThisComponent(string meaningless) =>
+        StateHasChanged();
+
+    /*
     private void ToggleAnimControlsDisplay() =>
         AnimControlsDisplay = AnimControlsDisplay == "anim-display" ? "" : "anim-display";
+    */
 }
