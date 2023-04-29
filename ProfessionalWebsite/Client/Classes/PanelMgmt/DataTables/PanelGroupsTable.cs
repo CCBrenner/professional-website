@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.PanelMgmt
 {
-    public class PanelGroupsTable
+    public sealed class PanelGroupsTable
     {
         private PanelGroupsTable() { }
         private static PanelGroupsTable instance;
@@ -19,7 +19,7 @@
         }
         public List<PanelGroup> PanelGroups { get; set; } = new List<PanelGroup>()
         {
-            new PanelGroup(0),  // [0] NavMgmt panels
+            new PanelGroup(0, 4),  // [0] NavMgmt panels
         };
     }
 }

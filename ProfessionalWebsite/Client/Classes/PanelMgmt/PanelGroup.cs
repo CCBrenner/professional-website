@@ -2,13 +2,16 @@
 {
     public class PanelGroup
     {
-        public PanelGroup(int id)
+        public PanelGroup(int id, int startingLocation)
         {
             Id = id;
+            LocationPanelId = startingLocation;
+            Panels = new List<int>();
         }
 
         public int Id;
-        public Panel? LocationPanel;
+        public int LocationPanelId;
+        public List<int> Panels;
         /*
         public void DeactivateAllPanels()
         {

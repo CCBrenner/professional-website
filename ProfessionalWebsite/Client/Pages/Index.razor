@@ -429,19 +429,16 @@
     private List<string> SelectedWorkHistoryContent = new List<string>() { "btn-primary", "btn-secondary", "btn-secondary" };
 
     protected override void OnInitialized() =>
-        navMgmt.OnPromoSectionOfPage += PromoteSection;
+        navMgmt.OnNavMgmtUpdated += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        navMgmt.OnPromoSectionOfPage -= PromoteSection;
+        navMgmt.OnNavMgmtUpdated -= UpdateThisComponent;
+    private void UpdateThisComponent(string meaningless) =>
+        StateHasChanged();
 
     private void UpdateWorkHistorySectionContent(int selection)
     {
         for (int i = 0; i < SelectedWorkHistoryContent.Count(); i++)
             SelectedWorkHistoryContent[i] = "btn-secondary";
         SelectedWorkHistoryContent[selection] = "btn-primary";
-    }
-    private void PromoteSection(int sectionIndex)
-    {
-        navMgmt.SectionedPages[2].CollapseAllShowOne(sectionIndex);
-        StateHasChanged();       
-    }
+    }    
 }

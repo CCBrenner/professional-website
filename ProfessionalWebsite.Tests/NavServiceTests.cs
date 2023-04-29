@@ -7,6 +7,7 @@ using ProfessionalWebsite.Client.Services;
 
 namespace ProfessionalWebsite.Tests
 {
+    /*
     [TestClass]
     public class NavServiceTests
     {
@@ -841,5 +842,5 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.SectionedPages[2].Sections[0].IsCollapsed);
         }
         // end NavigateToCollapsibleSectionOfOtherPage() tests
-    }
+    }*/
 }

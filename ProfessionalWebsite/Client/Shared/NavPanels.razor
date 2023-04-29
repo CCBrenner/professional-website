@@ -1,6 +1,8 @@
 ﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
+@using ProfessionalWebsite.Client.Classes.PanelMgmt;
+@implements IDisposable
 
-<NavPanelContainer PanelPosition="" NavPanelStatus="@navMgmt.AssociatedNav[0].NavPanelStatus">
+<NavPanelContainer PanelPosition="" NavPanelStatus="@panelMgmt.Panels[2].PanelStatus">
     <NavPanelNavLinkButton Href="projects"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-diagram-project"
@@ -70,7 +72,7 @@
                                ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@navMgmt.AssociatedNav[1].NavPanelStatus">
+<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@panelMgmt.Panels[3].PanelStatus">
     <NavPanelNavLinkButton Href="knowhow"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
@@ -167,7 +169,7 @@
                                ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@navMgmt.AssociatedNav[2].NavPanelStatus">
+<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@panelMgmt.Panels[4].PanelStatus">
     <NavPanelNavLinkButton Href="collyn"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-book"
@@ -211,7 +213,7 @@
                                ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@navMgmt.AssociatedNav[3].NavPanelStatus">
+<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@panelMgmt.Panels[5].PanelStatus">
     <NavPanelNavLinkButton Href="invent"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-warehouse"
@@ -254,7 +256,7 @@
                                ButtonClickCallback="SectionIndex6AsPromoDestination" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@navMgmt.AssociatedNav[4].NavPanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@panelMgmt.Panels[6].PanelStatus">
     <NavPanelNavLinkButton Href="articles"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-newspaper"
@@ -334,6 +336,8 @@
 
 @code {
     private NavMgmt navMgmt = NavMgmt.Instance;
+    private PanelMgmt panelMgmt = PanelMgmt.Instance;
+    @*
     [Parameter]
     public string NavPanelAStatus { get; set; } = "";
     [Parameter]
@@ -344,11 +348,18 @@
     public string NavPanelDStatus { get; set; } = "";
     [Parameter]
     public string NavPanelEStatus { get; set; } = "";
+    *@
+    protected override void OnInitialized() =>
+        panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
+    void IDisposable.Dispose() =>
+        panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
+    private void UpdateThisComponent(string meaningless) =>
+        StateHasChanged();
 
     [Parameter]
-    public EventCallback<int> UpdateNavCallback { get; set; }
+    public EventCallback<int> OnClickLocationCallback { get; set; }
     private async Task UpdateNavFromRoute(int index) =>
-        await UpdateNavCallback.InvokeAsync(index);
+        await OnClickLocationCallback.InvokeAsync(index);
 
     [Parameter]
     public EventCallback<int> ShowLayoutControlsCallback { get; set; }

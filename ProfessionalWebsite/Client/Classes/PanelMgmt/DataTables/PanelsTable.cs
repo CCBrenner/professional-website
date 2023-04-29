@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.PanelMgmt
 {
-    public class PanelsTable
+    public sealed class PanelsTable
     {
         private PanelsTable() { }
         private static PanelsTable instance;
@@ -19,41 +19,42 @@
         }
         public List<Panel> Panels { get; private set; } = new List<Panel>()
         {
-            new Panel(    // [0] Global Animations for Main
+            new Panel(0,    // [0] Global Animations panel
                 panelActiveStatusClassName: "anim-display",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel"
             ),
-            new Panel(),  // [1] BeeHive settings
-            new Panel(    // [2] "projects" page
+            new Panel(1),  // [1] BeeHive settings
+            new Panel(2,    // [2] "projects" page
+                panelGroupId: 0,
                 panelActiveStatusClassName: "panel-visible",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel",
                 panelButtonClassName: "highlight-button"
             ),
-            new Panel(    // [3] "knowhow" page
-                panelGroupid: 0,
+            new Panel(3,    // [3] "knowhow" page
+                panelGroupId: 0,
                 panelActiveStatusClassName: "panel-visible",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel",
                 panelButtonClassName: "highlight-button"
             ),
-            new Panel(    // [4] "collyn" page
-                panelGroupid: 0,
+            new Panel(4,    // [4] "collyn" page
+                panelGroupId: 0,
                 panelActiveStatusClassName: "panel-visible",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel",
                 panelButtonClassName: "highlight-button"
             ),
-            new Panel(    // [5] "invent" page
-                panelGroupid: 0,
+            new Panel(5,    // [5] "invent" page
+                panelGroupId: 0,
                 panelActiveStatusClassName: "panel-visible",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel",
                 panelButtonClassName: "highlight-button"
             ),
-            new Panel(    // [6] "articles" page
-                panelGroupid: 0,
+            new Panel(6,    // [6] "articles" page
+                panelGroupId: 0,
                 panelActiveStatusClassName: "panel-visible",
                 blurStatusClassName: "content-blur",
                 behindPanelStatusClassName: "button-on-show-behind-panel",

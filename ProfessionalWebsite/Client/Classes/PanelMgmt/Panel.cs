@@ -3,7 +3,8 @@
     public class Panel
     {
         public Panel(
-            int panelGroupid = -1,
+            int id,
+            int panelGroupId = -1,
             string panelActiveStatusClassName = "pm-panel-visible",
             string blurStatusClassName = "pm-maincontent-blurred",
             string behindPanelStatusClassName = "pm-behindpanel-present",
@@ -15,7 +16,8 @@
             this.behindPanelStatusClassName = behindPanelStatusClassName;
             this.panelButtonClassName = panelButtonClassName;
 
-            PanelGroupId = panelGroupid;
+            Id = id;
+            PanelGroupId = panelGroupId;
             PanelStatus = "";
             BlurStatus = "";
             BehindPanelStatus = "";
@@ -27,6 +29,8 @@
         private string behindPanelStatusClassName;
         private string panelButtonClassName;
 
+        
+        public int Id { get; private set; }
         public int PanelGroupId { get; private set; }
         public string PanelStatus { get; private set; }
         public string BlurStatus { get; private set; }

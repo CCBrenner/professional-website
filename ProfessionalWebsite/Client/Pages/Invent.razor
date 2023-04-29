@@ -232,13 +232,9 @@
     private NavMgmt navMgmt = NavMgmt.Instance;
 
     protected override void OnInitialized() =>
-        navMgmt.OnPromoSectionOfPage += PromoteSection;
+        navMgmt.OnNavMgmtUpdated += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        navMgmt.OnPromoSectionOfPage -= PromoteSection;
-
-    private void PromoteSection(int sectionIndex)
-    {
-        navMgmt.SectionedPages[1].CollapseAllShowOne(sectionIndex);
+        navMgmt.OnNavMgmtUpdated -= UpdateThisComponent;
+    private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
-    }
 }

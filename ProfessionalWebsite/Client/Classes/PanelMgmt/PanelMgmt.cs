@@ -1,4 +1,7 @@
-﻿namespace ProfessionalWebsite.Client.Classes.PanelMgmt
+﻿using System.Text.RegularExpressions;
+using System.Linq;
+
+namespace ProfessionalWebsite.Client.Classes.PanelMgmt
 {
     public class PanelMgmt
     {
@@ -9,6 +12,8 @@
 
             PanelGroups = panelGroupsTable.PanelGroups;
             Panels = panelTable.Panels;
+
+            InitializeGroups();
         }
 
         private static PanelMgmt instance;
@@ -32,35 +37,41 @@
         public List<PanelGroup> PanelGroups { get; private set; }
         public List<Panel> Panels { get; private set; }
 
-        public void DeactivateAllPanels()
+        public void DeactivateAllPanels(bool locationButtonsAreHighlighted)
         {
             foreach (Panel panel in Panels)
             {
                 panel.Deactivate();
-                ActivateLocationButtonsOfGroups();
+                if (locationButtonsAreHighlighted)
+                    ActivateLocationButtonsOfGroups();
             }
             RaiseEventOnPanelMgmtUpdated();
         }
-        public void DeactivatePanel(int selectedPanel)
+        public void DeactivatePanel(int selectedPanelId)
         {
-            Panels[selectedPanel].Deactivate();
+            Panels[selectedPanelId].Deactivate();
             RaiseEventOnPanelMgmtUpdated();
         }
-        public void ActivatePanel(int selectedPanel)
+        public void ActivatePanel(int selectedPanelId)
         {
-            DeactivateAllPanels();
-            Panels[selectedPanel].Activate();
+            DeactivateAllPanels(false);
+            ActivateLocationButtonsOfGroups(selectedPanelId);
+            Panels[selectedPanelId].Activate();
             RaiseEventOnPanelMgmtUpdated();
         }
-        public void TogglePanel(int selectedPanel)
+        public void TogglePanel(int selectedPanelId)
         {
-            if (Panels[selectedPanel].PanelStatus == "")
+            if (Panels[selectedPanelId].PanelStatus == "")
             {
-                DeactivateAllPanels();
-                Panels[selectedPanel].Activate();
+                DeactivateAllPanels(false);
+                ActivateLocationButtonsOfGroups(selectedPanelId);
+                Panels[selectedPanelId].Activate();
             }
             else
-                Panels[selectedPanel].TogglePanel();
+            {
+                Panels[selectedPanelId].TogglePanel();
+                ActivateLocationButtonsOfGroups();
+            }
 
             RaiseEventOnPanelMgmtUpdated();
         }
@@ -69,16 +80,36 @@
             if (OnPanelMgmtUpdated != null)
                 OnPanelMgmtUpdated?.Invoke("");
         }
+        private void ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
+        {
+            if (AllPanelsAreDeactivated())
+            {
+                int groupOfActivatedPanel = -1;
+
+                foreach (PanelGroup panelGroup in PanelGroups)
+                    foreach (int panelId in panelGroup.Panels)
+                        if (idOfPanelBeingActivated == panelId)
+                            groupOfActivatedPanel = panelGroup.Id;
+
+
+                foreach (PanelGroup panelGroup in PanelGroups)
+                {
+                    if (groupOfActivatedPanel == -1)
+                    {
+                        int panelId = panelGroup.LocationPanelId;
+                        Panels[panelId].ActivateButton();
+                    }
+                }
+            }
+        }
         private void ActivateLocationButtonsOfGroups()
         {
             if (AllPanelsAreDeactivated())
             {
-                for (int i = 0; i < Panels.Count; i++)
+                foreach (PanelGroup panelGroup in PanelGroups)
                 {
-                    List<Panel> panelGroup = GetPanelsOfGroup(i);
-                    foreach (Panel panel in panelGroup)
-                        if (panel == PanelGroups[i].LocationPanel)
-                            panel.ActivateButton();
+                    int panelId = panelGroup.LocationPanelId;
+                    Panels[panelId].ActivateButton();
                 }
             }
         }
@@ -95,9 +126,21 @@
             }
             return panelsAreDeactivated;
         }
+        private void InitializeGroups()
+        {
+            SetAllPanelGroupPanelReferences();
+            ActivateLocationButtonsOfGroups();
+        }
+        private void SetAllPanelGroupPanelReferences()
+        {
+            for (int i = 0; i < PanelGroups.Count(); i++)
+                foreach (Panel panel in Panels)
+                    if (panel.PanelGroupId == PanelGroups[i].Id)
+                        PanelGroups[i].Panels.Add(panel.Id);
+        }
 
         /* DataTable Queries */
-        private List<Panel> GetPanelsOfGroup(int groupId)
+        public List<Panel> GetPanelsOfGroup(int groupId)
         {
             List<Panel> panelsOfGroup = new List<Panel>();
 

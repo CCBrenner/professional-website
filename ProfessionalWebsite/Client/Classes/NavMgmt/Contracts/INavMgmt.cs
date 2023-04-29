@@ -2,6 +2,7 @@
 {
     public interface INavMgmt
     {
+        /*
         // For BehindPanel
         public string BehindPanel { get; }
         public string ContentBlur { get; }
@@ -19,6 +20,6 @@
         // Animations
         public void ShowLayoutControls(int index);
         public void PlayAnimation(int animation, bool isContinuous);
-        public void StopMainAnimation();
+        public void StopMainAnimation();*/
     }
 }

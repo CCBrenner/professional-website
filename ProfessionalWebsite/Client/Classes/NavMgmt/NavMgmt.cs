@@ -2,6 +2,7 @@
 
 namespace ProfessionalWebsite.Client.Classes.NavMgmt
 {
+
     public sealed class NavMgmt : INavMgmt
     {
         private NavMgmt()
@@ -63,8 +64,6 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
             }
         }
 
-
-
         public List<AssociatedNavButtonAndPanel> AssociatedNav;
         public List<CollapsingPageSectionsLogic> SectionedPages;
 
@@ -76,8 +75,7 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
         public string LayoutControls { get; private set; }
         public string AnimateMain { get; private set; }
         public string DiscontinueButton { get; private set; }
-        public event Action<string> OnAnimateMain;
-        public event Action<int> OnPromoSectionOfPage;
+        public event Action<string> OnNavMgmtUpdated;
 
         // Methods:
         public void UpdateNav(int buttonId)
@@ -138,17 +136,17 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
                     throw new Exception();
                 SectionedPages[pageIndex].CollapseAllShowOne(sectionIndex);
                 RouteUserAndUpdateNav(pageIndex);
-                RaiseEventOnPromoSectionOfPageIndexOne(sectionIndex);
+                RaiseEventOnNavMgmtUpdated();
             }
             catch
             {
                 Console.WriteLine("PageIndex was greater than the number of SectionedPages in NavService."); // add to data logs (would help to be more specific (was seeing IndexOutOfRange exeptions at one point)
             }
         }
-        public void RaiseEventOnPromoSectionOfPageIndexOne(int sectionIndex)
+        public void RaiseEventOnNavMgmtUpdated()
         {
-            if (OnPromoSectionOfPage != null)
-                OnPromoSectionOfPage?.Invoke(sectionIndex);
+            if (OnNavMgmtUpdated != null)
+                OnNavMgmtUpdated?.Invoke("");
         }
 
         // Animations
@@ -174,13 +172,8 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
         private void SetAnimateMainAndDiscontinueButton(string animation, string discontinue)
         {
             AnimateMain = animation;
-            RaiseEventOnAnimateMain(AnimateMain);
+            RaiseEventOnNavMgmtUpdated();
             DiscontinueButton = discontinue;
-        }
-        private void RaiseEventOnAnimateMain(string animation)
-        {
-            if (OnAnimateMain != null)
-                OnAnimateMain?.Invoke(animation);
         }
         public void StopMainAnimation() =>
             SetAnimateMainAndDiscontinueButton("", "");

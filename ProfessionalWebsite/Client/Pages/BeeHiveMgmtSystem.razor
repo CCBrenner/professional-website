@@ -386,7 +386,7 @@
                     </div>
                 }
             </div>
-            <div class="behindpanel @panelMgmt.Panels[1].BehindPanelStatus" @onclick="panelMgmt.DeactivateAllPanels"></div>
+            <div class="behindpanel @panelMgmt.Panels[1].BehindPanelStatus" @onclick="(()=>panelMgmt.DeactivateAllPanels(true))"></div>
             <div class="settings-panel @panelMgmt.Panels[1].PanelStatus">
                 <h3 class="text-center">BeeHive Settings</h3>
                 <br/>

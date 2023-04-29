@@ -38,23 +38,13 @@
         </div>
         *@
 
-        <main class="main @AnimateMain">
+        <main class="main @navMgmt.AnimateMain">
 
             @* Buttons (z-index: 40) *@
-            <NavButtons StatusA="@navMgmt.AssociatedNav[0].NavButtonStatus"
-                        StatusB="@navMgmt.AssociatedNav[1].NavButtonStatus"
-                        StatusC="@navMgmt.AssociatedNav[2].NavButtonStatus"
-                        StatusD="@navMgmt.AssociatedNav[3].NavButtonStatus"
-                        StatusE="@navMgmt.AssociatedNav[4].NavButtonStatus"
-                        UpdateNavCallback="navMgmt.UpdateNav" />
+            <NavButtons />
 
             @* Panels (z-index: 30) *@
-            <NavPanels NavPanelAStatus="@navMgmt.AssociatedNav[0].NavPanelStatus"
-                       NavPanelBStatus="@navMgmt.AssociatedNav[1].NavPanelStatus"
-                       NavPanelCStatus="@navMgmt.AssociatedNav[2].NavPanelStatus"
-                       NavPanelDStatus="@navMgmt.AssociatedNav[3].NavPanelStatus"
-                       NavPanelEStatus="@navMgmt.AssociatedNav[4].NavPanelStatus"
-                       UpdateNavCallback="navMgmt.RouteUserAndUpdateNav"
+            <NavPanels OnClickLocationCallback="navMgmt.RouteUserAndUpdateNav"
                        ShowLayoutControlsCallback="navMgmt.ShowLayoutControls" />
             <div class="anim-icon @panelMgmt.Panels[0].PanelButtonStatus" @onclick="(()=>panelMgmt.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
@@ -140,7 +130,14 @@
             </div>
 
             @* Behind Panel (z-index: 20) *@
-            <div class="behind-panel @navMgmt.BehindPanel" @onclick="navMgmt.UpdateNavFromBehindPanel"></div>
+            <div class="behind-panel 
+                @panelMgmt.Panels[0].BehindPanelStatus 
+                @panelMgmt.Panels[2].BehindPanelStatus
+                @panelMgmt.Panels[3].BehindPanelStatus
+                @panelMgmt.Panels[4].BehindPanelStatus
+                @panelMgmt.Panels[5].BehindPanelStatus
+                @panelMgmt.Panels[6].BehindPanelStatus"
+                @onclick="(()=>panelMgmt.DeactivateAllPanels(true))"></div>
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
@@ -166,12 +163,19 @@
                 <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
             </div>
             *@
-            <article class="content @navMgmt.ContentBlur @panelMgmt.Panels[0].BlurStatus">
+            <article class="content 
+                @navMgmt.ContentBlur 
+                @panelMgmt.Panels[0].BlurStatus
+                @panelMgmt.Panels[2].BlurStatus
+                @panelMgmt.Panels[3].BlurStatus
+                @panelMgmt.Panels[4].BlurStatus
+                @panelMgmt.Panels[5].BlurStatus
+                @panelMgmt.Panels[6].BlurStatus">
                 @Body
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
-            <article class="animate-app @navMgmt.LayoutControls @navMgmt.ContentBlur">
+            <article class="animate-app @navMgmt.LayoutControls @navMgmt.ContentBlur @panelMgmt.Panels[0].BlurStatus">
                 <AppAnimations/>
             </article>
         </main>
@@ -196,34 +200,27 @@
     private NavMgmt navMgmt = NavMgmt.Instance;
     private PanelMgmt panelMgmt = PanelMgmt.Instance;
 
-    // All code here is for animating the "main" element
-    // (event is required due to this layout component needing to re-render)
-    // (it is weird when a child has to tell their parent what to do)
-
-    private string AnimateMain = "";
-    private string AnimControlsDisplay = "";
-
     protected override void OnInitialized()
     {
-        navMgmt.OnAnimateMain += UpdateAnimateMain;
+        navMgmt.OnNavMgmtUpdated += UpdateThisComponent;
         panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        navMgmt.OnAnimateMain -= UpdateAnimateMain;
+        navMgmt.OnNavMgmtUpdated -= UpdateThisComponent;
         panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
-    }
-
-    private void UpdateAnimateMain(string animation)
-    {
-        AnimateMain = animation;
-        StateHasChanged();
     }
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 
-    /*
+    @*
+    // All code here is for animating the "main" element
+    // (event is required due to this layout component needing to re-render)
+    // (it is weird when a child has to tell their parent what to do)
+
+    // private string AnimControlsDisplay = "";
+    
     private void ToggleAnimControlsDisplay() =>
         AnimControlsDisplay = AnimControlsDisplay == "anim-display" ? "" : "anim-display";
-    */
+    *@
 }
