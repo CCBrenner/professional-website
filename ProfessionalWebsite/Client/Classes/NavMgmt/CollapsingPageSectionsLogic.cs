@@ -39,6 +39,7 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
         {
             int expandedSectionsCount = 0;
             int promoId = 0;
+
             for (int i = 0; i < Sections.Count(); i++)
             {
                 if (!Sections[i].IsCollapsed)
@@ -47,6 +48,7 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
                     promoId = i;
                 }
             }
+
             if (expandedSectionsCount == 1)
                 PromoteSection(promoId);
             else

@@ -44,11 +44,12 @@
             <NavButtons />
 
             @* Panels (z-index: 30) *@
-            <NavPanels OnClickLocationCallback="navMgmt.RouteUserAndUpdateNav"
-                       ShowLayoutControlsCallback="navMgmt.ShowLayoutControls" />
+            <NavPanels />
+
             <div class="anim-icon @panelMgmt.Panels[0].PanelButtonStatus" @onclick="(()=>panelMgmt.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
+
             <div class="anim-controls @panelMgmt.Panels[0].PanelStatus">
                 <h4>Animations</h4>
                 <div class="anim-pair" @onclick="(()=>navMgmt.PlayAnimation(1, false))">

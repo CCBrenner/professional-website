@@ -6,7 +6,7 @@
             int id,
             int panelGroupId = -1,
             string panelActiveStatusClassName = "pm-panel-visible",
-            string blurStatusClassName = "pm-maincontent-blurred",
+            string blurStatusClassName = "pm-content-blurred",
             string behindPanelStatusClassName = "pm-behindpanel-present",
             string panelButtonClassName = "pm-panelbutton-active"
         )
@@ -33,9 +33,13 @@
         public int Id { get; private set; }
         public int PanelGroupId { get; private set; }
         public string PanelStatus { get; private set; }
+        public bool PanelIsActive { get; private set; }
         public string BlurStatus { get; private set; }
+        public bool BlurIsActive { get; private set; }
         public string BehindPanelStatus { get; private set; }
+        public bool BehindPanelIsActive { get; private set; }
         public string PanelButtonStatus { get; private set; }
+        public bool PanelButtonIsActive { get; private set; }
 
         public void Activate()
         {
@@ -43,6 +47,10 @@
             BlurStatus = blurStatusClassName;
             BehindPanelStatus = behindPanelStatusClassName;
             PanelButtonStatus = panelButtonClassName;
+            PanelIsActive = true;
+            BlurIsActive = true;
+            BehindPanelIsActive = true;
+            PanelButtonIsActive = true;
         }
         public void Deactivate()
         {
@@ -50,16 +58,16 @@
             BlurStatus = "";
             BehindPanelStatus = "";
             PanelButtonStatus = "";
+            PanelIsActive = false;
+            BlurIsActive = false;
+            BehindPanelIsActive = false;
+            PanelButtonIsActive = false;
         }
-        public void TogglePanel()
+        public void ActivateButton()
         {
-            if (PanelStatus == "")
-                Activate();
-            else
-                Deactivate();
-        }
-        public void ActivateButton() =>
             PanelButtonStatus = panelButtonClassName;
+            PanelButtonIsActive = true;
+        }
 
         /*
         Examples of how CSS should be set up for effective transitions:

@@ -68,10 +68,7 @@ namespace ProfessionalWebsite.Client.Classes.PanelMgmt
                 Panels[selectedPanelId].Activate();
             }
             else
-            {
-                Panels[selectedPanelId].TogglePanel();
-                ActivateLocationButtonsOfGroups();
-            }
+                DeactivateAllPanels(true);
 
             RaiseEventOnPanelMgmtUpdated();
         }

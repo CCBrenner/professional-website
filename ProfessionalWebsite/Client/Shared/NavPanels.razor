@@ -337,34 +337,13 @@
 @code {
     private NavMgmt navMgmt = NavMgmt.Instance;
     private PanelMgmt panelMgmt = PanelMgmt.Instance;
-    @*
-    [Parameter]
-    public string NavPanelAStatus { get; set; } = "";
-    [Parameter]
-    public string NavPanelBStatus { get; set; } = "";
-    [Parameter]
-    public string NavPanelCStatus { get; set; } = "";
-    [Parameter]
-    public string NavPanelDStatus { get; set; } = "";
-    [Parameter]
-    public string NavPanelEStatus { get; set; } = "";
-    *@
+
     protected override void OnInitialized() =>
         panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
     void IDisposable.Dispose() =>
         panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
-
-    [Parameter]
-    public EventCallback<int> OnClickLocationCallback { get; set; }
-    private async Task UpdateNavFromRoute(int index) =>
-        await OnClickLocationCallback.InvokeAsync(index);
-
-    [Parameter]
-    public EventCallback<int> ShowLayoutControlsCallback { get; set; }
-    private async Task ShowLayoutControls(int index) =>
-        await ShowLayoutControlsCallback.InvokeAsync(index);
 
     private void SectionIndex2AsPromoDestination(int pageIndex) =>
         navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 2);

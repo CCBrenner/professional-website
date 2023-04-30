@@ -101,9 +101,14 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
 
             BehindPanel = globalNavButtonState == "panel-visible" ? "button-on-show-behind-panel" : "";
             ContentBlur = globalNavButtonState == "panel-visible" ? "content-blur" : "";
+
+            RaiseEventOnNavMgmtUpdated();
         }
-        public void UpdateNavFromBehindPanel() =>
+        public void UpdateNavFromBehindPanel()
+        {
             UpdateNav(currentButton);
+            RaiseEventOnNavMgmtUpdated();
+        }
         public void RouteUserAndUpdateNav(int index)
         {
             foreach (var nav in AssociatedNav)
@@ -127,6 +132,7 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
                 }
             }
             NavigateToCollapsibleSectionOfOtherPage(pageIndex, sectionIndex);
+            RaiseEventOnNavMgmtUpdated();
         }
         public void NavigateToCollapsibleSectionOfOtherPage(int pageIndex, int sectionIndex)  // needs tests
         {
@@ -142,11 +148,13 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
             {
                 Console.WriteLine("PageIndex was greater than the number of SectionedPages in NavService."); // add to data logs (would help to be more specific (was seeing IndexOutOfRange exeptions at one point)
             }
+            RaiseEventOnNavMgmtUpdated();
         }
         public void RaiseEventOnNavMgmtUpdated()
         {
             if (OnNavMgmtUpdated != null)
                 OnNavMgmtUpdated?.Invoke("");
+            RaiseEventOnNavMgmtUpdated();
         }
 
         // Animations
@@ -155,27 +163,26 @@ namespace ProfessionalWebsite.Client.Classes.NavMgmt
             RouteUserAndUpdateNav(index);
             AssociatedNav[index].NavPanelStatus = "";
             LayoutControls = "layout-controls-on";
+            RaiseEventOnNavMgmtUpdated();
         }
         public void PlayAnimation(int animation, bool isContinuous)
         {
-            if (isContinuous)
-                if (AnimateMain == $"main{animation}-infinite")
-                    SetAnimateMainAndDiscontinueButton("", "");
-                else
-                    SetAnimateMainAndDiscontinueButton($"main{animation}-infinite", "discontinue-button-on");
-            else
-                if (AnimateMain == $"main{animation}")
+            if (AnimateMain != "")
                 SetAnimateMainAndDiscontinueButton("", "");
+            else if (isContinuous)
+                SetAnimateMainAndDiscontinueButton($"main{animation}-infinite", "discontinue-button-on");
             else
                 SetAnimateMainAndDiscontinueButton($"main{animation}", "");
         }
         private void SetAnimateMainAndDiscontinueButton(string animation, string discontinue)
         {
             AnimateMain = animation;
-            RaiseEventOnNavMgmtUpdated();
             DiscontinueButton = discontinue;
         }
-        public void StopMainAnimation() =>
+        public void StopMainAnimation()
+        {
             SetAnimateMainAndDiscontinueButton("", "");
+            RaiseEventOnNavMgmtUpdated();
+        }
     }
 }

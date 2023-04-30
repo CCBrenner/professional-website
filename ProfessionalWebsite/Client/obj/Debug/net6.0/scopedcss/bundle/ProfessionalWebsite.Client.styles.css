@@ -402,6 +402,7 @@
 }
 
 /* start Plugable statuses */
+/* start Pluggable global classes */
 
 /* (defaults being operated on:)
     visibility: hidden;
@@ -415,7 +416,7 @@
     transition: visibility 0.2s, opacity 0.2s;
 }
 
-.pm-maincontent-blurred[b-i8dz12kr23] {
+.pm-content-blurred[b-i8dz12kr23] {
     filter: blur(2.5px);
 }
 
@@ -429,7 +430,7 @@
     background-color: #111;
 }
 
-/* end Plugable statuses */
+/* end Pluggable global classes */
 
 @media (min-width: 540px) {
     .settings-panel[b-i8dz12kr23] {
@@ -2505,11 +2506,6 @@ td[b-cliwmzypxj] {
     background-color: rgba(255,255,255,0.25);
 }
 
-/*
-.suppress-button-highlight ::deep a.active {
-    background-color: rgba(255,255,255,0.0);
-}*/
-
 /* end Plugable statuses */
 /* Part of Option 3 */
 @media (min-width: 78vh) {
@@ -2835,7 +2831,7 @@ td[b-cliwmzypxj] {
 
 /* start Plugable statuses */
 
-.panel-visible[b-6ox9c9i5sk] {
+.pm-panel-visible[b-6ox9c9i5sk] {
     display: block;
     position: fixed;
     transition: display 0.2s;

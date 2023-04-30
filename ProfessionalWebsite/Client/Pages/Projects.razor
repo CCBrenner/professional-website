@@ -1,5 +1,6 @@
 ﻿@page "/projects"
 @using ProfessionalWebsite.Client.Classes.PanelMgmt;
+@using ProfessionalWebsite.Client.Classes.NavMgmt;
 @implements IDisposable
 
 <PageTitle>Projects - Collyn Brenner</PageTitle>
@@ -7,6 +8,8 @@
 <ProjectsPageTemplate>
     <div>Direct attention to projects to the left, then Statistics Section below on this page as all page content.</div>
     <h2>Statistics by Project</h2>
+
+    <h4>AnimateMain: @navMgmt.AnimateMain</h4>
 
     <h4>PanelMgmt</h4>
     <p>Panel Group 1</p>
@@ -37,6 +40,7 @@
 </ProjectsPageTemplate>
 
 @code {
+    private NavMgmt navMgmt = NavMgmt.Instance;
     private PanelMgmt panelMgmt = PanelMgmt.Instance;
 
     protected override void OnInitialized() =>

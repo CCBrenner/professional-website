@@ -400,7 +400,7 @@
     justify-content: center;
 }
 
-/* start Plugable statuses */
+/* start Pluggable classes */
 
 /* (defaults being operated on:)
     visibility: hidden;
@@ -414,7 +414,7 @@
     transition: visibility 0.2s, opacity 0.2s;
 }
 
-.pm-maincontent-blurred {
+.pm-content-blurred {
     filter: blur(2.5px);
 }
 
@@ -428,7 +428,7 @@
     background-color: #111;
 }
 
-/* end Plugable statuses */
+/* end Pluggable classes */
 
 @media (min-width: 540px) {
     .settings-panel {
