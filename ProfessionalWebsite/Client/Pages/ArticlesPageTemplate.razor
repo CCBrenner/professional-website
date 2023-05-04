@@ -1,4 +1,4 @@
-﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
+﻿@using ProfessionalWebsite.Client.Classes.Mgmt;
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-newspaper" HeaderText="Articles">
     <DrawerContent>
@@ -17,10 +17,9 @@
         <DrawerNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"
                              IconClasses="fa-solid fa-newspaper"
                              ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry" />*@
-        <DrawerNavLinkButton Href="collyn#contact" 
+        <DrawerNavLinkButton Href="collyn/6" 
                              IconClasses="fa-solid fa-envelope"
-                             ButtonText="Contact" 
-                             OnClickCallback='(()=>navMgmt.NavigateToCollapsibleSectionOfOtherPage(2, 6))' />
+                             ButtonText="Contact" />
     </DrawerContent>
     <PageContent>
         <PageContainer>
@@ -30,8 +29,6 @@
 </DrawerPageTemplate>
 
 @code {
-    private NavMgmt navMgmt = NavMgmt.Instance;
-
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

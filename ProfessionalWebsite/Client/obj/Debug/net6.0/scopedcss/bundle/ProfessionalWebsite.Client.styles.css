@@ -401,8 +401,7 @@
     justify-content: center;
 }
 
-/* start Plugable statuses */
-/* start Pluggable global classes */
+/* start Pluggable classes */
 
 /* (defaults being operated on:)
     visibility: hidden;
@@ -430,7 +429,7 @@
     background-color: #111;
 }
 
-/* end Pluggable global classes */
+/* end Pluggable classes */
 
 @media (min-width: 540px) {
     .settings-panel[b-i8dz12kr23] {
@@ -1507,14 +1506,6 @@ td[b-cliwmzypxj] {
 
 .construction[b-gjsk2lehkp] {
     width: 50%;
-}
-/* /Shared/AppAnimations.razor.rz.scp.css */
-
-.layout-control-item[b-7hzgm0yr8p] {
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 /* /Shared/ClosedStageCurtain.razor.rz.scp.css */
 .larger-than-mobile[b-uquen1h5a4] {

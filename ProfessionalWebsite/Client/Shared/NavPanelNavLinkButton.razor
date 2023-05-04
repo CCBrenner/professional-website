@@ -1,5 +1,5 @@
 ﻿
-<div class="nav-item @TopLvlClasses" @onclick="UpdateNavFromRoute">
+<div class="nav-item @TopLvlClasses" @onclick='(()=>ButtonClickCallback.InvokeAsync(""))'>
     <NavLink class="nav-link" href="@Href">
         @if (IconClasses != "")
         {
@@ -19,9 +19,5 @@
     [Parameter]
     public string ButtonText { get; set; }
     [Parameter]
-    public int Section { get; set; }
-    [Parameter]
-    public EventCallback<int> ButtonClickCallback { get; set; }
-    private async Task UpdateNavFromRoute() =>
-        await ButtonClickCallback.InvokeAsync(Section);
+    public EventCallback<string> ButtonClickCallback { get; set; }
 }

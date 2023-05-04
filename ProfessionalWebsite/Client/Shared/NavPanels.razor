@@ -1,298 +1,235 @@
-﻿@using ProfessionalWebsite.Client.Classes.NavMgmt;
-@using ProfessionalWebsite.Client.Classes.PanelMgmt;
+﻿@using ProfessionalWebsite.Client.Classes.Mgmt;
 @implements IDisposable
 
-<NavPanelContainer PanelPosition="" NavPanelStatus="@panelMgmt.Panels[2].PanelStatus">
+<NavPanelContainer PanelPosition="" NavPanelStatus="@PanelMgmt.Instance.Panels[2].PanelStatus">
     <NavPanelNavLinkButton Href="projects"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-diagram-project"
                            ButtonText="Projects"
-                           Section="0"
-                           ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
     <div class="panel-scrollablesection">
       @*<NavPanelNavLinkButton Href="stats"
                                IconClasses="fa-solid fa-chart-line"
                                ButtonText="Statistics"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
         <NavPanelNavLinkButton Href="matchgame"
                                ButtonText="Match Game"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+        <NavPanelNavLinkButton Href="knowhow/14"
                                ButtonText="This PWA"
-                               Section="1"
-                               ButtonClickCallback="SectionIndex13AsPromoDestination" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1, 13))" />
         <NavPanelNavLinkButton Href="hideandseek"
                                ButtonText="Hide & Seek"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
       @*<NavPanelNavLinkButton Href="twodecks"
                                ButtonText="Two Decks"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
         <NavPanelNavLinkButton Href="issuetracker"
                                ButtonText="Issue Tracker"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
         <NavPanelNavLinkButton Href="gofish"
                                ButtonText="Go Fish"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
         <NavPanelNavLinkButton Href="beehivemgmtsystem"
                                ButtonText="Bee Hive Mgmt System"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
       @*<NavPanelNavLinkButton Href="phpcmsandprocessbook"
                                ButtonText="PHP CMS & Process Book"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
         <NavPanelNavLinkButton Href="counter"
                                IconClasses="fa-solid fa-plus"
                                ButtonText="Counter"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
       @*<NavPanelNavLinkButton Href="ecommerce"
                                ButtonText="E-commerce"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
         <NavPanelNavLinkButton Href="spinners"
                                IconClasses="fa-solid fa-hand-spock"
                                ButtonText="Spinners"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
       @*<NavPanelNavLinkButton Href="djangopollingapp"
                                ButtonText="Polling App (Django/Python)"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
-        <NavPanelNavLinkButton Href="collyn#contact"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+        <NavPanelNavLinkButton Href="collyn/6"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
+                               ButtonText="Contact" />
+        <NavPanelNavLinkButton Href="projects/#"
+                               ButtonText="Layout Controls"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToHardCodedPage(7))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@panelMgmt.Panels[3].PanelStatus">
-    <NavPanelNavLinkButton Href="knowhow"
+<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@PanelMgmt.Instance.Panels[3].PanelStatus">
+    <NavPanelNavLinkButton Href="knowhow/0"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
                            ButtonText="Know-How"
-                           Section="1"
-                           ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,0))" />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="knowhow"
+        <NavPanelNavLinkButton Href="knowhow/0"
                                ButtonText="Overview"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,0))" />
+        <NavPanelNavLinkButton Href="knowhow/1"
                                ButtonText="Languages"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,1))" />
+        <NavPanelNavLinkButton Href="knowhow/2"
                                ButtonText="Stacks"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,2))" />
+        <NavPanelNavLinkButton Href="knowhow/3"
                                ButtonText="Web Front-end"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
-                               ButtonText="Python"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,3))" />
+        <NavPanelNavLinkButton Href="knowhow/5"
                                ButtonText="UX/UI + Modeling Software"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,4))" />
+        <NavPanelNavLinkButton Href="knowhow/6"
                                ButtonText="Cloud Deployment + Containers"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,5))" />
+        <NavPanelNavLinkButton Href="knowhow/7"
                                ButtonText="Databases"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,6))" />
+        <NavPanelNavLinkButton Href="knowhow/8"
                                ButtonText="Testing"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,7))" />
+        <NavPanelNavLinkButton Href="knowhow/9"
                                ButtonText="CLI"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,8))" />
+        <NavPanelNavLinkButton Href="knowhow/10"
                                ButtonText="Programming Paradigms & Methodologies"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,9))" />
+        <NavPanelNavLinkButton Href="knowhow/11"
                                ButtonText="Repositories"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,10))" />
+        <NavPanelNavLinkButton Href="knowhow/12"
                                ButtonText="Game Development"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,11))" />
+        <NavPanelNavLinkButton Href="knowhow/13"
                                ButtonText="Operating Systems"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="knowhow"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,12))" />
+        <NavPanelNavLinkButton Href="knowhow/14"
                                ButtonText="Why Programming?"
-                               Section="1"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1, 13))" />
         <CollapsingSection ParentButtonText="Projects">
-            <NavPanelNavLinkButton Href="knowhow"
+            <NavPanelNavLinkButton Href="knowhow/15"
                                    TopLvlClasses="navlink"
                                    ButtonText="About This Web App"
-                                   Section="1"
-                                   ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-            <NavPanelNavLinkButton Href="knowhow"
+                                   ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,14))" />
+            <NavPanelNavLinkButton Href="knowhow/16"
                                    TopLvlClasses="navlink"
                                    ButtonText="Hide & Seek Game - Project"
-                                   Section="1"
-                                   ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-            <NavPanelNavLinkButton Href="knowhow"
+                                   ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,15))" />
+            <NavPanelNavLinkButton Href="knowhow/17"
                                    TopLvlClasses="navlink"
                                    ButtonText="Bee Hive Manager System/Game - Project"
-                                   Section="1"
-                                   ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                                   ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,16))" />
         </CollapsingSection>
         <NavPanelNavLinkButton Href="projects"
                                IconClasses="fa-solid fa-diagram-project"
                                ButtonText="Projects"
-                               Section="0"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+        <NavPanelNavLinkButton Href="collyn/6"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
+                               ButtonText="Contact" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@panelMgmt.Panels[4].PanelStatus">
-    <NavPanelNavLinkButton Href="collyn"
+<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@PanelMgmt.Instance.Panels[4].PanelStatus">
+    <NavPanelNavLinkButton Href="collyn/0"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-book"
                            ButtonText="Collyn Brenner"
-                           Section="2"
-                           ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,0))" />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="collyn#background"
-                               ButtonText="Background"
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#workhistory"
-                               ButtonText="Work History"
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#educationhistory"
+        <NavPanelNavLinkButton Href="collyn/0"
+                               ButtonText="Introduction"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,0))" />
+        <NavPanelNavLinkButton Href="collyn/1"
+                               ButtonText="Employment History"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,1))" />
+        <NavPanelNavLinkButton Href="collyn/2"
                                ButtonText="Education History"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex2AsPromoDestination" />
-        <NavPanelNavLinkButton Href="collyn#noteabledones"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2, 2))" />
+        <NavPanelNavLinkButton Href="collyn/3"
                                ButtonText='Noteable "Done"s'
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#inspirations"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,3))" />
+        <NavPanelNavLinkButton Href="collyn/4"
                                ButtonText="Inspirations"
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#goals"
-                               ButtonText="Goals"
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#contact"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,4))" />
+        <NavPanelNavLinkButton Href="collyn/5"
+                               ButtonText="Objectives"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,5))" />
+        <NavPanelNavLinkButton Href="collyn/6"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
-        <NavPanelNavLinkButton Href="collyn#feedback"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2, 6))" />
+        <NavPanelNavLinkButton Href="collyn/7"
                                IconClasses="fa-solid fa-rotate-left"
                                ButtonText="Feedback"
-                               Section="2"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,7))" />
+        <NavPanelNavLinkButton Href="collyn/8"
+                               ButtonText="Background"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2,8))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@panelMgmt.Panels[5].PanelStatus">
-    <NavPanelNavLinkButton Href="invent"
+<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@PanelMgmt.Instance.Panels[5].PanelStatus">
+    <NavPanelNavLinkButton Href="invent/0"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-warehouse"
                            ButtonText="Invent"
-                           Section="3"
-                           ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,0))" />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="invent#overview"
+        <NavPanelNavLinkButton Href="invent/0"
                                ButtonText="Overview"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#futurevision"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,0))" />
+        <NavPanelNavLinkButton Href="invent/1"
                                ButtonText="Future Vision App"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#unifiedchurch"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,1))" />
+        <NavPanelNavLinkButton Href="invent/2"
                                ButtonText="Unified Church App"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#hangoutavailability"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,2))" />
+        <NavPanelNavLinkButton Href="invent/3"
                                ButtonText="Hang Out Availability App"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#philosophyorientation"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,3))" />
+        <NavPanelNavLinkButton Href="invent/4"
                                ButtonText="Philosophy Orientation App"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#controllerkeyboardprototype"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,4))" />
+        <NavPanelNavLinkButton Href="invent/5"
                                ButtonText="Controller Keyboard Prototype"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="invent#audiogame"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,5))" />
+        <NavPanelNavLinkButton Href="invent/6"
                                ButtonText="Audio Game"
-                               Section="3"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
-        <NavPanelNavLinkButton Href="collyn#contact"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,6))" />
+        <NavPanelNavLinkButton Href="collyn/6"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
+                               ButtonText="Contact" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@panelMgmt.Panels[6].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@PanelMgmt.Instance.Panels[6].PanelStatus">
     <NavPanelNavLinkButton Href="articles"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-newspaper"
                            ButtonText="Articles"
-                           Section="4"
-                           ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
     <div class="panel-scrollablesection">
         <NavPanelNavLinkButton Href="article/our-incredible-future"
                                ButtonText="Our Incredible Future"
-                               Section="4"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
       @*<NavPanelNavLinkButton Href="article/hierarchy-of-desires-and-the-engineers-struggle"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Hierarchy of Desires & the Engineer's Struggle"
-                               Section="4"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
         <NavPanelNavLinkButton Href="article/business-manager-or-technologist-what-is-the-end-of-your-means"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Business Manager or Technologist: What is the End of your Means?"
-                               Section="4"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
         <NavPanelNavLinkButton Href="article/essentialism-vs-existentialism-the-modern-worlds-dilemma-and-an-opportunity-for-christian-faith"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Essentialism vs. Existentialism: The Modern World's Dilemma & An Opportunity for Christian Faith"
-                               Section="4"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
         <NavPanelNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry"
-                               Section="4"
-                               ButtonClickCallback="navMgmt.RouteUserAndUpdateNav" />*@
-        <NavPanelNavLinkButton Href="collyn#contact"
+                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />*@
+        <NavPanelNavLinkButton Href="collyn/6"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               Section="2"
-                               ButtonClickCallback="SectionIndex6AsPromoDestination" />
+                               ButtonText="Contact" />
         @* potnetially include some of the below articles; keeping as ideas for future articles *@
         @*
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
@@ -335,22 +272,10 @@
 </NavPanelContainer>
 
 @code {
-    private NavMgmt navMgmt = NavMgmt.Instance;
-    private PanelMgmt panelMgmt = PanelMgmt.Instance;
-
     protected override void OnInitialized() =>
-        panelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
+        PanelMgmt.Instance.OnPanelMgmtUpdated += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        panelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
+        PanelMgmt.Instance.OnPanelMgmtUpdated -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
-
-    private void SectionIndex2AsPromoDestination(int pageIndex) =>
-        navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 2);
-
-    private void SectionIndex6AsPromoDestination(int pageIndex) =>
-        navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 6);
-
-    private void SectionIndex13AsPromoDestination(int pageIndex) =>
-        navMgmt.NavigateToCollapsibleSectionOfOtherPage(pageIndex, 13);
 }

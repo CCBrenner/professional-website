@@ -400,8 +400,7 @@
     justify-content: center;
 }
 
-/* start Plugable statuses */
-/* start Pluggable global classes */
+/* start Pluggable classes */
 
 /* (defaults being operated on:)
     visibility: hidden;
@@ -429,7 +428,7 @@
     background-color: #111;
 }
 
-/* end Pluggable global classes */
+/* end Pluggable classes */
 
 @media (min-width: 540px) {
     .settings-panel[b-i8dz12kr23] {
