@@ -25,6 +25,7 @@
         }
 
         private PanelMgmt panelMgmt;
+        private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
 
         public string AnimateMain { get; private set; }
         public List<bool> IsContinuous { get; private set; }
@@ -40,7 +41,7 @@
             else
             {
                 if (isContinuous)
-                    SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", "discontinue-button-on");
+                    SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME);
                 else
                     SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "");
             }

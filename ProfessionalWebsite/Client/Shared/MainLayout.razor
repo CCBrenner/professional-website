@@ -39,6 +39,9 @@
 
         <main class="main @AnimMgmt.Instance.AnimateMain">
 
+            @* Alert (proprietary) *@
+            @*<div class=""></div>*@
+
             @* Buttons (z-index: 40) *@
             <NavButtons />
 
@@ -51,9 +54,17 @@
 
             <div class="anim-controls @PanelMgmt.Instance.Panels[0].PanelStatus">
                 <h4>Animations</h4>
-                <div class="anim-pair" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(1, false))">
+                <div class="anim-pair" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(0, false))">
                     <div class="anim-regular">
                         Bombastic
+                    </div>
+                    <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(0, true))">
+                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="anim-pair">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(1, false))">
+                        Skywalker
                     </div>
                     <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(1, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
@@ -61,7 +72,7 @@
                 </div>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(2, false))">
-                        Skywalker
+                        Kitchen Sink
                     </div>
                     <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(2, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
@@ -69,7 +80,7 @@
                 </div>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(3, false))">
-                        Kitchen Sink
+                        Flipster
                     </div>
                     <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(3, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
@@ -77,7 +88,7 @@
                 </div>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(4, false))">
-                        Flipster
+                        Asteroid
                     </div>
                     <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(4, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
@@ -85,44 +96,36 @@
                 </div>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(5, false))">
-                        Asteroid
-                    </div>
-                    <div class="anim-continuous" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(5, true))">
-                        <span class="fa-solid fa-infinity" aria-hidden="true"></span>
-                    </div>
-                </div>
-                <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(7, false))">
                         FlipOnX
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(6, false))">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(5, false))">
                         FlipOnY
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(11, false))">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(10, false))">
                         RotateOnZ
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(8, false))">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(7, false))">
                         East Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(9, false))">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(8, false))">
                         West Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(10, true))">
+                    <div class="anim-regular" @onclick="(()=>AnimMgmt.Instance.PlayAnimation(9, true))">
                         SloRo (<span class="fa-solid fa-infinity" aria-hidden="true"></span>)
                     </div>
                     <div class="anim-continuous"></div>

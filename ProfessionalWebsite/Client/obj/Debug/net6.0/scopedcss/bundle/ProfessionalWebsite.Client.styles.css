@@ -1189,6 +1189,13 @@
         text-align: center;
     }
 
+.proj-desc-buttons[b-5cko639osi] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 0px;
+}
+
 /* start Pluggable classes */
 
 .collapsed-header[b-5cko639osi] {

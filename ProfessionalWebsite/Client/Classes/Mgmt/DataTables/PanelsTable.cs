@@ -3,7 +3,7 @@
     public sealed class PanelsTable
     {
         private PanelsTable() { }
-        private static PanelsTable instance;
+        private static PanelsTable? instance;
         private static object instanceLock = new object();
         public static PanelsTable Instance
         {

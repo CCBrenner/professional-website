@@ -9,7 +9,7 @@
             Panels = new List<int>();
         }
 
-        public int Id;
+        public readonly int Id;
         public int LocationPanelId;
         public List<int> Panels;
         /*

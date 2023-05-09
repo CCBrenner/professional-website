@@ -1,36 +1,33 @@
-﻿using ProfessionalWebsite.Client.Classes.Mgmt.DataTables;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
-    public partial class SectionedPage
+    public partial class SectionedPage0
     {
-        public SectionedPage(int id, int locationPanelGroupId, string pagePath)
+        public SectionedPage0(int id, string pagePath, List<Section> sections)
         {
             Id = id;
-            LocationPanelGroupId = locationPanelGroupId;
             PagePath = pagePath;
-            Sections = GetSectionsOfPage(Id, SectionsTable.Instance.Sections);
+            Sections = sections;
             ASectionIsCurrentlyPromo = false;
             SectionsStatus = SectionsStatus.AllAreOpen;
             SectionsExpanded = Sections.Count();
         }
 
         public readonly int Id;
-        public readonly int LocationPanelGroupId;
         public string PagePath { get; private set; }
         public List<Section> Sections;
 
         public bool ASectionIsCurrentlyPromo { get; private set; }
         public SectionsStatus SectionsStatus { get; private set; }
         public int SectionsExpanded { get; private set; }
-        public void CollapseAllShowOne(int sectionId)
+        public void CollapseAllShowOne(int section)
         {
-            DemoteAllSections();
-            Section? section = GetSection(sectionId);
-            if (section != null)
+            try
             {
-                bool isFirstSectionOfPage = section.IsFirstSectionOfPage;
-                if (isFirstSectionOfPage)
+                DemoteAllSections();
+                if (section == 0)
                 {
                     // section[0] always has all sections open
                     foreach (var sec in Sections)
@@ -41,21 +38,36 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 {
                     foreach (var sec in Sections)
                         sec.ToggleCollapse(true);
-                    ToggleCollapseSingle(sectionId);
-                    section.Promote();
+                    ToggleCollapseSingle(section);
+                    Sections[section].Promote();
                     ASectionIsCurrentlyPromo = true;
                 }
                 UpdateSectionsStatus();
             }
-        }
-        public void ToggleCollapseSingle(int sectionId)
-        {
-            Section? section = GetSection(sectionId);
-            if (section != null)
+            catch (ArgumentOutOfRangeException aoorEx)
             {
+                Console.WriteLine($"{aoorEx.Message} - origin method: SectionedPage.CollapseAllShowOne()");
+            }
+        }
+        public void ToggleCollapseSingle(int sectionIndex)
+        {
+            Sections[sectionIndex].ToggleCollapse(!Sections[sectionIndex].IsCollapsed);
+            UpdateSectionsStatus();
+            PromoteIfOnlyOneExpandedSection();
+        }
+        public void ToggleCollapseSingleById(int sectionId)
+        {
+            try
+            {
+                Section? section = GetSection(sectionId);
                 section.ToggleCollapse(!section.IsCollapsed);
+
                 UpdateSectionsStatus();
                 PromoteIfOnlyOneExpandedSection();
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine($"NullReferenceException error. Section does not exist - Section ID: {sectionId}");
             }
         }
         private void PromoteIfOnlyOneExpandedSection()
@@ -68,10 +80,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 if (!Sections[i].IsCollapsed)
                 {
                     expandedSectionsCount++;
-                    promoId = Sections[i].Id;
+                    promoId = i;
                 }
             }
-            Console.WriteLine($"expandedSectionsCount: {expandedSectionsCount}\npromoId: {promoId}");
+
             if (expandedSectionsCount == 1)
                 PromoteSection(promoId);
             else
@@ -98,15 +110,11 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 SectionsStatus = SectionsStatus.AllAreOpen;
             }
         }
-        public void PromoteSection(int sectionId)
+        public void PromoteSection(int index)
         {
             DemoteAllSections();
-            Section? section = GetSection(sectionId);
-            if (section != null)
-            {
-                section.Promote();
-                ASectionIsCurrentlyPromo = true;
-            }
+            Sections[index].Promote();
+            ASectionIsCurrentlyPromo = true;
         }
         private void DemoteAllSections()
         {
@@ -130,29 +138,16 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         }
         private Section? GetSection(int sectionId)
         {
-            try
-            {
-                return (from section in Sections
-                        where section.Id == sectionId
-                        select section).FirstOrDefault();
-            }
-            catch (NullReferenceException nrEx)
-            {
-                Console.WriteLine($"Error with GET Section (by ID)\n{nrEx.Message}\n{nrEx.StackTrace}");
-            }
-            return default;
-        }
-        private List<Section> GetSectionsOfPage(int pageId, List<Section> sectionsTableInstance)
-        {
-            return (from section in sectionsTableInstance
-                    where section.SectionedPageId == pageId
-                    select section).ToList();
+            return (from section in Sections
+                    where section.Id == sectionId
+                    select section).FirstOrDefault();
         }
     }
+    /*
     public enum SectionsStatus
     {
         AllAreCollapsed,
         AtLeastOneIsOpen,
         AllAreOpen,
-    }
+    }*/
 }

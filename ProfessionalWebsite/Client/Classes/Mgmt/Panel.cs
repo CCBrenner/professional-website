@@ -32,8 +32,8 @@
         private string behindPanelStatusClassName;
         private string panelButtonClassName;
 
-        
-        public int Id { get; private set; }
+
+        public readonly int Id;
         public int PanelGroupId { get; private set; }
         public bool CannotBeActiveWhileOtherPanelsAreActive { get; private set; }
 

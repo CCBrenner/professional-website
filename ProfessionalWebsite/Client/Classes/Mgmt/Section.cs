@@ -2,13 +2,22 @@
 {
     public class Section
     {
-        public Section()
+        public Section(int id, int sectionedPageId, bool isFirstSectionOfPage = false)
         {
+            Id = id;
+            SectionedPageId = sectionedPageId;
+            IsFirstSectionOfPage = isFirstSectionOfPage;
             IsCollapsed = false;
             IsCollapsedHeader = "";
             IsCollapsedContent = "";
             IsCurrentPromo = false;
         }
+        private const string HEADER_COLLAPSED_CLASS_NAME = "collapsed-header";
+        private const string CONTENT_COLLAPSED_CLASS_NAME = "collapsed-content";
+
+        public readonly int Id;
+        public readonly int SectionedPageId;
+        public bool IsFirstSectionOfPage { get; private set; }
         public bool IsCollapsed { get; private set; }
         public string IsCollapsedHeader { get; private set; }
         public string IsCollapsedContent { get; private set; }
@@ -38,8 +47,8 @@
             IsCurrentPromo = false;
         private void UpdateHeaderAndContent()
         {
-            IsCollapsedHeader = IsCollapsed ? "collapsed-header" : "";
-            IsCollapsedContent = IsCollapsed ? "collapsed-content" : "";
+            IsCollapsedHeader = IsCollapsed ? HEADER_COLLAPSED_CLASS_NAME : "";
+            IsCollapsedContent = IsCollapsed ? CONTENT_COLLAPSED_CLASS_NAME : "";
         }
     }
 }

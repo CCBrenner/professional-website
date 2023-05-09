@@ -8,7 +8,7 @@
             panelMgmt = PanelMgmt.Instance;
         }
 
-        private static NavMgmt instance;
+        private static NavMgmt? instance;
         private static object instanceLock = new object();
         public static NavMgmt Instance
         {
@@ -36,18 +36,14 @@
         }
         public void NavigateToSectionedPage(int pageIndex) =>
             NavigateToSection(pageIndex, 0);
-        public void NavigateToSection(int pageIndex, int sectionIndex, bool triggersOnPanelMgmtUpdated = true)
+        public void NavigateToSection(int pageId, int sectionId, bool triggersOnPanelMgmtUpdated = true)
         {
-            try
+            panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+            SectionedPage? sectionedPage = GetSectionedPage(pageId, SectionedPages);
+            if (sectionedPage != null)
             {
-                panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
-                SectionedPages[pageIndex].CollapseAllShowOne(sectionIndex);
-                int panelIndex = pageIndex + 2;  // "+ 2" is the panel index offset; page [0]'s panel starts at [2]
-                panelMgmt.UpdateGroupLocationPanel(panelIndex);
-            }
-            catch (ArgumentOutOfRangeException aoorEx)
-            {
-                Console.WriteLine($"{aoorEx.Message} - origin method: NavMgmt.NavigateToSection()");
+                sectionedPage.CollapseAllShowOne(sectionId);
+                panelMgmt.UpdateGroupLocationPanel(sectionedPage.LocationPanelGroupId);
             }
         }
         public void RaiseEventOnNavMgmtUpdated()
@@ -56,25 +52,24 @@
                 OnNavMgmtUpdated?.Invoke("");
             RaiseEventOnNavMgmtUpdated();
         }
-        public async void NavigateToHardCodedPage(int panelId)
+        public void NavigateToHardCodedPage(int panelId)
         {
             panelMgmt.UpdateGroupLocationPanel(panelId);
-            await panelMgmt.ActivatePanel(panelId);
+            panelMgmt.ActivatePanel(panelId);
         }
-        /*
-        public void NavigateToSection(string pagePath, int sectionIndex)
+        private SectionedPage? GetSectionedPage(int pageId, List<SectionedPage> sectionedPages)
         {
-            int pageIndex = 1000;  // requirement: must be greater than SectionedPages.Count()
-            for (int i = 0; i < SectionedPages.Count; i++)
+            try
             {
-                if (SectionedPages[i].PagePath == pagePath)
-                {
-                    pageIndex = i;
-                    break;
-                }
+                return (from sectionedPage in sectionedPages
+                        where sectionedPage.Id == pageId
+                        select sectionedPage).FirstOrDefault();
             }
-            NavigateToSection(pageIndex, sectionIndex);
+            catch (NullReferenceException nrEx)
+            {
+                Console.WriteLine($"Error with GET SectionedPage (by ID)\n{nrEx.Message}\n{nrEx.StackTrace}");
+            }
+            return default;
         }
-        */
     }
 }

@@ -46,7 +46,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             RaiseEventOnPanelMgmtUpdated();
         }
-        public void DeactivateAllPanels(bool setActivePanelGroupToLocationPanel, bool triggersOnPanelMgmtUpdated = true, bool includeIndependentPanels = false)
+        public void DeactivateAllPanels(
+            bool setActivePanelGroupToLocationPanel, 
+            bool triggersOnPanelMgmtUpdated = true, 
+            bool includeIndependentPanels = false)
         {
             foreach (Panel panel in Panels)
             {
@@ -62,14 +65,18 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         }
         public void DeactivatePanel(int selectedPanelId)
         {
-            Panels[selectedPanelId].Deactivate();
+            Panels
+                .FirstOrDefault(panel => panel.Id == selectedPanelId)
+                ?.Deactivate();
             RaiseEventOnPanelMgmtUpdated();
         }
-        public async Task<Panel> ActivatePanel(int selectedPanelId)
+        public Panel ActivatePanel(int selectedPanelId)
         {
             DeactivateAllPanels(false);
             ActivateLocationButtonsOfGroups(selectedPanelId);
-            await Panels[selectedPanelId].Activate();
+            Panels
+                .FirstOrDefault(panel => panel.Id == selectedPanelId)
+                ?.Activate();
             RaiseEventOnPanelMgmtUpdated();
             return Panels[selectedPanelId];
         }
@@ -172,13 +179,9 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /* DataTable Queries */
         public List<Panel> GetPanelsOfGroup(int groupId)
         {
-            List<Panel> panelsOfGroup = new List<Panel>();
-
-            foreach (Panel panel in Panels)
-                if (panel.PanelGroupId == groupId)
-                    panelsOfGroup.Add(panel);
-
-            return panelsOfGroup;
+            return (from panel in Panels
+                    where panel.PanelGroupId == groupId
+                    select panel).ToList();
         }
         public Panel? GetPanel(int id) =>
             Panels
