@@ -2,7 +2,16 @@
 {
     public sealed class PanelGroupsTable
     {
-        private PanelGroupsTable() { }
+        private PanelGroupsTable()
+        {
+            List<PanelGroup> panelGroups = new List<PanelGroup>()
+            {
+                new PanelGroup(0, 4),  // NavMgmt panels
+            };
+            foreach (PanelGroup panelGroup in panelGroups)
+                PanelGroups.Add(panelGroup.Id, panelGroup);
+
+        }
         private static PanelGroupsTable? instance;
         private static object instanceLock = new object();
         public static PanelGroupsTable Instance
@@ -17,9 +26,7 @@
                 }
             }
         }
-        public List<PanelGroup> PanelGroups { get; set; } = new List<PanelGroup>()
-        {
-            new PanelGroup(0, 4),  // [0] NavMgmt panels
-        };
+
+        public Dictionary<int, PanelGroup> PanelGroups = new Dictionary<int, PanelGroup>();
     }
 }

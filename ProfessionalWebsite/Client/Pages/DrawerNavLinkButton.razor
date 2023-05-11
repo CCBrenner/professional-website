@@ -13,11 +13,11 @@
     [Parameter]
     public bool IsNavLink { get; set; } = true;
     [Parameter]
-    public string Href { get; set; }
+    public string Href { get; set; } = "";
     [Parameter]
     public string IconClasses { get; set; } = "fa-regular fa-circle";
     [Parameter]
-    public string ButtonText { get; set; }
+    public string ButtonText { get; set; } = "";
     [Parameter]
     public EventCallback<string> OnClickCallback { get; set; }
 }

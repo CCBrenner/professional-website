@@ -1,31 +1,4 @@
-﻿.toggle-all-sections-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    right: 6px;
-    bottom: calc(var(--footer-height) + 6px);
-    margin-bottom: 50px;
-}
-
-.toggle-all-sections {
-    width: 62px;
-    height: 62px;
-    background-color: navy;
-    color: #eee;
-    border-radius: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0,0,0,.0.4) 10px 10px inset;
-    font-size: 1.5rem;
-}
-
-    .toggle-all-sections:hover {
-        cursor: pointer;
-    }
-
-.sub-page-container {
+﻿.sub-page-container {
     background-color: rgba(128, 139, 150, 0.65);
     height: 100%;
     display: flex;

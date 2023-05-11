@@ -54,7 +54,6 @@
                 panelMgmt.DeactivatePanel(8);
             else
                 panelMgmt.ActivatePanel(8);
-            // DiscontinueButtonStatus = discontinue;
         }
         private void RaiseEventOnAnimMgmtChanged()
         {

@@ -35,6 +35,7 @@
 
         public readonly int Id;
         public int PanelGroupId { get; private set; }
+        public PanelGroup PanelGroup { get; private set; }
         public bool CannotBeActiveWhileOtherPanelsAreActive { get; private set; }
 
         public string PanelStatus { get; private set; }
@@ -75,6 +76,20 @@
             PanelButtonStatus = panelButtonClassName;
             PanelButtonIsActive = true;
             return this;
+        }
+        public void SetInstanceToGroupRelationship(List<PanelGroup> panelGroups)
+        {
+            try
+            {
+                PanelGroup = (from panelGroup in panelGroups
+                                 where panelGroup.Id == PanelGroupId
+                                 select panelGroup).FirstOrDefault();
+            }
+            catch (NullReferenceException nrEx)
+            {
+                Console.WriteLine($"Error: NullReferenceException - Could not establish Instance-Group relationship between Section and SectionedPage\n" +
+                    $"{nrEx.Message}\n{nrEx.StackTrace}");
+            }
         }
 
         /*

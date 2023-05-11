@@ -1,4 +1,6 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿using static System.Collections.Specialized.BitVector32;
+
+namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
     public class Section
     {
@@ -17,11 +19,26 @@
 
         public readonly int Id;
         public readonly int SectionedPageId;
+        public SectionedPage SectionedPage;
         public bool IsFirstSectionOfPage { get; private set; }
         public bool IsCollapsed { get; private set; }
         public string IsCollapsedHeader { get; private set; }
         public string IsCollapsedContent { get; private set; }
         public bool IsCurrentPromo { get; private set; }
+        public void SetInstanceToGroupRelationship(List<SectionedPage> sectionedPages)
+        {
+            try
+            {
+                SectionedPage = (from sectionedPage in sectionedPages
+                                 where sectionedPage.Id == SectionedPageId
+                                 select sectionedPage).FirstOrDefault();
+            }
+            catch (NullReferenceException nrEx)
+            {
+                Console.WriteLine($"Error: NullReferenceException - Could not establish Instance-Group relationship between Section and SectionedPage\n" +
+                    $"{nrEx.Message}\n{nrEx.StackTrace}");
+            }
+        }
         public void ToggleCollapse()
         {
             IsCollapsed = !IsCollapsed;

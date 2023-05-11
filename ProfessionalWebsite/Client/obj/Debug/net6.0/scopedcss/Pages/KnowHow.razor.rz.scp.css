@@ -1,30 +1,3 @@
-.toggle-all-sections-container[b-5cko639osi] {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    right: 6px;
-    bottom: calc(var(--footer-height) + 6px);
-    margin-bottom: 50px;
-}
-
-.toggle-all-sections[b-5cko639osi] {
-    width: 62px;
-    height: 62px;
-    background-color: navy;
-    color: #eee;
-    border-radius: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(0,0,0,.0.4) 10px 10px inset;
-    font-size: 1.5rem;
-}
-
-    .toggle-all-sections:hover[b-5cko639osi] {
-        cursor: pointer;
-    }
-
 .wpa-image[b-5cko639osi] {
     width: 100%;
     display: flex;

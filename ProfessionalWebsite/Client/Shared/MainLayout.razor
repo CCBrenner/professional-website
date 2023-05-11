@@ -139,7 +139,7 @@
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="#contact" @onclick="(()=>NavMgmt.Instance.NavigateToSection(2, 6))">
+                <a class="navbar-brand" href="collyn/23" @onclick="(()=>NavMgmt.Instance.NavigateToSection(23))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -248,21 +248,21 @@
 
     private string blurMainStatus()
     {
-        // if any are true, blur main
+        // if any panels are true, blur main
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (PanelMgmt.Instance.GetPanel(index) != null)
-                if (PanelMgmt.Instance.GetPanel(index).BlurIsActive)
+            if (PanelMgmt.Instance.Panels[index] != null)
+                if (PanelMgmt.Instance.Panels[index].BlurIsActive)
                     return "content-blur";
         return "";
     }
     private string behindPanelStatus()
     {
-        // if any are true, show behind panel
+        // if any panels are true, show behind panel
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (PanelMgmt.Instance.GetPanel(index) != null)
-                if (PanelMgmt.Instance.GetPanel(index).BehindPanelIsActive)
+            if (PanelMgmt.Instance.Panels[index] != null)
+                if (PanelMgmt.Instance.Panels[index].BehindPanelIsActive)
                     return "button-on-show-behind-panel";
         return "";
     }

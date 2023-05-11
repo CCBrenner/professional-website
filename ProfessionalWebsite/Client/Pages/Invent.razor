@@ -8,203 +8,196 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-warehouse" HeaderText="Invent">
     <DrawerContent>
-        <DrawerNavLinkButton Href="invent/26" ButtonText="Overview" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,26))" />
-        <DrawerNavLinkButton Href="invent/27" ButtonText="Future Vision App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,27))" />
-        <DrawerNavLinkButton Href="invent/28" ButtonText="Unified Church App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,28))" />
-        <DrawerNavLinkButton Href="invent/29" ButtonText="Hang Out Availability App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,29))" />
-        <DrawerNavLinkButton Href="invent/30" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,30))" />
-        <DrawerNavLinkButton Href="invent/31" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,31))" />
-        <DrawerNavLinkButton Href="invent/32" ButtonText="Audio Games" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3,32))" />
+        <DrawerNavLinkButton Href="invent/26" ButtonText="Overview" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(26))" />
+        <DrawerNavLinkButton Href="invent/27" ButtonText="Future Vision App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(27))" />
+        <DrawerNavLinkButton Href="invent/28" ButtonText="Unified Church App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(28))" />
+        <DrawerNavLinkButton Href="invent/29" ButtonText="Hang Out Availability App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(29))" />
+        <DrawerNavLinkButton Href="invent/30" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(30))" />
+        <DrawerNavLinkButton Href="invent/31" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(31))" />
+        <DrawerNavLinkButton Href="invent/32" ButtonText="Audio Games" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(32))" />
         <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[0].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(26))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[0].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(26))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[26].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(26))">
                             Overview
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[0].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[26].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[0].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[26].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[1].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(27))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[1].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(27))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[27].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(27))">
                             Future Vision App
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[1].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[27].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[1].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[27].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[2].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(28))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[2].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(28))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[28].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(28))">
                             Unified Church App
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[2].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[28].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[2].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[28].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[3].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(29))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[3].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(29))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[29].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(29))">
                             Hang Out Availability App
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[3].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[29].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[3].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[29].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[4].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(30))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[4].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(30))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[30].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(30))">
                             Philosophy Orientation App
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[4].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[30].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[4].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[30].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[5].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(31))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[5].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(31))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[31].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(31))">
                             Controller Keyboard Prototype
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[5].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[31].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[5].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[31].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[3].Sections[6].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(32))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[6].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(32))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[32].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(32))">
                             Audio Games
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[3].Sections[6].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[32].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[3].Sections[6].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[32].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (NavMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo)
+                @if (SectionMgmt.Instance.SectionedPages[3].ASectionIsCurrentlyPromo)
                 {
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[0].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[26].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[0].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(26))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[26].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(26))">
                                 Overview
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[1].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[27].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[1].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(27))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[27].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(27))">
                                 Future Vision App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[2].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[28].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[2].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(28))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[28].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(28))">
                                 Unified Church App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[3].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[29].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[3].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(29))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[29].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(29))">
                                 Hang Out Availability App
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[4].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[30].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[4].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(30))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[30].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(30))">
                                 Philosophy Orientation App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[5].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[31].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[5].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(31))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[31].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(31))">
                                 Controller Keyboard Prototype
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[3].Sections[6].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[32].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[3].Sections[6].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[3].ToggleCollapseSingle(32))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[32].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(32))">
                                 Audio Games
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -212,18 +205,7 @@
                         </div>
                     }
                 }
-                <div class="toggle-all-sections-container">
-                    <div class="toggle-all-sections" @onclick="NavMgmt.Instance.SectionedPages[3].ToggleAllSections">
-                        @if (NavMgmt.Instance.SectionedPages[3].SectionsStatus == SectionsStatus.AllAreOpen)
-                        {
-                            <span class="fa-solid fa-down-left-and-up-right-to-center"></span>
-                        }
-                        else
-                        {
-                            <span class="fa-solid fa-up-right-and-down-left-from-center"></span>
-                        }
-                    </div>
-                </div>
+                <SectionedPageSectionsToggle PageId="3"/>
             </div>
         </div>
     </PageContent>
@@ -232,12 +214,16 @@
 @code {
     protected override void OnInitialized()
     {
-        NavMgmt.Instance.NavigateToSection(3, SectionId);   
+        NavMgmt.Instance.NavigateToSection(SectionId);   
         NavMgmt.Instance.OnNavMgmtUpdated += UpdateThisComponent;
+        SectionMgmt.Instance.OnSectionMgmtChanged += UpdateThisComponent;
     }
-    void IDisposable.Dispose() =>
+    void IDisposable.Dispose()
+    {
         NavMgmt.Instance.OnNavMgmtUpdated -= UpdateThisComponent;
-    private void UpdateThisComponent(string meaningless) =>
+        SectionMgmt.Instance.OnSectionMgmtChanged -= UpdateThisComponent;
+    }
+    private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
 
     [Parameter]

@@ -18,18 +18,18 @@
             }
         }
         public List<bool> IsContinuous = new List<bool>()
-            {
-                false,  // Bombastic
-                false,  // Skywalker
-                false,  // Kitchen Sink
-                false,  // Flipster
-                false,  // Asteroid
-                false,  // Flip On X
-                false,  // FLip On Y
-                false,  // Rotate on Z
-                false,  // East Is Up
-                false,  // West Is Up
-                false,  // SloRo
-            };
+        {
+            false,  // Bombastic
+            false,  // Skywalker
+            false,  // Kitchen Sink
+            false,  // Flipster
+            false,  // Asteroid
+            false,  // Flip On X
+            false,  // FLip On Y
+            false,  // Rotate on Z
+            false,  // East Is Up
+            false,  // West Is Up
+            false,  // SloRo
+        };
     }
 }

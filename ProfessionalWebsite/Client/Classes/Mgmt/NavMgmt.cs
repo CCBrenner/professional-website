@@ -4,7 +4,7 @@
     {
         private NavMgmt()
         {
-            SectionedPages = SectionedPagesTable.Instance.SectionedPages;
+            sectionMgmt = SectionMgmt.Instance;
             panelMgmt = PanelMgmt.Instance;
         }
 
@@ -24,26 +24,27 @@
         }
 
         private PanelMgmt panelMgmt;
-
-        public List<SectionedPage> SectionedPages;
+        private SectionMgmt sectionMgmt;
         public event Action<string> OnNavMgmtUpdated;
 
-        public void NavigateToPage(int panelIndex, bool triggersOnPanelMgmtUpdated = true)
+        public void NavigateToPage(int panelId, bool triggersOnPanelMgmtUpdated = true)
         {
             panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
-            panelIndex += 2;  // "+ 2" is the panel index offset; page [0]'s panel starts at [2]
-            panelMgmt.UpdateGroupLocationPanel(panelIndex);
+            panelMgmt.UpdateGroupLocationPanel(panelId);
         }
-        public void NavigateToSectionedPage(int pageIndex) =>
-            NavigateToSection(pageIndex, 0);
-        public void NavigateToSection(int pageId, int sectionId, bool triggersOnPanelMgmtUpdated = true)
+        public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
         {
             panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
-            SectionedPage? sectionedPage = GetSectionedPage(pageId, SectionedPages);
-            if (sectionedPage != null)
+            try
             {
-                sectionedPage.CollapseAllShowOne(sectionId);
-                panelMgmt.UpdateGroupLocationPanel(sectionedPage.LocationPanelGroupId);
+                sectionMgmt.CollapseAllShowOne(sectionId);
+                int locationPanelGroupId = sectionMgmt.GetLocationPanelGroupId(sectionId);
+                if (locationPanelGroupId != -1)
+                    panelMgmt.UpdateGroupLocationPanel(locationPanelGroupId);
+            }
+            catch (NullReferenceException nrEx)
+            {
+                Console.WriteLine(nrEx.Message + nrEx.StackTrace);
             }
         }
         public void RaiseEventOnNavMgmtUpdated()
@@ -56,20 +57,6 @@
         {
             panelMgmt.UpdateGroupLocationPanel(panelId);
             panelMgmt.ActivatePanel(panelId);
-        }
-        private SectionedPage? GetSectionedPage(int pageId, List<SectionedPage> sectionedPages)
-        {
-            try
-            {
-                return (from sectionedPage in sectionedPages
-                        where sectionedPage.Id == pageId
-                        select sectionedPage).FirstOrDefault();
-            }
-            catch (NullReferenceException nrEx)
-            {
-                Console.WriteLine($"Error with GET SectionedPage (by ID)\n{nrEx.Message}\n{nrEx.StackTrace}");
-            }
-            return default;
         }
     }
 }

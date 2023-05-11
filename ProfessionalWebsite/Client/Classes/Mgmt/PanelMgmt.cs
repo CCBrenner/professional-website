@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using System.Linq;
+﻿using static System.Collections.Specialized.BitVector32;
 
 namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
@@ -10,7 +9,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             PanelGroups = PanelGroupsTable.Instance.PanelGroups;
             Panels = PanelsTable.Instance.Panels;
 
-            InitializeGroups();
+            SetInstanceToGroupReferences();
         }
 
         private static PanelMgmt instance;
@@ -31,27 +30,16 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
 
         public event Action<string> OnPanelMgmtUpdated;
 
-        public List<PanelGroup> PanelGroups { get; private set; }
-        public List<Panel> Panels { get; private set; }
+        public Dictionary<int, PanelGroup> PanelGroups { get; private set; } = new Dictionary<int, PanelGroup>();
+        public Dictionary<int, Panel> Panels { get; private set; } = new Dictionary<int,Panel>();
 
-        public void DeactivateAllPanels()
-        {
-            foreach (Panel panel in Panels)
-            {
-                if (panel.CannotBeActiveWhileOtherPanelsAreActive)
-                {
-                    panel.Deactivate();
-                    ActivateLocationButtonsOfGroups();
-                }
-            }
-            RaiseEventOnPanelMgmtUpdated();
-        }
         public void DeactivateAllPanels(
             bool setActivePanelGroupToLocationPanel, 
             bool triggersOnPanelMgmtUpdated = true, 
-            bool includeIndependentPanels = false)
+            bool includeIndependentPanels = false
+        )
         {
-            foreach (Panel panel in Panels)
+            foreach (Panel panel in Panels.Values)
             {
                 if (panel.CannotBeActiveWhileOtherPanelsAreActive || includeIndependentPanels)
                 {
@@ -65,7 +53,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         }
         public void DeactivatePanel(int selectedPanelId)
         {
-            Panels
+            Panels.Values
                 .FirstOrDefault(panel => panel.Id == selectedPanelId)
                 ?.Deactivate();
             RaiseEventOnPanelMgmtUpdated();
@@ -74,29 +62,37 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         {
             DeactivateAllPanels(false);
             ActivateLocationButtonsOfGroups(selectedPanelId);
-            Panels
+            Panels.Values
                 .FirstOrDefault(panel => panel.Id == selectedPanelId)
                 ?.Activate();
             RaiseEventOnPanelMgmtUpdated();
             return Panels[selectedPanelId];
         }
-        public Panel TogglePanel(int selectedPanelId)
+        public Panel? TogglePanel(int selectedPanelId)
         {
-            if (Panels[selectedPanelId].PanelStatus == "")
+            try
             {
-                DeactivateAllPanels(false);
-                ActivateLocationButtonsOfGroups(selectedPanelId);
-                Panels[selectedPanelId].Activate();
+                if (Panels[selectedPanelId].PanelStatus == "")
+                {
+                    DeactivateAllPanels(false);
+                    ActivateLocationButtonsOfGroups(selectedPanelId);
+                    Panels[selectedPanelId].Activate();
+                }
+                else
+                {
+                    DeactivateAllPanels(true);
+                    DeactivatePanel(selectedPanelId);
+                }
+                RaiseEventOnPanelMgmtUpdated();
+                return Panels[selectedPanelId];
             }
-            else
+            catch (KeyNotFoundException knfEx)
             {
-                DeactivateAllPanels(true);
-                DeactivatePanel(selectedPanelId);
+                Console.WriteLine(knfEx.Message + knfEx.StackTrace);
             }
-            RaiseEventOnPanelMgmtUpdated();
-            return Panels[selectedPanelId];
+            return default;
         }
-        public Panel UpdateGroupLocationPanel(int panelId)
+        public void UpdateGroupLocationPanel(int panelId)
         {
             try
             {
@@ -111,43 +107,43 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             {
                 Console.WriteLine($"{aoorEx.Message} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
             }
-            return Panels[panelId];
-
         }
         private void RaiseEventOnPanelMgmtUpdated()
         {
             if (OnPanelMgmtUpdated != null)
                 OnPanelMgmtUpdated?.Invoke("");
         }
-        private Panel? ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
+        private List<Panel> ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
         {
+            List<Panel> locationPanelsActivated = new List<Panel>();
             if (AllCooperativePanelsAreDeactivated())
             {
                 int groupOfActivatedPanel = -1;
 
-                foreach (PanelGroup panelGroup in PanelGroups)
-                    foreach (int panelId in panelGroup.Panels)
-                        if (idOfPanelBeingActivated == panelId)
+                // use "idOfPanelBeingActivated" to find it's panel, then find & store the panelGroup ID of the panel
+                foreach (PanelGroup panelGroup in PanelGroups.Values)
+                    foreach (Panel panel in panelGroup.Panels.Values)
+                        if (idOfPanelBeingActivated == panel.Id)
                             groupOfActivatedPanel = panelGroup.Id;
 
-
-                foreach (PanelGroup panelGroup in PanelGroups)
-                {
+                foreach (PanelGroup panelGroup in PanelGroups.Values)
+                { 
                     if (groupOfActivatedPanel == -1)
                     {
                         int panelId = panelGroup.LocationPanelId;
-                        return Panels[panelId].ActivateButton();
+                        Panel panel = Panels[panelId].ActivateButton();
+                        locationPanelsActivated.Add(panel);
                     }
                 }
             }
-            return null;
+            return locationPanelsActivated;
         }
         private List<Panel> ActivateLocationButtonsOfGroups()
         {
             List<Panel> locationPanelsActivated = new List<Panel>();
             if (AllCooperativePanelsAreDeactivated())
             {
-                foreach (PanelGroup panelGroup in PanelGroups)
+                foreach (PanelGroup panelGroup in PanelGroups.Values)
                 {
                     int panelId = panelGroup.LocationPanelId;
                     Panel highlightedPanel = Panels[panelId].ActivateButton();
@@ -158,35 +154,26 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         }
         private bool AllCooperativePanelsAreDeactivated()
         {
-            foreach (Panel panel in Panels)
+            foreach (Panel panel in Panels.Values)
                 if (panel.PanelStatus != "" && panel.CannotBeActiveWhileOtherPanelsAreActive)
                     return false;
             return true;
         }
-        private void InitializeGroups()
+        private void SetInstanceToGroupReferences()
         {
-            SetAllPanelGroupPanelReferences();
-            ActivateLocationButtonsOfGroups();
-        }
-        private void SetAllPanelGroupPanelReferences()
-        {
-            for (int i = 0; i < PanelGroups.Count(); i++)
-                foreach (Panel panel in Panels)
-                    if (panel.PanelGroupId == PanelGroups[i].Id)
-                        PanelGroups[i].Panels.Add(panel.Id);
-        }
+            foreach (Panel panel in Panels.Values)
+                panel.SetInstanceToGroupRelationship(PanelGroups.Values.ToList());
 
-        /* DataTable Queries */
-        public List<Panel> GetPanelsOfGroup(int groupId)
-        {
-            return (from panel in Panels
-                    where panel.PanelGroupId == groupId
-                    select panel).ToList();
+            List<Section> sectionsOfPage = new List<Section>();
+            foreach (Panel panel in Panels.Values)
+            {
+                if (panel.PanelGroupId != -1)
+                {
+                    PanelGroups[panel.PanelGroupId]
+                        .Panels
+                        .Add(panel.Id, panel);
+                }
+            }
         }
-        public Panel? GetPanel(int id) =>
-            Panels
-            .Where(panel => panel.Id == id)
-            .Select(panel => panel)
-            .FirstOrDefault();
     }
 }

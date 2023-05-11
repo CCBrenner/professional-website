@@ -18,7 +18,7 @@
             }
         }
 
-        public List<Section> Sections = new List<Section>()
+        public List<Section> Sections = new List<Section>() 
         {
             /* start "knowhow" */
             new Section(0, 1, isFirstSectionOfPage: true),
@@ -46,8 +46,8 @@
             new Section(20, 2),
             new Section(21, 2),
             new Section(22, 2),
-            new Section(23, 2),
-            new Section(24, 2),
+            new Section(23, 2),  // Contact
+            new Section(24, 2),  // Feedback
             new Section(25, 2),
             /* end "collyn" */
             /* start "invent" */

@@ -9,110 +9,105 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Know-How">
     <DrawerContent>
-        <DrawerNavLinkButton Href="knowhow/0" ButtonText="Overview" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,0))" />
-        <DrawerNavLinkButton Href="knowhow/1" ButtonText="Languages" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,1))" />
-        <DrawerNavLinkButton Href="knowhow/2" ButtonText="Stacks" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,2))" />
-        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Web Front-end" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,3))" />
-        <DrawerNavLinkButton Href="knowhow/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,4))" />
-        <DrawerNavLinkButton Href="knowhow/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,5))" />
-        <DrawerNavLinkButton Href="knowhow/6" ButtonText="Databases" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,6))" />
-        <DrawerNavLinkButton Href="knowhow/7" ButtonText="Testing" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,7))" />
-        <DrawerNavLinkButton Href="knowhow/8" ButtonText="CLI" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,8))" />
-        <DrawerNavLinkButton Href="knowhow/9" ButtonText="Programming Paradigms & Methodologies" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,9))" />
-        <DrawerNavLinkButton Href="knowhow/10" ButtonText="Repositories" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,10))" />
-        <DrawerNavLinkButton Href="knowhow/11" ButtonText="Game Development" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,11))" />
-        <DrawerNavLinkButton Href="knowhow/12" ButtonText="Operating Systems" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,12))" />
-        <DrawerNavLinkButton Href="knowhow/13" ButtonText="Why Programming?" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,13))" />
-        <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,14))" />
-        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,15))" />
-        <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1,16))" />
-        <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSectionedPage(0))" />
+        <DrawerNavLinkButton Href="knowhow/0" ButtonText="Overview" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(0))" />
+        <DrawerNavLinkButton Href="knowhow/1" ButtonText="Languages" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(1))" />
+        <DrawerNavLinkButton Href="knowhow/2" ButtonText="Stacks" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(2))" />
+        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Web Front-end" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(3))" />
+        <DrawerNavLinkButton Href="knowhow/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(4))" />
+        <DrawerNavLinkButton Href="knowhow/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(5))" />
+        <DrawerNavLinkButton Href="knowhow/6" ButtonText="Databases" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(6))" />
+        <DrawerNavLinkButton Href="knowhow/7" ButtonText="Testing" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(7))" />
+        <DrawerNavLinkButton Href="knowhow/8" ButtonText="CLI" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(8))" />
+        <DrawerNavLinkButton Href="knowhow/9" ButtonText="Programming Paradigms & Methodologies" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(9))" />
+        <DrawerNavLinkButton Href="knowhow/10" ButtonText="Repositories" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(10))" />
+        <DrawerNavLinkButton Href="knowhow/11" ButtonText="Game Development" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(11))" />
+        <DrawerNavLinkButton Href="knowhow/12" ButtonText="Operating Systems" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(12))" />
+        <DrawerNavLinkButton Href="knowhow/13" ButtonText="Why Programming?" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(13))" />
+        <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(14))" />
+        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(15))" />
+        <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" />
         <DrawerNavLinkButton Href="collyn/23" ButtonText="Contact" IconClasses="fa-solid fa-envelope" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[0].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(0))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[0].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(0))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[0].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(0))">
                             Overview
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[0].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[0].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[0].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[0].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[1].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(1))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[1].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(1))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[1].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(1))">
                             Languages
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[1].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[1].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[1].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[2].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(2))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[2].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(2))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[2].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(2))">
                             Stacks
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[2].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[2].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[2].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[2].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[3].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(3))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[3].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(3))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[3].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(3))">
                             Web Front-End
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[3].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[3].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[3].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[4].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(4))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[4].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(4))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[4].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(4))">
                             UX/UI + Modeling Software
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[4].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[4].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[4].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[4].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">UX/UI + Modeling Software</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -133,155 +128,146 @@
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[5].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(5))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[5].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(5))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[5].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(5))">
                             Cloud Deployment + Containers
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[5].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[5].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[5].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[6].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(6))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[6].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(6))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[6].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(6))">
                             Databases
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[6].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[6].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[6].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[6].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[7].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(7))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[7].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(7))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[7].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(7))">
                             Testing
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[7].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[7].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[7].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[7].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[8].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(8))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[8].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(8))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[8].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(8))">
                             CLI
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[8].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[8].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[8].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[8].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[9].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(9))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[9].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(9))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[9].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(9))">
                             Programming Paradigms & Methodologies
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[9].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[9].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[9].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[9].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[10].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(10))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[10].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(10))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[10].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(10))">
                             Repositories
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[10].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[10].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[10].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[10].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[11].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(11))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[11].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(11))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[11].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(11))">
                             Game Development
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[11].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[11].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[11].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[11].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[12].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(12))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[12].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(12))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[12].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(12))">
                             Operating Systems
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[12].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[12].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[12].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[12].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[13].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(13))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[13].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(13))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[13].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(13))">
                             Why Programming?
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[13].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[13].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[13].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[13].IsCollapsedContent">
                             <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
                             <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
                             <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
@@ -289,19 +275,18 @@
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[14].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(14))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[14].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(14))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[14].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(14))">
                             About This Web App
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[14].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[14].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[14].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[14].IsCollapsedContent">
                             <h3 style="text-align: center;">Conception</h3>
                             <br/>
                             <p>I started construction of this developer portfolio PWA (progressive web app) by first attempting to create a Blazor WASM open-source template that I planned to branch off from to create my own promotional developer portfolio. When I started this project I had never made anything open-source before. I saw making a boilerplate template for the Blazor framework as a potential networking opportunity. You can view the open-source template here: <a href="https://github.com/CCBrenner/MobileNavBlazorWasmTemplate" target="blank">Blazor WASM template</a>.</p>
@@ -331,14 +316,14 @@
                             <br/>
                             <h3 style="text-align: center;">Noteworthy Aspects</h3>
                             <br/>
-                            <h4>Navigation Bar (and the NavMgmt.Instance singleton)</h4>
+                            <h4>Navigation Bar (and the SectionMgmt.Instance singleton)</h4>
                             <p>The navigation bar takes one interaction to make a navigation panel fade into visibility, and one more for top-level navigation. The option to nest navigation options in an accordion menu is also built to be added to any navigation panel, so that in cases where a user wants to navigate to an even more specific part of the PWA, then the programmer can make this available to them in a structured manner. CSS transition fade also exists for hiding the navigation panels. There exists also a negative space element that appears that blurs and adds a translucent dark shade to the body/page content. This also exists to allow the user to tap/click a larger/closer  target to exit the navigation - a convenience factor. There was also care taken to the highlighting of the navigation buttons. The blur effect was made to assist the user when focusing on the navigation panel options.</p>
-                            <p>A logic was applied so that the navigation would show you where you are at all times (as a good nav should). This includes the location changing when a specific navigation panel is visible temporarily. If the panel is closed, memory of the last location that was kept is then used to revert back automatically to showing the location of the current page. If the user is using a desktop computer, while they are hovering over a button before clicking it will cause the button to be highlighted while maintaining the highlight of the current location. This is done to indicate that the user’s mouse is in the right position to open that specific navigation panel. But once the user clicks that button, the location changes to the navigation panel of the button, making only the clicked button highlighted. All of the above highlight logic is maintained when clicking on a navigation panel button that routes the user to another page as well as when the user taps/clicks the negative space to close the navigation panel. These highlights are also updated when a button with navigation to a different section is tapped/clicked, so that the navigation is updated. All of this is achieved via a NavMgmt.Instance class that is abstracted above the separations of the Shared components and the Page components in Blazor (which also means that it is above all component boundaries and can be used in all components; this functionality is possible because of what Service classes are originally intended to be used for: for inserting data acquired from the backend API for insertion into specific components via the dependency injection (DI) design pattern that Blazor WASM uses extensively).</p>
+                            <p>A logic was applied so that the navigation would show you where you are at all times (as a good nav should). This includes the location changing when a specific navigation panel is visible temporarily. If the panel is closed, memory of the last location that was kept is then used to revert back automatically to showing the location of the current page. If the user is using a desktop computer, while they are hovering over a button before clicking it will cause the button to be highlighted while maintaining the highlight of the current location. This is done to indicate that the user’s mouse is in the right position to open that specific navigation panel. But once the user clicks that button, the location changes to the navigation panel of the button, making only the clicked button highlighted. All of the above highlight logic is maintained when clicking on a navigation panel button that routes the user to another page as well as when the user taps/clicks the negative space to close the navigation panel. These highlights are also updated when a button with navigation to a different section is tapped/clicked, so that the navigation is updated. All of this is achieved via a SectionMgmt.Instance class that is abstracted above the separations of the Shared components and the Page components in Blazor (which also means that it is above all component boundaries and can be used in all components; this functionality is possible because of what Service classes are originally intended to be used for: for inserting data acquired from the backend API for insertion into specific components via the dependency injection (DI) design pattern that Blazor WASM uses extensively).</p>
                             <br/>
                             <h4>Cross-page navigation to a section (HTML bookmarks substitute)</h4>
                             <p>Engineers often make technical assumptions that they believe are true only to find out later that their assumption doesn’t hold water. This reveals the necessity of programmers to allow room for skepticism about everything they believe they know to be true. More specifically, disproven assumptions appear when something that is believed to be true is true in more than one circumstance, but is not true in every circumstance. This is explained simply by Proverbs 21:11 which in summary shows that the gaining of wisdom (what is deemed “experience”) involves making a person less simple than they were before, or to put it another way, make them more enlightened. A person can be more simple in specific areas than other areas of which they are more wise (have a more complete understanding of the complex nature of something else).</p>
                             <p>I say all of this, because I was made less simple when building this project. I had assumed that I was going to be able to use an HTML navigation technique that involved using the id property of an HTML element to scroll the user to the element with that id via an anchor element that referenced it. I found out much too late that this functionality does not work everywhere bar none. I concluded with about 95% confidence that this is because HTML bookmarks (what the technique is called) only work for moving the entire web page to that location. It does not work within HTML elements that utilize scrolling within themselves (given to them by the CSS property-value “overflow-y: auto”). My requirement of raising my web app in the DOM made HTML bookmarks unusable.</p>
-                            <p>I had to find another solution. I wanted to have pages that had multiple sections in them so that when viewing on desktop the user can click the sidebar and go straight to that section. Not being able to use bookmarks, I recognized I still had sections. Instead of moving the whole scrollable page, I found I could move the relevant content to the visible viewport with logic conditionals. Now if you click the sidebar, that section is “promoted” to the top of the page and all others appear collapsed below it in order. This meant that all sections had to be collapsible. I added the ability to collapse from the header of a section by clicking on it as well as a page-scoped control of the sections fully expanded or to be fully collapsed from the same button. Taking another development step forward, I updated the sections logic so that if the user ever had only one section open, it would be promoted to the top of the page just as if it had been clicked on from the sidebar. All of this works across screen sizes, with the exception of the absence of the sidebar for mobile and tablet screen sizes. This portfolio uses three pages with this functionality: “KnowHow”, “Collyn”, and “Invent”. Space was left for the future in which I either turn the other two pages in a sectioned page or if I decide to strip this project down one day and offer it as an open-source template for the benefit of programmers in the Blazor WASM community. The sectioned pages logic exists as its own class but is instantiated in the NavMgmt.Instance class so as to reap the benefits of being modifiable across navigable pages. Yes, this means that state (properties and fields data) are being kept and used in the NavMgmt.Instance service class. For keeping state in the NavMgmt.Instance class to be useful in the context of Blazor as a single instance, this means particularly that the NavMgmt.Instance class has to be “Singleton” scoped in the Program.cs file and injected as a class instead of as an interface for components that consume it (because an interface does not maintain any state within itself; the primary use case for a service class in Blazor WASM requires only functions (methods) for acquiring data from the backend API; Singleton instantiation as a rule and state in the service class are not required in the effective use of the service class’ primary use case).</p>
+                            <p>I had to find another solution. I wanted to have pages that had multiple sections in them so that when viewing on desktop the user can click the sidebar and go straight to that section. Not being able to use bookmarks, I recognized I still had sections. Instead of moving the whole scrollable page, I found I could move the relevant content to the visible viewport with logic conditionals. Now if you click the sidebar, that section is “promoted” to the top of the page and all others appear collapsed below it in order. This meant that all sections had to be collapsible. I added the ability to collapse from the header of a section by clicking on it as well as a page-scoped control of the sections fully expanded or to be fully collapsed from the same button. Taking another development step forward, I updated the sections logic so that if the user ever had only one section open, it would be promoted to the top of the page just as if it had been clicked on from the sidebar. All of this works across screen sizes, with the exception of the absence of the sidebar for mobile and tablet screen sizes. This portfolio uses three pages with this functionality: “KnowHow”, “Collyn”, and “Invent”. Space was left for the future in which I either turn the other two pages in a sectioned page or if I decide to strip this project down one day and offer it as an open-source template for the benefit of programmers in the Blazor WASM community. The sectioned pages logic exists as its own class but is instantiated in the SectionMgmt.Instance class so as to reap the benefits of being modifiable across navigable pages. Yes, this means that state (properties and fields data) are being kept and used in the SectionMgmt.Instance service class. For keeping state in the SectionMgmt.Instance class to be useful in the context of Blazor as a single instance, this means particularly that the SectionMgmt.Instance class has to be “Singleton” scoped in the Program.cs file and injected as a class instead of as an interface for components that consume it (because an interface does not maintain any state within itself; the primary use case for a service class in Blazor WASM requires only functions (methods) for acquiring data from the backend API; Singleton instantiation as a rule and state in the service class are not required in the effective use of the service class’ primary use case).</p>
                             <br/>
                             <h4>Raised and Animated web app container</h4>
                             <p>Blazor separates layout classes as “Shared” components in their own directory, from the navigable page components of the PWA in the “Pages” directory. Since the Shared components are parents of the Page components (because they are for defining the layout and navigation of the project), the PWA had to be raised in the Shared directory, in the layout component. For certain functional reasons concerning navigation, I wanted to use a layering technique, with layers that are the full size of the housing container for the app. Some elements in these layers are positioned with CSS “position: relative”, to maintain position relative to the element’s parent element whenever the housing container resizes and moves. If there are multiple elements between the final positioned element then this kind of positioning must be done between every parent and child between each other, with correct height and width sizing too. Performing element positioning like this requires you to set the size of the container for child elements before positioning the container, because the container positioning is in part based on how large the container is, either vertically or horizontally. RWD would not be possible without the wonderful CSS width and height percentages which are based on the percentage of the child’s parent component width and height. There are more than 5 sibling elements which are children of the housing container which comprise the layers of the PWA. Additionally, forethought was taken in making sure that since CSS z-indexing is integer-based that enough possibilities for new layers with a new z-index could be added. Each layer is 10 z-index indices apart for this reason.</p>
@@ -346,19 +331,18 @@
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[15].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(15))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[15].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(15))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[15].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(15))">
                             Hide & Seek Game - Project
                             &nbsp;
-                            @if(NavMgmt.Instance.SectionedPages[1].Sections[15].IsCollapsedHeader == "collapsed-header")
+                            @if(SectionMgmt.Instance.Sections[15].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[15].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[15].IsCollapsedContent">
                             <h3 style="text-align: center;">Hide and Seek Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="hideandseek" class="btn btn-primary">
@@ -392,14 +376,13 @@
                         </div>
                     </div>
                 }
-                @if (!NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo
-                || NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo && NavMgmt.Instance.SectionedPages[1].Sections[16].IsCurrentPromo)
+                @if (SectionMgmt.Instance.SectionIsExpanded(16))
                 {
                     <div class="section-container">
-                        <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[15].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(16))">
+                        <div class="section-header @SectionMgmt.Instance.Sections[16].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(16))">
                             Bee Hive Manager System/Game - Project
                             &nbsp;
-                            @if (NavMgmt.Instance.SectionedPages[1].Sections[16].IsCollapsedHeader == "collapsed-header")
+                            @if (SectionMgmt.Instance.Sections[16].IsCollapsedHeader == "collapsed-header")
                             {
                                    <i class="fa fa-chevron-left" />
                             }
@@ -408,7 +391,7 @@
                                    <i class="fa fa-chevron-down" />
                             }
                         </div>
-                        <div class="section-content @NavMgmt.Instance.SectionedPages[1].Sections[16].IsCollapsedContent">
+                        <div class="section-content @SectionMgmt.Instance.Sections[16].IsCollapsedContent">
                             <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="beehivemgmtsystem" class="btn btn-primary">
@@ -460,7 +443,7 @@
                             <h4>Project Take Aways</h4>
                             <br>
                             <p>
-                                Singletons and DI: Migrating this game and developing its view brought me to appreciate how useful the Singleton and DI design patterns are when used together (I learned about how to code Singletons during this project while learning from ChatGPT). I was able to utilize C#-coded Singletons to house a single instance of code that I wanted referenced in multiple places. I came to see that the NavMgmt.Instance class which I had created for the PWA is useful the way it is because it is a Singleton. I discovered that I don’t need to keep the NavMgmt.Instance class as a registered Blazor WASM service after all - it can be its own code and then be removed from a domain of the project that is supposed to be solely responsible for data request and validation.
+                                Singletons and DI: Migrating this game and developing its view brought me to appreciate how useful the Singleton and DI design patterns are when used together (I learned about how to code Singletons during this project while learning from ChatGPT). I was able to utilize C#-coded Singletons to house a single instance of code that I wanted referenced in multiple places. I came to see that the SectionMgmt.Instance class which I had created for the PWA is useful the way it is because it is a Singleton. I discovered that I don’t need to keep the SectionMgmt.Instance class as a registered Blazor WASM service after all - it can be its own code and then be removed from a domain of the project that is supposed to be solely responsible for data request and validation.
                             </p>
                             <p>
                                 Tabs Add Space: This is now the second place where I have added a tab-like functionality to the view. Since I am very interested in the development of the future of PWA for mobile devices, and since space seems to be an issue when creating RWD for mobile screens - it appears that in-view tabs have the ability to create space in a compact and easily navigable fashion. You can even use a single component to accomplish this with C#/Razor component conditionals if you are using Blazor WASM. I am now wondering (since I have just witnessed Windows 11’s update to their File Explorer, giving it tabs) that there are likely UI improvements that can make tabs appear nicer or more obvious, the way browsers present them. (When I was in college, I read in a UX/UI book that the best way to do RWD is to start with mobile first. It is much easier to add than to remove things once you have added them. When you aim to optimize for mobile, you are putting the largest user category first (mobile users). When you design mobile-first, you are left with much more space for larger screens, and this is because the designer tries to make the most out of the little space that he has first - a tighter constraint - than if he were to start with more and move to less. No, start with less, and later on the acquisition of more space will be adequately appreciated and utilized even better than previously.)
@@ -469,7 +452,7 @@
                             <h4>Upcoming Plans</h4>
                             <br>
                             <p>
-                                At this point in time I have created a new PanelMgmt singleton for potentially managing all panels used in the project, so that when one is selected, if any others are open then they will be closed before opening the panel selected. Logic for classes applied to each panel are housed in PanelMgmt (including for activated appearance of the selected button), relieving single components from having to implement their own view panel logic. A new panel’s logic can be created and labeled in the PanelMgmt singleton class and plugged in wherever it is needed through adding a PanelMgmt reference to the component. The NavMgmt.Instance class already manages its own panels in this way, so after I migrate the NavMgmt.Instance class to be an unregistered C#-coded singleton I plan to migrate the NavMgmt.Instance panels to the PanelMgmt singleton, and then with a reference to PanelMgmt in the NavMgmt.Instance class, the NavMgmt.Instance class can tell the PanelMgmt class what to do when certain navigation actions occur.
+                                At this point in time I have created a new PanelMgmt singleton for potentially managing all panels used in the project, so that when one is selected, if any others are open then they will be closed before opening the panel selected. Logic for classes applied to each panel are housed in PanelMgmt (including for activated appearance of the selected button), relieving single components from having to implement their own view panel logic. A new panel’s logic can be created and labeled in the PanelMgmt singleton class and plugged in wherever it is needed through adding a PanelMgmt reference to the component. The SectionMgmt.Instance class already manages its own panels in this way, so after I migrate the SectionMgmt.Instance class to be an unregistered C#-coded singleton I plan to migrate the SectionMgmt.Instance panels to the PanelMgmt singleton, and then with a reference to PanelMgmt in the SectionMgmt.Instance class, the SectionMgmt.Instance class can tell the PanelMgmt class what to do when certain navigation actions occur.
                             </p>
                             <p>
                                 A lot of ideas for this BeeHive game emerged, and the top ideas I want to implement at some point include (1) settings with checkboxes that can make certain rates not visible, (2) add ability to change the game-defining rate and conversion values that were given by the project’s author (as well ability to revert to defaults),  I would like to (3) add a “Worker Lineup” of all workers and the order in which they will work when the next shift starts (since  worker order does matter; a series of small actions does not have the same effect as the sum of the actions happening at one single point in time), and (4) add a “Transaction Ledger” for all transactions that occur for each worker, in order, showing a running balance of the total amount of honey (and nectar, space permitting) that is currently in the Vault.
@@ -477,172 +460,172 @@
                         </div>
                     </div>
                 }
-                @if (NavMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo)
+                @if (SectionMgmt.Instance.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[0].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[0].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(0))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[0].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(0))">
                                 Overview
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[1].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[1].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[1].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(1))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[1].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(1))">
                                 Languages
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[2].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[2].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[2].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(2))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[2].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(2))">
                                 Stacks
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[3].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[3].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(3))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[3].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(3))">
                                 Web Front-End
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[4].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[4].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(4))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[4].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(4))">
                                 UX/UI + Modeling Software
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[5].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[5].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(5))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[5].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(5))">
                                 Cloud Deployment + Containers
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[6].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[6].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(6))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[6].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(6))">
                                 Databases
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[7].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[7].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(7))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[7].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(7))">
                                 Testing
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[8].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[8].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[8].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(8))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[8].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(8))">
                                 CLI
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[9].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[9].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[9].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(9))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[9].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(9))">
                                 Programming Paradigms & Methodologies
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[10].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[10].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[10].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(10))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[10].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(10))">
                                 Repositories
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[11].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[11].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[11].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(11))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[11].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(11))">
                                 Game Development
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[12].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[12].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[12].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(12))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[12].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(12))">
                                 Operating Systems
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[13].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[13].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(13))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[13].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(13))">
                                 Why Programming?
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[14].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[14].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(14))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[14].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(14))">
                                 About This Web App
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[15].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[15].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(15))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[15].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(15))">
                                 Hide & Seek Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!NavMgmt.Instance.SectionedPages[1].Sections[16].IsCurrentPromo)
+                    @if (!SectionMgmt.Instance.Sections[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @NavMgmt.Instance.SectionedPages[1].Sections[16].IsCollapsedHeader" @onclick="(()=>NavMgmt.Instance.SectionedPages[1].ToggleCollapseSingle(16))">
+                            <div class="section-header @SectionMgmt.Instance.Sections[16].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(16))">
                                 Bee Hive Manager System/Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -650,18 +633,7 @@
                         </div>
                     }
                 }
-                <div class="toggle-all-sections-container">
-                    <div class="toggle-all-sections" @onclick="NavMgmt.Instance.SectionedPages[1].ToggleAllSections">
-                        @if (NavMgmt.Instance.SectionedPages[1].SectionsStatus == SectionsStatus.AllAreOpen)
-                        {
-                            <span class="fa-solid fa-down-left-and-up-right-to-center"></span>
-                        }
-                        else
-                        {
-                            <span class="fa-solid fa-up-right-and-down-left-from-center"></span>
-                        }
-                    </div>
-                </div>
+                <SectionedPageSectionsToggle PageId="1"/>
             </div>
         </div>
     </PageContent>
@@ -671,11 +643,15 @@
     protected override void OnInitialized()
     {
         NavMgmt.Instance.OnNavMgmtUpdated += UpdateThisComponent;
-        NavMgmt.Instance.NavigateToSection(1, SectionId);
+        NavMgmt.Instance.NavigateToSection(SectionId);
+        SectionMgmt.Instance.OnSectionMgmtChanged += UpdateThisComponent;
     }
-    void IDisposable.Dispose() =>
+    void IDisposable.Dispose()
+    {
         NavMgmt.Instance.OnNavMgmtUpdated -= UpdateThisComponent;
-    private void UpdateThisComponent(string meaningless) =>
+        SectionMgmt.Instance.OnSectionMgmtChanged -= UpdateThisComponent;
+    }
+    private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
 
     [Parameter]
