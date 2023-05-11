@@ -38,6 +38,7 @@
             new Section(14, 1),
             new Section(15, 1),
             new Section(16, 1),
+            new Section(33, 1),  // Match Game
             /* end "knowhow" */
             /* start "collyn" */
             new Section(17, 2, isFirstSectionOfPage: true),  // Introduction

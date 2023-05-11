@@ -105,8 +105,17 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             catch (ArgumentOutOfRangeException aoorEx)
             {
-                Console.WriteLine($"{aoorEx.Message} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
+                Console.WriteLine($"{aoorEx.Message}\n{aoorEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
             }
+            catch (KeyNotFoundException knfEx)
+            {
+                Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
+            }
+        }
+        public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true)
+        {
+            DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+            UpdateGroupLocationPanel(panelId);
         }
         private void RaiseEventOnPanelMgmtUpdated()
         {

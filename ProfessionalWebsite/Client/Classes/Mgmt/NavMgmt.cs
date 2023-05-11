@@ -27,11 +27,6 @@
         private SectionMgmt sectionMgmt;
         public event Action<string> OnNavMgmtUpdated;
 
-        public void NavigateToPage(int panelId, bool triggersOnPanelMgmtUpdated = true)
-        {
-            panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
-            panelMgmt.UpdateGroupLocationPanel(panelId);
-        }
         public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
         {
             panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
@@ -47,16 +42,16 @@
                 Console.WriteLine(nrEx.Message + nrEx.StackTrace);
             }
         }
-        public void RaiseEventOnNavMgmtUpdated()
-        {
-            if (OnNavMgmtUpdated != null)
-                OnNavMgmtUpdated?.Invoke("");
-            RaiseEventOnNavMgmtUpdated();
-        }
         public void NavigateToHardCodedPage(int panelId)
         {
             panelMgmt.UpdateGroupLocationPanel(panelId);
             panelMgmt.ActivatePanel(panelId);
+        }
+        private void RaiseEventOnNavMgmtUpdated()
+        {
+            if (OnNavMgmtUpdated != null)
+                OnNavMgmtUpdated?.Invoke("");
+            RaiseEventOnNavMgmtUpdated();
         }
     }
 }

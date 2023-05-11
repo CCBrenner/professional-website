@@ -40,8 +40,11 @@
 </ProjectsPageTemplate>
 
 @code {
-    protected override void OnInitialized() =>
+    protected override void OnInitialized()
+    {
         PanelMgmt.Instance.OnPanelMgmtUpdated += UpdateThisComponent;
+        
+    }
     void IDisposable.Dispose() =>
         PanelMgmt.Instance.OnPanelMgmtUpdated -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>

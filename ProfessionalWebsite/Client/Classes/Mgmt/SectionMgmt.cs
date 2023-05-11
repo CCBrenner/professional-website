@@ -104,6 +104,77 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
 
         }
+        public bool SectionIsExpanded(int sectionId)
+        {
+            SectionedPage sectionedPage = SectionedPages[Sections[sectionId].SectionedPageId];
+            return !sectionedPage.ASectionIsCurrentlyPromo || sectionedPage.ASectionIsCurrentlyPromo && Sections[sectionId].IsCurrentPromo;
+        }
+        public void PromoteSection(int sectionId)
+        {
+            try
+            {
+                DemoteAllSections();
+                Section section = Sections[sectionId];
+                section.Promote();
+                SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+                sectionedPage.ASectionIsCurrentlyPromo = true;
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
+            }
+        }
+        public int GetLocationPanelGroupId(int sectionId)
+        {
+            try
+            {
+                Section section = Sections[sectionId];
+                SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+                return sectionedPage.LocationPanelGroupId;
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
+            }
+            return -1;
+        }
+        private void DemoteAllSections()
+        {
+            foreach (var section in Sections.Values)
+                section.Demote();
+            foreach (SectionedPage sectionedPage in SectionedPages.Values)
+                sectionedPage.ASectionIsCurrentlyPromo = false;
+        }
+        private void UpdateSectionsStatus(int sectionId)
+        {
+            Section section = Sections[sectionId];
+            SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+
+            int openSections = 0;
+            foreach (Section sec in sectionedPage.Sections.Values)
+                if (!sec.IsCollapsed)
+                    openSections++;
+
+            if (openSections == 0)
+                sectionedPage.SectionsStatus = SectionsStatus.AllAreCollapsed;
+            else if (openSections == sectionedPage.Sections.Count)
+                sectionedPage.SectionsStatus = SectionsStatus.AllAreOpen;
+            else
+                sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
+        }
+        private void SetInstanceToGroupReferences()
+        {
+            foreach (Section section in Sections.Values)
+                section.SetInstanceToGroupRelationship(SectionedPages.Values.ToList());
+
+            List<Section> sectionsOfPage = new List<Section>();
+            foreach (Section section in Sections.Values)
+            {
+                SectionedPages[section.SectionedPageId]
+                    .Sections
+                    .Add(section.Id, section);
+            }
+        }
         private void PromoteIfOnlyOneExpandedSection(int sectionId)
         {
             try
@@ -133,77 +204,6 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             {
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
-        }
-        public void PromoteSection(int sectionId)
-        {
-            try
-            {
-                DemoteAllSections();
-                Section section = Sections[sectionId];
-                section.Promote();
-                SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
-                sectionedPage.ASectionIsCurrentlyPromo = true;
-            }
-            catch (KeyNotFoundException knfEx)
-            {
-                Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-            }
-        }
-        private void DemoteAllSections()
-        {
-            foreach (var section in Sections.Values)
-                section.Demote();
-            foreach (SectionedPage sectionedPage in SectionedPages.Values)
-                sectionedPage.ASectionIsCurrentlyPromo = false;
-        }
-        private void UpdateSectionsStatus(int sectionId)
-        {
-            Section section = Sections[sectionId];
-            SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
-
-            int openSections = 0;
-            foreach (Section sec in sectionedPage.Sections.Values)
-                if (!sec.IsCollapsed)
-                    openSections++;
-
-            if (openSections == 0)
-                sectionedPage.SectionsStatus = SectionsStatus.AllAreCollapsed;
-            else if (openSections == sectionedPage.Sections.Count)
-                sectionedPage.SectionsStatus = SectionsStatus.AllAreOpen;
-            else
-                sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
-        }
-        public int GetLocationPanelGroupId(int sectionId)
-        {
-            try
-            {
-                Section section = Sections[sectionId];
-                SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
-                return sectionedPage.LocationPanelGroupId;
-            }
-            catch (KeyNotFoundException knfEx)
-            {
-                Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-            }
-            return -1;
-        }
-        private void SetInstanceToGroupReferences()
-        {
-            foreach (Section section in Sections.Values)
-                section.SetInstanceToGroupRelationship(SectionedPages.Values.ToList());
-
-            List<Section> sectionsOfPage = new List<Section>();
-            foreach (Section section in Sections.Values)
-            {
-                SectionedPages[section.SectionedPageId]
-                    .Sections
-                    .Add(section.Id, section);
-            }
-        }
-        public bool SectionIsExpanded(int sectionId)
-        {
-            SectionedPage sectionedPage = SectionedPages[Sections[sectionId].SectionedPageId];
-            return !sectionedPage.ASectionIsCurrentlyPromo || sectionedPage.ASectionIsCurrentlyPromo && Sections[sectionId].IsCurrentPromo;
         }
         private void RaiseEventOnSectionMgmtChanged()
         {

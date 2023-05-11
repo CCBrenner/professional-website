@@ -6,50 +6,50 @@
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-diagram-project"
                            ButtonText="Projects"
-                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                           ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
     <div class="panel-scrollablesection">
       @*<NavPanelNavLinkButton Href="stats"
                                IconClasses="fa-solid fa-chart-line"
                                ButtonText="Statistics"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="matchgame"
                                ButtonText="Match Game"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="knowhow/14"
                                ButtonText="This PWA"
                                ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(13))" />
         <NavPanelNavLinkButton Href="hideandseek"
                                ButtonText="Hide & Seek"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="twodecks"
                                ButtonText="Two Decks"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="issuetracker"
                                ButtonText="Issue Tracker"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="gofish"
                                ButtonText="Go Fish"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="beehivemgmtsystem"
                                ButtonText="Bee Hive Mgmt System"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="phpcmsandprocessbook"
                                ButtonText="PHP CMS & Process Book"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="counter"
                                IconClasses="fa-solid fa-plus"
                                ButtonText="Counter"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="ecommerce"
                                ButtonText="E-commerce"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="spinners"
                                IconClasses="fa-solid fa-hand-spock"
                                ButtonText="Spinners"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="djangopollingapp"
                                ButtonText="Polling App (Django/Python)"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact" />
@@ -120,11 +120,15 @@
                                    TopLvlClasses="navlink"
                                    ButtonText="Bee Hive Manager System/Game - Project"
                                    ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(16))" />
+            <NavPanelNavLinkButton Href="knowhow/33"
+                                   TopLvlClasses="navlink"
+                                   ButtonText="Match Game - Project"
+                                   ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToSection(33))" />
         </CollapsingSection>
         <NavPanelNavLinkButton Href="projects"
                                IconClasses="fa-solid fa-diagram-project"
                                ButtonText="Projects"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(0))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(0))" />
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact" />
@@ -206,27 +210,27 @@
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-newspaper"
                            ButtonText="Articles"
-                           ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
+                           ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />
     <div class="panel-scrollablesection">
         <NavPanelNavLinkButton Href="article/our-incredible-future"
                                ButtonText="Our Incredible Future"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />
       @*<NavPanelNavLinkButton Href="article/hierarchy-of-desires-and-the-engineers-struggle"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Hierarchy of Desires & the Engineer's Struggle"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />
         <NavPanelNavLinkButton Href="article/business-manager-or-technologist-what-is-the-end-of-your-means"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Business Manager or Technologist: What is the End of your Means?"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />
         <NavPanelNavLinkButton Href="article/essentialism-vs-existentialism-the-modern-worlds-dilemma-and-an-opportunity-for-christian-faith"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Essentialism vs. Existentialism: The Modern World's Dilemma & An Opportunity for Christian Faith"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />
         <NavPanelNavLinkButton Href="article/psychotherapists-technologists-and-physicians-in-christian-ministry"
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry"
-                               ButtonClickCallback="(()=>NavMgmt.Instance.NavigateToPage(4))" />*@
+                               ButtonClickCallback="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(6))" />*@
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact" />

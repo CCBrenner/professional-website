@@ -26,6 +26,7 @@
         <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(14))" />
         <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="knowhow/33" ButtonText="Match Game - Project" OnClickCallback="(()=>NavMgmt.Instance.NavigateToSection(33))" />
         <DrawerNavLinkButton Href="projects" IconClasses="fa-solid fa-diagram-project" ButtonText="Projects" />
         <DrawerNavLinkButton Href="collyn/23" ButtonText="Contact" IconClasses="fa-solid fa-envelope" />
     </DrawerContent>
@@ -345,7 +346,7 @@
                         <div class="section-content @SectionMgmt.Instance.Sections[15].IsCollapsedContent">
                             <h3 style="text-align: center;">Hide and Seek Game</h3>
                             <div class="proj-desc-buttons">
-                                <a href="hideandseek" class="btn btn-primary">
+                                <a href="hideandseek" class="btn btn-primary" @onclick="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))">
                                     Go To Game
                                 </a>
                                 &nbsp;
@@ -394,7 +395,7 @@
                         <div class="section-content @SectionMgmt.Instance.Sections[16].IsCollapsedContent">
                             <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
                             <div class="proj-desc-buttons">
-                                <a href="beehivemgmtsystem" class="btn btn-primary">
+                                <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))">
                                     Go To Game
                                 </a>
                                 &nbsp;
@@ -456,6 +457,51 @@
                             </p>
                             <p>
                                 A lot of ideas for this BeeHive game emerged, and the top ideas I want to implement at some point include (1) settings with checkboxes that can make certain rates not visible, (2) add ability to change the game-defining rate and conversion values that were given by the project’s author (as well ability to revert to defaults),  I would like to (3) add a “Worker Lineup” of all workers and the order in which they will work when the next shift starts (since  worker order does matter; a series of small actions does not have the same effect as the sum of the actions happening at one single point in time), and (4) add a “Transaction Ledger” for all transactions that occur for each worker, in order, showing a running balance of the total amount of honey (and nectar, space permitting) that is currently in the Vault.
+                            </p>
+                        </div>
+                    </div>
+                }
+                @if (SectionMgmt.Instance.SectionIsExpanded(33))
+                {
+                    <div class="section-container">
+                        <div class="section-header @SectionMgmt.Instance.Sections[33].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(33))">
+                            Match Game - Project
+                            &nbsp;
+                            @if(SectionMgmt.Instance.Sections[33].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-left"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
+                        </div>
+                        <div class="section-content @SectionMgmt.Instance.Sections[33].IsCollapsedContent">
+                            <h3 style="text-align: center;">
+                                Match Game
+                            </h3>
+                            <div class="proj-desc-buttons">
+                                <a href="matchgame" class="btn btn-primary" @onclick="(()=>PanelMgmt.Instance.UpdatePanelsWhenNavigating(2))">
+                                    Go To Game
+                                </a>
+                                &nbsp;
+                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/MatchGame.razor.cs" target="_blank" class="btn btn-primary">
+                                    View Code
+                                </a>
+                            </div>
+                            <p>May 11th, 2023</p>
+                            <h4>Introduction</h4>
+                            <br />
+                            <p>
+                                This was one of the first projects introduced in <i>Headfirst C# (4th Edition)</i> by Andrew Stallman and Jennifer Greene. It is a simple match game with modes for playing with an added timer. It is a straight-forward project, so let’s take a look at it.
+                            </p>
+                            <br />
+                            <h4>Match Game for WPF (using XAML)</h4>
+                            <br>
+                            <p>
+                                This matching game was originally built in Windows Presentation Fountain (WPF), a framework for building Windows Desktop applications using the XAML language for the UI markup. The reasoning for using WPF is to get experience with XAML which is still used in many C# projects, including Android and iOS mobile apps using Xamarin Forms (which will discontinue support May 1, 2024). .NET MAUI (Multi-platform App User Interface) which also utilizes XAML is poised to take Xamarin Forms’ place, but that is getting off topic. This project involved multiple steps of construction, including setting up the project, initial configuration of the UI, writing the program code, linking the code to the UI components, and finally adding a timer so that users can race against the clock for adding competitiveness.  The UI itself utilizes a grid layout mechanic for positioning of elements, and then you can position based on the grid cell location and the position within the cell. Data values are rendered/updated in the UI via events such as MouseDown. These events are able to be generated from VS Code. This is one example of a number of useful options for XAML UI being both text and UI changeable. The program tracks if the game is currently happening or not, it assigns random emojis that exist in a list to different TextBlocks, conditional logic manages what happens when a TextBlock is clicked, and a timer is updated every interval that passes by. The timer used is specific to XAML (DispatchTimer).
+                            </p>
+                            <br />
+                            <h4>Match Game for Blazor WASM</h4>
+                            <br>
+                            <p>
+                                Migrating this matching game to an entirely new UI was a task due to the large amount of coupling the XAML UI was utilizing in the WPF app. Luckily this is only a small program, so the damage is minimal, but it afforded a rewrite of about 70% of the code (since the Blazor component wouldn’t be using events to update UI state the way WPF does, plus the DispatchTimer being specific to WPF and therefore needing a replacement). All events for UI interactions were removed and replaced with methods that were tied to @@onclick event handlers in HTML elements (part of how Razor components work). The UI was rebuilt from scratch in HTML/Razor components. An HTML Table was used to preserve the grid appearance of the game, with a number of UI aesthetic improvements. The game moved into more of an OOP direction with the introduction of the Block class for the 16 interactive cells and further the MatchGameStatus enum. The DispatchTimer was replaced with a System.Timers.Timer and accompanying Elapsed method to be called at every timer interval. To avoid issues with highlighting the emoji when a user clicks or taps on a cell, a div was placed over the visible element to receive the action while the underlying element updates the showing  emoji accordingly. Razor conditionals to change the rendering of the top information section from being one section to two separate sections for greater readability through separation of items. The entire new UI implements responsive web design (RWD), making it playable on all screens with a consistent user experience (UX).
                             </p>
                         </div>
                     </div>
@@ -627,6 +673,16 @@
                         <div class="section-container">
                             <div class="section-header @SectionMgmt.Instance.Sections[16].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(16))">
                                 Bee Hive Manager System/Game - Project
+                                &nbsp;
+                                <i class="fa fa-chevron-left" />
+                            </div>
+                        </div>
+                    }
+                    @if (!SectionMgmt.Instance.Sections[33].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @SectionMgmt.Instance.Sections[16].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(33))">
+                                Match Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
