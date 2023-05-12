@@ -1,9 +1,38 @@
 ﻿
+.proj-info-button-positioning-container {
+    width: 100%;
+    max-width: 80vh;
+    display: flex;
+    justify-content: start;
+    padding-bottom: 5px;
+}
+
+.top-corner-button-containers {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+}
+
+    .top-corner-button-containers > a {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .top-corner-button-containers:hover {
+        cursor: pointer;
+    }
+
 .table-container {
     padding-top: 40px;
     width: 100%;
     height: 75vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

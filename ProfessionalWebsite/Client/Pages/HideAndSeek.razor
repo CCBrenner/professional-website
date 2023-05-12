@@ -5,9 +5,19 @@
 <PageTitle>Hide & Seek - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
-    <div>
-        <button class="btn @interfaceClasses[0]" @onclick="(()=>SetIsOriginalInterface(true))">Original UI</button>
-        <button class="btn @interfaceClasses[1]" @onclick="(()=>SetIsOriginalInterface(false))">Current UI</button>
+    <div class="top-row">
+        <div class="top-row-floating-center">
+            <div class="top-row-corners">
+                <a href="knowhow/15">
+                    <div class="top-corner-button-containers ">
+                        <span class="fa-solid fa-circle-info"></span>
+                    </div>
+                </a>
+            </div>
+            <button class="btn @interfaceClasses[0]" @onclick="(()=>SetIsOriginalInterface(true))">Original UI</button>
+            <button class="btn @interfaceClasses[1]" @onclick="(()=>SetIsOriginalInterface(false))">Current UI</button>
+            <div class="top-row-corners"></div>
+        </div>
     </div>
     @if (interfaceClasses[0] == "btn-primary")
     {

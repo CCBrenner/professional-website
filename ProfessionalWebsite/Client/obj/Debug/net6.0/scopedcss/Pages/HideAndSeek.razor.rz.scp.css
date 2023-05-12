@@ -1,6 +1,48 @@
 
 /* Styles here are only for Current interface, not Original (which uses only bootstrap). */
 
+.top-row[b-huled98q4w] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.top-row-floating-center[b-huled98q4w] {
+    width: 100%;
+    max-width: 60vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-row-floating-center > *[b-huled98q4w] {
+    margin: 0px 3px;
+}
+
+.top-row-corners[b-huled98q4w] {
+    flex: 1;
+}
+
+.top-corner-button-containers[b-huled98q4w] {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+}
+
+    .top-corner-button-containers > a[b-huled98q4w] {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .top-corner-button-containers:hover[b-huled98q4w] {
+        cursor: pointer;
+    }
+
 .text-prompts-container[b-huled98q4w] {
     padding: 14px 0px;
     width: 100%;
