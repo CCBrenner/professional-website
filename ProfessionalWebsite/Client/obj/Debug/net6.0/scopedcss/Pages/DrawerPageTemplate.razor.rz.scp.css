@@ -9,7 +9,7 @@
 }
 
 .page-content[b-r6bg92lucv] {
-    /*height: calc(calc(100vh - var(--top-bar-height)) - var(--footer-height));*/
+    height: 100%;
 }
 
 @media (min-width: 78vh) {
@@ -114,7 +114,7 @@
     .drawer-lvl-one-visible[b-r6bg92lucv] {
         width: 300px;
     }
-
+    
     .drawer-lvl-two-visible[b-r6bg92lucv] {
         opacity: 1;
     }

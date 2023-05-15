@@ -28,6 +28,7 @@
 @media (min-width: 78vh) {
     .toggle-all-sections-container {
         justify-content: start;
+        margin-bottom: 0px;
         bottom: 6px;
     }
 

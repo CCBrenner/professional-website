@@ -9,7 +9,7 @@
 <ProjectsPageTemplate>
     <div class="positioning-container">
         <div class="game-container">
-            <div class="@PanelMgmt.Instance.Panels[1].BlurStatus">
+            <div class="game-container-items @PanelMgmt.Instance.Panels[1].BlurStatus">
                 <div class="topmost-buttons">
                     <a href="knowhow/16">
                         <div class="top-corner-button-containers">
@@ -41,7 +41,7 @@
                         <img src="media/images/beeHiveGame/BeeHiveGameWPA.png">
                     </div>
                 }
-                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.V1)
+                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V1)
                 {
                     <div class="text-prompts-container">
                         <div class="text-prompts">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 }
-                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.V2)
+                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V2)
                 {
                     <div class="text-prompts-container-v2">
                         <div class="text-prompts-v2">
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                 }
-                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.V3)
+                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V3)
                 {
                     <div class="text-prompts-container-v3 ">
                         <div class="text-prompts-v3">

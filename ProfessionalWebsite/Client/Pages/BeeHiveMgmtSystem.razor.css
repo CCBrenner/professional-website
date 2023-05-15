@@ -14,6 +14,18 @@
     position: relative;
 }
 
+.game-container-items {
+    display: flex;
+    flex-direction: column;
+    height: calc(var(--content-height) - 10px);
+}
+
+    .game-container-items > .text-prompts-container, 
+    .game-container-items > .text-prompts-container-v2, 
+    .game-container-items > .text-prompts-container-v3 {
+        flex: 1;
+    }
+
 .topmost-buttons {
     display: flex;
     justify-content: space-between;
@@ -70,14 +82,18 @@
 .text-prompts-container-v2 {
     padding: 14px 0px;
     width: 100%;
+    overflow-y: auto;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
 }
 
 .text-prompts-container-v3 {
-    padding: 14px 0px;
+    margin: 10px 0px;
     width: 100%;
+    overflow-y: auto;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
@@ -93,18 +109,14 @@
 }
 
 .text-prompts-v2 {
-    height: calc(var(--content-height) - 300px);
+    height: 100%;
     width: 100%;
-    border-radius: 10px;
-    overflow-y: auto;
     text-align: left;
 }
 
 .text-prompts-v3 {
-    height: calc(var(--content-height) - 300px);
+    height: 100%;
     width: 100%;
-    border-radius: 10px;
-    overflow-y: auto;
     text-align: left;
 }
 
@@ -180,9 +192,9 @@
 
 .workertype-selector-v3 {
     height: 40px;
-    width: 270px;
+    width: 230px;
     font-size: 1.2rem;
-    background-color: rgb(255, 196, 0);
+    background-color: rgba(255, 196, 0, 0.95);
     margin: 4px;
     border-radius: 10px;
     display: flex;
@@ -227,7 +239,7 @@
 
 .control-button-work-v2 {
     height: 40px;
-    width: 360px;
+    width: 300px;
     color: #111;
     font-size: 1.2rem;
     background-color: powderblue;
@@ -237,7 +249,7 @@
 
 .control-button-work-v3 {
     height: 40px;
-    width: 360px;
+    width: 300px;
     color: #111;
     font-size: 1.2rem;
     background-color: powderblue;
@@ -246,7 +258,6 @@
 }
 
 .workertype-inactive {
-    background-color: rgba(255, 176, 0, 0.5);
 }
 
 .row-flex {
@@ -292,7 +303,7 @@
     align-items: center;
     justify-content: center;
     line-height: 1.2;
-    padding: 0px 16px;
+    padding: 0px 10px;
 }
 
 .field-flex-arrow {
@@ -430,6 +441,12 @@
 
 /* end Pluggable classes */
 
+@media (min-width: 380px) {
+    .field-flex-v3 {
+        padding: 0px 16px;
+    }
+}
+
 @media (min-width: 540px) {
     .settings-panel {
         left: calc(50% - 260px);
@@ -441,20 +458,31 @@
         max-width: 800px;
     }
 
+    .game-container-items {
+        height: calc(var(--content-height) + 20px);
+    }
+
     .text-prompts-container {
-        padding-right: 60px;
-        padding-left: 60px;
+        padding: 0px 40px;
+    }
+
+    .text-prompts-container-v2 {
+        padding: 0px 40px;
+    }
+
+    .text-prompts-container-v3 {
+        padding: 0px 40px;
     }
 }
 
 @media (min-width: 1008px) {
-    .text-prompts-container {
-        padding-right: 150px;
-        padding-left: 150px;
+
+    .game-container-items {
+        height: calc(var(--content-height) + 60px);
     }
 
-    .text-prompts-v3 {
-        height: calc(var(--content-height) - 200px);
+    .text-prompts-container {
+        padding: 0px 150px;
     }
 }
 

@@ -39,6 +39,15 @@
 
     font-family: 'Gotham';
 }
+/*
+    * {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+*/
+
 
 /* pause Custom CSS */
 

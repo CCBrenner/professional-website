@@ -43,21 +43,39 @@
         cursor: pointer;
     }
 
-.text-prompts-container {
-    padding: 14px 0px;
+.current-ui-container {
+    height: calc(var(--content-height) - 58px);
+    display: flex;
+    flex-direction: column;
+}
+
+.text-prompts-container-container {
     width: 100%;
+    /*height: 63%;*/
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.text-prompts-container {
+    padding: 4px 0px 8px 0px;
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
     display: flex;
     justify-content: center;
     font-size: 1.2rem;
 }
 
 .text-prompts {
-    height: calc(var(--content-height) - 266px);
+    height: 100%;
     width: 100%;
     background-color: lightgrey;
     border-radius: 10px;
     overflow-y: auto;
     text-align: left;
+    padding: 8px;
 }
 
 .game-progress {
@@ -68,7 +86,7 @@
     top: 0px;
     font-size: 1rem;
     padding: 4px 10px;
-    margin: 8px 8px 14px 8px;
+    margin-bottom: 14px;
     text-align: center;
 }
 
@@ -85,13 +103,14 @@
     border-radius: 14px;
     display: flex;
     justify-content: center;
+    width: 340px;
 }
 
 .save-load {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 50px;
+    width: 40px;
 }
 
     .save-load > * {
@@ -99,15 +118,19 @@
     }
 
 .input-saveload-container {
-    width: 300px;
+    width: 280px;
     height: 168px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.directions-container {
-    padding: 0px 10px;
+.saveloadcontrol-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 36px;
 }
 
 .noncompass-directions-container {
@@ -154,27 +177,30 @@
     max-height: 30px;
 }
 
+@media (min-width: 394px) {
+    .directions-container {
+        padding: 0px 10px;
+    }
+
+    .input-saveload-container {
+        width: 300px;
+    }
+
+    .controls-backdrop {
+        width: 360px;
+    }
+}
 @media (min-width: 78vh) {
     .text-prompts-container {
-        padding-right: 60px;
-        padding-left: 60px;
+        margin: 0px 40px;
     }
-
-    .text-prompts {
-        height: calc(var(--content-height) - 226px);
+    .current-ui-container {
+        height: calc(var(--content-height) - 10px);
     }
 }
 
-@media (min-width: 1200px) {
-    .text-prompts-container {
-        padding-right: 150px;
-        padding-left: 150px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .text-prompts-container {
-        padding-right: 220px;
-        padding-left: 220px;
+@media (min-width: 1008px) {
+    .current-ui-container {
+        height: calc(var(--content-height) + 20px);
     }
 }
