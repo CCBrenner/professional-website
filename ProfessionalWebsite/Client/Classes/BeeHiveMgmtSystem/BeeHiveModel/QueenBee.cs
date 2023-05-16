@@ -56,7 +56,6 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
         */
         private HoneyVault vault = HoneyVault.Instance;
         private System.Timers.Timer timer;
-        private int timerIterationCount;
 
         public float EggsPerShift => 0.45F;
         public float HoneyPerUnassignedWorker => 0.5F;
@@ -104,6 +103,8 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             FeedUnassignedWorkers();
             CurrentDay++;
             UpdateStatusReport();
+            if (TimerIsBeingUsed)
+                RestartTimer();
         }
         public void AssignBee(WorkerType job)
         {
@@ -178,12 +179,12 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
-        private void InitializeTimer()
+        private void InitializeTimer(bool isBeingUsedForReset = false)
         {
             timer = new System.Timers.Timer(1500);
             timer.Elapsed += new ElapsedEventHandler(PerTimerInterval);
-            timerIterationCount = 0;
-            TimerRunning = false;
+            if (!isBeingUsedForReset)
+                TimerRunning = false;
         }
 
         private void PerTimerInterval(object sender, ElapsedEventArgs e)
@@ -198,8 +199,13 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
                     StopTimer();
 
                 RaiseEventOnTimerInterval(true);
-                timerIterationCount++;
             }
+        }
+        private void RestartTimer()
+        {
+            timer.Stop();
+            InitializeTimer(isBeingUsedForReset: true);
+            timer.Start();
         }
         public void StartTimer()
         {
