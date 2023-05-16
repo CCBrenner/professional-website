@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NbZtaAzCvXfcbDOb9sv9rchCJ0nodVc6y56O71jZ77U=",
+  "Hash": "Ya3zYVcsDtOc23ikh3Ar7v52ZMBZGfyLzEQO00VyGas=",
   "Source": "ProfessionalWebsite.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7208,12 +7208,12 @@
       "OriginalItemSpec": "wwwroot\\media\\images\\beeHiveGame\\BeeHiveFeedbackLoopsDiagram.png"
     },
     {
-      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png",
+      "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPF.png",
       "SourceId": "ProfessionalWebsite.Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "media/images/beeHiveGame/BeeHiveGameWPA.png",
+      "RelativePath": "media/images/beeHiveGame/BeeHiveGameWPF.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7222,7 +7222,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPA.png"
+      "OriginalItemSpec": "wwwroot\\media\\images\\beeHiveGame\\BeeHiveGameWPF.png"
     },
     {
       "Identity": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\media\\images\\certifications\\LinkedInLearning_JavaScriptEssentialTraining_May2021.png",

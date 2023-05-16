@@ -412,7 +412,7 @@
                             <p>
                                     There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, EggNurses nurse eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Been makes honey each shift from currently available nectar. If there is no nectar, no honey gets made.The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below 
                             </p>
-                            <div class="wpa-image">
+                            <div class="wpf-image">
                                 <img src="media/images/beeHiveGame/BeeHiveFeedbackLoopsDiagram.png">
                             </div>
                             <br/>
@@ -420,16 +420,16 @@
                             <h4>Bee Hive Build Progression</h4>
                             <br>
                             <p>
-                                This project was originally written with a WPA front-end (which is coded in XAML). It looked like this once it was all prepared: 
+                                This project was originally written with a WPF front-end (which is coded in XAML). It looked like this once it was all prepared: 
                             </p>
-                            <div class="wpa-image">
-                                <img src="media/images/beeHiveGame/BeeHiveGameWPA.png">
+                            <div class="wpf-image">
+                                <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
                             </div>
                             <p>
                                 The classes were built in a normal progression, from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen who is able to do the most out of all the classes. It is the QueenBee’s inherited method “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
                             </p>
                             <p>
-                                The system had two modes: a stepwise mode and a real-time mode. The real-time mode involved a timer applied to the “Work Next Shift” button which would simulate being clicked every 1.5 seconds. When the game was moved from WPA (XAML) to Blazor WASM for this WPA, the DispatchTimer was replaced with System. Timers.Timer.
+                                The system had two modes: a stepwise mode and a real-time mode. The real-time mode involved a timer applied to the “Work Next Shift” button which would simulate being clicked every 1.5 seconds. When the game was moved from WPF (XAML) to Blazor WASM for this WPF, the DispatchTimer was replaced with System. Timers.Timer.
                             </p>
                             <p>
                                 The initial project was not intended to be a full game (that was outside of its scope). When it was migrated and adapted to Blazor WASM for this PWA, those aspects of gameplay needed to be introduced into the game. The readability of a plain text paragraph that updated each shift was not ideal for an enjoyable user experience (and it could definitely look nicer too). A BeeHiveController class was introduced to free the data from its plaintext paragraph to have specific styles and positions applied to each data point. (It is understood that controllers are not generally supposed to be responsible for data manipulation, but they are normally used for transferring prepared data to a view. In this case the controller does both. This is due to lack of a better term.)

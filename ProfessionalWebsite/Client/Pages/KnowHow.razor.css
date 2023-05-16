@@ -1,10 +1,10 @@
-﻿.wpa-image {
+﻿.wpf-image {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-    .wpa-image > img {
+    .wpf-image > img {
         width: 100%;
         height: auto;
         padding: 20px 0px;

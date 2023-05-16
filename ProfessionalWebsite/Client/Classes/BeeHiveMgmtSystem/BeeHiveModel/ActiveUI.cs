@@ -2,7 +2,7 @@
 {
     public enum ActiveUI
     {
-        WPA,
+        WPF,
         V1,
         V2,
         V3,

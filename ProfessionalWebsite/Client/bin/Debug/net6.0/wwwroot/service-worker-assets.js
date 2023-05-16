@@ -66,7 +66,7 @@
     },
     {
       "hash": "sha256-\/qqVptDVFBAbIe3FBX5FiyD5PxiM\/WKIbRi8UG2VzsY=",
-      "url": "media\/images\/beeHiveGame\/BeeHiveGameWPA.png"
+      "url": "media\/images\/beeHiveGame\/BeeHiveGameWPF.png"
     },
     {
       "hash": "sha256-IF3gQ8ZoVO0o3k81MdV8NzYSPnCeHuxK2ux3bz1p7Jw=",
@@ -93,7 +93,7 @@
       "url": "media\/images\/icon-512.png"
     },
     {
-      "hash": "sha256-z4SuVTCv5TDc\/2sIKbdLzVxvJ0l4+jIctj\/WQW06a6A=",
+      "hash": "sha256-SnqjzqyHfXNT78Y1bkiQyqsADrkQn6Wc6L43BxfdVR4=",
       "url": "ProfessionalWebsite.Client.styles.css"
     },
     {
@@ -885,11 +885,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-FBL8qPq6fKvaHcoOcjs6iEpM8K1cx0rexoRaoTDxPyk=",
+      "hash": "sha256-zHTujyZcnS4jOoEAY2Zjr3YulI3\/1YfN6BwdsMZjmo8=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-iJFqNWHP\/i3hOY00\/d4aXnyvvl1fsH9i7nakdDjMpqc=",
+      "hash": "sha256-SCJH14S8wuKIq0Fb4gQNDBQG7DlobN5XcQuFzSMVX8k=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -897,9 +897,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-779O6ayWOsdMCLRReTmfJgQA2YuWE+IefKaVMpD7WrY=",
+      "hash": "sha256-xGPTjZ92G8bXcagBL6yfJ39nqm9hcd90BS28LHzSbFY=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "BAcjx26D"
+  "version": "6KIfAUAF"
 };

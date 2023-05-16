@@ -50,7 +50,7 @@
                 .Select(x => x = "btn-secondary")
                 .ToList();
 
-            if (VisibleUI == ActiveUI.WPA)
+            if (VisibleUI == ActiveUI.WPF)
                 interfaceClasses[0] = "btn-primary";
             else if (VisibleUI == ActiveUI.V1)
                 interfaceClasses[1] = "btn-primary";

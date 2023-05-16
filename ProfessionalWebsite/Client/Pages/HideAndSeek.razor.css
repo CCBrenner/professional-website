@@ -44,14 +44,13 @@
     }
 
 .current-ui-container {
-    height: calc(var(--content-height) - 58px);
+    height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
 }
 
 .text-prompts-container-container {
     width: 100%;
-    /*height: 63%;*/
     overflow-y: auto;
     display: flex;
     justify-content: center;
@@ -121,9 +120,14 @@
     width: 280px;
     height: 168px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+    .input-saveload-container > * {
+        margin: 3px 0px;
+    }
 
 .saveloadcontrol-button {
     display: flex;

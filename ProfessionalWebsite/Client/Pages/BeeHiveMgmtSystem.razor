@@ -17,7 +17,7 @@
                         </div>
                     </a>
                     <div>
-                        <button class="btn @BeeHiveView.Instance.interfaceClasses[0]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.WPA))">WPA</button>
+                        <button class="btn @BeeHiveView.Instance.interfaceClasses[0]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.WPF))">WPF</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[1]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V1))">V1</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[2]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V2))">V2</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[3]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V3))">V3</button>
@@ -35,10 +35,10 @@
                         <div class="top-corner-button-containers" style="background-color: rgba(0,0,0,0);"></div>
                     }
                 </div>
-                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.WPA)
+                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.WPF)
                 {
-                    <div class="wpa-image">
-                        <img src="media/images/beeHiveGame/BeeHiveGameWPA.png">
+                    <div class="wpf-image">
+                        <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
                     </div>
                 }
                 else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V1)
@@ -52,18 +52,15 @@
                     </div>
                     <div class="controls">
                         <div class="controls-backdrop">
-                            <button class="btn control-button" @onclick="(()=>BeeHiveController.Instance.AssignBee(WorkerType.HoneyManufacturer))">
-                                Add - Honey Manufacturer
-                            </button>
-                            <button class="btn control-button" @onclick="(()=>BeeHiveController.Instance.AssignBee(WorkerType.NectarCollector))">
-                                Add - Nectar Collector
-                            </button>
-                            <button class="btn control-button" @onclick="(()=>BeeHiveController.Instance.AssignBee(WorkerType.EggCare))">
-                                Add - Egg Care
-                            </button>
-                            <button class="btn control-button-work" @onclick="BeeHiveController.Instance.WorkTheNextShift">
+                            <select class="control-v1" style="background-color: #eee;" @bind="@workerType">
+                                <option value="@(WorkerType.HoneyManufacturer)" class="text-center" style="padding: 10px 0px;">Honey Manufacturer</option>
+                                <option value="@(WorkerType.NectarCollector)" class="text-center" style="padding: 10px 0px;">Nectar Collector</option>
+                                <option value="@(WorkerType.EggCare)" class="text-center" style="padding: 10px 0px;">Egg Care</option>
+                            </select>
+                            <div class="control-v1" @onclick="(()=>BeeHiveController.Instance.AssignBee(workerType))">Assign Worker</div>
+                            <div class="btn control-v1" style="background-color: rgba(0,0,128,1); color: #eee;" @onclick="BeeHiveController.Instance.WorkTheNextShift">
                                 Work Next Shift
-                            </button>
+                            </div>
                         </div>
                     </div>
                 }
@@ -385,22 +382,24 @@
                     </div>
                 }
             </div>
-            <div class="behindpanel @PanelMgmt.Instance.Panels[1].BehindPanelStatus" @onclick="(()=>PanelMgmt.Instance.DeactivateAllPanels(true))"></div>
-            <div class="settings-panel @PanelMgmt.Instance.Panels[1].PanelStatus">
-                <h3 class="text-center">BeeHive Settings</h3>
-                <br/>
-                <div class="settings-scrollable-section">
-                    <div class="">
-                        <label class="form-check-label" for="timerBeingUsed">
-                                <input class="form-check-input" type="checkbox" value="" id="timerBeingUsed" @bind="BeeHiveController.Instance.TimerIsBeingUsed">
-                            Use Timer (<span style="color: red;"> WARNING: Changing from "unselected" to "selected" will force a game restart. </span>)
-                        </label>
-                    </div>
+        </div>
+    </div>
+    <div class="behindpanel @PanelMgmt.Instance.Panels[1].BehindPanelStatus" @onclick="(()=>PanelMgmt.Instance.DeactivateAllPanels(true))"></div>
+    <div class="settings-panel-container">
+        <div class="settings-panel @PanelMgmt.Instance.Panels[1].PanelStatus">
+            <h3 class="text-center">BeeHive Settings</h3>
+            <br />
+            <div class="settings-scrollable-section">
+                <div class="">
+                    <label class="form-check-label" for="timerBeingUsed">
+                        <input class="form-check-input" type="checkbox" value="" id="timerBeingUsed" @bind="BeeHiveController.Instance.TimerIsBeingUsed">
+                        Use Timer (<span style="color: red;"> WARNING: Changing from "unselected" to "selected" will force a game restart. </span>)
+                    </label>
                 </div>
-                <div class="settings-bottom-container">
-                    <div class="settings-close" @onclick="(()=>PanelMgmt.Instance.DeactivatePanel(1))">
-                        Close
-                    </div>
+            </div>
+            <div class="settings-bottom-container">
+                <div class="settings-close" @onclick="(()=>PanelMgmt.Instance.DeactivatePanel(1))">
+                    Close
                 </div>
             </div>
         </div>
@@ -408,6 +407,8 @@
 </ProjectsPageTemplate>
 
 @code {
+    private WorkerType workerType = WorkerType.HoneyManufacturer;
+
     protected override void OnInitialized()
     {
         BeeHiveController.Instance.BeeHive.Queen.OnTimerInterval += UpdateV3View;
