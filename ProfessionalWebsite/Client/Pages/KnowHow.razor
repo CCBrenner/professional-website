@@ -33,7 +33,7 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (SectionMgmt.Instance.SectionIsExpanded(0))
+                @if (SectionMgmt.Instance.SectionIsVisible(0))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[0].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(0))">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(1))
+                @if (SectionMgmt.Instance.SectionIsVisible(1))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[1].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(1))">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(2))
+                @if (SectionMgmt.Instance.SectionIsVisible(2))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[2].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(2))">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(3))
+                @if (SectionMgmt.Instance.SectionIsVisible(3))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[3].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(3))">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(4))
+                @if (SectionMgmt.Instance.SectionIsVisible(4))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[4].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(4))">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(5))
+                @if (SectionMgmt.Instance.SectionIsVisible(5))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[5].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(5))">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(6))
+                @if (SectionMgmt.Instance.SectionIsVisible(6))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[6].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(6))">
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(7))
+                @if (SectionMgmt.Instance.SectionIsVisible(7))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[7].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(7))">
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(8))
+                @if (SectionMgmt.Instance.SectionIsVisible(8))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[8].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(8))">
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(9))
+                @if (SectionMgmt.Instance.SectionIsVisible(9))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[9].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(9))">
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(10))
+                @if (SectionMgmt.Instance.SectionIsVisible(10))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[10].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(10))">
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(11))
+                @if (SectionMgmt.Instance.SectionIsVisible(11))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[11].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(11))">
@@ -241,7 +241,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(12))
+                @if (SectionMgmt.Instance.SectionIsVisible(12))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[12].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(12))">
@@ -257,7 +257,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(13))
+                @if (SectionMgmt.Instance.SectionIsVisible(13))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[13].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(13))">
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(14))
+                @if (SectionMgmt.Instance.SectionIsVisible(14))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[14].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(14))">
@@ -332,7 +332,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(15))
+                @if (SectionMgmt.Instance.SectionIsVisible(15))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[15].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(15))">
@@ -377,7 +377,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(16))
+                @if (SectionMgmt.Instance.SectionIsVisible(16))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[16].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(16))">
@@ -461,7 +461,7 @@
                         </div>
                     </div>
                 }
-                @if (SectionMgmt.Instance.SectionIsExpanded(33))
+                @if (SectionMgmt.Instance.SectionIsVisible(33))
                 {
                     <div class="section-container">
                         <div class="section-header @SectionMgmt.Instance.Sections[33].IsCollapsedHeader" @onclick="(()=>SectionMgmt.Instance.ToggleCollapseSingle(33))">

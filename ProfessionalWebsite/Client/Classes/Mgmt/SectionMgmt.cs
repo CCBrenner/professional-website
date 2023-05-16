@@ -32,6 +32,17 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
 
         public bool ASectionIsCurrentlyPromo { get; private set; }
         public event Action<string> OnSectionMgmtChanged;
+
+        /*
+            Definitions:
+                - "sectioned page" : a page that implements according sections (collapse/expand) & utilizes SectionsMgmt for the handling logic of those sections
+                - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
+        */
+
+        /// <summary>
+        /// Collapses all sections and promotes one section to the top of the sectioned page.
+        /// </summary>
+        /// <param name="sectionId">ID of the section that is being promoted/which has been selected.</param>
         public void CollapseAllShowOne(int sectionId)
         {
             try
@@ -61,6 +72,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+        /// <summary>
+        /// Collapses/Expands section based on section ID.
+        /// </summary>
+        /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
         public void ToggleCollapseSingle(int sectionId)
         {
             try
@@ -76,6 +91,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+        /// <summary>
+        /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
+        /// </summary>
+        /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
         public void ToggleAllSections(int pageId)
         {
             try
@@ -104,11 +123,20 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
 
         }
-        public bool SectionIsExpanded(int sectionId)
+        /// <summary>
+        /// A logic check used by sections in their housing component to determine whether or not they should be showing or not. Works in conjunction with dopelganger section header which, when a section is promoted, all other sections disappear and their dopelgangers, which are located beneath all actual sections, become visible. This creates an illusion of the promoted section being brought to the top of the sectioned page.
+        /// </summary>
+        /// <param name="sectionId"></param>
+        /// <returns>Boolean value stating whether a section is supposed to be visible or not.</returns>
+        public bool SectionIsVisible(int sectionId)
         {
             SectionedPage sectionedPage = SectionedPages[Sections[sectionId].SectionedPageId];
             return !sectionedPage.ASectionIsCurrentlyPromo || sectionedPage.ASectionIsCurrentlyPromo && Sections[sectionId].IsCurrentPromo;
         }
+        /// <summary>
+        /// Demotes all other sections and makes specified section the promo section.
+        /// </summary>
+        /// <param name="sectionId">ID of section to be made promo section.</param>
         public void PromoteSection(int sectionId)
         {
             try
@@ -124,6 +152,11 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+        /// <summary>
+        /// Returns the ID of the location panel of a sectioned page of the specified section using the section's ID.
+        /// </summary>
+        /// <param name="sectionId">ID of section used to get the sectioned page's location panel's ID</param>
+        /// <returns></returns>
         public int GetLocationPanelGroupId(int sectionId)
         {
             try
@@ -138,6 +171,9 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             return -1;
         }
+        /// <summary>
+        /// Removes promo status from all sections.
+        /// </summary>
         private void DemoteAllSections()
         {
             foreach (var section in Sections.Values)
@@ -145,6 +181,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             foreach (SectionedPage sectionedPage in SectionedPages.Values)
                 sectionedPage.ASectionIsCurrentlyPromo = false;
         }
+        /// <summary>
+        /// Finds the sections of the sectioned page that the specified section is a part of, counts how many sections are currently expanded, and then sets the status based on the number of expanded sections.
+        /// </summary>
+        /// <param name="sectionId">ID of specified section.</param>
         private void UpdateSectionsStatus(int sectionId)
         {
             Section section = Sections[sectionId];
@@ -162,6 +202,9 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             else
                 sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
         }
+        /// <summary>
+        /// Initializes sectioned page reference to its sections and vice versa. Establishes a one-to-many relationship through on-hand references.
+        /// </summary>
         private void SetInstanceToGroupReferences()
         {
             foreach (Section section in Sections.Values)
@@ -175,6 +218,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                     .Add(section.Id, section);
             }
         }
+        /// <summary>
+        /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
+        /// </summary>
+        /// <param name="sectionId">ID of section used to determine the sectioned page to check for promo.</param>
         private void PromoteIfOnlyOneExpandedSection(int sectionId)
         {
             try
@@ -205,6 +252,9 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+        /// <summary>
+        /// Updates the component that consumes it when a method in the PanelMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
+        /// </summary>
         private void RaiseEventOnSectionMgmtChanged()
         {
             OnSectionMgmtChanged?.Invoke("");
