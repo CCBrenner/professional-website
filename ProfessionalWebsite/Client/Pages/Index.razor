@@ -127,6 +127,11 @@
                                     <li>Gig Driver (<a href="https://www.ubereats.com/" target="blank">Uber Eats</a>, Nashville, TN)</li>
                                 </ul>
                             }
+                            <div>
+                                <button class="btn @SelectedWorkHistoryContent[0]" @onclick="(()=>UpdateWorkHistorySectionContent(0))">BlueSky</button>
+                                <button class="btn @SelectedWorkHistoryContent[1]" @onclick="(()=>UpdateWorkHistorySectionContent(1))">SVP</button>
+                                <button class="btn @SelectedWorkHistoryContent[2]" @onclick="(()=>UpdateWorkHistorySectionContent(2))">Other Roles</button>
+                            </div>
                         </div>
                     </div>
                 }
@@ -163,16 +168,24 @@
                                     Django Polling App: Tutorial in the Django framework (Python) by YouTuber CoreyMS (<a href="https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p" target="blank">YouTube playlist</a>)
                                 </li>
                                 <li>
-                                    JavaScript Essential Training by LinkedIn Learning (previously Lynda.com)(<a href="" target="blank">certificate</a>, <a href="https://www.linkedin.com/learning/javascript-essential-training" target="blank">website</a>)
+                                    JavaScript Essential Training by LinkedIn Learning (previously Lynda.com)(<span style="color: #0071c1;" @onclick="ToggleJSCert">certificate</span>, <a href="https://www.linkedin.com/learning/javascript-essential-training" target="blank">website</a>)
                                 </li>
+                                @if (showJSCert)
+                                {
+                                    <img src="media/images/certifications/LinkedInLearning_JavaScriptEssentialTraining_May2021.png" class="cert-img">
+                                }
                                 <li>
-                                    PHP Essential Training by LinkedIn Learning (previously Lynda.com) (<a href="https://www.linkedin.com/learning/php-essential-training-2017" target="blank">website</a>)
+                                    PHP Essential Training by LinkedIn Learning (previously Lynda.com) (<span style="color: #0071c1;" @onclick="TogglePHPCert">certificate</span>, <a href="https://www.linkedin.com/learning/php-essential-training-2017" target="blank">website</a>)
                                 </li>
+                                @if (showPHPCert)
+                                {
+                                    <img src="media/images/certifications/LinkedInLearning_PHPEssentialTraining_May2021.png" class="cert-img">
+                                }
                                 <li>
                                     Linux Fundamentals, 1st Edition by Sandrer van Vugt - O'Reilly Learning (<a href="https://www.oreilly.com/library/view/linux-fundamentals-2nd/9780137929313/" target="_blank">2nd Edition</a>, 1st Edition featuring CentOS has been removed from O'Reilly Learning's library)
                                 </li>
                                 <li>
-                                    HeadFirst C#, 4th Edition by Andrew Stellman and Jennifer Greene (online textbook course, all projects completed) - O'Reilly Learning (<a href="https://www.linkedin.com/learning/certificates/af8b5010f426876420fcfe04dfe4e2678d05e328b1164ba3b2524affa562e73d?trk=backfilled_certificate" target="blank">certificate</a>, <a href="https://www.oreilly.com/library/view/head-first-c/9781491976692/" target="blank">website</a>, introduction to C#)
+                                    HeadFirst C#, 4th Edition by Andrew Stellman and Jennifer Greene (online textbook course, all projects completed) - O'Reilly Learning (<a href="https://www.oreilly.com/library/view/head-first-c/9781491976692/" target="blank">website</a>, introduction to C#)
                                 </li>
                             </ul>
                         </div>
@@ -406,6 +419,8 @@
 
 @code {
     private List<string> SelectedWorkHistoryContent = new List<string>() { "btn-primary", "btn-secondary", "btn-secondary" };
+    private bool showJSCert = false;
+    private bool showPHPCert = false;
 
     protected override void OnInitialized()
     {
@@ -436,5 +451,9 @@
         for (int i = 0; i < SelectedWorkHistoryContent.Count(); i++)
             SelectedWorkHistoryContent[i] = "btn-secondary";
         SelectedWorkHistoryContent[selection] = "btn-primary";
-    }    
+    }
+    private void ToggleJSCert() =>
+        showJSCert = !showJSCert;
+    private void TogglePHPCert() =>
+        showPHPCert = !showPHPCert;
 }

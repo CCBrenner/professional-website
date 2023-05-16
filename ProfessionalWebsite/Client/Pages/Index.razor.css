@@ -47,6 +47,13 @@
     text-align: center;
     padding: 12px 0px;
 }
+
+.cert-img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+
 /* start Pluggable classes */
 .collapsed-header {
     border-radius: 6px;
