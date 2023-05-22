@@ -1,4 +1,7 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+
+namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
     public sealed class NavMgmt
     {
