@@ -1,4 +1,4 @@
-.collapsible-section-header[b-8okg0dgetx] {
+﻿.collapsible-section-header {
     z-index: 10;
     color: #eee;
     height: 3rem;
@@ -7,20 +7,21 @@
     display: flex;
     flex: 1;
     align-items: center;
+    flex-direction: row;
 }
 
-    .collapsible-section-header:hover[b-8okg0dgetx] {
+    .collapsible-section-header:hover {
         background-color: rgba(255,255,255,0.1);
         border-radius: 12px;
     }
 
-    .chevron-container[b-8okg0dgetx] {
-        width: 16px;
-        height: 16px;
-        margin-left: 10px;
-    }
+.chevron-container {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
 
-.icon[b-8okg0dgetx] {
+.icon {
     width: 1.8rem;
     font-size: 0.9rem;
     vertical-align: text-top;

@@ -1,4 +1,4 @@
-﻿.collapsible-section-header {
+.collapsible-section-header[b-fryotgakx0] {
     z-index: 10;
     color: #eee;
     height: 3rem;
@@ -7,20 +7,21 @@
     display: flex;
     flex: 1;
     align-items: center;
+    flex-direction: row;
 }
 
-    .collapsible-section-header:hover {
+    .collapsible-section-header:hover[b-fryotgakx0] {
         background-color: rgba(255,255,255,0.1);
         border-radius: 12px;
     }
 
-    .chevron-container {
-        width: 16px;
-        height: 16px;
-        margin-left: 10px;
-    }
+.chevron-container[b-fryotgakx0] {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
 
-.icon {
+.icon[b-fryotgakx0] {
     width: 1.8rem;
     font-size: 0.9rem;
     vertical-align: text-top;

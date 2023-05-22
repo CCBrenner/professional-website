@@ -13,19 +13,34 @@
 </div>
 
 @code {
+    protected override void OnInitialized()
+    {
+        if (!ThisCanCollapse)
+        {
+            ChevronLeftDisplay = "none";
+            SectionDisplay = "block";
+        }
+    }
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
     [Parameter]
     public string IconClasses { get; set; }
     [Parameter]
     public string ParentButtonText { get; set; }
+    [Parameter]
+    public string DoesItCollapse { get; set; } = "yes";
+
     public string ChevronLeftDisplay = "block";
     public string ChevronDownDisplay = "none";
     public string SectionDisplay = "none";
 
+    public bool ThisCanCollapse => DoesItCollapse.ToLower() == "yes";
+
     public void ToggleSection()
     {
-        if (ChevronLeftDisplay == "block")
+        if (!ThisCanCollapse) { }
+        else if (ChevronLeftDisplay == "block")
         {
             ChevronLeftDisplay = "none";
             ChevronDownDisplay = "block";

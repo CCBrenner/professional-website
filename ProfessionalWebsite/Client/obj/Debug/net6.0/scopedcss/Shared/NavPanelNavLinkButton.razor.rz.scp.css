@@ -8,8 +8,7 @@
 
 .navlink[b-benzuzyhwn] {
     border-left: 4px solid lightgrey;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin-left: 16px;
     display: flex;
     flex: 1;
 }
@@ -65,3 +64,9 @@
         .panel-header[b-benzuzyhwn]  a:hover {
             background-color: rgba(255,255,255,0.0);
         }
+
+.collapsible-section-item-for-top-lvl[b-benzuzyhwn] {
+    border-left: 4px solid lightgrey;
+    margin-left: 16px;
+    padding-left: 3px;
+}
