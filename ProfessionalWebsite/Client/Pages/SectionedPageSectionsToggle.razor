@@ -1,9 +1,10 @@
-﻿@using ProfessionalWebsite.Client.Classes.Mgmt;
+﻿@inject UIService UIService
+@using ProfessionalWebsite.Client.Classes.Mgmt;
 @implements IDisposable
 
 <div class="toggle-all-sections-container">
-    <div class="toggle-all-sections" @onclick="(()=>SectionMgmt.Instance.ToggleAllSections(PageId))">
-        @if (SectionMgmt.Instance.SectionedPages[PageId].SectionsStatus == SectionsStatus.AllAreOpen)
+    <div class="toggle-all-sections" @onclick="(()=>UIService.SectionMgmt.ToggleAllSections(PageId))">
+        @if (UIService.SectionMgmt.SectionedPages[PageId].SectionsStatus == SectionsStatus.AllAreOpen)
         { <span class="fa-solid fa-down-left-and-up-right-to-center"></span> }
         else
         { <span class="fa-solid fa-up-right-and-down-left-from-center"></span> }
@@ -16,11 +17,11 @@
 
     protected override void OnInitialized()
     {
-        SectionMgmt.Instance.OnSectionMgmtChanged += UpdateThisComponent;
+        UIService.SectionMgmt.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        SectionMgmt.Instance.OnSectionMgmtChanged -= UpdateThisComponent;
+        UIService.SectionMgmt.OnSectionMgmtChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement)
     {

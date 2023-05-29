@@ -3,31 +3,8 @@ using Microsoft.JSInterop;
 
 namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
-    public sealed class NavMgmt
+    public class NavMgmt
     {
-        private NavMgmt()
-        {
-            sectionMgmt = SectionMgmt.Instance;
-            panelMgmt = PanelMgmt.Instance;
-        }
-
-        private static NavMgmt? instance;
-        private static object instanceLock = new object();
-        public static NavMgmt Instance
-        {
-            get
-            {
-                lock(instanceLock)
-                {
-                    if (instance == null)
-                        instance = new NavMgmt();
-                    return instance;
-                }
-            }
-        }
-
-        private PanelMgmt panelMgmt;
-        private SectionMgmt sectionMgmt;
         public event Action<string> OnNavMgmtUpdated;
 
         /*
@@ -41,7 +18,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /// </summary>
         /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
         /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume NavMgmt to update themselves because of a state change in NavMgmt. Components must subscribe to the event to receive update commands.</param>
-        public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
+        public void NavigateToSection(int sectionId, PanelMgmt panelMgmt, SectionMgmt sectionMgmt, bool triggersOnPanelMgmtUpdated = true)
         {
             panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
             try
@@ -56,15 +33,17 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine(nrEx.Message + nrEx.StackTrace);
             }
         }
+
         /// <summary>
         /// Updates the navigation highlights to show the proper location when navigating to a hard coded page. The only hard coded page at the time of writing is the original animations page which exists in the MainLayout component.
         /// </summary>
         /// <param name="panelId">Id of the panel whose button should be highlighted when navgiating to the hardcoded page.</param>
-        public void NavigateToHardCodedPage(int panelId)
+        public void NavigateToHardCodedPage(int panelId, PanelMgmt panelMgmt)
         {
             panelMgmt.UpdateGroupLocationPanel(panelId);
             panelMgmt.ActivatePanel(panelId);
         }
+
         /// <summary>
         /// Updates the component that consumes it when a method in the NavMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
         /// </summary>

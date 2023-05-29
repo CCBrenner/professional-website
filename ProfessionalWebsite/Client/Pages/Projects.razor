@@ -1,6 +1,7 @@
-﻿@page "/projects"
-@using ProfessionalWebsite.Client.Classes.Mgmt;
+﻿@inject UIService UIService
 @implements IDisposable
+
+@page "/projects"
 
 <PageTitle>Projects - Collyn Brenner</PageTitle>
 
@@ -8,28 +9,28 @@
     <div>Direct attention to projects to the left, then Statistics Section below on this page as all page content.</div>
     <h2>Statistics by Project</h2>
 
-    <h4>AnimateMain: @AnimMgmt.Instance.AnimateMain</h4>
+    <h4>AnimateMain: @UIService.AnimMgmt.AnimateMain</h4>
 
     <h4>PanelMgmt</h4>
     <p>Panel Group 1</p>
-    @for (int i = 2; i < PanelMgmt.Instance.PanelGroups[0].Panels.Count(); i++)
+    @for (int i = 2; i < UIService.PanelMgmt.PanelGroups[0].Panels.Count(); i++)
     {
         <p>PanelGroup Panel @i</p>
-        <p>PanelGroupId: [@PanelMgmt.Instance.Panels[i].PanelGroupId]</p>
-        <p>PanelStatus: [@PanelMgmt.Instance.Panels[i].PanelStatus]</p>
-        <p>PanelButtonStatus: [@PanelMgmt.Instance.Panels[i].PanelButtonStatus]</p>
-        <p>BlurStatus: [@PanelMgmt.Instance.Panels[i].BlurStatus]</p>
-        <p>BehindPanelStatus: [@PanelMgmt.Instance.Panels[i].BehindPanelStatus]</p>
+        <p>PanelGroupId: [@UIService.PanelMgmt.Panels[i].PanelGroupId]</p>
+        <p>PanelStatus: [@UIService.PanelMgmt.Panels[i].PanelStatus]</p>
+        <p>PanelButtonStatus: [@UIService.PanelMgmt.Panels[i].PanelButtonStatus]</p>
+        <p>BlurStatus: [@UIService.PanelMgmt.Panels[i].BlurStatus]</p>
+        <p>BehindPanelStatus: [@UIService.PanelMgmt.Panels[i].BehindPanelStatus]</p>
         <br/>
     }
     <p>LocationPanel</p>
-    <p>PanelGroupId: [@PanelMgmt.Instance.PanelGroups[0].LocationPanelId]</p>
+    <p>PanelGroupId: [@UIService.PanelMgmt.PanelGroups[0].LocationPanelId]</p>
     <p style="width: 150px; height: 150px; background-color: hotpink;" @onclick='(()=>Console.WriteLine("This is to be printed to the browser console."))'></p>
     @*
-    <p>PanelStatus: [@PanelMgmt.Instance.PanelGroups[0].LocationPanel.PanelStatus]</p>
-    <p>PanelButtonStatus: [@PanelMgmt.Instance.PanelGroups[0].LocationPanel.PanelButtonStatus]</p>
-    <p>BlurStatus: [@PanelMgmt.Instance.PanelGroups[0].LocationPanel.BlurStatus]</p>
-    <p>BehindPanelStatus: [@PanelMgmt.Instance.PanelGroups[0].LocationPanel.BehindPanelStatus]</p>
+    <p>PanelStatus: [@UIService.PanelMgmt.PanelGroups[0].LocationPanel.PanelStatus]</p>
+    <p>PanelButtonStatus: [@UIService.PanelMgmt.PanelGroups[0].LocationPanel.PanelButtonStatus]</p>
+    <p>BlurStatus: [@UIService.PanelMgmt.PanelGroups[0].LocationPanel.BlurStatus]</p>
+    <p>BehindPanelStatus: [@UIService.PanelMgmt.PanelGroups[0].LocationPanel.BehindPanelStatus]</p>
     *@
     
     <br />
@@ -42,11 +43,11 @@
 @code {
     protected override void OnInitialized()
     {
-        PanelMgmt.Instance.OnPanelMgmtUpdated += UpdateThisComponent;
+        UIService.PanelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
         
     }
     void IDisposable.Dispose() =>
-        PanelMgmt.Instance.OnPanelMgmtUpdated -= UpdateThisComponent;
+        UIService.PanelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 }

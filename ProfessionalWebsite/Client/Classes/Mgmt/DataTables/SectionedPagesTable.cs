@@ -1,30 +1,24 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
 {
     public sealed class SectionedPagesTable
     {
-        private SectionedPagesTable() { }
-        private static SectionedPagesTable? instance;
-        private static object instanceLock = new object();
-        public static SectionedPagesTable Instance
+        public SectionedPagesTable()
         {
-            get
+            SectionedPages = new List<SectionedPage>()
             {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                        instance = new SectionedPagesTable();
-                    return instance;
-                }
-            }
+                new SectionedPage(0, 2, "projects"),  // not used
+                new SectionedPage(1, 3, "knowhow"),
+                new SectionedPage(2, 4, "collyn"),
+                new SectionedPage(3, 5, "invent"),
+                new SectionedPage(4, 6, "articles"),  // not used
+            };
+
+            SectionedPagesDict = new Dictionary<int, SectionedPage>();
+            foreach (SectionedPage sectionedPage in SectionedPages)
+                SectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
         }
 
-        public List<SectionedPage> SectionedPages = new List<SectionedPage>()
-        {
-            new SectionedPage(0, 2, "projects"),  // not used
-            new SectionedPage(1, 3, "knowhow"),
-            new SectionedPage(2, 4, "collyn"),
-            new SectionedPage(3, 5, "invent"),
-            new SectionedPage(4, 6, "articles"),  // not used
-        };
+        public List<SectionedPage> SectionedPages { get; private set; }
+        public Dictionary<int, SectionedPage> SectionedPagesDict { get; private set; }
     }
 }

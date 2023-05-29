@@ -1,32 +1,20 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
 {
-    public sealed class PanelGroupsTable
+    public  class PanelGroupsTable
     {
-        private PanelGroupsTable()
+        public PanelGroupsTable()
         {
-            List<PanelGroup> panelGroups = new List<PanelGroup>()
+            PanelGroups = new List<PanelGroup>()
             {
                 new PanelGroup(0, 4),  // NavMgmt panels
             };
-            foreach (PanelGroup panelGroup in panelGroups)
-                PanelGroups.Add(panelGroup.Id, panelGroup);
 
-        }
-        private static PanelGroupsTable? instance;
-        private static object instanceLock = new object();
-        public static PanelGroupsTable Instance
-        {
-            get
-            {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                        instance = new PanelGroupsTable();
-                    return instance;
-                }
-            }
+            PanelGroupsDict = new Dictionary<int, PanelGroup>();
+            foreach (PanelGroup panelGroup in PanelGroups)
+                PanelGroupsDict.Add(panelGroup.Id, panelGroup);
         }
 
-        public Dictionary<int, PanelGroup> PanelGroups = new Dictionary<int, PanelGroup>();
+        public List<PanelGroup> PanelGroups { get; private set; }
+        public Dictionary<int, PanelGroup> PanelGroupsDict { get; private set; }
     }
 }

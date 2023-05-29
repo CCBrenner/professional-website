@@ -1,5 +1,6 @@
 ﻿@using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
-@using ProfessionalWebsite.Client.Classes.Mgmt;
+
+@inject UIService UIService
 @implements IDisposable
 
 @page "/beehivemgmtsystem"
@@ -9,7 +10,7 @@
 <ProjectsPageTemplate>
     <div class="positioning-container">
         <div class="game-container">
-            <div class="game-container-items @PanelMgmt.Instance.Panels[1].BlurStatus">
+            <div class="game-container-items @UIService.PanelMgmt.Panels[1].BlurStatus">
                 <div class="topmost-buttons">
                     <a href="knowhow/16">
                         <div class="top-corner-button-containers">
@@ -24,8 +25,8 @@
                     </div>
                     @if (BeeHiveView.Instance.VisibleUIIsV3)
                     {
-                        <div class="top-corner-button-containers @PanelMgmt.Instance.Panels[1].PanelButtonStatus">
-                            <div class="settings-button" @onclick="(()=>PanelMgmt.Instance.ActivatePanel(1))">
+                        <div class="top-corner-button-containers @UIService.PanelMgmt.Panels[1].PanelButtonStatus">
+                            <div class="settings-button" @onclick="(()=>UIService.PanelMgmt.ActivatePanel(1))">
                                 <span class="fa-solid fa-gear"></span>
                             </div>
                         </div>
@@ -384,9 +385,9 @@
             </div>
         </div>
     </div>
-    <div class="behindpanel @PanelMgmt.Instance.Panels[1].BehindPanelStatus" @onclick="(()=>PanelMgmt.Instance.DeactivateAllPanels(true))"></div>
+    <div class="behindpanel @UIService.PanelMgmt.Panels[1].BehindPanelStatus" @onclick="(()=>UIService.PanelMgmt.DeactivateAllPanels(true))"></div>
     <div class="settings-panel-container">
-        <div class="settings-panel @PanelMgmt.Instance.Panels[1].PanelStatus">
+        <div class="settings-panel @UIService.PanelMgmt.Panels[1].PanelStatus">
             <h3 class="text-center">BeeHive Settings</h3>
             <br />
             <div class="settings-scrollable-section">
@@ -398,7 +399,7 @@
                 </div>
             </div>
             <div class="settings-bottom-container">
-                <div class="settings-close" @onclick="(()=>PanelMgmt.Instance.DeactivatePanel(1))">
+                <div class="settings-close" @onclick="(()=>UIService.PanelMgmt.DeactivatePanel(1))">
                     Close
                 </div>
             </div>
@@ -412,12 +413,12 @@
     protected override void OnInitialized()
     {
         BeeHiveController.Instance.BeeHive.Queen.OnTimerInterval += UpdateV3View;
-        PanelMgmt.Instance.OnPanelMgmtUpdated += UpdateThisComponent;
+        UIService.PanelMgmt.OnPanelMgmtUpdated += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
         BeeHiveController.Instance.BeeHive.Queen.OnTimerInterval -= UpdateV3View;
-        PanelMgmt.Instance.OnPanelMgmtUpdated -= UpdateThisComponent;
+        UIService.PanelMgmt.OnPanelMgmtUpdated -= UpdateThisComponent;
     }
 
     private void UpdateThisComponent(string meaningless) =>

@@ -1,37 +1,21 @@
-﻿using static System.Collections.Specialized.BitVector32;
+﻿using ProfessionalWebsite.Client.Classes.Mgmt.DataTables;
 
 namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
-    public sealed class PanelMgmt
+    public class PanelMgmt
     {
-        private PanelMgmt()
+        public PanelMgmt(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary)
         {
-            PanelGroups = PanelGroupsTable.Instance.PanelGroups;
-            Panels = PanelsTable.Instance.Panels;
+            PanelGroups = panelGroupsDictionary;
+            Panels = panelsDictionary;
 
             SetInstanceToGroupReferences();
         }
 
-        private static PanelMgmt instance;
-        private static object instanceLock = new object();
-
-        public static PanelMgmt Instance
-        {
-            get
-            {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                        instance = new PanelMgmt();
-                    return instance;
-                }
-            }
-        }
-
         public event Action<string> OnPanelMgmtUpdated;
 
-        public Dictionary<int, PanelGroup> PanelGroups { get; private set; } = new Dictionary<int, PanelGroup>();
-        public Dictionary<int, Panel> Panels { get; private set; } = new Dictionary<int,Panel>();
+        public Dictionary<int, Panel> Panels { get; private set; }
+        public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
 
         /*
             Definitions:
@@ -62,6 +46,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             if (triggersOnPanelMgmtUpdated)
                 RaiseEventOnPanelMgmtUpdated();
         }
+        
         /// <summary>
         /// Deactivates a panel based on the panel's ID.
         /// </summary>
@@ -73,6 +58,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 ?.Deactivate();
             RaiseEventOnPanelMgmtUpdated();
         }
+
         /// <summary>
         /// Activates a panel based on the panel's ID.
         /// </summary>
@@ -88,6 +74,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             RaiseEventOnPanelMgmtUpdated();
             return Panels[selectedPanelId];
         }
+
         /// <summary>
         /// Toggles a panel's state from "off" to "on" and vice versa by panel ID.
         /// </summary>
@@ -117,6 +104,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             return default;
         }
+
         /// <summary>
         /// Sets the location panel of a panel group using only the ID of a given panel. If the panel is not part of a panel group, then nothing happens. 
         /// </summary>
@@ -141,6 +129,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
             }
         }
+
         /// <summary>
         /// When navigating (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
         /// </summary>
@@ -151,6 +140,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
             UpdateGroupLocationPanel(panelId);
         }
+
         /// <summary>
         /// Updates the component that consumes it when a method in the PanelMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
         /// </summary>
@@ -159,6 +149,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             if (OnPanelMgmtUpdated != null)
                 OnPanelMgmtUpdated?.Invoke("");
         }
+
         /// <summary>
         /// Activates the location panel for each panel group.
         /// </summary>
@@ -189,6 +180,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             return locationPanelsActivated;
         }
+
         /// <summary>
         /// Each panel group has a location panel that remembers the panel designated to the current location. When another panel in the panel group is openned, it will be turned off, but when all panels in the panel group are closed, then the button associated with the current location's panel is highlighted (as a visual indicator of where the user currently is in the app).
         /// </summary>
@@ -207,6 +199,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             return locationPanelsActivated;
         }
+
         /// <summary>
         /// Determines if all cooperative panels are currently deactivated.
         /// </summary>
@@ -218,6 +211,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                     return false;
             return true;
         }
+
         /// <summary>
         /// Upon initialization of panels and panel groups, one-to-many relationships are established through assigning the references based on the relationships within each panel and panel group. This is dependent on the PanelGroupId assigned to each panel.
         /// </summary>

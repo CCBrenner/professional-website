@@ -1,10 +1,10 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
 {
-    public sealed class PanelsTable
+    public class PanelsTable
     {
-        private PanelsTable()
+        public PanelsTable()
         {
-            List<Panel> panels = new List<Panel>()
+            Panels = new List<Panel>()
             {
                 new Panel(0,   // Global Animations panel
                     panelActiveStatusClassName: "anim-display",
@@ -62,23 +62,13 @@
                     panelButtonClassName: "n0-cla$$_name"
                 ),
             };
-            foreach (Panel panel in panels)
-                Panels.Add(panel.Id, panel);
+
+            PanelsDict = new Dictionary<int, Panel>();
+            foreach (Panel panel in Panels)
+                PanelsDict.Add(panel.Id, panel);
         }
-        private static PanelsTable? instance;
-        private static object instanceLock = new object();
-        public static PanelsTable Instance
-        {
-            get
-            {
-                lock (instanceLock)
-                {
-                    if (instance == null)
-                        instance = new PanelsTable();
-                    return instance;
-                }
-            }
-        }
-        public Dictionary<int, Panel> Panels = new Dictionary<int, Panel>();
+
+        public List<Panel> Panels { get; private set; }
+        public Dictionary<int, Panel> PanelsDict { get; private set; }
     }
 }

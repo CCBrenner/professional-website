@@ -2,33 +2,17 @@
 
 namespace ProfessionalWebsite.Client.Classes.Mgmt
 {
-    public sealed class SectionMgmt
+    public class SectionMgmt
     {
-        private SectionMgmt()
+        public SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
         {
-            foreach (Section section in SectionsTable.Instance.Sections)
-                Sections.Add(section.Id, section);
-            foreach (SectionedPage sectionedPage in SectionedPagesTable.Instance.SectionedPages)
-                SectionedPages.Add(sectionedPage.Id, sectionedPage);
+            Sections = sectionsDictionary;
+            SectionedPages = sectionedPagesDictionary;
             SetInstanceToGroupReferences();
         }
-        private static SectionMgmt? instance;
-        private static object lockObject = new object();
-        public static SectionMgmt Instance
-        {
-            get
-            {
-                lock(lockObject)
-                {
-                    if(instance == null)
-                        instance = new SectionMgmt();
-                    return instance;
-                }
-            }
-        }
 
-        public Dictionary<int, Section> Sections = new Dictionary<int, Section>();
-        public Dictionary<int, SectionedPage> SectionedPages = new Dictionary<int, SectionedPage>();  // key == SectionPage.Id
+        public Dictionary<int, Section> Sections { get; private set; }
+        public Dictionary<int, SectionedPage> SectionedPages { get; private set; }  // key == SectionPage.Id
 
         public bool ASectionIsCurrentlyPromo { get; private set; }
         public event Action<string> OnSectionMgmtChanged;
@@ -72,6 +56,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+
         /// <summary>
         /// Collapses/Expands section based on section ID.
         /// </summary>
@@ -91,6 +76,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+
         /// <summary>
         /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
         /// </summary>
@@ -123,6 +109,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
 
         }
+
         /// <summary>
         /// A logic check used by sections in their housing component to determine whether or not they should be showing or not. Works in conjunction with dopelganger section header which, when a section is promoted, all other sections disappear and their dopelgangers, which are located beneath all actual sections, become visible. This creates an illusion of the promoted section being brought to the top of the sectioned page.
         /// </summary>
@@ -133,6 +120,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             SectionedPage sectionedPage = SectionedPages[Sections[sectionId].SectionedPageId];
             return !sectionedPage.ASectionIsCurrentlyPromo || sectionedPage.ASectionIsCurrentlyPromo && Sections[sectionId].IsCurrentPromo;
         }
+
         /// <summary>
         /// Demotes all other sections and makes specified section the promo section.
         /// </summary>
@@ -152,6 +140,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+
         /// <summary>
         /// Returns the ID of the location panel of a sectioned page of the specified section using the section's ID.
         /// </summary>
@@ -171,6 +160,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             }
             return -1;
         }
+
         /// <summary>
         /// Removes promo status from all sections.
         /// </summary>
@@ -202,6 +192,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             else
                 sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
         }
+
         /// <summary>
         /// Initializes sectioned page reference to its sections and vice versa. Establishes a one-to-many relationship through on-hand references.
         /// </summary>
@@ -218,6 +209,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                     .Add(section.Id, section);
             }
         }
+
         /// <summary>
         /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
         /// </summary>
@@ -252,6 +244,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
             }
         }
+
         /// <summary>
         /// Updates the component that consumes it when a method in the PanelMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
         /// </summary>
@@ -259,11 +252,5 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         {
             OnSectionMgmtChanged?.Invoke("");
         }
-    }
-    public enum SectionsStatus
-    {
-        AllAreCollapsed,
-        AtLeastOneIsOpen,
-        AllAreOpen,
     }
 }
