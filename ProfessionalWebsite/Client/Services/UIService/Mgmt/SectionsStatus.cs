@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public enum SectionsStatus
     {

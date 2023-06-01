@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
 {
     public sealed class AnimationsTable
     {
@@ -12,7 +12,7 @@
                 false,  // Flipster
                 false,  // Asteroid
                 false,  // Flip On X
-                false,  // FLip On Y
+                false,  // Flip On Y
                 false,  // Rotate on Z
                 false,  // East Is Up
                 false,  // West Is Up

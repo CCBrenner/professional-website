@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public class Panel
     {
@@ -82,8 +82,8 @@
             try
             {
                 PanelGroup = (from panelGroup in panelGroups
-                                 where panelGroup.Id == PanelGroupId
-                                 select panelGroup).FirstOrDefault();
+                              where panelGroup.Id == PanelGroupId
+                              select panelGroup).FirstOrDefault();
             }
             catch (NullReferenceException nrEx)
             {

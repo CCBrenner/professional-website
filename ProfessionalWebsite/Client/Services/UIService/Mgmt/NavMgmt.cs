@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public class NavMgmt
     {

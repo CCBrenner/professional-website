@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Services.Contracts
+﻿namespace ProfessionalWebsite.Client.Services.CounterService.Contracts
 {
     public interface ICounterService
     {

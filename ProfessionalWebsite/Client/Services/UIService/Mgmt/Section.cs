@@ -1,6 +1,4 @@
-﻿using static System.Collections.Specialized.BitVector32;
-
-namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public class Section
     {

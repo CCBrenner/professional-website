@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
 {
     public class SectionsTable
     {
@@ -42,7 +42,7 @@
                 /* end "invent" */
             };
 
-            SectionsDict = new Dictionary<int ,Section>();
+            SectionsDict = new Dictionary<int, Section>();
             foreach (Section section in Sections)
                 SectionsDict.Add(section.Id, section);
         }

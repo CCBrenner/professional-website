@@ -1,6 +1,6 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
 {
-    public  class PanelGroupsTable
+    public class PanelGroupsTable
     {
         public PanelGroupsTable()
         {

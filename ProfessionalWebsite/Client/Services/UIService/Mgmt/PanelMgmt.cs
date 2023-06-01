@@ -1,6 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.Mgmt.DataTables;
-
-namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public class PanelMgmt
     {
@@ -29,8 +27,8 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /// <param name="triggersOnPanelMgmtUpdated">Default to "true", this tells components that consume PanelMgmt properties to update (based on changes to state). Component must subscribe to the event to receive update commands.</param>
         /// <param name="includeIndependentPanels">Independent panels exist outside of the deactivation logic by default. If for whatever reason they should also be deactivated, then this can be set to "true".</param>
         public void DeactivateAllPanels(
-            bool setActivePanelGroupToLocationPanel, 
-            bool triggersOnPanelMgmtUpdated = true, 
+            bool setActivePanelGroupToLocationPanel,
+            bool triggersOnPanelMgmtUpdated = true,
             bool includeIndependentPanels = false
         )
         {
@@ -46,7 +44,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
             if (triggersOnPanelMgmtUpdated)
                 RaiseEventOnPanelMgmtUpdated();
         }
-        
+
         /// <summary>
         /// Deactivates a panel based on the panel's ID.
         /// </summary>
@@ -167,7 +165,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                             groupOfActivatedPanel = panelGroup.Id;
 
                 foreach (PanelGroup panelGroup in PanelGroups.Values)
-                { 
+                {
                     if (groupOfActivatedPanel == -1)
                     {
                         int panelId = panelGroup.LocationPanelId;

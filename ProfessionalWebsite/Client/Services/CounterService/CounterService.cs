@@ -1,6 +1,6 @@
-﻿using ProfessionalWebsite.Client.Services.Contracts;
+﻿using ProfessionalWebsite.Client.Services.CounterService.Contracts;
 
-namespace ProfessionalWebsite.Client.Services
+namespace ProfessionalWebsite.Client.Services.CounterService
 {
     public class CounterService : ICounterService
     {

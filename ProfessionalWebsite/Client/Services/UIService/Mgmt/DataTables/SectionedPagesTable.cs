@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Classes.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
 {
     public sealed class SectionedPagesTable
     {

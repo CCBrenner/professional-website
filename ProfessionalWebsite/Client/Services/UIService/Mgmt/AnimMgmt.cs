@@ -1,6 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.Mgmt.DataTables;
-
-namespace ProfessionalWebsite.Client.Classes.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
 {
     public class AnimMgmt
     {
