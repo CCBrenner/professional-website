@@ -14,7 +14,6 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         public Dictionary<int, Section> Sections { get; private set; }
         public Dictionary<int, SectionedPage> SectionedPages { get; private set; }  // key == SectionPage.Id
 
-        public bool ASectionIsCurrentlyPromo { get; private set; }
         public event Action<string> OnSectionMgmtChanged;
 
         /*
@@ -45,11 +44,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                 {
                     foreach (var sec in sectionsOfSectionedPage.Values)
                         sec.ToggleCollapse(true);
-                    ToggleCollapseSingle(sectionId);
+                    ToggleSection(sectionId);
                     section.Promote();
                     sectionedPage.ASectionIsCurrentlyPromo = true;
                 }
-                UpdateSectionsStatus(sectionId);
             }
             catch (KeyNotFoundException knfEx)
             {
@@ -61,14 +59,14 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /// Collapses/Expands section based on section ID.
         /// </summary>
         /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-        public void ToggleCollapseSingle(int sectionId)
+        public void ToggleSection(int sectionId)
         {
             try
             {
                 Section section = Sections[sectionId];
                 section.ToggleCollapse(!section.IsCollapsed);
-                UpdateSectionsStatus(sectionId);
                 PromoteIfOnlyOneExpandedSection(sectionId);
+                UpdateSectionsStatus(sectionId);
                 RaiseEventOnSectionMgmtChanged();
             }
             catch (KeyNotFoundException knfEx)

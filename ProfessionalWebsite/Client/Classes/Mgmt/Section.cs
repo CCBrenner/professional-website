@@ -21,6 +21,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         public readonly int SectionedPageId;
         public SectionedPage SectionedPage;
         public bool IsFirstSectionOfPage { get; private set; }
+        public bool IsVisible => !SectionedPage.ASectionIsCurrentlyPromo || SectionedPage.ASectionIsCurrentlyPromo && IsCurrentPromo;
         public bool IsCollapsed { get; private set; }
         public string IsCollapsedHeader { get; private set; }
         public string IsCollapsedContent { get; private set; }

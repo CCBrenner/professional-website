@@ -30,7 +30,7 @@
                 @if (UIService.SectionIsVisible(0))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[0].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(0))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[0].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(0))">
                             Overview
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[0].IsCollapsedHeader == "collapsed-header")
@@ -82,7 +82,7 @@
                 @if (UIService.SectionIsVisible(14))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[14].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(14))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[14].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(14))">
                             About This Web App
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[14].IsCollapsedHeader == "collapsed-header")
@@ -167,7 +167,7 @@
                 @if (UIService.SectionIsVisible(15))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(15))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(15))">
                             Hide & Seek Game - Project
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[15].IsCollapsedHeader == "collapsed-header")
@@ -212,7 +212,7 @@
                 @if (UIService.SectionIsVisible(16))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(16))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(16))">
                             Bee Hive Manager System/Game - Project
                             &nbsp;
                             @if (UIService.SectionMgmt.Sections[16].IsCollapsedHeader == "collapsed-header")
@@ -296,7 +296,7 @@
                 @if (UIService.SectionIsVisible(33))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[33].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(33))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[33].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(33))">
                             Match Game - Project
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[33].IsCollapsedHeader == "collapsed-header")
@@ -341,7 +341,7 @@
                 @if (UIService.SectionIsVisible(3))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(3))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(3))">
                             Web Front-End
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[3].IsCollapsedHeader == "collapsed-header")
@@ -357,7 +357,7 @@
                 @if (UIService.SectionIsVisible(1))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[1].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(1))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[1].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(1))">
                             Back-end
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[1].IsCollapsedHeader == "collapsed-header")
@@ -382,7 +382,7 @@
                 @if (UIService.SectionIsVisible(4))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[4].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(4))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[4].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(4))">
                             UX/UI + Modeling Software
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[4].IsCollapsedHeader == "collapsed-header")
@@ -414,7 +414,7 @@
                 @if (UIService.SectionIsVisible(5))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[5].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(5))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[5].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(5))">
                             Cloud Deployment + Containers
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[5].IsCollapsedHeader == "collapsed-header")
@@ -430,7 +430,7 @@
                 @if (UIService.SectionIsVisible(6))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[6].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(6))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[6].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(6))">
                             Databases
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[6].IsCollapsedHeader == "collapsed-header")
@@ -446,7 +446,7 @@
                 @if (UIService.SectionIsVisible(7))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[7].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(7))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[7].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(7))">
                             Testing
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[7].IsCollapsedHeader == "collapsed-header")
@@ -462,7 +462,7 @@
                 @if (UIService.SectionIsVisible(13))
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[13].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(13))">
+                        <div class="section-header @UIService.SectionMgmt.Sections[13].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(13))">
                             Why Programming?
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[13].IsCollapsedHeader == "collapsed-header")
@@ -483,7 +483,7 @@
                     @if (!UIService.SectionMgmt.Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[0].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(0))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[0].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(0))">
                                 Overview
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -493,7 +493,7 @@
                     @if (!UIService.SectionMgmt.Sections[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[14].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(14))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[14].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(14))">
                                 About This Web App
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -503,7 +503,7 @@
                     @if (!UIService.SectionMgmt.Sections[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(15))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(15))">
                                 Hide & Seek Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -513,7 +513,7 @@
                     @if (!UIService.SectionMgmt.Sections[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(16))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(16))">
                                 Bee Hive Manager System/Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -523,7 +523,7 @@
                     @if (!UIService.SectionMgmt.Sections[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(33))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(33))">
                                 Match Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -533,7 +533,7 @@
                     @if (!UIService.SectionMgmt.Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(3))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(3))">
                                 Web Front-End
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -543,7 +543,7 @@
                     @if (!UIService.SectionMgmt.Sections[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[4].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(4))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[4].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(4))">
                                 UX/UI + Modeling Software
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -553,7 +553,7 @@
                     @if (!UIService.SectionMgmt.Sections[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[5].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(5))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[5].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(5))">
                                 Cloud Deployment + Containers
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -563,7 +563,7 @@
                     @if (!UIService.SectionMgmt.Sections[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[6].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(6))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[6].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(6))">
                                 Databases
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -573,7 +573,7 @@
                     @if (!UIService.SectionMgmt.Sections[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[7].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(7))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[7].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(7))">
                                 Testing
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -583,7 +583,7 @@
                     @if (!UIService.SectionMgmt.Sections[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[13].IsCollapsedHeader" @onclick="(()=>UIService.ToggleCollapseSingle(13))">
+                            <div class="section-header @UIService.SectionMgmt.Sections[13].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(13))">
                                 Why Programming?
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />

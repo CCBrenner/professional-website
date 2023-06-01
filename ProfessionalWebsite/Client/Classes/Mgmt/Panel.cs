@@ -36,7 +36,7 @@
         public readonly int Id;
         public int PanelGroupId { get; private set; }
         public PanelGroup PanelGroup { get; private set; }
-        public bool CannotBeActiveWhileOtherPanelsAreActive { get; private set; }
+        public bool CannotBeActiveWhileOtherPanelsAreActive { get; private set; }  // <<< this name might not be accurate
 
         public string PanelStatus { get; private set; }
         public bool PanelIsActive { get; private set; }

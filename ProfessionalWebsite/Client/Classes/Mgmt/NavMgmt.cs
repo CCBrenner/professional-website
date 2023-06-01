@@ -38,10 +38,10 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /// Updates the navigation highlights to show the proper location when navigating to a hard coded page. The only hard coded page at the time of writing is the original animations page which exists in the MainLayout component.
         /// </summary>
         /// <param name="panelId">Id of the panel whose button should be highlighted when navgiating to the hardcoded page.</param>
-        public void NavigateToHardCodedPage(int panelId, PanelMgmt panelMgmt)
+        public void NavigateToHardCodedPage(int hardcodedPanelId, int navGroupPanelId, PanelMgmt panelMgmt)
         {
-            panelMgmt.UpdateGroupLocationPanel(panelId);
-            panelMgmt.ActivatePanel(panelId);
+            panelMgmt.UpdateGroupLocationPanel(navGroupPanelId);
+            panelMgmt.ActivatePanel(hardcodedPanelId);
         }
 
         /// <summary>

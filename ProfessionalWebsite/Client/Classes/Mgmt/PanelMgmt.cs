@@ -80,7 +80,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         /// </summary>
         /// <param name="selectedPanelId">ID of panel to be toggled on or off.</param>
         /// <returns></returns>
-        public Panel? TogglePanel(int selectedPanelId)
+        public void TogglePanel(int selectedPanelId)
         {
             try
             {
@@ -96,13 +96,11 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
                     DeactivatePanel(selectedPanelId);
                 }
                 RaiseEventOnPanelMgmtUpdated();
-                return Panels[selectedPanelId];
             }
             catch (KeyNotFoundException knfEx)
             {
                 Console.WriteLine(knfEx.Message + knfEx.StackTrace);
             }
-            return default;
         }
 
         /// <summary>
@@ -131,7 +129,7 @@ namespace ProfessionalWebsite.Client.Classes.Mgmt
         }
 
         /// <summary>
-        /// When navigating (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
+        /// When navigating to a non-sectioned page (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
         /// </summary>
         /// <param name="panelId">ID of panel to be made location panel of global navigation panel group.</param>
         /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume PanelMgmt to update. Component must subscribe to the event to receive update commands from PanelMgmt.</param>
