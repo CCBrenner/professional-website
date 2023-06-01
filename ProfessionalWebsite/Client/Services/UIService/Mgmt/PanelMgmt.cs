@@ -34,7 +34,7 @@
         {
             foreach (Panel panel in Panels.Values)
             {
-                if (panel.CannotBeActiveWhileOtherPanelsAreActive || includeIndependentPanels)
+                if (panel.CannotBeActiveWhileOtherCooperativePanelIsActive || includeIndependentPanels)
                 {
                     panel.Deactivate();
                     if (setActivePanelGroupToLocationPanel)
@@ -62,7 +62,7 @@
         /// </summary>
         /// <param name="selectedPanelId">ID of panel to be activated.</param>
         /// <returns></returns>
-        public Panel ActivatePanel(int selectedPanelId)
+        public void ActivatePanel(int selectedPanelId)
         {
             DeactivateAllPanels(false);
             ActivateLocationButtonsOfGroups(selectedPanelId);
@@ -70,7 +70,6 @@
                 .FirstOrDefault(panel => panel.Id == selectedPanelId)
                 ?.Activate();
             RaiseEventOnPanelMgmtUpdated();
-            return Panels[selectedPanelId];
         }
 
         /// <summary>
@@ -151,9 +150,8 @@
         /// </summary>
         /// <param name="idOfPanelBeingActivated">ID of the panel that is being activated.</param>
         /// <returns></returns>
-        private List<Panel> ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
+        private void ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
         {
-            List<Panel> locationPanelsActivated = new List<Panel>();
             if (AllCooperativePanelsAreDeactivated())
             {
                 int groupOfActivatedPanel = -1;
@@ -169,31 +167,28 @@
                     if (groupOfActivatedPanel == -1)
                     {
                         int panelId = panelGroup.LocationPanelId;
-                        Panel panel = Panels[panelId].ActivateButton();
-                        locationPanelsActivated.Add(panel);
+                        Panel panel = Panels[panelId];
+                        panel.ActivateButton();
                     }
                 }
             }
-            return locationPanelsActivated;
         }
 
         /// <summary>
         /// Each panel group has a location panel that remembers the panel designated to the current location. When another panel in the panel group is openned, it will be turned off, but when all panels in the panel group are closed, then the button associated with the current location's panel is highlighted (as a visual indicator of where the user currently is in the app).
         /// </summary>
         /// <returns>List of panels whose buttons have been highlighted (since they are location panels).</returns>
-        private List<Panel> ActivateLocationButtonsOfGroups()
+        private void ActivateLocationButtonsOfGroups()
         {
-            List<Panel> locationPanelsActivated = new List<Panel>();
             if (AllCooperativePanelsAreDeactivated())
             {
                 foreach (PanelGroup panelGroup in PanelGroups.Values)
                 {
                     int panelId = panelGroup.LocationPanelId;
-                    Panel highlightedPanel = Panels[panelId].ActivateButton();
-                    locationPanelsActivated.Add(highlightedPanel);
+                    Panel panel = Panels[panelId];
+                    panel.ActivateButton();
                 }
             }
-            return locationPanelsActivated;
         }
 
         /// <summary>
@@ -203,7 +198,7 @@
         private bool AllCooperativePanelsAreDeactivated()
         {
             foreach (Panel panel in Panels.Values)
-                if (panel.PanelStatus != "" && panel.CannotBeActiveWhileOtherPanelsAreActive)
+                if (panel.PanelStatus != "" && panel.CannotBeActiveWhileOtherCooperativePanelIsActive)
                     return false;
             return true;
         }

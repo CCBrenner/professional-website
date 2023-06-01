@@ -92,15 +92,5 @@ namespace ProfessionalWebsite.Client.Services.UIService
         /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
         public void ToggleAllSections(int pageId) =>
             SectionMgmt.ToggleAllSections(pageId);
-
-        /* Stoped here. Below still needs tests. vvv */
-
-        /// <summary>
-        /// A logic check used by sections in their housing component to determine whether or not they should be showing or not. Works in conjunction with dopelganger section header which, when a section is promoted, all other sections disappear and their dopelgangers, which are located beneath all actual sections, become visible. This creates an illusion of the promoted section being brought to the top of the sectioned page.
-        /// </summary>
-        /// <param name="sectionId"></param>
-        /// <returns>Boolean value stating whether a section is supposed to be visible or not.</returns>
-        public bool SectionIsVisible(int sectionId) =>
-            SectionMgmt.SectionIsVisible(sectionId);
     }
 }

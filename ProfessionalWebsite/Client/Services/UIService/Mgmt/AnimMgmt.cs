@@ -6,14 +6,12 @@
         {
             AnimateMain = "";
             IsContinuous = animationsIsContinuousInitialization;
-            //DiscontinueButtonStatus = "";
         }
 
         private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
 
         public string AnimateMain { get; private set; }
         public List<bool> IsContinuous { get; private set; }
-        //public string DiscontinueButtonStatus { get; private set; }
 
         public event Action<string> OnAnimMgmtChanged;
 

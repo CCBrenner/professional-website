@@ -19,7 +19,7 @@
 
             Id = id;
             PanelGroupId = panelGroupId;
-            CannotBeActiveWhileOtherPanelsAreActive = cannotBeActiveWhileOtherPanelsAreActive;
+            CannotBeActiveWhileOtherCooperativePanelIsActive = cannotBeActiveWhileOtherPanelsAreActive;
 
             PanelStatus = "";
             BlurStatus = "";
@@ -36,7 +36,7 @@
         public readonly int Id;
         public int PanelGroupId { get; private set; }
         public PanelGroup PanelGroup { get; private set; }
-        public bool CannotBeActiveWhileOtherPanelsAreActive { get; private set; }  // <<< this name might not be accurate
+        public bool CannotBeActiveWhileOtherCooperativePanelIsActive { get; private set; }
 
         public string PanelStatus { get; private set; }
         public bool PanelIsActive { get; private set; }
@@ -47,7 +47,7 @@
         public string PanelButtonStatus { get; private set; }
         public bool PanelButtonIsActive { get; private set; }
 
-        public async Task<Panel> Activate()
+        public void Activate()
         {
             PanelStatus = panelActiveStatusClassName;
             BlurStatus = blurStatusClassName;
@@ -57,9 +57,8 @@
             BlurIsActive = true;
             BehindPanelIsActive = true;
             PanelButtonIsActive = true;
-            return this;
         }
-        public Panel Deactivate()
+        public void Deactivate()
         {
             PanelStatus = "";
             BlurStatus = "";
@@ -69,13 +68,11 @@
             BlurIsActive = false;
             BehindPanelIsActive = false;
             PanelButtonIsActive = false;
-            return this;
         }
-        public Panel ActivateButton()
+        public void ActivateButton()
         {
             PanelButtonStatus = panelButtonClassName;
             PanelButtonIsActive = true;
-            return this;
         }
         public void SetInstanceToGroupRelationship(List<PanelGroup> panelGroups)
         {

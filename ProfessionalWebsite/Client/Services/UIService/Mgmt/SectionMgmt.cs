@@ -107,17 +107,6 @@
         }
 
         /// <summary>
-        /// A logic check used by sections in their housing component to determine whether or not they should be showing or not. Works in conjunction with dopelganger section header which, when a section is promoted, all other sections disappear and their dopelgangers, which are located beneath all actual sections, become visible. This creates an illusion of the promoted section being brought to the top of the sectioned page.
-        /// </summary>
-        /// <param name="sectionId"></param>
-        /// <returns>Boolean value stating whether a section is supposed to be visible or not.</returns>
-        public bool SectionIsVisible(int sectionId)
-        {
-            SectionedPage sectionedPage = SectionedPages[Sections[sectionId].SectionedPageId];
-            return !sectionedPage.ASectionIsCurrentlyPromo || sectionedPage.ASectionIsCurrentlyPromo && Sections[sectionId].IsCurrentPromo;
-        }
-
-        /// <summary>
         /// Demotes all other sections and makes specified section the promo section.
         /// </summary>
         /// <param name="sectionId">ID of section to be made promo section.</param>
