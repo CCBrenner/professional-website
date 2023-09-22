@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q63zAFEtsb36EOE1ver+WbHHFFVus3ohnbew2dIPJuujnh+Cs7E04D3/4ZtbGQcjWFomsq/MWuC71LG/7R+g2Q==",
+  "dgSpecHash": "lcj/N7mEaPB03WlNMBOLOo3jBr5aYR3Ufl52Y7vOyYwJOXjhIdI/rha1gp3bb95UyJhcTH3O984ZGClSGKvX3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
+  "projectFilePath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",
     "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.11\\microsoft.aspnetcore.components.6.0.11.nupkg.sha512",

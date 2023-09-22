@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {}
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
         "projectName": "ProfessionalWebsite.Tests",
-        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
         "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\obj\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
-                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
         "projectName": "ProfessionalWebsite.Client",
-        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
         "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\obj\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -172,14 +172,14 @@
         }
       }
     },
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
         "projectName": "ProfessionalWebsite.Server",
-        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
         "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\obj\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -201,11 +201,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
-                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj"
               },
-              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
-                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj"
               }
             }
           }
@@ -248,14 +248,14 @@
         }
       }
     },
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
         "projectName": "ProfessionalWebsite.Shared",
-        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
         "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

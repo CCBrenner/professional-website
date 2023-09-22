@@ -11,8 +11,8 @@
     <DrawerContent>
         <DrawerNavLinkButton Href="knowhow/0" ButtonText="Overview" OnClickCallback="(()=>UIService.NavigateToSection(0))" />
         <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>UIService.NavigateToSection(14))" />
-        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="knowhow/33" ButtonText="Match Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(33))" />
         <DrawerNavLinkButton Href="knowhow/3" ButtonText="Web Front-end" OnClickCallback="(()=>UIService.NavigateToSection(3))" />
         <DrawerNavLinkButton Href="knowhow/1" ButtonText="Back-end" OnClickCallback="(()=>UIService.NavigateToSection(1))" />
@@ -27,6 +27,7 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
+                @*Overview*@
                 @if (UIService.SectionMgmt.Sections[0].IsVisible)
                 {
                     <div class="section-container">
@@ -79,6 +80,7 @@
                         </div>
                     </div>
                 }
+                @*About This Web App*@
                 @if (UIService.SectionMgmt.Sections[14].IsVisible)
                 {
                     <div class="section-container">
@@ -164,6 +166,92 @@
                         </div>
                     </div>
                 }
+                @*Bee Hive Mgmt System*@
+                @if (UIService.SectionMgmt.Sections[16].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(16))">
+                            Bee Hive Manager System/Game - Project
+                            &nbsp;
+                            @if (UIService.SectionMgmt.Sections[16].IsCollapsedHeader == "collapsed-header")
+                            {
+                                <i class="fa fa-chevron-left" />
+                            }
+                            else
+                            {
+                                <i class="fa fa-chevron-down" />
+                            }
+                        </div>
+                        <div class="section-content @UIService.SectionMgmt.Sections[16].IsCollapsedContent">
+                            <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
+                            <div class="proj-desc-buttons">
+                                <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UIService.UpdatePanelsWhenNavigating(2))">
+                                    Go To Game
+                                </a>
+                                &nbsp;
+                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem" target="_blank" class="btn btn-primary">
+                                    View Code
+                                </a>
+                            </div>
+                            <p>April 26th, 2023</p>
+                            <h4>Introducing the Hive</h4>
+                            <br />
+                            <p>
+                                This project was a part of Chapter 6 of <i>Headfirst C# (4th Edition)</i> by Andrew Stallman and Jennifer Greene. The chapter covered the topic of inheritance in-depth. This project is designed to show how inheritance can be used to require members to be present in child classes through use of a regular or abstract class. In this system, the user is the Queen Bee who inherits from the Bee class. All bees inherit from the Bee class, and each Bee has a job to do and an amount of honey that they consume per shift of work done before doing their job. If they don’t eat, they don’t work - but they will eat what they can. The bees are pretty lazy, so they won’t work unless the QueenBee tells them to as part of her job. If she doesn’t eat (which she of course eats first), then no one else eats and the hive goes bankrupt.
+                            </p>
+                            <p>
+                                There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, EggNurses nurse eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Been makes honey each shift from currently available nectar. If there is no nectar, no honey gets made.The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below
+                            </p>
+                            <div class="wpf-image">
+                                <img src="media/images/beeHiveGame/BeeHiveFeedbackLoopsDiagram.png">
+                            </div>
+                            <br />
+                            <br />
+                            <h4>Bee Hive Build Progression</h4>
+                            <br>
+                            <p>
+                                This project was originally written with a WPF front-end (which is coded in XAML). It looked like this once it was all prepared:
+                            </p>
+                            <div class="wpf-image">
+                                <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
+                            </div>
+                            <p>
+                                The classes were built in a normal progression, from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen who is able to do the most out of all the classes. It is the QueenBee’s inherited method “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
+                            </p>
+                            <p>
+                                The system had two modes: a stepwise mode and a real-time mode. The real-time mode involved a timer applied to the “Work Next Shift” button which would simulate being clicked every 1.5 seconds. When the game was moved from WPF (XAML) to Blazor WASM for this WPF, the DispatchTimer was replaced with System. Timers.Timer.
+                            </p>
+                            <p>
+                                The initial project was not intended to be a full game (that was outside of its scope). When it was migrated and adapted to Blazor WASM for this PWA, those aspects of gameplay needed to be introduced into the game. The readability of a plain text paragraph that updated each shift was not ideal for an enjoyable user experience (and it could definitely look nicer too). A BeeHiveController class was introduced to free the data from its plaintext paragraph to have specific styles and positions applied to each data point. (It is understood that controllers are not generally supposed to be responsible for data manipulation, but they are normally used for transferring prepared data to a view. In this case the controller does both. This is due to lack of a better term.)
+                            </p>
+                            <p>
+                                As developments in the game’s view occurred, I left semi-prepared versions of points where the game was somewhat complete as that view’s current idea. This is for the benefit of the user to compare improvements over the progression of the view’s development. In developing the view, reliability was of the utmost concern. Things like spacing, font-size, RWD, related information location, visibility of rates and addition of data markers which build on top of those rates are all examples of the kinds of improvements that went into the game.
+                            </p>
+                            <p>
+                                Late in development when the timer for Blazor WASM was being implemented, the issue of updating the view component became a problem. Since updating the whole component looked to be a problem, the view for version 3 was moved to a separate component. This led to splitting up the view logic across two components. The logic was extracted and housed as a C#-coded singleton with references added for each component. By this point, what I had not realized is that 2 consecutive requirements had eliminated the need for the first requirement. So I ended up moving the version 3 view component markup back into its original component and deleting the other component once I was sure I no longer needed it (this eliminated unneeded complexity). The root of the issue is that the data values were being obtained through C3 property Get methods, and these Get methods had nothing to trigger their method when data in the “model” of the game was updated. What accomplished the triggering of the methods is an event tied to the timer’s elapsed method, so that after all values were updated in the “model”, the event would be triggered, and the subscribed method in the code section of the Razor component can invoke the “StateHasChanged()” razor method that re-renders the component manually - presenting the updated rates in the component.
+                            </p>
+                            <br />
+                            <h4>Project Take Aways</h4>
+                            <br>
+                            <p>
+                                Singletons and DI: Migrating this game and developing its view brought me to appreciate how useful the Singleton and DI design patterns are when used together (I learned about how to code Singletons during this project while learning from ChatGPT). I was able to utilize C#-coded Singletons to house a single instance of code that I wanted referenced in multiple places. I came to see that the UIService.SectionMgmt class which I had created for the PWA is useful the way it is because it is a Singleton. I discovered that I don’t need to keep the UIService.SectionMgmt class as a registered Blazor WASM service after all - it can be its own code and then be removed from a domain of the project that is supposed to be solely responsible for data request and validation.
+                            </p>
+                            <p>
+                                Tabs Add Space: This is now the second place where I have added a tab-like functionality to the view. Since I am very interested in the development of the future of PWA for mobile devices, and since space seems to be an issue when creating RWD for mobile screens - it appears that in-view tabs have the ability to create space in a compact and easily navigable fashion. You can even use a single component to accomplish this with C#/Razor component conditionals if you are using Blazor WASM. I am now wondering (since I have just witnessed Windows 11’s update to their File Explorer, giving it tabs) that there are likely UI improvements that can make tabs appear nicer or more obvious, the way browsers present them. (When I was in college, I read in a UX/UI book that the best way to do RWD is to start with mobile first. It is much easier to add than to remove things once you have added them. When you aim to optimize for mobile, you are putting the largest user category first (mobile users). When you design mobile-first, you are left with much more space for larger screens, and this is because the designer tries to make the most out of the little space that he has first - a tighter constraint - than if he were to start with more and move to less. No, start with less, and later on the acquisition of more space will be adequately appreciated and utilized even better than previously.)
+                            </p>
+                            <br />
+                            <h4>Upcoming Plans</h4>
+                            <br>
+                            <p>
+                                At this point in time I have created a new PanelMgmt singleton for potentially managing all panels used in the project, so that when one is selected, if any others are open then they will be closed before opening the panel selected. Logic for classes applied to each panel are housed in PanelMgmt (including for activated appearance of the selected button), relieving single components from having to implement their own view panel logic. A new panel’s logic can be created and labeled in the PanelMgmt singleton class and plugged in wherever it is needed through adding a PanelMgmt reference to the component. The UIService.SectionMgmt class already manages its own panels in this way, so after I migrate the UIService.SectionMgmt class to be an unregistered C#-coded singleton I plan to migrate the UIService.SectionMgmt panels to the PanelMgmt singleton, and then with a reference to PanelMgmt in the UIService.SectionMgmt class, the UIService.SectionMgmt class can tell the PanelMgmt class what to do when certain navigation actions occur.
+                            </p>
+                            <p>
+                                A lot of ideas for this BeeHive game emerged, and the top ideas I want to implement at some point include (1) settings with checkboxes that can make certain rates not visible, (2) add ability to change the game-defining rate and conversion values that were given by the project’s author (as well ability to revert to defaults),  I would like to (3) add a “Worker Lineup” of all workers and the order in which they will work when the next shift starts (since  worker order does matter; a series of small actions does not have the same effect as the sum of the actions happening at one single point in time), and (4) add a “Transaction Ledger” for all transactions that occur for each worker, in order, showing a running balance of the total amount of honey (and nectar, space permitting) that is currently in the Vault.
+                            </p>
+                        </div>
+                    </div>
+                }
+                @*Hide & Seek*@
                 @if (UIService.SectionMgmt.Sections[15].IsVisible)
                 {
                     <div class="section-container">
@@ -209,90 +297,7 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[16].IsVisible)
-                {
-                    <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(16))">
-                            Bee Hive Manager System/Game - Project
-                            &nbsp;
-                            @if (UIService.SectionMgmt.Sections[16].IsCollapsedHeader == "collapsed-header")
-                            {
-                                   <i class="fa fa-chevron-left" />
-                            }
-                            else
-                            {
-                                   <i class="fa fa-chevron-down" />
-                            }
-                        </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[16].IsCollapsedContent">
-                            <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
-                            <div class="proj-desc-buttons">
-                                <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UIService.UpdatePanelsWhenNavigating(2))">
-                                    Go To Game
-                                </a>
-                                &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem" target="_blank" class="btn btn-primary">
-                                    View Code
-                                </a>
-                            </div>
-                            <p>April 26th, 2023</p>
-                            <h4>Introducing the Hive</h4>
-                            <br />
-                            <p>
-                                This project was a part of Chapter 6 of <i>Headfirst C# (4th Edition)</i> by Andrew Stallman and Jennifer Greene. The chapter covered the topic of inheritance in-depth. This project is designed to show how inheritance can be used to require members to be present in child classes through use of a regular or abstract class. In this system, the user is the Queen Bee who inherits from the Bee class. All bees inherit from the Bee class, and each Bee has a job to do and an amount of honey that they consume per shift of work done before doing their job. If they don’t eat, they don’t work - but they will eat what they can. The bees are pretty lazy, so they won’t work unless the QueenBee tells them to as part of her job. If she doesn’t eat (which she of course eats first), then no one else eats and the hive goes bankrupt.
-                            </p>
-                            <p>
-                                    There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, EggNurses nurse eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Been makes honey each shift from currently available nectar. If there is no nectar, no honey gets made.The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below 
-                            </p>
-                            <div class="wpf-image">
-                                <img src="media/images/beeHiveGame/BeeHiveFeedbackLoopsDiagram.png">
-                            </div>
-                            <br/>
-                            <br />
-                            <h4>Bee Hive Build Progression</h4>
-                            <br>
-                            <p>
-                                This project was originally written with a WPF front-end (which is coded in XAML). It looked like this once it was all prepared: 
-                            </p>
-                            <div class="wpf-image">
-                                <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
-                            </div>
-                            <p>
-                                The classes were built in a normal progression, from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen who is able to do the most out of all the classes. It is the QueenBee’s inherited method “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
-                            </p>
-                            <p>
-                                The system had two modes: a stepwise mode and a real-time mode. The real-time mode involved a timer applied to the “Work Next Shift” button which would simulate being clicked every 1.5 seconds. When the game was moved from WPF (XAML) to Blazor WASM for this WPF, the DispatchTimer was replaced with System. Timers.Timer.
-                            </p>
-                            <p>
-                                The initial project was not intended to be a full game (that was outside of its scope). When it was migrated and adapted to Blazor WASM for this PWA, those aspects of gameplay needed to be introduced into the game. The readability of a plain text paragraph that updated each shift was not ideal for an enjoyable user experience (and it could definitely look nicer too). A BeeHiveController class was introduced to free the data from its plaintext paragraph to have specific styles and positions applied to each data point. (It is understood that controllers are not generally supposed to be responsible for data manipulation, but they are normally used for transferring prepared data to a view. In this case the controller does both. This is due to lack of a better term.)
-                            </p>
-                            <p>
-                                As developments in the game’s view occurred, I left semi-prepared versions of points where the game was somewhat complete as that view’s current idea. This is for the benefit of the user to compare improvements over the progression of the view’s development. In developing the view, reliability was of the utmost concern. Things like spacing, font-size, RWD, related information location, visibility of rates and addition of data markers which build on top of those rates are all examples of the kinds of improvements that went into the game. 
-                            </p>
-                            <p>
-                                Late in development when the timer for Blazor WASM was being implemented, the issue of updating the view component became a problem. Since updating the whole component looked to be a problem, the view for version 3 was moved to a separate component. This led to splitting up the view logic across two components. The logic was extracted and housed as a C#-coded singleton with references added for each component. By this point, what I had not realized is that 2 consecutive requirements had eliminated the need for the first requirement. So I ended up moving the version 3 view component markup back into its original component and deleting the other component once I was sure I no longer needed it (this eliminated unneeded complexity). The root of the issue is that the data values were being obtained through C3 property Get methods, and these Get methods had nothing to trigger their method when data in the “model” of the game was updated. What accomplished the triggering of the methods is an event tied to the timer’s elapsed method, so that after all values were updated in the “model”, the event would be triggered, and the subscribed method in the code section of the Razor component can invoke the “StateHasChanged()” razor method that re-renders the component manually - presenting the updated rates in the component.
-                            </p>
-                            <br />
-                            <h4>Project Take Aways</h4>
-                            <br>
-                            <p>
-                                Singletons and DI: Migrating this game and developing its view brought me to appreciate how useful the Singleton and DI design patterns are when used together (I learned about how to code Singletons during this project while learning from ChatGPT). I was able to utilize C#-coded Singletons to house a single instance of code that I wanted referenced in multiple places. I came to see that the UIService.SectionMgmt class which I had created for the PWA is useful the way it is because it is a Singleton. I discovered that I don’t need to keep the UIService.SectionMgmt class as a registered Blazor WASM service after all - it can be its own code and then be removed from a domain of the project that is supposed to be solely responsible for data request and validation.
-                            </p>
-                            <p>
-                                Tabs Add Space: This is now the second place where I have added a tab-like functionality to the view. Since I am very interested in the development of the future of PWA for mobile devices, and since space seems to be an issue when creating RWD for mobile screens - it appears that in-view tabs have the ability to create space in a compact and easily navigable fashion. You can even use a single component to accomplish this with C#/Razor component conditionals if you are using Blazor WASM. I am now wondering (since I have just witnessed Windows 11’s update to their File Explorer, giving it tabs) that there are likely UI improvements that can make tabs appear nicer or more obvious, the way browsers present them. (When I was in college, I read in a UX/UI book that the best way to do RWD is to start with mobile first. It is much easier to add than to remove things once you have added them. When you aim to optimize for mobile, you are putting the largest user category first (mobile users). When you design mobile-first, you are left with much more space for larger screens, and this is because the designer tries to make the most out of the little space that he has first - a tighter constraint - than if he were to start with more and move to less. No, start with less, and later on the acquisition of more space will be adequately appreciated and utilized even better than previously.)
-                            </p>
-                            <br />
-                            <h4>Upcoming Plans</h4>
-                            <br>
-                            <p>
-                                At this point in time I have created a new PanelMgmt singleton for potentially managing all panels used in the project, so that when one is selected, if any others are open then they will be closed before opening the panel selected. Logic for classes applied to each panel are housed in PanelMgmt (including for activated appearance of the selected button), relieving single components from having to implement their own view panel logic. A new panel’s logic can be created and labeled in the PanelMgmt singleton class and plugged in wherever it is needed through adding a PanelMgmt reference to the component. The UIService.SectionMgmt class already manages its own panels in this way, so after I migrate the UIService.SectionMgmt class to be an unregistered C#-coded singleton I plan to migrate the UIService.SectionMgmt panels to the PanelMgmt singleton, and then with a reference to PanelMgmt in the UIService.SectionMgmt class, the UIService.SectionMgmt class can tell the PanelMgmt class what to do when certain navigation actions occur.
-                            </p>
-                            <p>
-                                A lot of ideas for this BeeHive game emerged, and the top ideas I want to implement at some point include (1) settings with checkboxes that can make certain rates not visible, (2) add ability to change the game-defining rate and conversion values that were given by the project’s author (as well ability to revert to defaults),  I would like to (3) add a “Worker Lineup” of all workers and the order in which they will work when the next shift starts (since  worker order does matter; a series of small actions does not have the same effect as the sum of the actions happening at one single point in time), and (4) add a “Transaction Ledger” for all transactions that occur for each worker, in order, showing a running balance of the total amount of honey (and nectar, space permitting) that is currently in the Vault.
-                            </p>
-                        </div>
-                    </div>
-                }
+                @*Match Game*@
                 @if (UIService.SectionMgmt.Sections[33].IsVisible)
                 {
                     <div class="section-container">
@@ -338,6 +343,7 @@
                         </div>
                     </div>
                 }
+                @*Web Frontend*@
                 @if (UIService.SectionMgmt.Sections[3].IsVisible)
                 {
                     <div class="section-container">
@@ -354,6 +360,7 @@
                         </div>
                     </div>
                 }
+                @*Back-end*@
                 @if (UIService.SectionMgmt.Sections[1].IsVisible)
                 {
                     <div class="section-container">
@@ -378,6 +385,7 @@
                         </div>
                     </div>
                 }
+                @*UX/UI + Modeling Software*@
                 @if (UIService.SectionMgmt.Sections[4].IsVisible)
                 {
                     <div class="section-container">
@@ -410,6 +418,7 @@
                         </div>
                     </div>
                 }
+                @*Cloud Deployment + Containers*@
                 @if (UIService.SectionMgmt.Sections[5].IsVisible)
                 {
                     <div class="section-container">
@@ -426,6 +435,7 @@
                         </div>
                     </div>
                 }
+                @*Databases*@
                 @if (UIService.SectionMgmt.Sections[6].IsVisible)
                 {
                     <div class="section-container">
@@ -442,6 +452,7 @@
                         </div>
                     </div>
                 }
+                @*Testing*@
                 @if (UIService.SectionMgmt.Sections[7].IsVisible)
                 {
                     <div class="section-container">
@@ -458,6 +469,7 @@
                         </div>
                     </div>
                 }
+                @*Why Programming?*@
                 @if (UIService.SectionMgmt.Sections[13].IsVisible)
                 {
                     <div class="section-container">
@@ -477,6 +489,7 @@
                         </div>
                     </div>
                 }
+                @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
                 @if (UIService.SectionMgmt.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
                     @if (!UIService.SectionMgmt.Sections[0].IsCurrentPromo)
@@ -499,21 +512,21 @@
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[15].IsCurrentPromo)
-                    {
-                        <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(15))">
-                                Hide & Seek Game - Project
-                                &nbsp;
-                                <i class="fa fa-chevron-left" />
-                            </div>
-                        </div>
-                    }
                     @if (!UIService.SectionMgmt.Sections[16].IsCurrentPromo)
                     {
                         <div class="section-container">
                             <div class="section-header @UIService.SectionMgmt.Sections[16].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(16))">
                                 Bee Hive Manager System/Game - Project
+                                &nbsp;
+                                <i class="fa fa-chevron-left" />
+                            </div>
+                        </div>
+                    }
+                    @if (!UIService.SectionMgmt.Sections[15].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UIService.SectionMgmt.Sections[15].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(15))">
+                                Hide & Seek Game - Project
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
