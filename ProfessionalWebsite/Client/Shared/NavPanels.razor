@@ -11,15 +11,18 @@
       @*<NavPanelNavLinkButton Href="stats"
                                IconClasses="fa-solid fa-chart-line"
                                ButtonText="Statistics"
-                               ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />*@
-        <NavPanelNavLinkButton Href="matchgame"
-                               ButtonText="Match Game"
+        ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />*@
+        <NavPanelNavLinkButton Href="beehivemgmtsystem"
+                               ButtonText="Bee Hive Mgmt System"
+                               ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />
+        <NavPanelNavLinkButton Href="hideandseek"
+                               ButtonText="Hide & Seek"
                                ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="knowhow/14"
                                ButtonText="This PWA"
                                ButtonClickCallback="(()=>UIService.NavigateToSection(13))" />
-        <NavPanelNavLinkButton Href="hideandseek"
-                               ButtonText="Hide & Seek"
+        <NavPanelNavLinkButton Href="matchgame"
+                               ButtonText="Match Game"
                                ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="twodecks"
                                ButtonText="Two Decks"
@@ -30,9 +33,6 @@
         <NavPanelNavLinkButton Href="gofish"
                                ButtonText="Go Fish"
                                ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />*@
-        <NavPanelNavLinkButton Href="beehivemgmtsystem"
-                               ButtonText="Bee Hive Mgmt System"
-                               ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="phpcmsandprocessbook"
                                ButtonText="PHP CMS & Process Book"
                                ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />*@
@@ -112,6 +112,7 @@
                                ButtonText="Projects"
                                ButtonClickCallback="(()=>UIService.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="collyn/23"
+                               IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact" />
     </div>
 </NavPanelContainer>
