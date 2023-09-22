@@ -1,0 +1,41 @@
+.icon[b-x5ldazyjon] {
+    color: #111;
+    width: 1.8rem;
+    font-size: 0.9rem;
+    vertical-align: text-top;
+    top: -1px;
+}
+
+.navlink[b-x5ldazyjon] {
+    border-left: 4px solid lightgrey;
+    padding: 0px 16px 0px 36px;
+    display: flex;
+    flex: 1;
+}
+
+.nav-item[b-x5ldazyjon] {
+    font-size: 0.97rem;
+}
+
+    .nav-item[b-x5ldazyjon]  span {
+        padding-right: 10px;
+    }
+
+    .nav-item[b-x5ldazyjon]  a {
+        padding-left: 30px;
+        color: #111;
+        display: flex;
+        align-items: center;
+    }
+
+        .nav-item[b-x5ldazyjon]  a.active {
+            background-color: rgba(0,0, 0, 0.12);
+        }
+
+        .nav-item[b-x5ldazyjon]  a:hover {
+            background-color: rgba(0,0, 0, 0.18);
+        }
+
+    .nav-item[b-x5ldazyjon]  i {
+        color: #eee;
+    }

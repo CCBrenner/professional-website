@@ -1,0 +1,16 @@
+
+.construction-container[b-wv5jtcb391] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: #eee;
+    text-align: center;
+    /*border-radius: 12px;*/
+}
+
+.construction[b-wv5jtcb391] {
+    width: 50%;
+}
