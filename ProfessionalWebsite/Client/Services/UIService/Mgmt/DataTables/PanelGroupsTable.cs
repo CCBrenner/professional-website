@@ -1,20 +1,25 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables;
+
+public sealed class PanelGroupsTable
 {
-    public class PanelGroupsTable
+    private List<PanelGroup> panelGroups = new()
     {
-        public PanelGroupsTable()
-        {
-            PanelGroups = new List<PanelGroup>()
-            {
-                new PanelGroup(0, 4),  // NavMgmt panels
-            };
+        new PanelGroup(0, 4),  // NavMgmt panels
+    };
 
-            PanelGroupsDict = new Dictionary<int, PanelGroup>();
-            foreach (PanelGroup panelGroup in PanelGroups)
-                PanelGroupsDict.Add(panelGroup.Id, panelGroup);
-        }
+    public static List<PanelGroup> GetPanelGroups()
+    {
+        PanelGroupsTable panelGroupTable = new();
+        return panelGroupTable.panelGroups;
+    }
+    public static Dictionary<int, PanelGroup> GetPanelGroupsDict()
+    {
+        PanelGroupsTable panelGroupTable = new();
+        Dictionary<int, PanelGroup> panelGroupsDict = new Dictionary<int, PanelGroup>();
 
-        public List<PanelGroup> PanelGroups { get; private set; }
-        public Dictionary<int, PanelGroup> PanelGroupsDict { get; private set; }
+        foreach (PanelGroup panelGroup in panelGroupTable.panelGroups)
+            panelGroupsDict.Add(panelGroup.Id, panelGroup);
+
+        return panelGroupsDict;
     }
 }

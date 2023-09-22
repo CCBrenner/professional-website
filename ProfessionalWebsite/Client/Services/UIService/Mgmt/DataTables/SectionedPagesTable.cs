@@ -1,24 +1,30 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables;
+
+public sealed class SectionedPagesTable
 {
-    public sealed class SectionedPagesTable
+    private List<SectionedPage> sectionedPages = new()
     {
-        public SectionedPagesTable()
-        {
-            SectionedPages = new List<SectionedPage>()
-            {
-                new SectionedPage(0, 2, "projects"),  // not used
-                new SectionedPage(1, 3, "knowhow"),
-                new SectionedPage(2, 4, "collyn"),
-                new SectionedPage(3, 5, "invent"),
-                new SectionedPage(4, 6, "articles"),  // not used
-            };
+        new SectionedPage(0, 2, "projects"),  // not used
+        new SectionedPage(1, 3, "knowhow"),
+        new SectionedPage(2, 4, "collyn"),
+        new SectionedPage(3, 5, "invent"),
+        new SectionedPage(4, 6, "articles"),  // not used
+    };
 
-            SectionedPagesDict = new Dictionary<int, SectionedPage>();
-            foreach (SectionedPage sectionedPage in SectionedPages)
-                SectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
-        }
+    public static List<SectionedPage> GetSectionedPages()
+    {
+        SectionedPagesTable sectionedPagesTable = new();
+        return sectionedPagesTable.sectionedPages;
+    }
 
-        public List<SectionedPage> SectionedPages { get; private set; }
-        public Dictionary<int, SectionedPage> SectionedPagesDict { get; private set; }
+    public static Dictionary<int, SectionedPage> GetSectionedPagesDict()
+    {
+        SectionedPagesTable sectionedPagesTable = new();
+        Dictionary<int, SectionedPage> sectionedPagesDict = new Dictionary<int, SectionedPage>();
+
+        foreach (SectionedPage sectionedPage in sectionedPagesTable.sectionedPages)
+            sectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
+
+        return sectionedPagesDict;
     }
 }

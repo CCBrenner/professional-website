@@ -1,9 +1,8 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt
+﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt;
+
+public enum SectionsStatus
 {
-    public enum SectionsStatus
-    {
-        AllAreCollapsed,
-        AtLeastOneIsOpen,
-        AllAreOpen,
-    }
+    AllAreCollapsed,
+    AtLeastOneIsOpen,
+    AllAreOpen,
 }

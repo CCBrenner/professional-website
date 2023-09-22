@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {}
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
         "projectName": "ProfessionalWebsite.Tests",
-        "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
-        "packagesPath": "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite.Tests\\obj\\",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
+        "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Collyn B - VotP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\colly_cp7sy9h\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
-                "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj"
               }
             }
           }
@@ -77,21 +82,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
         "projectName": "ProfessionalWebsite.Client",
-        "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
-        "packagesPath": "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\obj\\",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj",
+        "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Collyn B - VotP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\colly_cp7sy9h\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,6 +108,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -145,7 +155,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.12, 6.0.12]"
+              "version": "[6.0.21, 6.0.21]"
             }
           ],
           "frameworkReferences": {
@@ -153,7 +163,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -162,17 +172,21 @@
         }
       }
     },
-    "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
         "projectName": "ProfessionalWebsite.Server",
-        "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
-        "packagesPath": "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Server\\obj\\",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\ProfessionalWebsite.Server.csproj",
+        "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Server\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Collyn B - VotP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\colly_cp7sy9h\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -180,17 +194,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
-                "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj"
               },
-              "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
-                "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj"
+              "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
+                "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj"
               }
             }
           }
@@ -229,21 +244,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
         "projectName": "ProfessionalWebsite.Shared",
-        "projectPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
-        "packagesPath": "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_B\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Collyn B - VotP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\colly_cp7sy9h\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -251,6 +270,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -284,7 +304,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
