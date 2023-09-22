@@ -14,7 +14,7 @@
         <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(16))" />
         <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="knowhow/33" ButtonText="Match Game - Project" OnClickCallback="(()=>UIService.NavigateToSection(33))" />
-        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Web Front-end" OnClickCallback="(()=>UIService.NavigateToSection(3))" />
+        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Front-end" OnClickCallback="(()=>UIService.NavigateToSection(3))" />
         <DrawerNavLinkButton Href="knowhow/1" ButtonText="Back-end" OnClickCallback="(()=>UIService.NavigateToSection(1))" />
         <DrawerNavLinkButton Href="knowhow/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>UIService.NavigateToSection(4))" />
         <DrawerNavLinkButton Href="knowhow/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>UIService.NavigateToSection(5))" />
@@ -343,12 +343,12 @@
                         </div>
                     </div>
                 }
-                @*Web Frontend*@
+                @*Frontend*@
                 @if (UIService.SectionMgmt.Sections[3].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(3))">
-                            Web Front-End
+                            Front-End
                             &nbsp;
                             @if(UIService.SectionMgmt.Sections[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
@@ -356,7 +356,15 @@
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
                         <div class="section-content @UIService.SectionMgmt.Sections[3].IsCollapsedContent">
-                            <UnderConstruction />
+                            <p>
+                                My introduction to coding was through FreeCodeCamp using JavaScript. This led me naturally into developing web sites with HTML and CSS along with JS. I would say I have a particular affinity for clean, functional, modular user interfaces that look very nice by themselves and then make the user feel really good through simplicity and handling things for them in ways that communicate thoughtfulness. It is important to make designs intuitive when making interfaces, and this usually means gleaning from many different users and the decisions they make when navigating a GUI. It seems as though the key to an intuitive interface is learning through interaction, enabled by simplistic design, and finding things where you expect them to be. I am glad we now have moved into the age of SPAs and component-based architecture because it allows for UI components to be reused in the same way classes are, reducing code which generally translates into less for the programmer to manage (in many cases).
+                            </p>
+                            <p>
+                                I have worked with plain front-end languages, LAMP stack (which utilizes PHP for serving the front-end UI to the client), React, Django, React Native, and Blazor WASM. I enjoy providing a pleasant and enjoyable experience to the user because I like making things that I can use. When an interface I have made or helped to improve delights me, I am proud of my work and gain a sense of fulfillment and appreciation for the work I’ve done.
+                            </p>
+                            <p>
+                                The user interface seems to be one of the most under-rated tools for communicating who and what a company is and is about. Through an excellent UI the user can tell exactly how legit/credible a company is, how serious they are about what they do, and if it looks great, the user may enjoy just having a lovely experience. Of course, the software has to work well too, but these kinds of things are often left as a secondary thought and not followed up in their proper time.</p><p>I could talk a whole lot about the workings of front-end/back-end communication. For this, please see the API section of this page (KnowHow > API).
+                            </p>
                         </div>
                     </div>
                 }
@@ -521,7 +529,7 @@
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
-                    }
+                    } 
                     @if (!UIService.SectionMgmt.Sections[15].IsCurrentPromo)
                     {
                         <div class="section-container">
@@ -546,7 +554,7 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UIService.SectionMgmt.Sections[3].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(3))">
-                                Web Front-End
+                                Front-End
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
