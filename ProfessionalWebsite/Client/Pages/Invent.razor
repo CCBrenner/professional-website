@@ -1,5 +1,4 @@
-﻿@inject UIService UI
-@implements IDisposable
+﻿@implements IDisposable
 
 @page "/invent"
 @page "/invent/{SectionId:int}"
@@ -8,105 +7,105 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-warehouse" HeaderText="Invent">
     <DrawerContent>
-        <DrawerNavLinkButton Href="invent/26" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(26))" />
-        <DrawerNavLinkButton Href="invent/27" ButtonText="Future Vision App" OnClickCallback="(()=>UI.NavigateToSection(27))" />
-        <DrawerNavLinkButton Href="invent/28" ButtonText="Unified Faith App" OnClickCallback="(()=>UI.NavigateToSection(28))" />
-        <DrawerNavLinkButton Href="invent/29" ButtonText="Hang Out Availability App" OnClickCallback="(()=>UI.NavigateToSection(29))" />
-        <DrawerNavLinkButton Href="invent/30" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>UI.NavigateToSection(30))" />
-        <DrawerNavLinkButton Href="invent/31" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>UI.NavigateToSection(31))" />
-        <DrawerNavLinkButton Href="invent/32" ButtonText="Audio Games" OnClickCallback="(()=>UI.NavigateToSection(32))" />
+        <DrawerNavLinkButton Href="invent/26" ButtonText="Overview" OnClickCallback="(()=>App.NavigateToSection(26))" />
+        <DrawerNavLinkButton Href="invent/27" ButtonText="Future Vision App" OnClickCallback="(()=>App.NavigateToSection(27))" />
+        <DrawerNavLinkButton Href="invent/28" ButtonText="Unified Faith App" OnClickCallback="(()=>App.NavigateToSection(28))" />
+        <DrawerNavLinkButton Href="invent/29" ButtonText="Hang Out Availability App" OnClickCallback="(()=>App.NavigateToSection(29))" />
+        <DrawerNavLinkButton Href="invent/30" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>App.NavigateToSection(30))" />
+        <DrawerNavLinkButton Href="invent/31" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>App.NavigateToSection(31))" />
+        <DrawerNavLinkButton Href="invent/32" ButtonText="Audio Games" OnClickCallback="(()=>App.NavigateToSection(32))" />
         <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Overview*@
-                @if (UI.Section.Sections[26].IsVisible)
+                @if (App.Section.Sections[26].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
+                        <div class="section-header @App.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(26))">
                             Overview
                             &nbsp;
-                            @if(UI.Section.Sections[26].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[26].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[26].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[26].IsCollapsedContent">
                             <br/>
                             <h4>The Greenfield</h4>
-                            <p>Someone once said that every business needs an ideas guy. Well, if I am honest I must share that I believe I am one of those people. It is in my nature to be creative, to generate ideas, to look at things differently than others would even try to imagine. I think that is it: imagination. Engineering is one of the coolest things that a person can participate in because it is the making of the ideal into something real. It is also the making of a problem into something better through a solution. Both of these things invigorate me, though they often can be difficult to bear at times, and sometimes there is no apparent solution. However, just because we may encounter hardships in our efforts to construct something we believe is worth constructing, that doesn’t mean that we should give up quickly. To be an imaginative engineer is the essence of marrying the ideal and the real and the real with the ideal. What is difficult in this regard is that being an engineer requires discipline in order for what is built to go well with the engineer, and discipline and imagination at times can conflict. And so it is this balance or trade-off that needs to happen: There is a time to imagine, and there is a time to build with discipline. I have been intent on achieving this, this back and forth between times of imagining and the times of creating through disciplined work.</p>
+                            <p>Someone once said that every business needs an ideas guy. Well, if I am honest I must share that I believe I am one of those people. It is in my nature to be creative, to generate ideas, to look at things differently than others would even try to imagine. I think that is it: imagination. Engineering is one of the coolest things that a person can participate in because it is the making of the ideal into something real. It is also the making of a problem into something better through a solution. Both of these things invigorate me, though they often can be difficult to bear at times, and sometimes there is no apparent solution. However, just because we may encounter hardships in our efforts to construct something we believe is worth constructing, that doesn’t mean that we should give up qAppckly. To be an imaginative engineer is the essence of marrying the ideal and the real and the real with the ideal. What is difficult in this regard is that being an engineer reqAppres discipline in order for what is bApplt to go well with the engineer, and discipline and imagination at times can conflict. And so it is this balance or trade-off that needs to happen: There is a time to imagine, and there is a time to bAppld with discipline. I have been intent on achieving this, this back and forth between times of imagining and the times of creating through disciplined work.</p>
                             <p>All of this to say, I hope you find this section of my portfolio thought-provoking. Welcome to The Greenfield!</p>
                         </div>
                     </div>
                 }
                 @*Future Vision App*@
-                @if (UI.Section.Sections[27].IsVisible)
+                @if (App.Section.Sections[27].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
+                        <div class="section-header @App.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(27))">
                             Future Vision App
                             &nbsp;
-                            @if(UI.Section.Sections[27].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[27].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[27].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[27].IsCollapsedContent">
                             <br/>
                             <h4>Idea Conceptualized</h4>
-                            <p>The idea behind this app is for any group of people who have time on their hands to try and do something that is somewhat complex to the point of requiring a long-term strategy. The term “future vision” alludes to the ability to visualize time concerning future paths to be taken towards a goal in hopes of achieving success. It is hard to get everyone onto the same page sometimes due to discrepancies between understanding of things, and it is often hard sometimes just to get an idea down in a described form that is able to be communicated by one person. And so as a dynamic visualization aid this app would provide a way to “show, don’t tell” (although that which is shown can be enhanced in understanding for the viewer through the use of descriptive detail). The Future Vision app allows the user to change course, or “pivot”, as they progress with the roadmap they have laid out for themselves. If you are of a software development background, you can think of this as creating a number of repository branches, and then when a decision is made it equates to having chosen one of the branches to follow as a roadmap segment. The future vision visual modeling allows for the group to quickly, accurately, and easily explain what their project is to others, and due to the high level of accessibility via mobile devices this can lead to recruiting people who are interested in the project’s endeavor through the sharing of a link. The future vision app allows the group to be organized about their planning, work with something that allows for contemplation over hypothetical situations so that potential barriers to success can be identified ahead of time and either negated, avoided, or identified as being without a solution in which case a different means would have to be crafted. (Someone once said that the easiest way for an engineer to waste time is to build something that should never have been built in the first place.)</p>
-                            <p>The Future Vision app would allow for time-limited and incremental progress measurements as well as integrated requirements management (dependency tree) so that it is understood how to best utilize time if there are certain parts of the endeavor that would take a longer than usual time to either prepare or complete. In such cases it would be best to start working on that part of the project early and in parallel with the other efforts of the project.</p>
+                            <p>The idea behind this app is for any group of people who have time on their hands to try and do something that is somewhat complex to the point of reqAppring a long-term strategy. The term “future vision” alludes to the ability to visualize time concerning future paths to be taken towards a goal in hopes of achieving success. It is hard to get everyone onto the same page sometimes due to discrepancies between understanding of things, and it is often hard sometimes just to get an idea down in a described form that is able to be communicated by one person. And so as a dynamic visualization aid this app would provide a way to “show, don’t tell” (although that which is shown can be enhanced in understanding for the viewer through the use of descriptive detail). The Future Vision app allows the user to change course, or “pivot”, as they progress with the roadmap they have laid out for themselves. If you are of a software development background, you can think of this as creating a number of repository branches, and then when a decision is made it equates to having chosen one of the branches to follow as a roadmap segment. The future vision visual modeling allows for the group to qAppckly, accurately, and easily explain what their project is to others, and due to the high level of accessibility via mobile devices this can lead to recrAppting people who are interested in the project’s endeavor through the sharing of a link. The future vision app allows the group to be organized about their planning, work with something that allows for contemplation over hypothetical situations so that potential barriers to success can be identified ahead of time and either negated, avoided, or identified as being without a solution in which case a different means would have to be crafted. (Someone once said that the easiest way for an engineer to waste time is to bAppld something that should never have been bApplt in the first place.)</p>
+                            <p>The Future Vision app would allow for time-limited and incremental progress measurements as well as integrated reqApprements management (dependency tree) so that it is understood how to best utilize time if there are certain parts of the endeavor that would take a longer than usual time to either prepare or complete. In such cases it would be best to start working on that part of the project early and in parallel with the other efforts of the project.</p>
                             <p>The Future Vision app allows for the possibility to break up work based on team, and while on the one hand it offers the ability to make the work for a specific team encapsulated (modular), that team doesn’t have to work in a silo but can still provide feedback due to visibility into the master plan and welcomed feedback (if feedback is indeed welcomed by the leaders).</p>
                             <p>The Future Vision app would allow for automatic reports to be generated per day (or perhaps less frequently) based on data entered by each person or team on what they accomplished. The Future vision app, once the team has gone a significant distance in time down the roadmap they have crafted, can look back on past conversations and notes when they were trying to make decisions about what to do, to glean from, and they potentially can bring past ideas back to the present location in the future vision model as things they wish to pursue now because they are in a different, likely more advantageous or secure position - those ideas, then, don’t have to be re-entered manually but instead can be copied to the current location in time and modified or augmented if needed.</p>
                             <p>The future vision model would lend itself to getting particularly specific or high-resolution in parts of the plan, for example, there may be some additional complexity or there are specific things that are less certain to happen correctly and which need more attention, or which are particular problem points in the journey toward achieving the goal.</p>
                             <p>The future vision model could be adapted to present itself in a number of different renderings that may provide a helpful way to think about the plan, such as a runner in a road race and what benchmark achievements they have to completed or have completed, always fixing their eyes on the finish line, or a tree that starts as a sapling with an overlaid semi-transparent timeline, where today is at the root and the future is either at the top of the screen or located beyond the screen. The state of the tree’s growth is handled by completion of benchmark goals in moving toward the final goal, and the growth of the tree would make the user feel like they are making progress, but also serve as a reminder of how much is still left to go based on quantitative measurement of time expected for results of each part.</p>
                             <br/>
                             <h4>Idea Origins</h4>
-                            <p>This product idea originates from the observation of people in western society being so hung up on the momentary things going on that they struggle to focus on long-term efforts for one reason or another. This is intended to serve the entrepreneurial and bored middle schooler, high schooler, and college-aged person who has a dream but they’re not sure how to achieve it and they may not be very organized or know how to set good goals for themselves in progress toward achieving their dream. If you have read “Zero to One” by Peter Thiel, there is a chapter that talks about a 2 x 2 matrix where on one axis there is “Optimistic” and “Pessimistic” and on the other axis are “Definite” and “Indefinite” where when combined make descriptors such as “Definite Pessimist” and the like. This idea is one that is characteristic of the engineer’s attitude, this being “Definite Optimist”, meaning that it is possible to determine things that will happen in the future based on what we know today and that we can build things that meet the future in a way that is characteristically hopeful. Hope is important because it is what allows for intrinsic motivation to be possible, and intrinsic motivation is among the strongest forces in the world. What world would we live in if we built tools that supported the cultivation of hope and intrinsic motivation instead of cutting people down in the name of all that is hyper focused only on what is pragmatic? Let’s have a great future instead.</p>
+                            <p>This product idea originates from the observation of people in western society being so hung up on the momentary things going on that they struggle to focus on long-term efforts for one reason or another. This is intended to serve the entrepreneurial and bored middle schooler, high schooler, and college-aged person who has a dream but they’re not sure how to achieve it and they may not be very organized or know how to set good goals for themselves in progress toward achieving their dream. If you have read “Zero to One” by Peter Thiel, there is a chapter that talks about a 2 x 2 matrix where on one axis there is “Optimistic” and “Pessimistic” and on the other axis are “Definite” and “Indefinite” where when combined make descriptors such as “Definite Pessimist” and the like. This idea is one that is characteristic of the engineer’s attitude, this being “Definite Optimist”, meaning that it is possible to determine things that will happen in the future based on what we know today and that we can bAppld things that meet the future in a way that is characteristically hopeful. Hope is important because it is what allows for intrinsic motivation to be possible, and intrinsic motivation is among the strongest forces in the world. What world would we live in if we bApplt tools that supported the cultivation of hope and intrinsic motivation instead of cutting people down in the name of all that is hyper focused only on what is pragmatic? Let’s have a great future instead.</p>
                         </div>
                     </div>
                 }
                 @*Unified Faith App*@
-                @if (UI.Section.Sections[28].IsVisible)
+                @if (App.Section.Sections[28].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
+                        <div class="section-header @App.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(28))">
                             Unified Faith App
                             &nbsp;
-                            @if(UI.Section.Sections[28].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[28].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[28].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[28].IsCollapsedContent">
                             <br/>
                             <h4>Idea Concept Overview</h4>
                             <p>The idea for this app is to support believers and to unify those who share a common Biblical faith in Jesus. Faith surely is to be common among believers - it is not a different faith between people who call themselves Christians. A person’s relationship with their savior may vary as they come to know him, leaving us with different depths of relationship with Jesus - this is true - but it is still one faith, one Lord, one body, one Spirit, one baptism, one God, one Father of all. This reality looks to not be recognized, or at least not realized in the Church yet. I propose a platform that achieves the purposes described below, one designed specifically for the Church to supplement the secular platforms as a dedicated space for Biblical conversation and love for one another in service to God in the world while not being of the world. I hope that this platform also welcomes healthy competition (in other words, good sportsmanship) and the benefits that technology has to offer the Church instead of fear of technology, because perfect love casts out fear. We need only to be responsible stewards of such technology while holding to our commitment to our God and to his people who wish to share the love of the only true God with all people.</p>
                             <br/>
                             <h4>Idea Origins</h4>
                             <p>I am a believer in Jesus who grew up in a number of different protestant churches, but as I’ve grown older and more mature in my faith I’ve come to see the heartbreaking state of the Body of Christ. In times highly dictated by what is called “identity politics”, I’ve come to find that the singular Church (with a capital “C”) does not have many who identify with it, who identify with one singular and recognizable Church. It is the case that Christian denominations are content with remaining among their own denominations, separate from each other, and while denominations may at times affiliate as part of the Church, they do not act like one Body of Christ, but as many capital “C” Churches. This simply is not a reality that exists - there is only one Church, the bride of Jesus.</p>
-                            <p>Along with this observation, the Church has had a severe lack of technology solutions that are designed for its own purposes. The Church is left only with the secular platforms to use as their tech platforms and solutions. Today many Church-dedicated solutions are starting to be created, but these are primarily for the pastors of specific local churches. This does not seek to serve the Church but only local churches. The pastor’s sermons and the sermon’s comment section are mostly what have been supported. These alone are not sufficient. I am proposing that we build a synchronous and singular/primary connection between houses of God, one to another on a platform designed and built for the common use case and needs of believers everywhere, maintaining the ability to organize and operate on a larger scale comparable to what the Roman Catholics try to make themselves look like.</p>
+                            <p>Along with this observation, the Church has had a severe lack of technology solutions that are designed for its own purposes. The Church is left only with the secular platforms to use as their tech platforms and solutions. Today many Church-dedicated solutions are starting to be created, but these are primarily for the pastors of specific local churches. This does not seek to serve the Church but only local churches. The pastor’s sermons and the sermon’s comment section are mostly what have been supported. These alone are not sufficient. I am proposing that we bAppld a synchronous and singular/primary connection between houses of God, one to another on a platform designed and bApplt for the common use case and needs of believers everywhere, maintaining the ability to organize and operate on a larger scale comparable to what the Roman Catholics try to make themselves look like.</p>
                             <p>Concerning local churches, these places of meeting are left unconnected - siloed - and not talking to one another. The Church abroad largely fails to recognize the distinction that is supposed to be made between believer and non-believer, that there is a higher standard for the believer with expectations which are Biblically founded in God’s commands. How are we to uphold this standard of love among believers when we have only dispersed spaces dedicated to such activities? In times where culture prefers to not be bothered by questions that at first glance are uncomfortable, the Church lacks that critical skepticism of Scriptural interpretation, integrity and care in love for the God of the universe as the love of God is translated into love for people whom God created. Today western, freedom-loving culture has brought the Church to lack its fundamental essence and attitude of serious devotion to God. What happened to the importance of God’s Word as a light unto our feet, which helps us walk the path of righteousness - the righteousness that comes from faith in Jesus? It has become weakened by the flesh just as the apostle Paul points out. Flesh may have weakened the Church, but the Spirit is willing in times where the Body is weak.</p>
                             <br/>
                             <h4>Idea Realization Roadmap</h4>
-                            <p>What this currently looks like conceptually as I have come to develop it as a roadmap is this (*this is subject to change): (1) Build an app that allows for believers to organize and store memory verses they have memorized and plan to memorize either by themselves or with others and which can be used to reinforce Scripture memorization so as to write the Word of God on one’s heart, (2) since the bible Quizzing ministry has many of the key culture components I would like the app to house, including Bible memorization and compassionate love for one another plus a competitive spirit, build the app into that which best fulfills the needs of the quizzing ministry in hopes to be as compelling and attractive to the quizzers and adults in that ministry to adopt the app across Bible Quizzing ministries, developed to the point of maturity in looking forward to what their presence on the app means for the remainder of the apps development future (*Facebook adopted the culture and attitude of Ivy league schools as the first users it was sold to), (3) expand the scope of the app to include affiliations with local churches to allow people to become better acquainted with reflections of what is the real world and to serve as a profile for those churches to take ownership of and use to take in data from their church attendees about everything that this ministry is accomplishing in the lives of young people (*this is essentially a bridge to #4), (4) having brought the management of local churches onto the platform through ability for app users to invite non-users from within the app and local church identification based on physical address as a singular local church entity each (meaning, the church entity can be created in the app without the need for management at that local church to have knon about it), add functionality that benefits the local churches in providing their regular church operations with the support of the platform, with the ability to stream with optinal related sermon program notes that can be shared ahead of time, small group devotionals that can be created by any user as an augmented version of the Bible verse memory playlist introduced in part 1 here, the ability for the pastor to receive notifications and feedback from users who switch home churches as to why they did so, ability to receive prayer request and collect tithes or donations from within the app, the ability to find people who are in need so as to fulfill them through loving service, and to operate as a believer’s profile for in-Church community and personal engagement, (5) introduce the ability to filter posted content by geolocation proximity so that you can see those who are living near and around you, what they are sharing as fellow brothers and sisters in Christ who make up God’s “found family”. This phase would also include the introduction of some of the most popular social media inventions, such as X’s diverging post tree and TikTok’s invention of prioritized vertical video immersion. Post expiration configuration would also be made available. These things would serve as a benefactor in ways that share encouragement in the Word and testimonies from one to another in a higher density, having no place for secular influences, or at least an attitude of defense against the invasion of secular influences onto the platform. (6) (since this is very far in the future, this may or may not happen) but the introduction of a Bible AI that can provide responses based on machine learning of the Bible, which is hoped to provide  insights into Scripture interpretation which may not have been possible by people alone. Could potentially create something like an AI that would be the essence of “What would Jesus say about this?” or “What would Paul say?” or “What would David think about this?”, etc. #6 is one that has high potential but also could be used very maliciously, so I am hesitant and cautious about it. Someone else will likely have tried to make this a reality before our team has.</p>
+                            <p>What this currently looks like conceptually as I have come to develop it as a roadmap is this (*this is subject to change): (1) BAppld an app that allows for believers to organize and store memory verses they have memorized and plan to memorize either by themselves or with others and which can be used to reinforce Scripture memorization so as to write the Word of God on one’s heart, (2) since the bible QAppzzing ministry has many of the key culture components I would like the app to house, including Bible memorization and compassionate love for one another plus a competitive spirit, bAppld the app into that which best fulfills the needs of the qAppzzing ministry in hopes to be as compelling and attractive to the qAppzzers and adults in that ministry to adopt the app across Bible QAppzzing ministries, developed to the point of maturity in looking forward to what their presence on the app means for the remainder of the apps development future (*Facebook adopted the culture and attitude of Ivy league schools as the first users it was sold to), (3) expand the scope of the app to include affiliations with local churches to allow people to become better acquainted with reflections of what is the real world and to serve as a profile for those churches to take ownership of and use to take in data from their church attendees about everything that this ministry is accomplishing in the lives of young people (*this is essentially a bridge to #4), (4) having brought the management of local churches onto the platform through ability for app users to invite non-users from within the app and local church identification based on physical address as a singular local church entity each (meaning, the church entity can be created in the app without the need for management at that local church to have knon about it), add functionality that benefits the local churches in providing their regular church operations with the support of the platform, with the ability to stream with optinal related sermon program notes that can be shared ahead of time, small group devotionals that can be created by any user as an augmented version of the Bible verse memory playlist introduced in part 1 here, the ability for the pastor to receive notifications and feedback from users who switch home churches as to why they did so, ability to receive prayer request and collect tithes or donations from within the app, the ability to find people who are in need so as to fulfill them through loving service, and to operate as a believer’s profile for in-Church community and personal engagement, (5) introduce the ability to filter posted content by geolocation proximity so that you can see those who are living near and around you, what they are sharing as fellow brothers and sisters in Christ who make up God’s “found family”. This phase would also include the introduction of some of the most popular social media inventions, such as X’s diverging post tree and TikTok’s invention of prioritized vertical video immersion. Post expiration configuration would also be made available. These things would serve as a benefactor in ways that share encouragement in the Word and testimonies from one to another in a higher density, having no place for secular influences, or at least an attitude of defense against the invasion of secular influences onto the platform. (6) (since this is very far in the future, this may or may not happen) but the introduction of a Bible AI that can provide responses based on machine learning of the Bible, which is hoped to provide  insights into Scripture interpretation which may not have been possible by people alone. Could potentially create something like an AI that would be the essence of “What would Jesus say about this?” or “What would Paul say?” or “What would David think about this?”, etc. #6 is one that has high potential but also could be used very maliciously, so I am hesitant and cautious about it. Someone else will likely have tried to make this a reality before our team has.</p>
                         </div>
                     </div>
                 }
                 @*Hang Out Availability App*@
-                @if (UI.Section.Sections[29].IsVisible)
+                @if (App.Section.Sections[29].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
+                        <div class="section-header @App.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(29))">
                             Hang Out Availability App
                             &nbsp;
-                            @if(UI.Section.Sections[29].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[29].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[29].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[29].IsCollapsedContent">
                             <p>Today, no one wants to be the friend that reaches out first to see if someone wants to hang out with them. They don’t want to risk being rejected for taking the initiative in a friendship. This is because a person can end up feeling bad when it seems like they are the one who cares more about the relationship or that they are having to admit that they want or need to spend time with that friend for fear of the sentiment not being mutually shared, or at least not mutually shown. It is also a bad feeling when it comes off as if a person has no other friends to spend time with. These are hard realities to face many times, and it usually happens in a state of loneliness.</p>
                             <p>This app would allow the user to set up times where the person is free to hang out, either on a schedule or spontaneously, and offer the ability for others to see that that person would like to hang out, and the people can get together. The app would also reserve the ability to hide a person’s status as “wanting to hang out” for certain people that the user does not have an interest in hanging out with. Those people will not see that that person is available to hang out. It is a simple concept for something that has high potential to encourage connecting with others in an easier way.</p>
 
@@ -114,132 +113,132 @@
                     </div>
                 }
                 @*Philosophy Orientation App*@
-                @if (UI.Section.Sections[30].IsVisible)
+                @if (App.Section.Sections[30].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
+                        <div class="section-header @App.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(30))">
                             Philosophy Orientation App
                             &nbsp;
-                            @if(UI.Section.Sections[30].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[30].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[30].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[30].IsCollapsedContent">
                             <p>When I first learned about philosophy, I started to see the world in a whole new way, however, there is this common stigma about philosophy upon first impression that it is boring, antiquated, or something that doesn’t have anything to do with things that really matter. In other words, it is not attractive to people as worth getting involved with. But, what I’ve come to see is that some philosophy is incredibly useful, and I found that philosophy provides a unique means for appreciating life in new ways. It enables a person to think in ways they wouldn’t have thought before, and it brings the observer to know oneself more and their place in the world. It is able to give the ability to navigate the world based on principles of reasoning instead of gut instincts or whichever way the winds of feelings blow a person around.</p>
-                            <p>My perspective on all of this is that most people have not been properly introduced to philosophy - the love of wisdom. Many people may never see wisdom as something worth acquiring, or even of thinking that wisdom is something to be acquired intentionally compared to acquiring wisdom from mere experiences of life. The great philosophers of the past are still considered today because their ideas have proven their potential for longevity such as to remain relevant even now - but how are they relevant? The application I would seek to build would be centered around the fact that we all make decisions in life. When making decisions it is good to ask yourself relevant questions surrounding the decision, so as to make the best decision. How do we determine what the best decision is? What are all of the available options? Is there an art to decision-making, or is instinct just as good? Can using philosophy make our lives better, or is it a total waste of time? Who are the philosophers of the past and what are their ideas and proposed perspectives? What can we learn from the great thinkers of history? What is the framework for thinking within the subject of philosophy? Do I know that the simple decision between what to care about and what not to care about is actually a philosophical one? This app would encourage the user to think in the form of questions about what is, how it works, what is true, what is to be valued or at least valued by the user, and seek to make the user more robust in their thinking so as to be able to maintain independent thinking in a world where groupthink is always on the prowl, looking for someone to devour.</p>
+                            <p>My perspective on all of this is that most people have not been properly introduced to philosophy - the love of wisdom. Many people may never see wisdom as something worth acqAppring, or even of thinking that wisdom is something to be acqAppred intentionally compared to acqAppring wisdom from mere experiences of life. The great philosophers of the past are still considered today because their ideas have proven their potential for longevity such as to remain relevant even now - but how are they relevant? The application I would seek to bAppld would be centered around the fact that we all make decisions in life. When making decisions it is good to ask yourself relevant questions surrounding the decision, so as to make the best decision. How do we determine what the best decision is? What are all of the available options? Is there an art to decision-making, or is instinct just as good? Can using philosophy make our lives better, or is it a total waste of time? Who are the philosophers of the past and what are their ideas and proposed perspectives? What can we learn from the great thinkers of history? What is the framework for thinking within the subject of philosophy? Do I know that the simple decision between what to care about and what not to care about is actually a philosophical one? This app would encourage the user to think in the form of questions about what is, how it works, what is true, what is to be valued or at least valued by the user, and seek to make the user more robust in their thinking so as to be able to maintain independent thinking in a world where groupthink is always on the prowl, looking for someone to devour.</p>
 
                         </div>
                     </div>
                 }
                 @*Controller Keyboard Prototype*@
-                @if (UI.Section.Sections[31].IsVisible)
+                @if (App.Section.Sections[31].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
+                        <div class="section-header @App.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(31))">
                             Controller Keyboard Prototype
                             &nbsp;
-                            @if(UI.Section.Sections[31].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[31].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[31].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[31].IsCollapsedContent">
                             <p>I have come to prefer the classic gaming controller when considering all of the different ways controllers can be used with virtualized objects and interfaces. Inevitably as you may have also experienced, I find myself having to type something into a console game or even into a streaming platform. All this to say, the virtual keyboard always causes a varying degree of disappointment. It is a slow and grueling process to press the same button over and over in the same direction just to enter a single letter, only to find that I was one click off and I now have to navigate to the back button and then back to that letter, which I might as well miss once again. You may have hotkeys for your classic controller, but they are always different and this makes them not worth my time to learn what each different set of hot keys are available to me. This is slow, and in a world where hotkeys are a thing, I thought I could come up with a  better solution.</p>
                             <p>Before introducing my solution, you may think of providing a digital cursor controlled by an analog stick to selected keys on a virtual keyboard. This may work with tuning for acceleration, targeting size, auto sticking to the closest screen item when the cursor stops moving on the part of the developer. That can be a solution. But this still employs a 2D coordinate navigation that may still be inaccurate based on lack of cursor control precision.</p>
                             <p>My proposed solution consists of turning the circumference of the analog stick into a spectrum of choices, where there are somewhere around 6 to 8 options based on analog stick position combined with a layered effect, where the user would point the analog stick to a specific position on the analog stick’s circumference, press a button to select that virtual option, then a new set of options would appear based on the option selected, allowing for the user to get more specific about their choice. When the target selection is reached, the first set of options is shown to the user again. On the screen it would be either like a wheel of options, or in non-circular form like a number of options across the bottom of the screen (*think taking the analog stick’s circumference, cutting the circumference at one point, and laying it out like a line as a visual representation for selections), or with both, providing the user with options for what to look at.</p>
-                            <p>To do some quick math, if there are 8 options per panel of options, and there are around 73 standard keyboard options to choose from, the maximum number of panels that would need to be used is an exponential of 8, which in this case would be 3 levels of panels. What this means is that for any character to be selected, there is a maximum of 6 actions required per character. Most actions would require only 4 actions. Over time with use users could be accustomed to this interface and understand it by muscle memory, like how a person types on a keyboard without thinking about where a letter is. This could also be customized to be a specific type of layout that aids the user in letter organization cognitively. What this offers the user is the ability to gain muscle memory typing when they don’t have a physical keyboard in front of them. This is not possible with virtual keyboards that utilize arrows or analog sticks. The idea is for this keyboard to be portable into games or operating systems as a standard option that users are used to across all games that require a keyboard when there isn’t one. The portable component would allow for toggling to the standard keyboard if the user is not someone who wishes to use that keyboard ,while leaving the keyboard as an option for people who do like using it.</p>
+                            <p>To do some qAppck math, if there are 8 options per panel of options, and there are around 73 standard keyboard options to choose from, the maximum number of panels that would need to be used is an exponential of 8, which in this case would be 3 levels of panels. What this means is that for any character to be selected, there is a maximum of 6 actions reqAppred per character. Most actions would reqAppre only 4 actions. Over time with use users could be accustomed to this interface and understand it by muscle memory, like how a person types on a keyboard without thinking about where a letter is. This could also be customized to be a specific type of layout that aids the user in letter organization cognitively. What this offers the user is the ability to gain muscle memory typing when they don’t have a physical keyboard in front of them. This is not possible with virtual keyboards that utilize arrows or analog sticks. The idea is for this keyboard to be portable into games or operating systems as a standard option that users are used to across all games that reqAppre a keyboard when there isn’t one. The portable component would allow for toggling to the standard keyboard if the user is not someone who wishes to use that keyboard ,while leaving the keyboard as an option for people who do like using it.</p>
 
                         </div>
                     </div>
                 }
                 @*Audio Games*@
-                @if (UI.Section.Sections[32].IsVisible)
+                @if (App.Section.Sections[32].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
+                        <div class="section-header @App.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(32))">
                             Audio Games
                             &nbsp;
-                            @if(UI.Section.Sections[32].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[32].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[32].IsCollapsedContent">
-                            <p>This idea came from watching VR gamers using VR equipment when playing an immersive video game. The essence of the idea is to not use the primary sense that people have, but instead the audible sense that they have to play a game. Instead of video, which is images and audio, it would be an audio only game - or an audio game.</p>
+                        <div class="section-content @App.Section.Sections[32].IsCollapsedContent">
+                            <p>This idea came from watching VR gamers using VR eqApppment when playing an immersive video game. The essence of the idea is to not use the primary sense that people have, but instead the audible sense that they have to play a game. Instead of video, which is images and audio, it would be an audio only game - or an audio game.</p>
                             <p>The concept is that the user experiences an audio-rich environment where the user can close their eyes if they wish and focus on the sounds coming through their headphones or surround-sound speaker set. The audio game provides a cinematic audio experience, with a speaker to introduce the user to the environment of options at their disposal. The user would have a classic controller in their hands and it would be used to interact with the audio world. The speaker introducing the game provides a tutorial for the user to become accustomed to the different sound possibilities such as location, variance in volume, in pitch, in cadence, in timbre, and everything that could be identified uniquely as pertaining to something specific in the game that can be mentally modeled in the user’s mind while listening to the audio game. Then from those distinct sounds and differences, allow the user to navigate a world that is not visually navigable but which is audibly navigable and which can be learned and become more familiar with. It may not be the traditional kind of world we know from visual experiences of 2D and 3D games, but it could be something unique to audio games.</p>
-                            <p>This is the groundwork for an audio game to be created. It could be accomplished with video game software that doesn’t do anything with the graphics of the game but instead invites the gamer to listen - a completely different experience and body sense. This could serve as a good break from looking at screens all day as we have grown accustomed to - a leisurely yet engaging, different experience. Games such as these could lend themselves to improving the aural sense that people have, and can lend itself too towards training for identifying different sounds within music through careful listening. If you think about it, audio is usually delegated to being the secondary or accompanying sensation as priority #2 behind what is visual. Imagine what it would be like to turn what is secondary into being the primary, and harness the unique attributes that sound provides to a person to listen to as a primary focus when compared with what vision provides. This is the intent of audio games. Its essence exists in the sequential, 1-dimensional nature of audio, lending itself to something that is simpler than what screens provide which are 2D and 3D. “Simple” would be the key to audio games, and we know that when we try to build things within tighter constraints, it forces the creative person to think under those constraints in a new way. Who knows what this could result in? I think it would be worth a try.</p>
+                            <p>This is the groundwork for an audio game to be created. It could be accomplished with video game software that doesn’t do anything with the graphics of the game but instead invites the gamer to listen - a completely different experience and body sense. This could serve as a good break from looking at screens all day as we have grown accustomed to - a leisurely yet engaging, different experience. Games such as these could lend themselves to improving the aural sense that people have, and can lend itself too towards training for identifying different sounds within music through careful listening. If you think about it, audio is usually delegated to being the secondary or accompanying sensation as priority #2 behind what is visual. Imagine what it would be like to turn what is secondary into being the primary, and harness the unique attributes that sound provides to a person to listen to as a primary focus when compared with what vision provides. This is the intent of audio games. Its essence exists in the sequential, 1-dimensional nature of audio, lending itself to something that is simpler than what screens provide which are 2D and 3D. “Simple” would be the key to audio games, and we know that when we try to bAppld things within tighter constraints, it forces the creative person to think under those constraints in a new way. Who knows what this could result in? I think it would be worth a try.</p>
 
                         </div>
                     </div>
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
-                @if (UI.Section.SectionedPages[3].ASectionIsCurrentlyPromo)
+                @if (App.Section.SectionedPages[3].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UI.Section.Sections[26].IsCurrentPromo)
+                    @if (!App.Section.Sections[26].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
+                            <div class="section-header @App.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(26))">
                                 Overview
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[27].IsCurrentPromo)
+                    @if (!App.Section.Sections[27].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
+                            <div class="section-header @App.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(27))">
                                 Future Vision App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[28].IsCurrentPromo)
+                    @if (!App.Section.Sections[28].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
+                            <div class="section-header @App.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(28))">
                                 Unified Faith App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[29].IsCurrentPromo)
+                    @if (!App.Section.Sections[29].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
+                            <div class="section-header @App.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(29))">
                                 Hang Out Availability App
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[30].IsCurrentPromo)
+                    @if (!App.Section.Sections[30].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
+                            <div class="section-header @App.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(30))">
                                 Philosophy Orientation App
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[31].IsCurrentPromo)
+                    @if (!App.Section.Sections[31].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
+                            <div class="section-header @App.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(31))">
                                 Controller Keyboard Prototype
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[32].IsCurrentPromo)
+                    @if (!App.Section.Sections[32].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
+                            <div class="section-header @App.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(32))">
                                 Audio Games
                                 &nbsp;
                                 <i class="fa fa-chevron-left" />
@@ -254,18 +253,21 @@
 </DrawerPageTemplate>
 
 @code {
+    [CascadingParameter]
+    public App? App { get; private set; }
+
     protected override void OnInitialized()
     {
-        UI.NavigateToSection(SectionId);   
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
-        UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
+        App.NavigateToSection(SectionId);   
+        App.Nav.OnNavMgmtUpdated += UpdateThisComponent;
+        App.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
-        UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
+        App.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
+        App.Section.OnSectionMgmtChanged -= UpdateThisComponent;
     }
-    private void UpdateThisComponent(string meaninglessRequirement) =>
+    private void UpdateThisComponent(string meaninglessReqApprement) =>
         StateHasChanged();
 
     [Parameter]

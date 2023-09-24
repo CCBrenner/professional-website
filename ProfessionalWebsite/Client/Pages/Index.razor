@@ -1,5 +1,4 @@
-﻿@inject UIService UI
-@implements IDisposable
+﻿@implements IDisposable
 
 @page "/"
 @page "/home"
@@ -10,31 +9,32 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-book" HeaderText="Biography">
     <DrawerContent>
-        <DrawerNavLinkButton Href="collyn/17" ButtonText="Introduction" OnClickCallback="(()=>UI.NavigateToSection(17))" />
-        <DrawerNavLinkButton Href="collyn/18" ButtonText="Employment History" OnClickCallback="(()=>UI.NavigateToSection(18))" />
-        <DrawerNavLinkButton Href="collyn/19" ButtonText="Education History" OnClickCallback="(()=>UI.NavigateToSection(19))" />
-        <DrawerNavLinkButton Href="collyn/20" ButtonText='Notable "Done"s' OnClickCallback="(()=>UI.NavigateToSection(20))" />
-        <DrawerNavLinkButton Href="collyn/21" ButtonText="Inspirations" OnClickCallback="(()=>UI.NavigateToSection(21))" />
-        <DrawerNavLinkButton Href="collyn/22" ButtonText="Objectives" OnClickCallback="(()=>UI.NavigateToSection(22))" />
-        <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>UI.NavigateToSection(23))" />
-        <DrawerNavLinkButton Href="collyn/24" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>UI.NavigateToSection(24))" />
-        <DrawerNavLinkButton Href="collyn/25" ButtonText="Background" OnClickCallback="(()=>UI.NavigateToSection(25))" />
+        <DrawerNavLinkButton Href="collyn/17" ButtonText="Introduction" OnClickCallback="(()=>App.NavigateToSection(17))" />
+        <DrawerNavLinkButton Href="collyn/18" ButtonText="Employment History" OnClickCallback="(()=>App.NavigateToSection(18))" />
+        <DrawerNavLinkButton Href="collyn/19" ButtonText="Education History" OnClickCallback="(()=>App.NavigateToSection(19))" />
+        <DrawerNavLinkButton Href="collyn/20" ButtonText='Notable "Done"s' OnClickCallback="(()=>App.NavigateToSection(20))" />
+        <DrawerNavLinkButton Href="collyn/21" ButtonText="Inspirations" OnClickCallback="(()=>App.NavigateToSection(21))" />
+        <DrawerNavLinkButton Href="collyn/22" ButtonText="Objectives" OnClickCallback="(()=>App.NavigateToSection(22))" />
+        <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>App.NavigateToSection(23))" />
+        <DrawerNavLinkButton Href="collyn/24" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>App.NavigateToSection(24))" />
+        <DrawerNavLinkButton Href="collyn/25" ButtonText="Background" OnClickCallback="(()=>App.NavigateToSection(25))" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (UI.Section.Sections[17].IsVisible)
+                @*Introduction*@
+                @if (App.Section.Sections[17].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
+                        <div class="section-header @App.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(17))">
                             Introduction
                             &nbsp;
-                            @if(UI.Section.Sections[17].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[17].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[17].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[17].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Welcome!</b></h3>
                             <p>My name is Collyn Brenner. Here you can find out who I am including my interests, creations, abilities, ideas and plans for the future. You can also check out the <i>Articles</i> section for further commentary on various topics.
                             </p>
@@ -52,18 +52,19 @@
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[18].IsVisible)
+                @*Employment History*@
+                @if (App.Section.Sections[18].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
+                        <div class="section-header @App.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(18))">
                             Employment History
                             &nbsp;
-                            @if(UI.Section.Sections[18].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[18].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[18].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[18].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Employment History</b></h3>
                             <div>
                                 <button class="btn @SelectedWorkHistoryContent[0]" @onclick="(()=>UpdateWorkHistorySectionContent(0))">BlueSky</button>
@@ -81,7 +82,7 @@
                                     <ul>
                                         <li>Tier 1 Technical Support for Travel Healthcare Staffing SaaS</li>
                                         <li>Hired to eventually replace one of their technical support employees</li>
-                                        <li>Quickly became the go-to person for handling customer API questions and documentation</li>
+                                        <li>QAppckly became the go-to person for handling customer API questions and documentation</li>
                                         <li>Revamped and augmented their entire knowledge base which had been neglected for some time (needed)</li>
                                         <li>Became an Agile stockholder for two development teams that were using agile methodology</li>
                                         <li>Performed manual testing/QA for BlueSky Mobile app</li>
@@ -118,7 +119,7 @@
                                     <li>Valet (<a href="https://eagleparking.com/" target="blank">Eagle Parking</a>, Nashville, TN)</li>
                                     <li>Director’s Assistant (Plymouth Rock Racing, Plymouth, MA)</li>
                                     <li>Lifeguard (<a href="https://johncarverinn.com/" target="blank">John Carver Inn & Spa</a>, Plymouth, MA)</li>
-                                    <li>Waiter (<a href="https://exquisiteeventservice.com/" target="blank">Exquisite Event Service</a>, Boston, MA)</li>
+                                    <li>Waiter (<a href="https://exqAppsiteeventservice.com/" target="blank">ExqAppsite Event Service</a>, Boston, MA)</li>
                                     <li>Caterer (<a href="https://order.chick-fil-a.com/get-started/catering" target="blank">Chick-fil-A Catering</a>, Nashville, TN)</li>
                                     <li>Gig Driver (<a href="https://www.ubereats.com/" target="blank">Uber Eats</a>, Nashville, TN)</li>
                                 </ul>
@@ -131,18 +132,19 @@
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[19].IsVisible)
+                @*Education History*@
+                @if (App.Section.Sections[19].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
+                        <div class="section-header @App.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(19))">
                             Education History
                             &nbsp;
-                            @if(UI.Section.Sections[19].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[19].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[19].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[19].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Education History</b></h3>
                             <p>Formal Academic Education</p>
                             <ul>
@@ -187,18 +189,19 @@
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[20].IsVisible)
+                @*Notable "Done"s*@
+                @if (App.Section.Sections[20].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
+                        <div class="section-header @App.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(20))">
                             Notable "Done"s
                             &nbsp;
-                            @if(UI.Section.Sections[20].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[20].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[20].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[20].IsCollapsedContent">
                             <h3 class="section-content-title"><b>My Notable "Done"s</b></h3>
                             <ul>
                                 <li>Top-performing collegiate cross-country runner at TNU (NCAA DII)</li>
@@ -209,18 +212,19 @@
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[21].IsVisible)
+                @*Inspirations*@
+                @if (App.Section.Sections[21].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
+                        <div class="section-header @App.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(21))">
                             Inspirations
                             &nbsp;
-                            @if(UI.Section.Sections[21].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[21].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[21].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[21].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Inspirations</b></h3>
                             <div class="text-center">
                                 <p>Craig Brenner (father)</p>
@@ -235,171 +239,175 @@
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[22].IsVisible)
+                @*Objectives*@
+                @if (App.Section.Sections[22].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
+                        <div class="section-header @App.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(22))">
                             Objectives
                             &nbsp;
-                            @if(UI.Section.Sections[22].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[22].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[22].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[22].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Objectives</b></h3>
-                            <p>My goal is to build things that help people and help people build things. I am proud to have found such a constructive trajectory as an option for my life. It excites me to work with so much potential if only a chosen idea is to be given the opportunity to succeed (the key requirement of all potentialities). </p>
+                            <p>My goal is to bAppld things that help people and help people bAppld things. I am proud to have found such a constructive trajectory as an option for my life. It excites me to work with so much potential if only a chosen idea is to be given the opportunity to succeed (the key reqApprement of all potentialities). </p>
                             <p>I am excited for what the future holds as we walk forward into it. Optimism is my possession, and with what the future has to offer, I personally believe it is the only way to meet the future, again and again.</p>
                             <p>Please visit the <i>Invent</i> section above for details on my ideas for the future.</p> 
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[23].IsVisible)
+                @*Contact*@
+                @if (App.Section.Sections[23].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
+                        <div class="section-header @App.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(23))">
                             Contact
                             &nbsp;
-                            @if(UI.Section.Sections[23].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[23].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[23].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[23].IsCollapsedContent">
                             <Contact />
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[24].IsVisible)
+                @*Feedback*@
+                @if (App.Section.Sections[24].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
+                        <div class="section-header @App.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(24))">
                             Feedback
                             &nbsp;
-                            @if(UI.Section.Sections[24].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[24].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[24].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[24].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (UI.Section.Sections[25].IsVisible)
+                @*Background*@
+                @if (App.Section.Sections[25].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
+                        <div class="section-header @App.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(25))">
                             Background
                             &nbsp;
-                            @if(UI.Section.Sections[25].IsCollapsedHeader == "collapsed-header")
+                            @if(App.Section.Sections[25].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UI.Section.Sections[25].IsCollapsedContent">
+                        <div class="section-content @App.Section.Sections[25].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Personal Background</b></h3>
                             <p>This brief background is concerned with the most notable aspects that I believe have formed me into the person I am today. Without being too exhaustive, here is a brief look:</p>
                             <ul>
                                 <li>I grew up in the state of Massachusetts just north of Cape Cod (which can be considered the vacation land of southern Mass). It is about an hour south of Boston.</li>
                                 <li>Both of my parents were the youngest of their siblings. With me being their eldest child, I did not have any advantage of sympathies regarding having to face all life challeges first out of all my siblings. My parents both grew up in New York and are highschool sweethearts.</li>
                                 <li>I grew up in a non-denominational private Christian school. The decision to put me in a Christian school comes from a long history of Nazarene theological affiliations on my mom’s side of the family. If you don’t know, Nazarenes are Christians with a particular emphasis on living lives characterized by God’s holiness via a certain doctrinal tradition.</li>
-                                <li>I started making sense of different Christian doctrines when I was in college, though my faith first took on substance when I was 13 with through an NYI ministry called Nazarene Youth Bible Quizzing.</li>
-                                <li>I was sheltered as a kid and utilized reason quite a bit, innately wanting to understand how and why everything worked the way it did. I was and still am creative and innovative (iteratively deconstructive & reconstructive) in nature.</li>
+                                <li>I started making sense of different Christian doctrines when I was in college, though my faith first took on substance when I was 13 with through an NYI ministry called Nazarene Youth Bible QAppzzing.</li>
+                                <li>I was sheltered as a kid and utilized reason qAppte a bit, innately wanting to understand how and why everything worked the way it did. I was and still am creative and innovative (iteratively deconstructive & reconstructive) in nature.</li>
                                 <li>I was taught as a kid that strangers were dangerous, and at the time I took that to mean all people who were strange (except for my family) are dangerous. Since most people are strange, each person's strangeness and the need to fear them became a focal point for me as a kid. I still struggle with relational longevity (you could call it "interpersonal maintenance") today, but by no measure do I consider myself to be a victim of it.</li>
                                 <li>I was good at academics growing up but was not a top performer. For more on my key life experiences involving my grades in school, please view <a href="#">this article (link).</a></li>
-                                <li>While I was first introduced to computers when I was 7, I first took interest in business at 13 when I was brought to my dad’s work to migrate server racks from their smaller office to their new larger office building. My father managed an IT infrastructure and security team at Kiva Systems. Kiva designed and built robots that would pick up and move shelves around a warehouse for the fulfillment of online purchases. The technology eliminated having to pay people to walk around a warehouse to find each item that needed to be shipped for an online order. It significantly increased the efficiency of fulfillment proesses due to being able to scale up number of bots on the factory floor and he ability to optimize for shortest distance travelled for every bot on the warehouse floor. My father was employed at Kiva when it was acquired by Amazon in 2012 and although he was among the top performers at the company, Amazon company policy dictated that he be let go after the transition of systems was near complete.</li>
-                                <li>I found that I was not prepared to make life trajectory decisions when I was attending college. I changed my major 4 times, and after going from Commercial Music to IT at Trevecca, to then joining and leaving the Belmont School of Nursing for a year and a half, I went back to Trevecca to graduate with an undergraduate in Computer Information Technology. Through my college years I have come to learn that I like to help people and I like to build things. <br/><br/>I want to help people build things that help people.</li>
+                                <li>While I was first introduced to computers when I was 7, I first took interest in business at 13 when I was brought to my dad’s work to migrate server racks from their smaller office to their new larger office bApplding. My father managed an IT infrastructure and security team at Kiva Systems. Kiva designed and bApplt robots that would pick up and move shelves around a warehouse for the fulfillment of online purchases. The technology eliminated having to pay people to walk around a warehouse to find each item that needed to be shipped for an online order. It significantly increased the efficiency of fulfillment proesses due to being able to scale up number of bots on the factory floor and he ability to optimize for shortest distance travelled for every bot on the warehouse floor. My father was employed at Kiva when it was acqAppred by Amazon in 2012 and although he was among the top performers at the company, Amazon company policy dictated that he be let go after the transition of systems was near complete.</li>
+                                <li>I found that I was not prepared to make life trajectory decisions when I was attending college. I changed my major 4 times, and after going from Commercial Music to IT at Trevecca, to then joining and leaving the Belmont School of Nursing for a year and a half, I went back to Trevecca to graduate with an undergraduate in Computer Information Technology. Through my college years I have come to learn that I like to help people and I like to bAppld things. <br/><br/>I want to help people bAppld things that help people.</li>
                             </ul>
                         </div>
                     </div>
                 }
-                @if (UI.Section.SectionedPages[2].ASectionIsCurrentlyPromo)
+                @if (App.Section.SectionedPages[2].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UI.Section.Sections[17].IsCurrentPromo)
+                    @if (!App.Section.Sections[17].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
+                            <div class="section-header @App.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(17))">
                                 Introduction
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[18].IsCurrentPromo)
+                    @if (!App.Section.Sections[18].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
+                            <div class="section-header @App.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(18))">
                                 Employment History
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[19].IsCurrentPromo)
+                    @if (!App.Section.Sections[19].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
+                            <div class="section-header @App.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(19))">
                                 Education History
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[20].IsCurrentPromo)
+                    @if (!App.Section.Sections[20].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
+                            <div class="section-header @App.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(20))">
                                 Notable "Done"s
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[21].IsCurrentPromo)
+                    @if (!App.Section.Sections[21].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
+                            <div class="section-header @App.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(21))">
                                 Inspirations
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[22].IsCurrentPromo)
+                    @if (!App.Section.Sections[22].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
+                            <div class="section-header @App.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(22))">
                                 Objectives
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[23].IsCurrentPromo)
+                    @if (!App.Section.Sections[23].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
+                            <div class="section-header @App.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(23))">
                                 Contact
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[24].IsCurrentPromo)
+                    @if (!App.Section.Sections[24].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
+                            <div class="section-header @App.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(24))">
                                 Feedback
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[25].IsCurrentPromo)
+                    @if (!App.Section.Sections[25].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
+                            <div class="section-header @App.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>App.ToggleSection(25))">
                                 Background
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -414,32 +422,40 @@
 </DrawerPageTemplate>
 
 @code {
-    private List<string> SelectedWorkHistoryContent = new() { "btn-primary", "btn-secondary", "btn-secondary" };
-    private bool showJSCert = false;
-    private bool showPHPCert = false;
-
+    [CascadingParameter]
+    public App? App { get; private set; }
     [Parameter]
     public int SectionId { get; set; }
+
+    private List<string> SelectedWorkHistoryContent = new()
+    { 
+        "btn-primary", 
+        "btn-secondary", 
+        "btn-secondary" 
+    };
+
+    private bool showJSCert = false;
+    private bool showPHPCert = false;
 
     protected override void OnInitialized()
     {
         // For setting the NavButton highlights to what they need to be upon first 
         // load in absence of setting SectionId parameter
         if (SectionId != 0)
-            UI.NavigateToSection(SectionId);
+            App.NavigateToSection(SectionId);
         else
-            UI.NavigateToSection(17);
+            App.NavigateToSection(17);
 
         // For dynamic reload of component when state has changed in the following singletons
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
-        UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
+        App.Nav.OnNavMgmtUpdated += UpdateThisComponent;
+        App.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
-        UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
+        App.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
+        App.Section.OnSectionMgmtChanged -= UpdateThisComponent;
     }
-    private void UpdateThisComponent(string meaninglessRequirement) =>
+    private void UpdateThisComponent(string meaninglessReqApprement) =>
         StateHasChanged();
 
     private void UpdateWorkHistorySectionContent(int selection)

@@ -1,12 +1,12 @@
-﻿using ProfessionalWebsite.Client.Services.UI.Contracts;
-using ProfessionalWebsite.Client.Services.UI.Mgmt;
+﻿using Microsoft.AspNetCore.Components;
 using ProfessionalWebsite.Client.Services.UI.Mgmt.DataTables;
+using ProfessionalWebsite.Client.Services.UI.Mgmt;
 
-namespace ProfessionalWebsite.Client.Services.UI;
-/*
-public class UIService : IUIService
+namespace ProfessionalWebsite.Client;
+
+public partial class App : ComponentBase
 {
-    public UIService()
+    public App()
     {
         var isContinuous = AnimationsTable.GetIsContinuous();
         Anim = new(isContinuous);
@@ -93,4 +93,3 @@ public class UIService : IUIService
     public void ToggleAllSections(int pageId) =>
         Section.ToggleAllSections(pageId);
 }
-*/

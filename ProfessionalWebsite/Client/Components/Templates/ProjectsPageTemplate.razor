@@ -1,51 +1,49 @@
-﻿@inject UIService UI
-
-<DrawerPageTemplate HeaderIconClasses="fa-solid fa-diagram-project" HeaderText="Projects">
+﻿<DrawerPageTemplate HeaderIconClasses="fa-solid fa-diagram-project" HeaderText="Projects">
     <DrawerContent>
         <DrawerNavLinkButton Href="beehivemgmtsystem"
                              ButtonText="Bee Hive Management System"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="hideandseek"
                              ButtonText="Hide & Seek"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="knowhow/14"
                              ButtonText="This PWA" />
         <DrawerNavLinkButton Href="matchgame"
                              ButtonText="Match Game"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="counter"
                              ButtonText="Counter"
                              IconClasses="fa-solid fa-plus"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="spinners"
                              ButtonText="Spinners"
                              IconClasses="fa-solid fa-hand-spock"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="collyn/23"
                              IconClasses="fa-solid fa-envelope"
                              ButtonText="Contact" />
       @*<DrawerNavLinkButton Href="stats" 
                              IconClasses="fa-solid fa-chart-line"
                              ButtonText="Statistics"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />*@
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />*@
         @*<DrawerNavLinkButton Href="twodecks"
                              ButtonText="Two Decks"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="issuetracker" 
                              ButtonText="Issue Tracker"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="gofish" 
                              ButtonText="Go Fish"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />*@
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />*@
       @*<DrawerNavLinkButton Href="phpcmsandprocessbook"
                              ButtonText="PHP CMS Demo & Process Book"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />*@
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />*@
       @*<DrawerNavLinkButton Href="ecommerce" 
                              ButtonText="E-commerce"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />*@
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />*@
       @*<DrawerNavLinkButton Href="djangopollingapp" 
                              ButtonText="Polling App (Django/Python)"
-                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />*@
+                             OnClickCallback="(()=>App.UpdatePanelsWhenNavigating(0))" />*@
     </DrawerContent>
     <PageContent>
         <PageContainer>
@@ -55,6 +53,8 @@
 </DrawerPageTemplate>
 
 @code {
+    [CascadingParameter]
+    public App? App { get; set; }
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 }

@@ -1,5 +1,4 @@
 ﻿@inherits LayoutComponentBase
-@inject UIService UI
 @implements IDisposable
 
 <div class="page-container">
@@ -37,7 +36,7 @@
         </div>
         *@
 
-        <main class="main @UI.Anim.AnimateMain">
+        <main class="main @App.Anim.AnimateMain">
 
             @* Alert (proprietary) *@
             @*<div class=""></div>*@
@@ -48,84 +47,84 @@
             @* Panels (z-index: 30) *@
             <NavPanels />
 
-            <div class="anim-icon @UI.Panel.Panels[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
+            <div class="anim-icon @App.Panel.Panels[0].PanelButtonStatus" @onclick="(()=>App.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
 
-            <div class="anim-controls @UI.Panel.Panels[0].PanelStatus">
+            <div class="anim-controls @App.Panel.Panels[0].PanelStatus">
                 <h4>Animations</h4>
-                <div class="anim-pair" @onclick="(()=>UI.PlayAnimation(0, false))">
+                <div class="anim-pair" @onclick="(()=>App.PlayAnimation(0, false))">
                     <div class="anim-regular">
                         Bombastic
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimation(0, true))">
+                    <div class="anim-continuous" @onclick="(()=>App.PlayAnimation(0, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(1, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(1, false))">
                         Skywalker
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimation(1, true))">
+                    <div class="anim-continuous" @onclick="(()=>App.PlayAnimation(1, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(2, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(2, false))">
                         Kitchen Sink
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimation(2, true))">
+                    <div class="anim-continuous" @onclick="(()=>App.PlayAnimation(2, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(3, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(3, false))">
                         Flipster
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimation(3, true))">
+                    <div class="anim-continuous" @onclick="(()=>App.PlayAnimation(3, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(4, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(4, false))">
                         Asteroid
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimation(4, true))">
+                    <div class="anim-continuous" @onclick="(()=>App.PlayAnimation(4, true))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(5, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(5, false))">
                         FlipOnX
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(5, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(5, false))">
                         FlipOnY
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(10, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(10, false))">
                         RotateOnZ
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(7, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(7, false))">
                         East Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(8, false))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(8, false))">
                         West Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(9, true))">
+                    <div class="anim-regular" @onclick="(()=>App.PlayAnimation(9, true))">
                         SloRo (<span class="fa-solid fa-infinity" aria-hidden="true"></span>)
                     </div>
                     <div class="anim-continuous"></div>
@@ -135,11 +134,11 @@
             @* Behind Panel (z-index: 20) *@
             <div class="behind-panel 
                 @behindPanelStatus()"
-                @onclick="(()=>UI.Panel.DeactivateAllPanels(true))"></div>
+                @onclick="(()=>App.Panel.DeactivateAllPanels(true))"></div>
 
             @* original Main items (z-index: auto) *@
-            <div class="container-fluid header">
-                <a class="navbar-brand" href="collyn/23" @onclick="(()=>UI.NavigateToSection(23))">
+            <div class="container-flAppd header">
+                <a class="navbar-brand" href="collyn/23" @onclick="(()=>App.NavigateToSection(23))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -162,53 +161,57 @@
             </div>
             *@
             <article class="content @blurMainStatus()">
-                @Body
+                <CascadingValue Value="App">
+                    <CascadingValue Value="this">
+                        @Body
+                    </CascadingValue>
+                </CascadingValue>
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
             <article class="animate-app
-                @UI.Panel.Panels[7].PanelStatus
+                @App.Panel.Panels[7].PanelStatus
                 @blurMainStatus()">
                 <h3>App Animations</h3>
                 <br />
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(0))">
+                    <button class="btn btn-primary" @onclick="(()=>App.PlayAnimation(0))">
                         Bombastic
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[0]" />
+                    <input class="form-check-input" type="checkbox" @bind="@App.Anim.IsContinuous[0]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(1))">
+                    <button class="btn btn-primary" @onclick="(()=>App.PlayAnimation(1))">
                         Sky Walker
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[1]" />
+                    <input class="form-check-input" type="checkbox" @bind="@App.Anim.IsContinuous[1]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(2))">
+                    <button class="btn btn-primary" @onclick="(()=>App.PlayAnimation(2))">
                         Kitchen Sink
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[2]" />
+                    <input class="form-check-input" type="checkbox" @bind="@App.Anim.IsContinuous[2]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(3))">
+                    <button class="btn btn-primary" @onclick="(()=>App.PlayAnimation(3))">
                         Flipster
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[3]" />
+                    <input class="form-check-input" type="checkbox" @bind="@App.Anim.IsContinuous[3]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(4))">
+                    <button class="btn btn-primary" @onclick="(()=>App.PlayAnimation(4))">
                         Asteroid
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[4]" />
+                    <input class="form-check-input" type="checkbox" @bind="@App.Anim.IsContinuous[4]" />
                     &nbsp;Continuous
                 </div>
             </article>
@@ -224,24 +227,27 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @UI.Panel.Panels[8].PanelStatus">
-            <button class="btn btn-danger" @onclick='UI.DiscontinueAnimation'>Discontinue</button>
+        <div class="continuous-animate-stop @App.Panel.Panels[8].PanelStatus">
+            <button class="btn btn-danger" @onclick='App.DiscontinueAnimation'>Discontinue</button>
         </div>
     </div>
 </div>
 
 @code {
+    [CascadingParameter]
+    public App? App { get; private set; }
+
     protected override void OnInitialized()
     {
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
-        UI.Anim.OnAnimMgmtChanged += UpdateThisComponent;
+        App.Nav.OnNavMgmtUpdated += UpdateThisComponent;
+        App.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+        App.Anim.OnAnimMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
-        UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
-        UI.Anim.OnAnimMgmtChanged -= UpdateThisComponent;
+        App.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
+        App.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
+        App.Anim.OnAnimMgmtChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
@@ -251,8 +257,8 @@
         // if any panels are true, blur main
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (UI.Panel.Panels[index] != null)
-                if (UI.Panel.Panels[index].BlurIsActive)
+            if (App.Panel.Panels[index] != null)
+                if (App.Panel.Panels[index].BlurIsActive)
                     return "content-blur";
         return "";
     }
@@ -261,8 +267,8 @@
         // if any panels are true, show behind panel
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (UI.Panel.Panels[index] != null)
-                if (UI.Panel.Panels[index].BehindPanelIsActive)
+            if (App.Panel.Panels[index] != null)
+                if (App.Panel.Panels[index].BehindPanelIsActive)
                     return "button-on-show-behind-panel";
         return "";
     }
