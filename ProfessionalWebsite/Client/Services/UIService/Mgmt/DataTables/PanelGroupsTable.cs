@@ -1,10 +1,10 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt.DataTables;
+﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt.DataTables;
 
 public sealed class PanelGroupsTable
 {
     private List<PanelGroup> panelGroups = new()
     {
-        new PanelGroup(0, 4),  // NavMgmt panels
+        new PanelGroup(0, 4),  // Nav panels
     };
 
     public static List<PanelGroup> GetPanelGroups()

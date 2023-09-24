@@ -2,7 +2,7 @@
 {
     /*
     This code is kept as a reference. It can be ingored for development purposes.
-    This code tested the PanelMgmt singleton. PanelMgmt is no longer a singleton but instead is a regular class with a single instance reference
+    This code tested the Panel singleton. Panel is no longer a singleton but instead is a regular class with a single instance reference
     in UIService. The same has been done with a number of other singletons, such as the other -Mgmt classes which used to be singletons. This code
     is kept as a reference to what those tests looked like. In an effort to use TDD, singeltons were found to be too cumbersome to test due to permission
     of outside code to change internal reference variables. A better solution existed, which is why UIService exists with references to all previous
@@ -13,7 +13,7 @@
     [TestClass]
     public class TestPanelMgmt
     {
-        PanelMgmt panelMgmt;
+        Panel panelMgmt;
         MockPanelMgmt mockPanelMgmt;
 
         public void Initialize()
@@ -21,7 +21,7 @@
             if (mockPanelMgmt != null)
                 Reset();
 
-            panelMgmt = PanelMgmt.Instance;
+            panelMgmt = Panel.Instance;
             mockPanelMgmt = new MockPanelMgmt();
 
             Assert.AreEqual(7, panelMgmt.Panels.Count());
@@ -151,7 +151,7 @@
             Assert.AreEqual(panelMgmt.Panels[4], panelMgmt.PanelGroups[0].LocationPanel);
             Assert.AreEqual("highlight-button", panelMgmt.PanelGroups[0].LocationPanel.PanelButtonStatus);
 
-            // the PanelMgmt event is raised
+            // the Panel event is raised
             Assert.AreEqual(2, panelMgmt.PanelGroups[0].LocationPanel.PanelButtonStatus);
 
         }

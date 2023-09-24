@@ -8,7 +8,7 @@ using ProfessionalWebsite.Client.Services;
 namespace ProfessionalWebsite.Tests
 {
     /*
-    The tests below were used before moving NavService to NavMgmt singleton, and then to NavMgmt class housed in UIService
+    The tests below were used before moving NavService to Nav singleton, and then to Nav class housed in UIService
     These are kept as artifacts of what NavService tests looked like when it existed; it has since been transformed
     This was an attempt at TDD which was flawed by a conflation with the concept of code coverage being the goal when
     the goal is actually desired system behavior and well-designed code (BDD) with a very valuable side-product of tests

@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt;
+﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt;
 
 public class PanelGroup
 {

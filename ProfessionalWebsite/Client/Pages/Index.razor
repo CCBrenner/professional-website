@@ -1,4 +1,4 @@
-﻿@inject UIService UIService
+﻿@inject UIService UI
 @implements IDisposable
 
 @page "/"
@@ -10,31 +10,31 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-book" HeaderText="Biography">
     <DrawerContent>
-        <DrawerNavLinkButton Href="collyn/17" ButtonText="Introduction" OnClickCallback="(()=>UIService.NavigateToSection(17))" />
-        <DrawerNavLinkButton Href="collyn/18" ButtonText="Employment History" OnClickCallback="(()=>UIService.NavigateToSection(18))" />
-        <DrawerNavLinkButton Href="collyn/19" ButtonText="Education History" OnClickCallback="(()=>UIService.NavigateToSection(19))" />
-        <DrawerNavLinkButton Href="collyn/20" ButtonText='Notable "Done"s' OnClickCallback="(()=>UIService.NavigateToSection(20))" />
-        <DrawerNavLinkButton Href="collyn/21" ButtonText="Inspirations" OnClickCallback="(()=>UIService.NavigateToSection(21))" />
-        <DrawerNavLinkButton Href="collyn/22" ButtonText="Objectives" OnClickCallback="(()=>UIService.NavigateToSection(22))" />
-        <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>UIService.NavigateToSection(23))" />
-        <DrawerNavLinkButton Href="collyn/24" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>UIService.NavigateToSection(24))" />
-        <DrawerNavLinkButton Href="collyn/25" ButtonText="Background" OnClickCallback="(()=>UIService.NavigateToSection(25))" />
+        <DrawerNavLinkButton Href="collyn/17" ButtonText="Introduction" OnClickCallback="(()=>UI.NavigateToSection(17))" />
+        <DrawerNavLinkButton Href="collyn/18" ButtonText="Employment History" OnClickCallback="(()=>UI.NavigateToSection(18))" />
+        <DrawerNavLinkButton Href="collyn/19" ButtonText="Education History" OnClickCallback="(()=>UI.NavigateToSection(19))" />
+        <DrawerNavLinkButton Href="collyn/20" ButtonText='Notable "Done"s' OnClickCallback="(()=>UI.NavigateToSection(20))" />
+        <DrawerNavLinkButton Href="collyn/21" ButtonText="Inspirations" OnClickCallback="(()=>UI.NavigateToSection(21))" />
+        <DrawerNavLinkButton Href="collyn/22" ButtonText="Objectives" OnClickCallback="(()=>UI.NavigateToSection(22))" />
+        <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" OnClickCallback="(()=>UI.NavigateToSection(23))" />
+        <DrawerNavLinkButton Href="collyn/24" IconClasses="fa-solid fa-rotate-left" ButtonText="Feedback" OnClickCallback="(()=>UI.NavigateToSection(24))" />
+        <DrawerNavLinkButton Href="collyn/25" ButtonText="Background" OnClickCallback="(()=>UI.NavigateToSection(25))" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @if (UIService.SectionMgmt.Sections[17].IsVisible)
+                @if (UI.Section.Sections[17].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[17].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(17))">
+                        <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
                             Introduction
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[17].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[17].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[17].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[17].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Welcome!</b></h3>
                             <p>My name is Collyn Brenner. Here you can find out who I am including my interests, creations, abilities, ideas and plans for the future. You can also check out the <i>Articles</i> section for further commentary on various topics.
                             </p>
@@ -52,18 +52,18 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[18].IsVisible)
+                @if (UI.Section.Sections[18].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[18].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(18))">
+                        <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
                             Employment History
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[18].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[18].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[18].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[18].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Employment History</b></h3>
                             <div>
                                 <button class="btn @SelectedWorkHistoryContent[0]" @onclick="(()=>UpdateWorkHistorySectionContent(0))">BlueSky</button>
@@ -131,18 +131,18 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[19].IsVisible)
+                @if (UI.Section.Sections[19].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[19].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(19))">
+                        <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
                             Education History
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[19].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[19].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[19].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[19].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Education History</b></h3>
                             <p>Formal Academic Education</p>
                             <ul>
@@ -187,18 +187,18 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[20].IsVisible)
+                @if (UI.Section.Sections[20].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[20].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(20))">
+                        <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
                             Notable "Done"s
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[20].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[20].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[20].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[20].IsCollapsedContent">
                             <h3 class="section-content-title"><b>My Notable "Done"s</b></h3>
                             <ul>
                                 <li>Top-performing collegiate cross-country runner at TNU (NCAA DII)</li>
@@ -209,18 +209,18 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[21].IsVisible)
+                @if (UI.Section.Sections[21].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[21].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(21))">
+                        <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
                             Inspirations
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[21].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[21].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[21].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[21].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Inspirations</b></h3>
                             <div class="text-center">
                                 <p>Craig Brenner (father)</p>
@@ -235,18 +235,18 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[22].IsVisible)
+                @if (UI.Section.Sections[22].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[22].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(22))">
+                        <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
                             Objectives
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[22].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[22].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[22].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[22].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Objectives</b></h3>
                             <p>My goal is to build things that help people and help people build things. I am proud to have found such a constructive trajectory as an option for my life. It excites me to work with so much potential if only a chosen idea is to be given the opportunity to succeed (the key requirement of all potentialities). </p>
                             <p>I am excited for what the future holds as we walk forward into it. Optimism is my possession, and with what the future has to offer, I personally believe it is the only way to meet the future, again and again.</p>
@@ -254,50 +254,50 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[23].IsVisible)
+                @if (UI.Section.Sections[23].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[23].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(23))">
+                        <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
                             Contact
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[23].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[23].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[23].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[23].IsCollapsedContent">
                             <Contact />
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[24].IsVisible)
+                @if (UI.Section.Sections[24].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[24].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(24))">
+                        <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
                             Feedback
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[24].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[24].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[24].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[24].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.Sections[25].IsVisible)
+                @if (UI.Section.Sections[25].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UIService.SectionMgmt.Sections[25].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(25))">
+                        <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
                             Background
                             &nbsp;
-                            @if(UIService.SectionMgmt.Sections[25].IsCollapsedHeader == "collapsed-header")
+                            @if(UI.Section.Sections[25].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-left"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                         </div>
-                        <div class="section-content @UIService.SectionMgmt.Sections[25].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[25].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Personal Background</b></h3>
                             <p>This brief background is concerned with the most notable aspects that I believe have formed me into the person I am today. Without being too exhaustive, here is a brief look:</p>
                             <ul>
@@ -314,92 +314,92 @@
                         </div>
                     </div>
                 }
-                @if (UIService.SectionMgmt.SectionedPages[2].ASectionIsCurrentlyPromo)
+                @if (UI.Section.SectionedPages[2].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UIService.SectionMgmt.Sections[17].IsCurrentPromo)
+                    @if (!UI.Section.Sections[17].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[17].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(17))">
+                            <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
                                 Introduction
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[18].IsCurrentPromo)
+                    @if (!UI.Section.Sections[18].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[18].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(18))">
+                            <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
                                 Employment History
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[19].IsCurrentPromo)
+                    @if (!UI.Section.Sections[19].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[19].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(19))">
+                            <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
                                 Education History
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[20].IsCurrentPromo)
+                    @if (!UI.Section.Sections[20].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[20].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(20))">
+                            <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
                                 Notable "Done"s
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[21].IsCurrentPromo)
+                    @if (!UI.Section.Sections[21].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[21].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(21))">
+                            <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
                                 Inspirations
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[22].IsCurrentPromo)
+                    @if (!UI.Section.Sections[22].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[22].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(22))">
+                            <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
                                 Objectives
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[23].IsCurrentPromo)
+                    @if (!UI.Section.Sections[23].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[23].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(23))">
+                            <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
                                 Contact
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[24].IsCurrentPromo)
+                    @if (!UI.Section.Sections[24].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[24].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(24))">
+                            <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
                                 Feedback
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
                             </div>
                         </div>
                     }
-                    @if (!UIService.SectionMgmt.Sections[25].IsCurrentPromo)
+                    @if (!UI.Section.Sections[25].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UIService.SectionMgmt.Sections[25].IsCollapsedHeader" @onclick="(()=>UIService.ToggleSection(25))">
+                            <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
                                 Background
                                 &nbsp;
                                 <i class="fa fa-chevron-left"/>
@@ -426,18 +426,18 @@
         // For setting the NavButton highlights to what they need to be upon first 
         // load in absence of setting SectionId parameter
         if (SectionId != 0)
-            UIService.NavigateToSection(SectionId);
+            UI.NavigateToSection(SectionId);
         else
-            UIService.NavigateToSection(17);
+            UI.NavigateToSection(17);
 
         // For dynamic reload of component when state has changed in the following singletons
-        UIService.NavMgmt.OnNavMgmtUpdated += UpdateThisComponent;
-        UIService.SectionMgmt.OnSectionMgmtChanged += UpdateThisComponent;
+        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
+        UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UIService.NavMgmt.OnNavMgmtUpdated -= UpdateThisComponent;
-        UIService.SectionMgmt.OnSectionMgmtChanged -= UpdateThisComponent;
+        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
+        UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();

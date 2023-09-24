@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Services.UIService.Mgmt;
+﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt;
 
 public class PanelMgmt
 {
@@ -24,7 +24,7 @@ public class PanelMgmt
     /// Sets all panels to their default configurations (usually an "off" state).
     /// </summary>
     /// <param name="setActivePanelGroupToLocationPanel">Sets the button highlight of the current location when all panels in the panel group have been deactivated.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default to "true", this tells components that consume PanelMgmt properties to update (based on changes to state). Component must subscribe to the event to receive update commands.</param>
+    /// <param name="triggersOnPanelMgmtUpdated">Default to "true", this tells components that consume Panel properties to update (based on changes to state). Component must subscribe to the event to receive update commands.</param>
     /// <param name="includeIndependentPanels">Independent panels exist outside of the deactivation logic by default. If for whatever reason they should also be deactivated, then this can be set to "true".</param>
     public void DeactivateAllPanels(
         bool setActivePanelGroupToLocationPanel,
@@ -129,7 +129,7 @@ public class PanelMgmt
     /// When navigating to a non-sectioned page (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
     /// </summary>
     /// <param name="panelId">ID of panel to be made location panel of global navigation panel group.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume PanelMgmt to update. Component must subscribe to the event to receive update commands from PanelMgmt.</param>
+    /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume Panel to update. Component must subscribe to the event to receive update commands from Panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true)
     {
         DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
@@ -137,7 +137,7 @@ public class PanelMgmt
     }
 
     /// <summary>
-    /// Updates the component that consumes it when a method in the PanelMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
+    /// Updates the component that consumes it when a method in the Panel class that consumes this method invokes/signals that a change to the state of it has occurred.
     /// </summary>
     private void RaiseEventOnPanelMgmtUpdated()
     {

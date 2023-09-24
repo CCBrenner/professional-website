@@ -1,12 +1,11 @@
-﻿using ProfessionalWebsite.Client.Services.UIService.Mgmt;
+﻿using ProfessionalWebsite.Client.Services.UI.Mgmt;
 
-namespace ProfessionalWebsite.Client.Services.UIService.Contracts
+namespace ProfessionalWebsite.Client.Services.UI.Contracts;
+
+public interface IUIService
 {
-    public interface IUIService
-    {
-        NavMgmt NavMgmt { get; }
-        PanelMgmt PanelMgmt { get; }
-        SectionMgmt SectionMgmt { get; }
-        AnimMgmt AnimMgmt { get; }
-    }
+    NavMgmt Nav { get; }
+    PanelMgmt Panel { get; }
+    SectionMgmt Section { get; }
+    AnimMgmt Anim { get; }
 }
