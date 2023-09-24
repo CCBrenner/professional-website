@@ -1114,6 +1114,9 @@
     font-size: 1.1rem;
     padding: 8px 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02), 0 3px 7px 0 rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    position: sticky;
+    top: 2px;
 }
 
     .section-header > i[b-oiel5bdph5] {
@@ -1222,6 +1225,9 @@
     font-size: 1.1rem;
     padding: 8px 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02), 0 3px 7px 0 rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    position: sticky;
+    top: 2px;
 }
 
     .section-header > i[b-ec2crac19g] {
@@ -1341,6 +1347,9 @@
     font-size: 1.1rem;
     padding: 8px 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02), 0 3px 7px 0 rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    position: sticky;
+    top: 2px;
 }
 
     .section-header > i[b-5cko639osi] {

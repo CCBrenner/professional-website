@@ -23,16 +23,17 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
+                @*Introduction*@
                 @if (UI.Section.Sections[17].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
-                            Introduction
-                            &nbsp;
                             @if(UI.Section.Sections[17].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Introduction
                         </div>
                         <div class="section-content @UI.Section.Sections[17].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Welcome!</b></h3>
@@ -52,16 +53,17 @@
                         </div>
                     </div>
                 }
+                @*Employment History*@
                 @if (UI.Section.Sections[18].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
-                            Employment History
-                            &nbsp;
                             @if(UI.Section.Sections[18].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Employment History
                         </div>
                         <div class="section-content @UI.Section.Sections[18].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Employment History</b></h3>
@@ -131,16 +133,17 @@
                         </div>
                     </div>
                 }
+                @*Education History*@
                 @if (UI.Section.Sections[19].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
-                            Education History
-                            &nbsp;
                             @if(UI.Section.Sections[19].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Education History
                         </div>
                         <div class="section-content @UI.Section.Sections[19].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Education History</b></h3>
@@ -187,16 +190,17 @@
                         </div>
                     </div>
                 }
+                @*Notable "Done"s*@
                 @if (UI.Section.Sections[20].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
-                            Notable "Done"s
-                            &nbsp;
                             @if(UI.Section.Sections[20].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Notable "Done"s
                         </div>
                         <div class="section-content @UI.Section.Sections[20].IsCollapsedContent">
                             <h3 class="section-content-title"><b>My Notable "Done"s</b></h3>
@@ -209,16 +213,17 @@
                         </div>
                     </div>
                 }
+                @*Inspirations*@
                 @if (UI.Section.Sections[21].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
-                            Inspirations
-                            &nbsp;
                             @if(UI.Section.Sections[21].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Inspirations
                         </div>
                         <div class="section-content @UI.Section.Sections[21].IsCollapsedContent">
                             <h3 class="section-content-title"><b>Inspirations</b></h3>
@@ -235,16 +240,17 @@
                         </div>
                     </div>
                 }
+                @*Objectives*@
                 @if (UI.Section.Sections[22].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
-                            Objectives
-                            &nbsp;
                             @if(UI.Section.Sections[22].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Objectives
                         </div>
                         <div class="section-content @UI.Section.Sections[22].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Objectives</b></h3>
@@ -254,48 +260,51 @@
                         </div>
                     </div>
                 }
+                @*Contact*@
                 @if (UI.Section.Sections[23].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
-                            Contact
-                            &nbsp;
                             @if(UI.Section.Sections[23].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Contact
                         </div>
                         <div class="section-content @UI.Section.Sections[23].IsCollapsedContent">
                             <Contact />
                         </div>
                     </div>
                 }
+                @*Feedback*@
                 @if (UI.Section.Sections[24].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
-                            Feedback
-                            &nbsp;
                             @if(UI.Section.Sections[24].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Feedback
                         </div>
                         <div class="section-content @UI.Section.Sections[24].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
+                @*Background*@
                 @if (UI.Section.Sections[25].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
-                            Background
-                            &nbsp;
                             @if(UI.Section.Sections[25].IsCollapsedHeader == "collapsed-header")
-                            {   <i class="fa fa-chevron-left"/>   }
+                            {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Background
                         </div>
                         <div class="section-content @UI.Section.Sections[25].IsCollapsedContent">
                         <h3 class="section-content-title"><b>Personal Background</b></h3>
@@ -314,15 +323,16 @@
                         </div>
                     </div>
                 }
+                @*mock section headers (fake)*@
                 @if (UI.Section.SectionedPages[2].ASectionIsCurrentlyPromo)
                 {
                     @if (!UI.Section.Sections[17].IsCurrentPromo)
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[17].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(17))">
-                                Introduction
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Introduction
                             </div>
                         </div>
                     }
@@ -330,9 +340,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[18].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(18))">
-                                Employment History
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Employment History
                             </div>
                         </div>
                     }
@@ -340,9 +350,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[19].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(19))">
-                                Education History
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Education History
                             </div>
                         </div>
                     }
@@ -350,9 +360,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[20].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(20))">
-                                Notable "Done"s
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Notable "Done"s
                             </div>
                         </div>
                     }
@@ -360,9 +370,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[21].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(21))">
-                                Inspirations
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Inspirations
                             </div>
                         </div>
                     }
@@ -370,9 +380,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[22].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(22))">
-                                Objectives
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Objectives
                             </div>
                         </div>
                     }
@@ -380,9 +390,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[23].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(23))">
-                                Contact
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Contact
                             </div>
                         </div>
                     }
@@ -390,9 +400,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[24].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(24))">
-                                Feedback
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Feedback
                             </div>
                         </div>
                     }
@@ -400,9 +410,9 @@
                     {
                         <div class="section-container">
                             <div class="section-header @UI.Section.Sections[25].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(25))">
-                                Background
+                                <i class="fa fa-chevron-right"/>
                                 &nbsp;
-                                <i class="fa fa-chevron-left"/>
+                                Background
                             </div>
                         </div>
                     }
