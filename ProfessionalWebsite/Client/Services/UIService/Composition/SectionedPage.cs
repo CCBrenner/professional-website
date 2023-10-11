@@ -2,7 +2,7 @@
 
 public partial class SectionedPage
 {
-    public SectionedPage(int id, int locationPanelGroupId, string pagePath)
+    private SectionedPage(int id, int locationPanelGroupId, string pagePath)
     {
         Id = id;
         LocationPanelGroupId = locationPanelGroupId;
@@ -20,4 +20,6 @@ public partial class SectionedPage
     public bool ASectionIsCurrentlyPromo { get; set; }
     public SectionsStatus SectionsStatus { get; set; }
     public int SectionsExpanded { get; private set; } = 0;
+    public static SectionedPage Create(int id, int locationPanelGroupId, string pagePath) =>
+        new(id, locationPanelGroupId, pagePath);
 }

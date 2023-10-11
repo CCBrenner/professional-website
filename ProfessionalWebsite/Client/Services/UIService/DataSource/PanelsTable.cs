@@ -13,55 +13,55 @@ public sealed class PanelsTable
     }
     public static List<Panel> GetPanels() => new()
     {
-        new Panel(0,   // Global Animations panel
+        Panel.Create(0,   // Global Animations panel
             panelActiveStatusClassName: "anim-display",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel"
         ),
-        new Panel(1),  // BeeHive settings
-        new Panel(2,   // "projects" page
+        Panel.Create(1),  // BeeHive settings
+        Panel.Create(2,   // "projects" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        new Panel(3,   // "knowhow" page
+        Panel.Create(3,   // "knowhow" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        new Panel(4,   // "collyn" page
+        Panel.Create(4,   // "collyn" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        new Panel(5,   // "invent" page
+        Panel.Create(5,   // "invent" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        new Panel(6,   // "articles" page
+        Panel.Create(6,   // "articles" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        new Panel(7,   // LayoutControls
+        Panel.Create(7,   // LayoutControls
             cannotBeActiveWhileOtherPanelsAreActive: false,
             panelActiveStatusClassName: "layout-controls-on",
             blurStatusClassName: "n0-cla$$_name",
             behindPanelStatusClassName: "n0-cla$$_name",
             panelButtonClassName: "n0-cla$$_name"
         ),
-        new Panel(8,   // Discontinue button (for animations)
+        Panel.Create(8,   // Discontinue button (for animations)
             cannotBeActiveWhileOtherPanelsAreActive: false,
             panelActiveStatusClassName: "discontinue-button-on",
             blurStatusClassName: "n0-cla$$_name",

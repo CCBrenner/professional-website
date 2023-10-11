@@ -13,6 +13,6 @@ public sealed class PanelGroupsTable
     }
     public static List<PanelGroup> GetPanelGroups() => new()
     {
-        new PanelGroup(0, 4),  // _nav panels
+        PanelGroup.Create(0, 4),  // _nav panels
     };
 }

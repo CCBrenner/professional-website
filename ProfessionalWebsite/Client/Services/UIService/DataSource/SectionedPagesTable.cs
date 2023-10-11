@@ -13,10 +13,10 @@ public sealed class SectionedPagesTable
     }
     public static List<SectionedPage> GetSectionedPages() => new()
     {
-        new SectionedPage(0, 2, "projects"),  // not used
-        new SectionedPage(1, 3, "knowhow"),
-        new SectionedPage(2, 4, "collyn"),
-        new SectionedPage(3, 5, "invent"),
-        new SectionedPage(4, 6, "articles"),  // not used
+        SectionedPage.Create(0, 2, "projects"),  // not used
+        SectionedPage.Create(1, 3, "knowhow"),
+        SectionedPage.Create(2, 4, "collyn"),
+        SectionedPage.Create(3, 5, "invent"),
+        SectionedPage.Create(4, 6, "articles"),  // not used
     };
 }
