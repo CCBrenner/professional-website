@@ -233,13 +233,11 @@
 @code {
     protected override void OnInitialized()
     {
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
         UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
         UI.OnUiServiceChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
         UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
         UI.OnUiServiceChanged += UpdateThisComponent;
     }

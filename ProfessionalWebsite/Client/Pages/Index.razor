@@ -441,12 +441,10 @@
             UI.NavigateToSection(17);
 
         // For dynamic reload of component when state has changed in the following singletons
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
         UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
         UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>

@@ -257,12 +257,10 @@
     protected override void OnInitialized()
     {
         UI.NavigateToSection(SectionId);   
-        UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
         UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
         UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>

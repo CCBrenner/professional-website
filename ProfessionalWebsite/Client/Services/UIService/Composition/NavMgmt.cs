@@ -2,8 +2,6 @@
 
 public class NavMgmt
 {
-    public event Action<string> OnNavMgmtUpdated;
-
     /*
         Definitions:
             - "sectioned page" : a page that implements according sections (collapse/expand) & utilizes SectionsMgmt for the handling logic of those sections
@@ -14,7 +12,7 @@ public class NavMgmt
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume Nav to update themselves because of a state change in Nav. Components must subscribe to the event to receive update commands.</param>
+    /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId, PanelMgmt panelMgmt, SectionMgmt sectionMgmt, bool triggersOnPanelMgmtUpdated = true)
     {
         panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
@@ -39,15 +37,5 @@ public class NavMgmt
     {
         panelMgmt.UpdateGroupLocationPanel(navGroupPanelId);
         panelMgmt.ActivatePanel(hardcodedPanelId);
-    }
-
-    /// <summary>
-    /// Updates the component that consumes it when a method in the Nav class that consumes this method invokes/signals that a change to the state of it has occurred.
-    /// </summary>
-    private void RaiseEventOnNavMgmtUpdated()
-    {
-        if (OnNavMgmtUpdated != null)
-            OnNavMgmtUpdated?.Invoke("");
-        RaiseEventOnNavMgmtUpdated();
     }
 }
