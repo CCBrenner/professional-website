@@ -2,7 +2,16 @@
 
 public sealed class PanelsTable
 {
-    private List<Panel> panels = new()
+    public static Dictionary<int, Panel> GetPanelsDict()
+    {
+        Dictionary<int, Panel> panelsDict = new();
+
+        foreach (Panel panel in GetPanels())
+            panelsDict.Add(panel.Id, panel);
+
+        return panelsDict;
+    }
+    public static List<Panel> GetPanels() => new()
     {
         new Panel(0,   // Global Animations panel
             panelActiveStatusClassName: "anim-display",
@@ -60,21 +69,4 @@ public sealed class PanelsTable
             panelButtonClassName: "n0-cla$$_name"
         ),
     };
-
-    public static List<Panel> GetPanels()
-    {
-        PanelsTable panelsTable = new();
-        return panelsTable.panels;
-    }
-
-    public static Dictionary<int, Panel> GetPanelsDict()
-    {
-        PanelsTable panelsTable = new();
-        Dictionary<int, Panel> panelsDict = new Dictionary<int, Panel>();
-
-        foreach (Panel panel in panelsTable.panels)
-            panelsDict.Add(panel.Id, panel);
-
-        return panelsDict;
-    }
 }

@@ -2,7 +2,16 @@
 
 public sealed class SectionedPagesTable
 {
-    private List<SectionedPage> sectionedPages = new()
+    public static Dictionary<int, SectionedPage> GetSectionedPagesDict()
+    {
+        Dictionary<int, SectionedPage> sectionedPagesDict = new();
+
+        foreach (SectionedPage sectionedPage in GetSectionedPages())
+            sectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
+
+        return sectionedPagesDict;
+    }
+    public static List<SectionedPage> GetSectionedPages() => new()
     {
         new SectionedPage(0, 2, "projects"),  // not used
         new SectionedPage(1, 3, "knowhow"),
@@ -10,21 +19,4 @@ public sealed class SectionedPagesTable
         new SectionedPage(3, 5, "invent"),
         new SectionedPage(4, 6, "articles"),  // not used
     };
-
-    public static List<SectionedPage> GetSectionedPages()
-    {
-        SectionedPagesTable sectionedPagesTable = new();
-        return sectionedPagesTable.sectionedPages;
-    }
-
-    public static Dictionary<int, SectionedPage> GetSectionedPagesDict()
-    {
-        SectionedPagesTable sectionedPagesTable = new();
-        Dictionary<int, SectionedPage> sectionedPagesDict = new Dictionary<int, SectionedPage>();
-
-        foreach (SectionedPage sectionedPage in sectionedPagesTable.sectionedPages)
-            sectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
-
-        return sectionedPagesDict;
-    }
 }

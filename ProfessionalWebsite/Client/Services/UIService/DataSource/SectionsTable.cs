@@ -2,8 +2,17 @@
 
 public sealed class SectionsTable
 {
-    private List<Section> sections = new()
+    public static Dictionary<int, Section> GetSectionsDict()
     {
+        Dictionary<int, Section> sectionsDict = new();
+
+        foreach (Section section in GetSections())
+            sectionsDict.Add(section.Id, section);
+
+        return sectionsDict;
+    }
+    public static List<Section> GetSections() => new()
+    { 
         /* start "knowhow" */
         new Section(0, 1, isFirstSectionOfPage: true),
         new Section(1, 1),  // Back-end
@@ -39,20 +48,4 @@ public sealed class SectionsTable
         new Section(32, 3),
         /* end "invent" */
     };
-
-    public static List<Section> GetSections()
-    {
-        SectionsTable sectionsTable = new();
-        return sectionsTable.sections;
-    }
-    public static Dictionary<int, Section> GetSectionsDict()
-    {
-        SectionsTable sectionsTable = new();
-        Dictionary<int, Section> sectionsDict = new Dictionary<int, Section>();
-
-        foreach (Section section in sectionsTable.sections)
-            sectionsDict.Add(section.Id, section);
-
-        return sectionsDict;
-    }
 }
