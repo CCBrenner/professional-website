@@ -1,5 +1,5 @@
 ﻿@inject UIService UI
-@implements IDisposable
+@*implements IDisposable*@
 
 @page "/projects"
 
@@ -13,18 +13,18 @@
 
     <h4>PanelMgmt</h4>
     <p>Panel Group 1</p>
-    @for (int i = 2; i < UI.Panel.PanelGroups[0].Panels.Count(); i++)
+    @for (int i = 2; i < UI.PanelGroups[0].Panels.Count(); i++)
     {
         <p>PanelGroup Panel @i</p>
-        <p>PanelGroupId: [@UI.Panel.Panels[i].PanelGroupId]</p>
-        <p>PanelStatus: [@UI.Panel.Panels[i].PanelStatus]</p>
-        <p>PanelButtonStatus: [@UI.Panel.Panels[i].PanelButtonStatus]</p>
-        <p>BlurStatus: [@UI.Panel.Panels[i].BlurStatus]</p>
-        <p>BehindPanelStatus: [@UI.Panel.Panels[i].BehindPanelStatus]</p>
+        <p>PanelGroupId: [@UI.Panels[i].PanelGroupId]</p>
+        <p>PanelStatus: [@UI.Panels[i].PanelStatus]</p>
+        <p>PanelButtonStatus: [@UI.Panels[i].PanelButtonStatus]</p>
+        <p>BlurStatus: [@UI.Panels[i].BlurStatus]</p>
+        <p>BehindPanelStatus: [@UI.Panels[i].BehindPanelStatus]</p>
         <br/>
     }
     <p>LocationPanel</p>
-    <p>PanelGroupId: [@UI.Panel.PanelGroups[0].LocationPanelId]</p>
+    <p>PanelGroupId: [@UI.PanelGroups[0].LocationPanelId]</p>
     <p style="width: 150px; height: 150px; background-color: hotpink;" @onclick='(()=>Console.WriteLine("This is to be printed to the browser console."))'></p>
     @*
     <p>PanelStatus: [@UI.PanelMgmt.PanelGroups[0].LocationPanel.PanelStatus]</p>
@@ -41,13 +41,18 @@
 </ProjectsPageTemplate>
 
 @code {
+    /*
     protected override void OnInitialized()
     {
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
-        
+        //UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+        //UI.OnUiServiceChanged += UpdateThisComponent;
     }
-    void IDisposable.Dispose() =>
-        UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
-    private void UpdateThisComponent(string meaningless) =>
+    void IDisposable.Dispose()
+    {
+        //UI.OnUiServiceChanged -= UpdateThisComponent;
+    }
+    private void UpdateThisComponent(string meaningless)
+    {
         StateHasChanged();
+    }*/
 }

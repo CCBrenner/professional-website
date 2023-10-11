@@ -1,7 +1,7 @@
 ﻿@implements IDisposable
 @inject UIService UI
 
-<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panel.Panels[2].PanelStatus">
+<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panels[2].PanelStatus">
     <NavPanelNavLinkButton Href="projects"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-diagram-project"
@@ -20,7 +20,7 @@
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="knowhow/14"
                                ButtonText="This PWA"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(13))" />
+                               ButtonClickCallback="(()=>UI.NavigateToSection(14))" />
         <NavPanelNavLinkButton Href="matchgame"
                                ButtonText="Match Game"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
@@ -58,7 +58,7 @@
                                ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@UI.Panel.Panels[3].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@UI.Panels[3].PanelStatus">
     <NavPanelNavLinkButton Href="knowhow/0"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
@@ -112,7 +112,7 @@
                                ButtonText="Contact" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panel.Panels[4].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panels[4].PanelStatus">
     <NavPanelNavLinkButton Href="collyn/17"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-book"
@@ -150,7 +150,7 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection( 25))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panel.Panels[5].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panels[5].PanelStatus">
     <NavPanelNavLinkButton Href="invent/26"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-warehouse"
@@ -183,7 +183,7 @@
                                ButtonText="Contact" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panel.Panels[6].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[6].PanelStatus">
     <NavPanelNavLinkButton Href="articles"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-newspaper"
@@ -255,9 +255,9 @@
 
 @code {
     protected override void OnInitialized() =>
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
+        UI.OnUiServiceChanged -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 }

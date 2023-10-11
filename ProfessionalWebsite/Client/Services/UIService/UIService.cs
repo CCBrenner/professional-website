@@ -9,9 +9,9 @@ public class UIService : IUIService
 
         _nav = new();
 
-        var PanelGroupsDictionary = PanelGroupsTable.GetPanelGroupsDict();
-        var PanelsDictionary = PanelsTable.GetPanelsDict();
-        Panel = new(PanelGroupsDictionary, PanelsDictionary);
+        PanelGroups = PanelGroupsTable.GetPanelGroupsDict();
+        Panels = PanelsTable.GetPanelsDict();
+        _panel = new(PanelGroups, Panels);
 
         var SectionedPagesDictionary = SectionedPagesTable.GetSectionedPagesDict();
         var SectionsDictionary = SectionsTable.GetSectionsDict();
@@ -20,10 +20,13 @@ public class UIService : IUIService
 
     private AnimMgmt _anim;
     private NavMgmt _nav;
-    public PanelMgmt Panel { get; private set; }
+    private PanelMgmt _panel;
     public SectionMgmt Section { get; private set; }
     public string AnimateMain => _anim.AnimateMain;
     public List<bool> IsContinuous { get; private set; }
+    public Dictionary<int, Panel> Panels { get; private set; }
+    public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
+
     public event Action<string> OnUiServiceChanged;
 
     /// <summary>
@@ -31,7 +34,7 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void PlayAnimation(int animationIndex) =>
-        _anim.PlayAnimation(animationIndex, Panel);
+        _anim.PlayAnimation(animationIndex, _panel);
 
     /// <summary>
     /// 
@@ -40,7 +43,7 @@ public class UIService : IUIService
     /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
     public void PlayAnimation(int animationIndex, bool isContinuous)
     {
-        _anim.PlayAnimation(animationIndex, isContinuous, Panel);
+        _anim.PlayAnimation(animationIndex, isContinuous, _panel);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -48,38 +51,50 @@ public class UIService : IUIService
     /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.
     /// </summary>
     public void DiscontinueAnimation() =>
-        _anim.DiscontinueAnimation(Panel);
+        _anim.DiscontinueAnimation(_panel);
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
-    public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true) =>
-        _nav.NavigateToSection(sectionId, Panel, Section, triggersOnPanelMgmtUpdated);
+    public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
+    {
+        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated);
+        _nav.NavigateToSection(sectionId, _panel, Section);
+    }
 
     /// <summary>
     /// Updates the navigation highlights to show the proper location when navigating to a hard coded page. The only hard coded page at the time of writing is the original animations page which exists in the MainLayout component.
     /// </summary>
     /// <param name="panelId">Id of the panel whose button should be highlighted when navgiating to the hardcoded page.</param>
     public void NavigateToHardCodedPage(int hardcodedPanelId, int navGroupPanelId) =>
-        _nav.NavigateToHardCodedPage(hardcodedPanelId, navGroupPanelId, Panel);
+        _nav.NavigateToHardCodedPage(hardcodedPanelId, navGroupPanelId, _panel);
 
     /// <summary>
     /// Toggles a panel's state from "off" to "on" and vice versa by panel ID.
     /// </summary>
     /// <param name="selectedPanelId">ID of panel to be toggled on or off.</param>
     /// <returns></returns>
-    public void TogglePanel(int selectedPanelId) =>
-        Panel.TogglePanel(selectedPanelId);
+    public void TogglePanel(int selectedPanelId)
+    {
+        _panel.TogglePanel(selectedPanelId);
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// When navigating to a non-sectioned page (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
     /// </summary>
     /// <param name="panelId">ID of panel to be made location panel of global navigation panel group.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume Panel to update. Component must subscribe to the event to receive update commands from Panel.</param>
-    public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true) =>
-        Panel.UpdatePanelsWhenNavigating(panelId, triggersOnPanelMgmtUpdated);
+    /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
+    public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true)
+    {
+        //_panel.UpdatePanelsWhenNavigating(panelId, triggersOnPanelMgmtUpdated);
+        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+        _panel.UpdateGroupLocationPanel(panelId);
+
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Collapses/Expands section based on section ID.
@@ -95,5 +110,31 @@ public class UIService : IUIService
     public void ToggleAllSections(int pageId) =>
         Section.ToggleAllSections(pageId);
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
-
+    public void DeactivateAllPanels(
+        bool setActivePanelGroupToLocationPanel,
+        bool triggersOnPanelMgmtUpdated = true,
+        bool includeIndependentPanels = false
+    )
+    {
+        _panel.DeactivateAllPanels(setActivePanelGroupToLocationPanel, includeIndependentPanels);
+        if (triggersOnPanelMgmtUpdated)
+        {
+            RaiseEventOnUiServiceChanged();
+        }
+    }
+    public void ActivatePanel(int selectedPanelId)
+    {
+        _panel.ActivatePanel(selectedPanelId);
+        RaiseEventOnUiServiceChanged();
+    }
+    public void DeactivatePanel(int selectedPanelId)
+    {
+        _panel.DeactivatePanel(selectedPanelId);
+        RaiseEventOnUiServiceChanged();
+    }
+    public void UpdateGroupLocationPanel(int panelId)
+    {
+        _panel.UpdateGroupLocationPanel(panelId);
+        RaiseEventOnUiServiceChanged();
+    }
 }

@@ -231,7 +231,7 @@ public class SectionMgmt
     }
 
     /// <summary>
-    /// Updates the component that consumes it when a method in the Panel class that consumes this method invokes/signals that a change to the state of it has occurred.
+    /// Updates the component that consumes it when a method in the _panel class that consumes this method invokes/signals that a change to the state of it has occurred.
     /// </summary>
     private void RaiseEventOnSectionMgmtChanged()
     {

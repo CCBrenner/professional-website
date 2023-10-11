@@ -48,11 +48,11 @@
             @* Panels (z-index: 30) *@
             <NavPanels />
 
-            <div class="anim-icon @UI.Panel.Panels[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
+            <div class="anim-icon @UI.Panels[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
 
-            <div class="anim-controls @UI.Panel.Panels[0].PanelStatus">
+            <div class="anim-controls @UI.Panels[0].PanelStatus">
                 <h4>Animations</h4>
                 <div class="anim-pair" @onclick="(()=>UI.PlayAnimation(0, false))">
                     <div class="anim-regular">
@@ -135,7 +135,7 @@
             @* Behind Panel (z-index: 20) *@
             <div class="behind-panel 
                 @behindPanelStatus()"
-                @onclick="(()=>UI.Panel.DeactivateAllPanels(true))"></div>
+                @onclick="(()=>UI.DeactivateAllPanels(true))"></div>
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
@@ -167,7 +167,7 @@
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
             <article class="animate-app
-                @UI.Panel.Panels[7].PanelStatus
+                @UI.Panels[7].PanelStatus
                 @blurMainStatus()">
                 <h3>App Animations</h3>
                 <br />
@@ -224,23 +224,17 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @UI.Panel.Panels[8].PanelStatus">
+        <div class="continuous-animate-stop @UI.Panels[8].PanelStatus">
             <button class="btn btn-danger" @onclick='UI.DiscontinueAnimation'>Discontinue</button>
         </div>
     </div>
 </div>
 
 @code {
-    protected override void OnInitialized()
-    {
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+    protected override void OnInitialized() =>
         UI.OnUiServiceChanged += UpdateThisComponent;
-    }
-    void IDisposable.Dispose()
-    {
-        UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
+    void IDisposable.Dispose() =>
         UI.OnUiServiceChanged += UpdateThisComponent;
-    }
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 
@@ -249,8 +243,8 @@
         // if any panels are true, blur main
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (UI.Panel.Panels[index] != null)
-                if (UI.Panel.Panels[index].BlurIsActive)
+            if (UI.Panels[index] != null)
+                if (UI.Panels[index].BlurIsActive)
                     return "content-blur";
         return "";
     }
@@ -259,8 +253,8 @@
         // if any panels are true, show behind panel
         List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
         foreach (int index in panelIds)
-            if (UI.Panel.Panels[index] != null)
-                if (UI.Panel.Panels[index].BehindPanelIsActive)
+            if (UI.Panels[index] != null)
+                if (UI.Panels[index].BehindPanelIsActive)
                     return "button-on-show-behind-panel";
         return "";
     }

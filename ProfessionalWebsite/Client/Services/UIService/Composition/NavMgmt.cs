@@ -13,9 +13,9 @@ public class NavMgmt
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
-    public void NavigateToSection(int sectionId, PanelMgmt panelMgmt, SectionMgmt sectionMgmt, bool triggersOnPanelMgmtUpdated = true)
+    public void NavigateToSection(int sectionId, PanelMgmt panelMgmt, SectionMgmt sectionMgmt)
     {
-        panelMgmt.DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+        //panelMgmt.DeactivateAllPanels(true, true);
         try
         {
             sectionMgmt.CollapseAllShowOne(sectionId);
