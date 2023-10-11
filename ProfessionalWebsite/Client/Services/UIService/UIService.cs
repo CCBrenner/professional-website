@@ -1,8 +1,4 @@
-﻿using ProfessionalWebsite.Client.Services.UI.Contracts;
-using ProfessionalWebsite.Client.Services.UI.Mgmt;
-using ProfessionalWebsite.Client.Services.UI.Mgmt.DataTables;
-
-namespace ProfessionalWebsite.Client.Services.UI;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public class UIService : IUIService
 {

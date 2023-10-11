@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt.DataTables;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public sealed class PanelGroupsTable
 {

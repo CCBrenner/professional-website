@@ -1,6 +1,4 @@
-﻿using ProfessionalWebsite.Client.Services.UI.Mgmt;
-
-namespace ProfessionalWebsite.Client.Services.UI.Contracts;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public interface IUIService
 {

@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public class SectionMgmt
 {
