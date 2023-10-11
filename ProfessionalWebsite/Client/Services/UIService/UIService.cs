@@ -4,8 +4,8 @@ public class UIService : IUIService
 {
     public UIService()
     {
-        var isContinuous = AnimationsTable.GetIsContinuous();
-        Anim = new(isContinuous);
+        IsContinuous = AnimationsTable.GetIsContinuous();
+        _anim = new(IsContinuous);
 
         Nav = new();
 
@@ -18,31 +18,37 @@ public class UIService : IUIService
         Section = new(SectionedPagesDictionary, SectionsDictionary);
     }
 
-    public AnimMgmt Anim { get; private set; }
+    private AnimMgmt _anim;
     public NavMgmt Nav { get; private set; }
     public PanelMgmt Panel { get; private set; }
     public SectionMgmt Section { get; private set; }
+    public string AnimateMain => _anim.AnimateMain;
+    public List<bool> IsContinuous { get; private set; }
+    public event Action<string> OnUiServiceChanged;
 
     /// <summary>
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void PlayAnimation(int animationIndex) =>
-        Anim.PlayAnimation(animationIndex, Panel);
+        _anim.PlayAnimation(animationIndex, Panel);
 
     /// <summary>
     /// 
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
-    public void PlayAnimation(int animationIndex, bool isContinuous) =>
-        Anim.PlayAnimation(animationIndex, isContinuous, Panel);
+    public void PlayAnimation(int animationIndex, bool isContinuous)
+    {
+        _anim.PlayAnimation(animationIndex, isContinuous, Panel);
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.
     /// </summary>
     public void DiscontinueAnimation() =>
-        Anim.DiscontinueAnimation(Panel);
+        _anim.DiscontinueAnimation(Panel);
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
@@ -88,4 +94,6 @@ public class UIService : IUIService
     /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
     public void ToggleAllSections(int pageId) =>
         Section.ToggleAllSections(pageId);
+    private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
+
 }

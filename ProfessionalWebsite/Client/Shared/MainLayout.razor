@@ -37,7 +37,7 @@
         </div>
         *@
 
-        <main class="main @UI.Anim.AnimateMain">
+        <main class="main @UI.AnimateMain">
 
             @* Alert (proprietary) *@
             @*<div class=""></div>*@
@@ -176,7 +176,7 @@
                         Bombastic
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[0]" />
+                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[0]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
@@ -184,7 +184,7 @@
                         Sky Walker
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[1]" />
+                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[1]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
@@ -192,7 +192,7 @@
                         Kitchen Sink
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[2]" />
+                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[2]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
@@ -200,7 +200,7 @@
                         Flipster
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[3]" />
+                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[3]" />
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
@@ -208,7 +208,7 @@
                         Asteroid
                     </button>
                     &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.Anim.IsContinuous[4]" />
+                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[4]" />
                     &nbsp;Continuous
                 </div>
             </article>
@@ -235,13 +235,13 @@
     {
         UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
         UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
-        UI.Anim.OnAnimMgmtChanged += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
         UI.Nav.OnNavMgmtUpdated -= UpdateThisComponent;
         UI.Panel.OnPanelMgmtUpdated -= UpdateThisComponent;
-        UI.Anim.OnAnimMgmtChanged -= UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();

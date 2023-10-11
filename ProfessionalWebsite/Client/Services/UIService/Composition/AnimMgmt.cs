@@ -13,7 +13,7 @@ public class AnimMgmt
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
 
-    public event Action<string> OnAnimMgmtChanged;
+    //public event Action<string> OnAnimMgmtChanged;
 
     /// <summary>
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
@@ -38,7 +38,7 @@ public class AnimMgmt
             else
                 SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
         }
-        RaiseEventOnAnimMgmtChanged();
+        //RaiseEventOnAnimMgmtChanged();
     }
 
     /// <summary>
@@ -60,12 +60,12 @@ public class AnimMgmt
         else
             panelMgmt.ActivatePanel(8);
     }
-
+    /*
     /// <summary>
     /// Updates the component that consumes it when a method in the AnimMgmt class that consumes this method invokes/signals that a change to the state of it has occurred.
     /// </summary>
     private void RaiseEventOnAnimMgmtChanged()
     {
         OnAnimMgmtChanged?.Invoke("");
-    }
+    }*/
 }
