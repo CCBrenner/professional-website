@@ -22,7 +22,7 @@ public class UIService : IUIService
     private NavMgmt _nav;
     private PanelMgmt _panel;
     private SectionMgmt _section;
-    public string AnimateMain => _anim._animateMain;
+    public string AnimateMain => _anim.AnimateMain;
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
@@ -35,8 +35,11 @@ public class UIService : IUIService
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    public void PlayAnimation(int animationIndex) =>
+    public void PlayAnimation(int animationIndex)
+    {
         _anim.PlayAnimation(animationIndex, _panel);
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// 

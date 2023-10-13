@@ -52,7 +52,6 @@ public class PanelMgmt
             .FirstOrDefault(panel => panel.Id == selectedPanelId)
             ?.Deactivate();
     }
-
     /// <summary>
     /// Activates a panel based on the panel's ID.
     /// </summary>
@@ -66,7 +65,6 @@ public class PanelMgmt
             .FirstOrDefault(panel => panel.Id == selectedPanelId)
             ?.Activate();
     }
-
     /// <summary>
     /// Toggles a panel's state from "off" to "on" and vice versa by panel ID.
     /// </summary>
@@ -93,7 +91,6 @@ public class PanelMgmt
             Console.WriteLine(knfEx.Message + knfEx.StackTrace);
         }
     }
-
     /// <summary>
     /// Sets the location panel of a panel group using only the ID of a given panel. If the panel is not part of a panel group, then nothing happens. 
     /// </summary>
@@ -117,18 +114,6 @@ public class PanelMgmt
             Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
         }
     }
-
-    /// <summary>
-    /// When navigating to a non-sectioned page (using an anchor element), deactivates all panels (including independent ones) and updates the location panel of the global navigation's panel group (leaving the location panel's button highlighted upon navgiation).
-    /// </summary>
-    /// <param name="panelId">ID of panel to be made location panel of global navigation panel group.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
-    public void UpdatePanelsWhenNavigating(int panelId)
-    {
-        DeactivateAllPanels(true, true);
-        UpdateGroupLocationPanel(panelId);
-    }
-
     /// <summary>
     /// Activates the location panel for each panel group.
     /// </summary>
@@ -157,7 +142,6 @@ public class PanelMgmt
             }
         }
     }
-
     /// <summary>
     /// Each panel group has a location panel that remembers the panel designated to the current location. When another panel in the panel group is openned, it will be turned off, but when all panels in the panel group are closed, then the button associated with the current location's panel is highlighted (as a visual indicator of where the user currently is in the app).
     /// </summary>
@@ -174,7 +158,6 @@ public class PanelMgmt
             }
         }
     }
-
     /// <summary>
     /// Determines if all cooperative panels are currently deactivated.
     /// </summary>
@@ -186,7 +169,6 @@ public class PanelMgmt
                 return false;
         return true;
     }
-
     /// <summary>
     /// Upon initialization of panels and panel groups, one-to-many relationships are established through assigning the references based on the relationships within each panel and panel group. This is dependent on the PanelGroupId assigned to each panel.
     /// </summary>

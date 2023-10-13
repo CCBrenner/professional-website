@@ -52,7 +52,6 @@ public class SectionMgmt
             Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace}");
         }
     }
-
     /// <summary>
     /// Collapses/Expands section based on section ID.
     /// </summary>
@@ -71,7 +70,6 @@ public class SectionMgmt
             Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
         }
     }
-
     /// <summary>
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
     /// </summary>
@@ -103,7 +101,6 @@ public class SectionMgmt
         }
 
     }
-
     /// <summary>
     /// Demotes all other sections and makes specified section the promo section.
     /// </summary>
@@ -123,7 +120,6 @@ public class SectionMgmt
             Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
         }
     }
-
     /// <summary>
     /// Returns the ID of the location panel of a sectioned page of the specified section using the section's ID.
     /// </summary>
@@ -143,7 +139,6 @@ public class SectionMgmt
         }
         return -1;
     }
-
     /// <summary>
     /// Removes promo status from all sections.
     /// </summary>
@@ -175,7 +170,6 @@ public class SectionMgmt
         else
             sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
     }
-
     /// <summary>
     /// Initializes sectioned page reference to its sections and vice versa. Establishes a one-to-many relationship through on-hand references.
     /// </summary>
@@ -192,7 +186,6 @@ public class SectionMgmt
                 .Add(section.Id, section);
         }
     }
-
     /// <summary>
     /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
     /// </summary>
