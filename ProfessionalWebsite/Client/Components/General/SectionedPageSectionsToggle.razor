@@ -4,8 +4,8 @@
 @implements IDisposable
 
 <div class="toggle-all-sections-container">
-    <div class="toggle-all-sections" @onclick="(()=>UI.Section.ToggleAllSections(PageId))">
-        @if (UI.Section.SectionedPages[PageId].SectionsStatus == SectionsStatus.AllAreOpen)
+    <div class="toggle-all-sections" @onclick="(()=>UI.ToggleAllSections(PageId))">
+        @if (UI.SectionedPages[PageId].SectionsStatus == SectionsStatus.AllAreOpen)
         { <span class="fa-solid fa-down-left-and-up-right-to-center"></span> }
         else
         { <span class="fa-solid fa-up-right-and-down-left-from-center"></span> }
@@ -18,11 +18,11 @@
 
     protected override void OnInitialized()
     {
-        UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
+        UI.OnUiServiceChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement)
     {

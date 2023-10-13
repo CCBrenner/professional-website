@@ -4,13 +4,13 @@ public class SectionMgmt
 {
     public SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
     {
-        Sections = sectionsDictionary;
-        SectionedPages = sectionedPagesDictionary;
+        _sections = sectionsDictionary;
+        _sectionedPages = sectionedPagesDictionary;
         SetInstanceToGroupReferences();
     }
 
-    public Dictionary<int, Section> Sections { get; private set; }
-    public Dictionary<int, SectionedPage> SectionedPages { get; private set; }  // key == SectionPage.Id
+    private Dictionary<int, Section> _sections;
+    private Dictionary<int, SectionedPage> _sectionedPages;
 
     public event Action<string> OnSectionMgmtChanged;
 
@@ -29,8 +29,8 @@ public class SectionMgmt
         try
         {
             DemoteAllSections();
-            Section section = Sections[sectionId];
-            SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+            Section section = _sections[sectionId];
+            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
             Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
             if (section.IsFirstSectionOfPage)
             {
@@ -61,11 +61,10 @@ public class SectionMgmt
     {
         try
         {
-            Section section = Sections[sectionId];
+            Section section = _sections[sectionId];
             section.ToggleCollapse(!section.IsCollapsed);
             PromoteIfOnlyOneExpandedSection(sectionId);
             UpdateSectionsStatus(sectionId);
-            RaiseEventOnSectionMgmtChanged();
         }
         catch (KeyNotFoundException knfEx)
         {
@@ -81,23 +80,22 @@ public class SectionMgmt
     {
         try
         {
-            int sectionId = SectionedPages[pageId].Sections.Keys.FirstOrDefault();
+            int sectionId = _sectionedPages[pageId].Sections.Keys.FirstOrDefault();
             UpdateSectionsStatus(sectionId);
 
             DemoteAllSections();
-            if (SectionedPages[pageId].SectionsStatus == SectionsStatus.AllAreOpen)
+            if (_sectionedPages[pageId].SectionsStatus == SectionsStatus.AllAreOpen)
             {
-                foreach (var section in Sections.Values)
+                foreach (var section in _sections.Values)
                     section.ToggleCollapse(true);
-                SectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreCollapsed;
+                _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreCollapsed;
             }
             else
             {
-                foreach (var section in Sections.Values)
+                foreach (var section in _sections.Values)
                     section.ToggleCollapse(false);
-                SectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreOpen;
+                _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreOpen;
             }
-            RaiseEventOnSectionMgmtChanged();
         }
         catch (KeyNotFoundException knfEx)
         {
@@ -115,9 +113,9 @@ public class SectionMgmt
         try
         {
             DemoteAllSections();
-            Section section = Sections[sectionId];
+            Section section = _sections[sectionId];
             section.Promote();
-            SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
             sectionedPage.ASectionIsCurrentlyPromo = true;
         }
         catch (KeyNotFoundException knfEx)
@@ -135,8 +133,8 @@ public class SectionMgmt
     {
         try
         {
-            Section section = Sections[sectionId];
-            SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+            Section section = _sections[sectionId];
+            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
             return sectionedPage.LocationPanelGroupId;
         }
         catch (KeyNotFoundException knfEx)
@@ -151,9 +149,9 @@ public class SectionMgmt
     /// </summary>
     private void DemoteAllSections()
     {
-        foreach (var section in Sections.Values)
+        foreach (var section in _sections.Values)
             section.Demote();
-        foreach (SectionedPage sectionedPage in SectionedPages.Values)
+        foreach (SectionedPage sectionedPage in _sectionedPages.Values)
             sectionedPage.ASectionIsCurrentlyPromo = false;
     }
     /// <summary>
@@ -162,8 +160,8 @@ public class SectionMgmt
     /// <param name="sectionId">ID of specified section.</param>
     private void UpdateSectionsStatus(int sectionId)
     {
-        Section section = Sections[sectionId];
-        SectionedPage sectionedPage = SectionedPages[section.SectionedPageId];
+        Section section = _sections[sectionId];
+        SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
 
         int openSections = 0;
         foreach (Section sec in sectionedPage.Sections.Values)
@@ -183,13 +181,13 @@ public class SectionMgmt
     /// </summary>
     private void SetInstanceToGroupReferences()
     {
-        foreach (Section section in Sections.Values)
-            section.SetInstanceToGroupRelationship(SectionedPages.Values.ToList());
+        foreach (Section section in _sections.Values)
+            section.SetInstanceToGroupRelationship(_sectionedPages.Values.ToList());
 
         List<Section> sectionsOfPage = new List<Section>();
-        foreach (Section section in Sections.Values)
+        foreach (Section section in _sections.Values)
         {
-            SectionedPages[section.SectionedPageId]
+            _sectionedPages[section.SectionedPageId]
                 .Sections
                 .Add(section.Id, section);
         }
@@ -206,8 +204,8 @@ public class SectionMgmt
             int expandedSectionsCount = 0;
             int idOfSectionToPromote = 0;
 
-            Section sec = Sections[sectionId];
-            SectionedPage sectionedPage = SectionedPages[sec.SectionedPageId];
+            Section sec = _sections[sectionId];
+            SectionedPage sectionedPage = _sectionedPages[sec.SectionedPageId];
             Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
 
             foreach (Section section in sectionsOfSectionedPage.Values)
@@ -228,13 +226,5 @@ public class SectionMgmt
         {
             Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
         }
-    }
-
-    /// <summary>
-    /// Updates the component that consumes it when a method in the _panel class that consumes this method invokes/signals that a change to the state of it has occurred.
-    /// </summary>
-    private void RaiseEventOnSectionMgmtChanged()
-    {
-        OnSectionMgmtChanged?.Invoke("");
     }
 }

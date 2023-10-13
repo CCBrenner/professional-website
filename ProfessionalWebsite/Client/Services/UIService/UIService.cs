@@ -13,19 +13,21 @@ public class UIService : IUIService
         Panels = PanelsTable.GetPanelsDict();
         _panel = new(PanelGroups, Panels);
 
-        var SectionedPagesDictionary = SectionedPagesTable.GetSectionedPagesDict();
-        var SectionsDictionary = SectionsTable.GetSectionsDict();
-        Section = new(SectionedPagesDictionary, SectionsDictionary);
+        SectionedPages = SectionedPagesTable.GetSectionedPagesDict();
+        Sections = SectionsTable.GetSectionsDict();
+        _section = new(SectionedPages, Sections);
     }
 
     private AnimMgmt _anim;
     private NavMgmt _nav;
     private PanelMgmt _panel;
-    public SectionMgmt Section { get; private set; }
-    public string AnimateMain => _anim.AnimateMain;
+    private SectionMgmt _section;
+    public string AnimateMain => _anim._animateMain;
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
+    public Dictionary<int, Section> Sections { get; private set; }
+    public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
 
@@ -61,7 +63,7 @@ public class UIService : IUIService
     public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
     {
         DeactivateAllPanels(true, triggersOnPanelMgmtUpdated);
-        _nav.NavigateToSection(sectionId, _panel, Section);
+        _nav.NavigateToSection(sectionId, _panel, _section);
     }
 
     /// <summary>
@@ -89,7 +91,6 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true)
     {
-        //_panel.UpdatePanelsWhenNavigating(panelId, triggersOnPanelMgmtUpdated);
         DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
         _panel.UpdateGroupLocationPanel(panelId);
 
@@ -100,15 +101,21 @@ public class UIService : IUIService
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId) =>
-        Section.ToggleSection(sectionId);
+    public void ToggleSection(int sectionId)
+    {
+        _section.ToggleSection(sectionId);
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
     /// </summary>
     /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleAllSections(int pageId) =>
-        Section.ToggleAllSections(pageId);
+    public void ToggleAllSections(int pageId)
+    {
+        _section.ToggleAllSections(pageId);
+        RaiseEventOnUiServiceChanged();
+    }
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
     public void DeactivateAllPanels(
         bool setActivePanelGroupToLocationPanel,

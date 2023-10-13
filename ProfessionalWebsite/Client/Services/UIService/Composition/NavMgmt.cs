@@ -15,7 +15,6 @@ public class NavMgmt
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId, PanelMgmt panelMgmt, SectionMgmt sectionMgmt)
     {
-        //panelMgmt.DeactivateAllPanels(true, true);
         try
         {
             sectionMgmt.CollapseAllShowOne(sectionId);

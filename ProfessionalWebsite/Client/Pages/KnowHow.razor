@@ -27,18 +27,18 @@
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Overview*@
-                @if (UI.Section.Sections[0].IsVisible)
+                @if (UI.Sections[0].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
-                            @if(UI.Section.Sections[0].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
+                            @if(UI.Sections[0].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Overview
                         </div>
-                        <div class="section-content @UI.Section.Sections[0].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[0].IsCollapsedContent">
                             <h3 class="text-center">Overview</h3>
                             <p>
                                 Software developers need to know many things to be effective in their crafting of software code. Not only this, but they need to have the solutions to many different problems locked down in memory, and not just static memory, but in working memory to be called in at the apprpriate times based on the best design philosophies and principles. For that which the software developer does not have locked in their memory they can make up for in different essential skills such as method of searching for something. These multi-step solutions - can be exponentially useful. This page will give you a sense of what technologies I have worked with thus far, however, please note that i am entirely open to learning about other technologies or more specific domains of a technology as well. Learning is only a matter of time. Changing dependencies shouldn't be something to fear. It should be seen as an opportunity for more to be made possible.
@@ -80,18 +80,18 @@
                     </div>
                 }
                 @*About This Web App*@
-                @if (UI.Section.Sections[14].IsVisible)
+                @if (UI.Sections[14].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
-                            @if(UI.Section.Sections[14].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
+                            @if(UI.Sections[14].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             About This Web App
                         </div>
-                        <div class="section-content @UI.Section.Sections[14].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[14].IsCollapsedContent">
                             <h3 style="text-align: center;">Conception</h3>
                             <br/>
                             <p>I started construction of this developer portfolio PWA (progressive web app) by first attempting to create a Blazor WASM open-source template that I planned to branch off from to create my own promotional developer portfolio. When I started this project I had never made anything open-source before. I saw making a boilerplate template for the Blazor framework as a potential networking opportunity. You can view the open-source template here: <a href="https://github.com/CCBrenner/MobileNavBlazorWasmTemplate" target="blank">Blazor WASM template</a>.</p>
@@ -157,7 +157,7 @@
                             <h4>Cross-page navigation to a section (HTML bookmarks substitute)</h4>
                             <p>Engineers often make technical assumptions that they believe are true only to find out later that their assumption doesn’t hold water. This reveals the necessity of programmers to allow room for skepticism about everything they believe they know to be true. More specifically, disproven assumptions appear when something that is believed to be true is true in more than one circumstance, but is not true in every circumstance. This is explained simply by Proverbs 21:11 which in summary shows that the gaining of wisdom (what is deemed “experience”) involves making a person less simple than they were before, or to put it another way, make them more enlightened. A person can be more simple in specific areas than other areas of which they are more wise (have a more complete understanding of the complex nature of something else).</p>
                             <p>I say all of this, because I was made less simple when building this project. I had assumed that I was going to be able to use an HTML navigation technique that involved using the id property of an HTML element to scroll the user to the element with that id via an anchor element that referenced it. I found out much too late that this functionality does not work everywhere bar none. I concluded with about 95% confidence that this is because HTML bookmarks (what the technique is called) only work for moving the entire web page to that location. It does not work within HTML elements that utilize scrolling within themselves (given to them by the CSS property-value “overflow-y: auto”). My requirement of raising my web app in the DOM made HTML bookmarks unusable.</p>
-                            <p>I had to find another solution. I wanted to have pages that had multiple sections in them so that when viewing on desktop the user can click the sidebar and go straight to that section. Not being able to use bookmarks, I recognized I still had sections. Instead of moving the whole scrollable page, I found I could move the relevant content to the visible viewport with logic conditionals. Now if you click the sidebar, that section is “promoted” to the top of the page and all others appear collapsed below it in order. This meant that all sections had to be collapsible. I added the ability to collapse from the header of a section by clicking on it as well as a page-scoped control of the sections fully expanded or to be fully collapsed from the same button. Taking another development step forward, I updated the sections logic so that if the user ever had only one section open, it would be promoted to the top of the page just as if it had been clicked on from the sidebar. All of this works across screen sizes, with the exception of the absence of the sidebar for mobile and tablet screen sizes. This portfolio uses three pages with this functionality: “KnowHow”, “Collyn”, and “Invent”. Space was left for the future in which I either turn the other two pages in a sectioned page or if I decide to strip this project down one day and offer it as an open-source template for the benefit of programmers in the Blazor WASM community. The sectioned pages logic exists as its own class but is instantiated in the UI.SectionMgmt class so as to reap the benefits of being modifiable across navigable pages. Yes, this means that state (properties and fields data) are being kept and used in the UI.SectionMgmt service class. For keeping state in the UI.SectionMgmt class to be useful in the context of Blazor as a single instance, this means particularly that the UI.SectionMgmt class has to be “Singleton” scoped in the Program.cs file and injected as a class instead of as an interface for components that consume it (because an interface does not maintain any state within itself; the primary use case for a service class in Blazor WASM requires only functions (methods) for acquiring data from the backend API; Singleton instantiation as a rule and state in the service class are not required in the effective use of the service class’ primary use case).</p>
+                            <p>I had to find another solution. I wanted to have pages that had multiple sections in them so that when viewing on desktop the user can click the sidebar and go straight to that  Not being able to use bookmarks, I recognized I still had sections. Instead of moving the whole scrollable page, I found I could move the relevant content to the visible viewport with logic conditionals. Now if you click the sidebar, that section is “promoted” to the top of the page and all others appear collapsed below it in order. This meant that all sections had to be collapsible. I added the ability to collapse from the header of a section by clicking on it as well as a page-scoped control of the sections fully expanded or to be fully collapsed from the same button. Taking another development step forward, I updated the sections logic so that if the user ever had only one section open, it would be promoted to the top of the page just as if it had been clicked on from the sidebar. All of this works across screen sizes, with the exception of the absence of the sidebar for mobile and tablet screen sizes. This portfolio uses three pages with this functionality: “KnowHow”, “Collyn”, and “Invent”. Space was left for the future in which I either turn the other two pages in a sectioned page or if I decide to strip this project down one day and offer it as an open-source template for the benefit of programmers in the Blazor WASM community. The sectioned pages logic exists as its own class but is instantiated in the UI.SectionMgmt class so as to reap the benefits of being modifiable across navigable pages. Yes, this means that state (properties and fields data) are being kept and used in the UI.SectionMgmt service class. For keeping state in the UI.SectionMgmt class to be useful in the context of Blazor as a single instance, this means particularly that the UI.SectionMgmt class has to be “Singleton” scoped in the Program.cs file and injected as a class instead of as an interface for components that consume it (because an interface does not maintain any state within itself; the primary use case for a service class in Blazor WASM requires only functions (methods) for acquiring data from the backend API; Singleton instantiation as a rule and state in the service class are not required in the effective use of the service class’ primary use case).</p>
                             <br/>
                             <h4>Raised and Animated web app container</h4>
                             <p>Blazor separates layout classes as “Shared” components in their own directory, from the navigable page components of the PWA in the “Pages” directory. Since the Shared components are parents of the Page components (because they are for defining the layout and navigation of the project), the PWA had to be raised in the Shared directory, in the layout component. For certain functional reasons concerning navigation, I wanted to use a layering technique, with layers that are the full size of the housing container for the app. Some elements in these layers are positioned with CSS “position: relative”, to maintain position relative to the element’s parent element whenever the housing container resizes and moves. If there are multiple elements between the final positioned element then this kind of positioning must be done between every parent and child between each other, with correct height and width sizing too. Performing element positioning like this requires you to set the size of the container for child elements before positioning the container, because the container positioning is in part based on how large the container is, either vertically or horizontally. RWD would not be possible without the wonderful CSS width and height percentages which are based on the percentage of the child’s parent component width and height. There are more than 5 sibling elements which are children of the housing container which comprise the layers of the PWA. Additionally, forethought was taken in making sure that since CSS z-indexing is integer-based that enough possibilities for new layers with a new z-index could be added. Each layer is 10 z-index indices apart for this reason.</p>
@@ -166,18 +166,18 @@
                     </div>
                 }
                 @*Bee Hive Mgmt System*@
-                @if (UI.Section.Sections[16].IsVisible)
+                @if (UI.Sections[16].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
-                            @if (UI.Section.Sections[16].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
+                            @if (UI.Sections[16].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Bee Hive Manager System/Game - Project
                         </div>
-                        <div class="section-content @UI.Section.Sections[16].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[16].IsCollapsedContent">
                             <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -247,18 +247,18 @@
                     </div>
                 }
                 @*Hide & Seek*@
-                @if (UI.Section.Sections[15].IsVisible)
+                @if (UI.Sections[15].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
-                            @if(UI.Section.Sections[15].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
+                            @if(UI.Sections[15].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Hide & Seek Game - Project
                         </div>
-                        <div class="section-content @UI.Section.Sections[15].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[15].IsCollapsedContent">
                             <h3 style="text-align: center;">Hide and Seek Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="hideandseek" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -293,18 +293,18 @@
                     </div>
                 }
                 @*Match Game*@
-                @if (UI.Section.Sections[33].IsVisible)
+                @if (UI.Sections[33].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[33].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
-                            @if(UI.Section.Sections[33].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
+                            @if(UI.Sections[33].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Match Game - Project
                         </div>
-                        <div class="section-content @UI.Section.Sections[33].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[33].IsCollapsedContent">
                             <h3 style="text-align: center;">
                                 Match Game
                             </h3>
@@ -339,18 +339,18 @@
                     </div>
                 }
                 @*Frontend*@
-                @if (UI.Section.Sections[3].IsVisible)
+                @if (UI.Sections[3].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
-                            @if(UI.Section.Sections[3].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
+                            @if(UI.Sections[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Front-End
                         </div>
-                        <div class="section-content @UI.Section.Sections[3].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[3].IsCollapsedContent">
                             <p>
                                 My introduction to coding was through FreeCodeCamp using JavaScript. This led me naturally into developing web sites with HTML and CSS along with JS. I would say I have a particular affinity for clean, functional, modular user interfaces that look very nice by themselves and then make the user feel really good through simplicity and handling things for them in ways that communicate thoughtfulness. It is important to make designs intuitive when making interfaces, and this usually means gleaning from many different users and the decisions they make when navigating a GUI. It seems as though the key to an intuitive interface is learning through interaction, enabled by simplistic design, and finding things where you expect them to be. I am glad we now have moved into the age of SPAs and component-based architecture because it allows for UI components to be reused in the same way classes are, reducing code which generally translates into less for the programmer to manage (in many cases).
                             </p>
@@ -364,18 +364,18 @@
                     </div>
                 }
                 @*Back-end*@
-                @if (UI.Section.Sections[1].IsVisible)
+                @if (UI.Sections[1].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[1].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(1))">
-                            @if(UI.Section.Sections[1].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[1].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(1))">
+                            @if(UI.Sections[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Back-end
                         </div>
-                        <div class="section-content @UI.Section.Sections[1].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[1].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">Back-end</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -391,18 +391,18 @@
                     </div>
                 }
                 @*UX/UI + Modeling Software*@
-                @if (UI.Section.Sections[4].IsVisible)
+                @if (UI.Sections[4].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
-                            @if(UI.Section.Sections[4].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
+                            @if(UI.Sections[4].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             UX/UI + Modeling Software
                         </div>
-                        <div class="section-content @UI.Section.Sections[4].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[4].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">UX/UI + Modeling Software</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -424,18 +424,18 @@
                     </div>
                 }
                 @*Cloud Deployment + Containers*@
-                @if (UI.Section.Sections[5].IsVisible)
+                @if (UI.Sections[5].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
-                            @if(UI.Section.Sections[5].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
+                            @if(UI.Sections[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Cloud Deployment + Containers
                         </div>
-                        <div class="section-content @UI.Section.Sections[5].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[5].IsCollapsedContent">
                             <p>Kubernetes container management and microservices architecture has come to dominate the cloud services industry even to the degree of creating several types of technical certifications for roles within specific cloud infrastructure providers such as AWS and Azure. Docker has become the #1 container tool used by devops teams and other development teams for the streamlining of development and production release pipelines. Leveraging this kind of infrastructure and technology is proving to be high in controllability based on fluctuating application service demands, and so it has become very useful to have knowledge of how development inside of containers benefits a company or organization. The software developer does well when he or she learns how a tool like Docker works to bring many benefits to an application.</p>
                             <p>The cloud has consolidated itself away from the older models of on-site technology infrastructure management. Cloud infrastructure serves many clients instead of just one, and in so doing has increased the level of security and quality of service that can be offered to business. This has also introduced tiered service levels based on the amount of customizability/control/responsibility a business wants to have over the cloud resources it pays to use. The three largest categorizations of cloud services are IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service). IaaS offers the most control, SaaS offers the most out-of-the-box pre-configuration and least control, while PaaS falls somewhere between the other two with benefits and drawbacks of both of the other options.</p>
                             <p>When talking about containers, we are talking about virtual machine environments that can be created on-demand through the use of a template which exists in the form of a container image. Docker offers a way to create such images so that the creation of the container is consistent across every container based on the container image used. The image is composed of layers. The layers allow Docker to reduce the amount of work by skipping over the layers that have not changed and beginning with the first layer in the sequence that has changed (in the case of updating a container). However, the layers are always read in order, so that if layer 3 has changed but layer 5 has not, Docker will begin building at layer three, then go to 4 then go to 5 and so on until all layers have been completed to create the container environment.</p>
@@ -445,52 +445,52 @@
                     </div>
                 }
                 @*Databases*@
-                @if (UI.Section.Sections[6].IsVisible)
+                @if (UI.Sections[6].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
-                            @if(UI.Section.Sections[6].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
+                            @if(UI.Sections[6].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Databases
                         </div>
-                        <div class="section-content @UI.Section.Sections[6].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[6].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
                 @*Testing*@
-                @if (UI.Section.Sections[7].IsVisible)
+                @if (UI.Sections[7].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
-                            @if(UI.Section.Sections[7].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
+                            @if(UI.Sections[7].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Testing
                         </div>
-                        <div class="section-content @UI.Section.Sections[7].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[7].IsCollapsedContent">
                             <UnderConstruction />
                         </div>
                     </div>
                 }
                 @*Why Programming?*@
-                @if (UI.Section.Sections[13].IsVisible)
+                @if (UI.Sections[13].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
-                            @if(UI.Section.Sections[13].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
+                            @if(UI.Sections[13].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Why Programming?
                         </div>
-                        <div class="section-content @UI.Section.Sections[13].IsCollapsedContent">
+                        <div class="section-content @UI.Sections[13].IsCollapsedContent">
                             <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
                             <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
                             <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
@@ -499,112 +499,112 @@
                     </div>
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
-                @if (UI.Section.SectionedPages[1].ASectionIsCurrentlyPromo)
+                @if (UI.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UI.Section.Sections[0].IsCurrentPromo)
+                    @if (!UI.Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
+                            <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Overview
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[14].IsCurrentPromo)
+                    @if (!UI.Sections[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
+                            <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 About This Web App
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[16].IsCurrentPromo)
+                    @if (!UI.Sections[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
+                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Bee Hive Manager System/Game - Project
                             </div>
                         </div>
                     } 
-                    @if (!UI.Section.Sections[15].IsCurrentPromo)
+                    @if (!UI.Sections[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
+                            <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Hide & Seek Game - Project
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[33].IsCurrentPromo)
+                    @if (!UI.Sections[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
+                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Match Game - Project
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[3].IsCurrentPromo)
+                    @if (!UI.Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
+                            <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Front-End
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[4].IsCurrentPromo)
+                    @if (!UI.Sections[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
+                            <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 UX/UI + Modeling Software
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[5].IsCurrentPromo)
+                    @if (!UI.Sections[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
+                            <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Cloud Deployment + Containers
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[6].IsCurrentPromo)
+                    @if (!UI.Sections[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
+                            <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Databases
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[7].IsCurrentPromo)
+                    @if (!UI.Sections[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
+                            <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Testing
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[13].IsCurrentPromo)
+                    @if (!UI.Sections[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
+                            <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Why Programming?
@@ -627,11 +627,11 @@
     protected override void OnInitialized()
     {
         UI.NavigateToSection(SectionId);
-        UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     }
     void IDisposable.Dispose()
     {
-        UI.Section.OnSectionMgmtChanged -= UpdateThisComponent;
+        UI.OnUiServiceChanged -= UpdateThisComponent;
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();

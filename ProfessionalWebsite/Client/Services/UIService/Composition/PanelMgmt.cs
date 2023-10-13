@@ -4,16 +4,16 @@ public class PanelMgmt
 {
     public PanelMgmt(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary)
     {
-        PanelGroups = panelGroupsDictionary;
-        Panels = panelsDictionary;
+        _panelGroups = panelGroupsDictionary;
+        _panels = panelsDictionary;
 
         SetInstanceToGroupReferences();
     }
 
     public event Action<string> OnPanelMgmtUpdated;
 
-    public Dictionary<int, Panel> Panels { get; private set; }
-    public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
+    private Dictionary<int, Panel> _panels;
+    private Dictionary<int, PanelGroup> _panelGroups;
 
     /*
         Definitions:
@@ -31,7 +31,7 @@ public class PanelMgmt
         bool includeIndependentPanels = false
     )
     {
-        foreach (Panel panel in Panels.Values)
+        foreach (Panel panel in _panels.Values)
         {
             if (panel.CannotBeActiveWhileOtherCooperativePanelIsActive || includeIndependentPanels)
             {
@@ -40,8 +40,6 @@ public class PanelMgmt
                     ActivateLocationButtonsOfGroups();
             }
         }
-        //if (triggersOnPanelMgmtUpdated)
-        //    RaiseEventOnPanelMgmtUpdated();
     }
 
     /// <summary>
@@ -50,10 +48,9 @@ public class PanelMgmt
     /// <param name="selectedPanelId">ID of panel to be deactivated.</param>
     public void DeactivatePanel(int selectedPanelId)
     {
-        Panels.Values
+        _panels.Values
             .FirstOrDefault(panel => panel.Id == selectedPanelId)
             ?.Deactivate();
-        //RaiseEventOnPanelMgmtUpdated();
     }
 
     /// <summary>
@@ -65,10 +62,9 @@ public class PanelMgmt
     {
         DeactivateAllPanels(false);
         ActivateLocationButtonsOfGroups(selectedPanelId);
-        Panels.Values
+        _panels.Values
             .FirstOrDefault(panel => panel.Id == selectedPanelId)
             ?.Activate();
-        //RaiseEventOnPanelMgmtUpdated();
     }
 
     /// <summary>
@@ -80,18 +76,17 @@ public class PanelMgmt
     {
         try
         {
-            if (Panels[selectedPanelId].PanelStatus == "")
+            if (_panels[selectedPanelId].PanelStatus == "")
             {
                 DeactivateAllPanels(false);
                 ActivateLocationButtonsOfGroups(selectedPanelId);
-                Panels[selectedPanelId].Activate();
+                _panels[selectedPanelId].Activate();
             }
             else
             {
                 DeactivateAllPanels(true);
                 DeactivatePanel(selectedPanelId);
             }
-            //RaiseEventOnPanelMgmtUpdated();
         }
         catch (KeyNotFoundException knfEx)
         {
@@ -107,12 +102,11 @@ public class PanelMgmt
     {
         try
         {
-            int pgId = Panels[panelId].PanelGroupId;
-            int lpId = PanelGroups[pgId].LocationPanelId;
-            Panels[lpId].Deactivate();
-            PanelGroups[pgId].LocationPanelId = panelId;
-            Panels[panelId].ActivateButton();
-            //RaiseEventOnPanelMgmtUpdated();
+            int pgId = _panels[panelId].PanelGroupId;
+            int lpId = _panelGroups[pgId].LocationPanelId;
+            _panels[lpId].Deactivate();
+            _panelGroups[pgId].LocationPanelId = panelId;
+            _panels[panelId].ActivateButton();
         }
         catch (ArgumentOutOfRangeException aoorEx)
         {
@@ -136,15 +130,6 @@ public class PanelMgmt
     }
 
     /// <summary>
-    /// Updates the component that consumes it when a method in the _panel class that consumes this method invokes/signals that a change to the state of it has occurred.
-    /// </summary>
-    private void RaiseEventOnPanelMgmtUpdated()
-    {
-        if (OnPanelMgmtUpdated != null)
-            OnPanelMgmtUpdated?.Invoke("");
-    }
-
-    /// <summary>
     /// Activates the location panel for each panel group.
     /// </summary>
     /// <param name="idOfPanelBeingActivated">ID of the panel that is being activated.</param>
@@ -156,17 +141,17 @@ public class PanelMgmt
             int groupOfActivatedPanel = -1;
 
             // use "idOfPanelBeingActivated" to find it's panel, then find & store the panelGroup ID of the panel
-            foreach (PanelGroup panelGroup in PanelGroups.Values)
+            foreach (PanelGroup panelGroup in _panelGroups.Values)
                 foreach (Panel panel in panelGroup.Panels.Values)
                     if (idOfPanelBeingActivated == panel.Id)
                         groupOfActivatedPanel = panelGroup.Id;
 
-            foreach (PanelGroup panelGroup in PanelGroups.Values)
+            foreach (PanelGroup panelGroup in _panelGroups.Values)
             {
                 if (groupOfActivatedPanel == -1)
                 {
                     int panelId = panelGroup.LocationPanelId;
-                    Panel panel = Panels[panelId];
+                    Panel panel = _panels[panelId];
                     panel.ActivateButton();
                 }
             }
@@ -181,10 +166,10 @@ public class PanelMgmt
     {
         if (AllCooperativePanelsAreDeactivated())
         {
-            foreach (PanelGroup panelGroup in PanelGroups.Values)
+            foreach (PanelGroup panelGroup in _panelGroups.Values)
             {
                 int panelId = panelGroup.LocationPanelId;
-                Panel panel = Panels[panelId];
+                Panel panel = _panels[panelId];
                 panel.ActivateButton();
             }
         }
@@ -196,7 +181,7 @@ public class PanelMgmt
     /// <returns>"True" if all cooperative panels are currently deactivated.</returns>
     private bool AllCooperativePanelsAreDeactivated()
     {
-        foreach (Panel panel in Panels.Values)
+        foreach (Panel panel in _panels.Values)
             if (panel.PanelStatus != "" && panel.CannotBeActiveWhileOtherCooperativePanelIsActive)
                 return false;
         return true;
@@ -207,15 +192,15 @@ public class PanelMgmt
     /// </summary>
     private void SetInstanceToGroupReferences()
     {
-        foreach (Panel panel in Panels.Values)
-            panel.SetInstanceToGroupRelationship(PanelGroups.Values.ToList());
+        foreach (Panel panel in _panels.Values)
+            panel.SetInstanceToGroupRelationship(_panelGroups.Values.ToList());
 
         List<Section> sectionsOfPage = new List<Section>();
-        foreach (Panel panel in Panels.Values)
+        foreach (Panel panel in _panels.Values)
         {
             if (panel.PanelGroupId != -1)
             {
-                PanelGroups[panel.PanelGroupId]
+                _panelGroups[panel.PanelGroupId]
                     .Panels
                     .Add(panel.Id, panel);
             }
