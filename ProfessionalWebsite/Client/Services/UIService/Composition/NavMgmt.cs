@@ -2,11 +2,14 @@
 
 public class NavMgmt
 {
+    private NavMgmt() { }
     /*
         Definitions:
             - "sectioned page" : a page that implements according sections (collapse/expand) & utilizes SectionsMgmt for the handling logic of those sections
             - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
     */
+
+    public static NavMgmt Create() => new();
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).

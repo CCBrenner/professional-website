@@ -2,7 +2,7 @@
 
 public class SectionMgmt
 {
-    public SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
+    private SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
     {
         _sections = sectionsDictionary;
         _sectionedPages = sectionedPagesDictionary;
@@ -19,6 +19,11 @@ public class SectionMgmt
             - "sectioned page" : a page that implements according sections (collapse/expand) & utilizes SectionsMgmt for the handling logic of those sections
             - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
     */
+
+    public static SectionMgmt Create(
+        Dictionary<int, SectionedPage> sectionedPagesDictionary, 
+        Dictionary<int, Section> sectionsDictionary) =>
+        new(sectionedPagesDictionary, sectionsDictionary);
 
     /// <summary>
     /// Collapses all sections and promotes one section to the top of the sectioned page.

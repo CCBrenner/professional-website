@@ -2,7 +2,7 @@
 
 public class AnimMgmt
 {
-    public AnimMgmt(List<bool> animationsIsContinuousInitialization)
+    private AnimMgmt(List<bool> animationsIsContinuousInitialization)
     {
         AnimateMain = string.Empty;
         _isContinuous = animationsIsContinuousInitialization;
@@ -12,6 +12,9 @@ public class AnimMgmt
 
     private List<bool> _isContinuous;
     public string AnimateMain;
+
+    public static AnimMgmt Create(List<bool> animationsIsContinuousInitialization) =>
+        new(animationsIsContinuousInitialization);
 
     /// <summary>
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.

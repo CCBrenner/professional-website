@@ -5,17 +5,17 @@ public class UIService : IUIService
     public UIService()
     {
         IsContinuous = AnimationsTable.GetIsContinuous();
-        _anim = new(IsContinuous);
+        _anim = AnimMgmt.Create(IsContinuous);
 
-        _nav = new();
+        _nav = NavMgmt.Create();
 
         PanelGroups = PanelGroupsTable.GetPanelGroupsDict();
         Panels = PanelsTable.GetPanelsDict();
-        _panel = new(PanelGroups, Panels);
+        _panel = PanelMgmt.Create(PanelGroups, Panels);
 
         SectionedPages = SectionedPagesTable.GetSectionedPagesDict();
         Sections = SectionsTable.GetSectionsDict();
-        _section = new(SectionedPages, Sections);
+        _section = SectionMgmt.Create(SectionedPages, Sections);
     }
 
     private AnimMgmt _anim;

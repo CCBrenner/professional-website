@@ -2,7 +2,7 @@
 
 public class PanelMgmt
 {
-    public PanelMgmt(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary)
+    private PanelMgmt(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary)
     {
         _panelGroups = panelGroupsDictionary;
         _panels = panelsDictionary;
@@ -19,6 +19,9 @@ public class PanelMgmt
         Definitions:
             - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
+
+    public static PanelMgmt Create(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary) =>
+        new(panelGroupsDictionary, panelsDictionary);
 
     /// <summary>
     /// Sets all panels to their default configurations (usually an "off" state).
