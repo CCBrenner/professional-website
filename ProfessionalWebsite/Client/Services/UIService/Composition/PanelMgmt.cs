@@ -10,8 +10,6 @@ public class PanelMgmt
         SetInstanceToGroupReferences();
     }
 
-    public event Action<string> OnPanelMgmtUpdated;
-
     private Dictionary<int, Panel> _panels;
     private Dictionary<int, PanelGroup> _panelGroups;
 
@@ -39,8 +37,10 @@ public class PanelMgmt
             if (panel.CannotBeActiveWhileOtherCooperativePanelIsActive || includeIndependentPanels)
             {
                 panel.Deactivate();
-                if (setActivePanelGroupToLocationPanel)
+                if (setActivePanelGroupToLocationPanel && AllCooperativePanelsAreDeactivated())
+                {
                     ActivateLocationButtonsOfGroups();
+                }
             }
         }
     }
@@ -151,14 +151,11 @@ public class PanelMgmt
     /// <returns>List of panels whose buttons have been highlighted (since they are location panels).</returns>
     private void ActivateLocationButtonsOfGroups()
     {
-        if (AllCooperativePanelsAreDeactivated())
+        foreach (PanelGroup panelGroup in _panelGroups.Values)
         {
-            foreach (PanelGroup panelGroup in _panelGroups.Values)
-            {
-                int panelId = panelGroup.LocationPanelId;
-                Panel panel = _panels[panelId];
-                panel.ActivateButton();
-            }
+            int panelId = panelGroup.LocationPanelId;
+            Panel panel = _panels[panelId];
+            panel.ActivateButton();
         }
     }
     /// <summary>
