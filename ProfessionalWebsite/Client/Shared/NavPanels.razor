@@ -52,7 +52,8 @@
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />*@
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact" />
+                               ButtonText="Contact"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
         <NavPanelNavLinkButton Href="projects/#"
                                ButtonText="Layout Controls"
                                ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" />
@@ -109,7 +110,8 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection( 13))" />
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact" />
+                               ButtonText="Contact"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panels[4].PanelStatus">
@@ -147,7 +149,7 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection(24))" />
         <NavPanelNavLinkButton Href="collyn/25"
                                ButtonText="Background"
-                               ButtonClickCallback="(()=>UI.NavigateToSection( 25))" />
+                               ButtonClickCallback="(()=>UI.NavigateToSection(25))" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panels[5].PanelStatus">
@@ -180,7 +182,8 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection(32))" />
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact" />
+                               ButtonText="Contact"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[6].PanelStatus">
@@ -211,7 +214,8 @@
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(6))" />*@
         <NavPanelNavLinkButton Href="collyn/23"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact" />
+                               ButtonText="Contact"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
         @* potnetially include some of the below articles; keeping as ideas for future articles *@
         @*
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">

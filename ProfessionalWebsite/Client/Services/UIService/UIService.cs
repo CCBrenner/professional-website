@@ -122,12 +122,12 @@ public class UIService : IUIService
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
     public void DeactivateCooperativePanels()
     {
-        _panel.DeactivateAllPanels(true, false);
+        _panel.DeactivateAllPanels(true);
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivateAllPanels()
     {
-        _panel.DeactivateAllPanels(true, true);
+        _panel.DeactivateAllPanels(true);
         RaiseEventOnUiServiceChanged();
     }
     public void ActivatePanel(int selectedPanelId)
