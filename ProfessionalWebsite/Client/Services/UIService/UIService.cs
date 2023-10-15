@@ -65,7 +65,7 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId)
     {
-        DeactivateAllPanels(true, true, true);
+        DeactivateAllPanels(true, true);
         _nav.NavigateToSection(sectionId, _panel, _section);
     }
 
@@ -94,14 +94,7 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId)
     {
-        DeactivateAllPanels(true, true, true);
-        _panel.UpdateGroupLocationPanel(panelId);
-
-        RaiseEventOnUiServiceChanged();
-    }
-    public void UpdatePanelsWhenNavigating2(int panelId)
-    {
-        DeactivateAllPanels(true, false, true);
+        DeactivateAllPanels(true, true);
         _panel.UpdateGroupLocationPanel(panelId);
 
         RaiseEventOnUiServiceChanged();
@@ -129,15 +122,18 @@ public class UIService : IUIService
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
     public void DeactivateAllPanels(
         bool setActivePanelGroupToLocationPanel,
-        bool triggersOnPanelMgmtUpdated = true,
         bool includeIndependentPanels = false
     )
     {
         _panel.DeactivateAllPanels(setActivePanelGroupToLocationPanel, includeIndependentPanels);
-        if (triggersOnPanelMgmtUpdated)
-        {
-            RaiseEventOnUiServiceChanged();
-        }
+        RaiseEventOnUiServiceChanged();
+    }
+    public void DeactivateAllPanels2(
+        bool setActivePanelGroupToLocationPanel,
+        bool includeIndependentPanels = false
+    )
+    {
+        _panel.DeactivateAllPanels(setActivePanelGroupToLocationPanel, includeIndependentPanels);
     }
     public void ActivatePanel(int selectedPanelId)
     {
