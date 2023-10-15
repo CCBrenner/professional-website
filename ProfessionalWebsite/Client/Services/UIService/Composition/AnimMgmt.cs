@@ -20,27 +20,28 @@ public class AnimMgmt
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    public void PlayAnimation(int animationIndex, PanelMgmt panelMgmt) =>
-        PlayAnimation(animationIndex, _isContinuous[animationIndex], panelMgmt);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
-    public void PlayAnimation(int animationIndex, bool isContinuous, PanelMgmt panelMgmt)
+    public void ToggleAnimation(int animationIndex, PanelMgmt panelMgmt)
     {
         if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
-        {
             SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
-        }
+        else if (_isContinuous[animationIndex])
+            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
         else
-        {
-            if (isContinuous)
-                SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
-            else
-                SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
-        }
+            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
+    }
+    public void ToggleContinuousAnimation(int animationIndex, PanelMgmt panelMgmt)
+    {
+        if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
+            SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
+        else
+            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
+    }
+    public void ToggleOnePlayAnimation(int animationIndex, PanelMgmt panelMgmt)
+    {
+        if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
+            SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
+        else
+            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
     }
 
     /// <summary>

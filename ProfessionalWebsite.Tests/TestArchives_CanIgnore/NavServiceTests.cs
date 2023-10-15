@@ -679,7 +679,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", NavService.LayoutControls);
         }
         // end original ShowLayoutControls() tests
-        // start original PlayAnimation() tests
+        // start original ToggleAnimation() tests
         [TestMethod]
         public void TestPlayAnimationIsNOTContinuousAndCurrentlyOffTurnsAnimationOnForOneRep()
         {
@@ -690,12 +690,12 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, false);
+            NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(5, false);
+            NavService.ToggleAnimation(5, false);
             Assert.AreEqual("main5", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
@@ -710,20 +710,20 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, false);
+            NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(1, false);
+            NavService.ToggleAnimation(1, false);
             Assert.AreEqual("", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(2, false);
+            NavService.ToggleAnimation(2, false);
             Assert.AreEqual("main2", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(2, false);
+            NavService.ToggleAnimation(2, false);
             Assert.AreEqual("", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
         }
@@ -737,12 +737,12 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, true);
+            NavService.ToggleAnimation(1, true);
             Assert.AreEqual("main1-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(3, true);
+            NavService.ToggleAnimation(3, true);
             Assert.AreEqual("main3-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
         }
@@ -756,20 +756,20 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, true);
+            NavService.ToggleAnimation(1, true);
             Assert.AreEqual("main1-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(1, true);
+            NavService.ToggleAnimation(1, true);
             Assert.AreEqual("", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(4, true);
+            NavService.ToggleAnimation(4, true);
             Assert.AreEqual("main4-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(4, true);
+            NavService.ToggleAnimation(4, true);
             Assert.AreEqual("", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
         }
@@ -783,24 +783,24 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, false);
+            NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(1, true);
+            NavService.ToggleAnimation(1, true);
             Assert.AreEqual("main1-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(5, false);
+            NavService.ToggleAnimation(5, false);
             Assert.AreEqual("main5", NavService.AnimateMain);
             Assert.AreEqual("", NavService.DiscontinueButton);
 
-            NavService.PlayAnimation(5, true);
+            NavService.ToggleAnimation(5, true);
             Assert.AreEqual("main5-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
         }
-        // end original PlayAnimation() tests
+        // end original ToggleAnimation() tests
         // start original StopMainAnimation() tests
         [TestMethod]
         public void TestStopMainAnimationOnClickAnimationStops()
@@ -812,7 +812,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
-            NavService.PlayAnimation(1, true);
+            NavService.ToggleAnimation(1, true);
             Assert.AreEqual("main1-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
@@ -821,7 +821,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", NavService.DiscontinueButton);
 
 
-            NavService.PlayAnimation(2, true);
+            NavService.ToggleAnimation(2, true);
             Assert.AreEqual("main2-infinite", NavService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 

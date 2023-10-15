@@ -54,78 +54,78 @@
 
             <div class="anim-controls @UI.Panels[0].PanelStatus">
                 <h4>Animations</h4>
-                <div class="anim-pair" @onclick="(()=>UI.PlayAnimation(0))">
+                <div class="anim-pair" @onclick="(()=>UI.ToggleOnePlayAnimation(0))">
                     <div class="anim-regular">
                         Bombastic
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimationContinuously(0))">
+                    <div class="anim-continuous" @onclick="(()=>UI.ToggleContinuousAnimation(0))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(1))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(1))">
                         Skywalker
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimationContinuously(1))">
+                    <div class="anim-continuous" @onclick="(()=>UI.ToggleContinuousAnimation(1))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(2))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(2))">
                         Kitchen Sink
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimationContinuously(2))">
+                    <div class="anim-continuous" @onclick="(()=>UI.ToggleContinuousAnimation(2))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(3))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(3))">
                         Flipster
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimationContinuously(3))">
+                    <div class="anim-continuous" @onclick="(()=>UI.ToggleContinuousAnimation(3))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(4))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(4))">
                         Asteroid
                     </div>
-                    <div class="anim-continuous" @onclick="(()=>UI.PlayAnimationContinuously(4))">
+                    <div class="anim-continuous" @onclick="(()=>UI.ToggleContinuousAnimation(4))">
                         <span class="fa-solid fa-infinity" aria-hidden="true"></span>
                     </div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(6))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(6))">
                         FlipOnX
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(5))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(5))">
                         FlipOnY
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(10))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(10))">
                         RotateOnZ
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(7))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(7))">
                         East Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimation(8))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(8))">
                         West Is Up
                     </div>
                     <div class="anim-continuous"></div>
                 </div>
                 <div class="anim-pair">
-                    <div class="anim-regular" @onclick="(()=>UI.PlayAnimationContinuously(9))">
+                    <div class="anim-regular" @onclick="(()=>UI.ToggleContinuousAnimation(9))">
                         SloRo (<span class="fa-solid fa-infinity" aria-hidden="true"></span>)
                     </div>
                     <div class="anim-continuous"></div>
@@ -172,7 +172,7 @@
                 <h3>App Animations</h3>
                 <br />
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(0))">
+                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(0))">
                         Bombastic
                     </button>
                     &nbsp;&nbsp;
@@ -180,7 +180,7 @@
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(1))">
+                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(1))">
                         Sky Walker
                     </button>
                     &nbsp;&nbsp;
@@ -188,7 +188,7 @@
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(2))">
+                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(2))">
                         Kitchen Sink
                     </button>
                     &nbsp;&nbsp;
@@ -196,7 +196,7 @@
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(3))">
+                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(3))">
                         Flipster
                     </button>
                     &nbsp;&nbsp;
@@ -204,7 +204,7 @@
                     &nbsp;Continuous
                 </div>
                 <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.PlayAnimation(4))">
+                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(4))">
                         Asteroid
                     </button>
                     &nbsp;&nbsp;

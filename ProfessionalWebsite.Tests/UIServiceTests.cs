@@ -21,7 +21,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", uIService.Panels[8].PanelStatus);
 
             // When the user presses the element that has the appropriate @onclick event handler
-            uIService.PlayAnimation(0);
+            uIService.ToggleAnimation(0);
 
             // Then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
             // the animation's class name is updated, which triggers the animation of the main container to occur one time,
@@ -39,7 +39,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", uIService.Panels[8].PanelStatus);
 
             // ...when the user presses the element that has the appropriate @onclick event handler seen here...
-            uIService.PlayAnimationContinuously(0);
+            uIService.ToggleContinuousAnimation(0);
 
             // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
             // the animation's class name is updated (triggering the animation of the main container to occur an infinite number of times),
@@ -59,7 +59,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(false, uIService.IsContinuous[0]);
 
             // ...when the user presses the element that has the appropriate @onclick event handler seen here...
-            uIService.PlayAnimation(0);
+            uIService.ToggleAnimation(0);
 
             // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
             // and the animation's class name remains the same, keeping the Discontinue button invisible,
@@ -81,7 +81,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual(true, uIService.IsContinuous[0]);
 
             // ...when the user presses the element that has the appropriate @onclick event handler seen here (note: we are using the animation with ID of "0" above as well as here)...
-            uIService.PlayAnimation(0);
+            uIService.ToggleAnimation(0);
 
             // ...then the animation's class name is updated based on a conversion of the animation ID, triggering the animation of the main container to occur an infinite number of times,
             // and the discontinue button appears.
@@ -96,7 +96,7 @@ namespace ProfessionalWebsite.Tests
         {
             // Given a continuous animation is playing on the main container
             // and the discontinue button is visible...
-            uIService.PlayAnimationContinuously(0);
+            uIService.ToggleContinuousAnimation(0);
             Assert.AreEqual("main1-infinite", uIService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", uIService.Panels[8].PanelStatus);
 

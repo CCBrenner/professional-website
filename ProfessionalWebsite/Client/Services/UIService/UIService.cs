@@ -35,14 +35,19 @@ public class UIService : IUIService
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    public void PlayAnimation(int animationIndex)
+    public void ToggleAnimation(int animationIndex)
     {
-        _anim.PlayAnimation(animationIndex, _panel);
+        _anim.ToggleAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
     }
-    public void PlayAnimationContinuously(int animationIndex)
+    public void ToggleOnePlayAnimation(int animationIndex)
     {
-        _anim.PlayAnimation(animationIndex, true, _panel);
+        _anim.ToggleOnePlayAnimation(animationIndex, _panel);
+        RaiseEventOnUiServiceChanged();
+    }
+    public void ToggleContinuousAnimation(int animationIndex)
+    {
+        _anim.ToggleContinuousAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
     }
     /*
@@ -51,9 +56,9 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
-    public void PlayAnimation(int animationIndex)
+    public void ToggleAnimation(int animationIndex)
     {
-        _anim.PlayAnimation(animationIndex, _panel);
+        _anim.ToggleAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
     }*/
 
