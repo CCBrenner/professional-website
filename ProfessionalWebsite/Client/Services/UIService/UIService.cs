@@ -65,7 +65,7 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
     {
-        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated);
+        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
         _nav.NavigateToSection(sectionId, _panel, _section);
     }
 
