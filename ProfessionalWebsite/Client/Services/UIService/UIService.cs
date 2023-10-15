@@ -68,11 +68,6 @@ public class UIService : IUIService
         DeactivateAllPanels(true, true, true);
         _nav.NavigateToSection(sectionId, _panel, _section);
     }
-    public void NavigateToSection2(int sectionId)
-    {
-        DeactivateAllPanels(true, false, true);
-        _nav.NavigateToSection(sectionId, _panel, _section);
-    }
 
     /// <summary>
     /// Updates the navigation highlights to show the proper location when navigating to a hard coded page. The only hard coded page at the time of writing is the original animations page which exists in the MainLayout component.
@@ -97,9 +92,16 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="panelId">ID of panel to be made location panel of global navigation panel group.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
-    public void UpdatePanelsWhenNavigating(int panelId, bool triggersOnPanelMgmtUpdated = true)
+    public void UpdatePanelsWhenNavigating(int panelId)
     {
-        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+        DeactivateAllPanels(true, true, true);
+        _panel.UpdateGroupLocationPanel(panelId);
+
+        RaiseEventOnUiServiceChanged();
+    }
+    public void UpdatePanelsWhenNavigating2(int panelId)
+    {
+        DeactivateAllPanels(true, false, true);
         _panel.UpdateGroupLocationPanel(panelId);
 
         RaiseEventOnUiServiceChanged();
