@@ -204,9 +204,17 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
         private void RestartTimer()
         {
             timer.Stop();
-            InitializeTimer(isBeingUsedForReset: true);
+            //InitializeTimer(isBeingUsedForReset: true);
+            InitializeTimerDuringRestart();
             timer.Start();
         }
+
+        private void InitializeTimerDuringRestart()
+        {
+            timer = new(1500);
+            timer.Elapsed += new(PerTimerInterval);
+        }
+
         public void StartTimer()
         {
             timer.Start();
