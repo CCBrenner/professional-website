@@ -21,7 +21,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", uIService.Panels[8].PanelStatus);
 
             // When the user presses the element that has the appropriate @onclick event handler
-            uIService.PlayAnimation(0, false);
+            uIService.PlayAnimation(0);
 
             // Then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
             // the animation's class name is updated, which triggers the animation of the main container to occur one time,
@@ -39,7 +39,7 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", uIService.Panels[8].PanelStatus);
 
             // ...when the user presses the element that has the appropriate @onclick event handler seen here...
-            uIService.PlayAnimation(0, true);
+            uIService.PlayAnimationContinuously(0);
 
             // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
             // the animation's class name is updated (triggering the animation of the main container to occur an infinite number of times),
@@ -96,7 +96,7 @@ namespace ProfessionalWebsite.Tests
         {
             // Given a continuous animation is playing on the main container
             // and the discontinue button is visible...
-            uIService.PlayAnimation(0, true);
+            uIService.PlayAnimationContinuously(0);
             Assert.AreEqual("main1-infinite", uIService.AnimateMain);
             Assert.AreEqual("discontinue-button-on", uIService.Panels[8].PanelStatus);
 

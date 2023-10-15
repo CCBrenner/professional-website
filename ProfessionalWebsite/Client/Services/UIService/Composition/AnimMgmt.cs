@@ -31,7 +31,9 @@ public class AnimMgmt
     public void PlayAnimation(int animationIndex, bool isContinuous, PanelMgmt panelMgmt)
     {
         if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
+        {
             SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
+        }
         else
         {
             if (isContinuous)

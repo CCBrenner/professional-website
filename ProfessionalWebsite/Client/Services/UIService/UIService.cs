@@ -40,17 +40,22 @@ public class UIService : IUIService
         _anim.PlayAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
     }
-
+    public void PlayAnimationContinuously(int animationIndex)
+    {
+        _anim.PlayAnimation(animationIndex, true, _panel);
+        RaiseEventOnUiServiceChanged();
+    }
+    /*
     /// <summary>
     /// 
     /// </summary>
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
-    public void PlayAnimation(int animationIndex, bool isContinuous)
+    public void PlayAnimation(int animationIndex)
     {
-        _anim.PlayAnimation(animationIndex, isContinuous, _panel);
+        _anim.PlayAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
-    }
+    }*/
 
     /// <summary>
     /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.

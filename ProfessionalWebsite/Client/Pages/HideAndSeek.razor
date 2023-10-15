@@ -14,8 +14,8 @@
                     </div>
                 </a>
             </div>
-            <button class="btn @interfaceClasses[0]" @onclick="(()=>SetIsOriginalInterface())">Original UI</button>
-            <button class="btn @interfaceClasses[1]" @onclick="(()=>SetIsOriginalInterface2())">Current UI</button>
+            <button class="btn @interfaceClasses[0]" @onclick="ShowOriginalUi">Original UI</button>
+            <button class="btn @interfaceClasses[1]" @onclick="ShowCurrentUi">Current UI</button>
             <div class="top-row-corners"></div>
         </div>
     </div>
@@ -205,12 +205,12 @@
     protected override void OnInitialized() =>
         UpdateDirections();
 
-    private void SetIsOriginalInterface()
+    private void ShowOriginalUi()
     {
         interfaceClasses[0] = "btn-primary";
         interfaceClasses[1] = "btn-secondary";
     }
-    private void SetIsOriginalInterface2()
+    private void ShowCurrentUi()
     {
         interfaceClasses[0] = "btn-secondary";
         interfaceClasses[1] = "btn-primary";
