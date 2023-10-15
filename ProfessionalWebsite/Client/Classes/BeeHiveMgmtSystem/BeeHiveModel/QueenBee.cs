@@ -179,12 +179,11 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             // to reflect the current properties listed here (event handling)
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }*/
-        private void InitializeTimer(bool isBeingUsedForReset = false)
+        private void InitializeTimer()
         {
-            timer = new System.Timers.Timer(1500);
-            timer.Elapsed += new ElapsedEventHandler(PerTimerInterval);
-            if (!isBeingUsedForReset)
-                TimerRunning = false;
+            timer = new(1500);
+            timer.Elapsed += new(PerTimerInterval);
+            TimerRunning = false;
         }
 
         private void PerTimerInterval(object sender, ElapsedEventArgs e)
@@ -198,13 +197,12 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
                 if (HiveIsBankrupt)
                     StopTimer();
 
-                RaiseEventOnTimerInterval(true);
+                RaiseEventOnTimerInterval();
             }
         }
         private void RestartTimer()
         {
             timer.Stop();
-            //InitializeTimer(isBeingUsedForReset: true);
             InitializeTimerDuringRestart();
             timer.Start();
         }
@@ -225,10 +223,10 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
             timer.Stop();
             TimerRunning = false;
         }
-        public void RaiseEventOnTimerInterval(bool newInterval)
+        public void RaiseEventOnTimerInterval()
         {
-            // upon initial coding, bool here has no use except as a requirement by the event property needing a data type
-            OnTimerInterval?.Invoke(newInterval);
+            // bool here is useless except to satisfy a requirement of the event type
+            OnTimerInterval?.Invoke(true);
         }
     }
 }
