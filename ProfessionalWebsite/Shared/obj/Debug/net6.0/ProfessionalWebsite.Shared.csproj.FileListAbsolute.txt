@@ -55,3 +55,14 @@ C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C\profess
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\refint\ProfessionalWebsite.Shared.dll
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.pdb
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ref\ProfessionalWebsite.Shared.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\bin\Debug\net6.0\ProfessionalWebsite.Shared.deps.json
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\bin\Debug\net6.0\ProfessionalWebsite.Shared.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\bin\Debug\net6.0\ProfessionalWebsite.Shared.pdb
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.AssemblyInfoInputs.cache
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.AssemblyInfo.cs
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.csproj.CoreCompileInputs.cache
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\refint\ProfessionalWebsite.Shared.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ProfessionalWebsite.Shared.pdb
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_C_current\professional-website\ProfessionalWebsite\Shared\obj\Debug\net6.0\ref\ProfessionalWebsite.Shared.dll

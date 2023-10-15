@@ -40,13 +40,13 @@ public class SectionMgmt
             if (section.IsFirstSectionOfPage)
             {
                 foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.ToggleCollapse(false);
+                    sec.SetToIsNotCollapsed();
                 sectionedPage.ASectionIsCurrentlyPromo = false;
             }
             else
             {
                 foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.ToggleCollapse(true);
+                    sec.SetToIsCollapsed();
                 ToggleSection(sectionId);
                 section.Promote();
                 sectionedPage.ASectionIsCurrentlyPromo = true;
@@ -66,7 +66,16 @@ public class SectionMgmt
         try
         {
             Section section = _sections[sectionId];
-            section.ToggleCollapse(!section.IsCollapsed);
+            //section.ToggleCollapse(!section.IsCollapsed);
+            /*if (section.IsCollapsed)
+            {
+                section.SetToIsCollapsed();
+            }
+            else
+            {
+                section.SetToIsNotCollapsed();
+            }*/
+            section.ToggleCollapse();
             PromoteIfOnlyOneExpandedSection(sectionId);
             UpdateSectionsStatus(sectionId);
         }
@@ -90,13 +99,13 @@ public class SectionMgmt
             if (_sectionedPages[pageId].SectionsStatus == SectionsStatus.AllAreOpen)
             {
                 foreach (var section in _sections.Values)
-                    section.ToggleCollapse(true);
+                    section.SetToIsCollapsed();
                 _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreCollapsed;
             }
             else
             {
                 foreach (var section in _sections.Values)
-                    section.ToggleCollapse(false);
+                    section.SetToIsNotCollapsed();
                 _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreOpen;
             }
         }

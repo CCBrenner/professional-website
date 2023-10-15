@@ -96,9 +96,5 @@
             beeHiveController.Reset();
             beeHiveController.StartTimer();
         }
-        public void ToggleSettings() =>
-            SettingsPanelIsShowing = !SettingsPanelIsShowing;
-        public void ToggleSettings(bool settingsPanelIsShowing) =>
-            SettingsPanelIsShowing = settingsPanelIsShowing;
     }
 }

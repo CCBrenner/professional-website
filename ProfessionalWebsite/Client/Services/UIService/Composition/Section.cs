@@ -45,16 +45,16 @@ public class Section
         IsCollapsed = !IsCollapsed;
         UpdateHeaderAndContent();
     }
-    public void ToggleCollapse(bool isCollapsed)
+    public void SetToIsCollapsed()
     {
-        IsCollapsed = isCollapsed;
-        if (IsCollapsed) IsCurrentPromo = false;
+        IsCollapsed = true;
+        IsCurrentPromo = false;
         UpdateHeaderAndContent();
     }
-    public void CollapseAndDemote()
+    public void SetToIsNotCollapsed()
     {
         IsCollapsed = false;
-        IsCurrentPromo = false;
+        UpdateHeaderAndContent();
     }
     public void Promote()
     {
