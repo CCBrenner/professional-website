@@ -27,14 +27,12 @@ public class PanelMgmt
     /// <param name="setActivePanelGroupToLocationPanel">Sets the button highlight of the current location when all panels in the panel group have been deactivated.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default to "true", this tells components that consume _panel properties to update (based on changes to state). Component must subscribe to the event to receive update commands.</param>
     /// <param name="includeIndependentPanels">Independent panels exist outside of the deactivation logic by default. If for whatever reason they should also be deactivated, then this can be set to "true".</param>
-    public void DeactivateAllPanels(
-        bool setActivePanelGroupToLocationPanel
-    )
+    public void DeactivateAllPanels()
     {
         foreach (Panel panel in _panels.Values)
         {
             panel.Deactivate();
-            if (setActivePanelGroupToLocationPanel && AllCooperativePanelsAreDeactivated())
+            if (AllCooperativePanelsAreDeactivated())
             {
                 ActivateLocationButtonsOfGroups();
             }
