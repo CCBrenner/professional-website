@@ -74,7 +74,7 @@
 
             // when clicked, all panels are set to their deactivated state
             panelMgmt.ActivatePanel(2);
-            panelMgmt.DeactivateAllPanels();
+            panelMgmt.DeactivateCooperativePanels();
 
             Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);
             Assert.AreEqual("", panelMgmt.Panels[0].PanelStatus);
@@ -98,7 +98,7 @@
 
             // when clicked, all panels are set to their deactivated state
             panelMgmt.ActivatePanel(2);
-            panelMgmt.DeactivateAllPanels();
+            panelMgmt.DeactivateCooperativePanels();
 
             // duplicate tests for checking assumptions
             Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);
@@ -130,7 +130,7 @@
 
             // when clicked, all panels are set to their deactivated state
             panelMgmt.ActivatePanel(2);
-            panelMgmt.DeactivateAllPanels();
+            panelMgmt.DeactivateCooperativePanels();
 
             // duplicate tests for checking assumptions
             Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);

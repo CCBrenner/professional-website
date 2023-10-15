@@ -65,7 +65,7 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId)
     {
-        DeactivatePanels(true);
+        DeactivateAllPanels(true);
         _nav.NavigateToSection(sectionId, _panel, _section);
     }
 
@@ -94,7 +94,7 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId)
     {
-        DeactivatePanels(true);
+        DeactivateAllPanels(true);
         _panel.UpdateGroupLocationPanel(panelId);
 
         RaiseEventOnUiServiceChanged();
@@ -120,14 +120,12 @@ public class UIService : IUIService
         RaiseEventOnUiServiceChanged();
     }
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
-    public void DeactivateAllPanels(
-        bool setActivePanelGroupToLocationPanel
-    )
+    public void DeactivateCooperativePanels()
     {
-        _panel.DeactivateAllPanels(setActivePanelGroupToLocationPanel, false);
+        _panel.DeactivateAllPanels(true, false);
         RaiseEventOnUiServiceChanged();
     }
-    public void DeactivatePanels(
+    public void DeactivateAllPanels(
         bool setActivePanelGroupToLocationPanel
     )
     {

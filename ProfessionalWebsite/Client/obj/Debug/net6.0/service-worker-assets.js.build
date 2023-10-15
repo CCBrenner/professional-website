@@ -885,11 +885,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-p8PaD8TwMxpuSdpgOtt5DL6VX\/hUazG7RTO7ycHNXDg=",
+      "hash": "sha256-vbI7caOT0LR8XbhKdAcrIe+MNwRvfmJAJ4dJqMP36TA=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-sEEl7OC80hq9ZjeAxa0TSraEjAL2KgbOuawUjzNlDOw=",
+      "hash": "sha256-nyJouIKC4x\/3esXB+962fXsMotMsa7SNIUvzzGjd3yQ=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
@@ -897,9 +897,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-aDf64WkFHJpebUh4OloU9C4UZakfaX5+Gfmo6B\/Fk+M=",
+      "hash": "sha256-6ggSXKVMvORBYzjAzG0gKpklH3rqRi73AfSpjcdbnvg=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "V0YkfDd4"
+  "version": "ti3FAeHe"
 };
