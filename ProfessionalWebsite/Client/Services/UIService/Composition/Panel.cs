@@ -9,17 +9,17 @@ public class Panel
         string blurStatusClassName = "pm-content-blurred",
         string behindPanelStatusClassName = "pm-behindpanel-present",
         string panelButtonClassName = "pm-panelbutton-active",
-        bool cannotBeActiveWhileOtherPanelsAreActive = true
+        bool isCooperativePanel = true
     )
     {
-        this.panelActiveStatusClassName = panelActiveStatusClassName;
-        this.blurStatusClassName = blurStatusClassName;
-        this.behindPanelStatusClassName = behindPanelStatusClassName;
-        this.panelButtonClassName = panelButtonClassName;
+        _panelActiveStatusClassName = panelActiveStatusClassName;
+        _blurStatusClassName = blurStatusClassName;
+        _behindPanelStatusClassName = behindPanelStatusClassName;
+        _panelButtonClassName = panelButtonClassName;
 
         Id = id;
         PanelGroupId = panelGroupId;
-        CannotBeActiveWhileOtherCooperativePanelIsActive = cannotBeActiveWhileOtherPanelsAreActive;
+        IsCooperativePanel = isCooperativePanel;
 
         PanelStatus = "";
         BlurStatus = "";
@@ -27,16 +27,16 @@ public class Panel
         PanelButtonStatus = "";
     }
 
-    private string panelActiveStatusClassName;
-    private string blurStatusClassName;
-    private string behindPanelStatusClassName;
-    private string panelButtonClassName;
+    private string _panelActiveStatusClassName;
+    private string _blurStatusClassName;
+    private string _behindPanelStatusClassName;
+    private string _panelButtonClassName;
 
 
     public readonly int Id;
     public int PanelGroupId { get; private set; }
     public PanelGroup PanelGroup { get; private set; }
-    public bool CannotBeActiveWhileOtherCooperativePanelIsActive { get; private set; }
+    public bool IsCooperativePanel { get; private set; }
 
     public string PanelStatus { get; private set; }
     public bool PanelIsActive { get; private set; }
@@ -66,10 +66,10 @@ public class Panel
     );
     public void Activate()
     {
-        PanelStatus = panelActiveStatusClassName;
-        BlurStatus = blurStatusClassName;
-        BehindPanelStatus = behindPanelStatusClassName;
-        PanelButtonStatus = panelButtonClassName;
+        PanelStatus = _panelActiveStatusClassName;
+        BlurStatus = _blurStatusClassName;
+        BehindPanelStatus = _behindPanelStatusClassName;
+        PanelButtonStatus = _panelButtonClassName;
         PanelIsActive = true;
         BlurIsActive = true;
         BehindPanelIsActive = true;
@@ -88,7 +88,7 @@ public class Panel
     }
     public void ActivateButton()
     {
-        PanelButtonStatus = panelButtonClassName;
+        PanelButtonStatus = _panelButtonClassName;
         PanelButtonIsActive = true;
     }
     public void SetInstanceToGroupRelationship(List<PanelGroup> panelGroups)

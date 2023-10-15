@@ -123,11 +123,13 @@ public class UIService : IUIService
     public void DeactivateCooperativePanels()
     {
         _panel.DeactivateAllPanels();
+        _panel.ActivateLocationButtonsOfGroups();
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivateAllPanels()
     {
         _panel.DeactivateAllPanels();
+        _panel.ActivateLocationButtonsOfGroups();
         RaiseEventOnUiServiceChanged();
     }
     public void ActivatePanel(int selectedPanelId)

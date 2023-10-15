@@ -32,27 +32,31 @@ public class PanelMgmt
         foreach (Panel panel in _panels.Values)
         {
             panel.Deactivate();
-            if (AllCooperativePanelsAreDeactivated())
+        }
+    }
+    public void DeactivateCooperativePanels()
+    {
+        foreach (Panel panel in _panels.Values)
+        {
+            if (panel.IsCooperativePanel)
+            {
+                panel.Deactivate();
+            }
+        }
+    }
+    public void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup()
+    {
+        foreach (Panel panel in _panels.Values)
+        {
+            if (panel.IsCooperativePanel)
             {
                 ActivateLocationButtonsOfGroups();
             }
         }
     }
-    public void DeactivateCooperativePanels(
-        bool setActivePanelGroupToLocationPanel
-    )
+    public void HighlightButtonOfFocusedPanelForEachPanelGroup()
     {
-        foreach (Panel panel in _panels.Values)
-        {
-            if (panel.CannotBeActiveWhileOtherCooperativePanelIsActive)
-            {
-                panel.Deactivate();
-                if (setActivePanelGroupToLocationPanel && AllCooperativePanelsAreDeactivated())
-                {
-                    ActivateLocationButtonsOfGroups();
-                }
-            }
-        }
+        ActivateLocationButtonsOfGroups();
     }
 
     /// <summary>
@@ -72,7 +76,7 @@ public class PanelMgmt
     /// <returns></returns>
     public void ActivatePanel(int selectedPanelId)
     {
-        DeactivateCooperativePanels(false);
+        DeactivateCooperativePanels();
         ActivateLocationButtonsOfGroups(selectedPanelId);
         _panels.Values
             .FirstOrDefault(panel => panel.Id == selectedPanelId)
@@ -89,13 +93,18 @@ public class PanelMgmt
         {
             if (_panels[selectedPanelId].PanelStatus == "")
             {
-                DeactivateCooperativePanels(false);
+                DeactivateCooperativePanels();
                 ActivateLocationButtonsOfGroups(selectedPanelId);
                 _panels[selectedPanelId].Activate();
             }
             else
             {
-                DeactivateCooperativePanels(true);
+                DeactivateCooperativePanels();
+                if (AllCooperativePanelsAreDeactivated())
+                {
+                    HighlightButtonOfFocusedCooperativePanelForEachPanelGroup();
+                }
+
                 DeactivatePanel(selectedPanelId);
             }
         }
@@ -159,7 +168,7 @@ public class PanelMgmt
     /// Each panel group has a location panel that remembers the panel designated to the current location. When another panel in the panel group is openned, it will be turned off, but when all panels in the panel group are closed, then the button associated with the current location's panel is highlighted (as a visual indicator of where the user currently is in the app).
     /// </summary>
     /// <returns>List of panels whose buttons have been highlighted (since they are location panels).</returns>
-    private void ActivateLocationButtonsOfGroups()
+    public void ActivateLocationButtonsOfGroups()
     {
         foreach (PanelGroup panelGroup in _panelGroups.Values)
         {
@@ -175,7 +184,7 @@ public class PanelMgmt
     private bool AllCooperativePanelsAreDeactivated()
     {
         foreach (Panel panel in _panels.Values)
-            if (panel.PanelStatus != "" && panel.CannotBeActiveWhileOtherCooperativePanelIsActive)
+            if (panel.PanelStatus != "" && panel.IsCooperativePanel)
                 return false;
         return true;
     }
