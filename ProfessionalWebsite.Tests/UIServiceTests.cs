@@ -329,7 +329,7 @@ namespace ProfessionalWebsite.Tests
             // ...when they click an element that navigates them to another page away from the hardcoded page...
             uIService.NavigateToSection(3);
 
-            // ...then the location panel of the navgiation panel group is updated to the location panel of the destination page.
+            // ...then the location panel of the navigation panel group is updated to the location panel of the destination page.
             Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);
         }
 

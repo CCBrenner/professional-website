@@ -63,9 +63,14 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
-    public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true)
+    public void NavigateToSection(int sectionId)
     {
-        DeactivateAllPanels(true, triggersOnPanelMgmtUpdated, true);
+        DeactivateAllPanels(true, true, true);
+        _nav.NavigateToSection(sectionId, _panel, _section);
+    }
+    public void NavigateToSection2(int sectionId)
+    {
+        DeactivateAllPanels(true, false, true);
         _nav.NavigateToSection(sectionId, _panel, _section);
     }
 
