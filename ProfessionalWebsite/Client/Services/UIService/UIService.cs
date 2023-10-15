@@ -132,7 +132,7 @@ public class UIService : IUIService
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
     public void DeactivateCooperativePanels()
     {
-        _panel.DeactivateAllPanels();
+        _panel.DeactivateCooperativePanels();
         _panel.ActivateLocationButtonsOfGroups();
         RaiseEventOnUiServiceChanged();
     }

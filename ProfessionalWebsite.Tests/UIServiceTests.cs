@@ -461,7 +461,61 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("", panelOne.PanelButtonStatus);
             Assert.AreEqual(false, panelOne.PanelButtonIsActive);
         }
+        
+        [TestMethod]
+        public void TestClickingAnElementThatTogglesACooperativePanelFromOnToOffLeavesActiveIndependentPanelsActive()
+        {
+            // Given an independent panel that is currently active & a cooperative panel that is currently active...
+            
+            // Cooperative, active:
+            var panelOne = uIService.Panels[1];
+            uIService.TogglePanel(panelOne.Id);
 
+            Assert.AreNotEqual("", panelOne.PanelStatus);
+            Assert.AreEqual(true, panelOne.PanelIsActive);
+            Assert.AreNotEqual("", panelOne.BehindPanelStatus);
+            Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+            Assert.AreNotEqual("", panelOne.BlurStatus);
+            Assert.AreEqual(true, panelOne.BlurIsActive);
+            Assert.AreNotEqual("", panelOne.PanelButtonStatus);
+            Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+
+            // Independent, active:
+            var panelTwo = uIService.Panels[8];
+            uIService.TogglePanel(panelTwo.Id);
+
+            Assert.AreNotEqual("", panelTwo.PanelStatus);
+            Assert.AreEqual(true, panelTwo.PanelIsActive);
+            Assert.AreNotEqual("", panelTwo.BehindPanelStatus);
+            Assert.AreEqual(true, panelTwo.BehindPanelIsActive);
+            Assert.AreNotEqual("", panelTwo.BlurStatus);
+            Assert.AreEqual(true, panelTwo.BlurIsActive);
+            Assert.AreNotEqual("", panelTwo.PanelButtonStatus);
+            Assert.AreEqual(true, panelTwo.PanelButtonIsActive);
+
+            // ...when a user clicks the backing panel...
+            uIService.DeactivateCooperativePanels();
+
+            // ...then the independent panel is still active.
+            Assert.AreEqual("", panelOne.PanelStatus);
+            Assert.AreEqual(false, panelOne.PanelIsActive);
+            Assert.AreEqual("", panelOne.BehindPanelStatus);
+            Assert.AreEqual(false, panelOne.BehindPanelIsActive);
+            Assert.AreEqual("", panelOne.BlurStatus);
+            Assert.AreEqual(false, panelOne.BlurIsActive);
+            Assert.AreEqual("", panelOne.PanelButtonStatus);
+            Assert.AreEqual(false, panelOne.PanelButtonIsActive);
+
+            Assert.AreNotEqual("", panelTwo.PanelStatus);
+            Assert.AreEqual(true, panelTwo.PanelIsActive);
+            Assert.AreNotEqual("", panelTwo.BehindPanelStatus);
+            Assert.AreEqual(true, panelTwo.BehindPanelIsActive);
+            Assert.AreNotEqual("", panelTwo.BlurStatus);
+            Assert.AreEqual(true, panelTwo.BlurIsActive);
+            Assert.AreNotEqual("", panelTwo.PanelButtonStatus);
+            Assert.AreEqual(true, panelTwo.PanelButtonIsActive);
+        }
+        
         [TestMethod]
         public void TestClickingAnElementThatTogglesACooperativePanelFromOffToOnDoesNotCloseAnIndependentPanel()
         {

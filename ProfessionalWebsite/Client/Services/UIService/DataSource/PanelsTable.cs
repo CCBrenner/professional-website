@@ -55,14 +55,14 @@ public sealed class PanelsTable
             panelButtonClassName: "highlight-button"
         ),
         Panel.Create(7,   // LayoutControls
-            cannotBeActiveWhileOtherPanelsAreActive: false,
+            isCooperativePanel: false,
             panelActiveStatusClassName: "layout-controls-on",
             blurStatusClassName: "n0-cla$$_name",
             behindPanelStatusClassName: "n0-cla$$_name",
             panelButtonClassName: "n0-cla$$_name"
         ),
         Panel.Create(8,   // Discontinue button (for animations)
-            cannotBeActiveWhileOtherPanelsAreActive: false,
+            isCooperativePanel: false,
             panelActiveStatusClassName: "discontinue-button-on",
             blurStatusClassName: "n0-cla$$_name",
             behindPanelStatusClassName: "n0-cla$$_name",

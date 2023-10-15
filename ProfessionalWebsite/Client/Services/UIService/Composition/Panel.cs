@@ -54,7 +54,7 @@ public class Panel
         string blurStatusClassName = "pm-content-blurred",
         string behindPanelStatusClassName = "pm-behindpanel-present",
         string panelButtonClassName = "pm-panelbutton-active",
-        bool cannotBeActiveWhileOtherPanelsAreActive = true
+        bool isCooperativePanel = true
     ) => new(
         id,
         panelGroupId,
@@ -62,7 +62,7 @@ public class Panel
         blurStatusClassName,
         behindPanelStatusClassName,
         panelButtonClassName,
-        cannotBeActiveWhileOtherPanelsAreActive
+        isCooperativePanel
     );
     public void Activate()
     {
