@@ -47,14 +47,13 @@ public class Panel
     public string PanelButtonStatus { get; private set; }
     public bool PanelButtonIsActive { get; private set; }
 
-    public static Panel Create(
+    public static Panel CreateCooperativePanel(
         int id,
         int panelGroupId = -1,
         string panelActiveStatusClassName = "pm-panel-visible",
         string blurStatusClassName = "pm-content-blurred",
         string behindPanelStatusClassName = "pm-behindpanel-present",
-        string panelButtonClassName = "pm-panelbutton-active",
-        bool isCooperativePanel = true
+        string panelButtonClassName = "pm-panelbutton-active"
     ) => new(
         id,
         panelGroupId,
@@ -62,7 +61,23 @@ public class Panel
         blurStatusClassName,
         behindPanelStatusClassName,
         panelButtonClassName,
-        isCooperativePanel
+        true
+    );
+    public static Panel CreateIndependentPanel(
+        int id,
+        int panelGroupId = -1,
+        string panelActiveStatusClassName = "pm-panel-visible",
+        string blurStatusClassName = "pm-content-blurred",
+        string behindPanelStatusClassName = "pm-behindpanel-present",
+        string panelButtonClassName = "pm-panelbutton-active"
+    ) => new(
+        id,
+        panelGroupId,
+        panelActiveStatusClassName,
+        blurStatusClassName,
+        behindPanelStatusClassName,
+        panelButtonClassName,
+        false
     );
     public void Activate()
     {

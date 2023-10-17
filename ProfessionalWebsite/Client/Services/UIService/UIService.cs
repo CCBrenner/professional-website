@@ -50,17 +50,6 @@ public class UIService : IUIService
         _anim.ToggleContinuousAnimation(animationIndex, _panel);
         RaiseEventOnUiServiceChanged();
     }
-    /*
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    /// <param name="isContinuous">Determines whether the animation should be played once or looped continuously.</param>
-    public void ToggleAnimation(int animationIndex)
-    {
-        _anim.ToggleAnimation(animationIndex, _panel);
-        RaiseEventOnUiServiceChanged();
-    }*/
 
     /// <summary>
     /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.

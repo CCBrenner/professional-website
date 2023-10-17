@@ -24,8 +24,10 @@ public class Section
     public string IsCollapsedHeader { get; private set; }
     public string IsCollapsedContent { get; private set; }
     public bool IsCurrentPromo { get; private set; }
-    public static Section Create(int id, int sectionedPageId, bool isFirstSectionOfPage = false) =>
-        new(id, sectionedPageId, isFirstSectionOfPage);
+    public static Section Create(int id, int sectionedPageId) =>
+        new(id, sectionedPageId, false);
+    public static Section CreateAsFirstSectionOfPage(int id, int sectionedPageId) =>
+        new(id, sectionedPageId, true);
     public void SetInstanceToGroupRelationship(List<SectionedPage> sectionedPages)
     {
         try

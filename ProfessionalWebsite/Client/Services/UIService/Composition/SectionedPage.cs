@@ -15,7 +15,7 @@ public partial class SectionedPage
     public readonly int Id;
     public readonly int LocationPanelGroupId;
     public string PagePath { get; private set; }
-    public Dictionary<int, Section> Sections { get; set; } = new Dictionary<int, Section>();
+    public Dictionary<int, Section> Sections { get; set; } = new();
 
     public bool ASectionIsCurrentlyPromo { get; set; }
     public SectionsStatus SectionsStatus { get; set; }

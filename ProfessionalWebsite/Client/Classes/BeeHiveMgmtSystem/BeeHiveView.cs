@@ -19,14 +19,14 @@
                 }
             }
         }
-        public List<string> interfaceClasses = new List<string>()
+        public List<string> interfaceClasses = new()
         {
             "btn-secondary",
             "btn-secondary",
             "btn-secondary",
             "btn-primary",
         };
-        public List<string> workertypeButtonsClasses = new List<string>()
+        public List<string> workertypeButtonsClasses = new()
         {
             "workertype-active",
             "workertype-inactive",

@@ -14,7 +14,7 @@ public sealed class SectionsTable
     public static List<Section> GetSections() => new()
     { 
         /* start "knowhow" */
-        Section.Create(0, 1, isFirstSectionOfPage: true),
+        Section.CreateAsFirstSectionOfPage(0, 1),
         Section.Create(1, 1),  // Back-end
         Section.Create(3, 1),
         Section.Create(4, 1),
@@ -28,7 +28,7 @@ public sealed class SectionsTable
         Section.Create(33, 1),  // Match Game
         /* end "knowhow" */
         /* start "collyn" */
-        Section.Create(17, 2, isFirstSectionOfPage: true),  // Introduction
+        Section.CreateAsFirstSectionOfPage(17, 2),  // Introduction
         Section.Create(18, 2),  // Employment History
         Section.Create(19, 2),
         Section.Create(20, 2),
@@ -39,7 +39,7 @@ public sealed class SectionsTable
         Section.Create(25, 2),
         /* end "collyn" */
         /* start "invent" */
-        Section.Create(26, 3, isFirstSectionOfPage: true),
+        Section.CreateAsFirstSectionOfPage(26, 3),
         Section.Create(27, 3),
         Section.Create(28, 3),
         Section.Create(29, 3),
