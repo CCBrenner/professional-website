@@ -1,0 +1,33 @@
+﻿@inject SudokuService SudokuService
+
+@page "/sudoku-solver"
+
+<PageTitle>SudokuSolver</PageTitle>
+
+<ProjectsPageTemplate>
+    <div class="comp-container">
+        <SudokuGui />
+        <br /><br />
+        @*
+        <div class="display-horizontal">
+            <span>Interface</span>
+            &nbsp;&nbsp;
+            <select class="form-select form-select-sm ui-selector" @bind="Sudoku.Api.ConsoleVersion">
+                <option value="console">Console</option>
+                <option value="gui">Graphical</option>
+            </select>
+        </div>
+
+        @if (Sudoku.Api.ConsoleVersion == "console")
+        {
+            <SudokuConsole />
+        }
+        else
+        {
+            <SudokuGui />
+        }
+        *@
+    </div>
+</ProjectsPageTemplate>
+
+@code { }

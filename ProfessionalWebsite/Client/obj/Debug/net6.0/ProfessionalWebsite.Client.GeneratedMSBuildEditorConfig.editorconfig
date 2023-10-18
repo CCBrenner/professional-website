@@ -100,6 +100,14 @@ build_metadata.AdditionalFiles.CssScope = b-wgzjjnq8n5
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xHZW5lcmFsXFNlY3Rpb25lZFBhZ2VTZWN0aW9uc1RvZ2dsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-4eoxl1la36
 
+[C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Components/General/SudokuGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xHZW5lcmFsXFN1ZG9rdUdyaWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hn5dh9jzfv
+
+[C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Components/General/SudokuGui.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xHZW5lcmFsXFN1ZG9rdUd1aS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-suabrbh7gw
+
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Components/General/UnderConstruction.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xHZW5lcmFsXFVuZGVyQ29uc3RydWN0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-wv5jtcb391
@@ -143,6 +151,10 @@ build_metadata.AdditionalFiles.CssScope = b-jbnftievc7
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Pages/MatchGame.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0Y2hHYW1lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-cliwmzypxj
+
+[C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Pages/SudokuSolver.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3Vkb2t1U29sdmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-k78glvv1tg
 
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_C_current/professional-website/ProfessionalWebsite/Client/Shared/ClosedStageCurtain.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENsb3NlZFN0YWdlQ3VydGFpbi5yYXpvcg==

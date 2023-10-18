@@ -1,0 +1,18 @@
+
+.comp-container[b-k78glvv1tg] {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-horizontal[b-k78glvv1tg] {
+    display: flex;
+    align-items: center;
+}
+
+.ui-selector[b-k78glvv1tg] {
+    text-align: center;
+    width: 100%;
+    max-width: 240px;
+}
