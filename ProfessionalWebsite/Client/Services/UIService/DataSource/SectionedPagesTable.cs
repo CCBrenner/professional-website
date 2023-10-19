@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public sealed class SectionedPagesTable
+internal sealed class SectionedPagesTable
 {
-    public static Dictionary<int, SectionedPage> GetSectionedPagesDict()
+    internal static Dictionary<int, SectionedPage> GetSectionedPagesDict()
     {
         Dictionary<int, SectionedPage> sectionedPagesDict = new();
 
@@ -11,7 +11,7 @@ public sealed class SectionedPagesTable
 
         return sectionedPagesDict;
     }
-    public static List<SectionedPage> GetSectionedPages() => new()
+    internal static List<SectionedPage> GetSectionedPages() => new()
     {
         SectionedPage.Create(0, 2, "projects"),  // not used
         SectionedPage.Create(1, 3, "knowhow"),

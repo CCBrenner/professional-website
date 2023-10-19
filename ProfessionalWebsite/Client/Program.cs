@@ -12,7 +12,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddScoped<CounterService>();
-builder.Services.AddSingleton<UIService>();
+builder.Services.AddSingleton(sp => new UIService(
+    AnimationsTable.GetIsContinuous(),
+    PanelGroupsTable.GetPanelGroupsDict(),
+    PanelsTable.GetPanelsDict(),
+    SectionedPagesTable.GetSectionedPagesDict(),
+    SectionsTable.GetSectionsDict()));
 builder.Services.AddSingleton<SudokuService>();
 
 await builder.Build().RunAsync();

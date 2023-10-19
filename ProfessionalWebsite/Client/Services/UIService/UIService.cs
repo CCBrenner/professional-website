@@ -2,19 +2,24 @@
 
 public class UIService : IUIService
 {
-    public UIService()
+    public UIService(
+        List<bool> isContinuous, 
+        Dictionary<int, PanelGroup> panelGroups, 
+        Dictionary<int, Panel> panels, 
+        Dictionary<int, SectionedPage> sectionedPages, 
+        Dictionary<int, Section> sections)
     {
-        IsContinuous = AnimationsTable.GetIsContinuous();
+        IsContinuous = isContinuous;
         _anim = AnimMgmt.Create(IsContinuous);
 
         _nav = NavMgmt.Create();
 
-        PanelGroups = PanelGroupsTable.GetPanelGroupsDict();
-        Panels = PanelsTable.GetPanelsDict();
+        PanelGroups = panelGroups;
+        Panels = panels;
         _panel = PanelMgmt.Create(PanelGroups, Panels);
 
-        SectionedPages = SectionedPagesTable.GetSectionedPagesDict();
-        Sections = SectionsTable.GetSectionsDict();
+        SectionedPages = sectionedPages;
+        Sections = sections;
         _section = SectionMgmt.Create(SectionedPages, Sections);
     }
 

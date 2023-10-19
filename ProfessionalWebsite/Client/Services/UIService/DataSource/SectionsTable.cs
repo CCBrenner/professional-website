@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public sealed class SectionsTable
+internal sealed class SectionsTable
 {
-    public static Dictionary<int, Section> GetSectionsDict()
+    internal static Dictionary<int, Section> GetSectionsDict()
     {
         Dictionary<int, Section> sectionsDict = new();
 
@@ -11,7 +11,7 @@ public sealed class SectionsTable
 
         return sectionsDict;
     }
-    public static List<Section> GetSections() => new()
+    internal static List<Section> GetSections() => new()
     { 
         /* start "knowhow" */
         Section.CreateAsFirstSectionOfPage(0, 1),

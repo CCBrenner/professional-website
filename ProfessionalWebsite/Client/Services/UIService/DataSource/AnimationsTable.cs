@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public sealed class AnimationsTable
+internal sealed class AnimationsTable
 {
-    public static List<bool> GetIsContinuous() => new()
+    internal static List<bool> GetIsContinuous() => new()
     {
         false,  // 0:Bombastic
         false,  // 1:Skywalker

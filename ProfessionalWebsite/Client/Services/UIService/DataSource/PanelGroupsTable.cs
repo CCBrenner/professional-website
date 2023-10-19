@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public sealed class PanelGroupsTable
+internal sealed class PanelGroupsTable
 {
-    public static Dictionary<int, PanelGroup> GetPanelGroupsDict()
+    internal static Dictionary<int, PanelGroup> GetPanelGroupsDict()
     {
         Dictionary<int, PanelGroup> panelGroupsDict = new();
 
@@ -11,7 +11,7 @@ public sealed class PanelGroupsTable
 
         return panelGroupsDict;
     }
-    public static List<PanelGroup> GetPanelGroups() => new()
+    internal static List<PanelGroup> GetPanelGroups() => new()
     {
         PanelGroup.Create(0, 4),  // _nav panels
     };

@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public sealed class PanelsTable
+internal sealed class PanelsTable
 {
-    public static Dictionary<int, Panel> GetPanelsDict()
+    internal static Dictionary<int, Panel> GetPanelsDict()
     {
         Dictionary<int, Panel> panelsDict = new();
 
@@ -11,7 +11,7 @@ public sealed class PanelsTable
 
         return panelsDict;
     }
-    public static List<Panel> GetPanels() => new()
+    internal static List<Panel> GetPanels() => new()
     {
         Panel.CreateCooperativePanel(0,   // Global Animations panel
             panelActiveStatusClassName: "anim-display",
