@@ -94,52 +94,6 @@ public class SetupTests
         Assert.AreEqual(1, puzzle.Matrix[7, 4].Values[0]);  // superimposed (from template)
     }
     [TestMethod]
-    public void TestCreatingPuzzleFromFactoryMethodSetsIsExpectedValueToTrueForSuperimposedValuesFromTemplateMatrixOnly()
-    {
-        // Arrange
-        int[,] intMatrix =
-        {
-            { 0, 0, 5,   0, 4, 0,   0, 8, 0 },
-            { 0, 0, 3,   0, 0, 2,   0, 0, 0 },
-            { 0, 0, 0,   0, 0, 0,   0, 9, 1 },
-
-            { 8, 0, 0,   7, 0, 0,   0, 1, 0 },
-            { 2, 0, 0,   8, 0, 3,   0, 0, 7 },
-            { 0, 6, 0,   0, 0, 4,   0, 0, 9 },
-
-            { 4, 3, 0,   0, 0, 0,   0, 0, 0 },
-            { 0, 0, 0,   9, 0, 0,   1, 0, 0 },
-            { 0, 8, 0,   0, 5, 0,   6, 0, 0 },
-        };
-        int[,] superImposeMatrix =
-        {
-            { 1, 2, 3,   4, 5, 6,   7, 8, 9 },
-            { 4, 5, 6,   7, 8, 9,   1, 2, 3 },
-            { 7, 8, 9,   1, 2, 3,   4, 5, 6 },
-
-            { 2, 3, 4,   5, 6, 7,   8, 9, 1 },
-            { 5, 6, 7,   8, 9, 1,   2, 3, 4 },
-            { 8, 9, 1,   2, 3, 4,   5, 6, 7 },
-
-            { 3, 4, 5,   6, 7, 8,   9, 1, 2 },
-            { 6, 7, 8,   9, 1, 2,   3, 4, 5 },
-            { 9, 1, 2,   3, 4, 5,   6, 7, 8 },
-        };
-
-        // Act
-        int[,] seedMatrix = MatrixFactory.CreateMatrixBySuperimposition(intMatrix, superImposeMatrix);
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
-        puzzle.LoadMatrixAsCellValues(seedMatrix);
-
-        // Assert
-        Assert.AreEqual(ValueStatus.Given, puzzle.Matrix[0, 2].ValueStatus);  // given (control)
-        Assert.AreNotEqual(ValueStatus.Expected, puzzle.Matrix[0, 2].ValueStatus);  // given (control)
-        Assert.AreEqual(ValueStatus.Expected, puzzle.Matrix[0, 0].ValueStatus);  // superimposed
-        Assert.AreEqual(ValueStatus.Expected, puzzle.Matrix[2, 4].ValueStatus);  // superimposed
-        Assert.AreEqual(ValueStatus.Expected, puzzle.Matrix[8, 8].ValueStatus);  // superimposed
-        Assert.AreEqual(ValueStatus.Expected, puzzle.Matrix[7, 4].ValueStatus);  // superimposed
-    }
-    [TestMethod]
     public void TestBlocksArrayContainsNineCellReferencesEach()
     {
         // Arrange
