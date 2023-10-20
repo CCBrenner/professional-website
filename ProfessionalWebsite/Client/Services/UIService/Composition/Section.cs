@@ -24,7 +24,7 @@ public class Section
     public string IsCollapsedHeader { get; private set; }
     public string IsCollapsedContent { get; private set; }
     public bool IsCurrentPromo { get; private set; }
-    public static Section Create(int id, int sectionedPageId) =>
+    public static Section CreateRegularSection(int id, int sectionedPageId) =>
         new(id, sectionedPageId, false);
     public static Section CreateAsFirstSectionOfPage(int id, int sectionedPageId) =>
         new(id, sectionedPageId, true);
