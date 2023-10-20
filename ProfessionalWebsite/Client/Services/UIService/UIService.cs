@@ -2,7 +2,7 @@
 
 public class UIService : IUIService
 {
-    public UIService(
+    private UIService(
         List<bool> isContinuous, 
         Dictionary<int, PanelGroup> panelGroups, 
         Dictionary<int, Panel> panels, 
@@ -35,6 +35,14 @@ public class UIService : IUIService
     public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
+
+    public static UIService Create(
+        List<bool> isContinuous,
+        Dictionary<int, PanelGroup> panelGroups,
+        Dictionary<int, Panel> panels,
+        Dictionary<int, SectionedPage> sectionedPages,
+        Dictionary<int, Section> sections) => 
+        new(isContinuous, panelGroups, panels, sectionedPages, sections);
 
     /// <summary>
     /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.

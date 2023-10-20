@@ -12,7 +12,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddScoped<CounterService>();
-builder.Services.AddSingleton(sp => new UIService(
+builder.Services.AddSingleton(sp => UIService.Create(
     AnimationsTable.GetIsContinuous(),
     PanelGroupsTable.GetPanelGroupsDict(),
     PanelsTable.GetPanelsDict(),

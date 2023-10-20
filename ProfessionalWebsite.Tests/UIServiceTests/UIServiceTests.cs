@@ -7,7 +7,7 @@ public class UIServiceTests
 {
     public UIServiceTests()
     {
-        uIService = new UIService(
+        uIService = UIService.Create(
             MockAnimationsDataSource.GetIsContinuous(),
             MockPanelGroupsDataSource.GetPanelGroupsDict(),
             MockPanelsDataSource.GetPanelsDict(),
