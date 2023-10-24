@@ -25,7 +25,7 @@ public class UIService : IUIService
     }
 
     private IAnimMgmt _anim;
-    private NavMgmt _nav;
+    private INavMgmt _nav;
     private PanelMgmt _panel;
     private SectionMgmt _section;
     public string AnimateMain { get; private set; }
