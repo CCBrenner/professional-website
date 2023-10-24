@@ -1,64 +1,68 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class AnimMgmt
+public class AnimMgmt : IAnimMgmt
 {
-    private AnimMgmt(List<bool> animationsIsContinuousInitialization)
+    private AnimMgmt()
     {
-        AnimateMain = string.Empty;
-        _isContinuous = animationsIsContinuousInitialization;
+        //AnimateMain = string.Empty;
+        //_isContinuous = animationsIsContinuousInitialization;
     }
 
     private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
 
-    private List<bool> _isContinuous;
-    public string AnimateMain;
-
-    public static AnimMgmt Create(List<bool> animationsIsContinuousInitialization) =>
-        new(animationsIsContinuousInitialization);
-
-    /// <summary>
-    /// Adds a class to the main container, causing everything in it to move based on the keyframes animation defined in the CSS of the component containing main.
-    /// </summary>
-    /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
-    public void ToggleAnimation(int animationIndex, PanelMgmt panelMgmt)
+    public static AnimMgmt Create() => new();
+    public string ToggleAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain, List<bool> isContinuous)
     {
-        if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
-            SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
-        else if (_isContinuous[animationIndex])
-            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
+        if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
+        {
+            SetDiscontinueButton(string.Empty, panelMgmt);
+            return string.Empty;
+        }
+        else if (isContinuous[animationIndex])
+        {
+            SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
+            return $"main{animationIndex + 1}-infinite";
+        }
         else
-            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
+        {
+            SetDiscontinueButton(string.Empty, panelMgmt);
+            return $"main{animationIndex + 1}";
+        }
     }
-    public void ToggleContinuousAnimation(int animationIndex, PanelMgmt panelMgmt)
+    public string ToggleContinuousAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain)
     {
-        if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
-            SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
+        if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
+        {
+            SetDiscontinueButton(string.Empty, panelMgmt);
+            return string.Empty;
+        }
         else
-            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}-infinite", DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
+        {
+            SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelMgmt);
+            return $"main{animationIndex + 1}-infinite";
+        }
     }
-    public void ToggleOnePlayAnimation(int animationIndex, PanelMgmt panelMgmt)
+    public string ToggleOnePlayAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain)
     {
-        if (AnimateMain == $"main{animationIndex + 1}-infinite" || AnimateMain == $"main{animationIndex + 1}")
-            SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
+        if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
+        {
+            SetDiscontinueButton(string.Empty, panelMgmt);
+            return string.Empty;
+        }
         else
-            SetAnimateMainAndDiscontinueButton($"main{animationIndex + 1}", "", panelMgmt);
+        {
+            SetDiscontinueButton(string.Empty, panelMgmt);
+            return $"main{animationIndex + 1}";
+        }
     }
-
-    /// <summary>
-    /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.
-    /// </summary>
-    public void DiscontinueAnimation(PanelMgmt panelMgmt) =>
-        SetAnimateMainAndDiscontinueButton("", "", panelMgmt);
-
-    /// <summary>
-    /// Sets the appropriate animation and discontinue class values.
-    /// </summary>
-    /// <param name="animation"></param>
-    /// <param name="discontinue"></param>
-    private void SetAnimateMainAndDiscontinueButton(string animation, string discontinue, PanelMgmt panelMgmt)
+    public string DiscontinueAnimation(PanelMgmt panelMgmt)
     {
-        AnimateMain = animation;
-        if (discontinue == "")
+        SetDiscontinueButton(string.Empty, panelMgmt);
+        return string.Empty;
+    }
+    private void SetDiscontinueButton(string discontinue, PanelMgmt panelMgmt)
+    {
+        if (discontinue == string.Empty)
             panelMgmt.DeactivatePanel(8);
         else
             panelMgmt.ActivatePanel(8);

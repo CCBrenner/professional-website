@@ -9,8 +9,9 @@ public class UIService : IUIService
         Dictionary<int, SectionedPage> sectionedPages, 
         Dictionary<int, Section> sections)
     {
+        AnimateMain = string.Empty;
         IsContinuous = isContinuous;
-        _anim = AnimMgmt.Create(IsContinuous);
+        _anim = AnimMgmt.Create();
 
         _nav = NavMgmt.Create();
 
@@ -23,11 +24,11 @@ public class UIService : IUIService
         _section = SectionMgmt.Create(SectionedPages, Sections);
     }
 
-    private AnimMgmt _anim;
+    private IAnimMgmt _anim;
     private NavMgmt _nav;
     private PanelMgmt _panel;
     private SectionMgmt _section;
-    public string AnimateMain => _anim.AnimateMain;
+    public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
@@ -50,17 +51,17 @@ public class UIService : IUIService
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void ToggleAnimation(int animationIndex)
     {
-        _anim.ToggleAnimation(animationIndex, _panel);
+        AnimateMain = _anim.ToggleAnimation(animationIndex, _panel, AnimateMain, IsContinuous);
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleOnePlayAnimation(int animationIndex)
     {
-        _anim.ToggleOnePlayAnimation(animationIndex, _panel);
+        AnimateMain = _anim.ToggleOnePlayAnimation(animationIndex, _panel, AnimateMain);
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleContinuousAnimation(int animationIndex)
     {
-        _anim.ToggleContinuousAnimation(animationIndex, _panel);
+        AnimateMain = _anim.ToggleContinuousAnimation(animationIndex, _panel, AnimateMain);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -68,7 +69,7 @@ public class UIService : IUIService
     /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.
     /// </summary>
     public void DiscontinueAnimation() =>
-        _anim.DiscontinueAnimation(_panel);
+        AnimateMain = _anim.DiscontinueAnimation(_panel);
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
