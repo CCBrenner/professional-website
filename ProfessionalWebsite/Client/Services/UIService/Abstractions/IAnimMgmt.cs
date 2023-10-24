@@ -2,8 +2,8 @@
 
 public interface IAnimMgmt
 {
-    string ToggleAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain, List<bool> isContinuous);
-    string ToggleOnePlayAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain);
-    string ToggleContinuousAnimation(int animationIndex, PanelMgmt panelMgmt, string animateMain);
-    string DiscontinueAnimation(PanelMgmt panelMgmt);
+    string ToggleAnimation(int animationIndex, IPanelMgmt panelMgmt, string animateMain, List<bool> isContinuous, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList);
+    string ToggleOnePlayAnimation(int animationIndex, IPanelMgmt panelMgmt, string animateMain, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList);
+    string ToggleContinuousAnimation(int animationIndex, IPanelMgmt panelMgmt, string animateMain, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList);
+    string DiscontinueAnimation(IPanelMgmt panelMgmt, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList);
 }

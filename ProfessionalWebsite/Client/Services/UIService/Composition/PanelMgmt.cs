@@ -1,42 +1,22 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class PanelMgmt
+public class PanelMgmt : IPanelMgmt
 {
-    private PanelMgmt(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary)
-    {
-        _panelGroups = panelGroupsDictionary;
-        _panels = panelsDictionary;
-
-        SetInstanceToGroupReferences();
-    }
-
-    private Dictionary<int, Panel> _panels;
-    private Dictionary<int, PanelGroup> _panelGroups;
-
     /*
-        Definitions:
-            - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
+    Definitions:
+        - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
-
-    public static PanelMgmt Create(Dictionary<int, PanelGroup> panelGroupsDictionary, Dictionary<int, Panel> panelsDictionary) =>
-        new(panelGroupsDictionary, panelsDictionary);
-
-    /// <summary>
-    /// Sets all panels to their default configurations (usually an "off" state).
-    /// </summary>
-    /// <param name="setActivePanelGroupToLocationPanel">Sets the button highlight of the current location when all panels in the panel group have been deactivated.</param>
-    /// <param name="triggersOnPanelMgmtUpdated">Default to "true", this tells components that consume _panel properties to update (based on changes to state). Component must subscribe to the event to receive update commands.</param>
-    /// <param name="includeIndependentPanels">Independent panels exist outside of the deactivation logic by default. If for whatever reason they should also be deactivated, then this can be set to "true".</param>
-    public void DeactivateAllPanels()
+    public static PanelMgmt Create() => new();
+    public void DeactivateAllPanels(IEnumerable<Panel> panels)
     {
-        foreach (Panel panel in _panels.Values)
+        foreach (Panel panel in panels)
         {
             panel.Deactivate();
         }
     }
-    public void DeactivateCooperativePanels()
+    public void DeactivateCooperativePanels(List<Panel> panels)
     {
-        foreach (Panel panel in _panels.Values)
+        foreach (Panel panel in panels)
         {
             if (panel.IsCooperativePanel)
             {
@@ -44,68 +24,46 @@ public class PanelMgmt
             }
         }
     }
-    public void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup()
+    public void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
-        foreach (Panel panel in _panels.Values)
+        foreach (Panel panel in panels.Values)
         {
             if (panel.IsCooperativePanel)
             {
-                ActivateLocationButtonsOfGroups();
+                ActivateLocationButtonsOfGroups(panels, panelGroups);
             }
         }
     }
-    public void HighlightButtonOfFocusedPanelForEachPanelGroup()
+    public void DeactivatePanel(int selectedPanelId, Dictionary<int, Panel> panels)
     {
-        ActivateLocationButtonsOfGroups();
+        panels[selectedPanelId].Deactivate();
     }
-
-    /// <summary>
-    /// Deactivates a panel based on the panel's ID.
-    /// </summary>
-    /// <param name="selectedPanelId">ID of panel to be deactivated.</param>
-    public void DeactivatePanel(int selectedPanelId)
+    public void ActivatePanel(int selectedPanelId, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
     {
-        _panels.Values
-            .FirstOrDefault(panel => panel.Id == selectedPanelId)
-            ?.Deactivate();
+        var panelsList = panels.Values.ToList();
+        DeactivateCooperativePanels(panelsList);
+        ActivateLocationButtonsOfPanelGroups(selectedPanelId, panelsList, panelGroupsList);
+        panels[selectedPanelId].Activate();
     }
-    /// <summary>
-    /// Activates a panel based on the panel's ID.
-    /// </summary>
-    /// <param name="selectedPanelId">ID of panel to be activated.</param>
-    /// <returns></returns>
-    public void ActivatePanel(int selectedPanelId)
-    {
-        DeactivateCooperativePanels();
-        ActivateLocationButtonsOfGroups(selectedPanelId);
-        _panels.Values
-            .FirstOrDefault(panel => panel.Id == selectedPanelId)
-            ?.Activate();
-    }
-    /// <summary>
-    /// Toggles a panel's state from "off" to "on" and vice versa by panel ID.
-    /// </summary>
-    /// <param name="selectedPanelId">ID of panel to be toggled on or off.</param>
-    /// <returns></returns>
-    public void TogglePanel(int selectedPanelId)
+    public void TogglePanel(int selectedPanelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
         try
         {
-            if (_panels[selectedPanelId].PanelStatus == "")
+            if (panels[selectedPanelId].PanelStatus == string.Empty)
             {
-                DeactivateCooperativePanels();
-                ActivateLocationButtonsOfGroups(selectedPanelId);
-                _panels[selectedPanelId].Activate();
+                DeactivateCooperativePanels(panels.Values.ToList());
+                ActivateLocationButtonsOfPanelGroups(selectedPanelId, panels.Values.ToList(), panelGroups.Values.ToList());
+                panels[selectedPanelId].Activate();
             }
             else
             {
-                DeactivateCooperativePanels();
-                if (AllCooperativePanelsAreDeactivated())
+                DeactivateCooperativePanels(panels.Values.ToList());
+                if (AllCooperativePanelsAreDeactivated(panels.Values.ToList()))
                 {
-                    HighlightButtonOfFocusedCooperativePanelForEachPanelGroup();
+                    HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(panels, panelGroups);
                 }
 
-                DeactivatePanel(selectedPanelId);
+                DeactivatePanel(selectedPanelId, panels);
             }
         }
         catch (KeyNotFoundException knfEx)
@@ -113,19 +71,15 @@ public class PanelMgmt
             Console.WriteLine(knfEx.Message + knfEx.StackTrace);
         }
     }
-    /// <summary>
-    /// Sets the location panel of a panel group using only the ID of a given panel. If the panel is not part of a panel group, then nothing happens. 
-    /// </summary>
-    /// <param name="panelId">ID of panel to be made the location panel of the panel's panel group.</param>
-    public void UpdateGroupLocationPanel(int panelId)
+    public void UpdateGroupLocationPanel(int panelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
         try
         {
-            int pgId = _panels[panelId].PanelGroupId;
-            int lpId = _panelGroups[pgId].LocationPanelId;
-            _panels[lpId].Deactivate();
-            _panelGroups[pgId].LocationPanelId = panelId;
-            _panels[panelId].ActivateButton();
+            int pgId = panels[panelId].PanelGroupId;
+            int lpId = panelGroups[pgId].LocationPanelId;
+            panels[lpId].Deactivate();
+            panelGroups[pgId].LocationPanelId = panelId;
+            panels[panelId].ActivateButton();
         }
         catch (ArgumentOutOfRangeException aoorEx)
         {
@@ -136,75 +90,42 @@ public class PanelMgmt
             Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
         }
     }
-    /// <summary>
-    /// Activates the location panel for each panel group.
-    /// </summary>
-    /// <param name="idOfPanelBeingActivated">ID of the panel that is being activated.</param>
-    /// <returns></returns>
-    private void ActivateLocationButtonsOfGroups(int idOfPanelBeingActivated)
+    private void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<Panel> panels, List<PanelGroup> panelGroups)
     {
-        if (AllCooperativePanelsAreDeactivated())
+        // use this to determine get the group of the deactivated panel:
+        int panelGroupIdOfPanelBeingActivated = -1;
+
+        // get the group of the activated panel:
+        foreach (Panel panel in panels)
+            if (idOfPanelBeingActivated == panel.Id)
+                panelGroupIdOfPanelBeingActivated = panel.PanelGroupId;
+
+        // highlight the button of each panelGroup's focused panel...
+        foreach (PanelGroup panelGroup in panelGroups)
         {
-            int groupOfActivatedPanel = -1;
-
-            // use "idOfPanelBeingActivated" to find it's panel, then find & store the panelGroup ID of the panel
-            foreach (PanelGroup panelGroup in _panelGroups.Values)
-                foreach (Panel panel in panelGroup.Panels.Values)
-                    if (idOfPanelBeingActivated == panel.Id)
-                        groupOfActivatedPanel = panelGroup.Id;
-
-            foreach (PanelGroup panelGroup in _panelGroups.Values)
+            // ...but only if not the panelGroup of the panel being activated:
+            if (panelGroupIdOfPanelBeingActivated != panelGroup.Id)
             {
-                if (groupOfActivatedPanel == -1)
-                {
-                    int panelId = panelGroup.LocationPanelId;
-                    Panel panel = _panels[panelId];
-                    panel.ActivateButton();
-                }
+                int panelId = panelGroup.LocationPanelId;
+                Panel panel = panels[panelId];
+                panel.ActivateButton();
             }
         }
     }
-    /// <summary>
-    /// Each panel group has a location panel that remembers the panel designated to the current location. When another panel in the panel group is openned, it will be turned off, but when all panels in the panel group are closed, then the button associated with the current location's panel is highlighted (as a visual indicator of where the user currently is in the app).
-    /// </summary>
-    /// <returns>List of panels whose buttons have been highlighted (since they are location panels).</returns>
-    public void ActivateLocationButtonsOfGroups()
+    public void ActivateLocationButtonsOfGroups(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
-        foreach (PanelGroup panelGroup in _panelGroups.Values)
+        foreach (PanelGroup panelGroup in panelGroups.Values)
         {
             int panelId = panelGroup.LocationPanelId;
-            Panel panel = _panels[panelId];
+            Panel panel = panels[panelId];
             panel.ActivateButton();
         }
     }
-    /// <summary>
-    /// Determines if all cooperative panels are currently deactivated.
-    /// </summary>
-    /// <returns>"True" if all cooperative panels are currently deactivated.</returns>
-    private bool AllCooperativePanelsAreDeactivated()
+    private bool AllCooperativePanelsAreDeactivated(List<Panel> panels)
     {
-        foreach (Panel panel in _panels.Values)
-            if (panel.PanelStatus != "" && panel.IsCooperativePanel)
+        foreach (Panel panel in panels)
+            if (panel.PanelStatus != string.Empty && panel.IsCooperativePanel)
                 return false;
         return true;
-    }
-    /// <summary>
-    /// Upon initialization of panels and panel groups, one-to-many relationships are established through assigning the references based on the relationships within each panel and panel group. This is dependent on the PanelGroupId assigned to each panel.
-    /// </summary>
-    private void SetInstanceToGroupReferences()
-    {
-        foreach (Panel panel in _panels.Values)
-            panel.SetInstanceToGroupRelationship(_panelGroups.Values.ToList());
-
-        List<Section> sectionsOfPage = new List<Section>();
-        foreach (Panel panel in _panels.Values)
-        {
-            if (panel.PanelGroupId != -1)
-            {
-                _panelGroups[panel.PanelGroupId]
-                    .Panels
-                    .Add(panel.Id, panel);
-            }
-        }
     }
 }

@@ -24,7 +24,7 @@ public class MatchGameTests
         matchGame.Blocks[5].AnimalEmoji = "🐋";
         matchGame.UserSelectsBlock(matchGame.Blocks[2]);  // user clicks row 1, column 3
         matchGame.UserSelectsBlock(matchGame.Blocks[5]);  // user clicks row 2, column 2; it's not a match
-        Assert.AreEqual("", matchGame.Blocks[2].Visibility);
+        Assert.AreEqual(string.Empty, matchGame.Blocks[2].Visibility);
         Assert.AreEqual(false, matchGame.Blocks[2].IsMatched);
         Assert.AreEqual("block-showing", matchGame.Blocks[5].Visibility);
         Assert.AreEqual(false, matchGame.Blocks[5].IsMatched);
@@ -130,7 +130,7 @@ public class MatchGameTests
         // Blocks list is reset, all blocks have been made invisible & are not matched
         foreach (Block block in matchGame.Blocks)
         {
-            Assert.AreEqual("", block.Visibility);
+            Assert.AreEqual(string.Empty, block.Visibility);
             Assert.AreEqual(false, block.IsMatched);
         }
         Assert.AreEqual(MatchGameStatus.Ready, matchGame.GameStatus);

@@ -31,7 +31,7 @@
     protected override void OnInitialized() =>
         UI.OnUiServiceChanged += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        UI.OnUiServiceChanged += UpdateThisComponent;
+        UI.OnUiServiceChanged -= UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 }

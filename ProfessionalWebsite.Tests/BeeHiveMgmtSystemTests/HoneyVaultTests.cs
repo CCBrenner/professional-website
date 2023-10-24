@@ -93,7 +93,7 @@ public class HoneyVaultTests
         // default values are above notification threshold
         Assert.AreEqual(false, honeyVault.Honey < LOW_LEVEL_WARNING);
         Assert.AreEqual(false, honeyVault.Nectar < LOW_LEVEL_WARNING);
-        Assert.AreEqual("", honeyVault.Notifications);
+        Assert.AreEqual(string.Empty, honeyVault.Notifications);
     }
     [TestMethod]
     public void TestNotificationsReturnsHoneyLowIfHoneyIsBelowNotifcationThreshold()

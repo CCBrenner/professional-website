@@ -24,15 +24,15 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
         }
         // start UpdateNav() tests
@@ -41,7 +41,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -50,12 +50,12 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("panel-visible", NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -63,7 +63,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -75,15 +75,15 @@ namespace ProfessionalWebsite.Tests
 
             NavService.UpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -91,7 +91,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -103,20 +103,20 @@ namespace ProfessionalWebsite.Tests
 
             // User clicks button of different panel
             NavService.UpdateNav(1);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[1].NavButtonStatus);
             Assert.AreEqual("panel-visible", NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -124,29 +124,29 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
 
             NavService.UpdateNav(0);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[0].NavButtonStatus);
             Assert.AreEqual("panel-visible", NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         // end UpdateNav() tests
@@ -156,7 +156,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -168,7 +168,7 @@ namespace ProfessionalWebsite.Tests
 
             NavService.UpdateNavFromBehindPanel();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
         }
         [TestMethod]
@@ -176,7 +176,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -185,26 +185,26 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("panel-visible", NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
 
             NavService.UpdateNavFromBehindPanel();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
         }
         // continue RouteUserAndUpdateNav() tests (originally end UpdateNavFromBehindPanel() tests)
@@ -214,7 +214,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -227,23 +227,23 @@ namespace ProfessionalWebsite.Tests
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -251,13 +251,13 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.UpdateNav(3);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[3].NavButtonStatus);
@@ -267,23 +267,23 @@ namespace ProfessionalWebsite.Tests
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -291,7 +291,7 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -300,30 +300,30 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("panel-visible", NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
 
             NavService.RouteUserAndUpdateNav(0);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -331,13 +331,13 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.UpdateNav(4);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[4].NavButtonStatus);
@@ -346,24 +346,24 @@ namespace ProfessionalWebsite.Tests
 
 
             NavService.RouteUserAndUpdateNav(1);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -371,13 +371,13 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.UpdateNav(4);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[4].NavButtonStatus);
@@ -386,24 +386,24 @@ namespace ProfessionalWebsite.Tests
 
 
             NavService.RouteUserAndUpdateNav(4);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[4].IsThisLocation);
         }
         // continue RouteUserAndUpdateNav() tests (originally end UpdateNavFromPanel() tests)
@@ -413,29 +413,29 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
 
         }
@@ -444,29 +444,29 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.RouteUserAndUpdateNav(3);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         // continue RouteUserAndUpdateNav() tests (originally end UpdateNavFromDrawer() tests)
@@ -476,29 +476,29 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
@@ -506,50 +506,50 @@ namespace ProfessionalWebsite.Tests
         {
             NavService NavService = new NavService();
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.AssociatedNav[2] = new AssociatedNavButtonAndPanel()
             {
-                NavButtonStatus = "",
-                NavPanelStatus = "",
+                NavButtonStatus = string.Empty,
+                NavPanelStatus = string.Empty,
                 IsThisLocation = false,
             };
             NavService.AssociatedNav[0] = new AssociatedNavButtonAndPanel()
             {
                 NavButtonStatus = "highlight-button",
-                NavPanelStatus = "",
+                NavPanelStatus = string.Empty,
                 IsThisLocation = true,
             };
 
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
 
 
             NavService.AssociatedNav[2] = new AssociatedNavButtonAndPanel()
             {
-                NavButtonStatus = "",
-                NavPanelStatus = "",
+                NavButtonStatus = string.Empty,
+                NavPanelStatus = string.Empty,
                 IsThisLocation = false,
             };
             NavService.AssociatedNav[3] = new AssociatedNavButtonAndPanel()
@@ -562,23 +562,23 @@ namespace ProfessionalWebsite.Tests
 
             NavService.RouteUserAndUpdateNav(2);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         // end RouteUserAndUpdateNav() tests (originally end UpdateNavFromAppTitle() tests)
@@ -590,93 +590,93 @@ namespace ProfessionalWebsite.Tests
         public void TestShowLayoutControlsUpdatesNavServiceCorrectlyWhenCurrentLocationEqualsRoutedLocation() 
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.ShowLayoutControls(2);
-            Assert.AreEqual("", NavService.BehindPanel);
-            Assert.AreEqual("", NavService.ContentBlur);
+            Assert.AreEqual(string.Empty, NavService.BehindPanel);
+            Assert.AreEqual(string.Empty, NavService.ContentBlur);
             Assert.AreEqual("layout-controls-on", NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
         public void TestShowLayoutControlsUpdatesNavServiceCorrectlyWhenRouteLocationIsNOTCurrentLocation()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.ShowLayoutControls(4);
             Assert.AreEqual("layout-controls-on", NavService.LayoutControls);
-            Assert.AreEqual("", NavService.BehindPanel);
-            Assert.AreEqual("", NavService.ContentBlur);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.BehindPanel);
+            Assert.AreEqual(string.Empty, NavService.ContentBlur);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[2].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[0].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[0].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[0].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[1].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[1].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[1].IsThisLocation);
 
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[3].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavButtonStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[3].NavPanelStatus);
             Assert.AreEqual(false, NavService.AssociatedNav[3].IsThisLocation);
 
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[4].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[4].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[4].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[4].IsThisLocation);
         }
         [TestMethod]
         public void TestShowLayoutControlsSelectNavServiceMethodsClearLayoutControlsProperty()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             NavService.ShowLayoutControls(4);
             Assert.AreEqual("layout-controls-on", NavService.LayoutControls);
             NavService.RouteUserAndUpdateNav(4);
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
 
             NavService.ShowLayoutControls(0);
             Assert.AreEqual("layout-controls-on", NavService.LayoutControls);
             NavService.RouteUserAndUpdateNav(0);
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
 
             NavService.ShowLayoutControls(2);
             Assert.AreEqual("layout-controls-on", NavService.LayoutControls);
             NavService.RouteUserAndUpdateNav(2);
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
         }
         // end original ShowLayoutControls() tests
         // start original ToggleAnimation() tests
@@ -684,56 +684,56 @@ namespace ProfessionalWebsite.Tests
         public void TestPlayAnimationIsNOTContinuousAndCurrentlyOffTurnsAnimationOnForOneRep()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
             NavService.ToggleAnimation(5, false);
             Assert.AreEqual("main5", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
         }
         [TestMethod]
         public void TestPlayAnimationIsNOTContinuousAndCurrentlyOnForOneRepTurnsAnimationOff()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(1, false);
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
             NavService.ToggleAnimation(2, false);
             Assert.AreEqual("main2", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(2, false);
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
         }
         [TestMethod]
         public void TestPlayAnimationIsContinuousAndCurrentlyOffTurnsAnimationOnForIndefiniteNumberOfReps()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -750,9 +750,9 @@ namespace ProfessionalWebsite.Tests
         public void TestPlayAnimationIsContinuousAndCurrentlyOnTurnsAnimationOff()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -761,8 +761,8 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(1, true);
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
             NavService.ToggleAnimation(4, true);
@@ -770,22 +770,22 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(4, true);
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
         }
         [TestMethod]
         public void TestPlayAnimationFirstClickNotContinuousAndAnimatedSecondClickIsContinuousAndAnimated()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
             NavService.ToggleAnimation(1, false);
             Assert.AreEqual("main1", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(1, true);
             Assert.AreEqual("main1-infinite", NavService.AnimateMain);
@@ -794,7 +794,7 @@ namespace ProfessionalWebsite.Tests
 
             NavService.ToggleAnimation(5, false);
             Assert.AreEqual("main5", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
             NavService.ToggleAnimation(5, true);
             Assert.AreEqual("main5-infinite", NavService.AnimateMain);
@@ -806,9 +806,9 @@ namespace ProfessionalWebsite.Tests
         public void TestStopMainAnimationOnClickAnimationStops()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
 
@@ -817,8 +817,8 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
             NavService.StopMainAnimation();
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
             NavService.ToggleAnimation(2, true);
@@ -826,8 +826,8 @@ namespace ProfessionalWebsite.Tests
             Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
             NavService.StopMainAnimation();
-            Assert.AreEqual("", NavService.AnimateMain);
-            Assert.AreEqual("", NavService.DiscontinueButton);
+            Assert.AreEqual(string.Empty, NavService.AnimateMain);
+            Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
         }
         // end StopMainAnimation() tests
         // start NavigateToCollapsibleSectionOfOtherPage() tests
@@ -835,9 +835,9 @@ namespace ProfessionalWebsite.Tests
         public void TestNavigateToCollapsibleSectionOfOtherPagePropertyNavigateToSectionGetsUpdated()
         {
             NavService NavService = new NavService();
-            Assert.AreEqual("", NavService.LayoutControls);
+            Assert.AreEqual(string.Empty, NavService.LayoutControls);
             Assert.AreEqual("highlight-button", NavService.AssociatedNav[2].NavButtonStatus);
-            Assert.AreEqual("", NavService.AssociatedNav[2].NavPanelStatus);
+            Assert.AreEqual(string.Empty, NavService.AssociatedNav[2].NavPanelStatus);
             Assert.AreEqual(true, NavService.AssociatedNav[2].IsThisLocation);
 
             // Uses method that is tested above (RouteUserAndUpdateNav()), so skip testing for that. No test duplicates.

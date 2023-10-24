@@ -11,13 +11,12 @@ public class UIService : IUIService
     {
         AnimateMain = string.Empty;
         IsContinuous = isContinuous;
-        _anim = AnimMgmt.Create();
-
-        _nav = NavMgmt.Create();
-
         PanelGroups = panelGroups;
         Panels = panels;
-        _panel = PanelMgmt.Create(PanelGroups, Panels);
+
+        _anim = AnimMgmt.Create();
+        _nav = NavMgmt.Create();
+        _panel = PanelMgmt.Create();
 
         SectionedPages = sectionedPages;
         Sections = sections;
@@ -26,7 +25,7 @@ public class UIService : IUIService
 
     private IAnimMgmt _anim;
     private INavMgmt _nav;
-    private PanelMgmt _panel;
+    private IPanelMgmt _panel;
     private SectionMgmt _section;
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
@@ -51,25 +50,25 @@ public class UIService : IUIService
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void ToggleAnimation(int animationIndex)
     {
-        AnimateMain = _anim.ToggleAnimation(animationIndex, _panel, AnimateMain, IsContinuous);
+        AnimateMain = _anim.ToggleAnimation(animationIndex, _panel, AnimateMain, IsContinuous, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleOnePlayAnimation(int animationIndex)
     {
-        AnimateMain = _anim.ToggleOnePlayAnimation(animationIndex, _panel, AnimateMain);
+        AnimateMain = _anim.ToggleOnePlayAnimation(animationIndex, _panel, AnimateMain, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleContinuousAnimation(int animationIndex)
     {
-        AnimateMain = _anim.ToggleContinuousAnimation(animationIndex, _panel, AnimateMain);
+        AnimateMain = _anim.ToggleContinuousAnimation(animationIndex, _panel, AnimateMain, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
 
     /// <summary>
-    /// Stops continuous animation by chaning the animation class to blank (""); also hides the Discontinue button by the same means.
+    /// Stops continuous animation by chaning the animation class to blank (string.Empty); also hides the Discontinue button by the same means.
     /// </summary>
     public void DiscontinueAnimation() =>
-        AnimateMain = _anim.DiscontinueAnimation(_panel);
+        AnimateMain = _anim.DiscontinueAnimation(_panel, Panels, PanelGroups.Values.ToList());
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
@@ -79,7 +78,7 @@ public class UIService : IUIService
     public void NavigateToSection(int sectionId)
     {
         DeactivateAllPanels();
-        _nav.NavigateToSection(sectionId, _panel, _section);
+        _nav.NavigateToSection(sectionId, _panel, _section, Panels, PanelGroups);
     }
 
     /// <summary>
@@ -87,7 +86,7 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="panelId">Id of the panel whose button should be highlighted when navgiating to the hardcoded page.</param>
     public void NavigateToHardCodedPage(int hardcodedPanelId, int navGroupPanelId) =>
-        _nav.NavigateToHardCodedPage(hardcodedPanelId, navGroupPanelId, _panel);
+        _nav.NavigateToHardCodedPage(hardcodedPanelId, navGroupPanelId, _panel, Panels, PanelGroups);
 
     /// <summary>
     /// Toggles a panel's state from "off" to "on" and vice versa by panel ID.
@@ -96,7 +95,7 @@ public class UIService : IUIService
     /// <returns></returns>
     public void TogglePanel(int selectedPanelId)
     {
-        _panel.TogglePanel(selectedPanelId);
+        _panel.TogglePanel(selectedPanelId, Panels, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -108,7 +107,7 @@ public class UIService : IUIService
     public void UpdatePanelsWhenNavigating(int panelId)
     {
         DeactivateAllPanels();
-        _panel.UpdateGroupLocationPanel(panelId);
+        _panel.UpdateGroupLocationPanel(panelId, Panels, PanelGroups);
 
         RaiseEventOnUiServiceChanged();
     }
@@ -132,32 +131,32 @@ public class UIService : IUIService
         _section.ToggleAllSections(pageId);
         RaiseEventOnUiServiceChanged();
     }
-    private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke("");
+    private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke(string.Empty);
     public void DeactivateCooperativePanels()
     {
-        _panel.DeactivateCooperativePanels();
-        _panel.ActivateLocationButtonsOfGroups();
+        _panel.DeactivateCooperativePanels(Panels.Values.ToList());
+        _panel.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivateAllPanels()
     {
-        _panel.DeactivateAllPanels();
-        _panel.ActivateLocationButtonsOfGroups();
+        _panel.DeactivateAllPanels(Panels.Values.ToList());
+        _panel.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
     public void ActivatePanel(int selectedPanelId)
     {
-        _panel.ActivatePanel(selectedPanelId);
+        _panel.ActivatePanel(selectedPanelId, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivatePanel(int selectedPanelId)
     {
-        _panel.DeactivatePanel(selectedPanelId);
+        _panel.DeactivatePanel(selectedPanelId, Panels);
         RaiseEventOnUiServiceChanged();
     }
     public void UpdateGroupLocationPanel(int panelId)
     {
-        _panel.UpdateGroupLocationPanel(panelId);
+        _panel.UpdateGroupLocationPanel(panelId, Panels, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
 }

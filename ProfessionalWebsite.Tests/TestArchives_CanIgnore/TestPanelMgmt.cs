@@ -76,20 +76,20 @@
             panelMgmt.ActivatePanel(2);
             panelMgmt.DeactivateCooperativePanels();
 
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BlurStatus);
         }
         [TestMethod]
         public void TestDeactivateAllPanels_AllGroupsRevertToSavedLocationForButton()
@@ -101,20 +101,20 @@
             panelMgmt.DeactivateCooperativePanels();
 
             // duplicate tests for checking assumptions
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BlurStatus);
 
             // this test's tests
             Assert.AreEqual(panelMgmt.Panels[4], panelMgmt.PanelGroups[0].LocationPanel);
@@ -133,20 +133,20 @@
             panelMgmt.DeactivateCooperativePanels();
 
             // duplicate tests for checking assumptions
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[0].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[0].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[1].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[1].BlurStatus);
 
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelButtonStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].PanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BehindPanelStatus);
-            Assert.AreEqual("", panelMgmt.Panels[4].BlurStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelButtonStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].PanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BehindPanelStatus);
+            Assert.AreEqual(string.Empty, panelMgmt.Panels[4].BlurStatus);
 
             Assert.AreEqual(panelMgmt.Panels[4], panelMgmt.PanelGroups[0].LocationPanel);
             Assert.AreEqual("highlight-button", panelMgmt.PanelGroups[0].LocationPanel.PanelButtonStatus);
