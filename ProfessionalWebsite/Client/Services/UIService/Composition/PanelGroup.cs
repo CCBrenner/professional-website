@@ -12,4 +12,9 @@ public class PanelGroup
     public int LocationPanelId;
     public Dictionary<int, Panel> Panels = new();
     public static PanelGroup Create(int id, int startingLocation) => new(id, startingLocation);
+
+    public void AddPanelReference(Panel panel)
+    {
+        Panels.Add(panel.Id, panel);
+    }
 }

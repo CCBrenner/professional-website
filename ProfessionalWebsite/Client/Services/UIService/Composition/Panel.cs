@@ -121,6 +121,11 @@ public class Panel
         }
     }
 
+    public void SetPanelGroupReference(PanelGroup panelGroup)
+    {
+        PanelGroup = panelGroup;
+    }
+
     /*
     Examples of how CSS should be set up for effective transitions:
     

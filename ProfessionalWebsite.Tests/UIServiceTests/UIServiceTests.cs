@@ -7,7 +7,7 @@ public class UIServiceTests
 {
     public UIServiceTests()
     {
-        uIService = UIService.Create(
+        UiService = UIService.Create(
             MockAnimationsDataSource.GetIsContinuous(),
             MockPanelGroupsDataSource.GetPanelGroupsDict(),
             MockPanelsDataSource.GetPanelsDict(),
@@ -16,41 +16,41 @@ public class UIServiceTests
             );
     }
 
-    private UIService uIService;
+    private UIService UiService;
 
     [TestMethod]
     public void TestClickingAnimationButtonPlaysAnimationOneTimePerSpecificUseCase()
     {
         // Given a string variable for changing the presence of a class in the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off
-        Assert.AreEqual(string.Empty, uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
+        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
 
         // When the user presses the element that has the appropriate @onclick event handler
-        uIService.ToggleAnimation(0);
+        UiService.ToggleAnimation(0);
 
         // Then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // the animation's class name is updated, which triggers the animation of the main container to occur one time,
         // and the discontinue button does not appear.
-        Assert.AreEqual("main1", uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
+        Assert.AreEqual("main1", UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
     }
     [TestMethod]
     public void TestClickingAnimationButtonPlaysAnimationContinuouslyPerSpecificUseCase()
     {
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off...
-        Assert.AreEqual(string.Empty, uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
+        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
 
         // ...when the user presses the element that has the appropriate @onclick event handler seen here...
-        uIService.ToggleContinuousAnimation(0);
+        UiService.ToggleContinuousAnimation(0);
 
         // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // the animation's class name is updated (triggering the animation of the main container to occur an infinite number of times),
         // and the discontinue button appears.
-        Assert.AreEqual("main1-infinite", uIService.AnimateMain);
-        Assert.AreEqual("discontinue-button-on", uIService.Panels[8].PanelStatus);
+        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("discontinue-button-on", UiService.Panels[8].PanelStatus);
     }
     [TestMethod]
     public void TestClickingAnimationButtonAnimatesMainOneTimeBasedOnAnimationsSpecificConfiguration()
@@ -58,17 +58,17 @@ public class UIServiceTests
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off based on config defaults
         // and given a value corresponding to whether the specific animation should be played continuously or not...
-        Assert.AreEqual(string.Empty, uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
-        Assert.AreEqual(false, uIService.IsContinuous[0]);
+        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
+        Assert.IsFalse(UiService.IsContinuous[0]);
 
         // ...when the user presses the element that has the appropriate @onclick event handler seen here...
-        uIService.ToggleAnimation(0);
+        UiService.ToggleAnimation(0);
 
         // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // and the animation's class name remains the same, keeping the Discontinue button invisible,
-        Assert.AreEqual("main1", uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
+        Assert.AreEqual("main1", UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
 
         // Note: IsContinuous configs are to be used in cases where a UI control changes the bool value from continuous to single-play per animation
     }
@@ -77,19 +77,19 @@ public class UIServiceTests
     {
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off based on config defaults...
-        Assert.AreEqual(string.Empty, uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
-        var IsContinuousList = uIService.IsContinuous;
+        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
+        var IsContinuousList = UiService.IsContinuous;
         IsContinuousList[0] = true;
-        Assert.AreEqual(true, uIService.IsContinuous[0]);
+        Assert.IsTrue(UiService.IsContinuous[0]);
 
         // ...when the user presses the element that has the appropriate @onclick event handler seen here (note: we are using the animation with ID of "0" above as well as here)...
-        uIService.ToggleAnimation(0);
+        UiService.ToggleAnimation(0);
 
         // ...then the animation's class name is updated based on a conversion of the animation ID, triggering the animation of the main container to occur an infinite number of times,
         // and the discontinue button appears.
-        Assert.AreEqual("main1-infinite", uIService.AnimateMain);
-        Assert.AreEqual("discontinue-button-on", uIService.Panels[8].PanelStatus);
+        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("discontinue-button-on", UiService.Panels[8].PanelStatus);
 
         // Note: IsContinuous configs are to be used in cases where a UI control changes the bool value from continuous to single-play per animation
     }
@@ -98,156 +98,156 @@ public class UIServiceTests
     {
         // Given a continuous animation is playing on the main container
         // and the discontinue button is visible...
-        uIService.ToggleContinuousAnimation(0);
-        Assert.AreEqual("main1-infinite", uIService.AnimateMain);
-        Assert.AreEqual("discontinue-button-on", uIService.Panels[8].PanelStatus);
+        UiService.ToggleContinuousAnimation(0);
+        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("discontinue-button-on", UiService.Panels[8].PanelStatus);
 
         // ...when the user clicks the discontinue button...
-        uIService.DiscontinueAnimation();
+        UiService.DiscontinueAnimation();
 
         // ...then the animation stops
         // and the discontinue button becomes invisible.
-        Assert.AreEqual(string.Empty, uIService.AnimateMain);
-        Assert.AreEqual(string.Empty, uIService.Panels[8].PanelStatus);
+        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Panels[8].PanelStatus);
     }
     [TestMethod]
     public void TestClickingAnElementThatNavigatesToASectionChangesLocationPanelIdToThePanelIdOfTheDestinationPage()
     {
         // Given a user on any given web page
         // and given the default state of the destination sectioned page relevant to this behavior test...
-        Assert.AreEqual(4, uIService.PanelGroups[0].LocationPanelId);
+        Assert.AreEqual(4, UiService.PanelGroups[0].LocationPanelId);
 
         // ...when they click an element responsible for Blazor navigation that refers to a section (which
         //     can be assumed as existing within a sectioned page)...
-        uIService.NavigateToSection(13);
+        UiService.NavigateToSection(13);
 
         // ...then update the navigation panel group to highlight the button of the destination page.
-        Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);
+        Assert.AreEqual(3, UiService.PanelGroups[0].LocationPanelId);
     }
     [TestMethod]
     public void TestClickingAnElementThatNavgiatesToASectionPromotesItAndDoesNotPromoteAnyOtherSections ()
     {
         // Given a user on any given web page
         // and given the default state of the destination sectioned pages relevant to this behavior test...
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[4].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[14].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[33].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[4].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[14].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[33].IsCurrentPromo);
 
         // ...when the user clicks an element that refers to a section (which can be assumed as existing within a sectioned page)...
-        uIService.NavigateToSection(13);
+        UiService.NavigateToSection(13);
 
         // ...then promote the section (visually moving it to the top above all other sections)
         // and ensure all other sections of the same sectioned page are not promoted/are demoted.
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[4].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[14].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[33].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[4].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[14].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections[33].IsCurrentPromo);
     }
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllSectionsAreCollapsedSwitchesFromUsingSectionsToUsingHeaderClones()
     {
         // Given a sectioned page that does not currently contain a section that is promoted...
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when a user clicks a navigation element that takes then to a section of that sectioned page...
-        uIService.NavigateToSection(13);
+        UiService.NavigateToSection(13);
 
         // ...then the total number of expanded sections is equal to 1. Based on this, the cloned
         // section headers appear in place of the collapsed sections.
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
     public void TestClickingPromotedSectionHidesClonesOfSectionHeadersAndDemotesThePreviouslyPromotedSection()
     {
         // Given a sectioned page that is displaying its clones of the headers of its sections...
-        uIService.NavigateToSection(13);
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        UiService.NavigateToSection(13);
+        Assert.IsTrue(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when a user closes/collapses/demotes the promoted section...
-        uIService.ToggleSection(13);
+        UiService.ToggleSection(13);
 
         // ...then the total number of promoted sections equal zero. Based on this,
         // the actual sections are used once again in place of the cloned headers of the sections, which are made invisible.
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.IsFalse(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllOtherSectionsAreClosedPromotesTheSection()
     {
         // Given all sections of a sectioned page are closed/collapsed/demoted...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.Sections[13].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        UiService.NavigateToSection(13); // 13 is open/promoted
+        UiService.ToggleSectionedPage(1);  // all open
+        UiService.ToggleSectionedPage(1);  // all closed
+        Assert.IsFalse(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections[13].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[4].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[7].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[16].IsCollapsed);
+        Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
-        uIService.ToggleSection(13);
+        UiService.ToggleSection(13);
 
         // ...then the clicked section is promoted.
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections[13].IsCurrentPromo);
     }
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllOtherSectionsAreClosedReplacesSectionsWithClonedHeaders()
     {
         // Given all sections of a sectioned page are closed/collapsed/demoted...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.Sections[13].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        UiService.NavigateToSection(13);
+        UiService.ToggleSectionedPage(1);
+        UiService.ToggleSectionedPage(1);
+        Assert.IsFalse(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections[13].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[4].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[7].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[16].IsCollapsed);
+        Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
-        uIService.ToggleSection(13);
+        UiService.ToggleSection(13);
 
         // ...then the closed sections are replaced with the cloned headers of the sections.
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
     public void TestClickingMassToggleToolForSectionsWhenASectionIsPromotedSwitchesPageFromUsingClonedHeadersToUsingTheActualSections()
     {
         // Given a section of a sectioned page is currently promoted...
-        uIService.NavigateToSection(13);
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        UiService.NavigateToSection(13);
+        Assert.IsTrue(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the mass toggle tool for sections is clicked...
-        uIService.ToggleAllSections(1);
+        UiService.ToggleSectionedPage(1);
 
         // ...then no sections of the sectioned page are promoted any longer
         // and the actual sections are used again instead of the cloned headers of the sections.
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.IsFalse(UiService.Sections[13].IsCurrentPromo);
+        Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
     public void TestClickingMassToggleToolForSectionsWhenAllSectionsAreOpenCollapsesAllSections()
     {
         // Given all sections of a sectioned page are open...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[1].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[16].IsCollapsed);
+        UiService.NavigateToSection(13);
+        UiService.ToggleSectionedPage(1);
+        Assert.IsFalse(UiService.Sections[1].IsCollapsed);
+        Assert.IsFalse(UiService.Sections[4].IsCollapsed);
+        Assert.IsFalse(UiService.Sections[7].IsCollapsed);
+        Assert.IsFalse(UiService.Sections[16].IsCollapsed);
 
         // ...when a user clicks the mass toggle tool for sections of the page...
-        uIService.ToggleAllSections(1);
+        UiService.ToggleSectionedPage(1);
 
         // ...then all sections of the sectioned page are closed/collapsed.
-        Assert.AreEqual(true, uIService.Sections[1].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[1].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[4].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[7].IsCollapsed);
+        Assert.IsTrue(UiService.Sections[16].IsCollapsed);
     }
     [TestMethod]
     public void TestClickingAnElementThatOpensAHardCodedPageMakesThePageAppear()
@@ -257,13 +257,13 @@ public class UIServiceTests
         int navPanelButtonId = 4;
 
         // ...when they click an element to open a page that has been hardcoded...
-        uIService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
+        UiService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
 
         // ...then the hardcoded page appears.
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].PanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].PanelIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].BehindPanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].PanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].PanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].BehindPanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
     }
     [TestMethod]
     public void TestClickingAnElementThatOpensAHardcodedPageUpdatesTheNavLocationPanelReferenceToTheHardcodedPagesDefinedPageLocation()
@@ -273,14 +273,14 @@ public class UIServiceTests
         int hardcodedPagePanelId = 7;
         int navPanelButtonId = 4;
         int navpanelGroupId = 0;
-        uIService.NavigateToSection(3);
-        Assert.AreEqual(3, uIService.PanelGroups[navpanelGroupId].LocationPanelId);
+        UiService.NavigateToSection(3);
+        Assert.AreEqual(3, UiService.PanelGroups[navpanelGroupId].LocationPanelId);
 
         // ...when they click an element that opens a hardcoded page...
-        uIService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
+        UiService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
 
         // ...then the navigation panel group's location panel reference is updated to the specified page location of the hardcoded page. 
-        Assert.AreEqual(4, uIService.PanelGroups[navpanelGroupId].LocationPanelId);
+        Assert.AreEqual(4, UiService.PanelGroups[navpanelGroupId].LocationPanelId);
     }
     [TestMethod]
     public void TestClickingANavigationElementWhenOnAHardcodedPageClosesTheHardcodedPageAndBehindPanel()
@@ -288,21 +288,21 @@ public class UIServiceTests
         // Given a user that is viewing a hardcoded page and an initially hidden behind panel...
         int hardcodedPagePanelId = 7;
         int navPanelButtonId = 4; 
-        uIService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].PanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].PanelIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].BehindPanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
+        UiService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].PanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].PanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].BehindPanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
 
         // ...when they click an element that navigates them to another page away from the hardcoded page...
-        uIService.NavigateToSection(2);
+        UiService.NavigateToSection(2);
 
         // ...then the hardcoded page is made invisible
         // and the behind panel is closed.
-        Assert.AreEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].PanelStatus);
-        Assert.AreEqual(false, uIService.Panels[hardcodedPagePanelId].PanelIsActive);
-        Assert.AreEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].BehindPanelStatus);
-        Assert.AreEqual(false, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].PanelStatus);
+        Assert.IsFalse(UiService.Panels[hardcodedPagePanelId].PanelIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].BehindPanelStatus);
+        Assert.IsFalse(UiService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
     }
     [TestMethod]
     public void TestClickingANavigationElementWhenOnAHardcodedPageChangesTheLocationPanelOfNavToDestinationPagesLocationPanel()
@@ -310,143 +310,143 @@ public class UIServiceTests
         // Given a user that is viewing a hardcoded page...
         int hardcodedPagePanelId = 7;
         int navPanelButtonId = 4; 
-        uIService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].PanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].PanelIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[hardcodedPagePanelId].BehindPanelStatus);
-        Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
+        UiService.NavigateToHardCodedPage(hardcodedPagePanelId, navPanelButtonId);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].PanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].PanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[hardcodedPagePanelId].BehindPanelStatus);
+        Assert.IsTrue(UiService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
 
         // ...when they click an element that navigates them to another page away from the hardcoded page...
-        uIService.NavigateToSection(3);
+        UiService.NavigateToSection(3);
 
         // ...then the location panel of the navigation panel group is updated to the location panel of the destination page.
-        Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);
+        Assert.AreEqual(3, UiService.PanelGroups[0].LocationPanelId);
     }
     [TestMethod]
     public void TestClickingAnElementThatTogglesACooperativePanelMakesItActive()
     {
         // Given an inactive cooperative panel...
-        Assert.AreEqual(string.Empty, uIService.Panels[0].PanelStatus);
-        Assert.AreEqual(false, uIService.Panels[0].PanelIsActive);
-        Assert.AreEqual(string.Empty, uIService.Panels[0].BehindPanelStatus);
-        Assert.AreEqual(false, uIService.Panels[0].BehindPanelIsActive);
-        Assert.AreEqual(string.Empty, uIService.Panels[0].BlurStatus);
-        Assert.AreEqual(false, uIService.Panels[0].BlurIsActive);
-        Assert.AreEqual(string.Empty, uIService.Panels[0].PanelButtonStatus);
-        Assert.AreEqual(false, uIService.Panels[0].PanelButtonIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[0].PanelStatus);
+        Assert.IsFalse(UiService.Panels[0].PanelIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[0].BehindPanelStatus);
+        Assert.IsFalse(UiService.Panels[0].BehindPanelIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[0].BlurStatus);
+        Assert.IsFalse(UiService.Panels[0].BlurIsActive);
+        Assert.AreEqual(string.Empty, UiService.Panels[0].PanelButtonStatus);
+        Assert.IsFalse(UiService.Panels[0].PanelButtonIsActive);
 
         // ...when the user clicks a panel toggle button...
-        uIService.TogglePanel(0);
+        UiService.TogglePanel(0);
 
         // ...then all four values (and their boolean counterparts) are made active.
-        Assert.AreNotEqual(string.Empty, uIService.Panels[0].PanelStatus);
-        Assert.AreEqual(true, uIService.Panels[0].PanelIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[0].BehindPanelStatus);
-        Assert.AreEqual(true, uIService.Panels[0].BehindPanelIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[0].BlurStatus);
-        Assert.AreEqual(true, uIService.Panels[0].BlurIsActive);
-        Assert.AreNotEqual(string.Empty, uIService.Panels[0].PanelButtonStatus);
-        Assert.AreEqual(true, uIService.Panels[0].PanelButtonIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[0].PanelStatus);
+        Assert.IsTrue(UiService.Panels[0].PanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[0].BehindPanelStatus);
+        Assert.IsTrue(UiService.Panels[0].BehindPanelIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[0].BlurStatus);
+        Assert.IsTrue(UiService.Panels[0].BlurIsActive);
+        Assert.AreNotEqual(string.Empty, UiService.Panels[0].PanelButtonStatus);
+        Assert.IsTrue(UiService.Panels[0].PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingAnElementThatTogglesACooperativePanelFromOffToOnHidesAllOtherPanels()
     {
         // Given a number of cooperative panels (for example, 3 panels)
         // and given only one cooperative panel and its behind panel are currently active...
-        var panelZero = uIService.Panels[0];
-        var panelOne = uIService.Panels[1];
-        var panelTwo = uIService.Panels[2];
+        var panelZero = UiService.Panels[0];
+        var panelOne = UiService.Panels[1];
+        var panelTwo = UiService.Panels[2];
 
-        uIService.TogglePanel(panelTwo.Id);
+        UiService.TogglePanel(panelTwo.Id);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(false, panelOne.PanelIsActive);
+        Assert.IsFalse(panelOne.PanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(false, panelOne.BehindPanelIsActive);
+        Assert.IsFalse(panelOne.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(false, panelOne.BlurIsActive);
+        Assert.IsFalse(panelOne.BlurIsActive);
         Assert.AreEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(false, panelOne.PanelButtonIsActive);
+        Assert.IsFalse(panelOne.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelTwo.PanelStatus);
-        Assert.AreEqual(true, panelTwo.PanelIsActive);
+        Assert.IsTrue(panelTwo.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BehindPanelStatus);
-        Assert.AreEqual(true, panelTwo.BehindPanelIsActive);
+        Assert.IsTrue(panelTwo.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BlurStatus);
-        Assert.AreEqual(true, panelTwo.BlurIsActive);
+        Assert.IsTrue(panelTwo.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.PanelButtonStatus);
-        Assert.AreEqual(true, panelTwo.PanelButtonIsActive);
+        Assert.IsTrue(panelTwo.PanelButtonIsActive);
 
         // ...when the user clicks a panel toggle button to toggle the active panel to become inactive...
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         // ...then the single cooperative panel that was active is now hidden along with its behind panel,
         // leaving all panels inactive except for the toggled "On" panel.
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelTwo.PanelStatus);
-        Assert.AreEqual(false, panelTwo.PanelIsActive);
+        Assert.IsFalse(panelTwo.PanelIsActive);
         Assert.AreEqual(string.Empty, panelTwo.BehindPanelStatus);
-        Assert.AreEqual(false, panelTwo.BehindPanelIsActive);
+        Assert.IsFalse(panelTwo.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelTwo.BlurStatus);
-        Assert.AreEqual(false, panelTwo.BlurIsActive);
+        Assert.IsFalse(panelTwo.BlurIsActive);
         Assert.AreEqual(string.Empty, panelTwo.PanelButtonStatus);
-        Assert.AreEqual(false, panelTwo.PanelButtonIsActive);
+        Assert.IsFalse(panelTwo.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingAnElementThatTogglesACooperativePanelFromOnToOffHidesThePanel()
     {
         // Given a cooperative panel that is currently active...
-        var panelOne = uIService.Panels[1];
+        var panelOne = UiService.Panels[1];
 
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
 
         // ...when a user clicks a panel toggle button...
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         // ...then the cooperative panel is made inactive.
         Assert.AreEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(false, panelOne.PanelIsActive);
+        Assert.IsFalse(panelOne.PanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(false, panelOne.BehindPanelIsActive);
+        Assert.IsFalse(panelOne.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(false, panelOne.BlurIsActive);
+        Assert.IsFalse(panelOne.BlurIsActive);
         Assert.AreEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(false, panelOne.PanelButtonIsActive);
+        Assert.IsFalse(panelOne.PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingAnElementThatTogglesACooperativePanelFromOnToOffLeavesActiveIndependentPanelsActive()
@@ -454,97 +454,97 @@ public class UIServiceTests
         // Given an independent panel that is currently active & a cooperative panel that is currently active...
         
         // Cooperative, active:
-        var panelOne = uIService.Panels[1];
-        uIService.TogglePanel(panelOne.Id);
+        var panelOne = UiService.Panels[1];
+        UiService.TogglePanel(panelOne.Id);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
 
         // Independent, active:
-        var panelTwo = uIService.Panels[8];
-        uIService.TogglePanel(panelTwo.Id);
+        var panelTwo = UiService.Panels[8];
+        UiService.TogglePanel(panelTwo.Id);
 
         Assert.AreNotEqual(string.Empty, panelTwo.PanelStatus);
-        Assert.AreEqual(true, panelTwo.PanelIsActive);
+        Assert.IsTrue(panelTwo.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BehindPanelStatus);
-        Assert.AreEqual(true, panelTwo.BehindPanelIsActive);
+        Assert.IsTrue(panelTwo.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BlurStatus);
-        Assert.AreEqual(true, panelTwo.BlurIsActive);
+        Assert.IsTrue(panelTwo.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.PanelButtonStatus);
-        Assert.AreEqual(true, panelTwo.PanelButtonIsActive);
+        Assert.IsTrue(panelTwo.PanelButtonIsActive);
 
         // ...when a user clicks the backing panel...
-        uIService.DeactivateCooperativePanels();
+        UiService.DeactivateCooperativePanels();
 
         // ...then the independent panel is still active.
         Assert.AreEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(false, panelOne.PanelIsActive);
+        Assert.IsFalse(panelOne.PanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(false, panelOne.BehindPanelIsActive);
+        Assert.IsFalse(panelOne.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(false, panelOne.BlurIsActive);
+        Assert.IsFalse(panelOne.BlurIsActive);
         Assert.AreEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(false, panelOne.PanelButtonIsActive);
+        Assert.IsFalse(panelOne.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelTwo.PanelStatus);
-        Assert.AreEqual(true, panelTwo.PanelIsActive);
+        Assert.IsTrue(panelTwo.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BehindPanelStatus);
-        Assert.AreEqual(true, panelTwo.BehindPanelIsActive);
+        Assert.IsTrue(panelTwo.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.BlurStatus);
-        Assert.AreEqual(true, panelTwo.BlurIsActive);
+        Assert.IsTrue(panelTwo.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelTwo.PanelButtonStatus);
-        Assert.AreEqual(true, panelTwo.PanelButtonIsActive);
+        Assert.IsTrue(panelTwo.PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingAnElementThatTogglesACooperativePanelFromOffToOnDoesNotCloseAnIndependentPanel()
     {
         // Given an inactive cooperative panel
         // and given an active independent panel...
-        var panelZero = uIService.Panels[0];
-        var panelSeven = uIService.Panels[7];
-        var panelEight = uIService.Panels[8];
+        var panelZero = UiService.Panels[0];
+        var panelSeven = UiService.Panels[7];
+        var panelEight = UiService.Panels[8];
 
-        uIService.TogglePanel(panelSeven.Id);
-        uIService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelSeven.Id);
+        UiService.TogglePanel(panelEight.Id);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelSeven.PanelStatus);
-        Assert.AreEqual(true, panelSeven.PanelIsActive);
+        Assert.IsTrue(panelSeven.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BehindPanelStatus);
-        Assert.AreEqual(true, panelSeven.BehindPanelIsActive);
+        Assert.IsTrue(panelSeven.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BlurStatus);
-        Assert.AreEqual(true, panelSeven.BlurIsActive);
+        Assert.IsTrue(panelSeven.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.PanelButtonStatus);
-        Assert.AreEqual(true, panelSeven.PanelButtonIsActive);
+        Assert.IsTrue(panelSeven.PanelButtonIsActive);
 
         Assert.AreNotEqual(panelSeven, panelEight);
 
         // ...when a user toggles the cooperative panel...
-        uIService.TogglePanel(panelZero.Id);
+        UiService.TogglePanel(panelZero.Id);
 
         // ...then all independent panels that are active stay active.
         Assert.AreNotEqual(string.Empty, panelSeven.PanelStatus);
-        Assert.AreEqual(true, panelSeven.PanelIsActive);
+        Assert.IsTrue(panelSeven.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BehindPanelStatus);
-        Assert.AreEqual(true, panelSeven.BehindPanelIsActive);
+        Assert.IsTrue(panelSeven.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BlurStatus);
-        Assert.AreEqual(true, panelSeven.BlurIsActive);
+        Assert.IsTrue(panelSeven.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.PanelButtonStatus);
-        Assert.AreEqual(true, panelSeven.PanelButtonIsActive);
+        Assert.IsTrue(panelSeven.PanelButtonIsActive);
 
         Assert.AreNotEqual(panelSeven, panelEight);
     }
@@ -553,60 +553,60 @@ public class UIServiceTests
     {
         // Given an inactive independent panel
         // and given two cooperative panels, one active and one inactive...
-        var panelEight = uIService.Panels[8];  // independent
-        var panelZero = uIService.Panels[0];  // cooperative
-        var panelOne = uIService.Panels[1];  // cooperative
+        var panelEight = UiService.Panels[8];  // independent
+        var panelZero = UiService.Panels[0];  // cooperative
+        var panelOne = UiService.Panels[1];  // cooperative
 
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         Assert.AreEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(false, panelEight.PanelIsActive);
+        Assert.IsFalse(panelEight.PanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(false, panelEight.BehindPanelIsActive);
+        Assert.IsFalse(panelEight.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(false, panelEight.BlurIsActive);
+        Assert.IsFalse(panelEight.BlurIsActive);
         Assert.AreEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(false, panelEight.PanelButtonIsActive);
+        Assert.IsFalse(panelEight.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
 
         // ...when a user clicks a toggle panel button to toggle the independent panel...
-        uIService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelEight.Id);
 
         // ...then the cooperative panels both become inactive.
         Assert.AreNotEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(true, panelEight.PanelIsActive);
+        Assert.IsTrue(panelEight.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(true, panelEight.BehindPanelIsActive);
+        Assert.IsTrue(panelEight.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(true, panelEight.BlurIsActive);
+        Assert.IsTrue(panelEight.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(true, panelEight.PanelButtonIsActive);
+        Assert.IsTrue(panelEight.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(panelZero, panelOne);
     }
@@ -615,61 +615,61 @@ public class UIServiceTests
     {
         // Given an active independent panel
         // and given two cooperative panels, one active and one inactive...
-        var panelEight = uIService.Panels[8];  // independent
-        var panelZero = uIService.Panels[0];  // cooperative
-        var panelOne = uIService.Panels[1];  // cooperative
+        var panelEight = UiService.Panels[8];  // independent
+        var panelZero = UiService.Panels[0];  // cooperative
+        var panelOne = UiService.Panels[1];  // cooperative
 
-        uIService.TogglePanel(panelEight.Id);
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         Assert.AreNotEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(true, panelEight.PanelIsActive);
+        Assert.IsTrue(panelEight.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(true, panelEight.BehindPanelIsActive);
+        Assert.IsTrue(panelEight.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(true, panelEight.BlurIsActive);
+        Assert.IsTrue(panelEight.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(true, panelEight.PanelButtonIsActive);
+        Assert.IsTrue(panelEight.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
 
         // ...when a user clicks a toggle panel button to toggle the independent panel...
-        uIService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelEight.Id);
 
         // ...then the cooperative panels both become inactive.
         Assert.AreEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(false, panelEight.PanelIsActive);
+        Assert.IsFalse(panelEight.PanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(false, panelEight.BehindPanelIsActive);
+        Assert.IsFalse(panelEight.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(false, panelEight.BlurIsActive);
+        Assert.IsFalse(panelEight.BlurIsActive);
         Assert.AreEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(false, panelEight.PanelButtonIsActive);
+        Assert.IsFalse(panelEight.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(panelZero, panelOne);
     }
@@ -680,14 +680,14 @@ public class UIServiceTests
         // Given that all panels in panelGroups are cooperative panels, 
         // and given focused panel is panel.Id 4
         // and given panel.Id is a part of the same panelGroup as 4 and is activated...
-        var panelTwo = uIService.Panels[2];  // cooperative, IN panelGroup
-        var panelZero = uIService.Panels[0];  // cooperative, NOT in panelGroup
-        var panelFourFocusedPanel = uIService.Panels[4];  // cooperative, IN panelGroup and is focused panel
+        var panelTwo = UiService.Panels[2];  // cooperative, IN panelGroup
+        var panelZero = UiService.Panels[0];  // cooperative, NOT in panelGroup
+        var panelFourFocusedPanel = UiService.Panels[4];  // cooperative, IN panelGroup and is focused panel
 
-        uIService.TogglePanel(panelTwo.Id); 
+        UiService.TogglePanel(panelTwo.Id); 
 
         // ...when a user toggles the cooperative panel that is NOT part of the panelGroup...
-        uIService.TogglePanel(panelZero.Id);
+        UiService.TogglePanel(panelZero.Id);
 
         // ...then the button of the focused panel of the panelGroup is highlighted (panel.Id 4).
         Assert.AreNotEqual(string.Empty, panelFourFocusedPanel.PanelButtonStatus);
@@ -711,132 +711,132 @@ public class UIServiceTests
     public void TestClickingPanelToggleForSecondIndependentPanelDoesNotHideFirstActiveIndependentPanel()
     {
         // Given an inactive and inactive independent panels...
-        var panelSeven = uIService.Panels[7];  // independent
-        var panelEight = uIService.Panels[8];  // independent
+        var panelSeven = UiService.Panels[7];  // independent
+        var panelEight = UiService.Panels[8];  // independent
 
-        uIService.TogglePanel(panelSeven.Id);
+        UiService.TogglePanel(panelSeven.Id);
 
         Assert.AreNotEqual(string.Empty, panelSeven.PanelStatus);
-        Assert.AreEqual(true, panelSeven.PanelIsActive);
+        Assert.IsTrue(panelSeven.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BehindPanelStatus);
-        Assert.AreEqual(true, panelSeven.BehindPanelIsActive);
+        Assert.IsTrue(panelSeven.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BlurStatus);
-        Assert.AreEqual(true, panelSeven.BlurIsActive);
+        Assert.IsTrue(panelSeven.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.PanelButtonStatus);
-        Assert.AreEqual(true, panelSeven.PanelButtonIsActive);
+        Assert.IsTrue(panelSeven.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(false, panelEight.PanelIsActive);
+        Assert.IsFalse(panelEight.PanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(false, panelEight.BehindPanelIsActive);
+        Assert.IsFalse(panelEight.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(false, panelEight.BlurIsActive);
+        Assert.IsFalse(panelEight.BlurIsActive);
         Assert.AreEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(false, panelEight.PanelButtonIsActive);
+        Assert.IsFalse(panelEight.PanelButtonIsActive);
 
         // ...when the inactive independent panel is toggled from inactive to active...
-        uIService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelEight.Id);
 
         // ...then both independent panels are active.
         Assert.AreNotEqual(string.Empty, panelSeven.PanelStatus);
-        Assert.AreEqual(true, panelSeven.PanelIsActive);
+        Assert.IsTrue(panelSeven.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BehindPanelStatus);
-        Assert.AreEqual(true, panelSeven.BehindPanelIsActive);
+        Assert.IsTrue(panelSeven.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.BlurStatus);
-        Assert.AreEqual(true, panelSeven.BlurIsActive);
+        Assert.IsTrue(panelSeven.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelSeven.PanelButtonStatus);
-        Assert.AreEqual(true, panelSeven.PanelButtonIsActive);
+        Assert.IsTrue(panelSeven.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(true, panelEight.PanelIsActive);
+        Assert.IsTrue(panelEight.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(true, panelEight.BehindPanelIsActive);
+        Assert.IsTrue(panelEight.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(true, panelEight.BlurIsActive);
+        Assert.IsTrue(panelEight.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(true, panelEight.PanelButtonIsActive);
+        Assert.IsTrue(panelEight.PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingLinkToNonSectionedPageUpdatesAllPanelsToBeingInvisible()
     {
         // Given an anchor element with an @onclick handler
         // and given all panels (cooperative and independent) where panels are currently active...
-        var panelZero = uIService.Panels[0];  // cooperative
-        var panelOne = uIService.Panels[1];  // cooperative
-        var panelEight = uIService.Panels[8];  // independent
+        var panelZero = UiService.Panels[0];  // cooperative
+        var panelOne = UiService.Panels[1];  // cooperative
+        var panelEight = UiService.Panels[8];  // independent
 
-        uIService.TogglePanel(panelEight.Id);
-        uIService.TogglePanel(panelOne.Id);
+        UiService.TogglePanel(panelEight.Id);
+        UiService.TogglePanel(panelOne.Id);
 
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(true, panelOne.PanelIsActive);
+        Assert.IsTrue(panelOne.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(true, panelOne.BehindPanelIsActive);
+        Assert.IsTrue(panelOne.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(true, panelOne.BlurIsActive);
+        Assert.IsTrue(panelOne.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(true, panelOne.PanelButtonIsActive);
+        Assert.IsTrue(panelOne.PanelButtonIsActive);
 
         Assert.AreNotEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(true, panelEight.PanelIsActive);
+        Assert.IsTrue(panelEight.PanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(true, panelEight.BehindPanelIsActive);
+        Assert.IsTrue(panelEight.BehindPanelIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(true, panelEight.BlurIsActive);
+        Assert.IsTrue(panelEight.BlurIsActive);
         Assert.AreNotEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(true, panelEight.PanelButtonIsActive);
+        Assert.IsTrue(panelEight.PanelButtonIsActive);
 
         // ...when a user clicks an anchor element with the below method added in its @onclick event handler...
-        uIService.UpdatePanelsWhenNavigating(1);
+        UiService.UpdatePanelsWhenNavigating(1);
 
         // ...then all panels are closed, no matter if the panel is cooperative or indendent.
         Assert.AreEqual(string.Empty, panelZero.PanelStatus);
-        Assert.AreEqual(false, panelZero.PanelIsActive);
+        Assert.IsFalse(panelZero.PanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BehindPanelStatus);
-        Assert.AreEqual(false, panelZero.BehindPanelIsActive);
+        Assert.IsFalse(panelZero.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelZero.BlurStatus);
-        Assert.AreEqual(false, panelZero.BlurIsActive);
+        Assert.IsFalse(panelZero.BlurIsActive);
         Assert.AreEqual(string.Empty, panelZero.PanelButtonStatus);
-        Assert.AreEqual(false, panelZero.PanelButtonIsActive);
+        Assert.IsFalse(panelZero.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelOne.PanelStatus);
-        Assert.AreEqual(false, panelOne.PanelIsActive);
+        Assert.IsFalse(panelOne.PanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BehindPanelStatus);
-        Assert.AreEqual(false, panelOne.BehindPanelIsActive);
+        Assert.IsFalse(panelOne.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelOne.BlurStatus);
-        Assert.AreEqual(false, panelOne.BlurIsActive);
+        Assert.IsFalse(panelOne.BlurIsActive);
         Assert.AreEqual(string.Empty, panelOne.PanelButtonStatus);
-        Assert.AreEqual(false, panelOne.PanelButtonIsActive);
+        Assert.IsFalse(panelOne.PanelButtonIsActive);
 
         Assert.AreEqual(string.Empty, panelEight.PanelStatus);
-        Assert.AreEqual(false, panelEight.PanelIsActive);
+        Assert.IsFalse(panelEight.PanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BehindPanelStatus);
-        Assert.AreEqual(false, panelEight.BehindPanelIsActive);
+        Assert.IsFalse(panelEight.BehindPanelIsActive);
         Assert.AreEqual(string.Empty, panelEight.BlurStatus);
-        Assert.AreEqual(false, panelEight.BlurIsActive);
+        Assert.IsFalse(panelEight.BlurIsActive);
         Assert.AreEqual(string.Empty, panelEight.PanelButtonStatus);
-        Assert.AreEqual(false, panelEight.PanelButtonIsActive);
+        Assert.IsFalse(panelEight.PanelButtonIsActive);
     }
     [TestMethod]
     public void TestClickingALinkToANonSectionedpageUpdatesNavPanelGroupsLocationPanel()
     {
         // Given the location panel ID of the nav panel group...
-        Assert.AreEqual(4, uIService.PanelGroups[0].LocationPanelId);
+        Assert.AreEqual(4, UiService.PanelGroups[0].LocationPanelId);
 
         // ...when a user clicks a link with the method below implemented in the link element
         // and when the page destination is diffferent than the starting page location...
-        uIService.UpdatePanelsWhenNavigating(3);  // starting location is sectionedPageId = 2;
+        UiService.UpdatePanelsWhenNavigating(3);  // starting location is sectionedPageId = 2;
 
         // ...then the nav panel group's location panel ID is updated to the destination page, highlighting that page's panel button.
-        Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);
+        Assert.AreEqual(3, UiService.PanelGroups[0].LocationPanelId);
     }
 }

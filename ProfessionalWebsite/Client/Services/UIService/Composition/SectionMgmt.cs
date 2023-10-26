@@ -1,18 +1,18 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class SectionMgmt
+public class SectionMgmt : ISectionMgmt
 {
-    private SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
+    private SectionMgmt()
     {
-        _sections = sectionsDictionary;
-        _sectionedPages = sectionedPagesDictionary;
-        SetInstanceToGroupReferences();
+        //_sections = sectionsDictionary;
+        //_sectionedPages = sectionedPagesDictionary;
+        //SetInstanceToGroupReferences();
     }
 
-    private Dictionary<int, Section> _sections;
-    private Dictionary<int, SectionedPage> _sectionedPages;
+    //private Dictionary<int, Section> _sections;
+    //private Dictionary<int, SectionedPage> _sectionedPages;
 
-    public event Action<string> OnSectionMgmtChanged;
+    //public event Action<string> OnSectionMgmtChanged;
 
     /*
         Definitions:
@@ -20,35 +20,35 @@ public class SectionMgmt
             - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
     */
 
-    public static SectionMgmt Create(
-        Dictionary<int, SectionedPage> sectionedPagesDictionary, 
-        Dictionary<int, Section> sectionsDictionary) =>
-        new(sectionedPagesDictionary, sectionsDictionary);
+    public static SectionMgmt Create() => new();
 
     /// <summary>
     /// Collapses all sections and promotes one section to the top of the sectioned page.
     /// </summary>
     /// <param name="sectionId">ID of the section that is being promoted/which has been selected.</param>
-    public void CollapseAllShowOne(int sectionId)
+    public void CollapseAllShowOne(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
-            DemoteAllSections();
-            Section section = _sections[sectionId];
-            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
+            DemoteAllSections(sections, sectionedPages);
+
+            Section section = sections[sectionId];
+            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
             Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
+
             if (section.IsFirstSectionOfPage)
             {
                 foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.SetToIsNotCollapsed();
+                    sec.Expand();
                 sectionedPage.ASectionIsCurrentlyPromo = false;
             }
             else
             {
                 foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.SetToIsCollapsed();
-                ToggleSection(sectionId);
-                section.Promote();
+                    sec.Collapse();
+                ToggleSection(sectionId, sections, sectionedPages);
+                //if (!section.IsCollapsed)
+                    section.Promote();
                 sectionedPage.ASectionIsCurrentlyPromo = true;
             }
         }
@@ -61,72 +61,33 @@ public class SectionMgmt
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId)
+    public void ToggleSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
-            Section section = _sections[sectionId];
-            //section.ToggleCollapse(!section.IsCollapsed);
-            /*if (section.IsCollapsed)
-            {
-                section.SetToIsCollapsed();
-            }
-            else
-            {
-                section.SetToIsNotCollapsed();
-            }*/
+            Section section = sections[sectionId];
             section.ToggleCollapse();
-            PromoteIfOnlyOneExpandedSection(sectionId);
-            UpdateSectionsStatus(sectionId);
+            PromoteIfOnlyOneExpandedSection(sectionId, sections, sectionedPages);
+            UpdateSectionsStatus(sectionId, sections, sectionedPages);
         }
         catch (KeyNotFoundException knfEx)
         {
             Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
         }
-    }
-    /// <summary>
-    /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
-    /// </summary>
-    /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleAllSections(int pageId)
-    {
-        try
-        {
-            int sectionId = _sectionedPages[pageId].Sections.Keys.FirstOrDefault();
-            UpdateSectionsStatus(sectionId);
-
-            DemoteAllSections();
-            if (_sectionedPages[pageId].SectionsStatus == SectionsStatus.AllAreOpen)
-            {
-                foreach (var section in _sections.Values)
-                    section.SetToIsCollapsed();
-                _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreCollapsed;
-            }
-            else
-            {
-                foreach (var section in _sections.Values)
-                    section.SetToIsNotCollapsed();
-                _sectionedPages[pageId].SectionsStatus = SectionsStatus.AllAreOpen;
-            }
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-        }
-
     }
     /// <summary>
     /// Demotes all other sections and makes specified section the promo section.
     /// </summary>
     /// <param name="sectionId">ID of section to be made promo section.</param>
-    public void PromoteSection(int sectionId)
+    public void PromoteSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
-            DemoteAllSections();
-            Section section = _sections[sectionId];
-            section.Promote();
-            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
+            DemoteAllSections(sections, sectionedPages);
+            Section section = sections[sectionId];
+            //if (!section.IsCollapsed)
+                section.Promote();
+            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
             sectionedPage.ASectionIsCurrentlyPromo = true;
         }
         catch (KeyNotFoundException knfEx)
@@ -139,12 +100,12 @@ public class SectionMgmt
     /// </summary>
     /// <param name="sectionId">ID of section used to get the sectioned page's location panel's ID</param>
     /// <returns></returns>
-    public int GetLocationPanelGroupId(int sectionId)
+    public int GetLocationPanelGroupId(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
-            Section section = _sections[sectionId];
-            SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
+            Section section = sections[sectionId];
+            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
             return sectionedPage.LocationPanelGroupId;
         }
         catch (KeyNotFoundException knfEx)
@@ -156,63 +117,49 @@ public class SectionMgmt
     /// <summary>
     /// Removes promo status from all sections.
     /// </summary>
-    private void DemoteAllSections()
+    private void DemoteAllSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        foreach (var section in _sections.Values)
+        foreach (var section in sections.Values)
             section.Demote();
-        foreach (SectionedPage sectionedPage in _sectionedPages.Values)
+        foreach (SectionedPage sectionedPage in sectionedPages.Values)
             sectionedPage.ASectionIsCurrentlyPromo = false;
     }
     /// <summary>
     /// Finds the sections of the sectioned page that the specified section is a part of, counts how many sections are currently expanded, and then sets the status based on the number of expanded sections.
     /// </summary>
     /// <param name="sectionId">ID of specified section.</param>
-    private void UpdateSectionsStatus(int sectionId)
+    private void UpdateSectionsStatus(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        Section section = _sections[sectionId];
-        SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
+        Section section = sections[sectionId];
+        SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
 
         int openSections = 0;
+
+        // get open section count:
         foreach (Section sec in sectionedPage.Sections.Values)
             if (!sec.IsCollapsed)
                 openSections++;
 
         if (openSections == 0)
-            sectionedPage.SectionsStatus = SectionsStatus.AllAreCollapsed;
+            sectionedPage.Status = SectionedPageStatus.AllAreCollapsed;
         else if (openSections == sectionedPage.Sections.Count)
-            sectionedPage.SectionsStatus = SectionsStatus.AllAreOpen;
+            sectionedPage.Status = SectionedPageStatus.AllAreOpen;
         else
-            sectionedPage.SectionsStatus = SectionsStatus.AtLeastOneIsOpen;
-    }
-    /// <summary>
-    /// Initializes sectioned page reference to its sections and vice versa. Establishes a one-to-many relationship through on-hand references.
-    /// </summary>
-    private void SetInstanceToGroupReferences()
-    {
-        foreach (Section section in _sections.Values)
-            section.SetInstanceToGroupRelationship(_sectionedPages.Values.ToList());
-
-        List<Section> sectionsOfPage = new List<Section>();
-        foreach (Section section in _sections.Values)
-        {
-            _sectionedPages[section.SectionedPageId]
-                .Sections
-                .Add(section.Id, section);
-        }
+            sectionedPage.Status = SectionedPageStatus.AtLeastOneIsOpen;
     }
     /// <summary>
     /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
     /// </summary>
     /// <param name="sectionId">ID of section used to determine the sectioned page to check for promo.</param>
-    private void PromoteIfOnlyOneExpandedSection(int sectionId)
+    private void PromoteIfOnlyOneExpandedSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
             int expandedSectionsCount = 0;
             int idOfSectionToPromote = 0;
 
-            Section sec = _sections[sectionId];
-            SectionedPage sectionedPage = _sectionedPages[sec.SectionedPageId];
+            Section sec = sections[sectionId];
+            SectionedPage sectionedPage = sectionedPages[sec.SectionedPageId];
             Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
 
             foreach (Section section in sectionsOfSectionedPage.Values)
@@ -225,9 +172,9 @@ public class SectionMgmt
             }
 
             if (expandedSectionsCount == 1)
-                PromoteSection(idOfSectionToPromote);
+                PromoteSection(idOfSectionToPromote, sections, sectionedPages);
             else
-                DemoteAllSections();
+                DemoteAllSections(sections, sectionedPages);
         }
         catch (KeyNotFoundException knfEx)
         {

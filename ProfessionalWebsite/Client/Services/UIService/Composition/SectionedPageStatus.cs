@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public enum SectionsStatus
+public enum SectionedPageStatus
 {
     AllAreCollapsed,
     AtLeastOneIsOpen,

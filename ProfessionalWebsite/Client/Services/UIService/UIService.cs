@@ -13,20 +13,22 @@ public class UIService : IUIService
         IsContinuous = isContinuous;
         PanelGroups = panelGroups;
         Panels = panels;
+        SectionedPages = sectionedPages;
+        Sections = sections;
+
+        SetBiDirectionalReferencesForPanelGroupsAndPanels(Panels, PanelGroups);
+        SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
 
         _anim = AnimMgmt.Create();
         _nav = NavMgmt.Create();
         _panel = PanelMgmt.Create();
-
-        SectionedPages = sectionedPages;
-        Sections = sections;
-        _section = SectionMgmt.Create(SectionedPages, Sections);
+        _section = SectionMgmt.Create();
     }
 
     private IAnimMgmt _anim;
     private INavMgmt _nav;
     private IPanelMgmt _panel;
-    private SectionMgmt _section;
+    private ISectionMgmt _section;
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
@@ -78,7 +80,7 @@ public class UIService : IUIService
     public void NavigateToSection(int sectionId)
     {
         DeactivateAllPanels();
-        _nav.NavigateToSection(sectionId, _panel, _section, Panels, PanelGroups);
+        _nav.NavigateToSection(sectionId, _panel, _section, Panels, PanelGroups, Sections, SectionedPages);
     }
 
     /// <summary>
@@ -118,7 +120,7 @@ public class UIService : IUIService
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
     public void ToggleSection(int sectionId)
     {
-        _section.ToggleSection(sectionId);
+        _section.ToggleSection(sectionId, Sections, SectionedPages);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -126,9 +128,10 @@ public class UIService : IUIService
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
     /// </summary>
     /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleAllSections(int pageId)
+    public void ToggleSectionedPage(int pageId)
     {
-        _section.ToggleAllSections(pageId);
+        var page = SectionedPages[pageId];
+        page.Toggle();
         RaiseEventOnUiServiceChanged();
     }
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke(string.Empty);
@@ -154,9 +157,26 @@ public class UIService : IUIService
         _panel.DeactivatePanel(selectedPanelId, Panels);
         RaiseEventOnUiServiceChanged();
     }
-    public void UpdateGroupLocationPanel(int panelId)
+    private void SetBiDirectionalReferencesForSectionedPagesAndSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        _panel.UpdateGroupLocationPanel(panelId, Panels, PanelGroups);
-        RaiseEventOnUiServiceChanged();
+        foreach (var section in sections.Values)
+        {
+            var sectionedPageId = section.SectionedPageId;
+            section.SetSectionedPageReference(sectionedPages[sectionedPageId]);
+            section.SectionedPage.AddSectionReference(section);
+        }
+    }
+    private void SetBiDirectionalReferencesForPanelGroupsAndPanels(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    {
+        foreach (var panel in panels.Values)
+        {
+            if (panel.PanelGroupId != -1)
+            {
+                var panelGroupId = panel.PanelGroupId;
+                var panelGroup = panelGroups[panelGroupId];
+                panel.SetPanelGroupReference(panelGroup);
+                panel.PanelGroup.AddPanelReference(panel);
+            }
+        }
     }
 }

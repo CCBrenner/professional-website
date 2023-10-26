@@ -47,21 +47,21 @@ public class Section
         IsCollapsed = !IsCollapsed;
         UpdateHeaderAndContent();
     }
-    public void SetToIsCollapsed()
+    public void Collapse()
     {
         IsCollapsed = true;
         IsCurrentPromo = false;
         UpdateHeaderAndContent();
     }
-    public void SetToIsNotCollapsed()
+    public void Expand()
     {
         IsCollapsed = false;
         UpdateHeaderAndContent();
     }
     public void Promote()
     {
-        if (!IsCollapsed)
-            IsCurrentPromo = true;
+        //if (!IsCollapsed)  <= this was being used for something but ultimately does not belong here; there are fewer failing tests still, which is a nice outcome so far. Fix this in whatever other location it should be fixed - not here. Delete this comment when all tests are passing.
+        IsCurrentPromo = true;
     }
     public void Demote() =>
         IsCurrentPromo = false;
@@ -69,5 +69,9 @@ public class Section
     {
         IsCollapsedHeader = IsCollapsed ? HEADER_COLLAPSED_CLASS_NAME : "";
         IsCollapsedContent = IsCollapsed ? CONTENT_COLLAPSED_CLASS_NAME : "";
+    }
+    public void SetSectionedPageReference(SectionedPage sectionedPage)
+    {
+        SectionedPage = sectionedPage;
     }
 }

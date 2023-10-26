@@ -10,5 +10,4 @@ public interface IUIService
     public Dictionary<int, SectionedPage> SectionedPages { get; }
     void ActivatePanel(int selectedPanelId);
     void DeactivatePanel(int selectedPanelId);
-    void UpdateGroupLocationPanel(int panelId);
 }
