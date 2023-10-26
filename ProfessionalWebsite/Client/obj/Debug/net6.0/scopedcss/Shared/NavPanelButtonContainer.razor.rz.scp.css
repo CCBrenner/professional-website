@@ -1,4 +1,4 @@
-﻿.collapsible-section-header {
+.section-header-one[b-0cdhqhq7od], .section-header-two[b-0cdhqhq7od] {
     z-index: 10;
     color: #eee;
     height: 3rem;
@@ -10,18 +10,18 @@
     flex-direction: row;
 }
 
-    .collapsible-section-header:hover {
+    .section-header-one:hover[b-0cdhqhq7od] {
         background-color: rgba(255,255,255,0.1);
         border-radius: 12px;
     }
 
-.chevron-container {
+.chevron-container[b-0cdhqhq7od] {
     width: 16px;
     height: 16px;
     margin-left: 10px;
 }
 
-.icon {
+.icon[b-0cdhqhq7od] {
     width: 1.8rem;
     font-size: 0.9rem;
     vertical-align: text-top;

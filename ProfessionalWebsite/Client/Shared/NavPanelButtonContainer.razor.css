@@ -1,4 +1,4 @@
-.collapsible-section-header[b-fryotgakx0] {
+﻿.section-header-one, .section-header-two {
     z-index: 10;
     color: #eee;
     height: 3rem;
@@ -10,18 +10,18 @@
     flex-direction: row;
 }
 
-    .collapsible-section-header:hover[b-fryotgakx0] {
+    .section-header-one:hover {
         background-color: rgba(255,255,255,0.1);
         border-radius: 12px;
     }
 
-.chevron-container[b-fryotgakx0] {
+.chevron-container {
     width: 16px;
     height: 16px;
     margin-left: 10px;
 }
 
-.icon[b-fryotgakx0] {
+.icon {
     width: 1.8rem;
     font-size: 0.9rem;
     vertical-align: text-top;

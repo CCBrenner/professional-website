@@ -1815,36 +1815,6 @@ td[b-cliwmzypxj] {
         align-items: center;
     }
 }
-/* /Shared/CollapsibleSection.razor.rz.scp.css */
-.collapsible-section-header[b-fryotgakx0] {
-    z-index: 10;
-    color: #eee;
-    height: 3rem;
-    padding-left: 16px;
-    padding-right: 0.25rem;
-    display: flex;
-    flex: 1;
-    align-items: center;
-    flex-direction: row;
-}
-
-    .collapsible-section-header:hover[b-fryotgakx0] {
-        background-color: rgba(255,255,255,0.1);
-        border-radius: 12px;
-    }
-
-.chevron-container[b-fryotgakx0] {
-    width: 16px;
-    height: 16px;
-    margin-left: 10px;
-}
-
-.icon[b-fryotgakx0] {
-    width: 1.8rem;
-    font-size: 0.9rem;
-    vertical-align: text-top;
-    top: -1px;
-}
 /* /Shared/MainLayout.razor.rz.scp.css */
 
 /* start Mobile view */
@@ -2844,6 +2814,36 @@ td[b-cliwmzypxj] {
     }
 
     /* end Plugable statuses */
+}
+/* /Shared/NavPanelButtonContainer.razor.rz.scp.css */
+.section-header-one[b-0cdhqhq7od], .section-header-two[b-0cdhqhq7od] {
+    z-index: 10;
+    color: #eee;
+    height: 3rem;
+    padding-left: 16px;
+    padding-right: 0.25rem;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+}
+
+    .section-header-one:hover[b-0cdhqhq7od] {
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 12px;
+    }
+
+.chevron-container[b-0cdhqhq7od] {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
+
+.icon[b-0cdhqhq7od] {
+    width: 1.8rem;
+    font-size: 0.9rem;
+    vertical-align: text-top;
+    top: -1px;
 }
 /* /Shared/NavPanelContainer.razor.rz.scp.css */
 .panel-container[b-zgtipjgn14] {

@@ -1,7 +1,7 @@
 ﻿
-<div class="collapsible-section-header" @onclick="ToggleSection">
+<div class="@SectionHeader" @onclick="ToggleSection">
     <span class="@IconClasses" aria-hidden="true"></span>
-    @ParentButtonText
+    @ButtonText
     <div class="chevron-container">
         <i class="fa fa-chevron-left" style="display: @ChevronLeftDisplay" />
         <i class="fa fa-chevron-down" style="display: @ChevronDownDisplay" />
@@ -15,7 +15,7 @@
 @code {
     protected override void OnInitialized()
     {
-        if (!ThisCanCollapse)
+        if (!IsCollapsible)
         {
             ChevronLeftDisplay = "none";
             SectionDisplay = "block";
@@ -27,19 +27,18 @@
     [Parameter]
     public string IconClasses { get; set; }
     [Parameter]
-    public string ParentButtonText { get; set; }
+    public string ButtonText { get; set; }
     [Parameter]
-    public string DoesItCollapse { get; set; } = "yes";
+    public bool IsCollapsible { get; set; } = true;
 
     public string ChevronLeftDisplay = "block";
     public string ChevronDownDisplay = "none";
     public string SectionDisplay = "none";
-
-    public bool ThisCanCollapse => DoesItCollapse.ToLower() == "yes";
+    public string SectionHeader => IsCollapsible ? "section-header-one" : "section-header-two";
 
     public void ToggleSection()
     {
-        if (!ThisCanCollapse) { }
+        if (!IsCollapsible) { }
         else if (ChevronLeftDisplay == "block")
         {
             ChevronLeftDisplay = "none";

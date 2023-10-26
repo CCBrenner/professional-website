@@ -160,10 +160,6 @@ build_metadata.AdditionalFiles.CssScope = b-k78glvv1tg
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENsb3NlZFN0YWdlQ3VydGFpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-uquen1h5a4
 
-[C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_A_current/professional-website/ProfessionalWebsite/Client/Shared/CollapsibleSection.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbGxhcHNpYmxlU2VjdGlvbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-fryotgakx0
-
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_A_current/professional-website/ProfessionalWebsite/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-gzb0l1unjh
@@ -171,6 +167,10 @@ build_metadata.AdditionalFiles.CssScope = b-gzb0l1unjh
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_A_current/professional-website/ProfessionalWebsite/Client/Shared/NavButtons.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdkJ1dHRvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-dz8gio2ut8
+
+[C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_A_current/professional-website/ProfessionalWebsite/Client/Shared/NavPanelButtonContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdlBhbmVsQnV0dG9uQ29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-0cdhqhq7od
 
 [C:/Users/colly_cp7sy9h/Desktop/projects/gh_clone_hosting/Portfolio_PWA_A_current/professional-website/ProfessionalWebsite/Client/Shared/NavPanelContainer.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdlBhbmVsQ29udGFpbmVyLnJhem9y

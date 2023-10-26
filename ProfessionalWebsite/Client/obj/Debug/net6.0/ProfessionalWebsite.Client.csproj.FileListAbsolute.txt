@@ -5287,7 +5287,6 @@ C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\MatchGame.razor.rz.scp.css
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Pages\SudokuSolver.razor.rz.scp.css
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\ClosedStageCurtain.razor.rz.scp.css
-C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\CollapsibleSection.razor.rz.scp.css
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\NavButtons.razor.rz.scp.css
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\NavPanelContainer.razor.rz.scp.css
@@ -5302,3 +5301,4 @@ C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\refint\ProfessionalWebsite.Client.dll
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\ProfessionalWebsite.Client.pdb
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\ref\ProfessionalWebsite.Client.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Client\obj\Debug\net6.0\scopedcss\Shared\NavPanelButtonContainer.razor.rz.scp.css
