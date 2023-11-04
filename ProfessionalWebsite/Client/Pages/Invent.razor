@@ -1,4 +1,5 @@
 ﻿@inject UIService UI
+@inject NavigationManager Navigation
 @implements IDisposable
 
 @page "/invent"
@@ -24,7 +25,7 @@
                 @if (UI.Sections[26].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
+                        <div class="section-header @UI.Sections[26].IsCollapsedHeader" @onclick="(()=>ToggleSection(26))">
                             @if(UI.Sections[26].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -44,7 +45,7 @@
                 @if (UI.Sections[27].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
+                        <div class="section-header @UI.Sections[27].IsCollapsedHeader" @onclick="(()=>ToggleSection(27))">
                             @if(UI.Sections[27].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -71,7 +72,7 @@
                 @if (UI.Sections[28].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
+                        <div class="section-header @UI.Sections[28].IsCollapsedHeader" @onclick="(()=>ToggleSection(28))">
                             @if(UI.Sections[28].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -98,7 +99,7 @@
                 @if (UI.Sections[29].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
+                        <div class="section-header @UI.Sections[29].IsCollapsedHeader" @onclick="(()=>ToggleSection(29))">
                             @if(UI.Sections[29].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -117,7 +118,7 @@
                 @if (UI.Sections[30].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
+                        <div class="section-header @UI.Sections[30].IsCollapsedHeader" @onclick="(()=>ToggleSection(30))">
                             @if(UI.Sections[30].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -136,7 +137,7 @@
                 @if (UI.Sections[31].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
+                        <div class="section-header @UI.Sections[31].IsCollapsedHeader" @onclick="(()=>ToggleSection(31))">
                             @if(UI.Sections[31].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -157,7 +158,7 @@
                 @if (UI.Sections[32].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
+                        <div class="section-header @UI.Sections[32].IsCollapsedHeader" @onclick="(()=>ToggleSection(32))">
                             @if(UI.Sections[32].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -179,7 +180,7 @@
                     @if (!UI.Sections[26].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
+                            <div class="section-header @UI.Sections[26].IsCollapsedHeader" @onclick="(()=>ToggleSection(26))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Overview
@@ -189,7 +190,7 @@
                     @if (!UI.Sections[27].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
+                            <div class="section-header @UI.Sections[27].IsCollapsedHeader" @onclick="(()=>ToggleSection(27))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Future Vision App
@@ -199,7 +200,7 @@
                     @if (!UI.Sections[28].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
+                            <div class="section-header @UI.Sections[28].IsCollapsedHeader" @onclick="(()=>ToggleSection(28))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Unified Faith App
@@ -209,7 +210,7 @@
                     @if (!UI.Sections[29].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
+                            <div class="section-header @UI.Sections[29].IsCollapsedHeader" @onclick="(()=>ToggleSection(29))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Hang Out Availability App
@@ -219,7 +220,7 @@
                     @if (!UI.Sections[30].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
+                            <div class="section-header @UI.Sections[30].IsCollapsedHeader" @onclick="(()=>ToggleSection(30))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Philosophy Orientation App
@@ -229,7 +230,7 @@
                     @if (!UI.Sections[31].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
+                            <div class="section-header @UI.Sections[31].IsCollapsedHeader" @onclick="(()=>ToggleSection(31))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Controller Keyboard Prototype
@@ -239,7 +240,7 @@
                     @if (!UI.Sections[32].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
+                            <div class="section-header @UI.Sections[32].IsCollapsedHeader" @onclick="(()=>ToggleSection(32))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Audio Games
@@ -254,6 +255,8 @@
 </DrawerPageTemplate>
 
 @code {
+    [Parameter]
+    public int SectionId { get; set; } = 0;
     protected override void OnInitialized()
     {
         UI.NavigateToSection(SectionId);   
@@ -265,7 +268,9 @@
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
-
-    [Parameter]
-    public int SectionId { get; set; } = 0;
+    private void ToggleSection(int secId)
+    {
+        UI.ToggleSection(secId);
+        Navigation.NavigateTo($"invent/{secId}");
+    }
 }

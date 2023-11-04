@@ -1,4 +1,5 @@
 ﻿@inject UIService UI
+@inject NavigationManager Navigation
 
 @page "/knowhow"
 @page "/knowhow/{SectionId:int}"
@@ -30,7 +31,7 @@
                 @if (UI.Sections[0].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
+                        <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
                             @if(UI.Sections[0].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -83,7 +84,7 @@
                 @if (UI.Sections[14].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
+                        <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
                             @if(UI.Sections[14].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -169,7 +170,7 @@
                 @if (UI.Sections[16].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
+                        <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                             @if (UI.Sections[16].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -250,7 +251,7 @@
                 @if (UI.Sections[15].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
+                        <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
                             @if(UI.Sections[15].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -296,7 +297,7 @@
                 @if (UI.Sections[33].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
+                        <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                             @if(UI.Sections[33].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -342,7 +343,7 @@
                 @if (UI.Sections[3].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
+                        <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
                             @if(UI.Sections[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -367,7 +368,7 @@
                 @if (UI.Sections[1].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[1].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(1))">
+                        <div class="section-header @UI.Sections[1].IsCollapsedHeader" @onclick="(()=>ToggleSection(1))">
                             @if(UI.Sections[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -394,7 +395,7 @@
                 @if (UI.Sections[4].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
+                        <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
                             @if(UI.Sections[4].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -427,7 +428,7 @@
                 @if (UI.Sections[5].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
+                        <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
                             @if(UI.Sections[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -448,7 +449,7 @@
                 @if (UI.Sections[6].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
+                        <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
                             @if(UI.Sections[6].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -468,15 +469,14 @@
                 @if (UI.Sections[7].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
+                        <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
                             @if(UI.Sections[7].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            Testing
-                        </div>
-                        <div class="section-content @UI.Sections[7].IsCollapsedContent">
+                            Testing                        </div>
+                        <div class="section-content @UI.Sections[7].IsCollapsedContent"> `
                             <p>In web development there are generally three major types of testing: unit testing, integration testing, and end-to-end testing. There are other kinds of tests that can be performed, like usability tests, regression tests, sanity tests, and smoke tests. The goal of tests is to prove your system works the way you intend and expect it to. On the topic of expected behavior I would like to take a detour and talk about Test-Driven Development (TDD).</p>
                             <p><b>Test-Driven Development (TDD)</b> is the name of the software game today and if you don’t know how to do it then you may be left behind. TDD is concerned with unit tests and can better be conceptualized by turning the T into B, giving us Behavior-Driven Development. BDD is accomplished when the method of writing code is to define a number of <b>tests first</b> based on the desired <b>behaviors</b> you wish to see in your application. The tests you create help you nail down the program behavior as your top priority and focus. These tests put the business rules first and give you a means for checking if your code works the way you expect it to.</p>
                             <p>With TDD/BDD (“behavior tests”) you start with the name of the test as the described behavior in human-readable terms, then you use either ”Arrange, Act, Assert” or “Given, When, Then” schemas as guiding steps for the three parts of each test. When you have finished writing the test, create the shells of any of the new methods introduced in your test, throwing new “NotIMplementedException” exceptions for each new method. Then you run the test and make sure that it *fails* (because there is no code for the test to use to satisfy the assertions of the test). Making sure it fails ensures your test works well enough to at minimum not give you a false positive (or no result at all). Once you get the test to fail, then you are ready to start defining the logic of the different methods used in the test. Then once the code is completed, run the tests again and try to get the code to pass the test. It is through TDD/BDD that you as the programmer are focused on what matters most with the business rules at the forefront of your mind, creating a means for testing whether you’ve created the right code, and then all that’s left to do is write the code.</p>
@@ -489,7 +489,7 @@
                 @if (UI.Sections[13].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
+                        <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
                             @if(UI.Sections[13].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
@@ -511,7 +511,7 @@
                     @if (!UI.Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(0))">
+                            <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Overview
@@ -521,7 +521,7 @@
                     @if (!UI.Sections[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(14))">
+                            <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 About This Web App
@@ -531,7 +531,7 @@
                     @if (!UI.Sections[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(16))">
+                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Bee Hive Manager System/Game - Project
@@ -541,7 +541,7 @@
                     @if (!UI.Sections[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(15))">
+                            <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Hide & Seek Game - Project
@@ -551,7 +551,7 @@
                     @if (!UI.Sections[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(33))">
+                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Match Game - Project
@@ -561,7 +561,7 @@
                     @if (!UI.Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(3))">
+                            <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Front-End
@@ -571,7 +571,7 @@
                     @if (!UI.Sections[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(4))">
+                            <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 UX/UI + Modeling Software
@@ -581,7 +581,7 @@
                     @if (!UI.Sections[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(5))">
+                            <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Cloud Deployment + Containers
@@ -591,7 +591,7 @@
                     @if (!UI.Sections[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(6))">
+                            <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Databases
@@ -601,7 +601,7 @@
                     @if (!UI.Sections[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(7))">
+                            <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Testing
@@ -611,7 +611,7 @@
                     @if (!UI.Sections[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(13))">
+                            <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Why Programming?
@@ -644,4 +644,9 @@
         StateHasChanged();
     private void ToggleTestHistoryIsExpanded() =>
         testHistoryIsExpanded = !testHistoryIsExpanded;
+    private void ToggleSection(int secId)
+    {
+        UI.ToggleSection(secId);
+        Navigation.NavigateTo($"knowhow/{secId}");
+    }
 }

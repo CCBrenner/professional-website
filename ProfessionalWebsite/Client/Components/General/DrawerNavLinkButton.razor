@@ -1,4 +1,4 @@
-﻿<div class="nav-item" @onclick='(()=>OnClickCallback.InvokeAsync(""))'>
+﻿<div class="nav-item @ButtonShadow" @onclick='(()=>OnClickCallback.InvokeAsync(""))'>
     <NavLink class="nav-link" href="@Href">
         @if (IconClasses != "")
         {
@@ -12,11 +12,15 @@
     [Parameter]
     public bool IsNavLink { get; set; } = true;
     [Parameter]
-    public string Href { get; set; } = "";
+    public string Href { get; set; } = string.Empty;
     [Parameter]
     public string IconClasses { get; set; } = "fa-regular fa-circle";
     [Parameter]
-    public string ButtonText { get; set; } = "";
+    public string ButtonText { get; set; } = string.Empty;
+    [CascadingParameter]
+    public bool IsCurrentPromo { get; set; } = false;
     [Parameter]
     public EventCallback<string> OnClickCallback { get; set; }
+
+    private string ButtonShadow => IsCurrentPromo ? "button-shadow" : string.Empty;
 }
