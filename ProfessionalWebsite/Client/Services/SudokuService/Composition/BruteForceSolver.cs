@@ -70,7 +70,7 @@ public class BruteForceSolver : ISolver
 
         //Timer.Start();
 
-        _puzzle.RemoveCandidates();
+        _puzzle.PerformCandidateElimination();
 
         while (true)
         {

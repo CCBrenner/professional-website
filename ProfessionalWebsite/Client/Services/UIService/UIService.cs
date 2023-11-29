@@ -22,13 +22,11 @@ public class UIService : IUIService
         _anim = AnimMgmt.Create();
         _nav = NavMgmt.Create();
         _panel = PanelMgmt.Create();
-        _section = SectionMgmt.Create();
     }
 
     private IAnimMgmt _anim;
     private INavMgmt _nav;
     private IPanelMgmt _panel;
-    private ISectionMgmt _section;
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
@@ -37,7 +35,6 @@ public class UIService : IUIService
     public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
-
     public static UIService Create(
         List<bool> isContinuous,
         Dictionary<int, PanelGroup> panelGroups,
@@ -80,7 +77,7 @@ public class UIService : IUIService
     public void NavigateToSection(int sectionId)
     {
         DeactivateAllPanels();
-        _nav.NavigateToSection(sectionId, _panel, _section, Panels, PanelGroups, Sections, SectionedPages);
+        _nav.NavigateToSection(sectionId, _panel, Panels, PanelGroups, Sections, SectionedPages);
     }
 
     /// <summary>
@@ -120,7 +117,7 @@ public class UIService : IUIService
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
     public void ToggleSection(int sectionId)
     {
-        _section.ToggleSection(sectionId, Sections, SectionedPages);
+        SectionMgmt.ToggleSection(sectionId, Sections, SectionedPages);
         RaiseEventOnUiServiceChanged();
     }
 

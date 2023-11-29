@@ -1,4 +1,5 @@
 ﻿@inject UIService UI
+@inject HttpClient http
 @*implements IDisposable*@
 
 @page "/projects"
@@ -10,6 +11,8 @@
     <h2>Statistics by Project</h2>
 
     <h4>AnimateMain: @UI.AnimateMain</h4>
+
+    <h2 @onclick="UpdateStringUsingBackendData">What I Want (from the BE): @_whatIWant</h2>
 
     <h4>PanelMgmt</h4>
     <p>Panel Group 1</p>
@@ -41,6 +44,15 @@
 </ProjectsPageTemplate>
 
 @code {
+    private string _whatIWant = "string not loaded";
+    private async void UpdateStringUsingBackendData()
+    {
+        var response = await http.GetAsync("/api/Test");
+        if (response.IsSuccessStatusCode)
+        {
+            _whatIWant = await response.Content.ReadAsStringAsync();
+        }
+    }
     /*
     protected override void OnInitialized()
     {

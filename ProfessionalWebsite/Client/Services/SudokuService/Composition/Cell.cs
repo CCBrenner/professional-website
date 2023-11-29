@@ -463,7 +463,7 @@ public class Cell
     }
     public void ResetTriedCandidates()
     {
-        TriedCandidates = new List<int>();
+        TriedCandidates = new();
     }
     public void RehydrateCandidates()
     {

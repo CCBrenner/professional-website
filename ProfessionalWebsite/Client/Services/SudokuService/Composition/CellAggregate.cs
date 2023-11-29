@@ -40,10 +40,7 @@ public abstract class CellAggregate
     }
     protected void EliminateCandidates()
     {
-        // Get Given, and Confirmed numbers of row
         SortedSet<int> candidatesToEliminate = GetCandidatesToEliminate();
-
-        // Eliminate candidates of cells in the row
         EliminateCandidatesFromCells(candidatesToEliminate);
     }
     protected SortedSet<int> GetCandidatesToEliminate()

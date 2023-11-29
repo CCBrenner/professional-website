@@ -5,7 +5,7 @@ public interface INavMgmt
     void NavigateToSection(
         int sectionId,
         IPanelMgmt panelMgmt, 
-        ISectionMgmt sectionMgmt, 
+        //ISectionMgmt sectionMgmt, 
         Dictionary<int, Panel> panels, 
         Dictionary<int, PanelGroup> panelGroups, 
         Dictionary<int, Section> sections, 

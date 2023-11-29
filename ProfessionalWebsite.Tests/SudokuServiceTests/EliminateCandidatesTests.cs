@@ -250,7 +250,7 @@ public class EliminateCandidatesTests
         puzzle.LoadMatrixAsCellValues(givenMatrix);
 
         // Act
-        puzzle.RemoveCandidates();
+        puzzle.PerformCandidateElimination();
 
         // Assert:
 

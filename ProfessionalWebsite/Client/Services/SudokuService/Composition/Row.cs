@@ -13,19 +13,8 @@ public class Row : CellAggregate
 
     public static Row[] CreateArrayFromCellReferences(List<Cell> cells)
     {
-        Row[] rows = new Row[10]
-        {
-            new Row(0),
-            new Row(1),
-            new Row(2),
-            new Row(3),
-            new Row(4),
-            new Row(5),
-            new Row(6),
-            new Row(7),
-            new Row(8),
-            new Row(9),
-        };
+        Row[] rows = new Row[10];
+        for (int i=0; i<10; i++) { rows[i] = new(i); };
 
         foreach (var cell in cells)
         {

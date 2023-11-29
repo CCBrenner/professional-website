@@ -100,7 +100,7 @@ public class Puzzle : IPuzzle
             cell.ReconcileValueWithCandidates();
         }
     }
-    public void RemoveCandidates()
+    public void PerformCandidateElimination()
     {
         // Eliminate candidates for Given and Confirmed cells
         EliminateCandidatesForGivenAndConfirmedCells();
@@ -227,10 +227,10 @@ public class Puzzle : IPuzzle
     }
     public void UpdateCandidates()
     {
-        FillWithCandidates();
-        RemoveCandidates();
+        RehydrateCandidatesOfCells();
+        PerformCandidateElimination();
     }
-    private void FillWithCandidates()
+    private void RehydrateCandidatesOfCells()
     {
         foreach (var cell in Cells)
         {
@@ -256,7 +256,7 @@ public class Puzzle : IPuzzle
     }
     public void LoadMatrixAsCellValues(int[,] matrixToLoad)
     {
-        foreach(var cell in Cells)
+        foreach (var cell in Cells)
         {
             cell.ResetValue();
             cell.ResetValueStatus();
@@ -268,7 +268,7 @@ public class Puzzle : IPuzzle
                 Cell((i * 9) + j + 1).Value = matrixToLoad[i, j];
             }
         }
-        foreach(var cell in Cells)
+        foreach (var cell in Cells)
         {
             if (cell.Value != 0)
             {

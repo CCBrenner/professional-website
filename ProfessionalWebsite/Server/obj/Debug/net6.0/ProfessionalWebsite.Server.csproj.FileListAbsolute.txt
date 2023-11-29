@@ -360,3 +360,4 @@ C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ProfessionalWebsite.Server.pdb
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ProfessionalWebsite.Server.genruntimeconfig.cache
 C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ref\ProfessionalWebsite.Server.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A_current\professional-website\ProfessionalWebsite\Server\obj\Debug\net6.0\ProfessionalWebsite.Server.sourcelink.json

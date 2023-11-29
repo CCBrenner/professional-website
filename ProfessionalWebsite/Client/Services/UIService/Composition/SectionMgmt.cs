@@ -1,32 +1,13 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class SectionMgmt : ISectionMgmt
+public static class SectionMgmt
 {
-    private SectionMgmt()
-    {
-        //_sections = sectionsDictionary;
-        //_sectionedPages = sectionedPagesDictionary;
-        //SetInstanceToGroupReferences();
-    }
-
-    //private Dictionary<int, Section> _sections;
-    //private Dictionary<int, SectionedPage> _sectionedPages;
-
-    //public event Action<string> OnSectionMgmtChanged;
-
     /*
         Definitions:
             - "sectioned page" : a page that implements according sections (collapse/expand) & utilizes SectionsMgmt for the handling logic of those sections
             - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
     */
-
-    public static SectionMgmt Create() => new();
-
-    /// <summary>
-    /// Collapses all sections and promotes one section to the top of the sectioned page.
-    /// </summary>
-    /// <param name="sectionId">ID of the section that is being promoted/which has been selected.</param>
-    public void CollapseAllShowOne(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    public static void CollapseAllShowOne(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
@@ -47,8 +28,7 @@ public class SectionMgmt : ISectionMgmt
                 foreach (var sec in sectionsOfSectionedPage.Values)
                     sec.Collapse();
                 ToggleSection(sectionId, sections, sectionedPages);
-                //if (!section.IsCollapsed)
-                    section.Promote();
+                section.Promote();
                 sectionedPage.ASectionIsCurrentlyPromo = true;
             }
         }
@@ -61,7 +41,7 @@ public class SectionMgmt : ISectionMgmt
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    public static void ToggleSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
@@ -79,14 +59,13 @@ public class SectionMgmt : ISectionMgmt
     /// Demotes all other sections and makes specified section the promo section.
     /// </summary>
     /// <param name="sectionId">ID of section to be made promo section.</param>
-    public void PromoteSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    public static void PromoteSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
             DemoteAllSections(sections, sectionedPages);
             Section section = sections[sectionId];
-            //if (!section.IsCollapsed)
-                section.Promote();
+            section.Promote();
             SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
             sectionedPage.ASectionIsCurrentlyPromo = true;
         }
@@ -100,7 +79,7 @@ public class SectionMgmt : ISectionMgmt
     /// </summary>
     /// <param name="sectionId">ID of section used to get the sectioned page's location panel's ID</param>
     /// <returns></returns>
-    public int GetLocationPanelGroupId(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    public static int GetLocationPanelGroupId(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
@@ -117,7 +96,7 @@ public class SectionMgmt : ISectionMgmt
     /// <summary>
     /// Removes promo status from all sections.
     /// </summary>
-    private void DemoteAllSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    private static void DemoteAllSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         foreach (var section in sections.Values)
             section.Demote();
@@ -128,14 +107,13 @@ public class SectionMgmt : ISectionMgmt
     /// Finds the sections of the sectioned page that the specified section is a part of, counts how many sections are currently expanded, and then sets the status based on the number of expanded sections.
     /// </summary>
     /// <param name="sectionId">ID of specified section.</param>
-    private void UpdateSectionsStatus(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    private static void UpdateSectionsStatus(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         Section section = sections[sectionId];
         SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
 
         int openSections = 0;
 
-        // get open section count:
         foreach (Section sec in sectionedPage.Sections.Values)
             if (!sec.IsCollapsed)
                 openSections++;
@@ -151,7 +129,7 @@ public class SectionMgmt : ISectionMgmt
     /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
     /// </summary>
     /// <param name="sectionId">ID of section used to determine the sectioned page to check for promo.</param>
-    private void PromoteIfOnlyOneExpandedSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    private static void PromoteIfOnlyOneExpandedSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {

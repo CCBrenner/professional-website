@@ -41,7 +41,7 @@ public class GenericTests
         Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
         puzzle.LoadMatrixAsCellValues(seedMatrix);
 
-        puzzle.RemoveCandidates();
+        puzzle.PerformCandidateElimination();
         Assert.AreEqual(0, puzzle.Matrix[4, 8].Values[7]);  // 7 is value to test w/these coordinates
 
         // Act
@@ -72,7 +72,7 @@ public class GenericTests
         };
         Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
         puzzle.LoadMatrixAsCellValues(givenMatrix);
-        puzzle.RemoveCandidates();
+        puzzle.PerformCandidateElimination();
 
         // Act
         puzzle.UpdateCellValuesBasedOnSingleCandidate();
@@ -104,7 +104,7 @@ public class GenericTests
         puzzle.LoadMatrixAsCellValues(matrix33);
 
         // Act
-        puzzle.RemoveCandidates();
+        puzzle.PerformCandidateElimination();
 
         // Assert
         Assert.IsTrue(puzzle.Matrix[0, 1].Candidates.Contains(1));
@@ -170,7 +170,7 @@ public class GenericTests
         };
         Cell[,] createdCellMatrix = MatrixFactory.CreateCellMatrix(matrix33);
         Puzzle puzzle = Puzzle.CreateWithBruteForceSolver(createdCellMatrix);
-        puzzle.RemoveCandidates();
+        puzzle.PerformCandidateElimination();
         puzzle.Matrix[0, 0].SetExpectedValue(1);
         puzzle.Matrix[0, 1].SetExpectedValue(2);
         puzzle.Matrix[0, 4].SetExpectedValue(4);

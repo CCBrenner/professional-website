@@ -8,12 +8,12 @@ public class NavMgmt : INavMgmt
         - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other sections of the page
     */
     public static NavMgmt Create() => new();
-    public void NavigateToSection(int sectionId, IPanelMgmt panelMgmt, ISectionMgmt sectionMgmt, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    public void NavigateToSection(int sectionId, IPanelMgmt panelMgmt, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
         try
         {
-            sectionMgmt.CollapseAllShowOne(sectionId, sections, sectionedPages);
-            int locationPanelGroupId = sectionMgmt.GetLocationPanelGroupId(sectionId, sections, sectionedPages);
+            SectionMgmt.CollapseAllShowOne(sectionId, sections, sectionedPages);
+            int locationPanelGroupId = SectionMgmt.GetLocationPanelGroupId(sectionId, sections, sectionedPages);
             if (locationPanelGroupId != -1)
                 panelMgmt.UpdateGroupLocationPanel(locationPanelGroupId, panels, panelGroups);
         }

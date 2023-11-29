@@ -13,19 +13,8 @@ public class Column : CellAggregate
 
     public static Column[] CreateArrayFromCellReferences(List<Cell> cells)
     {
-        Column[] columns = new Column[10]
-        {
-            new Column(0),
-            new Column(1),
-            new Column(2),
-            new Column(3),
-            new Column(4),
-            new Column(5),
-            new Column(6),
-            new Column(7),
-            new Column(8),
-            new Column(9),
-        };
+        Column[] columns = new Column[10];
+        for (int i = 0; i < 10; i++) { columns[i] = new(i); };
 
         foreach (var cell in cells)
         {
