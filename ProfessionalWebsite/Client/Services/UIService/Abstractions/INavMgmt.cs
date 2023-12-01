@@ -3,9 +3,7 @@
 public interface INavMgmt
 {
     void NavigateToSection(
-        int sectionId,
-        IPanelMgmt panelMgmt, 
-        //ISectionMgmt sectionMgmt, 
+        int sectionId, 
         Dictionary<int, Panel> panels, 
         Dictionary<int, PanelGroup> panelGroups, 
         Dictionary<int, Section> sections, 
@@ -13,7 +11,6 @@ public interface INavMgmt
     void NavigateToHardCodedPage(
         int hardcodedPanelId, 
         int navGroupPanelId, 
-        IPanelMgmt panelMgmt, 
         Dictionary<int, Panel> panels, 
         Dictionary<int, PanelGroup> panelGroups);
 }

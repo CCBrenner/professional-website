@@ -1,20 +1,19 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class PanelMgmt : IPanelMgmt
+public static class PanelMgmt
 {
     /*
     Definitions:
         - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
-    public static PanelMgmt Create() => new();
-    public void DeactivateAllPanels(IEnumerable<Panel> panels)
+    public static void DeactivateAllPanels(IEnumerable<Panel> panels)
     {
         foreach (Panel panel in panels)
         {
             panel.Deactivate();
         }
     }
-    public void DeactivateCooperativePanels(List<Panel> panels)
+    public static void DeactivateCooperativePanels(List<Panel> panels)
     {
         foreach (Panel panel in panels)
         {
@@ -24,7 +23,7 @@ public class PanelMgmt : IPanelMgmt
             }
         }
     }
-    public void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    public static void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
         foreach (Panel panel in panels.Values)
         {
@@ -34,18 +33,18 @@ public class PanelMgmt : IPanelMgmt
             }
         }
     }
-    public void DeactivatePanel(int selectedPanelId, Dictionary<int, Panel> panels)
+    public static void DeactivatePanel(int selectedPanelId, Dictionary<int, Panel> panels)
     {
         panels[selectedPanelId].Deactivate();
     }
-    public void ActivatePanel(int selectedPanelId, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    public static void ActivatePanel(int selectedPanelId, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
     {
         var panelsList = panels.Values.ToList();
         DeactivateCooperativePanels(panelsList);
         ActivateLocationButtonsOfPanelGroups(selectedPanelId, panelsList, panelGroupsList);
         panels[selectedPanelId].Activate();
     }
-    public void TogglePanel(int selectedPanelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    public static void TogglePanel(int selectedPanelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
         try
         {
@@ -71,7 +70,7 @@ public class PanelMgmt : IPanelMgmt
             Console.WriteLine(knfEx.Message + knfEx.StackTrace);
         }
     }
-    public void UpdateGroupLocationPanel(int panelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    public static void UpdateGroupLocationPanel(int panelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
         try
         {
@@ -90,7 +89,16 @@ public class PanelMgmt : IPanelMgmt
             Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
         }
     }
-    private void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<Panel> panels, List<PanelGroup> panelGroups)
+    public static void ActivateLocationButtonsOfGroups(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    {
+        foreach (PanelGroup panelGroup in panelGroups.Values)
+        {
+            int panelId = panelGroup.LocationPanelId;
+            Panel panel = panels[panelId];
+            panel.ActivateButton();
+        }
+    }
+    private static void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<Panel> panels, List<PanelGroup> panelGroups)
     {
         // use this to determine get the group of the deactivated panel:
         int panelGroupIdOfPanelBeingActivated = -1;
@@ -112,16 +120,7 @@ public class PanelMgmt : IPanelMgmt
             }
         }
     }
-    public void ActivateLocationButtonsOfGroups(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
-    {
-        foreach (PanelGroup panelGroup in panelGroups.Values)
-        {
-            int panelId = panelGroup.LocationPanelId;
-            Panel panel = panels[panelId];
-            panel.ActivateButton();
-        }
-    }
-    private bool AllCooperativePanelsAreDeactivated(List<Panel> panels)
+    private static bool AllCooperativePanelsAreDeactivated(List<Panel> panels)
     {
         foreach (Panel panel in panels)
             if (panel.PanelStatus != string.Empty && panel.IsCooperativePanel)

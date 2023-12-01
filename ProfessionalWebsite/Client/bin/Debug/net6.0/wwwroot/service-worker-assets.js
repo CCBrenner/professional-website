@@ -885,17 +885,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-mcdg\/N4yGIhgfiwU8P2VRPNgxQrutGGxPho0hI0\/yys=",
+      "hash": "sha256-unS\/yyEgsqbKba3dZcqSRv\/u\/RbgMWgO08YNhVkOfRs=",
       "url": "_framework\/ProfessionalWebsite.Client.dll"
     },
     {
-      "hash": "sha256-a1OhKxEGnkjiaDCcuqDNEL3c9b76e6W0Acy8ooIi7hk=",
+      "hash": "sha256-wbvZI+ECICv6ZExnFqpu3SHB5kenWvgaQHZIgiWrwpk=",
       "url": "_framework\/ProfessionalWebsite.Client.pdb"
     },
     {
-      "hash": "sha256-YdPz7Fd8MYNOsFdi3dMOGblief1eH2968HAYBq29JtI=",
+      "hash": "sha256-Lr5dcV8dN7RS7ppkl23v+7X+SpgdbfQHMxq90MfMApc=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "SGkpIVxc"
+  "version": "IkTKcFMz"
 };
