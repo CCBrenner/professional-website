@@ -41,8 +41,6 @@ public class Puzzle : IPuzzle
     public int[,] StartingIntMatrix { get; }
     public int[,] StartingIntMatrixToSuperimpose { get; }
     public bool NoExpectedCellValuesInCells => GetNoExpectedCellValuesInCells();
-    public bool IsSolvableBasedOnCandidates => GetIsSolvableBasedOnCandidates();
-    public bool CurrentCandidateIsLastCandidateOfCurrentCell => CurrentCell.GetRemainingCandidatesToTry().Count != 0;
     public Cell CurrentCell { get; private set; }
     public Cell Cell(int id) => Cells[id - 1];
     public static Puzzle CreateWithBruteForceSolver()
@@ -93,13 +91,6 @@ public class Puzzle : IPuzzle
     {
         Ledger.AssignPuzzleReference(this);
     }
-    public void RemoveUnconfirmedValuesThatDoNotHaveRespectiveCandidate()
-    {
-        foreach (var cell in Matrix)
-        {
-            cell.ReconcileValueWithCandidates();
-        }
-    }
     public void PerformCandidateElimination()
     {
         // Eliminate candidates for Given and Confirmed cells
@@ -135,42 +126,12 @@ public class Puzzle : IPuzzle
             }
         }
     }
-    public void UpdateValues()
-    {
-        RemoveExpectedValuesBasedOnNotACandidate();
-        UpdateCellValuesBasedOnSingleCandidate();
-    }
-    public void RemoveExpectedValuesBasedOnNotACandidate()
-    {
-        foreach (var cell in Cells)
-        {
-            if (cell.ValueStatus == ValueStatus.Expected)
-            {
-                cell.RemoveExpectedValueIfNotACandidate();
-            }
-        }
-    }
     public void UpdateCellValuesBasedOnSingleCandidate()
     {
         foreach (var cell in Matrix)
         {
             cell.UpdateValueBasedOnSingleCandidate();
         }
-    }
-    public static Cell[,] SuperimposeNonGivenCellValues(Cell[,] compositionMatrix, int[,] matrixToSuperimpose)
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (compositionMatrix[i, j].ValueStatus != ValueStatus.Given)
-                {
-                    compositionMatrix[i, j].SetExpectedValue(matrixToSuperimpose[i, j]);
-                }
-            }
-        }
-
-        return compositionMatrix;
     }
     private void AssignPuzzleReferenceToCells()
     {
@@ -196,35 +157,6 @@ public class Puzzle : IPuzzle
         }
         return true;
     }
-    private bool GetIsSolvableBasedOnCandidates()
-    {
-        bool row = Row.IsSolvableBasedOnCandidates(Rows);
-        bool column = Column.IsSolvableBasedOnCandidates(Columns);
-        bool block = Block.IsSolvableBasedOnCandidates(Blocks);
-
-        return row && column && block;
-    }
-    public bool BacktrackToLastCell()
-    {
-        // have cell reset regarding treatment during time as current cell
-        CurrentCell.Backtrack();
-
-        int previousCellId = CurrentCell.Id;
-        int newCurrenCellId = previousCellId - 1;
-
-        if (CurrentCell.Id == 1)
-        {
-            return false;
-        }
-
-        SetCurrentCell(newCurrenCellId);
-
-        return true;
-    }
-    private void SetCurrentCell(int newCurrenCellId)
-    {
-        Cell? potentialNewCurrentCell = Cells.FirstOrDefault(x => x.Id == (newCurrenCellId - 1));
-    }
     public void UpdateCandidates()
     {
         RehydrateCandidatesOfCells();
@@ -239,20 +171,6 @@ public class Puzzle : IPuzzle
                 cell.RehydrateCandidates();
             }
         }
-    }
-    public int[,] GetCurrentMatrixFromCells()
-    {
-        int[,] matrix = new int[9, 9];
-
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                matrix[i, j] = Cell((i * 9) + j + 1).Values[0];
-            }
-        }
-
-        return matrix;
     }
     public void LoadMatrixAsCellValues(int[,] matrixToLoad)
     {

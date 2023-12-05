@@ -2,9 +2,9 @@
 
 public abstract class CellAggregate
 {
-    public CellAggregate()
+    public CellAggregate(List<Cell> cellsOfAggregate)
     {
-        Cells = new List<Cell>();
+        Cells = cellsOfAggregate;
     }
     public List<Cell> Cells { get; private set; }
     public List<int> Candidates => Cell.GetCandidates(Cells.ToList());

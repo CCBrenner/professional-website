@@ -98,6 +98,20 @@ public static class PanelMgmt
             panel.ActivateButton();
         }
     }
+
+    public static void SetBiDirectionalReferencesForPanelGroupsAndPanels(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
+    {
+        foreach (var panel in panels.Values)
+        {
+            if (panel.PanelGroupId != -1)
+            {
+                var panelGroupId = panel.PanelGroupId;
+                var panelGroup = panelGroups[panelGroupId];
+                panel.SetPanelGroupReference(panelGroup);
+                panel.PanelGroup.AddPanelReference(panel);
+            }
+        }
+    }
     private static void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<Panel> panels, List<PanelGroup> panelGroups)
     {
         // use this to determine get the group of the deactivated panel:

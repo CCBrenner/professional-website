@@ -93,6 +93,15 @@ public static class SectionMgmt
         }
         return -1;
     }
+    public static void SetBiDirectionalReferencesForSectionedPagesAndSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
+    {
+        foreach (var section in sections.Values)
+        {
+            var sectionedPageId = section.SectionedPageId;
+            section.SetSectionedPageReference(sectionedPages[sectionedPageId]);
+            section.SectionedPage.AddSectionReference(section);
+        }
+    }
     /// <summary>
     /// Removes promo status from all sections.
     /// </summary>

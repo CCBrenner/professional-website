@@ -38,7 +38,6 @@ public class BruteForceSolver : ISolver
             OnSolverLoopIteration.Invoke("meaningless");
         }
     }
-
     public bool Solve(Puzzle puzzle)
     {
         // Config based on Puzzle:
@@ -121,7 +120,6 @@ public class BruteForceSolver : ISolver
         // return true if Puzzle is solved; false if could not be solved
         return PuzzleIsSolvable;
     }
-
     private void MarkCellsWithNonZeroValuesAsGiven()
     {
         foreach (Cell cell in _puzzle.Cells)
@@ -132,18 +130,15 @@ public class BruteForceSolver : ISolver
             }
         }
     }
-
     private void SetupTimer()
     {
         Timer.Elapsed += TimerElapsed;
     }
-
     private void TimerElapsed(object? sender, ElapsedEventArgs e)
     {
         StopwatchTime += 0.1M;
         Console.WriteLine(StopwatchTime.ToString());
     }
-
     private void GoBackToLastCellWithUntriedCandidatesIterative()
     {
         int candidate;
@@ -229,7 +224,6 @@ public class BruteForceSolver : ISolver
         CurrentCell = RemainingCells.Pop();
         UpdateProgressBarValueIfNewestCell(CurrentCell);
     }
-
     private void UpdateProgressBarValueIfNewestCell(Cell currentCell)
     {
         // definition of newest:
@@ -238,7 +232,6 @@ public class BruteForceSolver : ISolver
             progressValue = CurrentCell.Id;
         }
     }
-
     private void MoveToPreviousCell()
     {
         RemainingCells.Push(CurrentCell);

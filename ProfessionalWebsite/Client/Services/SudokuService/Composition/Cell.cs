@@ -125,16 +125,6 @@ public class Cell
         Values[txn.IndexOfValue] = txn.New;
         return Values[txn.IndexOfValue];
     }
-    public int ReconcileValueWithCandidates()
-    {
-        if (ValueStatus == ValueStatus.Given || ValueStatus == ValueStatus.Confirmed || Values[Value] != NON_POSSIBILITY_PLACEHOLDER_VALUE)
-        {
-            return Value;
-        }
-
-        Value = NON_POSSIBILITY_PLACEHOLDER_VALUE;
-        return Value;
-    }
     public int EliminateCandidate(int candidate)
     {
         int previousValue = Values[candidate];
@@ -218,28 +208,6 @@ public class Cell
         int blockId = (blockRow * 3) + blockCol + 1;
 
         return blockId;
-    }
-    public static List<Cell> CreateListFromCellMatrix(Cell[,] compositionMatrix)
-    {
-        List<Cell> cells = new();
-
-        foreach (var cell in compositionMatrix)
-        {
-            cells.Add(cell);
-        }
-
-        return cells;
-    }
-    public static Dictionary<int, Cell> CreateDictionaryFromCellMatrix(Cell[,] compositionMatrix)
-    {
-        Dictionary<int, Cell> cells = new();
-
-        foreach (var cell in compositionMatrix)
-        {
-            cells.Add(cell.Id, cell);
-        }
-
-        return cells;
     }
     public void AssignRowReference(Row row)
     {
@@ -403,15 +371,6 @@ public class Cell
         int colMod = (ColumnId - 1) % 3;
         return (rowMod * 3) + colMod + 1;
     }
-    public void RemoveExpectedValueIfNotACandidate()
-    {
-        bool isCandidate = GetIsCandidate(Value);
-
-        if (!isCandidate)
-        {
-            Value = NON_POSSIBILITY_PLACEHOLDER_VALUE;
-        }
-    }
     private bool GetIsCandidate(int value)
     {
         foreach (var candidate in Candidates)
@@ -423,28 +382,6 @@ public class Cell
         }
 
         return false;
-    }
-    public void Backtrack()
-    {
-        // empty tried values list
-        TriedValuesAsCurrentCell = new();
-    }
-    public List<int> GetRemainingCandidatesToTry()
-    {
-        List<int> remainingCandidates = new();
-
-        foreach (var triedCandidate in CandidatesTried)
-        {
-            foreach (var candidate in Candidates)
-            {
-                if (triedCandidate != candidate)
-                {
-                    remainingCandidates.Add(candidate);
-                }
-            }
-        }
-
-        return remainingCandidates;
     }
     public void AddTriedCandidate(int candidate)
     {
@@ -495,7 +432,6 @@ public class Cell
             }
         }
     }
-
     public void ResetValueStatus()
     {
         ValueStatus = DEFAULT_VALUE_STATUS;
