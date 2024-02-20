@@ -9,7 +9,7 @@
 
         private QueenBee queen;
         /*
-        private Settings settings = Settings.Instance;
+        private Settings settings = Settings.Api;
         public float CareProgressPerShift =>
             settings.EggCareCareProgressPerShift;
         public override float CostPerShift =>

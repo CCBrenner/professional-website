@@ -92,6 +92,111 @@
         border-radius: 14px;
     }
 }
+/* /Components/General/SudokuGrid.razor.rz.scp.css */
+
+.puzzle[b-hn5dh9jzfv] {
+    background-color: #111;
+    padding: 1px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-row[b-hn5dh9jzfv] {
+    display: flex;
+}
+
+.block[b-hn5dh9jzfv] {
+    background-color: #111;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cell-row[b-hn5dh9jzfv] {
+    display: flex;
+}
+
+input[b-hn5dh9jzfv] {
+    width: 100%;
+    text-align: center;
+}
+/* /Components/General/SudokuGui.razor.rz.scp.css */
+
+.comp-container[b-suabrbh7gw] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-horizontal[b-suabrbh7gw] {
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.puzzle-selector[b-suabrbh7gw] {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+}
+
+.puzzle[b-suabrbh7gw] {
+    background-color: #111;
+    padding: 1px;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.block-row[b-suabrbh7gw] {
+    display: flex;
+}
+
+.block[b-suabrbh7gw] {
+    background-color: #111;
+    padding: 1px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cell-row[b-suabrbh7gw] {
+    display: flex;
+}
+
+input[b-suabrbh7gw] {
+    width: 100%;
+    text-align: center;
+}
+
+.buttons-container[b-suabrbh7gw] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hint[b-suabrbh7gw] {
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.button[b-suabrbh7gw] {
+    margin: 0px 4px 0px 4px;
+}
+
+.alert[b-suabrbh7gw] {
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+}
 /* /Components/General/UnderConstruction.razor.rz.scp.css */
 
 .construction-container[b-wv5jtcb391] {
@@ -240,9 +345,9 @@
     }
     /* end Pluggable classes */
 }
-/* /Components/Templates/PanelTemplate.razor.rz.scp.css */
+/* /Components/Templates/Excess/PanelTemplate.razor.rz.scp.css */
 
-.panel[b-t146xhpbtu] {
+.panel[b-myw91clbqg] {
     position: absolute;
     top: 0;
     left: 0;
@@ -254,7 +359,7 @@
     transition: visibility 0.2s, opacity 0.2s;
 }
 
-.behindpanel[b-t146xhpbtu] {
+.behindpanel[b-myw91clbqg] {
     position: absolute;
     top: 0;
     left: 0;
@@ -271,17 +376,17 @@
     transition: visibility 0.2s, opacity 0.2s;
 */
 
-.pm-panel-visible[b-t146xhpbtu] {
+.pm-panel-visible[b-myw91clbqg] {
     visibility: visible;
     opacity: 1;
     transition: visibility 0.2s, opacity 0.2s;
 }
 
-.pm-maincontent-blurred[b-t146xhpbtu] {
+.pm-maincontent-blurred[b-myw91clbqg] {
     filter: blur(2.5px);
 }
 
-.pm-behindpanel-present[b-t146xhpbtu] {
+.pm-behindpanel-present[b-myw91clbqg] {
     display: block;
     background-color: rgba(0,0,60,0.06);
     transition: background-color 0.2s;
@@ -1661,6 +1766,26 @@ td[b-cliwmzypxj] {
     td[b-cliwmzypxj] {
         font-size: 4.7rem;
     }
+}
+/* /Pages/SudokuSolver.razor.rz.scp.css */
+
+.comp-container[b-k78glvv1tg] {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-horizontal[b-k78glvv1tg] {
+    display: flex;
+    align-items: center;
+}
+
+.ui-selector[b-k78glvv1tg] {
+    text-align: center;
+    width: 100%;
+    max-width: 240px;
 }
 /* /Shared/ClosedStageCurtain.razor.rz.scp.css */
 .larger-than-mobile[b-uquen1h5a4] {

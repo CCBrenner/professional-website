@@ -2,7 +2,7 @@
 {
     public class BeeHive
     {
-        //public Settings Settings = Settings.Instance;
+        //public Settings Settings = Settings.Api;
         public HoneyVault Vault = HoneyVault.Instance;
         public QueenBee Queen = new QueenBee();
 
@@ -16,7 +16,7 @@
 
         public void Reset()
         {
-            // Settings.Reset();
+            // Settings.Set();
             Vault.Reset();
             Queen.Reset();
         }

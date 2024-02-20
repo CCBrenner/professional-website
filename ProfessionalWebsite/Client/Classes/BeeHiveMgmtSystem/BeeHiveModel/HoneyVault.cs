@@ -1,6 +1,6 @@
 ﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 {
-    public sealed class HoneyVault  // sealed so that it is the only instance due to no classes being able to inherit from it
+    public sealed class HoneyVault  // sealed so that it is the only api due to no classes being able to inherit from it
     {
         private HoneyVault()  // private constructor; not externally accessible
         {
@@ -15,8 +15,8 @@
             Honey = 25F;
             Nectar = 100F;
         }  
-        private static HoneyVault? instance = null;  // single instance definable only during the first GET of the instance
-        private static readonly object lockObject = new object();  // used for lock so that only one thread has access to the instance at a time
+        private static HoneyVault? instance = null;  // single api definable only during the first GET of the api
+        private static readonly object lockObject = new object();  // used for lock so that only one thread has access to the api at a time
         public static HoneyVault Instance
         {
             get
@@ -39,7 +39,7 @@
             Nectar = 100F;
         }
 
-        // private Settings settings = Settings.Instance;
+        // private Settings settings = Settings.Api;
         private float lowLevelWarning;
 
         public float Honey { get; private set; }

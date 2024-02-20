@@ -1,0 +1,53 @@
+@using ProfessionalWebsite.Client.Classes.SudokuSolverProject;
+
+@* GUI allows for puzzle selection via dropdown box or manual entry;
+        results are shown in the same 81-cell box;
+        initial values are shown in black and the new values are shown in blue;
+        additional stats can be shown in their own text field*@
+
+<div class="comp-container">
+
+    <div class="display-horizontal">
+        <span>Puzzle Book&nbsp;</span>
+        <select class="form-select form-select-sm puzzle-selector" @bind="_sudokuApi.SelectedMatrix">
+            @foreach (var puzzlePair in _sudokuApi.Puzzles)
+            {
+                <option value="@puzzlePair.Key">@puzzlePair.Key</option>
+            }
+        </select>
+    </div>
+
+    <SudokuGrid Sudoku="_sudokuApi"/>
+
+    <div class="hint">
+        Click the Solve button once. It will begin solving. Enter a custom puzzle if you like!
+        <br/>
+        The solver on average solves in around 30s but it can take anywhere between 3s to 1m 45s to solve, depending on the puzzle.
+        <br/>
+        (This puzzle uses the only thread available to the browser, meaning it is synchronous.)
+    </div>
+
+    <div class="buttons-container">
+        <div class="btn btn-primary button" @onclick="_sudokuApi.SolveGui">
+            Solve
+        </div>
+        <div class="btn btn-secondary button" @onclick="_sudokuApi.ResetCurrent">
+            Reset
+        </div>
+    </div>
+
+    @if (_sudokuApi.Puzzle.Ledger.ValueTxns.Count() != 0)
+    {
+        <div class="hint">
+            Update Count: @_sudokuApi.Puzzle.Ledger.ValueTxns.Count() updates<br/>
+            Progress: @_sudokuApi.Puzzle.ProgressPercentage%<br />
+            Is Solved?: @_sudokuApi.IsSolved<br />
+        </div>
+    }
+
+</div>
+
+@code{
+    //private bool _spinnerIsVisible = false;
+    private ISudoku _sudokuApi = Sudoku.Api;
+}

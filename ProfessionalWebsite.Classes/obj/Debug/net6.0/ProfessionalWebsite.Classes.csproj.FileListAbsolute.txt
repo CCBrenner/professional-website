@@ -1,0 +1,11 @@
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\bin\Debug\net6.0\ProfessionalWebsite.Classes.deps.json
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\bin\Debug\net6.0\ProfessionalWebsite.Classes.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\bin\Debug\net6.0\ProfessionalWebsite.Classes.pdb
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.AssemblyInfoInputs.cache
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.AssemblyInfo.cs
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.csproj.CoreCompileInputs.cache
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\refint\ProfessionalWebsite.Classes.dll
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ProfessionalWebsite.Classes.pdb
+C:\Users\colly_cp7sy9h\Desktop\projects\gh_clone_hosting\Portfolio_PWA_A\professional-website\ProfessionalWebsite.Classes\obj\Debug\net6.0\ref\ProfessionalWebsite.Classes.dll

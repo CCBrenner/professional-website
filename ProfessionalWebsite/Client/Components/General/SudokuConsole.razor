@@ -1,0 +1,13 @@
+@* Console has a dropdown list of puzzles, a text field, a solve button, and a reset button *@
+@*
+<select @bind="Sudoku.Api.SelectedPuzzle">
+    @foreach (var puzzlePair in Sudoku.Api.PuzzleBook.Puzzles)
+    {
+        <option value="puzzlePair.Key">@puzzlePair.Key</option>
+    }
+</select>
+*@
+
+<h4>Sudoku Console</h4>
+
+@code { }

@@ -5,7 +5,7 @@
         public HoneyManufacturerBee() : base(WorkerType.HoneyManufacturer) { }
 
         /*
-        private Settings settings = Settings.Instance;
+        private Settings settings = Settings.Api;
         public float NectarProcessedPerShift =>
             settings.HoneyManufacturerNectarProcessedPerShift;
         public override float CostPerShift =>

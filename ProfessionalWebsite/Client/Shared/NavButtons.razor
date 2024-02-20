@@ -3,23 +3,23 @@
 
 <div class="container-one">
     <div class="container-two">
-        <div class="nav-button @UI.Panel.Panels[2].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(2))">
+        <div class="nav-button @UI.Panel(2).PanelButtonStatus" @onclick="(()=>UI.TogglePanel(2))">
             <span class="button-icon fa-solid fa-diagram-project" aria-hidden="true"></span>
             <span class="button-label">Projects</span>
         </div>
-        <div class="nav-button @UI.Panel.Panels[3].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(3))">
+        <div class="nav-button @UI.Panel(3).PanelButtonStatus" @onclick="(()=>UI.TogglePanel(3))">
             <span class="button-icon fa-solid fa-flask" aria-hidden="true"></span>
             <span class="button-label">Know-How</span>
         </div>
-        <div class="nav-button @UI.Panel.Panels[4].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(4))">
+        <div class="nav-button @UI.Panel(4).PanelButtonStatus" @onclick="(()=>UI.TogglePanel(4))">
             <span class="button-icon fa-solid fa-book" aria-hidden="true"></span>
             <span class="button-label">Collyn</span>
         </div>
-        <div class="nav-button @UI.Panel.Panels[5].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(5))">
+        <div class="nav-button @UI.Panel(5).PanelButtonStatus" @onclick="(()=>UI.TogglePanel(5))">
             <span class="button-icon fa-solid fa-warehouse" aria-hidden="true"></span>
             <span class="button-label">Invent</span>
         </div>
-        <div class="nav-button @UI.Panel.Panels[6].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(6))">
+        <div class="nav-button @UI.Panel(6).PanelButtonStatus" @onclick="(()=>UI.TogglePanel(6))">
             <span class="button-icon fa-solid fa-newspaper" aria-hidden="true"></span>
             <span class="button-label">Articles</span>
         </div>
@@ -29,9 +29,9 @@
 @code
 {
     protected override void OnInitialized() =>
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     void IDisposable.Dispose() =>
-        UI.Panel.OnPanelMgmtUpdated += UpdateThisComponent;
+        UI.OnUiServiceChanged += UpdateThisComponent;
     private void UpdateThisComponent(string meaningless) =>
         StateHasChanged();
 }

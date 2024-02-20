@@ -1,0 +1,165 @@
+﻿@*
+<div class="puzzle">
+    <div class="block-row">
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[0,0]" maxlength="1" />
+                <input @bind="Matrix[0,1]" maxlength="1" />
+                <input @bind="Matrix[0,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[1,0]" maxlength="1" />
+                <input @bind="Matrix[1,1]" maxlength="1" />
+                <input @bind="Matrix[1,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[2,0]" maxlength="1" />
+                <input @bind="Matrix[2,1]" maxlength="1" />
+                <input @bind="Matrix[2,2]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[0,3]" maxlength="1" />
+                <input @bind="Matrix[0,4]" maxlength="1" />
+                <input @bind="Matrix[0,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[1,3]" maxlength="1" />
+                <input @bind="Matrix[1,4]" maxlength="1" />
+                <input @bind="Matrix[1,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[2,3]" maxlength="1" />
+                <input @bind="Matrix[2,4]" maxlength="1" />
+                <input @bind="Matrix[2,5]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[0,6]" maxlength="1" />
+                <input @bind="Matrix[0,7]" maxlength="1" />
+                <input @bind="Matrix[0,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[1,6]" maxlength="1" />
+                <input @bind="Matrix[1,7]" maxlength="1" />
+                <input @bind="Matrix[1,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[2,6]" maxlength="1" />
+                <input @bind="Matrix[2,7]" maxlength="1" />
+                <input @bind="Matrix[2,8]" maxlength="1" />
+            </div>
+        </div>
+    </div>
+    <div class="block-row">
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[3,0]" maxlength="1" />
+                <input @bind="Matrix[3,1]" maxlength="1" />
+                <input @bind="Matrix[3,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[4,0]" maxlength="1" />
+                <input @bind="Matrix[4,1]" maxlength="1" />
+                <input @bind="Matrix[4,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[5,0]" maxlength="1" />
+                <input @bind="Matrix[5,1]" maxlength="1" />
+                <input @bind="Matrix[5,2]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[3,3]" maxlength="1" />
+                <input @bind="Matrix[3,4]" maxlength="1" />
+                <input @bind="Matrix[3,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[4,3]" maxlength="1" />
+                <input @bind="Matrix[4,4]" maxlength="1" />
+                <input @bind="Matrix[4,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[5,3]" maxlength="1" />
+                <input @bind="Matrix[5,4]" maxlength="1" />
+                <input @bind="Matrix[5,5]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[3,6]" maxlength="1" />
+                <input @bind="Matrix[3,7]" maxlength="1" />
+                <input @bind="Matrix[3,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[4,6]" maxlength="1" />
+                <input @bind="Matrix[4,7]" maxlength="1" />
+                <input @bind="Matrix[4,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[5,6]" maxlength="1" />
+                <input @bind="Matrix[5,7]" maxlength="1" />
+                <input @bind="Matrix[5,8]" maxlength="1" />
+            </div>
+        </div>
+    </div>
+    <div class="block-row">
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[6,0]" maxlength="1" />
+                <input @bind="Matrix[6,1]" maxlength="1" />
+                <input @bind="Matrix[6,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[7,0]" maxlength="1" />
+                <input @bind="Matrix[7,1]" maxlength="1" />
+                <input @bind="Matrix[7,2]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[8,0]" maxlength="1" />
+                <input @bind="Matrix[8,1]" maxlength="1" />
+                <input @bind="Matrix[8,2]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[6,3]" maxlength="1" />
+                <input @bind="Matrix[6,4]" maxlength="1" />
+                <input @bind="Matrix[6,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[7,3]" maxlength="1" />
+                <input @bind="Matrix[7,4]" maxlength="1" />
+                <input @bind="Matrix[7,5]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[8,3]" maxlength="1" />
+                <input @bind="Matrix[8,4]" maxlength="1" />
+                <input @bind="Matrix[8,5]" maxlength="1" />
+            </div>
+        </div>
+        <div class="block">
+            <div class="cell-row">
+                <input @bind="Matrix[6,6]" maxlength="1" />
+                <input @bind="Matrix[6,7]" maxlength="1" />
+                <input @bind="Matrix[6,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[7,6]" maxlength="1" />
+                <input @bind="Matrix[7,7]" maxlength="1" />
+                <input @bind="Matrix[7,8]" maxlength="1" />
+            </div>
+            <div class="cell-row">
+                <input @bind="Matrix[8,6]" maxlength="1" />
+                <input @bind="Matrix[8,7]" maxlength="1" />
+                <input @bind="Matrix[8,8]" maxlength="1" />
+            </div>
+        </div>
+    </div>
+</div>
+*@
+
+@code { }

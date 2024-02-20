@@ -1,0 +1,19 @@
+﻿
+.comp-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+.ui-selector {
+    text-align: center;
+    width: 100%;
+    max-width: 240px;
+}

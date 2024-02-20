@@ -50,7 +50,7 @@ namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
 
         private IWorker[] workers = { };  // another option: private IWorker[] workers = new Worker[0];
         /*
-        private Settings settings = Settings.Instance;
+        private Settings settings = Settings.Api;
         public float EggsPerShift => settings.QueenEggsPerShift;
         public float HoneyPerUnassignedWorker => settings.QueenHoneyPerUnassignedWorker;
         */

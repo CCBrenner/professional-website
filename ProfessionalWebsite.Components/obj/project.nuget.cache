@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "9HDDiUyjx0NGlCOVdIwThZBEeYdKMsRZcHiMNhA7JVDSx2cXO/9lKkUBGPVM5xCKU5orzQVz5cfHlUtiuo/c/Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\ProfessionalWebsite.Components.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.20\\microsoft.aspnetcore.authorization.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.20\\microsoft.aspnetcore.components.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.20\\microsoft.aspnetcore.components.analyzers.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.20\\microsoft.aspnetcore.components.forms.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.20\\microsoft.aspnetcore.components.web.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.20\\microsoft.aspnetcore.metadata.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.4\\microsoft.extensions.logging.abstractions.6.0.4.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.jsinterop\\6.0.20\\microsoft.jsinterop.6.0.20.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

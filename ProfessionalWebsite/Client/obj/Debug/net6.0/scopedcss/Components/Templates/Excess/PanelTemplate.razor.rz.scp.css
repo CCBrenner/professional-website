@@ -1,0 +1,48 @@
+
+.panel[b-myw91clbqg] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--content-height) - 20px);
+    z-index: 4;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.behindpanel[b-myw91clbqg] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+
+/* start Plugable statuses */
+
+/* (defaults being operated on:)
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+*/
+
+.pm-panel-visible[b-myw91clbqg] {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.pm-maincontent-blurred[b-myw91clbqg] {
+    filter: blur(2.5px);
+}
+
+.pm-behindpanel-present[b-myw91clbqg] {
+    display: block;
+    background-color: rgba(0,0,60,0.06);
+    transition: background-color 0.2s;
+    z-index: 3;
+}
+
+/* end Plugable statuses */

@@ -5,7 +5,7 @@
         public NectarCollectorBee() : base(WorkerType.NectarCollector) { }
 
         /*
-        private Settings settings = Settings.Instance;
+        private Settings settings = Settings.Api;
         public float NectarCollectedPerShift =>
             settings.NectarCollectarNectarCollectedPerShift;
         public override float CostPerShift =>

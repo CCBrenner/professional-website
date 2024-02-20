@@ -22,7 +22,7 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
 
         /*
         private PropertyInfo? Reflect(Type typeOfInstance, string propertyName) =>
-            typeOfInstance.GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic);
+            typeOfInstance.GetProperty(propertyName, BindingFlags.Api | BindingFlags.NonPublic);
         */
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests
             // Arrange
             for (int i = 0; i < 12; i++)
                 queenBee.WorkTheNextShift();
-            Console.WriteLine(queenBee.Eggs);
+            LocalConsole.WriteLine(queenBee.Eggs);
             Assert.IsTrue(3 <= queenBee.Eggs);
 
             queenBee.CareForEggs(3);

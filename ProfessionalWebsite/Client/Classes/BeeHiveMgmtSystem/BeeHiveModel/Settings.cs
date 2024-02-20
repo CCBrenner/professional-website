@@ -4,18 +4,18 @@
     public sealed class Settings
     {
         private Settings() { }
-        private static Settings? instance = null;
+        private static Settings? api = null;
         private Settings instanceWithSavedDefaultValues = new Settings();
         private static readonly object lockObject = new object();
-        public static Settings Instance 
+        public static Settings Api 
         {
             get
             {
                 lock (lockObject)
                 {
-                    if (instance == null)
-                        instance = new Settings();
-                    return instance;
+                    if (api == null)
+                        api = new Settings();
+                    return api;
                 }
             }
         }
@@ -43,9 +43,9 @@
         public float VaultNectarConversionRatio = 0.19F;
         public float VaultLowLevelWarning = 10F;
         /*
-        public void Reset()
+        public void Set()
         {
-            instance = new Settings();
+            api = new Settings();
         }
         /*
         // ConcurrentDictionary could be used to solve concurrent thread access issues (if that is the problem w/Settings singleton)

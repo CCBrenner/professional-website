@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "UtTX0AC/CcxkgG7YBIzc5pqzIoifRcunRpvvya+9FyY=",
+  "Source": "ProfessionalWebsite.Components",
+  "BasePath": "_content/ProfessionalWebsite.Components",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProfessionalWebsite.Components\\wwwroot",
+      "Source": "ProfessionalWebsite.Components",
+      "ContentRoot": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\wwwroot\\",
+      "BasePath": "_content/ProfessionalWebsite.Components",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\wwwroot\\background.png",
+      "SourceId": "ProfessionalWebsite.Components",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\wwwroot\\",
+      "BasePath": "_content/ProfessionalWebsite.Components",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "ProfessionalWebsite.Components",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A\\professional-website\\ProfessionalWebsite.Components\\wwwroot\\",
+      "BasePath": "_content/ProfessionalWebsite.Components",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    }
+  ]
+}

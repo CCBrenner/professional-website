@@ -159,7 +159,7 @@ namespace ProfessionalWebsite.Tests
 
         public object Invoke(string methodName, params object[] args)
         {
-            var methodInfo = o.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo = o.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Api);
             if (methodInfo == null)
             {
                 throw new Exception($"Method'{methodName}' not found is class '{o.GetType()}'");
