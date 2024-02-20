@@ -2,10 +2,10 @@
 
 public class Section
 {
-    private Section(int id, int sectionedPageId, bool isFirstSectionOfPage = false)
+    private Section(string id, string sectionedPageId, bool isFirstSectionOfPage = false)
     {
-        Id = id;
-        SectionedPageId = sectionedPageId;
+        Id = id.ToLower();
+        SectionedPageId = sectionedPageId.ToLower();
         IsFirstSectionOfPage = isFirstSectionOfPage;
         IsCollapsed = false;
         IsCollapsedHeader = "";
@@ -15,8 +15,8 @@ public class Section
     private const string HEADER_COLLAPSED_CLASS_NAME = "collapsed-header";
     private const string CONTENT_COLLAPSED_CLASS_NAME = "collapsed-content";
 
-    public readonly int Id;
-    public readonly int SectionedPageId;
+    public readonly string Id;
+    public readonly string SectionedPageId;
     public SectionedPage SectionedPage;
     public bool IsFirstSectionOfPage { get; private set; }
     public bool IsVisible => !SectionedPage.ASectionIsCurrentlyPromo || SectionedPage.ASectionIsCurrentlyPromo && IsCurrentPromo;
@@ -24,9 +24,9 @@ public class Section
     public string IsCollapsedHeader { get; private set; }
     public string IsCollapsedContent { get; private set; }
     public bool IsCurrentPromo { get; private set; }
-    public static Section Create(int id, int sectionedPageId) =>
+    public static Section CreateRegularSection(string id, string sectionedPageId) =>
         new(id, sectionedPageId, false);
-    public static Section CreateAsFirstSectionOfPage(int id, int sectionedPageId) =>
+    public static Section CreateAsFirstSectionOfPage(string id, string sectionedPageId) =>
         new(id, sectionedPageId, true);
     public void SetInstanceToGroupRelationship(List<SectionedPage> sectionedPages)
     {

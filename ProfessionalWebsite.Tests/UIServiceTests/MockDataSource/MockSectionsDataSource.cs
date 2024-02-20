@@ -4,51 +4,51 @@ namespace ProfessionalWebsite.Tests.UIServiceTests;
 
 internal class MockSectionsDataSource
 {
-    public static Dictionary<int, Section> GetSectionsDict()
+    internal static Dictionary<string, Section> GetSectionsDict()
     {
-        Dictionary<int, Section> sectionsDict = new();
+        Dictionary<string, Section> sectionsDict = new();
 
         foreach (Section section in GetSections())
             sectionsDict.Add(section.Id, section);
 
         return sectionsDict;
     }
-    public static List<Section> GetSections() => new()
+    internal static List<Section> GetSections() => new()
     { 
-        /* start "knowhow" */
-        Section.CreateAsFirstSectionOfPage(0, 1),
-        Section.Create(1, 1),  // Back-end
-        Section.Create(3, 1),
-        Section.Create(4, 1),
-        Section.Create(5, 1),
-        Section.Create(6, 1),
-        Section.Create(7, 1),
-        Section.Create(13, 1),
-        Section.Create(14, 1),
-        Section.Create(15, 1),
-        Section.Create(16, 1),
-        Section.Create(33, 1),  // Match Game
-        /* end "knowhow" */
-        /* start "collyn" */
-        Section.CreateAsFirstSectionOfPage(17, 2),  // Introduction
-        Section.Create(18, 2),  // Employment History
-        Section.Create(19, 2),
-        Section.Create(20, 2),
-        Section.Create(21, 2),
-        Section.Create(22, 2),
-        Section.Create(23, 2),  // Contact
-        Section.Create(24, 2),  // Feedback
-        Section.Create(25, 2),
-        /* end "collyn" */
-        /* start "invent" */
-        Section.CreateAsFirstSectionOfPage(26, 3),
-        Section.Create(27, 3),
-        Section.Create(28, 3),
-        Section.Create(29, 3),
-        Section.Create(30, 3),
-        Section.Create(31, 3),
-        Section.Create(32, 3),
-        /* end "invent" */
+        /* start "knowhow" (1) */
+        Section.CreateAsFirstSectionOfPage("knowhow-overview", "knowhow"),  // 0
+        Section.CreateRegularSection("backend", "knowhow"),  // 1: Back-end
+        Section.CreateRegularSection("frontend", "knowhow"),  // 3
+        Section.CreateRegularSection("uxui", "knowhow"),  // 4
+        Section.CreateRegularSection("cloud-and-containers", "knowhow"),  // 5
+        Section.CreateRegularSection("databases", "knowhow"),  // 6
+        Section.CreateRegularSection("testing", "knowhow"),  // 7
+        Section.CreateRegularSection("why-programming", "knowhow"),  // 13
+        Section.CreateRegularSection("about-this-web-app", "knowhow"),  // 14
+        Section.CreateRegularSection("hide-and-seek", "knowhow"),  // 15
+        Section.CreateRegularSection("bee-hive-mgmt", "knowhow"),  // 16
+        Section.CreateRegularSection("match-game", "knowhow"),  // 33: Match Game
+        /* end "knowhow" (1) */
+        /* start "collyn" (2) */
+        Section.CreateAsFirstSectionOfPage("collyn-intro", "collyn"),  // 17: Introduction
+        Section.CreateRegularSection("employment-history", "collyn"),  // 18: Employment History
+        Section.CreateRegularSection("education-history", "collyn"),  // 19
+        Section.CreateRegularSection("notable-dones", "collyn"),  // 20
+        Section.CreateRegularSection("inspirations", "collyn"),  // 21
+        Section.CreateRegularSection("objectives", "collyn"),  // 22
+        Section.CreateRegularSection("contact", "collyn"),  // 23: Contact
+        Section.CreateRegularSection("feedback", "collyn"),  // 24: Feedback
+        Section.CreateRegularSection("background", "collyn"),  // 25
+        /* end "collyn" (2) */
+        /* start "invent" (3) */
+        Section.CreateAsFirstSectionOfPage("invent-overview", "invent"),  // 26: 
+        Section.CreateRegularSection("future-vision", "invent"),  // 27
+        Section.CreateRegularSection("unified-faith", "invent"),  // 28
+        Section.CreateRegularSection("hang-out-availability", "invent"),  // 29
+        Section.CreateRegularSection("philo-orientation", "invent"),  // 30
+        Section.CreateRegularSection("controller-keyboard-prototype", "invent"),  // 31
+        Section.CreateRegularSection("audio-games", "invent"),  // 32
+        /* end "invent" (3) */
     };
 }
 

@@ -124,7 +124,7 @@ public class UIServiceTests
 
         // ...when they click an element responsible for Blazor navigation that refers to a section (which
         //     can be assumed as existing within a sectioned page)...
-        uIService.NavigateToSection(13);
+        uIService.NavigateToSection("knowhow");
 
         // ...then update the navigation panel group to highlight the button of the destination page.
         Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);
@@ -135,131 +135,131 @@ public class UIServiceTests
     {
         // Given a user on any given web page
         // and given the default state of the destination sectioned pages relevant to this behavior test...
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[4].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[14].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[33].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["uxui"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["about-this-web-app"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["match-game"].IsCurrentPromo);
 
         // ...when the user clicks an element that refers to a section (which can be assumed as existing within a sectioned page)...
-        uIService.NavigateToSection(13);
+        uIService.NavigateToSection("why-programming");
 
         // ...then promote the section (visually moving it to the top above all other sections)
         // and ensure all other sections of the same sectioned page are not promoted/are demoted.
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[4].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[14].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.Sections[33].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["uxui"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["about-this-web-app"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.Sections["match-game"].IsCurrentPromo);
     }
 
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllSectionsAreCollapsedSwitchesFromUsingSectionsToUsingHeaderClones()
     {
         // Given a sectioned page that does not currently contain a section that is promoted...
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.AreEqual(false, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
 
         // ...when a user clicks a navigation element that takes then to a section of that sectioned page...
-        uIService.NavigateToSection(13);
+        uIService.NavigateToSection("why-programming");
 
         // ...then the total number of expanded sections is equal to 1. Based on this, the cloned
         // section headers appear in place of the collapsed sections.
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.AreEqual(true, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
     }
 
     [TestMethod]
     public void TestClickingPromotedSectionHidesClonesOfSectionHeadersAndDemotesThePreviouslyPromotedSection()
     {
         // Given a sectioned page that is displaying its clones of the headers of its sections...
-        uIService.NavigateToSection(13);
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        uIService.NavigateToSection("why-programming");
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
 
         // ...when a user closes/collapses/demotes the promoted section...
-        uIService.ToggleSection(13);
+        uIService.ToggleSection("why-programming");
 
         // ...then the total number of promoted sections equal zero. Based on this,
         // the actual sections are used once again in place of the cloned headers of the sections, which are made invisible.
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.AreEqual(false, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
     }
 
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllOtherSectionsAreClosedPromotesTheSection()
     {
         // Given all sections of a sectioned page are closed/collapsed/demoted...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.Sections[13].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        uIService.NavigateToSection("why-programming");
+        uIService.ToggleAllSections("backend");
+        uIService.ToggleAllSections("backend");
+        Assert.AreEqual(false, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["uxui"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["testing"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["bee-hive-mgmt"].IsCollapsed);
+        Assert.AreEqual(false, uIService.SectionedPages["backend"].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
-        uIService.ToggleSection(13);
+        uIService.ToggleSection("why-programming");
 
         // ...then the clicked section is promoted.
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCurrentPromo);
     }
 
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllOtherSectionsAreClosedReplacesSectionsWithClonedHeaders()
     {
         // Given all sections of a sectioned page are closed/collapsed/demoted...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.Sections[13].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        uIService.NavigateToSection("why-programming");
+        uIService.ToggleAllSections("backend");
+        uIService.ToggleAllSections("backend");
+        Assert.AreEqual(false, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["uxui"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["testing"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["bee-hive-mgmt"].IsCollapsed);
+        Assert.AreEqual(false, uIService.SectionedPages["backend"].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
-        uIService.ToggleSection(13);
+        uIService.ToggleSection("why-programming");
 
         // ...then the closed sections are replaced with the cloned headers of the sections.
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.AreEqual(true, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
     }
 
     [TestMethod]
     public void TestClickingMassToggleToolForSectionsWhenASectionIsPromotedSwitchesPageFromUsingClonedHeadersToUsingTheActualSections()
     {
         // Given a section of a sectioned page is currently promoted...
-        uIService.NavigateToSection(13);
-        Assert.AreEqual(true, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(true, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        uIService.NavigateToSection("why-programming");
+        Assert.AreEqual(true, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(true, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
 
         // ...when the mass toggle tool for sections is clicked...
-        uIService.ToggleAllSections(1);
+        uIService.ToggleAllSections("backend");
 
         // ...then no sections of the sectioned page are promoted any longer
         // and the actual sections are used again instead of the cloned headers of the sections.
-        Assert.AreEqual(false, uIService.Sections[13].IsCurrentPromo);
-        Assert.AreEqual(false, uIService.SectionedPages[1].ASectionIsCurrentlyPromo);
+        Assert.AreEqual(false, uIService.Sections["why-programming"].IsCurrentPromo);
+        Assert.AreEqual(false, uIService.SectionedPages["knowhow"].ASectionIsCurrentlyPromo);
     }
 
     [TestMethod]
     public void TestClickingMassToggleToolForSectionsWhenAllSectionsAreOpenCollapsesAllSections()
     {
         // Given all sections of a sectioned page are open...
-        uIService.NavigateToSection(13);
-        uIService.ToggleAllSections(1);
-        Assert.AreEqual(false, uIService.Sections[1].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(false, uIService.Sections[16].IsCollapsed);
+        uIService.NavigateToSection("why-programming");
+        uIService.ToggleAllSections("backend");
+        Assert.AreEqual(false, uIService.Sections["backend"].IsCollapsed);
+        Assert.AreEqual(false, uIService.Sections["uxui"].IsCollapsed);
+        Assert.AreEqual(false, uIService.Sections["testing"].IsCollapsed);
+        Assert.AreEqual(false, uIService.Sections["bee-hive-mgmt"].IsCollapsed);
 
         // ...when a user clicks the mass toggle tool for sections of the page...
-        uIService.ToggleAllSections(1);
+        uIService.ToggleAllSections("backend");
 
         // ...then all sections of the sectioned page are closed/collapsed.
-        Assert.AreEqual(true, uIService.Sections[1].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[4].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[7].IsCollapsed);
-        Assert.AreEqual(true, uIService.Sections[16].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["backend"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["uxui"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["testing"].IsCollapsed);
+        Assert.AreEqual(true, uIService.Sections["bee-hive-mgmt"].IsCollapsed);
     }
     
     [TestMethod]
@@ -287,7 +287,7 @@ public class UIServiceTests
         int hardcodedPagePanelId = 7;
         int navPanelButtonId = 4;
         int navpanelGroupId = 0;
-        uIService.NavigateToSection(3);
+        uIService.NavigateToSection("frontend");
         Assert.AreEqual(3, uIService.PanelGroups[navpanelGroupId].LocationPanelId);
 
         // ...when they click an element that opens a hardcoded page...
@@ -310,7 +310,7 @@ public class UIServiceTests
         Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
 
         // ...when they click an element that navigates them to another page away from the hardcoded page...
-        uIService.NavigateToSection(2);
+        uIService.NavigateToSection("frontend");
 
         // ...then the hardcoded page is made invisible
         // and the behind panel is closed.
@@ -333,7 +333,7 @@ public class UIServiceTests
         Assert.AreEqual(true, uIService.Panels[hardcodedPagePanelId].BehindPanelIsActive);
 
         // ...when they click an element that navigates them to another page away from the hardcoded page...
-        uIService.NavigateToSection(3);
+        uIService.NavigateToSection("frontend");
 
         // ...then the location panel of the navigation panel group is updated to the location panel of the destination page.
         Assert.AreEqual(3, uIService.PanelGroups[0].LocationPanelId);

@@ -2,15 +2,15 @@
 
 public class SectionMgmt
 {
-    private SectionMgmt(Dictionary<int, SectionedPage> sectionedPagesDictionary, Dictionary<int, Section> sectionsDictionary)
+    private SectionMgmt(Dictionary<string, SectionedPage> sectionedPagesDictionary, Dictionary<string, Section> sectionsDictionary)
     {
         _sections = sectionsDictionary;
         _sectionedPages = sectionedPagesDictionary;
         SetInstanceToGroupReferences();
     }
 
-    private Dictionary<int, Section> _sections;
-    private Dictionary<int, SectionedPage> _sectionedPages;
+    private Dictionary<string, Section> _sections;
+    private Dictionary<string, SectionedPage> _sectionedPages;
 
     public event Action<string> OnSectionMgmtChanged;
 
@@ -21,22 +21,22 @@ public class SectionMgmt
     */
 
     public static SectionMgmt Create(
-        Dictionary<int, SectionedPage> sectionedPagesDictionary, 
-        Dictionary<int, Section> sectionsDictionary) =>
+        Dictionary<string, SectionedPage> sectionedPagesDictionary, 
+        Dictionary<string, Section> sectionsDictionary) =>
         new(sectionedPagesDictionary, sectionsDictionary);
 
     /// <summary>
     /// Collapses all sections and promotes one section to the top of the sectioned page.
     /// </summary>
     /// <param name="sectionId">ID of the section that is being promoted/which has been selected.</param>
-    public void CollapseAllShowOne(int sectionId)
+    public void CollapseAllShowOne(string sectionId)
     {
         try
         {
             DemoteAllSections();
             Section section = _sections[sectionId];
             SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
-            Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
+            Dictionary<string, Section> sectionsOfSectionedPage = sectionedPage.Sections;
             if (section.IsFirstSectionOfPage)
             {
                 foreach (var sec in sectionsOfSectionedPage.Values)
@@ -61,7 +61,7 @@ public class SectionMgmt
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId)
+    public void ToggleSection(string sectionId)
     {
         try
         {
@@ -88,11 +88,15 @@ public class SectionMgmt
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
     /// </summary>
     /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleAllSections(int pageId)
+    public void ToggleAllSections(string pageId)
     {
         try
         {
-            int sectionId = _sectionedPages[pageId].Sections.Keys.FirstOrDefault();
+            string? sectionId = _sectionedPages[pageId].Sections.Keys.FirstOrDefault();
+            if (sectionId is null)
+            {
+                throw new Exception("Error: SectionId is null.");
+            }
             UpdateSectionsStatus(sectionId);
 
             DemoteAllSections();
@@ -113,13 +117,17 @@ public class SectionMgmt
         {
             Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}\n{ex.StackTrace}");
+        }
 
     }
     /// <summary>
     /// Demotes all other sections and makes specified section the promo section.
     /// </summary>
     /// <param name="sectionId">ID of section to be made promo section.</param>
-    public void PromoteSection(int sectionId)
+    public void PromoteSection(string sectionId)
     {
         try
         {
@@ -139,7 +147,7 @@ public class SectionMgmt
     /// </summary>
     /// <param name="sectionId">ID of section used to get the sectioned page's location panel's ID</param>
     /// <returns></returns>
-    public int GetLocationPanelGroupId(int sectionId)
+    public int GetLocationPanelGroupId(string sectionId)
     {
         try
         {
@@ -167,7 +175,7 @@ public class SectionMgmt
     /// Finds the sections of the sectioned page that the specified section is a part of, counts how many sections are currently expanded, and then sets the status based on the number of expanded sections.
     /// </summary>
     /// <param name="sectionId">ID of specified section.</param>
-    private void UpdateSectionsStatus(int sectionId)
+    private void UpdateSectionsStatus(string sectionId)
     {
         Section section = _sections[sectionId];
         SectionedPage sectionedPage = _sectionedPages[section.SectionedPageId];
@@ -192,7 +200,7 @@ public class SectionMgmt
         foreach (Section section in _sections.Values)
             section.SetInstanceToGroupRelationship(_sectionedPages.Values.ToList());
 
-        List<Section> sectionsOfPage = new List<Section>();
+        List<Section> sectionsOfPage = new();
         foreach (Section section in _sections.Values)
         {
             _sectionedPages[section.SectionedPageId]
@@ -204,16 +212,16 @@ public class SectionMgmt
     /// If at any point in time, if there is only one section in a sectioned page that is expanded, then promote that section.
     /// </summary>
     /// <param name="sectionId">ID of section used to determine the sectioned page to check for promo.</param>
-    private void PromoteIfOnlyOneExpandedSection(int sectionId)
+    private void PromoteIfOnlyOneExpandedSection(string sectionId)
     {
         try
         {
             int expandedSectionsCount = 0;
-            int idOfSectionToPromote = 0;
+            string idOfSectionToPromote = string.Empty;
 
             Section sec = _sections[sectionId];
             SectionedPage sectionedPage = _sectionedPages[sec.SectionedPageId];
-            Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
+            Dictionary<string, Section> sectionsOfSectionedPage = sectionedPage.Sections;
 
             foreach (Section section in sectionsOfSectionedPage.Values)
             {

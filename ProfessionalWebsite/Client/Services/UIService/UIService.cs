@@ -3,11 +3,11 @@
 public class UIService : IUIService
 {
     public UIService(
-        List<bool> isContinuous, 
-        Dictionary<int, PanelGroup> panelGroups, 
-        Dictionary<int, Panel> panels, 
-        Dictionary<int, SectionedPage> sectionedPages, 
-        Dictionary<int, Section> sections)
+        List<bool> isContinuous,
+        Dictionary<int, PanelGroup> panelGroups,
+        Dictionary<int, Panel> panels,
+        Dictionary<string, SectionedPage> sectionedPages,
+        Dictionary<string, Section> sections)
     {
         IsContinuous = isContinuous;
         _anim = AnimMgmt.Create(IsContinuous);
@@ -31,8 +31,8 @@ public class UIService : IUIService
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
-    public Dictionary<int, Section> Sections { get; private set; }
-    public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
+    public Dictionary<string, Section> Sections { get; private set; }
+    public Dictionary<string, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
 
@@ -67,10 +67,11 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
-    public void NavigateToSection(int sectionId)
+    public void NavigateToSection(string sectionId)
     {
+        string lowederedSectionId = sectionId.ToLower();
         DeactivateAllPanels();
-        _nav.NavigateToSection(sectionId, _panel, _section);
+        _nav.NavigateToSection(lowederedSectionId, _panel, _section);
     }
 
     /// <summary>
@@ -108,7 +109,7 @@ public class UIService : IUIService
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId)
+    public void ToggleSection(string sectionId)
     {
         _section.ToggleSection(sectionId);
         RaiseEventOnUiServiceChanged();
@@ -118,7 +119,7 @@ public class UIService : IUIService
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
     /// </summary>
     /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleAllSections(int pageId)
+    public void ToggleAllSections(string pageId)
     {
         _section.ToggleAllSections(pageId);
         RaiseEventOnUiServiceChanged();

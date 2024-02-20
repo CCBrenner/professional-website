@@ -1,10 +1,11 @@
-﻿namespace ProfessionalWebsite.Client.Classes.HideAndSeekProject
+﻿using ProfessionalWebsite.Client.Classes.HideAndSeekProject;
+
+namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
+
+public class MockRandom : System.Random
 {
-    public class MockRandom : System.Random
-    {
-        public int ValueToReturn { get; set; } = 0;
-        public override int Next() => ValueToReturn;
-        public override int Next(int maxValue) => ValueToReturn;
-        public override int Next(int minValue, int maxValue) => ValueToReturn;
-    }
+    public int ValueToReturn { get; set; } = 0;
+    public override int Next() => ValueToReturn;
+    public override int Next(int maxValue) => ValueToReturn;
+    public override int Next(int minValue, int maxValue) => ValueToReturn;
 }

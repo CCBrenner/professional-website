@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {}
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_last_attempt_at_stringifying_section_ids\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
+    "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_last_attempt_at_stringifying_section_ids\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_last_attempt_at_stringifying_section_ids\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
         "projectName": "ProfessionalWebsite.Shared",
-        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
+        "projectPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_last_attempt_at_stringifying_section_ids\\professional-website\\ProfessionalWebsite\\Shared\\ProfessionalWebsite.Shared.csproj",
         "packagesPath": "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_last_attempt_at_stringifying_section_ids\\professional-website\\ProfessionalWebsite\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

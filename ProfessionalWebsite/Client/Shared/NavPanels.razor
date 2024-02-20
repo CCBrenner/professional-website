@@ -15,16 +15,16 @@
         <NavPanelNavLinkButton Href="beehivemgmtsystem"
                                ButtonText="Bee Hive Mgmt System"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
-        <NavPanelNavLinkButton Href="hideandseek"
+        <NavPanelNavLinkButton Href="hide-and-seek"
                                ButtonText="Hide & Seek"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="sudoku-solver"
                                ButtonText="Sudoku Puzzle Solver"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
-        <NavPanelNavLinkButton Href="knowhow/14"
+        <NavPanelNavLinkButton Href="knowhow/aboutThisWebApp"
                                ButtonText="This PWA"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(14))" />
-        <NavPanelNavLinkButton Href="matchgame"
+                               ButtonClickCallback='(()=>UI.NavigateToSection(" aboutThisWebApp"))' />
+        <NavPanelNavLinkButton Href="match-game"
                                ButtonText="Match Game"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="twodecks"
@@ -53,140 +53,140 @@
       @*<NavPanelNavLinkButton Href="djangopollingapp"
                                ButtonText="Polling App (Django/Python)"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />*@
-        <NavPanelNavLinkButton Href="collyn/23"
+        <NavPanelNavLinkButton Href="collyn/contact"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("contact"))' />
         <NavPanelNavLinkButton Href="projects/#"
                                ButtonText="Layout Controls"
                                ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-b" NavPanelStatus="@UI.Panels[3].PanelStatus">
-    <NavPanelNavLinkButton Href="knowhow/0"
+    <NavPanelNavLinkButton Href="knowhow/knowHowOverview"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
                            ButtonText="Know-How"
-                           ButtonClickCallback="(()=>UI.NavigateToSection(0))" />
+                           ButtonClickCallback='(()=>UI.NavigateToSection("knowhow-overview"))' />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="knowhow/0"
+        <NavPanelNavLinkButton Href="knowhow/knowHowOverview"
                                ButtonText="Overview"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(0))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("knowhow-overview"))' />
         <CollapsibleSection DoesItCollapse="no" ParentButtonText="Project Descriptions">
-            <NavPanelNavLinkButton Href="knowhow/14"
+            <NavPanelNavLinkButton Href="knowhow/aboutThisWebApp"
                                    TopLvlClasses="collapsible-section-item-for-top-lvl"
                                    ButtonText="About This Web App"
-                                   ButtonClickCallback="(()=>UI.NavigateToSection(14))" />
-            <NavPanelNavLinkButton Href="knowhow/16"
+                                   ButtonClickCallback='(()=>UI.NavigateToSection("about-this-web-app"))' />
+            <NavPanelNavLinkButton Href="knowhow/beeHiveMgmt"
                                    TopLvlClasses="collapsible-section-item-for-top-lvl"
                                    ButtonText="Bee Hive Manager System/Game - Project"
-                                   ButtonClickCallback="(()=>UI.NavigateToSection(16))" />
-            <NavPanelNavLinkButton Href="knowhow/15"
+                                   ButtonClickCallback='(()=>UI.NavigateToSection("bee-hive-mgmt"))' />
+            <NavPanelNavLinkButton Href="knowhow/hideAndSeek"
                                    TopLvlClasses="collapsible-section-item-for-top-lvl"
                                    ButtonText="Hide & Seek Game - Project"
-                                   ButtonClickCallback="(()=>UI.NavigateToSection(15))" />
-            <NavPanelNavLinkButton Href="knowhow/33"
+                                   ButtonClickCallback='(()=>UI.NavigateToSection("hide-and-seek"))' />
+            <NavPanelNavLinkButton Href="knowhow/matchGame"
                                    TopLvlClasses="collapsible-section-item-for-top-lvl"
                                    ButtonText="Match Game - Project"
-                                   ButtonClickCallback="(()=>UI.NavigateToSection(33))" />
+                                   ButtonClickCallback='(()=>UI.NavigateToSection("match-game"))' />
         </CollapsibleSection>
-        <NavPanelNavLinkButton Href="knowhow/3"
+        <NavPanelNavLinkButton Href="knowhow/frontEnd"
                                ButtonText="Front-end"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(3))" />
-        <NavPanelNavLinkButton Href="knowhow/1"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("frontend"))' />
+        <NavPanelNavLinkButton Href="knowhow/backEnd"
                                ButtonText="Back-end"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(1))" />
-        <NavPanelNavLinkButton Href="knowhow/4"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("backend"))' />
+        <NavPanelNavLinkButton Href="knowhow/uxui"
                                ButtonText="UX/UI + Modeling Software"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(4))" />
-        <NavPanelNavLinkButton Href="knowhow/5"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("uxui"))' />
+        <NavPanelNavLinkButton Href="knowhow/cloudAndContainers"
                                ButtonText="Cloud Deployment + Containers"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(5))" />
-        <NavPanelNavLinkButton Href="knowhow/6"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("cloud-and-containers"))' />
+        <NavPanelNavLinkButton Href="knowhow/databases"
                                ButtonText="Databases"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(6))" />
-        <NavPanelNavLinkButton Href="knowhow/7"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("databases"))' />
+        <NavPanelNavLinkButton Href="knowhow/testing"
                                ButtonText="Testing"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(7))" />
-        <NavPanelNavLinkButton Href="knowhow/13"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("testing"))' />
+        <NavPanelNavLinkButton Href="knowhow/whyProgramming"
                                ButtonText="Why Programming?"
-                               ButtonClickCallback="(()=>UI.NavigateToSection( 13))" />
-        <NavPanelNavLinkButton Href="collyn/23"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("why-programming"))' />
+        <NavPanelNavLinkButton Href="collyn/contact"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("contact"))' />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panels[4].PanelStatus">
-    <NavPanelNavLinkButton Href="collyn/17"
+    <NavPanelNavLinkButton Href="collyn/collynIntro"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-book"
                            ButtonText="Collyn Brenner"
-                           ButtonClickCallback="(()=>UI.NavigateToSection( 17))" />
+                           ButtonClickCallback='(()=>UI.NavigateToSection("collyn-intro"))' />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="collyn/17"
+        <NavPanelNavLinkButton Href="collyn/collynIntro"
                                ButtonText="Introduction"
-                               ButtonClickCallback="(()=>UI.NavigateToSection( 17))" />
-        <NavPanelNavLinkButton Href="collyn/18"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("collyn-intro"))' />
+        <NavPanelNavLinkButton Href="collyn/employmentHistory"
                                ButtonText="Employment History"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(18))" />
-        <NavPanelNavLinkButton Href="collyn/19"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("employment-history"))' />
+        <NavPanelNavLinkButton Href="collyn/educationHistory"
                                ButtonText="Education History"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(19))" />
-        <NavPanelNavLinkButton Href="collyn/20"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("education-history"))' />
+        <NavPanelNavLinkButton Href="collyn/notableDones"
                                ButtonText='Noteable "Done"s'
-                               ButtonClickCallback="(()=>UI.NavigateToSection(20))" />
-        <NavPanelNavLinkButton Href="collyn/21"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("notable-dones"))' />
+        <NavPanelNavLinkButton Href="collyn/inspirations"
                                ButtonText="Inspirations"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(21))" />
-        <NavPanelNavLinkButton Href="collyn/22"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("inspirations"))' />
+        <NavPanelNavLinkButton Href="collyn/objectives"
                                ButtonText="Objectives"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(22))" />
-        <NavPanelNavLinkButton Href="collyn/23"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("objectives"))' />
+        <NavPanelNavLinkButton Href="collyn/contact"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
-        <NavPanelNavLinkButton Href="collyn/24"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("contact"))' />
+        <NavPanelNavLinkButton Href="collyn/feedback"
                                IconClasses="fa-solid fa-rotate-left"
                                ButtonText="Feedback"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(24))" />
-        <NavPanelNavLinkButton Href="collyn/25"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("feedback"))' />
+        <NavPanelNavLinkButton Href="collyn/background"
                                ButtonText="Background"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(25))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("background"))' />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panels[5].PanelStatus">
-    <NavPanelNavLinkButton Href="invent/26"
+    <NavPanelNavLinkButton Href="invent/inventOverview"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-warehouse"
                            ButtonText="Invent"
-                           ButtonClickCallback="(()=>UI.NavigateToSection(26))" />
+                           ButtonClickCallback='(()=>UI.NavigateToSection("invent-overview"))' />
     <div class="panel-scrollablesection">
-        <NavPanelNavLinkButton Href="invent/26"
+        <NavPanelNavLinkButton Href="invent/inventOverview"
                                ButtonText="Overview"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(26))" />
-        <NavPanelNavLinkButton Href="invent/27"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("invent-overview"))' />
+        <NavPanelNavLinkButton Href="invent/futureVision"
                                ButtonText="Future Vision App"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(27))" />
-        <NavPanelNavLinkButton Href="invent/28"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("future-vision"))' />
+        <NavPanelNavLinkButton Href="invent/unifiedFaith"
                                ButtonText="Unified Faith App"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(28))" />
-        <NavPanelNavLinkButton Href="invent/29"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("unified-faith"))' />
+        <NavPanelNavLinkButton Href="invent/hangOutAvailability"
                                ButtonText="Hang Out Availability App"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(29))" />
-        <NavPanelNavLinkButton Href="invent/30"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("hang-out-availability"))' />
+        <NavPanelNavLinkButton Href="invent/philoOrientation"
                                ButtonText="Philosophy Orientation App"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(30))" />
-        <NavPanelNavLinkButton Href="invent/31"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("philo-orientation"))' />
+        <NavPanelNavLinkButton Href="invent/controllerKeyboardPrototype"
                                ButtonText="Controller Keyboard Prototype"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(31))" />
-        <NavPanelNavLinkButton Href="invent/32"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("controller-keyboard-prototype"))' />
+        <NavPanelNavLinkButton Href="invent/audioGames"
                                ButtonText="Audio Game"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(32))" />
-        <NavPanelNavLinkButton Href="collyn/23"
+                               ButtonClickCallback='(()=>UI.NavigateToSection("audio-games"))' />
+        <NavPanelNavLinkButton Href="collyn/contact"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("contact"))' />
     </div>
 </NavPanelContainer>
 <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[6].PanelStatus">
@@ -215,10 +215,10 @@
                                IconClasses="fa-solid fa-wand-magic-sparkles"
                                ButtonText="Psychotherapists, Technologists, & Physicians in Christian Ministry"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(6))" />*@
-        <NavPanelNavLinkButton Href="collyn/23"
+        <NavPanelNavLinkButton Href="collyn/contact"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
+                               ButtonClickCallback='(()=>UI.NavigateToSection("contact"))' />
         @* potnetially include some of the below articles; keeping as ideas for future articles *@
         @*
         <div class="nav-item" @onclick="(()=>UpdateNavFromRoute('E'))">
