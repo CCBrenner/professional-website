@@ -1,8 +1,8 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public class Panel
 {
-    public Panel(
+    private Panel(
         int id,
         int panelGroupId = -1,
         string panelActiveStatusClassName = "pm-panel-visible",
@@ -47,6 +47,23 @@ public class Panel
     public string PanelButtonStatus { get; private set; }
     public bool PanelButtonIsActive { get; private set; }
 
+    public static Panel Create(
+        int id,
+        int panelGroupId = -1,
+        string panelActiveStatusClassName = "pm-panel-visible",
+        string blurStatusClassName = "pm-content-blurred",
+        string behindPanelStatusClassName = "pm-behindpanel-present",
+        string panelButtonClassName = "pm-panelbutton-active",
+        bool cannotBeActiveWhileOtherPanelsAreActive = true
+    ) => new(
+        id,
+        panelGroupId,
+        panelActiveStatusClassName,
+        blurStatusClassName,
+        behindPanelStatusClassName,
+        panelButtonClassName,
+        cannotBeActiveWhileOtherPanelsAreActive
+    );
     public void Activate()
     {
         PanelStatus = panelActiveStatusClassName;

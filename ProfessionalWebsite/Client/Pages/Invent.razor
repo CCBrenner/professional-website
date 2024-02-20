@@ -2,37 +2,37 @@
 @implements IDisposable
 
 @page "/invent"
-@page "/invent/{SectionId:int}"
+@page "/invent/{SectionId:string}"
 
 <PageTitle>Invent - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-warehouse" HeaderText="Invent">
     <DrawerContent>
-        <DrawerNavLinkButton Href="invent/26" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(26))" />
-        <DrawerNavLinkButton Href="invent/27" ButtonText="Future Vision App" OnClickCallback="(()=>UI.NavigateToSection(27))" />
-        <DrawerNavLinkButton Href="invent/28" ButtonText="Unified Faith App" OnClickCallback="(()=>UI.NavigateToSection(28))" />
-        <DrawerNavLinkButton Href="invent/29" ButtonText="Hang Out Availability App" OnClickCallback="(()=>UI.NavigateToSection(29))" />
-        <DrawerNavLinkButton Href="invent/30" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>UI.NavigateToSection(30))" />
-        <DrawerNavLinkButton Href="invent/31" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>UI.NavigateToSection(31))" />
-        <DrawerNavLinkButton Href="invent/32" ButtonText="Audio Games" OnClickCallback="(()=>UI.NavigateToSection(32))" />
-        <DrawerNavLinkButton Href="collyn/23" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
+        <DrawerNavLinkButton Href="invent/InventOverview" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(SecId.InventOverview))" />
+        <DrawerNavLinkButton Href="invent/FutureVision" ButtonText="Future Vision App" OnClickCallback="(()=>UI.NavigateToSection(SecId.FutureVision))" />
+        <DrawerNavLinkButton Href="invent/UnifiedFaith" ButtonText="Unified Faith App" OnClickCallback="(()=>UI.NavigateToSection(SecId.UnifiedFaith))" />
+        <DrawerNavLinkButton Href="invent/HangOutAvailability" ButtonText="Hang Out Availability App" OnClickCallback="(()=>UI.NavigateToSection(SecId.HangOutAvailability))" />
+        <DrawerNavLinkButton Href="invent/PhiloOrientation" ButtonText="Philosophy Orientation App" OnClickCallback="(()=>UI.NavigateToSection(SecId.PhiloOrientation))" />
+        <DrawerNavLinkButton Href="invent/ControllerKeyboardProtoype" ButtonText="Controller Keyboard Prototype" OnClickCallback="(()=>UI.NavigateToSection(SecId.ControllerKeyboardProtoype))" />
+        <DrawerNavLinkButton Href="invent/AudioGames" ButtonText="Audio Games" OnClickCallback="(()=>UI.NavigateToSection(SecId.AudioGames))" />
+        <DrawerNavLinkButton Href="collyn/Contact" IconClasses="fa-solid fa-envelope" ButtonText="Contact" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Overview*@
-                @if (UI.Section.Sections[26].IsVisible)
+                @if (UI.Section.Sections[SecId.InventOverview].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
-                            @if(UI.Section.Sections[26].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.InventOverview].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.InventOverview))">
+                            @if(UI.Section.Sections[SecId.InventOverview].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Overview
                         </div>
-                        <div class="section-content @UI.Section.Sections[26].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.InventOverview].IsCollapsedContent">
                             <br/>
                             <h4>The Greenfield</h4>
                             <p>Someone once said that every business needs an ideas guy. Well, if I am honest I must share that I believe I am one of those people. It is in my nature to be creative, to generate ideas, to look at things differently than others would even try to imagine. I think that is it: imagination. Engineering is one of the coolest things that a person can participate in because it is the making of the ideal into something real. It is also the making of a problem into something better through a solution. Both of these things invigorate me, though they often can be difficult to bear at times, and sometimes there is no apparent solution. However, just because we may encounter hardships in our efforts to construct something we believe is worth constructing, that doesn’t mean that we should give up quickly. To be an imaginative engineer is the essence of marrying the ideal and the real and the real with the ideal. What is difficult in this regard is that being an engineer requires discipline in order for what is built to go well with the engineer, and discipline and imagination at times can conflict. And so it is this balance or trade-off that needs to happen: There is a time to imagine, and there is a time to build with discipline. I have been intent on achieving this, this back and forth between times of imagining and the times of creating through disciplined work.</p>
@@ -41,18 +41,18 @@
                     </div>
                 }
                 @*Future Vision App*@
-                @if (UI.Section.Sections[27].IsVisible)
+                @if (UI.Section.Sections[SecId.FutureVision].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
-                            @if(UI.Section.Sections[27].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.FutureVision].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.FutureVision))">
+                            @if(UI.Section.Sections[SecId.FutureVision].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Future Vision App
                         </div>
-                        <div class="section-content @UI.Section.Sections[27].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.FutureVision].IsCollapsedContent">
                             <br/>
                             <h4>Idea Conceptualized</h4>
                             <p>The idea behind this app is for any group of people who have time on their hands to try and do something that is somewhat complex to the point of requiring a long-term strategy. The term “future vision” alludes to the ability to visualize time concerning future paths to be taken towards a goal in hopes of achieving success. It is hard to get everyone onto the same page sometimes due to discrepancies between understanding of things, and it is often hard sometimes just to get an idea down in a described form that is able to be communicated by one person. And so as a dynamic visualization aid this app would provide a way to “show, don’t tell” (although that which is shown can be enhanced in understanding for the viewer through the use of descriptive detail). The Future Vision app allows the user to change course, or “pivot”, as they progress with the roadmap they have laid out for themselves. If you are of a software development background, you can think of this as creating a number of repository branches, and then when a decision is made it equates to having chosen one of the branches to follow as a roadmap segment. The future vision visual modeling allows for the group to quickly, accurately, and easily explain what their project is to others, and due to the high level of accessibility via mobile devices this can lead to recruiting people who are interested in the project’s endeavor through the sharing of a link. The future vision app allows the group to be organized about their planning, work with something that allows for contemplation over hypothetical situations so that potential barriers to success can be identified ahead of time and either negated, avoided, or identified as being without a solution in which case a different means would have to be crafted. (Someone once said that the easiest way for an engineer to waste time is to build something that should never have been built in the first place.)</p>
@@ -68,18 +68,18 @@
                     </div>
                 }
                 @*Unified Faith App*@
-                @if (UI.Section.Sections[28].IsVisible)
+                @if (UI.Section.Sections[SecId.UnifiedFaith].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
-                            @if(UI.Section.Sections[28].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.UnifiedFaith].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.UnifiedFaith))">
+                            @if(UI.Section.Sections[SecId.UnifiedFaith].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Unified Faith App
                         </div>
-                        <div class="section-content @UI.Section.Sections[28].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.UnifiedFaith].IsCollapsedContent">
                             <br/>
                             <h4>Idea Concept Overview</h4>
                             <p>The idea for this app is to support believers and to unify those who share a common Biblical faith in Jesus. Faith surely is to be common among believers - it is not a different faith between people who call themselves Christians. A person’s relationship with their savior may vary as they come to know him, leaving us with different depths of relationship with Jesus - this is true - but it is still one faith, one Lord, one body, one Spirit, one baptism, one God, one Father of all. This reality looks to not be recognized, or at least not realized in the Church yet. I propose a platform that achieves the purposes described below, one designed specifically for the Church to supplement the secular platforms as a dedicated space for Biblical conversation and love for one another in service to God in the world while not being of the world. I hope that this platform also welcomes healthy competition (in other words, good sportsmanship) and the benefits that technology has to offer the Church instead of fear of technology, because perfect love casts out fear. We need only to be responsible stewards of such technology while holding to our commitment to our God and to his people who wish to share the love of the only true God with all people.</p>
@@ -95,18 +95,18 @@
                     </div>
                 }
                 @*Hang Out Availability App*@
-                @if (UI.Section.Sections[29].IsVisible)
+                @if (UI.Section.Sections[SecId.HangOutAvailability].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
-                            @if(UI.Section.Sections[29].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.HangOutAvailability].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.HangOutAvailability))">
+                            @if(UI.Section.Sections[SecId.HangOutAvailability].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Hang Out Availability App
                         </div>
-                        <div class="section-content @UI.Section.Sections[29].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.HangOutAvailability].IsCollapsedContent">
                             <p>Today, no one wants to be the friend that reaches out first to see if someone wants to hang out with them. They don’t want to risk being rejected for taking the initiative in a friendship. This is because a person can end up feeling bad when it seems like they are the one who cares more about the relationship or that they are having to admit that they want or need to spend time with that friend for fear of the sentiment not being mutually shared, or at least not mutually shown. It is also a bad feeling when it comes off as if a person has no other friends to spend time with. These are hard realities to face many times, and it usually happens in a state of loneliness.</p>
                             <p>This app would allow the user to set up times where the person is free to hang out, either on a schedule or spontaneously, and offer the ability for others to see that that person would like to hang out, and the people can get together. The app would also reserve the ability to hide a person’s status as “wanting to hang out” for certain people that the user does not have an interest in hanging out with. Those people will not see that that person is available to hang out. It is a simple concept for something that has high potential to encourage connecting with others in an easier way.</p>
 
@@ -114,18 +114,18 @@
                     </div>
                 }
                 @*Philosophy Orientation App*@
-                @if (UI.Section.Sections[30].IsVisible)
+                @if (UI.Section.Sections[SecId.PhiloOrientation].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
-                            @if(UI.Section.Sections[30].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.PhiloOrientation].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.PhiloOrientation))">
+                            @if(UI.Section.Sections[SecId.PhiloOrientation].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Philosophy Orientation App
                         </div>
-                        <div class="section-content @UI.Section.Sections[30].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.PhiloOrientation].IsCollapsedContent">
                             <p>When I first learned about philosophy, I started to see the world in a whole new way, however, there is this common stigma about philosophy upon first impression that it is boring, antiquated, or something that doesn’t have anything to do with things that really matter. In other words, it is not attractive to people as worth getting involved with. But, what I’ve come to see is that some philosophy is incredibly useful, and I found that philosophy provides a unique means for appreciating life in new ways. It enables a person to think in ways they wouldn’t have thought before, and it brings the observer to know oneself more and their place in the world. It is able to give the ability to navigate the world based on principles of reasoning instead of gut instincts or whichever way the winds of feelings blow a person around.</p>
                             <p>My perspective on all of this is that most people have not been properly introduced to philosophy - the love of wisdom. Many people may never see wisdom as something worth acquiring, or even of thinking that wisdom is something to be acquired intentionally compared to acquiring wisdom from mere experiences of life. The great philosophers of the past are still considered today because their ideas have proven their potential for longevity such as to remain relevant even now - but how are they relevant? The application I would seek to build would be centered around the fact that we all make decisions in life. When making decisions it is good to ask yourself relevant questions surrounding the decision, so as to make the best decision. How do we determine what the best decision is? What are all of the available options? Is there an art to decision-making, or is instinct just as good? Can using philosophy make our lives better, or is it a total waste of time? Who are the philosophers of the past and what are their ideas and proposed perspectives? What can we learn from the great thinkers of history? What is the framework for thinking within the subject of philosophy? Do I know that the simple decision between what to care about and what not to care about is actually a philosophical one? This app would encourage the user to think in the form of questions about what is, how it works, what is true, what is to be valued or at least valued by the user, and seek to make the user more robust in their thinking so as to be able to maintain independent thinking in a world where groupthink is always on the prowl, looking for someone to devour.</p>
 
@@ -133,18 +133,18 @@
                     </div>
                 }
                 @*Controller Keyboard Prototype*@
-                @if (UI.Section.Sections[31].IsVisible)
+                @if (UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
-                            @if(UI.Section.Sections[31].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.ControllerKeyboardProtoype))">
+                            @if(UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Controller Keyboard Prototype
                         </div>
-                        <div class="section-content @UI.Section.Sections[31].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsCollapsedContent">
                             <p>I have come to prefer the classic gaming controller when considering all of the different ways controllers can be used with virtualized objects and interfaces. Inevitably as you may have also experienced, I find myself having to type something into a console game or even into a streaming platform. All this to say, the virtual keyboard always causes a varying degree of disappointment. It is a slow and grueling process to press the same button over and over in the same direction just to enter a single letter, only to find that I was one click off and I now have to navigate to the back button and then back to that letter, which I might as well miss once again. You may have hotkeys for your classic controller, but they are always different and this makes them not worth my time to learn what each different set of hot keys are available to me. This is slow, and in a world where hotkeys are a thing, I thought I could come up with a  better solution.</p>
                             <p>Before introducing my solution, you may think of providing a digital cursor controlled by an analog stick to selected keys on a virtual keyboard. This may work with tuning for acceleration, targeting size, auto sticking to the closest screen item when the cursor stops moving on the part of the developer. That can be a solution. But this still employs a 2D coordinate navigation that may still be inaccurate based on lack of cursor control precision.</p>
                             <p>My proposed solution consists of turning the circumference of the analog stick into a spectrum of choices, where there are somewhere around 6 to 8 options based on analog stick position combined with a layered effect, where the user would point the analog stick to a specific position on the analog stick’s circumference, press a button to select that virtual option, then a new set of options would appear based on the option selected, allowing for the user to get more specific about their choice. When the target selection is reached, the first set of options is shown to the user again. On the screen it would be either like a wheel of options, or in non-circular form like a number of options across the bottom of the screen (*think taking the analog stick’s circumference, cutting the circumference at one point, and laying it out like a line as a visual representation for selections), or with both, providing the user with options for what to look at.</p>
@@ -154,18 +154,18 @@
                     </div>
                 }
                 @*Audio Games*@
-                @if (UI.Section.Sections[32].IsVisible)
+                @if (UI.Section.Sections[SecId.AudioGames].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
-                            @if(UI.Section.Sections[32].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Section.Sections[SecId.AudioGames].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.AudioGames))">
+                            @if(UI.Section.Sections[SecId.AudioGames].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Audio Games
                         </div>
-                        <div class="section-content @UI.Section.Sections[32].IsCollapsedContent">
+                        <div class="section-content @UI.Section.Sections[SecId.AudioGames].IsCollapsedContent">
                             <p>This idea came from watching VR gamers using VR equipment when playing an immersive video game. The essence of the idea is to not use the primary sense that people have, but instead the audible sense that they have to play a game. Instead of video, which is images and audio, it would be an audio only game - or an audio game.</p>
                             <p>The concept is that the user experiences an audio-rich environment where the user can close their eyes if they wish and focus on the sounds coming through their headphones or surround-sound speaker set. The audio game provides a cinematic audio experience, with a speaker to introduce the user to the environment of options at their disposal. The user would have a classic controller in their hands and it would be used to interact with the audio world. The speaker introducing the game provides a tutorial for the user to become accustomed to the different sound possibilities such as location, variance in volume, in pitch, in cadence, in timbre, and everything that could be identified uniquely as pertaining to something specific in the game that can be mentally modeled in the user’s mind while listening to the audio game. Then from those distinct sounds and differences, allow the user to navigate a world that is not visually navigable but which is audibly navigable and which can be learned and become more familiar with. It may not be the traditional kind of world we know from visual experiences of 2D and 3D games, but it could be something unique to audio games.</p>
                             <p>This is the groundwork for an audio game to be created. It could be accomplished with video game software that doesn’t do anything with the graphics of the game but instead invites the gamer to listen - a completely different experience and body sense. This could serve as a good break from looking at screens all day as we have grown accustomed to - a leisurely yet engaging, different experience. Games such as these could lend themselves to improving the aural sense that people have, and can lend itself too towards training for identifying different sounds within music through careful listening. If you think about it, audio is usually delegated to being the secondary or accompanying sensation as priority #2 behind what is visual. Imagine what it would be like to turn what is secondary into being the primary, and harness the unique attributes that sound provides to a person to listen to as a primary focus when compared with what vision provides. This is the intent of audio games. Its essence exists in the sequential, 1-dimensional nature of audio, lending itself to something that is simpler than what screens provide which are 2D and 3D. “Simple” would be the key to audio games, and we know that when we try to build things within tighter constraints, it forces the creative person to think under those constraints in a new way. Who knows what this could result in? I think it would be worth a try.</p>
@@ -176,70 +176,70 @@
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
                 @if (UI.Section.SectionedPages[3].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UI.Section.Sections[26].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.InventOverview].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[26].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(26))">
+                            <div class="section-header @UI.Section.Sections[SecId.InventOverview].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.InventOverview))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Overview
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[27].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.FutureVision].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[27].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(27))">
+                            <div class="section-header @UI.Section.Sections[SecId.FutureVision].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.FutureVision))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Future Vision App
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[28].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.UnifiedFaith].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[28].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(28))">
+                            <div class="section-header @UI.Section.Sections[SecId.UnifiedFaith].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.UnifiedFaith))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Unified Faith App
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[29].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.HangOutAvailability].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[29].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(29))">
+                            <div class="section-header @UI.Section.Sections[SecId.HangOutAvailability].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.HangOutAvailability))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Hang Out Availability App
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[30].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.PhiloOrientation].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[30].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(30))">
+                            <div class="section-header @UI.Section.Sections[SecId.PhiloOrientation].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.PhiloOrientation))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Philosophy Orientation App
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[31].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[31].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(31))">
+                            <div class="section-header @UI.Section.Sections[SecId.ControllerKeyboardProtoype].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.ControllerKeyboardProtoype))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Controller Keyboard Prototype
                             </div>
                         </div>
                     }
-                    @if (!UI.Section.Sections[32].IsCurrentPromo)
+                    @if (!UI.Section.Sections[SecId.AudioGames].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Section.Sections[32].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(32))">
+                            <div class="section-header @UI.Section.Sections[SecId.AudioGames].IsCollapsedHeader" @onclick="(()=>UI.ToggleSection(SecId.AudioGames))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Audio Games
@@ -254,9 +254,13 @@
 </DrawerPageTemplate>
 
 @code {
+    [Parameter]
+    public string SectionId { get; set; } = "InventOverview";
+
     protected override void OnInitialized()
     {
-        UI.NavigateToSection(SectionId);   
+        SecId inputAsEnum = (SecId)Enum.Parse(typeof(SecId), SectionId);
+        UI.NavigateToSection(inputAsEnum);
         UI.Nav.OnNavMgmtUpdated += UpdateThisComponent;
         UI.Section.OnSectionMgmtChanged += UpdateThisComponent;
     }
@@ -267,7 +271,4 @@
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
-
-    [Parameter]
-    public int SectionId { get; set; } = 0;
 }

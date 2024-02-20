@@ -1,8 +1,8 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI.Mgmt;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public partial class SectionedPage
 {
-    public SectionedPage(int id, int locationPanelGroupId, string pagePath)
+    private SectionedPage(int id, int locationPanelGroupId, string pagePath)
     {
         Id = id;
         LocationPanelGroupId = locationPanelGroupId;
@@ -15,9 +15,12 @@ public partial class SectionedPage
     public readonly int Id;
     public readonly int LocationPanelGroupId;
     public string PagePath { get; private set; }
-    public Dictionary<int, Section> Sections { get; set; } = new Dictionary<int, Section>();
+    public Dictionary<SecId, Section> Sections { get; set; } = new();
 
     public bool ASectionIsCurrentlyPromo { get; set; }
     public SectionsStatus SectionsStatus { get; set; }
     public int SectionsExpanded { get; private set; } = 0;
+
+    public static SectionedPage Create(int id, int locationPanelGroupId, string pagePath) =>
+        new(id, locationPanelGroupId, pagePath);
 }

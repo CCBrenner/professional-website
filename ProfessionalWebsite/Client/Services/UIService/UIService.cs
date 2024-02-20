@@ -1,8 +1,4 @@
-﻿using ProfessionalWebsite.Client.Services.UI.Contracts;
-using ProfessionalWebsite.Client.Services.UI.Mgmt;
-using ProfessionalWebsite.Client.Services.UI.Mgmt.DataTables;
-
-namespace ProfessionalWebsite.Client.Services.UI;
+﻿namespace ProfessionalWebsite.Client.Services.UI;
 
 public class UIService : IUIService
 {
@@ -53,7 +49,7 @@ public class UIService : IUIService
     /// </summary>
     /// <param name="sectionId">Id of the section to be promoted; it is located at the navigation destination page. This assumes the destination page is a sectioned page.</param>
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume Nav to update themselves because of a state change in Nav. Components must subscribe to the event to receive update commands.</param>
-    public void NavigateToSection(int sectionId, bool triggersOnPanelMgmtUpdated = true) =>
+    public void NavigateToSection(SecId sectionId, bool triggersOnPanelMgmtUpdated = true) =>
         Nav.NavigateToSection(sectionId, Panel, Section, triggersOnPanelMgmtUpdated);
 
     /// <summary>
@@ -83,7 +79,7 @@ public class UIService : IUIService
     /// Collapses/Expands section based on section ID.
     /// </summary>
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId) =>
+    public void ToggleSection(SecId sectionId) =>
         Section.ToggleSection(sectionId);
 
     /// <summary>
