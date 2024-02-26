@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfolio_pwa\\professional-website\\professionalwebsite\\client\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfolio_pwa\\professional-website\\professionalwebsite\\client\\pages\\matchgame.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\matchgame.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfolio_pwa\\professional-website\\professionalwebsite\\client\\pages\\matchgame.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\matchgame.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfolio_pwa\\professional-website\\professionalwebsite\\client\\pages\\hideandseek.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\hideandseek.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -63,19 +75,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HideAndSeek.razor.css",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
-              "ViewState": "AQIAADUAAAAAAAAAAAAAADUAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-02-23T22:48:40.968Z",
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Dockerfile",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Dockerfile",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Dockerfile",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-02-23T23:19:48.232Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MatchGame.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\MatchGame.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\MatchGame.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\MatchGame.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\MatchGame.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-23T23:17:56.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatchGame.razor.cs",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\MatchGame.razor.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\MatchGame.razor.cs",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\MatchGame.razor.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\MatchGame.razor.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAAAHcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-23T23:16:14.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HideAndSeek.razor.css",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\HideAndSeek.razor.css",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAAEIAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-23T22:48:40.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DrawerPageTemplate.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\DrawerPageTemplate.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\Templates\\DrawerPageTemplate.razor.css",
@@ -87,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Counter.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
@@ -99,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "bootstrap.min.css.map",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
@@ -111,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "BeeHiveMgmtSystem.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
@@ -123,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "NavPanels.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
@@ -135,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\Index.razor",
@@ -147,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "ScratchTests.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite.Tests\\ScratchTests.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite.Tests\\ScratchTests.cs",
@@ -159,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "BruteForceSolverScratch.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\BruteForceSolverScratch.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\BruteForceSolverScratch.cs",
@@ -171,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "BruteForceSolver.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\BruteForceSolver.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\BruteForceSolver.cs",
@@ -183,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Cell.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\Cell.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\Cell.cs",
@@ -195,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Puzzle.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\Puzzle.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\SudokuService\\Composition\\Puzzle.cs",
