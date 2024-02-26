@@ -1,33 +1,39 @@
 ﻿@inject UIService UI
 @inject NavigationManager Navigation
 
-@page "/knowhow"
-@page "/knowhow/{SectionId:int}"
+@page "/"
+@page "/projectinfo"
+@page "/projectinfo/{SectionId:int}"
 
 @implements IDisposable
 
-<PageTitle>Know-How - Collyn Brenner</PageTitle>
+<PageTitle>Project Info - Collyn Brenner</PageTitle>
 
-<DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Know-How">
+<DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Project Info">
     <DrawerContent>
-        <DrawerNavLinkButton Href="knowhow/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
-        <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>UI.NavigateToSection(14))" />
-        <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>UI.NavigateToSection(16))" />
-        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>UI.NavigateToSection(15))" />
-        <DrawerNavLinkButton Href="knowhow/33" ButtonText="Match Game - Project" OnClickCallback="(()=>UI.NavigateToSection(33))" />
-        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Front-end" OnClickCallback="(()=>UI.NavigateToSection(3))" />
-        <DrawerNavLinkButton Href="knowhow/1" ButtonText="Back-end" OnClickCallback="(()=>UI.NavigateToSection(1))" />
-        <DrawerNavLinkButton Href="knowhow/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>UI.NavigateToSection(4))" />
-        <DrawerNavLinkButton Href="knowhow/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>UI.NavigateToSection(5))" />
-        <DrawerNavLinkButton Href="knowhow/6" ButtonText="Databases" OnClickCallback="(()=>UI.NavigateToSection(6))" />
-        <DrawerNavLinkButton Href="knowhow/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
-        <DrawerNavLinkButton Href="knowhow/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
-        <DrawerNavLinkButton Href="collyn/23" ButtonText="Contact" IconClasses="fa-solid fa-envelope" />
+        @*
+        <DrawerNavLinkButton Href="projectinfo/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
+        *@
+        <DrawerNavLinkButton Href="projectinfo/14" ButtonText="About This Web App" OnClickCallback="(()=>UI.NavigateToSection(14))" />
+        <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager System/Game" OnClickCallback="(()=>UI.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="projectinfo/15" ButtonText="Hide & Seek Game" OnClickCallback="(()=>UI.NavigateToSection(15))" />
+        <DrawerNavLinkButton Href="projectinfo/33" ButtonText="Match Game" OnClickCallback="(()=>UI.NavigateToSection(33))" />
+        @*
+        <DrawerNavLinkButton Href="projectinfo/3" ButtonText="Front-end" OnClickCallback="(()=>UI.NavigateToSection(3))" />
+        <DrawerNavLinkButton Href="projectinfo/1" ButtonText="Back-end" OnClickCallback="(()=>UI.NavigateToSection(1))" />
+        <DrawerNavLinkButton Href="projectinfo/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>UI.NavigateToSection(4))" />
+        <DrawerNavLinkButton Href="projectinfo/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>UI.NavigateToSection(5))" />
+        <DrawerNavLinkButton Href="projectinfo/6" ButtonText="Databases" OnClickCallback="(()=>UI.NavigateToSection(6))" />
+        <DrawerNavLinkButton Href="projectinfo/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
+        <DrawerNavLinkButton Href="projectinfo/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
+        *@
+        <DrawerNavLinkButton Href="projectinfo/34" ButtonText="Contact" IconClasses="fa-solid fa-envelope" OnClickCallback="(()=>UI.NavigateToSection(34))"/>
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Overview*@
+                @*
                 @if (UI.Sections[0].IsVisible)
                 {
                     <div class="section-container">
@@ -80,6 +86,7 @@
                         </div>
                     </div>
                 }
+                *@
                 @*About This Web App*@
                 @if (UI.Sections[14].IsVisible)
                 {
@@ -339,7 +346,7 @@
                         </div>
                     </div>
                 }
-                @*Frontend*@
+                @*Frontend*
                 @if (UI.Sections[3].IsVisible)
                 {
                     <div class="section-container">
@@ -364,7 +371,7 @@
                         </div>
                     </div>
                 }
-                @*Back-end*@
+                @*Back-end*
                 @if (UI.Sections[1].IsVisible)
                 {
                     <div class="section-container">
@@ -391,7 +398,7 @@
                         </div>
                     </div>
                 }
-                @*UX/UI + Modeling Software*@
+                @*UX/UI + Modeling Software*
                 @if (UI.Sections[4].IsVisible)
                 {
                     <div class="section-container">
@@ -424,7 +431,7 @@
                         </div>
                     </div>
                 }
-                @*Cloud Deployment + Containers*@
+                @*Cloud Deployment + Containers*
                 @if (UI.Sections[5].IsVisible)
                 {
                     <div class="section-container">
@@ -445,7 +452,7 @@
                         </div>
                     </div>
                 }
-                @*Databases*@
+                @*Databases*
                 @if (UI.Sections[6].IsVisible)
                 {
                     <div class="section-container">
@@ -465,7 +472,7 @@
                         </div>
                     </div>
                 }
-                @*Testing*@
+                @*Testing*
                 @if (UI.Sections[7].IsVisible)
                 {
                     <div class="section-container">
@@ -485,7 +492,7 @@
                         </div>
                     </div>
                 }
-                @*Why Programming?*@
+                @*Why Programming?*
                 @if (UI.Sections[13].IsVisible)
                 {
                     <div class="section-container">
@@ -506,8 +513,30 @@
                     </div>
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
+                @*Contact*@
+                @if (UI.Sections[34].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                            @if (UI.Sections[34].IsCollapsedHeader == "collapsed-header")
+                            {
+                                <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            Contact
+                        </div>
+                        <div class="section-content @UI.Sections[34].IsCollapsedContent">
+                            <Contact />
+                        </div>
+                    </div>
+                }
                 @if (UI.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
+                    @*
                     @if (!UI.Sections[0].IsCurrentPromo)
                     {
                         <div class="section-container">
@@ -518,6 +547,7 @@
                             </div>
                         </div>
                     }
+                    *@
                     @if (!UI.Sections[14].IsCurrentPromo)
                     {
                         <div class="section-container">
@@ -534,7 +564,7 @@
                             <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Bee Hive Manager System/Game - Project
+                                Bee Hive Manager System/Game
                             </div>
                         </div>
                     } 
@@ -544,7 +574,7 @@
                             <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Hide & Seek Game - Project
+                                Hide & Seek Game
                             </div>
                         </div>
                     }
@@ -554,10 +584,11 @@
                             <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Match Game - Project
+                                Match Game
                             </div>
                         </div>
                     }
+                    @*
                     @if (!UI.Sections[3].IsCurrentPromo)
                     {
                         <div class="section-container">
@@ -618,6 +649,18 @@
                             </div>
                         </div>
                     }
+                    *@
+                    @*Contact*@
+                    @if (!UI.Sections[34].IsVisible)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Contact
+                            </div>
+                        </div>
+                    }
                 }
                 <SectionedPageSectionsToggle PageId="1"/>
             </div>
@@ -647,6 +690,6 @@
     private void ToggleSection(int secId)
     {
         UI.ToggleSection(secId);
-        Navigation.NavigateTo($"knowhow/{secId}");
+        Navigation.NavigateTo($"projectinfo/{secId}");
     }
 }

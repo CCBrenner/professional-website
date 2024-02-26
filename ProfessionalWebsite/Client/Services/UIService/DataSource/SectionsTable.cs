@@ -26,6 +26,7 @@ internal sealed class SectionsTable
         Section.CreateRegularSection(15, 1),  // 15: Hide & Seek
         Section.CreateRegularSection(16, 1),  // 16: Bee Hive Management
         Section.CreateRegularSection(33, 1),  // 33: Match Game
+        Section.CreateRegularSection(34, 1),  // 34: Contact (Projects-Only version only)
         /* end "knowhow" */
         /* start "collyn" */
         Section.CreateAsFirstSectionOfPage(17, 2),  // 17: Introduction (Collyn)

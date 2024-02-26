@@ -4,39 +4,6 @@
 
 <div class="page-container">
     <div class="page">
-
-        @* Part of Option1: This element covers all contents in the viewport if the viewport is not mobile (z-index: 60) *@
-        @* <ClosedStageCurtain /> *@
-
-        @* Part of Option2: On large screens (desktop) shows instructions and animation controls *@
-        @*
-        <div class="left-negative-space">
-            @if (ExternalLayoutControls)
-            {
-                <article class="animate-app external-layout-controls">
-                    <AppAnimations 
-                        FirstAnimationCallback="PlayFirstAnimation"
-                        SecondAnimationCallback="PlaySecondAnimation"
-                        ThirdAnimationCallback="PlayThirdAnimation"
-                        FourthAnimationCallback="PlayFourthAnimation"
-                        FifthAnimationCallback="PlayFifthAnimation" />
-                </article>
-            }
-            else 
-            {
-                <p>
-                    Download this app today on any mobile device using the QR code on the right!
-                </p>
-                <p>&nbsp;</p>
-                <p>
-                    Or use your mobile browser to install this progressive web app (PWA) as an app on your device's homescreen!
-                </p>
-                <br />
-                <button class="btn btn-danger" @onclick="SetExternalLayoutControlsToTrue">Animations</button>
-            }
-        </div>
-        *@
-
         <main class="main @UI.AnimateMain">
 
             @* Alert (proprietary) *@
@@ -143,11 +110,11 @@
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
-                    <span class="title-size-largest">Collyn Brenner's Developer Portfolio</span>
-                    <span class="title-size-four">Collyn Brenner's Dev Portfolio</span>
-                    <span class="title-size-three">Collyn's Developer Portfolio</span>
-                    <span class="title-size-two">Collyn's Dev Portfolio</span>
-                    <span class="title-size-one">Collyn's Portfolio</span>
+                    <span class="title-size-largest">Collyn Brenner's Projects</span>
+                    <span class="title-size-four">Collyn Brenner's Projects</span>
+                    <span class="title-size-three">Collyn B's Projects</span>
+                    <span class="title-size-two">Collyn B's Projects</span>
+                    <span class="title-size-one">Collyn B's Projects</span>
                     @* On hover *@
                     <div class="navbar-brand-onhover">
                         <i class="fa-solid fa-envelope"></i>
