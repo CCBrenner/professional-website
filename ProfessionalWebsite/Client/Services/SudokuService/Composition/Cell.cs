@@ -16,7 +16,7 @@ public class Cell
         TriedCandidates = new();
     }
 
-    public const int NON_POSSIBILITY_PLACEHOLDER_VALUE = 0;
+    public static int NonPossibilityPlaceholderValue = 0;
     private const ValueStatus DEFAULT_VALUE_STATUS = ValueStatus.Undefined;
 
     public ValueStatus ValueStatus { get; private set; }
@@ -76,7 +76,7 @@ public class Cell
     public int UpdateValueBasedOnSingleCandidate()
     {
         int candidateCount = 0;
-        int savedValueFromIteration = NON_POSSIBILITY_PLACEHOLDER_VALUE;
+        int savedValueFromIteration = NonPossibilityPlaceholderValue;
 
         foreach (var val in Values)
         {
@@ -104,7 +104,7 @@ public class Cell
 
         if (!IsCandidate(expectedValue) && ValueStatus != ValueStatus.Given)
         {
-            return NON_POSSIBILITY_PLACEHOLDER_VALUE;
+            return NonPossibilityPlaceholderValue;
         }
 
         Value = expectedValue;
@@ -131,10 +131,10 @@ public class Cell
 
         if (candidate == 0 || candidate > 9)
         {
-            return NON_POSSIBILITY_PLACEHOLDER_VALUE;
+            return NonPossibilityPlaceholderValue;
         }
 
-        Values[candidate] = NON_POSSIBILITY_PLACEHOLDER_VALUE;
+        Values[candidate] = NonPossibilityPlaceholderValue;
 
         if (previousValue != Values[candidate])
         {
@@ -145,9 +145,9 @@ public class Cell
     }
     public int AssignConfirmedValue(int newCellValue)
     {
-        if (Values[newCellValue] == NON_POSSIBILITY_PLACEHOLDER_VALUE || ValueStatus == ValueStatus.Given)
+        if (Values[newCellValue] == NonPossibilityPlaceholderValue || ValueStatus == ValueStatus.Given)
         {
-            return NON_POSSIBILITY_PLACEHOLDER_VALUE;
+            return NonPossibilityPlaceholderValue;
         }
 
         Value = newCellValue;
@@ -190,7 +190,7 @@ public class Cell
     {
         foreach (var val in Values)
         {
-            if (val != NON_POSSIBILITY_PLACEHOLDER_VALUE && val == valueBeingChecked)
+            if (val != NonPossibilityPlaceholderValue && val == valueBeingChecked)
             {
                 return true;
             }
@@ -396,8 +396,13 @@ public class Cell
                 return val;
             }
         }
-        return NON_POSSIBILITY_PLACEHOLDER_VALUE;
+        return NonPossibilityPlaceholderValue;
     }
+    public int GetNextCandidateV2() =>
+        Candidates
+        .Where(x => !TriedCandidates.Contains(x))
+        .Select(x => x)
+        .FirstOrDefault(NonPossibilityPlaceholderValue);
     public void ResetTriedCandidates()
     {
         TriedCandidates = new();
@@ -416,7 +421,7 @@ public class Cell
     }
     public void ResetValue()
     {
-        Value = NON_POSSIBILITY_PLACEHOLDER_VALUE;
+        Value = NonPossibilityPlaceholderValue;
     }
     public void SetValueStatusToGiven()
     {

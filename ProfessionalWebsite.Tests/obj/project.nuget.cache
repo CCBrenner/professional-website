@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JEUvUGkBJ3D+wnXj5Gi0r+EMUODWM79k/HkJs8rc653Q7Tmo+ybZNIog/ULTjNVGLLI6fuvi1HZT43LdZRxgrg==",
+  "dgSpecHash": "RTTbxMYYbrYwqmArL7jfwuvMszZRc2xeoWqYY7y5CBUGSVO4dWObOSP9padmyS1zAtNsaEWL8hynQa3TXxE5Dg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh_clone_hosting\\Portfolio_PWA_A_current\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
+  "projectFilePath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\Portfolio_PWA\\professional-website\\ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\colly_cp7sy9h\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",

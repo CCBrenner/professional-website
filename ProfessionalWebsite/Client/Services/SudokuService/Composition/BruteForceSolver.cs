@@ -40,7 +40,7 @@ public class BruteForceSolver : ISolver
     }
     public bool Solve(Puzzle puzzle)
     {
-        // Config based on Puzzle:
+        // Setup based on Puzzle:
 
         _puzzle = puzzle;
         _puzzle.Cells.Reverse();  // reversed (for creating RemainingCells stack)
@@ -55,7 +55,7 @@ public class BruteForceSolver : ISolver
 
         CurrentCell = RemainingCells.Pop();
 
-        // End config.
+        // End setup.
 
         int candidate;
 
@@ -99,8 +99,7 @@ public class BruteForceSolver : ISolver
             // also assign same return value to TriedCandidates stack in Cell api
             CurrentCell.AddTriedCandidate(candidate);
 
-            // since Value becomes free, add that value to all respective cells that would have it as a candidate
-            // and then eliminate all non possible candidates
+            // rehydrate candidates for unconfirmed cells and perform elimination based on new value assignment
             _puzzle.UpdateCandidates();
 
             // assign CurrentCell to PreviousCells stack in Puzzle api
