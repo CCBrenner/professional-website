@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\sudokusolver.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\general\\sudokugrid.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sudokugrid.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\general\\sudokugrid.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sudokugrid.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\templates\\projectspagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\templates\\projectspagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -17,18 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\shared\\navbuttons.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\navbuttons.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\general\\sudokugui.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sudokugui.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\general\\sudokugui.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sudokugui.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\beehivemgmtsystem.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -50,45 +50,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProjectsPageTemplate.razor",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T19:39:50.59Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SudokuGui.razor.css",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor.css",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor.css",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor.css",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor.css",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAAAQAAAA",
+              "DocumentIndex": 2,
+              "Title": "SudokuGrid.razor.css",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor.css",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor.css",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor.css",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-02-29T19:01:04.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SudokuGui.razor",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGui.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T18:59:39.002Z",
+              "WhenOpened": "2024-02-29T19:49:07.238Z",
               "EditorCaption": ""
             },
             {
@@ -101,18 +75,17 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "ViewState": "AQIAACAAAAAAAAAAAAAAACoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-02-29T18:57:43.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T18:57:43.369Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "SudokuSolver.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAmwBEAAAABAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAApwHgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-02-29T18:52:36.661Z",
               "EditorCaption": ""
@@ -125,14 +98,39 @@
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAANAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACUAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-02-29T18:51:46.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProjectsPageTemplate.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-29T19:39:50.59Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "SudokuGrid.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SudokuGrid.razor",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-29T19:46:34.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "NavButtons.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavButtons.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavButtons.razor",
@@ -140,12 +138,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\NavButtons.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T19:39:25.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T19:39:25.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "NavPanels.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
@@ -153,8 +150,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T18:54:30.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T18:54:30.231Z"
             },
             {
               "$type": "Document",
@@ -166,8 +162,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
               "ViewState": "AQIAABsAAAAAAAAAAAAAACIAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T18:57:34.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T18:57:34.041Z"
             },
             {
               "$type": "Document",
@@ -179,8 +174,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
               "ViewState": "AQIAAEAAAAAAAAAAAAAAAB0AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-26T21:19:52.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T21:19:52.28Z"
             }
           ]
         }

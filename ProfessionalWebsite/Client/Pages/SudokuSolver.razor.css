@@ -16,3 +16,121 @@
     width: 100%;
     max-width: 240px;
 }
+
+.comp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.top-row-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-horizontal {
+    padding: 4px 0px 4px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-button-container {
+    height: 38px;
+    width: 38px;
+    margin: 0 10px 0 10px;
+}
+
+.info-button {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+}
+
+    .info-button > a {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .info-button:hover {
+        cursor: pointer;
+    }
+
+.puzzle-selector {
+    min-width: 220px;
+    text-align: center;
+}
+
+.puzzle-book-label {
+    min-width: 100px;
+    text-align: center;
+}
+
+.puzzle {
+    background-color: #111;
+    padding: 1px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-row {
+    display: flex;
+}
+
+.block {
+    background-color: #111;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cell-row {
+    display: flex;
+}
+
+input {
+    width: 100%;
+    text-align: center;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hint {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin: 0px 4px 0px 4px;
+}
+
+.alert {
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+}

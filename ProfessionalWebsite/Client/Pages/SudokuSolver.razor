@@ -6,28 +6,58 @@
 
 <ProjectsPageTemplate>
     <div class="comp-container">
-        <SudokuGui />
-        <br /><br />
-        @*
-        <div class="display-horizontal">
-            <span>Interface</span>
-            &nbsp;&nbsp;
-            <select class="form-select form-select-sm ui-selector" @bind="Sudoku.Api.ConsoleVersion">
-                <option value="console">Console</option>
-                <option value="gui">Graphical</option>
-            </select>
+        <div class="top-row display-horizontal">
+            <div class="top-row-menu">
+                <div class="info-button-container">
+                    <a href="projectinfo/36">
+                        <div class="info-button">
+                            <span class="fa-solid fa-circle-info"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="display-horizontal">
+                    <span class="puzzle-book-label">Puzzle Book&nbsp;</span>
+                    <select class="form-select form-select-sm puzzle-selector" @bind="SudokuService.SelectedMatrix">
+                        @foreach (var puzzlePair in SudokuService.Puzzles)
+                        {
+                            <option value="@puzzlePair.Key">@puzzlePair.Key</option>
+                        }
+                    </select>
+                </div>
+                <div class=""></div>
+            </div>
         </div>
 
-        @if (Sudoku.Api.ConsoleVersion == "console")
+        <SudokuGrid SudokuService="SudokuService" />
+
+        <div class="hint">
+            Click the Solve button once. It will begin solving. Try entering a custom puzzle by clicking the puzzle cells above!
+            <br />
+            This solver on average solves in around 30s but it can take anywhere between 3s to 1m 45s to solve, depending on the puzzle.
+            <br />
+            This puzzle uses the only thread available to the browser (it is synchronous).
+        </div>
+
+        <div class="buttons-container">
+            <div class="btn btn-primary button" @onclick="SudokuService.SolveGui">
+                Solve
+            </div>
+            <div class="btn btn-secondary button" @onclick="SudokuService.ResetCurrent">
+                Reset
+            </div>
+        </div>
+
+        @if (SudokuService.Puzzle.Ledger.ValueTxns.Count() != 0)
         {
-            <SudokuConsole />
+            <div class="hint">
+                Update Count: @SudokuService.Puzzle.Ledger.ValueTxns.Count() updates<br />
+                Progress: @SudokuService.Puzzle.ProgressPercentage%<br />
+                Is Solved?: @SudokuService.IsSolved<br />
+            </div>
         }
-        else
-        {
-            <SudokuGui />
-        }
-        *@
+
     </div>
+    <br /><br />
 </ProjectsPageTemplate>
 
 @code { }
