@@ -6,17 +6,39 @@
         additional stats can be shown in their own text field*@
 
 <div class="comp-container">
-
-    <div class="display-horizontal">
-        <span>Puzzle Book&nbsp;</span>
-        <select class="form-select form-select-sm puzzle-selector" @bind="SudokuService.SelectedMatrix">
-            @foreach (var puzzlePair in SudokuService.Puzzles)
-            {
-                <option value="@puzzlePair.Key">@puzzlePair.Key</option>
-            }
-        </select>
+    <div class="top-row display-horizontal">
+        <div class="top-row-menu">
+            <div class="top-row-corners">
+                <a href="projectinfo/36">
+                    <div class="top-corner-button-containers">
+                        <span class="fa-solid fa-circle-info"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="display-horizontal">
+                <span class="puzzle-book-label">Puzzle Book&nbsp;</span>
+                <select class="form-select form-select-sm puzzle-selector" @bind="SudokuService.SelectedMatrix">
+                    @foreach (var puzzlePair in SudokuService.Puzzles)
+                    {
+                        <option value="@puzzlePair.Key">@puzzlePair.Key</option>
+                    }
+                </select>
+            </div>
+            <div class=""></div>
+        </div>
     </div>
-
+    @*
+    <div class="display-horizontal">
+        <div class="top-row-corners">
+            <a href="projectinfo/36">
+                <div class="top-corner-button-containers ">
+                    <span class="fa-solid fa-circle-info"></span>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+    *@
     <SudokuGrid SudokuService="SudokuService"/>
 
     <div class="hint">

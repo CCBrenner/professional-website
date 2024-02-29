@@ -14,7 +14,7 @@ internal sealed class SectionsTable
     internal static List<Section> GetSections() => new()
     { 
         /* start "knowhow" */
-        Section.CreateAsFirstSectionOfPage(0, 1),  // 0: Overview (KnowHow)
+        Section.CreateAsFirstSectionOfPage(0, 1),  // 0: Overview (ProjectInfo (used to be KnowHow))
         Section.CreateRegularSection(1, 1),  // 1: Backend
         Section.CreateRegularSection(3, 1),  // 3: Frontend
         Section.CreateRegularSection(4, 1),  // 4: UXUI
@@ -27,6 +27,8 @@ internal sealed class SectionsTable
         Section.CreateRegularSection(16, 1),  // 16: Bee Hive Management
         Section.CreateRegularSection(33, 1),  // 33: Match Game
         Section.CreateRegularSection(34, 1),  // 34: Contact (Projects-Only version only)
+        Section.CreateRegularSection(35, 1),  // 35: Counter + Spinners
+        Section.CreateRegularSection(36, 1),  // 36: Sudoku Solver
         /* end "knowhow" */
         /* start "collyn" */
         Section.CreateAsFirstSectionOfPage(17, 2),  // 17: Introduction (Collyn)
