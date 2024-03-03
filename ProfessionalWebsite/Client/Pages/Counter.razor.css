@@ -25,6 +25,40 @@
     align-items: center;
     overflow-y: auto;
 }
+
+.button-and-title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-button-container {
+    height: 38px;
+    width: 38px;
+    margin: 0 0 0 10px;
+}
+
+.info-button {
+    height: 38px;
+    width: 38px;
+    background-color: #6c757d;
+    border-radius: 0.25rem;
+    color: #eee;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .info-button > a {
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .info-button:hover {
+        cursor: pointer;
+    }
 .posicube-container {
     display: flex;
     flex-flow: row wrap-reverse;

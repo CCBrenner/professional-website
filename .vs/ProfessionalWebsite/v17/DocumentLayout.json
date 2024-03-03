@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\counter.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\counter.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\loadingspinners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\loadingspinners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\loadingspinners.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\loadingspinners.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\sudokusolver.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\loadingspinners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\loadingspinners.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\sudokusolver.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -34,17 +42,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Counter.razor.css",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\Counter.razor.css",
+              "ViewState": "AQIAABcAAAAAAAAAAAAYwCYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-03T06:05:12.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\Counter.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\Counter.razor",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAABoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-03T06:03:10.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "LoadingSpinners.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor.css",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor.css",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor.css",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACYAAAAYAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-03-03T05:37:40.943Z",
               "EditorCaption": ""
@@ -57,14 +91,14 @@
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\LoadingSpinners.razor",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAAeAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-03-03T05:35:52.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SudokuSolver.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
@@ -72,12 +106,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor.css",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAADsAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-03T05:40:06.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-03T05:40:06.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SudokuSolver.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
@@ -85,12 +118,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SudokuSolver.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-03T05:41:02.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-03T05:41:02.468Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BeeHiveMgmtSystem.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
@@ -98,12 +130,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-03T05:47:17.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-03T05:47:17.135Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "BeeHiveMgmtSystem.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
@@ -111,8 +142,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "ViewState": "AQIAABgAAAAAAAAAAAAAACIAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-03T05:47:23.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-03T05:47:23.407Z"
             }
           ]
         }
