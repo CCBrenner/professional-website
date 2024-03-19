@@ -1,10 +1,9 @@
-﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
+﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+
+public enum WorkerType
 {
-    public enum WorkerType
-    {
-        HoneyManufacturer,
-        NectarCollector,
-        EggCare,
-        Queen,
-    }
+    HoneyManufacturer,
+    NectarCollector,
+    EggCare,
+    Queen,
 }

@@ -2,11 +2,12 @@
 
 public interface IPuzzle
 {
-    bool SolveHasStarted { get; }
-    decimal StopwatchTime { get; }
-    TxnLedger Ledger { get; }
-    int ProgressPercentage { get; }
+    //TxnLedger Ledger { get; }
+    List<Cell> Cells { get; }
+    ISolver Solver { get; }
     Cell Cell(int id);
     bool Solve();
     void LoadMatrixAsCellValues(int[,] matrixToLoad);
+    void RemoveCandidates();
+    void UpdateCandidates();
 }

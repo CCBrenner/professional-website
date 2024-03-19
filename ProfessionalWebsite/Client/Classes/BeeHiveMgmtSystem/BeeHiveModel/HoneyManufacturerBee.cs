@@ -1,22 +1,21 @@
-﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
+﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+
+public class HoneyManufacturerBee : Bee
 {
-    public class HoneyManufacturerBee : Bee
-    {
-        public HoneyManufacturerBee() : base(WorkerType.HoneyManufacturer) { }
+    public HoneyManufacturerBee() : base(WorkerType.HoneyManufacturer) { }
 
-        /*
-        private Settings settings = Settings.Instance;
-        public float NectarProcessedPerShift =>
-            settings.HoneyManufacturerNectarProcessedPerShift;
-        public override float CostPerShift =>
-            settings.HoneyManufacturerCostPerShift;
-        */
-        private HoneyVault vault = HoneyVault.Instance;
+    /*
+    private Settings settings = Settings.Instance;
+    public float NectarProcessedPerShift =>
+        settings.HoneyManufacturerNectarProcessedPerShift;
+    public override float CostPerShift =>
+        settings.HoneyManufacturerCostPerShift;
+    */
+    private HoneyVault vault = HoneyVault.Instance;
 
-        public float NectarProcessedPerShift = 33.15F;
-        public override float CostPerShift => 1.7F;
+    public float NectarProcessedPerShift = 33.15F;
+    public override float CostPerShift => 1.7F;
 
-        protected override void DoJob() =>
-            vault.ConvertNectarToHoney(NectarProcessedPerShift);
-    }
+    protected override void DoJob() =>
+        vault.ConvertNectarToHoney(NectarProcessedPerShift);
 }

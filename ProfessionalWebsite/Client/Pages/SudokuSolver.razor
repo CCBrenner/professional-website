@@ -42,19 +42,20 @@
             <div class="btn btn-primary button" @onclick="SudokuService.SolveGui">
                 Solve
             </div>
-            <div class="btn btn-secondary button" @onclick="SudokuService.ResetCurrent">
+            <div class="btn btn-secondary button" @onclick="SudokuService.ResetCurrentPuzzle">
                 Reset
             </div>
         </div>
-
+        Is Solved?: @SudokuService.IsSolved<br />
+        @*
         @if (SudokuService.Puzzle.Ledger.ValueTxns.Count() != 0)
         {
             <div class="hint">
                 Update Count: @SudokuService.Puzzle.Ledger.ValueTxns.Count() updates<br />
-                Progress: @SudokuService.Puzzle.ProgressPercentage%<br />
-                Is Solved?: @SudokuService.IsSolved<br />
+                @*Progress: @SudokuService.Puzzle.ProgressPercentage%<br />*
             </div>
         }
+        *@
 
     </div>
     <br /><br />

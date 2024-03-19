@@ -23,7 +23,7 @@ public class EliminateCandidatesTests
             { 0, 0, 0,   9, 0, 0,   1, 0, 0 },
             { 0, 8, 0,   0, 5, 0,   6, 0, 0 },
         };
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(intMatrix);
 
         // Act
@@ -97,7 +97,7 @@ public class EliminateCandidatesTests
             { 0, 0, 0,   9, 0, 0,   1, 0, 0 },
             { 0, 8, 0,   0, 5, 0,   6, 0, 0 },
         };
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(intMatrix);
 
         // Act
@@ -170,7 +170,7 @@ public class EliminateCandidatesTests
             { 0, 0, 0,   9, 0, 0,   1, 0, 0 },
             { 0, 8, 0,   0, 5, 0,   6, 0, 0 },
         };
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(intMatrix);
 
         // Act
@@ -228,7 +228,7 @@ public class EliminateCandidatesTests
     [TestMethod]
     public void TestAllThreeDistinctionChecksRemovePossibilitiesForAGivenBlock()
     {
-        // CreateWithBruteForceSolver specal setup to test [1, 1] block for 6 eliminated candidates, 2 for each distinction rule
+        // Create specal setup to test [1, 1] block for 6 eliminated candidates, 2 for each distinction rule
         // Arrange
         // The superimosed matrix was used; some vals were entered here to be saved as "given" but
         // would have received the same value either way.
@@ -246,11 +246,11 @@ public class EliminateCandidatesTests
         { 0, 0, 0,   0, 1, 0,   0, 0, 0 },
         { 0, 0, 0,   0, 0, 0,   0, 0, 0 },
     };
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(givenMatrix);
 
         // Act
-        puzzle.PerformCandidateElimination();
+        puzzle.RemoveCandidates();
 
         // Assert:
 

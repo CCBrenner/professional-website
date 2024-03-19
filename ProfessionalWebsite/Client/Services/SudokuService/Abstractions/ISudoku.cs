@@ -9,5 +9,5 @@ public interface ISudoku
     string SelectedMatrix { get; set; }
     Cell Cell(int id);
     void SolveGui();
-    void ResetCurrent();
+    void ResetCurrentPuzzle();
 }

@@ -9,9 +9,7 @@ public class Puzzle : IPuzzle
         List<Column> columns,
         List<Block> blocks,
         List<BlockRow> blockRows,
-        List<BlockColumn> blockClumns,
-        TxnLedger ledger,
-        ISolver solver)
+        List<BlockColumn> blockClumns)
     {
         Matrix = puzzleMatrix;
         StartingIntMatrix = MatrixFactory.GetBlankMatrix();
@@ -22,8 +20,6 @@ public class Puzzle : IPuzzle
         Blocks = blocks;
         BlockRows = blockRows;
         BlockClumns = blockClumns;
-        Ledger = ledger;
-        _solver = solver;
     }
 
     public Cell[,] Matrix { get; private set; }
@@ -33,21 +29,20 @@ public class Puzzle : IPuzzle
     public List<Block> Blocks { get; private set; }
     public List<BlockRow> BlockRows { get; private set; }
     public List<BlockColumn> BlockClumns { get; private set; }
-    public TxnLedger Ledger { get; }
-    private ISolver _solver;
-    public decimal StopwatchTime => _solver.StopwatchTime;
-    public bool SolveHasStarted => _solver.SolveHasStarted;
-    public int ProgressPercentage => _solver.ProgressPercentage;
+    //public TxnLedger Ledger { get; }
+    public ISolver Solver { get; private set; }
     public int[,] StartingIntMatrix { get; }
     public int[,] StartingIntMatrixToSuperimpose { get; }
     public bool NoExpectedCellValuesInCells => GetNoExpectedCellValuesInCells();
     public Cell CurrentCell { get; private set; }
     public Cell Cell(int id) => Cells[id - 1];
+    /*
     public static Puzzle CreateWithBruteForceSolver()
     {
         return Create(BruteForceSolver.Create(), TxnLedger.Create());
     }
-    public static Puzzle Create(ISolver solver, TxnLedger ledger)
+    */
+    public static Puzzle Create()
     {
         // CreateWithBruteForceSolver cellMatrix of cellList instead of ints from starting point
         Cell[,] cellMatrix = Services.SudokuService.Cell.CreateCellMatrix();
@@ -76,22 +71,25 @@ public class Puzzle : IPuzzle
         blockColumnList.AssignBlockColumnstoBlocks();
 
         // Inject and create new Puzzle
-        Puzzle puzzle = new(cellMatrix, cellList, rows, columnList, blockList, blockRowList, blockColumnList, ledger, solver);
+        Puzzle puzzle = new(cellMatrix, cellList, rows, columnList, blockList, blockRowList, blockColumnList);
         puzzle.AssignPuzzleReferenceToCells();
-        puzzle.AssignPuzzleReferenceToLedger();
+        //puzzle.AssignPuzzleReferenceToLedger();
 
         return puzzle;
     }
     public bool Solve()
     {
-        bool isSolvable = _solver.Solve(this);
+        ISolver solver = BruteForceSolver.Create(this);
+        bool isSolvable = solver.Solve();
         return isSolvable;
     }
+    /*
     private void AssignPuzzleReferenceToLedger()
     {
         Ledger.AssignPuzzleReference(this);
     }
-    public void PerformCandidateElimination()
+    */
+    public void RemoveCandidates()
     {
         // Eliminate candidates for Given and Confirmed cells
         EliminateCandidatesForGivenAndConfirmedCells();
@@ -160,7 +158,7 @@ public class Puzzle : IPuzzle
     public void UpdateCandidates()
     {
         RehydrateCandidatesOfCells();
-        PerformCandidateElimination();
+        RemoveCandidates();
     }
     private void RehydrateCandidatesOfCells()
     {

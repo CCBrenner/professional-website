@@ -139,7 +139,7 @@ public class ConsoleRender
         }
         Console.WriteLine($"Total Results: {count}");
     }
-
+    /*
     public static string RenderStandardTxnInfo(Puzzle puzzle)
     {
         string returnStr;
@@ -160,4 +160,5 @@ public class ConsoleRender
 
         return returnStr;
     }
+    */
 }

@@ -1,8 +1,7 @@
-﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem
+﻿namespace ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+
+interface IWorker
 {
-    interface IWorker
-    {
-        WorkerType Job { get; set; }
-        void WorkTheNextShift();
-    }
+    WorkerType Job { get; set; }
+    void WorkTheNextShift();
 }

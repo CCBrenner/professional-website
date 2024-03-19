@@ -2,7 +2,7 @@
 using System.Timers;
 
 namespace ProfessionalWebsite.Client.Services.SudokuService;
-
+/*
 public class BruteForceSolverScratch : ISolver
 {
     private BruteForceSolverScratch()
@@ -140,7 +140,7 @@ public class BruteForceSolverScratch : ISolver
 
         //Timer.Start();
 
-        _puzzle.PerformCandidateElimination();
+        _puzzle.RemoveCandidates();
 
         while (true)
         {
@@ -157,14 +157,14 @@ public class BruteForceSolverScratch : ISolver
                 }
             }
             candidate = vals.Count > 0 ? vals[0] : Cell.NonPossibilityPlaceholderValue;
-            */
+            *
             /*
             candidate =
                 GetCandidates(CurrentCell)
                 .Where(x => !CurrentCell.TriedCandidates.Contains(x))
                 .Select(x => x)
                 .FirstOrDefault(Cell.NonPossibilityPlaceholderValue);
-            */
+            *
             candidate = GetNextCandidate(candidates);
 
             // if CurrentCell is the CellId 1 and there are no other candidates to try, exit
@@ -327,3 +327,4 @@ public class BruteForceSolverScratch : ISolver
         CurrentCell = PreviousCells.Pop();
     }
 }
+*/
