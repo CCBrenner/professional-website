@@ -66,5 +66,9 @@ internal sealed class PanelsTable
             behindPanelStatusClassName: "n0-cla$$_name",
             panelButtonClassName: "n0-cla$$_name"
         ),
+        Panel.CreateIndependentPanel(9,   // "View Code" Disclaimer
+            blurStatusClassName: "n0-cla$$_name",
+            panelButtonClassName: "n0-cla$$_name"
+        ),
     };
 }

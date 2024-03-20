@@ -1,5 +1,6 @@
 ﻿@inject UIService UI
 @inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
 
 @page "/"
 @page "/projectinfo"
@@ -140,9 +141,9 @@
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <p>April 26th, 2023</p>
                             <h4>Introducing the Hive</h4>
@@ -224,9 +225,9 @@
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/HideAndSeekProject" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/HideAndSeekProject"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <br/>
                             <h4>Introduction</h4>
@@ -272,9 +273,9 @@
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/MatchGame.razor.cs" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/MatchGame.razor.cs"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <p>May 11th, 2023</p>
                             <h4>Introduction</h4>
@@ -323,9 +324,9 @@
                                     Go To Solver
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/SudokuSolver.razor" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/SudokuSolver.razor"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             
                             <h4>About Sudoku Solver</h4>
@@ -377,9 +378,9 @@
                                     Go To Counter
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/Counter.razor" target="_blank" class="btn btn-primary">
-                                    View Counter Code
-                                </a>
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/Counter.razor"))'>
+                                    View Code
+                                </div>
                             </div>
                             <p>
                                 Counter is a simple applet that counts in different ways. The origin of Counter is from the default Blazor Web Assembly template which comes with a Counter, but not the one seen here. The counter seen here has been augmented with multiple new abilities including being a quantified visual counter instead of an arabic numeral counter. It also allows the user to count up and down by a custom amount, reset, change color, change shape, and change size.
@@ -391,9 +392,9 @@
                                     Go To Spinners
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/LoadingSpinners.razor" target="_blank" class="btn btn-primary">
-                                    View Spinners Code
-                                </a>
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/LoadingSpinners.razor"))'>
+                                    View Code
+                                </div>
                             </div>
                             <p>
                                 For visual appeal and for seeing what is possible using CSS keyframes. This PWA uses the first spinner in this list on its loading screen (reload this page to view it very briefly). The spin is accomplished by changing the X, Y, and/or Z rotation over a specified period of time. The looping behavior comes as a result of starting and stopping the same position for the spinner's full animation loop.
@@ -719,12 +720,31 @@
                 }
                 <SectionedPageSectionsToggle PageId="1"/>
             </div>
+            <div class="behindpanel @UI.Panels[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+            <div class="settings-panel @UI.Panels[9].PanelStatus">
+                <h3 class="text-center">Disclaimer</h3>
+                <p>
+                    The following is publicly viewable source code for this web app. Note that normally this would not at all be allowed by the developer (me, Collyn Brenner) in a business application or website. However, for the purposes of transparency in this web app, which is to demonstrate my capabilities, the source code has been made public for viewing as a rare exception.
+                </p>
+                <p>
+                    I (Collyn Brenner) would otherwise NEVER allow the source code of an active production website or program to be publicly visible.
+                </p>
+                <div class="disclaimer-panel-buttons-container">
+                    <div @onclick="ContinueToViewCode" class="btn btn-primary">Continue</div>
+                    <div class="settings-bottom-container btn btn-secondary">
+                        <div class="settings-close" @onclick="(()=>UI.DeactivatePanel(9))">
+                            Close
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </PageContent>
 </DrawerPageTemplate>
 
 @code {
     private bool testHistoryIsExpanded = false;
+    private string viewCodeUrl = string.Empty;
 
     [Parameter]
     public int SectionId { get; set; } = 0;
@@ -740,6 +760,25 @@
     }
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
+    private void ActivateDisclaimerPanel(string projectCodeURrl)
+    {
+        UI.ActivatePanel(9);  // Activate the appropriate panel
+        viewCodeUrl = projectCodeURrl;  // URL of unique project to be used upon next navigation
+    }
+    private async void ContinueToViewCode()
+    {
+        await OpenUrlInNewTab();
+        UI.DeactivatePanel(9);
+    }
+    private async Task OpenUrlInNewTab()  // Tested: Successful.
+    {
+        await JSRuntime.InvokeVoidAsync("open", $"https://{viewCodeUrl}", "_blank");
+    }
+    private async Task Alert()  // tested: Successful.
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "This is an alert! Supp");
+    }
+
     private void ToggleTestHistoryIsExpanded() =>
         testHistoryIsExpanded = !testHistoryIsExpanded;
     private void ToggleSection(int secId)
