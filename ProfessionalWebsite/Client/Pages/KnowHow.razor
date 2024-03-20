@@ -336,9 +336,11 @@
                                 <li>
                                     To demonstrate the performance of the sudoku solver when multi-threaded processing is available, please checkout this video where multiple puzzles are solved using MSTest in unit tests. The time of completion of each test is also shown:
                                 </li>
-                                <div class="sudoku-video">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
+                            </ul>
+                            <div class="sudoku-video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <ul>
                                 <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>
                                 <li>The puzzle as a data structure is a 2-dimensional matrix of Cell objects. It is important that this 3rd dimension (Cell object) be an encapsulated customized object for purposes of data storage and organization that the program can call Cell object methods on no matter which cell the program is currently working with; otherwise with a 3-dimensional matrix you would simply have the first value in the 3rd dimension be the current value and the other values after it be the candidates but without the ability to have attached methods, though I suppose you could go a functional route with this, there would still be the matter of it needing a custom type to confirm the value being operated on is the right value.</li>
                                 <li>The solvability check is based on all cells in each row, each column, and each block/square (I tried to avoid the term "square" since this could be mistaken for a Cell or a Block and these are definitely different things). Through dependency injection each Cell is inserted into its approrpiate row, column, and block object at the start of the solve algorithm as algorithm setup so that each Cell has a row, column, and block that it is reference by and belongs to. It is in this way that the algorithm is not querying on all cells, but only calling a method of a specific row or column or block at any given point in the algorithm to perform operations on the Cells that belong to that grouping.</li>
@@ -369,9 +371,7 @@
                             Counter + Spinners
                         </div>
                         <div class="section-content @UI.Sections[35].IsCollapsedContent">
-                            <h3 style="text-align: center;">
-                                Counter + Spinners
-                            </h3>
+                            <h4>Counter</h4>
                             <div class="proj-desc-buttons">
                                 <a href="counter" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Counter
@@ -380,7 +380,13 @@
                                 <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/Counter.razor" target="_blank" class="btn btn-primary">
                                     View Counter Code
                                 </a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <p>
+                                Counter is a simple applet that counts in different ways. The origin of Counter is from the default Blazor Web Assembly template which comes with a Counter, but not the one seen here. The counter seen here has been augmented with multiple new abilities including being a quantified visual counter instead of an arabic numeral counter. It also allows the user to count up and down by a custom amount, reset, change color, change shape, and change size.
+                            </p>
+                            <br/>
+                            <h4>Spinners</h4>
+                            <div class="proj-desc-buttons">
                                 <a href="spinners" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Spinners
                                 </a>
@@ -389,14 +395,6 @@
                                     View Spinners Code
                                 </a>
                             </div>
-                            <h4>Counter</h4>
-                            <br />
-                            <p>
-                                Counter is a simple applet that counts in different ways. The origin of Counter is from the default Blazor Web Assembly template which comes with a Counter, but not the one seen here. The counter seen here has been augmented with multiple new abilities including being a quantified visual counter instead of an arabic numeral counter. It also allows the user to count up and down by a custom amount, reset, change color, change shape, and change size.
-                            </p>
-                            <br />
-                            <h4>Spinners</h4>
-                            <br>
                             <p>
                                 For visual appeal and for seeing what is possible using CSS keyframes. This PWA uses the first spinner in this list on its loading screen (reload this page to view it very briefly). The spin is accomplished by changing the X, Y, and/or Z rotation over a specified period of time. The looping behavior comes as a result of starting and stopping the same position for the spinner's full animation loop.
                             </p>
