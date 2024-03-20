@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\knowhow.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\knowhow.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -14,17 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KnowHow.razor.css",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-20T15:32:09.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "KnowHow.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "ViewState": "AQIAAE4BAAAAAAAAAAAmwFABAAAQAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-20T15:26:05.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\wwwroot\\index.html",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\index.html",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\wwwroot\\index.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-03-20T14:39:10.817Z",
               "EditorCaption": ""
