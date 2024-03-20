@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\components\\general\\contact.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\contact.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\portfoliopwaprojsonly\\professional-website\\professionalwebsite\\client\\pages\\knowhow.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\knowhow.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -38,20 +42,20 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "app.css",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-20T17:37:44.005Z",
+              "DocumentIndex": 1,
+              "Title": "Contact.razor",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\Contact.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\Contact.razor",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\Contact.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\Contact.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-20T18:04:24.957Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "KnowHow.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
@@ -59,12 +63,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor.css",
               "ViewState": "AQIAAHgAAAAAAAAAAAAUwIkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-20T16:03:13.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T16:03:13.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BeeHiveMgmtSystem.razor.css",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
@@ -72,12 +75,11 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor.css",
               "ViewState": "AQIAAL0BAAAAAAAAAAAiwMwBAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-20T16:02:41.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T16:02:41.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BeeHiveMgmtSystem.razor",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
@@ -85,8 +87,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\BeeHiveMgmtSystem.razor",
               "ViewState": "AQIAAEIAAAAAAAAAAAAAAIIBAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-20T15:58:21.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T15:58:21.986Z"
             },
             {
               "$type": "Document",
@@ -96,14 +97,26 @@
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
               "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
-              "ViewState": "AQIAAO8CAAAAAAAAAAAAAPcCAAAFAAAA",
+              "ViewState": "AQIAAHsBAAAAAAAAAAAAAIEBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-03-20T15:50:36.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\wwwroot\\css\\app.css",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-20T17:37:44.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "PanelsTable.cs",
               "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\PortfolioPWAProjsOnly\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
@@ -111,8 +124,7 @@
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAAAEcAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T16:05:27.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T16:05:27.571Z"
             }
           ]
         }

@@ -298,9 +298,7 @@
                         </div>
                     </div>
                 }
-
-                @*Counter + Spinners*@
-                @if (UI.Sections[36].IsVisible)
+                @if (UI.Sections[36].IsVisible)  @*Sudoku Solver*@
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
@@ -372,7 +370,7 @@
                             Counter + Spinners
                         </div>
                         <div class="section-content @UI.Sections[35].IsCollapsedContent">
-                            <h4>Counter</h4>
+                            <h4 style="text-align: center;">Counter</h4>
                             <div class="proj-desc-buttons">
                                 <a href="counter" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Counter
@@ -385,8 +383,7 @@
                             <p>
                                 Counter is a simple applet that counts in different ways. The origin of Counter is from the default Blazor Web Assembly template which comes with a Counter, but not the one seen here. The counter seen here has been augmented with multiple new abilities including being a quantified visual counter instead of an arabic numeral counter. It also allows the user to count up and down by a custom amount, reset, change color, change shape, and change size.
                             </p>
-                            <br/>
-                            <h4>Spinners</h4>
+                            <h4 style="text-align: center;">Spinners</h4>
                             <div class="proj-desc-buttons">
                                 <a href="spinners" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Spinners
@@ -637,10 +634,30 @@
                     @if (!UI.Sections[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
+                            <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Match Game
+                            </div>
+                        </div>
+                    }
+                    @if (!UI.Sections[36].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Sudoku Solver
+                            </div>
+                        </div>
+                    }
+                    @if (!UI.Sections[35].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Counter + Spinners
                             </div>
                         </div>
                     }
@@ -754,33 +771,34 @@
         UI.NavigateToSection(SectionId);
         UI.OnUiServiceChanged += UpdateThisComponent;
     }
-    void IDisposable.Dispose()
-    {
+
+    void IDisposable.Dispose() =>
         UI.OnUiServiceChanged -= UpdateThisComponent;
-    }
+
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
-    private void ActivateDisclaimerPanel(string projectCodeURrl)
+
+    private void ActivateDisclaimerPanel(string projectCodeUrl)
     {
         UI.ActivatePanel(9);  // Activate the appropriate panel
-        viewCodeUrl = projectCodeURrl;  // URL of unique project to be used upon next navigation
+        viewCodeUrl = projectCodeUrl;  // URL of unique project to be used upon next navigation
     }
+
     private async void ContinueToViewCode()
     {
-        await OpenUrlInNewTab();
+        await OpenViewCodeUrlInNewTab();
         UI.DeactivatePanel(9);
+        viewCodeUrl = string.Empty;
     }
-    private async Task OpenUrlInNewTab()  // Tested: Successful.
-    {
+    private async Task OpenViewCodeUrlInNewTab() =>  // Tested: Successful.
         await JSRuntime.InvokeVoidAsync("open", $"https://{viewCodeUrl}", "_blank");
-    }
-    private async Task Alert()  // tested: Successful.
-    {
+
+    private async Task Alert() =>  // tested: Successful.
         await JSRuntime.InvokeVoidAsync("alert", "This is an alert! Supp");
-    }
 
     private void ToggleTestHistoryIsExpanded() =>
         testHistoryIsExpanded = !testHistoryIsExpanded;
+
     private void ToggleSection(int secId)
     {
         UI.ToggleSection(secId);
