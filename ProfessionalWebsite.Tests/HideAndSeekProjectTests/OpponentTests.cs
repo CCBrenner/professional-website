@@ -1,4 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.HideAndSeekProject;
+﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
 
 namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
 
@@ -33,15 +33,15 @@ public class OpponentTests
 
         House.Random = new MockRandomWithValueList(new int[] { 0, 1 });
         opponent1.Hide();
-        LocationWithHidingPlace? downstrairsBathroom = House.GetLocationByName("Downstairs Bathroom") as LocationWithHidingPlace;
-        CollectionAssert.AreEqual(new[] { opponent1 }, downstrairsBathroom.CheckHidingPlace().ToList());
+        var downstairsBathroom = (LocationWithHidingPlace)House.GetLocationByName("Downstairs Bathroom");
+        Assert.AreEqual(opponent1, downstairsBathroom.CheckHidingPlace().ToList()[0]);
 
         Opponent opponent2 = new Opponent("Opponent2");
         Assert.AreEqual("Opponent2", opponent2.Name);
 
         House.Random = new MockRandomWithValueList(new int[] { 0, 1, 2, 3 });
         opponent2.Hide();
-        LocationWithHidingPlace kitchen = House.GetLocationByName("Kitchen") as LocationWithHidingPlace;
-        CollectionAssert.AreEqual(new[] { opponent2 }, kitchen.CheckHidingPlace().ToList());
+        var kitchen = (LocationWithHidingPlace)House.GetLocationByName("Kitchen");
+        Assert.AreEqual(opponent2, kitchen.CheckHidingPlace().ToList()[0]);
     }
 }

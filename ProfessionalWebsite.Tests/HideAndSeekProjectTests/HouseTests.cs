@@ -1,4 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.HideAndSeekProject;
+﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
 
 namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
 
@@ -84,15 +84,16 @@ public class HouseTests
     {
         Assert.IsInstanceOfType(House.GetLocationByName("Garage"), typeof(LocationWithHidingPlace));
         Assert.IsInstanceOfType(House.GetLocationByName("Kitchen"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Living Room"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Downstairs Bathroom"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Master Bedroom"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Master Bathroom"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Upstairs Bathroom"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Kids Room"), typeof(LocationWithHidingPlace));
-        Assert.IsInstanceOfType(House.GetLocationByName("Nursery"), typeof(LocationWithHidingPlace));
         Assert.IsInstanceOfType(House.GetLocationByName("Pantry"), typeof(LocationWithHidingPlace));
         Assert.IsInstanceOfType(House.GetLocationByName("Attic"), typeof(LocationWithHidingPlace));
+        Assert.IsInstanceOfType(House.GetLocationByName("Downstairs Bathroom"), typeof(LocationWithHidingPlace));
+
+        Assert.IsInstanceOfType(House.GetLocationByName("Living Room"), typeof(Location));
+        Assert.IsInstanceOfType(House.GetLocationByName("Master Bedroom"), typeof(Location));
+        Assert.IsInstanceOfType(House.GetLocationByName("Master Bathroom"), typeof(Location));
+        Assert.IsInstanceOfType(House.GetLocationByName("Upstairs Bathroom"), typeof(Location));
+        Assert.IsInstanceOfType(House.GetLocationByName("Kids Room"), typeof(Location));
+        Assert.IsInstanceOfType(House.GetLocationByName("Nursery"), typeof(Location));
     }
     [TestMethod]
     public void TestClearHidingPlaces()

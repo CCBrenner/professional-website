@@ -1,4 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+﻿using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
 
 namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests;
 
