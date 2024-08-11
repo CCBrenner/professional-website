@@ -2,6 +2,7 @@
 
 interface IWorker
 {
-    WorkerType Job { get; set; }
+    EWorkerType Job { get; set; }
     void WorkTheNextShift();
+    abstract float GetCostOfThisShift();
 }

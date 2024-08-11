@@ -17,12 +17,12 @@
                         </div>
                     </a>
                     <div>
-                        <button class="btn @BeeHiveView.Instance.interfaceClasses[0]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.WPF))">WPF</button>
-                        <button class="btn @BeeHiveView.Instance.interfaceClasses[1]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V1))">V1</button>
-                        <button class="btn @BeeHiveView.Instance.interfaceClasses[2]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V2))">V2</button>
-                        <button class="btn @BeeHiveView.Instance.interfaceClasses[3]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(ActiveUI.V3))">V3</button>
+                        <button class="btn @BeeHiveView.Instance.interfaceClasses[1]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V1))">V1</button>
+                        <button class="btn @BeeHiveView.Instance.interfaceClasses[2]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V2))">V2</button>
+                        <button class="btn @BeeHiveView.Instance.interfaceClasses[3]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V3))">V3</button>
+                        <button class="btn @BeeHiveView.Instance.interfaceClasses[4]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V4))">V4</button>
                     </div>
-                    @if (BeeHiveView.Instance.VisibleUIIsV3)
+                    @if (BeeHiveView.Instance.VisibleUIIsV3 || BeeHiveView.Instance.VisibleUIIsV4)
                     {
                         <div class="top-corner-button-containers @UI.Panels[1].PanelButtonStatus">
                             <div class="settings-button" @onclick="(()=>UI.ActivatePanel(1))">
@@ -35,13 +35,13 @@
                         <div class="top-corner-button-containers" style="background-color: rgba(0,0,0,0);"></div>
                     }
                 </div>
-                @if (BeeHiveView.Instance.VisibleUI == ActiveUI.WPF)
+                @if (BeeHiveView.Instance.VisibleUI == EActiveUI.WPF)
                 {
                     <div class="wpf-image">
                         <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
                     </div>
                 }
-                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V1)
+                else if (BeeHiveView.Instance.VisibleUI == EActiveUI.V1)
                 {
                     <div class="text-prompts-container">
                         <div class="text-prompts">
@@ -53,9 +53,9 @@
                     <div class="controls">
                         <div class="controls-backdrop">
                             <select class="control-v1" style="background-color: #eee;" @bind="@workerType">
-                                <option value="@(WorkerType.HoneyManufacturer)" class="text-center" style="padding: 10px 0px;">Honey Manufacturer</option>
-                                <option value="@(WorkerType.NectarCollector)" class="text-center" style="padding: 10px 0px;">Nectar Collector</option>
-                                <option value="@(WorkerType.EggCare)" class="text-center" style="padding: 10px 0px;">Egg Care</option>
+                                <option value="@(EWorkerType.HoneyMaker)" class="text-center" style="padding: 10px 0px;">Honey Manufacturer</option>
+                                <option value="@(EWorkerType.NectarCollector)" class="text-center" style="padding: 10px 0px;">Nectar Collector</option>
+                                <option value="@(EWorkerType.EggNurse)" class="text-center" style="padding: 10px 0px;">Egg Care</option>
                             </select>
                             <div class="control-v1" @onclick="(()=>BeeHiveController.Instance.AssignBee(workerType))">Assign Worker</div>
                             <div class="btn control-v1" style="background-color: rgba(0,0,128,1); color: #eee;" @onclick="BeeHiveController.Instance.WorkTheNextShift">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 }
-                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V2)
+                else if (BeeHiveView.Instance.VisibleUI == EActiveUI.V2)
                 {
                     <div class="text-prompts-container-v2">
                         <div class="text-prompts-v2">
@@ -141,10 +141,10 @@
                             {
                                 <div style="display: flex; flex-direction: column">
                                     <div class="selector-row">
-                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[0]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[0]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.HoneyMaker))">
                                             Honey Manufacturer
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.HoneyManufacturer)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.HoneyMaker)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
@@ -152,10 +152,10 @@
                                         }
                                     </div>
                                     <div class="selector-row">
-                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[1]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[1]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.NectarCollector))">
                                             Nectar Collector
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.NectarCollector)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.NectarCollector)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
@@ -163,10 +163,10 @@
                                         }
                                     </div>
                                     <div class="selector-row">
-                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[2]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                        <div class="workertype-selector @BeeHiveView.Instance.workertypeButtonsClasses[2]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.EggNurse))">
                                             Egg Care
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.EggCare)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.EggNurse)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                 }
-                else if (BeeHiveView.Instance.VisibleUI == ActiveUI.V3)
+                else if (BeeHiveView.Instance.VisibleUI == EActiveUI.V3)
                 {
                     <div class="text-prompts-container-v3 ">
                         <div class="text-prompts-v3">
@@ -341,10 +341,10 @@
                             {
                                 <div style="display: flex; flex-direction: column">
                                     <div class="selector-row">
-                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[0]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.HoneyManufacturer))">
+                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[0]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.HoneyMaker))">
                                             Honey Manufacturer (@BeeHiveController.Instance.HoneyManufacturers)
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.HoneyManufacturer)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.HoneyMaker)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
@@ -352,10 +352,10 @@
                                         }
                                     </div>
                                     <div class="selector-row">
-                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[1]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.NectarCollector))">
+                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[1]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.NectarCollector))">
                                             Nectar Collector (@BeeHiveController.Instance.NectarCollectors)
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.NectarCollector)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.NectarCollector)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
@@ -363,15 +363,144 @@
                                         }
                                     </div>
                                     <div class="selector-row">
-                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[2]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(WorkerType.EggCare))">
+                                        <div class="workertype-selector-v3 @BeeHiveView.Instance.workertypeButtonsClasses[2]" @onclick="(()=>BeeHiveView.Instance.UpdateSelectedWorkerType(EWorkerType.EggNurse))">
                                             Egg Nurse (@BeeHiveController.Instance.EggNurses)
                                         </div>
-                                        @if (BeeHiveView.Instance.selectedWorkerType == WorkerType.EggCare)
+                                        @if (BeeHiveView.Instance.selectedWorkerType == EWorkerType.EggNurse)
                                         {
                                             <div class="assign-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(BeeHiveView.Instance.selectedWorkerType))">
                                                 Assign
                                             </div>
                                         }
+                                    </div>
+                                </div>
+                                <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
+                                    Work Next Shift
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                else if (BeeHiveView.Instance.VisibleUI == EActiveUI.V4)
+                {
+                    <div class="text-prompts-container-v3 ">
+                        <div class="text-prompts-v3">
+                            <div class="report">
+                                <div class="text-center">Day @BeeHiveController.Instance.CurrentDay: Vault Report</div>
+                                <div class="row-flex-v3t">
+                                    <div class="v4-details-pod">
+                                        <div>
+                                            Honey: @BeeHiveController.Instance.VaultHoney.ToString("N2")
+                                        </div>
+                                        <div>
+                                            in: @BeeHiveController.Instance.HoneyAdditionRate.ToString("N2") |
+                                            out: @BeeHiveController.Instance.ConsumptionRate.ToString("N2") |
+                                            chg:
+                                            @if (BeeHiveController.Instance.HoneyTrajectory > 0)
+                                            {
+                                                <span>+</span>
+                                            }
+                                            @BeeHiveController.Instance.HoneyTrajectory.ToString("N2")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3t">
+                                    <div class="v4-details-pod">
+                                        <div class="v4-detailed-title">
+                                            Nectar: @BeeHiveController.Instance.VaultNectar.ToString("N2")
+                                        </div>
+                                        <div>
+                                            in: @BeeHiveController.Instance.NectarCollectionRate.ToString("N2") |
+                                            out: @BeeHiveController.Instance.NectarReductionRate.ToString("N2") |
+                                            chg:
+                                            @if (BeeHiveController.Instance.NectarTrajectory > 0)
+                                            {
+                                                <span>+</span>
+                                            }
+                                            @BeeHiveController.Instance.NectarTrajectory.ToString("N2")
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (BeeHiveController.Instance.VaultNotification != "")
+                                {
+                                    <div class="row-flex-v3">
+                                        <div class="field-flex text-center" style="color: red;">
+                                            @BeeHiveController.Instance.VaultNotification
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="report">
+                                <div class="text-center">Day @BeeHiveController.Instance.CurrentDay: Queen Bee Report</div>
+                                <div class="row-flex-v3">
+                                    <div class="v4-details-pod">
+                                        <div>Eggs: @BeeHiveController.Instance.Eggs.ToString("N0")</div>
+                                        <div>
+                                            in: @BeeHiveController.Instance.EggsPerShift.ToString("N2") |
+                                            out: @BeeHiveController.Instance.EggToUnassignedConversionRate.ToString("N2") |
+                                            chg:
+                                            @if (BeeHiveController.Instance.EggChangeRate > 0)
+                                            {
+                                                <span>+</span>
+                                            }
+                                            @BeeHiveController.Instance.EggChangeRate.ToString("N2")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3">
+                                    <div class="v4-details-pod">
+                                        <div>@BeeHiveController.Instance.UnassignedWorkersCount.ToString("N0")</div>
+                                        <div>Free</div>
+                                    </div>
+                                    <div style="width:0; border: solid black 1px; margin: 0 8px;"></div>
+                                    <div class="v4-details-pod">
+                                        <div>@BeeHiveController.Instance.WorkersTotal.ToString("N0")</div>
+                                        <div>Workers</div>
+                                    </div>
+                                    <div class="v4-details-pod">=</div>
+                                    <div class="v4-details-pod">
+                                        <div>@BeeHiveController.Instance.HoneyManufacturers.ToString("N0")</div>
+                                        <div>HM</div>
+                                    </div>
+                                    <div class="v4-details-pod">+</div>
+                                    <div class="v4-details-pod">
+                                        <div>@BeeHiveController.Instance.NectarCollectors.ToString("N0")</div>
+                                        <div>NC</div>
+                                    </div>
+                                    <div class="v4-details-pod">+</div>
+                                    <div class="v4-details-pod">
+                                        <div>@BeeHiveController.Instance.EggNurses.ToString("N0")</div>
+                                        <div>EN</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <div class="v4-controls-backdrop">
+                            @if (BeeHiveController.Instance.HiveIsBankrupt)
+                            {
+                                <div class="try-again" @onclick="Reset">Try Again</div>
+                            }
+                            else if (BeeHiveController.Instance.TimerIsBeingUsed && !BeeHiveController.Instance.TimerRunning)
+                            {
+                                <div style="color: #eee; padding: 18px;">Pressing "Start" will reset your game.</div>
+                                <br />
+                                <div class="start-with-timer-on" @onclick="BeeHiveView.Instance.StartTimer">Start</div>
+                                <br />
+                                <div style="color: #eee; padding: 18px;">To play un-timed version, deselect "Timed Game Play" setting in settings.</div>
+                            }
+                            else
+                            {
+                                <div style="display: flex">
+                                    <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[0] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.HoneyMaker))">
+                                        Honey<br />Maker
+                                    </div>
+                                    <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[1] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.NectarCollector))">
+                                        Nectar<br/>Collector
+                                    </div>
+                                    <div class="v4-worker-add-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.EggNurse))">
+                                        Egg<br/>Nurse
                                     </div>
                                 </div>
                                 <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
@@ -407,7 +536,7 @@
 </ProjectsPageTemplate>
 
 @code {
-    private WorkerType workerType = WorkerType.HoneyManufacturer;
+    private EWorkerType workerType = EWorkerType.HoneyMaker;
 
     protected override void OnInitialized()
     {
@@ -427,6 +556,11 @@
     {
         BeeHiveView.Instance.UpdateAssignButtons();
         StateHasChanged();
+    }
+    private void Reset()
+    {
+        BeeHiveController.Instance.Reset();
+        BeeHiveView.Instance.UpdateAssignButtons();
     }
 }
 

@@ -1,45 +1,36 @@
-﻿namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
+﻿using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem.BeeHiveModel;
+using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem.BeeHiveModel.Contracts;
 
-public sealed class HoneyVault  // sealed so that it is the only instance due to no classes being able to inherit from it
+namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
+
+public sealed class Vault
 {
-    private HoneyVault()  // private constructor; not externally accessible
+    private Vault(IBeeHiveSettings settings)
     {
-        /*
-        nectarConversionRatio = settings.VaultNectarConversionRatio;
-        lowLevelWarning = settings.VaultLowLevelWarning;
-        Honey = settings.VaultHoney;
-        Nectar  = settings.VaultNectar;
-        */
-        NectarConversionRatio = 0.19F;
-        lowLevelWarning = 10F;
-        Honey = 25F;
-        Nectar = 100F;
+        NectarConversionRatio = settings.NectarConversionRatio;
+        lowLevelWarning = settings.LowLevelWarning;
+        Honey = settings.Honey;
+        Nectar = settings.Nectar;
     }  
-    private static HoneyVault? instance = null;  // single instance definable only during the first GET of the instance
-    private static readonly object lockObject = new object();  // used for lock so that only one thread has access to the instance at a time
-    public static HoneyVault Instance
+    private static Vault? instance = null;
+    private static readonly object lockObject = new object();
+    public static Vault Instance
     {
         get
         {
             lock (lockObject)
             {
-                if (instance == null)
-                    instance = new HoneyVault();
+                if (instance == null) instance = new Vault(new Settings());
                 return instance;
             }
         }
     }
     public void Reset()
     {
-        /*
-        Honey = settings.VaultHoney;
-        Nectar = settings.VaultNectar;
-        */
         Honey = 25F;
         Nectar = 100F;
     }
 
-    // private Settings settings = Settings.Instance;
     private float lowLevelWarning;
 
     public float Honey { get; private set; }
@@ -78,11 +69,8 @@ public sealed class HoneyVault  // sealed so that it is the only instance due to
     }
     public bool ConsumeHoney(float consumptionAmount)
     {
-        if (consumptionAmount < Honey)
-        {
-            Honey -= consumptionAmount;
-            return true;
-        }
-        return false;
+        if (consumptionAmount > Honey) return false;
+        Honey -= consumptionAmount;
+        return true;
     }
 }

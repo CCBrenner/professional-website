@@ -218,11 +218,6 @@
     padding: 10px;
 }
 
-.assign-buttons-active {
-    background-color: rgba(0, 0, 128, 1);
-    color: #eee;
-}
-
 .report {
     background-color: lightgrey;
     border-radius: 12px;
@@ -421,14 +416,56 @@
     justify-content: center;
 }
 
-/* start Pluggable classes */
+.v4-detailed-title {
+    padding: 0 6px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.v4-details-pod {
+    padding: 0 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.v4-worker-add-button {
+    height: 70px;
+    width: 90px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 196, 0, 0.95);
+    margin: 4px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v4-controls-backdrop {
+    background-color: #111;
+    height: 140px;
+    width: 390px;
+    padding: 12px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.assign-buttons-active {
+    background-color: rgba(0, 0, 128, 1);
+    color: #eee;
+}
+
+/* start Pluggable classes */
 /* (defaults being operated on:)
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s;
 */
-
 .pm-panel-visible {
     visibility: visible;
     opacity: 1;

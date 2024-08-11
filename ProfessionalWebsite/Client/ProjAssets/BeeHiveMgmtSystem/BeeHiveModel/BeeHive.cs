@@ -1,22 +1,41 @@
-﻿namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
+﻿using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem.BeeHiveModel.Contracts;
+
+namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
 
 public class BeeHive
 {
-    //public Settings Settings = Settings.Instance;
-    public HoneyVault Vault = HoneyVault.Instance;
-    public QueenBee Queen = new QueenBee();
+    public BeeHive(IBeeHiveSettings settings)
+    {
+        Settings = settings;
+        Queen = new(settings);
+        EggCareBee = new(
+            Queen, 
+            settings.EggNurseCostPerShift, 
+            settings.HoneyConsumedPerUnassignedBee, 
+            settings.EggNurseCareProgressPerShift);
+        NectarCollectorBee = new(
+            Settings.NectarCollectorCostPerShift, 
+            Settings.NectarCollectedPerShift);
+        HoneyMakerBee = new(
+            settings.HoneyMakerCostPerShift, 
+            settings.HoneyConsumedPerUnassignedBee, 
+            settings.NectarProcessedPerShift);
+    }
+
+    public IBeeHiveSettings Settings { get; set; }
+
+    public Vault Vault = Vault.Instance;
+    public QueenBee Queen { get; private set; }
 
     // For using values in view only
-    public NectarCollectorBee NectarCollectorBee = new NectarCollectorBee();
-    public HoneyManufacturerBee HoneyManufacturerBee = new HoneyManufacturerBee();
-    public EggCareBee EggCareBee = new EggCareBee(new QueenBee());
+    public NectarCollector NectarCollectorBee { get; private set; }
+    public HoneyMaker HoneyMakerBee { get; private set; }
+    public EggNurse EggCareBee { get; private set; }
 
-    public float ConsumptionRate => 
-        (float)(Math.Floor(Queen.TotalCostPerShift * 10) / 10);
+    public float ConsumptionRate => (float)Math.Round(Queen.TotalCostPerShift, 2);
 
     public void Reset()
     {
-        // Settings.Reset();
         Vault.Reset();
         Queen.Reset();
     }

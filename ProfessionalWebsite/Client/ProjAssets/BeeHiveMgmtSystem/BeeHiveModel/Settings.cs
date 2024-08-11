@@ -1,64 +1,33 @@
-﻿namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
+﻿using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem.BeeHiveModel.Contracts;
 
-/*
-public sealed class Settings
+namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem.BeeHiveModel;
+
+public class Settings : IBeeHiveSettings
 {
-    private Settings() { }
-    private static Settings? instance = null;
-    private Settings instanceWithSavedDefaultValues = new Settings();
-    private static readonly object lockObject = new object();
-    public static Settings Instance 
-    {
-        get
-        {
-            lock (lockObject)
-            {
-                if (instance == null)
-                    instance = new Settings();
-                return instance;
-            }
-        }
-    }
+    // Vault:
+    public float NectarConversionRatio { get; set; } = 0.19F;
+    public float LowLevelWarning { get; set; } = 10F;
+    public float Honey { get; set; } = 25F;
+    public float Nectar { get; set; } = 100F;
 
-    // pre-game initial values
-    public float QueenEggs = 0F;
-    public float QueenUnassignedWorkersCount = 0F;
-    public float VaultHoney = 25F;
-    public float VaultNectar = 100F;
+    // Everything else:
+    public float QueenBeeCostPerShift { get; set; } = 2.15F;
+    public int UnassignedBeeStaringAmount { get; set; } = 0;
 
-    // in-game constants
-    public float HoneyManufacturerCostPerShift = 1.7F;
-    public float HoneyManufacturerNectarProcessedPerShift = 33.15F;
+    public float NectarCollectorCostPerShift { get; set; } = 1.95F;
+    public float NectarCollectedPerShift { get; set; } = 33.25F;
 
-    public float EggCareCostPerShift = 1.53F;
-    public float EggCareCareProgressPerShift = 0.15F;
+    public float HoneyMakerCostPerShift { get; set; } = 1.7F;
+    public float NectarProcessedPerShift { get; set; } = 33.15F;
 
-    public float NectarCollectorCostPerShift = 1.95F;
-    public float NectarCollectarNectarCollectedPerShift = 33.25F;
+    public float EggNurseCostPerShift { get; set; } = 1.53F;
+    public float EggNurseCareProgressPerShift { get; set; } = 0.15F;
+    public float InitialEggConversionProgress { get; set; } = 0;
 
-    public float QueenEggsPerShift = 0.45F;
-    public float QueenHoneyPerUnassignedWorker = 0.5F;
-    public float QueenCostPerShift = 2.15F;
-
-    public float VaultNectarConversionRatio = 0.19F;
-    public float VaultLowLevelWarning = 10F;
-    /*
-    public void Reset()
-    {
-        instance = new Settings();
-    }
-    /*
-    // ConcurrentDictionary could be used to solve concurrent thread access issues (if that is the problem w/Settings singleton)
-    ConcurrentDictionary<string, int> dictionary = new ConcurrentDictionary<string, int>()
-    {
-        ["A"] = 12,
-        ["B"] = 2,
-        ["C"] = 3,
-    };
-    public int TestThis()
-    {
-        if (dictionary.TryGetValue("A", out int value)) return value;
-        return 10;
-    }
+    public float StartingAmountOfEggs { get; set; } =  0F;
+    public int StartingDay { get; set; } = 1;
+    public float EggsProducedPerShift { get; set; } = 0.45F;
+    public float HoneyConsumedPerUnassignedBee { get; set; } = 0.5F;
+    public bool TimerIsBeingUsed { get; set; } = false;
+    public bool TimerRunning { get; set; } = false;
 }
-*/

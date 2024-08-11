@@ -15,7 +15,7 @@
         @*
         <DrawerNavLinkButton Href="projectinfo/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
         *@
-        <DrawerNavLinkButton Href="projectinfo/0" ButtonText="About This Web App" OnClickCallback="(()=>UI.NavigateToSection(0))" />
+        <DrawerNavLinkButton Href="projectinfo/0" ButtonText="About" OnClickCallback="(()=>UI.NavigateToSection(0))" />
         <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager System/Game" OnClickCallback="(()=>UI.NavigateToSection(16))" />
         <DrawerNavLinkButton Href="projectinfo/15" ButtonText="Hide & Seek Game" OnClickCallback="(()=>UI.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="projectinfo/33" ButtonText="Match Game" OnClickCallback="(()=>UI.NavigateToSection(33))" />
@@ -100,24 +100,24 @@
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            About This Web App
+                            About
                         </div>
                         <div class="section-content @UI.Sections[14].IsCollapsedContent">
-                            <h3 style="text-align: center;">This Web App: Facts and Features</h3>
+                            <h3 style="text-align: center;">Welcome to<br/>Collyn's Developer Portfolio PWA!</h3>
                             <br/>
-                            <p>Some facts and features about this website/PWA (Progressive Web App):</p>
+                            <p>In an effort to respect your time, here are some facts and features about this progressive web app:</p>
                             <ul>
-                                <li>Since this is a PWA means you can install it on your device for offline use. (To find out how to install simply perform a quick Google search for PWA installation for your device type.)</li>
-                                <li>This is built on Blazor WebAssembly as an SPA (Single Page Application).</li>
-                                <li>The pevious statement implies that the logic is implemented using C#. While the framework relies on JavaScript, no additional JS was added for the functionality, keeping everything in the OOP (Object-Oriented Programming) paradigm.</li>
-                                <li>This is built with RWD (Responsive Web Design) so that this one app can be used on mobile devices, tablets, and desktops/laptops.</li>
-                                <li>Make the global container of this PWA become animated by clicking the magnet options in the upper right corner or by going to <b>Projects > Layout Controls</b>. (These were added using CSS keyframes attached to CSS classes that are toggled on and off.)</li>
+                                <li>This is a Progressive Web App (PWA); you can install it on your device for offline use. (To find out how to install simply perform a quick Google search for PWA installation for your device type.)</li>
+                                <li>This was built on Blazor WebAssembly as a Single Page Application (SPA).</li>
+                                <li>All logic here is implemented using C# in the browser due to interoperability of C# with WebAssembly. No JS was used in the making of this SPA.</li>
+                                <li>This is built using Responsive Web Design (RWD) for the GUI so that this one app can be used on mobile devices, tablets, and desktops/laptops from a single codebase.</li>
+                                <li>You can animate the global container of this PWA by clicking the magnet icon in the upper right corner or by going to <b>Projects > Layout Controls</b>. (These were added using CSS keyframes attached to CSS classes that are toggled on and off. The idea was implemented to discover its feasibiity for marketing purposes, such as providing a QR code behind the main container that would be revealed when the main container changed its viewport size in a certain way.)</li>
                                 <li>No outside UI libraries are being used except for Bootstrap in some places and FontAwesome for the icons. (Bootstrap could have easily been completely replaced with CSS Flexbox but was not for convenience reasons; CSS and CSS Flexbox are used a lot in this PWA.)</li>
-                                <li>This means the navigation items and menus are custom built and custom styled. The app was built with 5 menu buttons and has been reduced to two for this PWA's purpose.</li>
-                                <li>Management of the UI changes and routing is done by a single UIService which is injected to each applicable page and component to make the proper changes happen. (For routing within a page events are used to make the page reload since the state change happens outside of the page-scoped component.)</li>
-                                <li>The projects to the left and which are contained here utilize many tests for their application logic. (TDD/BDD is quite valuable in the long-term.)</li>
-                                <li>(Note: I (Collyn Brenner) understand this is potentially dangerous info to share, but it is for the purpose of being transparent and there is not much to lose here while there is much to gain:) This PWA is containerized using Docker, hosted on Docker hub and drawn on from an Azure App Service offering automated deployment updates whenever the DockerHub repo is updated with a successful "docker push" command to the appropriate repo.</li>
-                                <li>The use of collapsible sections came at the hands of lack of my own foresight in realizing that HTML bookmarks work only for the scrollable viewport and not for inner HTML elements that have been given a scrolling property. I still wanted to offer the user the ability to see the content they wanted at the click of a button. Now, instead of taking the user to the section a click brings the section to the user.</li>
+                                <li>The navigation items and menus are custom built and styled. This app was originally built with 5 menu buttons and has been reduced to 2 for this PWA's purpose. The navigation was designed to be a hybrid of mobile app and website navigation, where you have 5 tabs like a mobile app and by tapping you get access to a sub-menu and perhaps sub-sub-menus as well. It was designed with the aim of being reusable. The nav position across the three resolutions utilizes the same component just with different stylings for configuration and positioning.</li>
+                                <li>Management of the UI changes and routing is done by a single UIService which is injected to each applicable page and component to make the proper changes happen with each user interaction. (For routing within a page events are used to make the page reload since the state change happens outside of the page-scoped component.)</li>
+                                <li>The projects to the left and which are contained here utilize many tests for their application logic. Unit tests have been employed for most of these projects.</li>
+                                <li>(Note: The following is for the purpose of transparency and to demonstrate my abbilities; I understand that under normal circumstances this would be a vulnerability to have as publicly visible:) This PWA is containerized using Docker, hosted on Docker hub and drawn on from an Azure App Service offering automated deployment updates whenever the DockerHub repo is updated with a successful "docker push" command to the appropriate repo.</li>
+                                <li>The use of collapsible sections (suhc as "About" and "Bee Hive Manager System/Game") came at the hands of lack of my own foresight in realizing that HTML bookmarks work only for the scrollable viewport and not for inner HTML elements that have been given a scrolling property. I still wanted to offer the user the ability to see the content they wanted at the click of a sidebar button but was pretty far into the development of this GUI. Now, instead of taking the user to the section like bookmarks do a click brings the section to the user. It was a concept I decided to pursue but likely would not employ in ab business application due to the appearance and slight awkwardness of the container moving and collapsing mechanism.</li>
                             </ul>
                         </div>
                     </div>

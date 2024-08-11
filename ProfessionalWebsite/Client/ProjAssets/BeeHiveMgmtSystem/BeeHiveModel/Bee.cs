@@ -2,20 +2,19 @@
 
 public abstract class Bee : IWorker
 {
-    public Bee(WorkerType title)
+    public Bee(EWorkerType title)
     {
         Job = title;
     }
 
-    public WorkerType Job { get; set; }
+    public EWorkerType Job { get; set; }
 
-    public abstract float CostPerShift { get; }
+    public abstract float CostPerShift { get; set; }
+    public abstract float GetCostOfThisShift();
 
     public virtual void WorkTheNextShift()
     {
-        HoneyVault vault = HoneyVault.Instance;
-        if (vault.ConsumeHoney(CostPerShift))
-            DoJob();
+        if (Vault.Instance.ConsumeHoney(CostPerShift)) DoJob();
     }
     protected abstract void DoJob();
 }

@@ -13,14 +13,14 @@ public sealed class BeeHiveView
         {
             lock (lockObject)
             {
-                if (instance == null)
-                    instance = new BeeHiveView();
+                if (instance == null) instance = new BeeHiveView();
                 return instance;
             }
         }
     }
     public List<string> interfaceClasses = new()
     {
+        "btn-secondary",
         "btn-secondary",
         "btn-secondary",
         "btn-secondary",
@@ -34,15 +34,16 @@ public sealed class BeeHiveView
     };
     public string assignButtons = "assign-buttons-inactive";
 
-    public WorkerType selectedWorkerType = WorkerType.HoneyManufacturer;
+    public EWorkerType selectedWorkerType = EWorkerType.HoneyMaker;
 
-    public ActiveUI VisibleUI = ActiveUI.V3;
-    public bool VisibleUIIsV3 => VisibleUI == ActiveUI.V3;
+    public EActiveUI VisibleUI = EActiveUI.V4;
+    public bool VisibleUIIsV3 => VisibleUI == EActiveUI.V3;
+    public bool VisibleUIIsV4 => VisibleUI == EActiveUI.V4;
     public string PageMainContentBlur => SettingsPanelIsShowing ? "page-maincontent-blurred" : "";
     public string SettingsStatus => SettingsPanelIsShowing ? "settings-visible" : "";
     public string SettingsBehindPanelStatus = "";  // behind-panel-visible
 
-    public void SetVisibleUI(ActiveUI uiChoice)
+    public void SetVisibleUI(EActiveUI uiChoice)
     {
         VisibleUI = uiChoice;
 
@@ -50,17 +51,17 @@ public sealed class BeeHiveView
             .Select(x => x = "btn-secondary")
             .ToList();
 
-        if (VisibleUI == ActiveUI.WPF)
+        if (VisibleUI == EActiveUI.WPF)
             interfaceClasses[0] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V1)
+        else if (VisibleUI == EActiveUI.V1)
             interfaceClasses[1] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V2)
+        else if (VisibleUI == EActiveUI.V2)
             interfaceClasses[2] = "btn-primary";
-        else if (VisibleUI == ActiveUI.V3)
+        else if (VisibleUI == EActiveUI.V3)
             interfaceClasses[3] = "btn-primary";
     }
 
-    public void UpdateSelectedWorkerType(WorkerType workerType)
+    public void UpdateSelectedWorkerType(EWorkerType workerType)
     {
         selectedWorkerType = workerType;
 
@@ -68,15 +69,15 @@ public sealed class BeeHiveView
             .Select(x => x = "workertype-inactive")
             .ToList();
 
-        if (selectedWorkerType == WorkerType.HoneyManufacturer)
+        if (selectedWorkerType == EWorkerType.HoneyMaker)
             workertypeButtonsClasses[0] = "workertype-active";
-        else if (selectedWorkerType == WorkerType.NectarCollector)
+        else if (selectedWorkerType == EWorkerType.NectarCollector)
             workertypeButtonsClasses[1] = "workertype-active";
-        else if (selectedWorkerType == WorkerType.EggCare)
+        else if (selectedWorkerType == EWorkerType.EggNurse)
             workertypeButtonsClasses[2] = "workertype-active";
     }
 
-    public void AssignBee(WorkerType workerType)
+    public void AssignBee(EWorkerType workerType)
     {
         beeHiveController.AssignBee(workerType);
         UpdateAssignButtons();

@@ -1,9 +1,9 @@
 ﻿namespace ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
 
-public enum WorkerType
+public enum EWorkerType
 {
-    HoneyManufacturer,
+    HoneyMaker,
     NectarCollector,
-    EggCare,
+    EggNurse,
     Queen,
 }
