@@ -146,12 +146,10 @@ public sealed class QueenBee : Bee
 
     public void CareForEggs(float eggsToConvert)  // Only EggNurse calls this method
     {
-        //if (Eggs < eggsToConvert) return;  // remove later
-
         EggConversionProgress += eggsToConvert;
         if (EggConversionProgress < 1) return;
-        
         EggConversionProgress--;
+        Eggs--;
         UnassignedBeeCount++;
     }
     public int GetWorkersCountByWorkerType(EWorkerType workerType)

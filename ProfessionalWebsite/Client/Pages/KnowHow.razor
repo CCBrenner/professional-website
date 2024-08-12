@@ -16,7 +16,8 @@
         <DrawerNavLinkButton Href="projectinfo/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
         *@
         <DrawerNavLinkButton Href="projectinfo/0" ButtonText="About" OnClickCallback="(()=>UI.NavigateToSection(0))" />
-        <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager System/Game" OnClickCallback="(()=>UI.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="projectinfo/36" ButtonText="Sudoku Solver" OnClickCallback="(()=>UI.NavigateToSection(36))" />
+        <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager" OnClickCallback="(()=>UI.NavigateToSection(16))" />
         <DrawerNavLinkButton Href="projectinfo/15" ButtonText="Hide & Seek Game" OnClickCallback="(()=>UI.NavigateToSection(15))" />
         <DrawerNavLinkButton Href="projectinfo/33" ButtonText="Match Game" OnClickCallback="(()=>UI.NavigateToSection(33))" />
         @*
@@ -28,7 +29,6 @@
         <DrawerNavLinkButton Href="projectinfo/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
         <DrawerNavLinkButton Href="projectinfo/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
         *@
-        <DrawerNavLinkButton Href="projectinfo/36" ButtonText="Sudoku Solver" OnClickCallback="(()=>UI.NavigateToSection(36))" />
         <DrawerNavLinkButton Href="projectinfo/35" ButtonText="Counter + Spinners" OnClickCallback="(()=>UI.NavigateToSection(35))" />
         <DrawerNavLinkButton Href="projectinfo/34" ButtonText="Contact" IconClasses="fa-solid fa-envelope" OnClickCallback="(()=>UI.NavigateToSection(34))"/>
     </DrawerContent>
@@ -122,7 +122,68 @@
                         </div>
                     </div>
                 }
-                @*Bee Hive Mgmt System*@
+                @*Sudoku Solver*@
+                @if (UI.Sections[36].IsVisible)  
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                            @if (UI.Sections[36].IsCollapsedHeader == "collapsed-header")
+                            {
+                                   <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                   <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            Sudoku Solver
+                        </div>
+                        <div class="section-content @UI.Sections[36].IsCollapsedContent">
+                            <h3 style="text-align: center;">
+                                Sudoku Solver
+                            </h3>
+                            <div class="proj-desc-buttons">
+                                <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Go To Solver
+                                </a>
+                                &nbsp;
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/SudokuSolver.razor"))'>
+                                    View Code
+                                </div>
+                            </div>
+                            
+                            <h4>About Sudoku Solver</h4>
+                            <br>
+                            <ul>
+                                <li>The user can choose a puzzle from the list of defaults or enter a custom puzzle and the program will solve it for the user.</li>
+                                <li>One drawback is when the program was converted from console app to Blazor WASM the main solve algorithm had to use the single UI thread for processing the solve, having the result of the whole PWA appears to freeze while it solves the puzzle. I looked into having a webworker take care of this but since I wanted the PWA to be entirely C# with no additional JS I opted to simply give a disclaimer, at least for now. I might change that in the future.</li>
+                                <li>
+                                    To demonstrate the performance of the sudoku solver when multi-threaded processing is available, please checkout this video where multiple puzzles are solved using MSTest in unit tests. The time of completion of each test is also shown:
+                                </li>
+                            </ul>
+                            <div class="sudoku-video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <ul>
+                                <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>
+                                <li>The puzzle as a data structure is a 2-dimensional matrix of Cell objects. It is important that this 3rd dimension (Cell object) be an encapsulated customized object for purposes of data storage and organization that the program can call Cell object methods on no matter which cell the program is currently working with; otherwise with a 3-dimensional matrix you would simply have the first value in the 3rd dimension be the current value and the other values after it be the candidates but without the ability to have attached methods, though I suppose you could go a functional route with this, there would still be the matter of it needing a custom type to confirm the value being operated on is the right value.</li>
+                                <li>The solvability check is based on all cells in each row, each column, and each block/square (I tried to avoid the term "square" since this could be mistaken for a Cell or a Block and these are definitely different things). Through dependency injection each Cell is inserted into its approrpiate row, column, and block object at the start of the solve algorithm as algorithm setup so that each Cell has a row, column, and block that it is reference by and belongs to. It is in this way that the algorithm is not querying on all cells, but only calling a method of a specific row or column or block at any given point in the algorithm to perform operations on the Cells that belong to that grouping.</li>
+                                <li>The unit tests for this program run significantly longer than the other projects here since the unit tests are testing full puzzles in some cases for correct system behavior.</li>
+                            </ul>
+                            <br/>
+                            <h4>Background</h4>
+                            <br />
+                            <p>
+                                I was visiting relatives in Shreveport, LA when my father-in-law (an engineer of many sorts) recommended that since I like solving Sudoku puzzles so much that I should try writing a program that solves them. It was such an irresistable idea that I started orking on the project (as a console app at first) to try and work out how it would even work.
+                            </p>
+                            <p>
+                                After struggling to get it to solve the way that I would normally solve (with a desire to utilize fewer steps than it would take to solve doing brute-force solving, in an effort to not be wasteful of resources and decrease the quantity of steps/solve time), I came to realize that it would take many more steps to try and solve it the way I would normally solve it compared to brute-force solving. A console app is not capable of processing data in a visual way like I can, and to try and work around this deficiency is quite a task. It can be done, but it would require a much larger program (at least based on what I know in my programming experience so far). Brute-force solving showed to have many fewer steps and was also more straightforward in programmatic approach. Other than this, the only notable thing is that I had a hard time deciding what the levels of abstraction were supposed to be when converting from console app to Blazor WASM. I think I settled on a sufficient abstraction structure.
+                            </p>
+                            <br />
+                        </div>
+                    </div>
+                }
+                @*Bee Hive Manager*@
                 @if (UI.Sections[16].IsVisible)
                 {
                     <div class="section-container">
@@ -132,10 +193,10 @@
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            Bee Hive Manager System/Game
+                            Bee Hive Manager
                         </div>
                         <div class="section-content @UI.Sections[16].IsCollapsedContent">
-                            <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
+                            <h3 style="text-align: center;">Bee Hive Manager</h3>
                             <div class="proj-desc-buttons">
                                 <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Game
@@ -298,67 +359,8 @@
                         </div>
                     </div>
                 }
-                @if (UI.Sections[36].IsVisible)  @*Sudoku Solver*@
-                {
-                    <div class="section-container">
-                        <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
-                            @if (UI.Sections[36].IsCollapsedHeader == "collapsed-header")
-                            {
-                                   <i class="fa fa-chevron-right" />
-                            }
-                            else
-                            {
-                                   <i class="fa fa-chevron-down" />
-                            }
-                            &nbsp;
-                            Sudoku Solver
-                        </div>
-                        <div class="section-content @UI.Sections[36].IsCollapsedContent">
-                            <h3 style="text-align: center;">
-                                Sudoku Solver
-                            </h3>
-                            <div class="proj-desc-buttons">
-                                <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
-                                    Go To Solver
-                                </a>
-                                &nbsp;
-                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/SudokuSolver.razor"))'>
-                                    View Code
-                                </div>
-                            </div>
-                            
-                            <h4>About Sudoku Solver</h4>
-                            <br>
-                            <ul>
-                                <li>The user can choose a puzzle from the list of defaults or enter a custom puzzle and the program will solve it for the user.</li>
-                                <li>One drawback is when the program was converted from console app to Blazor WASM the main solve algorithm had to use the single UI thread for processing the solve, having the result of the whole PWA appears to freeze while it solves the puzzle. I looked into having a webworker take care of this but since I wanted the PWA to be entirely C# with no additional JS I opted to simply give a disclaimer, at least for now. I might change that in the future.</li>
-                                <li>
-                                    To demonstrate the performance of the sudoku solver when multi-threaded processing is available, please checkout this video where multiple puzzles are solved using MSTest in unit tests. The time of completion of each test is also shown:
-                                </li>
-                            </ul>
-                            <div class="sudoku-video">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                            <ul>
-                                <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>
-                                <li>The puzzle as a data structure is a 2-dimensional matrix of Cell objects. It is important that this 3rd dimension (Cell object) be an encapsulated customized object for purposes of data storage and organization that the program can call Cell object methods on no matter which cell the program is currently working with; otherwise with a 3-dimensional matrix you would simply have the first value in the 3rd dimension be the current value and the other values after it be the candidates but without the ability to have attached methods, though I suppose you could go a functional route with this, there would still be the matter of it needing a custom type to confirm the value being operated on is the right value.</li>
-                                <li>The solvability check is based on all cells in each row, each column, and each block/square (I tried to avoid the term "square" since this could be mistaken for a Cell or a Block and these are definitely different things). Through dependency injection each Cell is inserted into its approrpiate row, column, and block object at the start of the solve algorithm as algorithm setup so that each Cell has a row, column, and block that it is reference by and belongs to. It is in this way that the algorithm is not querying on all cells, but only calling a method of a specific row or column or block at any given point in the algorithm to perform operations on the Cells that belong to that grouping.</li>
-                                <li>The unit tests for this program run significantly longer than the other projects here since the unit tests are testing full puzzles in some cases for correct system behavior.</li>
-                            </ul>
-                            <br/>
-                            <h4>Background</h4>
-                            <br />
-                            <p>
-                                I was visiting relatives in Shreveport, LA when my father-in-law (an engineer of many sorts) recommended that since I like solving Sudoku puzzles so much that I should try writing a program that solves them. It was such an irresistable idea that I started orking on the project (as a console app at first) to try and work out how it would even work.
-                            </p>
-                            <p>
-                                After struggling to get it to solve the way that I would normally solve (with a desire to utilize fewer steps than it would take to solve doing brute-force solving, in an effort to not be wasteful of resources and decrease the quantity of steps/solve time), I came to realize that it would take many more steps to try and solve it the way I would normally solve it compared to brute-force solving. A console app is not capable of processing data in a visual way like I can, and to try and work around this deficiency is quite a task. It can be done, but it would require a much larger program (at least based on what I know in my programming experience so far). Brute-force solving showed to have many fewer steps and was also more straightforward in programmatic approach. Other than this, the only notable thing is that I had a hard time deciding what the levels of abstraction were supposed to be when converting from console app to Blazor WASM. I think I settled on a sufficient abstraction structure.
-                            </p>
-                            <br />
-                        </div>
-                    </div>
-                }
-                @if (UI.Sections[35].IsVisible) @* Counter + Spinners *@
+                @* Counter + Spinners *@
+                @if (UI.Sections[35].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
@@ -617,7 +619,7 @@
                             <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Bee Hive Manager System/Game
+                                Bee Hive Manager
                             </div>
                         </div>
                     } 

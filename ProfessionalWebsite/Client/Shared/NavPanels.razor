@@ -2,7 +2,7 @@
 @inject UIService UI
 
 <NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panels[2].PanelStatus">
-    <NavPanelNavLinkButton Href="beehivemgmtsystem"
+    <NavPanelNavLinkButton Href="sudoku-solver"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
                            ButtonText="Projects"
@@ -12,14 +12,14 @@
                                IconClasses="fa-solid fa-chart-line"
                                ButtonText="Statistics"
         ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />*@
+        <NavPanelNavLinkButton Href="sudoku-solver"
+                               ButtonText="Sudoku Solver"
+                               ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="beehivemgmtsystem"
-                               ButtonText="Bee Hive Mgmt System"
+                               ButtonText="Bee Hive Manager"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="hideandseek"
                                ButtonText="Hide & Seek"
-                               ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
-        <NavPanelNavLinkButton Href="sudoku-solver"
-                               ButtonText="Sudoku Solver"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="projectinfo/14"
                                ButtonText="This PWA"

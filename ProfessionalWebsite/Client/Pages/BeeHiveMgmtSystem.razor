@@ -383,10 +383,14 @@
                 }
                 else if (BeeHiveView.Instance.VisibleUI == EActiveUI.V4)
                 {
-                    <div class="text-prompts-container-v3 ">
-                        <div class="text-prompts-v3">
-                            <div class="report">
-                                <div class="text-center">Day @BeeHiveController.Instance.CurrentDay: Vault Report</div>
+                    <div class="v4-text-prompts-container">
+                    <div class="v4-text-prompts">
+                            <div class="v4-report-container">
+                                <div class="text-center v4-report-header-vault">
+                                    <div>Day: @BeeHiveController.Instance.CurrentDay</div>
+                                    <div>Vault Report</div>
+                                    <div style="visibility:hidden">Day: @BeeHiveController.Instance.CurrentDay</div>
+                                </div>
                                 <div class="row-flex-v3t">
                                     <div class="v4-details-pod">
                                         <div>
@@ -429,9 +433,7 @@
                                         </div>
                                     </div>
                                 }
-                            </div>
-                            <div class="report">
-                                <div class="text-center">Day @BeeHiveController.Instance.CurrentDay: Queen Bee Report</div>
+                                <div class="text-center v4-report-header">Queen Bee Report</div>
                                 <div class="row-flex-v3">
                                     <div class="v4-details-pod">
                                         <div>Eggs: @BeeHiveController.Instance.Eggs.ToString("N0")</div>
@@ -473,40 +475,63 @@
                                         <div>EN</div>
                                     </div>
                                 </div>
+                                <div class="row-flex-v3">
+                                    <div class="v4-details-pod">
+                                        <div>Make the most Honey</div>
+                                        <div>without going Bankrupt!</div>
+                                    </div>
+                                </div>
+                                @*
+                                <div class="row-flex-v3">
+                                    <div class="v4-details-pod">
+                                        x
+                                    </div>
+                                </div>
+                                <div class="row-flex-v3">
+                                    <div class="v4-details-pod">
+                                        x
+                                    </div>
+                                </div>
+                                *@
                             </div>
-                        </div>
-                    </div>
-                    <div class="controls">
-                        <div class="v4-controls-backdrop">
-                            @if (BeeHiveController.Instance.HiveIsBankrupt)
-                            {
-                                <div class="try-again" @onclick="Reset">Try Again</div>
-                            }
-                            else if (BeeHiveController.Instance.TimerIsBeingUsed && !BeeHiveController.Instance.TimerRunning)
-                            {
-                                <div style="color: #eee; padding: 18px;">Pressing "Start" will reset your game.</div>
-                                <br />
-                                <div class="start-with-timer-on" @onclick="BeeHiveView.Instance.StartTimer">Start</div>
-                                <br />
-                                <div style="color: #eee; padding: 18px;">To play un-timed version, deselect "Timed Game Play" setting in settings.</div>
-                            }
-                            else
-                            {
-                                <div style="display: flex">
-                                    <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[0] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.HoneyMaker))">
-                                        Honey<br />Maker
-                                    </div>
-                                    <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[1] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.NectarCollector))">
-                                        Nectar<br/>Collector
-                                    </div>
-                                    <div class="v4-worker-add-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.EggNurse))">
-                                        Egg<br/>Nurse
+                            <div class="v4-controls-container">
+                                <div class="controls">
+                                    <div class="v4-controls-backdrop">
+                                    @if (BeeHiveController.Instance.HiveIsBankrupt)
+                                    {
+                                        <div class="try-again" @onclick="Reset">Try Again</div>
+                                    }
+                                    else if (BeeHiveController.Instance.TimerIsBeingUsed && !BeeHiveController.Instance.TimerRunning)
+                                    {
+                                        <div style="color: #eee; padding: 18px;">Pressing "Start" will reset your game.</div>
+                                        <br />
+                                        <div class="start-with-timer-on" @onclick="BeeHiveView.Instance.StartTimer">Start</div>
+                                        <br />
+                                        <div style="color: #eee; padding: 18px;">To play un-timed version, deselect "Timed Game Play" setting in settings.</div>
+                                    }
+                                    else
+                                    {
+                                        <div style="display: flex">
+                                            <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[0] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.HoneyMaker))">
+                                                <div>Honey</div>
+                                                <div>Maker</div>
+                                            </div>
+                                            <div class="v4-worker-add-button @BeeHiveView.Instance.workertypeButtonsClasses[1] @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.NectarCollector))">
+                                                <div>Nectar</div>
+                                                <div>Collector</div>
+                                            </div>
+                                            <div class="v4-worker-add-button @BeeHiveView.Instance.assignButtons" @onclick="(()=>BeeHiveView.Instance.AssignBee(EWorkerType.EggNurse))">
+                                                <div>Egg</div>
+                                                <div>Nurse</div>
+                                            </div>
+                                        </div>
+                                        <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
+                                            Work Next Shift
+                                        </div>
+                                    }
                                     </div>
                                 </div>
-                                <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
-                                    Work Next Shift
-                                </div>
-                            }
+                            </div>
                         </div>
                     </div>
                 }

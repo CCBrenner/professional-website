@@ -13,10 +13,10 @@ public class HoneyVaultTests
 
     private float honeyStartingAmount = 25F;
     private float nectarStartingAmount = 100F;
-    private const float NECTAR_CONVERSION_RATIO = 0.19F;  // must match HoneyVault singleton value
-    private const float LOW_LEVEL_WARNING = 10F;  // must match HoneyVault singleton value
+    private const float NECTAR_CONVERSION_RATIO = 0.19F;  // must match Vault singleton value
+    private const float LOW_LEVEL_WARNING = 10F;  // must match Vault singleton value
 
-    private HoneyVault honeyVault = HoneyVault.Instance;
+    private Vault honeyVault = Vault.Instance;
 
     [TestInitialize]
     public void Initialize()

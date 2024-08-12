@@ -24,7 +24,7 @@ public class Settings : IBeeHiveSettings
     public float EggNurseCareProgressPerShift { get; set; } = 0.15F;
     public float InitialEggConversionProgress { get; set; } = 0;
 
-    public float StartingAmountOfEggs { get; set; } =  0F;
+    public float StartingAmountOfEggs { get; set; } =  1F;
     public int StartingDay { get; set; } = 1;
     public float EggsProducedPerShift { get; set; } = 0.45F;
     public float HoneyConsumedPerUnassignedBee { get; set; } = 0.5F;
