@@ -13,11 +13,11 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<CounterService>();
 builder.Services.AddSingleton(sp => UIService.Create(
-    AnimationsTable.GetIsContinuous(),
-    PanelGroupsTable.GetPanelGroupsDict(),
-    PanelsTable.GetPanelsDict(),
-    SectionedPagesTable.GetSectionedPagesDict(),
-    SectionsTable.GetSectionsDict()));
+    AnimationsTable.Get(),
+    PanelGroupsTable.GetDictionary(),
+    PanelsTable.GetDictionary(),
+    SectionedPagesTable.GetDictionary(),
+    SectionsTable.GetDictionary()));
 builder.Services.AddSingleton<SudokuService>();
 
 await builder.Build().RunAsync();

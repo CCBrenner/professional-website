@@ -1,0 +1,201 @@
+﻿
+@inject UIService UI
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+@implements IDisposable
+
+<PageTitle>Select Demo - Collyn Brenner</PageTitle>
+
+<DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Select Demo">
+    <DrawerContent>
+        <DrawerNavLinkButton Href="select-demo/5037" ButtonText="Select Demo" OnClickCallback="(()=>UI.NavigateToSection(5037))" />
+        <DrawerNavLinkButton Href="select-demo/5038" ButtonText="About UI" OnClickCallback="(()=>UI.NavigateToSection(5038))" />
+    </DrawerContent>
+    <PageContent>
+        <div class="sub-page-container">
+            <div class="sections-container">
+                @*Select Demo*@
+                @if (UI.Sections[5037].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                            @if (UI.Sections[5037].IsCollapsedHeader == "collapsed-header")
+                            {
+                                <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            @UI.Sections[5037].Name
+                        </div>
+                        <div class="section-content @UI.Sections[5037].IsCollapsedContent">
+                            <h3 style="text-align: center;">Which demo do you want to view?</h3>
+                            <div class="proj-desc-buttons">
+                                <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Sudoku Puzzle Solver
+                                </a>
+                                &nbsp;
+                                <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Bee Hive Manager
+                                </a>
+                            </div>
+                            <div class="proj-desc-buttons">
+                                <a href="hideandseek" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Hide And Seek
+                                </a>
+                                &nbsp;<a href="matchgame" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Match Game
+                                </a>
+                            </div>
+                            <div class="proj-desc-buttons">
+                                <a href="counter" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Counter
+                                </a>
+                                &nbsp;<a href="spinners" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Spinners
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*About UI*@
+                @if (UI.Sections[5038].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                            @if (UI.Sections[5038].IsCollapsedHeader == "collapsed-header")
+                            {
+                                <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            <span>@UI.Sections[5038].Name</span>  @*<span> is for eliminating a Visual Studio bug*@
+                        </div>
+                        <div class="section-content @UI.Sections[5038].IsCollapsedContent">
+                            <h3 style="text-align: center;">
+                                <span>@UI.Sections[5038].Name</span>
+                            </h3>
+                            <ul>
+                                <li>This entire UI was made from scratch using CSS/Flexbox and Bootstrap only. No other UI libraries were used.</li>
+                                <li>The entire app is in a container that can be animated. Checkout the magnet icon in the upper right! Animate once or animate infinite times!</li>
+                                <li>This is a Responsive Web App (RWD), meaning, its UI components adjust responsively to the width-height ratio of your device’s screen.</li>
+                                <li>This web app can be downloaded and run offline entirely as a PWA - just download this web app from your mobile web browser and add it to your device’s home screen!</li>
+                                <li>The global navigation style is inspired by mobile apps, but with an updated feel that complies with modern app UI standards. I implemented the highlighting to occur across pages in uniformity so that they give the user the greatest amount of visual feedback possible at the lowest cost to the user possible.</li>
+                                <li>This page uses collapsible sections that can be toggled individually or all together using the button in the bottom left corner. Fun fact, when there is only one section open, it will be moved to the top of the list with all collapsed sections below it. Try it out!</li>
+                                <li>You might be wondering why there are collapsible sections in this page. It is because I discovered that the way I initially set this project up prevented me from using HTML bookmarks (using #s in the URL) because HTML bookmarks only work in the outermost scrollable view and not in smaller ones that I make scrollable. So instead of bringing you to the content, the content is brought to you, at the top of the page!</li>
+                                <li>The side navbar can be hidden using the ison in the upper left. Check it out!</li>
+                                <li>You may notice that as the width of the viewport/window decreases, the site label in the upper left collapses to make more room for the global nav bar options.</li>
+                                <li>The framework used for this web app is called Blazor. It is component-based like React is, but more object-oriented. It lets you write front-end code in C# instead of JavaScript.</li>
+                                <li>Go checkout the demos if you haven’t yet! Thanks for being here :)</li>
+                                <li>If you want, you can go checkout the code below. In the GitHub repository this is the "select-demo" branch.</li>
+                                <div class="proj-desc-buttons">
+                                    <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/select-demo"))'>
+                                        View Code
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                @if (UI.SectionedPages[5].ASectionIsCurrentlyPromo)
+                {
+                    @if (!UI.Sections[5037].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                @UI.Sections[5037].Name
+                            </div>
+                        </div>
+                    }
+                    @if (!UI.Sections[5038].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                @UI.Sections[5038].Name
+                            </div>
+                        </div>
+                    }
+                }
+                <SectionedPageSectionsToggle PageId="5" />
+                <div class="behindpanel @UI.Panels[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+                <div class="settings-panel @UI.Panels[9].PanelStatus">
+                    <h3 class="text-center">Disclaimer</h3>
+                    <p>
+                        The following is publicly viewable source code for this web app. Note that normally this would not at all be allowed by the developer (me, Collyn Brenner) in a business application or website. However, for the purposes of transparency in this web app, which is to demonstrate my capabilities, the source code has been made public for viewing as a rare exception.
+                    </p>
+                    <p>
+                        I (Collyn Brenner) would otherwise NEVER allow the source code of an active production website or program to be publicly visible.
+                    </p>
+                    <div class="disclaimer-panel-buttons-container">
+                        <div @onclick="ContinueToViewCode" class="btn btn-primary">Continue</div>
+                        <div class="settings-bottom-container btn btn-secondary">
+                            <div class="settings-close" @onclick="(()=>UI.DeactivatePanel(9))">
+                                Close
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="behindpanel @UI.Panels[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+
+        </div>
+    </PageContent>
+</DrawerPageTemplate>
+
+@code {
+    private bool testHistoryIsExpanded = false;
+    private string viewCodeUrl = string.Empty;
+
+    [Parameter]
+    public int SectionId { get; set; } = -1;
+
+    protected override void OnInitialized()
+    {
+        if (SectionId <= 0)
+            SectionId = UI.StartingSectionId;
+        UI.NavigateToSection(SectionId);
+        UI.OnUiServiceChanged += UpdateThisComponent;
+    }
+
+    void IDisposable.Dispose() =>
+        UI.OnUiServiceChanged -= UpdateThisComponent;
+
+    private void UpdateThisComponent(string meaninglessRequirement) =>
+        StateHasChanged();
+
+    private void ActivateDisclaimerPanel(string projectCodeUrl)
+    {
+        UI.ActivatePanel(9);  // Activate the appropriate panel
+        viewCodeUrl = projectCodeUrl;  // URL of unique project to be used upon next navigation
+    }
+
+    private async void ContinueToViewCode()
+    {
+        await OpenViewCodeUrlInNewTab();
+        UI.DeactivatePanel(9);
+        viewCodeUrl = string.Empty;
+    }
+    private async Task OpenViewCodeUrlInNewTab() =>  // Tested: Successful.
+        await JSRuntime.InvokeVoidAsync("open", $"https://{viewCodeUrl}", "_blank");
+
+    private async Task Alert() =>  // tested: Successful.
+        await JSRuntime.InvokeVoidAsync("alert", "This is an alert! Supp");
+
+    private void ToggleTestHistoryIsExpanded() =>
+        testHistoryIsExpanded = !testHistoryIsExpanded;
+
+    private void ToggleSection(int secId)
+    {
+        UI.ToggleSection(secId);
+    }
+}

@@ -106,7 +106,7 @@
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="projectinfo/34" @onclick="(()=>UI.NavigateToSection(34))">
+                <a class="navbar-brand" href="/" @onclick="(()=>UI.NavigateToSection(34))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -117,8 +117,8 @@
                     <span class="title-size-one">Collyn B's Projects</span>
                     @* On hover *@
                     <div class="navbar-brand-onhover">
-                        <i class="fa-solid fa-envelope"></i>
-                        Contact Me
+                        @* <i class="fa-solid fa-envelope"></i> *@
+                        Hey there!
                     </div>
                 </a>
             </div>
@@ -208,21 +208,17 @@
     private string blurMainStatus()
     {
         // if any panels are true, blur main
-        List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
-        foreach (int index in panelIds)
-            if (UI.Panels[index] != null)
-                if (UI.Panels[index].BlurIsActive)
-                    return "content-blur";
+        foreach (var panelPair in UI.Panels)
+            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel)
+                return "content-blur";
         return "";
     }
     private string behindPanelStatus()
     {
         // if any panels are true, show behind panel
-        List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
-        foreach (int index in panelIds)
-            if (UI.Panels[index] != null)
-                if (UI.Panels[index].BehindPanelIsActive)
-                    return "button-on-show-behind-panel";
+        foreach (var panelPair in UI.Panels)
+            if (panelPair.Value.BehindPanelIsActive && panelPair.Value.IsCooperativePanel)
+                return "button-on-show-behind-panel";
         return "";
     }
 }

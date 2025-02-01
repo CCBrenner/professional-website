@@ -1,22 +1,20 @@
 ﻿@using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject
 
-@page "/hideandseek"
-
 <PageTitle>Hide & Seek - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
     <div class="top-row">
         <div class="top-row-floating-center">
-            <div class="top-row-corners">
-                <a href="projectinfo/15">
-                    <div class="top-corner-button-containers ">
-                        <span class="fa-solid fa-circle-info"></span>
-                    </div>
-                </a>
-            </div>
+            @* <div class="top-row-corners"> *@
+            @*     <a href="projectinfo/15"> *@
+            @*         <div class="top-corner-button-containers "> *@
+            @*             <span class="fa-solid fa-circle-info"></span> *@
+            @*         </div> *@
+            @*     </a> *@
+            @* </div> *@
             <button class="btn @interfaceClasses[0]" @onclick="ShowOriginalUi">Original UI</button>
             <button class="btn @interfaceClasses[1]" @onclick="ShowCurrentUi">Current UI</button>
-            <div class="top-row-corners"></div>
+            @* <div class="top-row-corners"></div> *@
         </div>
     </div>
     @if (interfaceClasses[0] == "btn-primary")

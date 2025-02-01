@@ -2,18 +2,18 @@
 
 internal sealed class PanelsTable
 {
-    internal static Dictionary<int, Panel> GetPanelsDict()
+    internal static Dictionary<int, Panel> GetDictionary()
     {
         Dictionary<int, Panel> panelsDict = new();
 
-        foreach (Panel panel in GetPanels())
+        foreach (Panel panel in GetList())
             panelsDict.Add(panel.Id, panel);
 
         return panelsDict;
     }
-    internal static List<Panel> GetPanels() => new()
+    internal static List<Panel> GetList() => new()
     {
-        Panel.CreateCooperativePanel(0,   // Global Animations panel
+        Panel.CreateIndependentPanel(0,   // Global Animations panel
             panelActiveStatusClassName: "anim-display",
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel"
@@ -69,6 +69,13 @@ internal sealed class PanelsTable
         Panel.CreateIndependentPanel(9,   // "View Code" Disclaimer
             blurStatusClassName: "n0-cla$$_name",
             panelButtonClassName: "n0-cla$$_name"
+        ),
+        Panel.CreateCooperativePanel(10,   // "select-demo" page
+            panelGroupId: 0,
+            panelActiveStatusClassName: "panel-visible",
+            blurStatusClassName: "content-blur",
+            behindPanelStatusClassName: "button-on-show-behind-panel",
+            panelButtonClassName: "highlight-button"
         ),
     };
 }

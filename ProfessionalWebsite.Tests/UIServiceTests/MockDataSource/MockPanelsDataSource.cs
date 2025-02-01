@@ -4,7 +4,7 @@ namespace ProfessionalWebsite.Tests.UIServiceTests;
 
 internal class MockPanelsDataSource
 {
-    public static Dictionary<int, Panel> GetPanelsDict()
+    public static Dictionary<int, Panel> GetDictionary()
     {
         Dictionary<int, Panel> panelsDict = new();
 
@@ -20,7 +20,7 @@ internal class MockPanelsDataSource
             blurStatusClassName: "content-blur",
             behindPanelStatusClassName: "button-on-show-behind-panel"
         ),
-        Panel.CreateCooperativePanel(1),  // BeeHive settings
+        Panel.CreateIndependentPanel(1),  // BeeHive settings
         Panel.CreateCooperativePanel(2,   // "projects" page
             panelGroupId: 0,
             panelActiveStatusClassName: "panel-visible",

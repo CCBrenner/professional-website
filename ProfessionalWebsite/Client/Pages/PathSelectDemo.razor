@@ -1,0 +1,12 @@
+﻿
+@*<h3>PathSelectDemo</h3>*@
+
+@page "/select-demo"
+@page "/select-demo/{SectionId:int}"
+
+<SelectDemo SectionId="SectionId"/>
+
+@code {
+    [Parameter]
+    public int SectionId { get; set; }
+}

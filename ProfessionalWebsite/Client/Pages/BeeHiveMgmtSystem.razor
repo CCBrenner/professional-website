@@ -1,7 +1,6 @@
 ﻿@inject UIService UI
 @implements IDisposable
 
-@page "/beehivemgmtsystem"
 @using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
 
 <PageTitle>BeeHive Management System - Collyn Brenner</PageTitle>
@@ -11,12 +10,12 @@
         <div class="game-container">
             <div class="game-container-items @UI.Panels[1].BlurStatus">
                 <div class="topmost-buttons">
-                    <a href="projectinfo/16">
-                        <div class="top-corner-button-containers">
-                            <span class="fa-solid fa-circle-info"></span>
-                        </div>
-                    </a>
-                    <div>
+                    @* <a href="projectinfo/16"> *@
+                        @* <div class="top-corner-button-containers"> *@
+                        @*    <span class="fa-solid fa-circle-info"></span> *@
+                        @* </div> *@
+                    @* </a> *@
+                    <div class="version-buttons-container">
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[1]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V1))">V1</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[2]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V2))">V2</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[3]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V3))">V3</button>

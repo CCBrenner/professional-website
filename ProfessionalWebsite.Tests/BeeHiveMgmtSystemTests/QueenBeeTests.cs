@@ -21,7 +21,7 @@ public class QueenBeeTests
         QueenBee queenBeeForConstructor = new QueenBee(new SettingsFixture());
 
         Assert.AreEqual(1, queenBeeForConstructor.CurrentDay);
-        Assert.AreEqual(0F, QueenBee.Eggs);
+        Assert.AreEqual(1F, QueenBee.Eggs);
         Assert.AreEqual(0F, queenBeeForConstructor.UnassignedBeeCount);
         Assert.AreEqual(2.15F, queenBeeForConstructor.CostPerShift);
         Assert.AreEqual(3, queenBee.AssignedWorkersCount);
@@ -34,7 +34,7 @@ public class QueenBeeTests
     public void TestAssignBeeAddsWorker()
     {
         Assert.AreEqual(1, queenBee.CurrentDay);
-        Assert.AreEqual(0F, QueenBee.Eggs);
+        Assert.AreEqual(1F, QueenBee.Eggs);
         Assert.AreEqual(0F, queenBee.UnassignedBeeCount);
         Assert.AreEqual(2.15F, queenBee.CostPerShift);
         Assert.IsTrue(queenBee.StatusReport.Contains("HoneyMaker"));
@@ -136,7 +136,7 @@ public class QueenBeeTests
             queenBee.WorkTheNextShift();
         queenBee.CareForEggs(1);
         Assert.AreNotEqual(1, queenBee.CurrentDay);
-        Assert.AreNotEqual(0F, QueenBee.Eggs);
+        Assert.AreNotEqual(1F, QueenBee.Eggs);
         Assert.AreNotEqual(0F, queenBee.UnassignedBeeCount);
         Assert.AreNotEqual(3, queenBee.AssignedWorkersCount);
 
@@ -145,7 +145,7 @@ public class QueenBeeTests
 
         // Assert
         Assert.AreEqual(1, queenBee.CurrentDay);
-        Assert.AreEqual(0F, QueenBee.Eggs);
+        Assert.AreEqual(1F, QueenBee.Eggs);
         Assert.AreEqual(0F, queenBee.UnassignedBeeCount);
         Console.WriteLine(queenBee.StatusReport);
         Assert.IsTrue(queenBee.StatusReport.Contains("HoneyMaker"));

@@ -28,7 +28,12 @@
 
 .topmost-buttons {
     display: flex;
-    justify-content: space-between;
+/*    justify-content: space-between;*/
+    justify-content: center;
+}
+
+.version-buttons-container {
+    margin-right: 6px;
 }
 
 .top-corner-button-containers {

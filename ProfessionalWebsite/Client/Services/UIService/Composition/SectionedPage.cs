@@ -13,7 +13,7 @@ public partial class SectionedPage
     }
 
     public readonly int Id;
-    public readonly int LocationPanelGroupId;
+    public int LocationPanelGroupId { get; }
     public string PagePath { get; private set; }
     public Dictionary<int, Section> Sections { get; set; } = new();
 

@@ -21,9 +21,9 @@
         <NavPanelNavLinkButton Href="hideandseek"
                                ButtonText="Hide & Seek"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
-        <NavPanelNavLinkButton Href="projectinfo/14"
-                               ButtonText="This PWA"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(14))" />
+        @* <NavPanelNavLinkButton Href="projectinfo/14" *@
+        @*                        ButtonText="This PWA" *@
+        @*                        ButtonClickCallback="(()=>UI.NavigateToSection(14))" /> *@
         <NavPanelNavLinkButton Href="matchgame"
                                ButtonText="Match Game"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
@@ -53,74 +53,89 @@
       @*<NavPanelNavLinkButton Href="djangopollingapp"
                                ButtonText="Polling App (Django/Python)"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />*@
-        <NavPanelNavLinkButton Href="projectinfo/34"
-                               IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(34))" />
-        <NavPanelNavLinkButton Href="beehivemgmtsystem/#"
-                               ButtonText="Layout Controls"
-                               ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" />
+        @* <NavPanelNavLinkButton Href="projectinfo/34" *@
+        @*                        IconClasses="fa-solid fa-envelope" *@
+        @*                        ButtonText="Contact" *@
+        @*                        ButtonClickCallback="(()=>UI.NavigateToSection(34))" /> *@
+        @* <NavPanelNavLinkButton Href="#" *@
+        @*                        ButtonText="Layout Controls" *@
+        @*                        ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" /> *@
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[3].PanelStatus">
-    <NavPanelNavLinkButton Href="projectinfo/"
+@* <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[3].PanelStatus"> *@
+@*     <NavPanelNavLinkButton Href="projectinfo/" *@
+@*                            TopLvlClasses="panel-header" *@
+@*                            IconClasses="fa-solid fa-circle-info" *@
+@*                            ButtonText="Project Info" *@
+@*                            ButtonClickCallback="(()=>UI.NavigateToSection(0))" /> *@
+@*     <div class="panel-scrollablesection"> *@
+@*         @* *@
+@*         <NavPanelNavLinkButton Href="projectinfo/0" *@
+@*                                ButtonText="Overview" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(0))" /> *@
+@*                                *@
+@*         @*<NavPanelButtonContainer IsCollapsible="false" ButtonText="Integrated Projects">*@
+@*         <NavPanelNavLinkButton Href="projectinfo/14" *@
+@*                                 ButtonText="About" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(14))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/16" *@
+@*                                 ButtonText="Bee Hive Manager System/Game" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(16))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/15" *@
+@*                                 ButtonText="Hide & Seek Game" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(15))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/33" *@
+@*                                 ButtonText="Match Game" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(33))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/36" *@
+@*                                 ButtonText="Sudoku Solver" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(36))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/35" *@
+@*                                 ButtonText="Counter + Spinners" *@
+@*                                 ButtonClickCallback="(()=>UI.NavigateToSection(35))" /> *@
+@*         @*</NavPanelButtonContainer>*@
+@*         @* *@
+@*         <NavPanelNavLinkButton Href="projectinfo/3" *@
+@*                                ButtonText="Front-end" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(3))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/1" *@
+@*                                ButtonText="Back-end" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(1))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/4" *@
+@*                                ButtonText="UX/UI + Modeling Software" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(4))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/5" *@
+@*                                ButtonText="Cloud Deployment + Containers" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(5))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/6" *@
+@*                                ButtonText="Databases" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(6))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/7" *@
+@*                                ButtonText="Testing" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(7))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/13" *@
+@*                                ButtonText="Why Programming?" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection( 13))" /> *@
+@*         <NavPanelNavLinkButton Href="projectinfo/34" *@
+@*                                IconClasses="fa-solid fa-envelope" *@
+@*                                ButtonText="Contact" *@
+@*                                ButtonClickCallback="(()=>UI.NavigateToSection(34))" /> *@
+@*     </div> *@
+@* </NavPanelContainer> *@
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[10].PanelStatus">
+    <NavPanelNavLinkButton Href="select-demo/"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-circle-info"
-                           ButtonText="Project Info"
-                           ButtonClickCallback="(()=>UI.NavigateToSection(0))" />
+                           ButtonText="Select Demo"
+                           ButtonClickCallback="(()=>UI.NavigateToSection(5037))" />
     <div class="panel-scrollablesection">
-        @*
-        <NavPanelNavLinkButton Href="projectinfo/0"
-                               ButtonText="Overview"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(0))" />
-                               *@
-        @*<NavPanelButtonContainer IsCollapsible="false" ButtonText="Integrated Projects">*@
-        <NavPanelNavLinkButton Href="projectinfo/14"
-                                ButtonText="About"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(14))" />
-        <NavPanelNavLinkButton Href="projectinfo/16"
-                                ButtonText="Bee Hive Manager System/Game"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(16))" />
-        <NavPanelNavLinkButton Href="projectinfo/15"
-                                ButtonText="Hide & Seek Game"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(15))" />
-        <NavPanelNavLinkButton Href="projectinfo/33"
-                                ButtonText="Match Game"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(33))" />
-        <NavPanelNavLinkButton Href="projectinfo/36"
-                                ButtonText="Sudoku Solver"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(36))" />
-        <NavPanelNavLinkButton Href="projectinfo/35"
-                                ButtonText="Counter + Spinners"
-                                ButtonClickCallback="(()=>UI.NavigateToSection(35))" />
-        @*</NavPanelButtonContainer>*@
-        @*
-        <NavPanelNavLinkButton Href="projectinfo/3"
-                               ButtonText="Front-end"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(3))" />
-        <NavPanelNavLinkButton Href="projectinfo/1"
-                               ButtonText="Back-end"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(1))" />
-        <NavPanelNavLinkButton Href="projectinfo/4"
-                               ButtonText="UX/UI + Modeling Software"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(4))" />
-        <NavPanelNavLinkButton Href="projectinfo/5"
-                               ButtonText="Cloud Deployment + Containers"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(5))" />
-        <NavPanelNavLinkButton Href="projectinfo/6"
-                               ButtonText="Databases"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(6))" />
-        <NavPanelNavLinkButton Href="projectinfo/7"
-                               ButtonText="Testing"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(7))" />
-        <NavPanelNavLinkButton Href="projectinfo/13"
-                               ButtonText="Why Programming?"
-                               ButtonClickCallback="(()=>UI.NavigateToSection( 13))" />
-        *@
-        <NavPanelNavLinkButton Href="projectinfo/34"
+        <NavPanelNavLinkButton Href="select-demo/5037"
+                               ButtonText="Select Demo"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(5037))" />
+        <NavPanelNavLinkButton Href="select-demo/5038"
                                IconClasses="fa-solid fa-envelope"
-                               ButtonText="Contact"
-                               ButtonClickCallback="(()=>UI.NavigateToSection(34))" />
+                               ButtonText="About UI"
+                               ButtonClickCallback="(()=>UI.NavigateToSection(5038))" />
     </div>
 </NavPanelContainer>
 @*

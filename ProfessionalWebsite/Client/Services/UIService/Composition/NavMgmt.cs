@@ -13,8 +13,8 @@ public static class NavMgmt
         {
             SectionMgmt.CollapseAllShowOne(sectionId, sections, sectionedPages);
             int locationPanelGroupId = SectionMgmt.GetLocationPanelGroupId(sectionId, sections, sectionedPages);
-            if (locationPanelGroupId != -1)
-                PanelMgmt.UpdateGroupLocationPanel(locationPanelGroupId, panels, panelGroups);
+            if (locationPanelGroupId < 0) return;
+            PanelMgmt.UpdateGroupLocationPanel(locationPanelGroupId, panels, panelGroups);
         }
         catch (NullReferenceException nrEx)
         {

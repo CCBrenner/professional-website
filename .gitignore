@@ -13,6 +13,8 @@
 # Ignore the packages folder in the root of the project
 **/[Pp]ackages/
 
+.vs/
+
 # Ignore the build results
 [Dd]ebug/
 [Rr]elease/

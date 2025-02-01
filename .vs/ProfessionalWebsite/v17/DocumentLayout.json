@@ -1,18 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\",
+  "WorkspaceRootPath": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\professionalwebsite\\professional-website\\professionalwebsite\\client\\components\\templates\\projectspagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\templates\\projectspagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\professionalwebsite\\professional-website\\professionalwebsite\\client\\shared\\navpanels.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\navpanels.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\users\\colly_cp7sy9h\\desktop\\projects\\gh\\professionalwebsite\\professional-website\\professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\knowhow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\pathbeehivemgmtsystem.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\pathbeehivemgmtsystem.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\panelstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\panelstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\pathroot.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\pathroot.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProjectsPageTemplate.razor",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\Templates\\ProjectsPageTemplate.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-12T00:28:17.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NavPanels.razor",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABJAAAA",
+              "Title": "KnowHow.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
+              "ViewState": "AgIAAOUCAAAAAAAAAAAAAPACAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-12T00:27:39.291Z",
+              "WhenOpened": "2025-01-31T23:51:16.159Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "KnowHow.razor",
-              "DocumentMoniker": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
-              "ToolTip": "C:\\Users\\colly_cp7sy9h\\Desktop\\projects\\gh\\ProfessionalWebsite\\professional-website\\ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\KnowHow.razor",
-              "ViewState": "AQIAAFgAAAAAAAAAAAAAADsBAAAeAAAA",
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAHcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-11T02:50:32.797Z",
+              "WhenOpened": "2025-01-31T23:47:37.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PathBeeHiveMgmtSystem.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\PathBeeHiveMgmtSystem.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\PathBeeHiveMgmtSystem.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\PathBeeHiveMgmtSystem.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\PathBeeHiveMgmtSystem.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T23:39:56.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PanelsTable.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T23:39:30.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SelectDemo.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAJIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T23:20:38.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PathRoot.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\PathRoot.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\PathRoot.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\PathRoot.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\PathRoot.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-31T23:20:29.388Z",
               "EditorCaption": ""
             }
           ]

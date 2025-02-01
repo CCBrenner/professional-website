@@ -1,20 +1,18 @@
 ﻿@inject SudokuService SudokuService
 
-@page "/sudoku-solver"
-
 <PageTitle>SudokuSolver</PageTitle>
 
 <ProjectsPageTemplate>
     <div class="comp-container">
         <div class="top-row display-horizontal">
             <div class="top-row-menu">
-                <div class="info-button-container">
-                    <a href="projectinfo/36">
-                        <div class="info-button">
-                            <span class="fa-solid fa-circle-info"></span>
-                        </div>
-                    </a>
-                </div>
+                @* <div class="info-button-container"> *@
+                @*     <a href="projectinfo/36"> *@
+                @*         <div class="info-button"> *@
+                @*             <span class="fa-solid fa-circle-info"></span> *@
+                @*         </div> *@
+                @*     </a> *@
+                @* </div> *@
                 <div class="display-horizontal">
                     <span class="puzzle-book-label">Puzzle Book&nbsp;</span>
                     <select class="form-select form-select-sm puzzle-selector" @bind="SudokuService.SelectedMatrix">

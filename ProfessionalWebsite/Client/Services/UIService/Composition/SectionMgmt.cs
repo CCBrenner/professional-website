@@ -43,17 +43,10 @@ public static class SectionMgmt
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
     public static void ToggleSection(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        try
-        {
-            Section section = sections[sectionId];
-            section.ToggleCollapse();
-            PromoteIfOnlyOneExpandedSection(sectionId, sections, sectionedPages);
-            UpdateSectionsStatus(sectionId, sections, sectionedPages);
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-        }
+        Section section = sections[sectionId];
+        section.ToggleCollapse();
+        PromoteIfOnlyOneExpandedSection(sectionId, sections, sectionedPages);
+        UpdateSectionsStatus(sectionId, sections, sectionedPages);
     }
     /// <summary>
     /// Demotes all other sections and makes specified section the promo section.
@@ -81,17 +74,7 @@ public static class SectionMgmt
     /// <returns></returns>
     public static int GetLocationPanelGroupId(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        try
-        {
-            Section section = sections[sectionId];
-            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
-            return sectionedPage.LocationPanelGroupId;
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-        }
-        return -1;
+        return sectionedPages[sections[sectionId].SectionedPageId].LocationPanelGroupId;
     }
     public static void SetBiDirectionalReferencesForSectionedPagesAndSections(Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {

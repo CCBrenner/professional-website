@@ -2,19 +2,12 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
-@page "/"
-@page "/projectinfo"
-@page "/projectinfo/{SectionId:int}"
-
 @implements IDisposable
 
 <PageTitle>Project Info - Collyn Brenner</PageTitle>
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Project Info">
     <DrawerContent>
-        @*
-        <DrawerNavLinkButton Href="projectinfo/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
-        *@
         <DrawerNavLinkButton Href="projectinfo/0" ButtonText="About" OnClickCallback="(()=>UI.NavigateToSection(0))" />
         <DrawerNavLinkButton Href="projectinfo/36" ButtonText="Sudoku Solver" OnClickCallback="(()=>UI.NavigateToSection(36))" />
         <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager" OnClickCallback="(()=>UI.NavigateToSection(16))" />
@@ -162,7 +155,8 @@
                                 </li>
                             </ul>
                             <div class="sudoku-video">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                *Commented-out YouTube Video*
+                                @*<iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>*@
                             </div>
                             <ul>
                                 <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>

@@ -4,51 +4,59 @@ namespace ProfessionalWebsite.Tests.UIServiceTests;
 
 internal class MockSectionsDataSource
 {
-    public static Dictionary<int, Section> GetSectionsDict()
+    public static Dictionary<int, Section> GetDictionary()
     {
         Dictionary<int, Section> sectionsDict = new();
 
-        foreach (Section section in GetSections())
+        foreach (Section section in GetList())
             sectionsDict.Add(section.Id, section);
 
         return sectionsDict;
     }
-    public static List<Section> GetSections() => new()
-    { 
-        /* start "knowhow" */
-        Section.CreateAsFirstSectionOfPage(0, 1),  // 0
-        Section.CreateRegularSection(1, 1),  // Back-end
-        Section.CreateRegularSection(3, 1),
-        Section.CreateRegularSection(4, 1),
-        Section.CreateRegularSection(5, 1),
-        Section.CreateRegularSection(6, 1),
-        Section.CreateRegularSection(7, 1),
-        Section.CreateRegularSection(13, 1),
-        Section.CreateRegularSection(14, 1),
-        Section.CreateRegularSection(15, 1),
-        Section.CreateRegularSection(16, 1),
-        Section.CreateRegularSection(33, 1),  // Match Game
-        /* end "knowhow" */
-        /* start "collyn" */
-        Section.CreateAsFirstSectionOfPage(17, 2),  // Introduction
-        Section.CreateRegularSection(18, 2),  // Employment History
-        Section.CreateRegularSection(19, 2),
-        Section.CreateRegularSection(20, 2),
-        Section.CreateRegularSection(21, 2),
-        Section.CreateRegularSection(22, 2),
-        Section.CreateRegularSection(23, 2),  // Contact
-        Section.CreateRegularSection(24, 2),  // Feedback
-        Section.CreateRegularSection(25, 2),
-        /* end "collyn" */
-        /* start "invent" */
-        Section.CreateAsFirstSectionOfPage(26, 3),
-        Section.CreateRegularSection(27, 3),
-        Section.CreateRegularSection(28, 3),
-        Section.CreateRegularSection(29, 3),
-        Section.CreateRegularSection(30, 3),
-        Section.CreateRegularSection(31, 3),
-        Section.CreateRegularSection(32, 3),
-        /* end "invent" */
-    };
+    public static List<Section> GetList()
+    {
+        // each of these is a SectionedPage
+        int knowHow = 1;
+        int collyn = 2;
+        int invent = 3;
+        int selectDemo = 5;
+
+        return new()
+        {
+            Section.CreateAsFirstSectionOfPage(1000, "Overview", knowHow),
+            Section.Create(1001, "Backend", knowHow),
+            Section.Create(1003, "Frontend", knowHow),
+            Section.Create(1004, "UXUI", knowHow),
+            Section.Create(1005, "Cloud & Containers", knowHow),
+            Section.Create(1006, "Databases", knowHow),
+            Section.Create(1007, "Testing", knowHow),
+            Section.Create(1013, "Why Programing?", knowHow),
+            Section.Create(1014, "About This Web App", knowHow),
+            Section.Create(1015, "Hide & Seek", knowHow),
+            Section.Create(1016, "Bee Hive Management", knowHow),
+            Section.Create(1033, "Match Game", knowHow),
+            Section.Create(1034, "Contact", knowHow),
+            Section.Create(1035, "Counter + Spinners", knowHow),
+            Section.Create(1036, "Sudoku Solver", knowHow),
+            Section.CreateAsFirstSectionOfPage(2017, "Introduction", collyn),
+            Section.Create(2018, "Employment History", collyn),
+            Section.Create(2019, "Education History", collyn),
+            Section.Create(2020, "Notable Dones", collyn),
+            Section.Create(2021, "Inspirations", collyn),
+            Section.Create(2022, "Objectives", collyn),
+            Section.Create(2023, "Contact", collyn),
+            Section.Create(2024, "Feedback", collyn),
+            Section.Create(2025, "Background", collyn),
+            Section.CreateAsFirstSectionOfPage(3026, "Overview", invent),
+            Section.Create(3027, "Future Vision", invent),
+            Section.Create(3028, "Unified Faith", invent),
+            Section.Create(3029, "Hang Out Availability App", invent),
+            Section.Create(3030, "Philo Orientation", invent),
+            Section.Create(3031, "Controller Keyboard Prototype", invent),
+            Section.Create(3032, "Audio Games", invent),
+            Section.CreateAsFirstSectionOfPage(5037, "Select Demo", selectDemo),
+            Section.CreateAsFirstSectionOfPage(5038, "About UI", selectDemo),
+        };
+    }
 }
 

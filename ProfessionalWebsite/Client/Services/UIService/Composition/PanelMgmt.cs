@@ -23,16 +23,6 @@ public static class PanelMgmt
             }
         }
     }
-    public static void HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
-    {
-        foreach (Panel panel in panels.Values)
-        {
-            if (panel.IsCooperativePanel)
-            {
-                ActivateLocationButtonsOfGroups(panels, panelGroups);
-            }
-        }
-    }
     public static void DeactivatePanel(int selectedPanelId, Dictionary<int, Panel> panels)
     {
         panels[selectedPanelId].Deactivate();
@@ -46,48 +36,26 @@ public static class PanelMgmt
     }
     public static void TogglePanel(int selectedPanelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
-        try
+        if (panels[selectedPanelId].PanelStatus == string.Empty)
         {
-            if (panels[selectedPanelId].PanelStatus == string.Empty)
-            {
-                DeactivateCooperativePanels(panels.Values.ToList());
-                ActivateLocationButtonsOfPanelGroups(selectedPanelId, panels.Values.ToList(), panelGroups.Values.ToList());
-                panels[selectedPanelId].Activate();
-            }
-            else
-            {
-                DeactivateCooperativePanels(panels.Values.ToList());
-                if (AllCooperativePanelsAreDeactivated(panels.Values.ToList()))
-                {
-                    HighlightButtonOfFocusedCooperativePanelForEachPanelGroup(panels, panelGroups);
-                }
-
-                DeactivatePanel(selectedPanelId, panels);
-            }
+            DeactivateCooperativePanels(panels.Values.ToList());
+            ActivateLocationButtonsOfPanelGroups(selectedPanelId, panels.Values.ToList(), panelGroups.Values.ToList());
+            panels[selectedPanelId].Activate();
         }
-        catch (KeyNotFoundException knfEx)
+        else
         {
-            Console.WriteLine(knfEx.Message + knfEx.StackTrace);
+            DeactivateCooperativePanels(panels.Values.ToList());
+            ActivateLocationButtonsOfGroups(panels, panelGroups);
         }
     }
     public static void UpdateGroupLocationPanel(int panelId, Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {
-        try
-        {
-            int pgId = panels[panelId].PanelGroupId;
-            int lpId = panelGroups[pgId].LocationPanelId;
-            panels[lpId].Deactivate();
-            panelGroups[pgId].LocationPanelId = panelId;
-            panels[panelId].ActivateButton();
-        }
-        catch (ArgumentOutOfRangeException aoorEx)
-        {
-            Console.WriteLine($"{aoorEx.Message}\n{aoorEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace} - origin method: PanelMgmt.UpdateGroupLocationPanel()");
-        }
+        int pgId = panels[panelId].PanelGroupId;
+        if (pgId < 0) return;  // will be -1 if independent panel (has no specificed group)
+        int lpId = panelGroups[pgId].LocationPanelId;
+        panels[lpId].Deactivate();
+        panelGroups[pgId].LocationPanelId = panelId;
+        panels[panelId].ActivateButton();
     }
     public static void ActivateLocationButtonsOfGroups(Dictionary<int, Panel> panels, Dictionary<int, PanelGroup> panelGroups)
     {

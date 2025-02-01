@@ -9,6 +9,7 @@ public class UIService : IUIService
         Dictionary<int, SectionedPage> sectionedPages, 
         Dictionary<int, Section> sections)
     {
+        StartingSectionId = 5037;
         AnimateMain = string.Empty;
         IsContinuous = isContinuous;
         PanelGroups = panelGroups;
@@ -19,6 +20,7 @@ public class UIService : IUIService
         PanelMgmt.SetBiDirectionalReferencesForPanelGroupsAndPanels(Panels, PanelGroups);
         SectionMgmt.SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
     }
+    public int StartingSectionId { get; private set; }
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Dictionary<int, Panel> Panels { get; private set; }
