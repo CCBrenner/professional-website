@@ -17,7 +17,7 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKER_PASSWORD:  ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
-        docker login -u {Dockeruser} -p {dockerpassword}
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
     - name: Build the Docker Image
       run: docker build . -t collynb/collyns-dev-portfolio:${{ github.sha }}
