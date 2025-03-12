@@ -142,7 +142,7 @@ public class GenericTests
         bool actualPuzzleWasSolved = puzzle.Solve();
 
         // Assert
-        ConsoleRender.RenderMatrix(puzzle);
+        Console.Write(puzzle.GetValuesOnlyFormattedString());
         Assert.IsTrue(actualPuzzleWasSolved);
         Assert.AreEqual(2, puzzle.Matrix[8, 3].Values[0]);
         Assert.AreEqual(9, puzzle.Matrix[8, 0].Values[0]);
@@ -166,6 +166,62 @@ public class GenericTests
         [ 9 8 7 ]  [ 2 1 3 ]  [ 4 6 5 ]
         */
     }
+
+    [TestMethod]
+    public void TestBruteForceSudokuSolverSolvesPuzzles_R1()
+    {
+        // Arrange
+        int[,] startingMatrix = new int[9, 9]  // "R1"
+        {
+            { 0, 0, 7,   4, 6, 0,   2, 0, 0 },
+            { 0, 3, 0,   0, 0, 0,   4, 0, 0 },
+            { 0, 9, 0,   5, 0, 0,   6, 0, 0 },
+
+            { 2, 0, 0,   1, 0, 0,   5, 0, 0 },
+            { 0, 0, 0,   0, 0, 0,   0, 0, 0 },
+            { 0, 7, 0,   6, 0, 0,   0, 9, 0 },
+
+            { 0, 0, 3,   0, 0, 1,   0, 5, 0 },
+            { 0, 1, 0,   7, 0, 0,   0, 8, 0 },
+            { 0, 0, 0,   0, 3, 4,   0, 0, 0 },
+        };
+
+        Puzzle puzzle = Puzzle.Create();
+        puzzle.LoadMatrixAsCellValues(startingMatrix);
+        //puzzle.AssignSelfToSolver();  // Compensates for 
+
+        // Act
+        bool actualPuzzleWasSolved = puzzle.Solve();
+
+        // Assert
+        Console.Write(puzzle.GetValuesOnlyFormattedString());
+        Assert.IsTrue(actualPuzzleWasSolved);
+        Assert.AreEqual(9, puzzle.Matrix[8, 3].Values[0]);
+        Assert.AreEqual(5, puzzle.Matrix[8, 0].Values[0]);
+        Assert.AreEqual(4, puzzle.Matrix[5, 4].Values[0]);
+        Assert.AreEqual(5, puzzle.Matrix[1, 8].Values[0]);
+        Assert.AreEqual(4, puzzle.Matrix[7, 2].Values[0]);
+        Assert.AreEqual(7, puzzle.Matrix[1, 7].Values[0]);
+
+        Console.Write(puzzle.GetValuesOnlyFormattedString());
+
+        /*
+            Solution:
+            [ 8 5 7 ]  [ 4 6 3 ]  [ 2 1 9 ]
+            [ 6 3 1 ]  [ 2 9 8 ]  [ 4 7 5 ]
+            [ 4 9 2 ]  [ 5 1 7 ]  [ 6 3 8 ]
+
+            [ 2 8 6 ]  [ 1 7 9 ]  [ 5 4 3 ]
+            [ 1 4 9 ]  [ 3 8 5 ]  [ 7 2 6 ]
+            [ 3 7 5 ]  [ 6 4 2 ]  [ 8 9 1 ]
+
+            [ 7 6 3 ]  [ 8 2 1 ]  [ 9 5 4 ]
+            [ 9 1 4 ]  [ 7 5 6 ]  [ 3 8 2 ]
+            [ 5 2 8 ]  [ 9 3 4 ]  [ 1 6 7 ]
+            */
+    }
+
+
     /*
     [TestMethod]
     public void TestUpdateCandidatesHydratesAndRemovesCandidatesToLeavePossibleCandidatesOnly()

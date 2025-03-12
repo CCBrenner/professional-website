@@ -254,7 +254,7 @@ public class EliminateCandidatesTests
 
         // Assert:
 
-        ConsoleRender.RenderMatrix(puzzle);
+        Console.Write(puzzle.GetValuesOnlyFormattedString());
 
         // coord [4,4] will not have 1, 2, 3, 4, 5, or 7 as candidates
         Assert.AreEqual(6, puzzle.Matrix[4, 4].Values[6]);  // control

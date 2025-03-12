@@ -38,6 +38,55 @@ public abstract class CellAggregate
 
         return true;
     }
+    public string GetCandidatesAsFormattedString()
+    {
+        int front = 0;
+        int back = 0;
+
+        int temp = 10 - Candidates.Count;
+        if (temp > 1)
+        {
+            int g = temp % 2;
+            int p = temp - g;
+            front = p / 2;
+            back = front + g;
+        }
+
+        string result = string.Empty;
+
+        for (int i = 0; i < front; i++)
+        {
+            result += " ";
+        }
+
+        result += string.Join("", Candidates);
+
+
+        for (int i = 0; i < back; i++)
+        {
+            result += " ";
+        }
+
+        return result;
+    }
+    public string GetMatrixAsFormattedString()
+    {
+        string returnStr = string.Empty;
+        string row = string.Empty;
+
+        for (int i = 0; i < 9; i++)
+        {
+            row = $"[ {Cells[9 * i].Values[0]} {Cells[1 + (9 * i)].Values[0]} {Cells[2 + (9 * i)].Values[0]} ]  " +
+                  $"[ {Cells[3 + (9 * i)].Values[0]} {Cells[4 + (9 * i)].Values[0]} {Cells[5 + (9 * i)].Values[0]} ]  " +
+                  $"[ {Cells[6 + (9 * i)].Values[0]} {Cells[7 + (9 * i)].Values[0]} {Cells[8 + (9 * i)].Values[0]} ]\n";
+            returnStr += row;
+
+            if (i % 3 == 2)
+                returnStr += row;
+        }
+
+        return returnStr;
+    }
     protected void EliminateCandidates()
     {
         SortedSet<int> candidatesToEliminate = GetCandidatesToEliminate();

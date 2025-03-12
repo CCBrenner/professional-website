@@ -16,4 +16,5 @@ public class Txn
     public int IndexOfValue { get; }
     public int Previous { get; }
     public int New { get; }
+    public string GetDetails() => $"Txn# {Id} | CellId {CellId} | IoV {IndexOfValue} | Prev {Previous} | New {New}";
 }

@@ -20,7 +20,7 @@ jobs:
         docker login -u {Dockeruser} -p {dockerpassword}
 
     - name: Build the Docker Image
-      run: docker build . -t collynb/collyns-dev-porfolio:${{ github.sha }}
+      run: docker build ../../ProfessionalWebsite/Client -t collynb/collyns-dev-porfolio:${{ github.sha }}
 
     - name: Push Docker Image to DockerHub
       docker push collynb/collyns-dev-porfolio:${{ github.sha }}

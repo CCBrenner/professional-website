@@ -136,7 +136,7 @@ public class BruteForceSolverScratch : ISolver
 
         MarkCellsWithNonZeroValuesAsGiven();
 
-        //ConsoleRender.RenderMatrixWithMetaData(Puzzle);
+        //GetPuzzleAsString.RenderMatrixWithMetaData(Puzzle);
 
         //Timer.Start();
 
