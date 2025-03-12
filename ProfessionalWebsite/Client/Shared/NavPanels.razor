@@ -1,7 +1,7 @@
 ﻿@implements IDisposable
 @inject UIService UI
 
-<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panels[2].PanelStatus">
+<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panels.Dictionary[2].PanelStatus">
     <NavPanelNavLinkButton Href="sudoku-solver"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
@@ -62,7 +62,7 @@
         @*                        ButtonClickCallback="(()=>UI.NavigateToHardCodedPage(7, 4))" /> *@
     </div>
 </NavPanelContainer>
-@* <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[3].PanelStatus"> *@
+@* <NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels.Dictionary[3].PanelStatus"> *@
 @*     <NavPanelNavLinkButton Href="projectinfo/" *@
 @*                            TopLvlClasses="panel-header" *@
 @*                            IconClasses="fa-solid fa-circle-info" *@
@@ -122,7 +122,7 @@
 @*                                ButtonClickCallback="(()=>UI.NavigateToSection(34))" /> *@
 @*     </div> *@
 @* </NavPanelContainer> *@
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[10].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels.Dictionary[10].PanelStatus">
     <NavPanelNavLinkButton Href="select-demo/"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-circle-info"
@@ -139,7 +139,7 @@
     </div>
 </NavPanelContainer>
 @*
-<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panels[4].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-c" NavPanelStatus="@UI.Panels.Dictionary[4].PanelStatus">
     <NavPanelNavLinkButton Href="collyn/17"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-book"
@@ -177,7 +177,7 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection(25))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panels[5].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-d" NavPanelStatus="@UI.Panels.Dictionary[5].PanelStatus">
     <NavPanelNavLinkButton Href="invent/26"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-warehouse"
@@ -211,7 +211,7 @@
                                ButtonClickCallback="(()=>UI.NavigateToSection(23))" />
     </div>
 </NavPanelContainer>
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels[6].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels.Dictionary[6].PanelStatus">
     <NavPanelNavLinkButton Href="articles"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-newspaper"

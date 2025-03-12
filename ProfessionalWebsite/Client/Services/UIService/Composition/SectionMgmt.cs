@@ -9,32 +9,25 @@ public static class SectionMgmt
     */
     public static void CollapseAllShowOne(int sectionId, Dictionary<int, Section> sections, Dictionary<int, SectionedPage> sectionedPages)
     {
-        try
+        DemoteAllSections(sections, sectionedPages);
+
+        Section section = sections[sectionId];
+        SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
+        Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
+
+        if (section.IsFirstSectionOfPage)
         {
-            DemoteAllSections(sections, sectionedPages);
-
-            Section section = sections[sectionId];
-            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
-            Dictionary<int, Section> sectionsOfSectionedPage = sectionedPage.Sections;
-
-            if (section.IsFirstSectionOfPage)
-            {
-                foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.Expand();
-                sectionedPage.ASectionIsCurrentlyPromo = false;
-            }
-            else
-            {
-                foreach (var sec in sectionsOfSectionedPage.Values)
-                    sec.Collapse();
-                ToggleSection(sectionId, sections, sectionedPages);
-                section.Promote();
-                sectionedPage.ASectionIsCurrentlyPromo = true;
-            }
+            foreach (var sec in sectionsOfSectionedPage.Values)
+                sec.Expand();
+            sectionedPage.ASectionIsCurrentlyPromo = false;
         }
-        catch (KeyNotFoundException knfEx)
+        else
         {
-            Console.WriteLine($"{knfEx.Message}\n{knfEx.StackTrace}");
+            foreach (var sec in sectionsOfSectionedPage.Values)
+                sec.Collapse();
+            ToggleSection(sectionId, sections, sectionedPages);
+            section.Promote();
+            sectionedPage.ASectionIsCurrentlyPromo = true;
         }
     }
     /// <summary>

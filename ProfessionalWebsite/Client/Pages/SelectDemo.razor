@@ -15,8 +15,9 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
+                @UI.Sections[5037].IsCurrentPromo @UI.Sections[5037].IsCurrentPromo
                 @*Select Demo*@
-                @if (UI.Sections[5037].IsVisible)
+                @if (UI.Sections[5037].IsVisible && currentPath == "select-demo/5037" || currentPath == "")
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
@@ -32,7 +33,7 @@
                             @UI.Sections[5037].Name
                         </div>
                         <div class="section-content @UI.Sections[5037].IsCollapsedContent">
-                            <h3 style="text-align: center;">Which demo do you want to view?</h3>
+                            <h3 style="text-align: center;">Which demo do you want to view? </h3>
                             <div class="proj-desc-buttons">
                                 <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Sudoku Puzzle Solver
@@ -62,7 +63,7 @@
                     </div>
                 }
                 @*About UI*@
-                @if (UI.Sections[5038].IsVisible)
+                @if (UI.Sections[5038].IsVisible && currentPath == "select-demo/5038" || currentPath == "")
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
@@ -127,8 +128,8 @@
                     }
                 }
                 <SectionedPageSectionsToggle PageId="5" />
-                <div class="behindpanel @UI.Panels[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
-                <div class="settings-panel @UI.Panels[9].PanelStatus">
+                <div class="behindpanel @UI.Panels.Dictionary[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+                <div class="settings-panel @UI.Panels.Dictionary[9].PanelStatus">
                     <h3 class="text-center">Disclaimer</h3>
                     <p>
                         The following is publicly viewable source code for this web app. Note that normally this would not at all be allowed by the developer (me, Collyn Brenner) in a business application or website. However, for the purposes of transparency in this web app, which is to demonstrate my capabilities, the source code has been made public for viewing as a rare exception.
@@ -146,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            <div class="behindpanel @UI.Panels[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+            <div class="behindpanel @UI.Panels.Dictionary[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
 
         </div>
     </PageContent>
@@ -155,6 +156,7 @@
 @code {
     private bool testHistoryIsExpanded = false;
     private string viewCodeUrl = string.Empty;
+    private string currentPath => Navigation.ToBaseRelativePath(Navigation.Uri).ToLower();
 
     [Parameter]
     public int SectionId { get; set; } = -1;

@@ -4,7 +4,7 @@ public static class AnimMgmt
 {
     private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
     private const int DISCONTINUE_BTN_PANEL_ID = 8;
-    public static string ToggleAnimation(int animationIndex, string animateMain, List<bool> isContinuous, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    public static string ToggleAnimation(int animationIndex, string animateMain, List<bool> isContinuous, Panels panels, List<PanelGroup> panelGroupsList)
     {
         if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
         {
@@ -22,7 +22,7 @@ public static class AnimMgmt
             return $"main{animationIndex + 1}";
         }
     }
-    public static string ToggleContinuousAnimation(int animationIndex, string animateMain, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    public static string ToggleContinuousAnimation(int animationIndex, string animateMain, Panels panels, List<PanelGroup> panelGroupsList)
     {
         if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
         {
@@ -35,7 +35,7 @@ public static class AnimMgmt
             return $"main{animationIndex + 1}-infinite";
         }
     }
-    public static string ToggleOnePlayAnimation(int animationIndex, string animateMain, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    public static string ToggleOnePlayAnimation(int animationIndex, string animateMain, Panels panels, List<PanelGroup> panelGroupsList)
     {
         if (animateMain == $"main{animationIndex + 1}-infinite" || animateMain == $"main{animationIndex + 1}")
         {
@@ -48,16 +48,16 @@ public static class AnimMgmt
             return $"main{animationIndex + 1}";
         }
     }
-    public static string DiscontinueAnimation(Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    public static string DiscontinueAnimation(Panels panels, List<PanelGroup> panelGroupsList)
     {
         SetDiscontinueButton(string.Empty, panels, panelGroupsList);
         return string.Empty;
     }
-    private static void SetDiscontinueButton(string discontinue, Dictionary<int, Panel> panels, List<PanelGroup> panelGroupsList)
+    private static void SetDiscontinueButton(string discontinue, Panels panels, List<PanelGroup> panelGroupsList)
     {
         if (discontinue == string.Empty)
-            PanelMgmt.DeactivatePanel(DISCONTINUE_BTN_PANEL_ID, panels);
+            panels.DeactivatePanel(DISCONTINUE_BTN_PANEL_ID);
         else
-            PanelMgmt.ActivatePanel(DISCONTINUE_BTN_PANEL_ID, panels, panelGroupsList);
+            panels.ActivatePanel(DISCONTINUE_BTN_PANEL_ID, panelGroupsList);
     }
 }

@@ -15,11 +15,11 @@
             @* Panels (z-index: 30) *@
             <NavPanels />
 
-            <div class="anim-icon @UI.Panels[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
+            <div class="anim-icon @UI.Panels.Dictionary[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
 
-            <div class="anim-controls @UI.Panels[0].PanelStatus">
+            <div class="anim-controls @UI.Panels.Dictionary[0].PanelStatus">
                 <h4>Animations</h4>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(0))">
@@ -134,7 +134,7 @@
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
             <article class="animate-app
-                @UI.Panels[7].PanelStatus
+                @UI.Panels.Dictionary[7].PanelStatus
                 @blurMainStatus()">
                 <h3>App Animations</h3>
                 <br />
@@ -191,7 +191,7 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @UI.Panels[8].PanelStatus">
+        <div class="continuous-animate-stop @UI.Panels.Dictionary[8].PanelStatus">
             <button class="btn btn-danger" @onclick='UI.DiscontinueAnimation'>Discontinue</button>
         </div>
     </div>
@@ -208,7 +208,7 @@
     private string blurMainStatus()
     {
         // if any panels are true, blur main
-        foreach (var panelPair in UI.Panels)
+        foreach (var panelPair in UI.Panels.Dictionary.ToList())
             if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel)
                 return "content-blur";
         return "";
@@ -216,7 +216,7 @@
     private string behindPanelStatus()
     {
         // if any panels are true, show behind panel
-        foreach (var panelPair in UI.Panels)
+        foreach (var panelPair in UI.Panels.Dictionary.ToList())
             if (panelPair.Value.BehindPanelIsActive && panelPair.Value.IsCooperativePanel)
                 return "button-on-show-behind-panel";
         return "";

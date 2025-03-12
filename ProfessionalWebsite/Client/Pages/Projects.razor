@@ -16,11 +16,11 @@
     @for (int i = 2; i < UI.PanelGroups[0].Panels.Count(); i++)
     {
         <p>PanelGroup Panel @i</p>
-        <p>PanelGroupId: [@UI.Panels[i].PanelGroupId]</p>
-        <p>PanelStatus: [@UI.Panels[i].PanelStatus]</p>
-        <p>PanelButtonStatus: [@UI.Panels[i].PanelButtonStatus]</p>
-        <p>BlurStatus: [@UI.Panels[i].BlurStatus]</p>
-        <p>BehindPanelStatus: [@UI.Panels[i].BehindPanelStatus]</p>
+        <p>PanelGroupId: [@UI.Panels.Dictionary[i].PanelGroupId]</p>
+        <p>PanelStatus: [@UI.Panels.Dictionary[i].PanelStatus]</p>
+        <p>PanelButtonStatus: [@UI.Panels.Dictionary[i].PanelButtonStatus]</p>
+        <p>BlurStatus: [@UI.Panels.Dictionary[i].BlurStatus]</p>
+        <p>BehindPanelStatus: [@UI.Panels.Dictionary[i].BehindPanelStatus]</p>
         <br/>
     }
     <p>LocationPanel</p>

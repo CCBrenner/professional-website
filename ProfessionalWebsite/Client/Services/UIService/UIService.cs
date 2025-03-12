@@ -3,27 +3,31 @@
 public class UIService : IUIService
 {
     private UIService(
-        List<bool> isContinuous, 
-        Dictionary<int, PanelGroup> panelGroups, 
-        Dictionary<int, Panel> panels, 
-        Dictionary<int, SectionedPage> sectionedPages, 
+        List<bool> isContinuous,
+        Dictionary<int, PanelGroup> panelGroups,
+        Dictionary<int, Panel> initPanels,
+        Dictionary<int, SectionedPage> sectionedPages,
         Dictionary<int, Section> sections)
     {
+
+
+
         StartingSectionId = 5037;
         AnimateMain = string.Empty;
         IsContinuous = isContinuous;
         PanelGroups = panelGroups;
-        Panels = panels;
+        Panels = new Panels(initPanels);
         SectionedPages = sectionedPages;
         Sections = sections;
 
-        PanelMgmt.SetBiDirectionalReferencesForPanelGroupsAndPanels(Panels, PanelGroups);
+        Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
         SectionMgmt.SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
     }
     public int StartingSectionId { get; private set; }
     public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
-    public Dictionary<int, Panel> Panels { get; private set; }
+    public Panels Panels { get; private set; }
+    //public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
     public Dictionary<int, Section> Sections { get; private set; }
     public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
@@ -34,7 +38,7 @@ public class UIService : IUIService
         Dictionary<int, PanelGroup> panelGroups,
         Dictionary<int, Panel> panels,
         Dictionary<int, SectionedPage> sectionedPages,
-        Dictionary<int, Section> sections) => 
+        Dictionary<int, Section> sections) =>
         new(isContinuous, panelGroups, panels, sectionedPages, sections);
 
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke(string.Empty);
@@ -71,7 +75,9 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId)
     {
-        DeactivateAllPanels();
+        Panels.DeactivateAllPanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
+        RaiseEventOnUiServiceChanged();
         NavMgmt.NavigateToSection(sectionId, Panels, PanelGroups, Sections, SectionedPages);
     }
 
@@ -89,7 +95,7 @@ public class UIService : IUIService
     /// <returns></returns>
     public void TogglePanel(int selectedPanelId)
     {
-        PanelMgmt.TogglePanel(selectedPanelId, Panels, PanelGroups);
+        Panels.TogglePanel(selectedPanelId, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -100,8 +106,9 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId)
     {
-        DeactivateAllPanels();
-        PanelMgmt.UpdateGroupLocationPanel(panelId, Panels, PanelGroups);
+        Panels.DeactivateAllPanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
+        Panels.UpdateGroupLocationPanel(panelId, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -127,24 +134,18 @@ public class UIService : IUIService
     }
     public void DeactivateCooperativePanels()
     {
-        PanelMgmt.DeactivateCooperativePanels(Panels.Values.ToList());
-        PanelMgmt.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
+        Panels.DeactivateCooperativePanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
     public void ActivatePanel(int selectedPanelId)
     {
-        PanelMgmt.ActivatePanel(selectedPanelId, Panels, PanelGroups.Values.ToList());
+        Panels.ActivatePanel(selectedPanelId, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivatePanel(int selectedPanelId)
     {
-        PanelMgmt.DeactivatePanel(selectedPanelId, Panels);
-        RaiseEventOnUiServiceChanged();
-    }
-    private void DeactivateAllPanels()
-    {
-        PanelMgmt.DeactivateAllPanels(Panels.Values.ToList());
-        PanelMgmt.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
+        Panels.DeactivatePanel(selectedPanelId);
         RaiseEventOnUiServiceChanged();
     }
 }
