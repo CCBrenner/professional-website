@@ -2,7 +2,6 @@
 
 public interface IUIService
 {
-    string AnimateMain { get; }
     List<bool> IsContinuous { get; }
     Panels Panels { get; }
     Dictionary<int, PanelGroup> PanelGroups { get; }

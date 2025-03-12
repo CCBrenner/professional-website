@@ -691,12 +691,12 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, false);
-        Assert.AreEqual("main1", NavService.AnimateMain);
+        Assert.AreEqual("main1", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(5, false);
-        Assert.AreEqual("main5", NavService.AnimateMain);
+        Assert.AreEqual("main5", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
     }
@@ -711,20 +711,20 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, false);
-        Assert.AreEqual("main1", NavService.AnimateMain);
+        Assert.AreEqual("main1", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(1, false);
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(2, false);
-        Assert.AreEqual("main2", NavService.AnimateMain);
+        Assert.AreEqual("main2", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(2, false);
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
     }
     [TestMethod]
@@ -738,12 +738,12 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, true);
-        Assert.AreEqual("main1-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main1-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(3, true);
-        Assert.AreEqual("main3-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main3-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
     }
     [TestMethod]
@@ -757,20 +757,20 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, true);
-        Assert.AreEqual("main1-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main1-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(1, true);
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(4, true);
-        Assert.AreEqual("main4-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main4-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(4, true);
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
     }
     [TestMethod]
@@ -784,20 +784,20 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, false);
-        Assert.AreEqual("main1", NavService.AnimateMain);
+        Assert.AreEqual("main1", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(1, true);
-        Assert.AreEqual("main1-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main1-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(5, false);
-        Assert.AreEqual("main5", NavService.AnimateMain);
+        Assert.AreEqual("main5", NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
         NavService.ToggleAnimation(5, true);
-        Assert.AreEqual("main5-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main5-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
     }
     // end original ToggleAnimation() tests
@@ -813,20 +813,20 @@ public class NavServiceTests
 
 
         NavService.ToggleAnimation(1, true);
-        Assert.AreEqual("main1-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main1-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
         NavService.StopMainAnimation();
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
 
 
         NavService.ToggleAnimation(2, true);
-        Assert.AreEqual("main2-infinite", NavService.AnimateMain);
+        Assert.AreEqual("main2-infinite", NavService.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", NavService.DiscontinueButton);
 
         NavService.StopMainAnimation();
-        Assert.AreEqual(string.Empty, NavService.AnimateMain);
+        Assert.AreEqual(string.Empty, NavService.AnimateAppContainer);
         Assert.AreEqual(string.Empty, NavService.DiscontinueButton);
     }
     // end StopMainAnimation() tests

@@ -9,11 +9,8 @@ public class UIService : IUIService
         Dictionary<int, SectionedPage> sectionedPages,
         Dictionary<int, Section> sections)
     {
-
-
-
         StartingSectionId = 5037;
-        AnimateMain = string.Empty;
+        Animations = new Animations(string.Empty);
         IsContinuous = isContinuous;
         PanelGroups = panelGroups;
         Panels = new Panels(initPanels);
@@ -24,8 +21,8 @@ public class UIService : IUIService
         SectionMgmt.SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
     }
     public int StartingSectionId { get; private set; }
-    public string AnimateMain { get; private set; }
     public List<bool> IsContinuous { get; private set; }
+    public Animations Animations { get; private set; }
     public Panels Panels { get; private set; }
     //public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
@@ -48,17 +45,17 @@ public class UIService : IUIService
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void ToggleAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleAnimation(animationIndex, AnimateMain, IsContinuous, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleAnimation(animationIndex, IsContinuous, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleOnePlayAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleOnePlayAnimation(animationIndex, AnimateMain, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleOnePlayAnimation(animationIndex, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleContinuousAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleContinuousAnimation(animationIndex, AnimateMain, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleContinuousAnimation(animationIndex, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
 
@@ -66,7 +63,7 @@ public class UIService : IUIService
     /// Stops continuous animation by chaning the animation class to blank (string.Empty); also hides the Discontinue button by the same means.
     /// </summary>
     public void DiscontinueAnimation() =>
-        AnimateMain = AnimMgmt.DiscontinueAnimation(Panels, PanelGroups.Values.ToList());
+        Animations.DiscontinueAnimation(Panels, PanelGroups.Values.ToList());
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).

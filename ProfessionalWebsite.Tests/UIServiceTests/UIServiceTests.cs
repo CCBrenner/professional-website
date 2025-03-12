@@ -23,7 +23,7 @@ public class UIServiceTests
     {
         // Given a string variable for changing the presence of a class in the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off
-        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
 
         // When the user presses the element that has the appropriate @onclick event handler
@@ -32,7 +32,7 @@ public class UIServiceTests
         // Then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // the animation's class name is updated, which triggers the animation of the main container to occur one time,
         // and the discontinue button does not appear.
-        Assert.AreEqual("main1", UiService.AnimateMain);
+        Assert.AreEqual("main1", UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
     }
     [TestMethod]
@@ -40,7 +40,7 @@ public class UIServiceTests
     {
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off...
-        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
 
         // ...when the user presses the element that has the appropriate @onclick event handler seen here...
@@ -49,7 +49,7 @@ public class UIServiceTests
         // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // the animation's class name is updated (triggering the animation of the main container to occur an infinite number of times),
         // and the discontinue button appears.
-        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("main1-infinite", UiService.Animations.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", UiService.Panels.Dictionary[8].PanelStatus);
     }
     [TestMethod]
@@ -58,7 +58,7 @@ public class UIServiceTests
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off based on config defaults
         // and given a value corresponding to whether the specific animation should be played continuously or not...
-        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
         Assert.IsFalse(UiService.IsContinuous[0]);
 
@@ -67,7 +67,7 @@ public class UIServiceTests
 
         // ...then the animation id is converted to one of the defined class names with defined associated CSS @keyframe,
         // and the animation's class name remains the same, keeping the Discontinue button invisible,
-        Assert.AreEqual("main1", UiService.AnimateMain);
+        Assert.AreEqual("main1", UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
 
         // Note: IsContinuous configs are to be used in cases where a UI control changes the bool value from continuous to single-play per animation
@@ -77,7 +77,7 @@ public class UIServiceTests
     {
         // Given a string variable for changing the presence of a class in the class property of the "main" container of the application
         // and given a string variable for making a discontinue button appear or disappear is initially off based on config defaults...
-        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
         var IsContinuousList = UiService.IsContinuous;
         IsContinuousList[0] = true;
@@ -88,7 +88,7 @@ public class UIServiceTests
 
         // ...then the animation's class name is updated based on a conversion of the animation ID, triggering the animation of the main container to occur an infinite number of times,
         // and the discontinue button appears.
-        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("main1-infinite", UiService.Animations.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", UiService.Panels.Dictionary[8].PanelStatus);
 
         // Note: IsContinuous configs are to be used in cases where a UI control changes the bool value from continuous to single-play per animation
@@ -99,7 +99,7 @@ public class UIServiceTests
         // Given a continuous animation is playing on the main container
         // and the discontinue button is visible...
         UiService.ToggleContinuousAnimation(0);
-        Assert.AreEqual("main1-infinite", UiService.AnimateMain);
+        Assert.AreEqual("main1-infinite", UiService.Animations.AnimateAppContainer);
         Assert.AreEqual("discontinue-button-on", UiService.Panels.Dictionary[8].PanelStatus);
 
         // ...when the user clicks the discontinue button...
@@ -107,7 +107,7 @@ public class UIServiceTests
 
         // ...then the animation stops
         // and the discontinue button becomes invisible.
-        Assert.AreEqual(string.Empty, UiService.AnimateMain);
+        Assert.AreEqual(string.Empty, UiService.Animations.AnimateAppContainer);
         Assert.AreEqual(string.Empty, UiService.Panels.Dictionary[8].PanelStatus);
     }
     // Doesn't test anything presently
