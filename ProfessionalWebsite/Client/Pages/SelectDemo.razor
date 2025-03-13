@@ -15,13 +15,13 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @UI.Sections[5037].IsCurrentPromo @UI.Sections[5037].IsCurrentPromo
+                @UI.Sections.Dictionary[5037].IsCurrentPromo @UI.Sections.Dictionary[5037].IsCurrentPromo
                 @*Select Demo*@
-                @if (UI.Sections[5037].IsVisible && currentPath == "select-demo/5037" || currentPath == "")
+                @if (UI.Sections.Dictionary[5037].IsVisible && currentPath == "select-demo/5037" || currentPath == "")
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
-                            @if (UI.Sections[5037].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                            @if (UI.Sections.Dictionary[5037].IsCollapsedHeader == "collapsed-header")
                             {
                                 <i class="fa fa-chevron-right" />
                             }
@@ -30,9 +30,9 @@
                                 <i class="fa fa-chevron-down" />
                             }
                             &nbsp;
-                            @UI.Sections[5037].Name
+                            @UI.Sections.Dictionary[5037].Name
                         </div>
-                        <div class="section-content @UI.Sections[5037].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[5037].IsCollapsedContent">
                             <h3 style="text-align: center;">Which demo do you want to view? </h3>
                             <div class="proj-desc-buttons">
                                 <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -63,11 +63,11 @@
                     </div>
                 }
                 @*About UI*@
-                @if (UI.Sections[5038].IsVisible && currentPath == "select-demo/5038" || currentPath == "")
+                @if (UI.Sections.Dictionary[5038].IsVisible && currentPath == "select-demo/5038" || currentPath == "")
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
-                            @if (UI.Sections[5038].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                            @if (UI.Sections.Dictionary[5038].IsCollapsedHeader == "collapsed-header")
                             {
                                 <i class="fa fa-chevron-right" />
                             }
@@ -76,11 +76,11 @@
                                 <i class="fa fa-chevron-down" />
                             }
                             &nbsp;
-                            <span>@UI.Sections[5038].Name</span>  @*<span> is for eliminating a Visual Studio bug*@
+                            <span>@UI.Sections.Dictionary[5038].Name</span>  @*<span> is for eliminating a Visual Studio bug*@
                         </div>
-                        <div class="section-content @UI.Sections[5038].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[5038].IsCollapsedContent">
                             <h3 style="text-align: center;">
-                                <span>@UI.Sections[5038].Name</span>
+                                <span>@UI.Sections.Dictionary[5038].Name</span>
                             </h3>
                             <ul>
                                 <li>This entire UI was made from scratch using CSS/Flexbox and Bootstrap only. No other UI libraries were used.</li>
@@ -106,23 +106,23 @@
                 }
                 @if (UI.SectionedPages[5].ASectionIsCurrentlyPromo)
                 {
-                    @if (!UI.Sections[5037].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[5037].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                            <div class="section-header @UI.Sections.Dictionary[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                @UI.Sections[5037].Name
+                                @UI.Sections.Dictionary[5037].Name
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[5038].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[5038].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                            <div class="section-header @UI.Sections.Dictionary[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                @UI.Sections[5038].Name
+                                @UI.Sections.Dictionary[5038].Name
                             </div>
                         </div>
                     }

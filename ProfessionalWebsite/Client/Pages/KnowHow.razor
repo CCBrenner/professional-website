@@ -30,18 +30,18 @@
             <div class="sections-container">
                 @*Overview*@
                 @*
-                @if (UI.Sections[0].IsVisible)
+                @if (UI.Sections.Dictionary[0].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
-                            @if(UI.Sections[0].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
+                            @if(UI.Sections.Dictionary[0].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Overview
                         </div>
-                        <div class="section-content @UI.Sections[0].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[0].IsCollapsedContent">
                             <h3 class="text-center">Overview</h3>
                             <p>
                                 Software developers need to know many things to be effective in their crafting of software code. Not only this, but they need to have the solutions to many different problems locked down in memory, and not just static memory, but in working memory to be called in at the apprpriate times based on the best design philosophies and principles. For that which the software developer does not have locked in their memory they can make up for in different essential skills such as method of searching for something. These multi-step solutions - can be exponentially useful. This page will give you a sense of what technologies I have worked with thus far, however, please note that i am entirely open to learning about other technologies or more specific domains of a technology as well. Learning is only a matter of time. Changing dependencies shouldn't be something to fear. It should be seen as an opportunity for more to be made possible.
@@ -84,18 +84,18 @@
                 }
                 *@
                 @*About This Web App*@
-                @if (UI.Sections[14].IsVisible)
+                @if (UI.Sections.Dictionary[14].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
-                            @if(UI.Sections[14].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
+                            @if(UI.Sections.Dictionary[14].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             About
                         </div>
-                        <div class="section-content @UI.Sections[14].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[14].IsCollapsedContent">
                             <h3 style="text-align: center;">Welcome to<br/>Collyn's Developer Portfolio PWA!</h3>
                             <br/>
                             <p>In an effort to respect your time, here are some facts and features about this progressive web app:</p>
@@ -116,11 +116,11 @@
                     </div>
                 }
                 @*Sudoku Solver*@
-                @if (UI.Sections[36].IsVisible)  
+                @if (UI.Sections.Dictionary[36].IsVisible)  
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
-                            @if (UI.Sections[36].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                            @if (UI.Sections.Dictionary[36].IsCollapsedHeader == "collapsed-header")
                             {
                                    <i class="fa fa-chevron-right" />
                             }
@@ -131,7 +131,7 @@
                             &nbsp;
                             Sudoku Solver
                         </div>
-                        <div class="section-content @UI.Sections[36].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[36].IsCollapsedContent">
                             <h3 style="text-align: center;">
                                 Sudoku Solver
                             </h3>
@@ -178,18 +178,18 @@
                     </div>
                 }
                 @*Bee Hive Manager*@
-                @if (UI.Sections[16].IsVisible)
+                @if (UI.Sections.Dictionary[16].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
-                            @if (UI.Sections[16].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
+                            @if (UI.Sections.Dictionary[16].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Bee Hive Manager
                         </div>
-                        <div class="section-content @UI.Sections[16].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[16].IsCollapsedContent">
                             <h3 style="text-align: center;">Bee Hive Manager</h3>
                             <div class="proj-desc-buttons">
                                 <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -262,18 +262,18 @@
                     </div>
                 }
                 @*Hide & Seek*@
-                @if (UI.Sections[15].IsVisible)
+                @if (UI.Sections.Dictionary[15].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
-                            @if(UI.Sections[15].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
+                            @if(UI.Sections.Dictionary[15].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Hide & Seek Game
                         </div>
-                        <div class="section-content @UI.Sections[15].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[15].IsCollapsedContent">
                             <h3 style="text-align: center;">Hide and Seek Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="hideandseek" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -308,18 +308,18 @@
                     </div>
                 }
                 @*Match Game*@
-                @if (UI.Sections[33].IsVisible) 
+                @if (UI.Sections.Dictionary[33].IsVisible) 
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
-                            @if(UI.Sections[33].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
+                            @if(UI.Sections.Dictionary[33].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Match Game
                         </div>
-                        <div class="section-content @UI.Sections[33].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[33].IsCollapsedContent">
                             <h3 style="text-align: center;">
                                 Match Game
                             </h3>
@@ -354,18 +354,18 @@
                     </div>
                 }
                 @* Counter + Spinners *@
-                @if (UI.Sections[35].IsVisible)
+                @if (UI.Sections.Dictionary[35].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
-                            @if (UI.Sections[35].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
+                            @if (UI.Sections.Dictionary[35].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Counter + Spinners
                         </div>
-                        <div class="section-content @UI.Sections[35].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[35].IsCollapsedContent">
                             <h4 style="text-align: center;">Counter</h4>
                             <div class="proj-desc-buttons">
                                 <a href="counter" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
@@ -396,18 +396,18 @@
                     </div>
                 }
                 @*Frontend*
-                @if (UI.Sections[3].IsVisible)
+                @if (UI.Sections.Dictionary[3].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
-                            @if(UI.Sections[3].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
+                            @if(UI.Sections.Dictionary[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Front-End
                         </div>
-                        <div class="section-content @UI.Sections[3].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[3].IsCollapsedContent">
                             <p>
                                 My introduction to coding was through FreeCodeCamp using JavaScript. This led me naturally into developing web sites with HTML and CSS along with JS. I would say I have a particular affinity for clean, functional, modular user interfaces that look very nice by themselves and then make the user feel really good through simplicity and handling things for them in ways that communicate thoughtfulness. It is important to make designs intuitive when making interfaces, and this usually means gleaning from many different users and the decisions they make when navigating a GUI. It seems as though the key to an intuitive interface is learning through interaction, enabled by simplistic design, and finding things where you expect them to be. I am glad we now have moved into the age of SPAs and component-based architecture because it allows for UI components to be reused in the same way classes are, reducing code which generally translates into less for the programmer to manage (in many cases).
                             </p>
@@ -421,18 +421,18 @@
                     </div>
                 }
                 @*Back-end*
-                @if (UI.Sections[1].IsVisible)
+                @if (UI.Sections.Dictionary[1].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[1].IsCollapsedHeader" @onclick="(()=>ToggleSection(1))">
-                            @if(UI.Sections[1].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[1].IsCollapsedHeader" @onclick="(()=>ToggleSection(1))">
+                            @if(UI.Sections.Dictionary[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Back-end
                         </div>
-                        <div class="section-content @UI.Sections[1].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[1].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">Back-end</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -448,18 +448,18 @@
                     </div>
                 }
                 @*UX/UI + Modeling Software*
-                @if (UI.Sections[4].IsVisible)
+                @if (UI.Sections.Dictionary[4].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
-                            @if(UI.Sections[4].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
+                            @if(UI.Sections.Dictionary[4].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             UX/UI + Modeling Software
                         </div>
-                        <div class="section-content @UI.Sections[4].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[4].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">UX/UI + Modeling Software</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -481,18 +481,18 @@
                     </div>
                 }
                 @*Cloud Deployment + Containers*
-                @if (UI.Sections[5].IsVisible)
+                @if (UI.Sections.Dictionary[5].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
-                            @if(UI.Sections[5].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
+                            @if(UI.Sections.Dictionary[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Cloud Deployment + Containers
                         </div>
-                        <div class="section-content @UI.Sections[5].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[5].IsCollapsedContent">
                             <p>Kubernetes container management and microservices architecture has come to dominate the cloud services industry even to the degree of creating several types of technical certifications for roles within specific cloud infrastructure providers such as AWS and Azure. Docker has become the #1 container tool used by devops teams and other development teams for the streamlining of development and production release pipelines. Leveraging this kind of infrastructure and technology is proving to be high in controllability based on fluctuating application service demands, and so it has become very useful to have knowledge of how development inside of containers benefits a company or organization. The software developer does well when he or she learns how a tool like Docker works to bring many benefits to an application.</p>
                             <p>The cloud has consolidated itself away from the older models of on-site technology infrastructure management. Cloud infrastructure serves many clients instead of just one, and in so doing has increased the level of security and quality of service that can be offered to business. This has also introduced tiered service levels based on the amount of customizability/control/responsibility a business wants to have over the cloud resources it pays to use. The three largest categorizations of cloud services are IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service). IaaS offers the most control, SaaS offers the most out-of-the-box pre-configuration and least control, while PaaS falls somewhere between the other two with benefits and drawbacks of both of the other options.</p>
                             <p>When talking about containers, we are talking about virtual machine environments that can be created on-demand through the use of a template which exists in the form of a container image. Docker offers a way to create such images so that the creation of the container is consistent across every container based on the container image used. The image is composed of layers. The layers allow Docker to reduce the amount of work by skipping over the layers that have not changed and beginning with the first layer in the sequence that has changed (in the case of updating a container). However, the layers are always read in order, so that if layer 3 has changed but layer 5 has not, Docker will begin building at layer three, then go to 4 then go to 5 and so on until all layers have been completed to create the container environment.</p>
@@ -502,18 +502,18 @@
                     </div>
                 }
                 @*Databases*
-                @if (UI.Sections[6].IsVisible)
+                @if (UI.Sections.Dictionary[6].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
-                            @if(UI.Sections[6].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
+                            @if(UI.Sections.Dictionary[6].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Databases
                         </div>
-                        <div class="section-content @UI.Sections[6].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[6].IsCollapsedContent">
                             <p>With any software program you make, you are going to want to keep the data you want to keep for long-term purposes separate from your system processes. This is the main purpose of databases, to serve as persistent storage for data that your program depends on. The database is often so fundamental to the operation of a system that terms such as data-driven design and domain-driven design (DDD) are common terms software programmers are familiar with today. These terms point to the greatest benefit of the internet, which is that data is accessible to the greatest number of people in the greatest number of ways and in the greatest number of places. And so a database is most concerned with keeping data safe yet accessible. </p>
                             <p>There are two camps that databases fall into. These are SQL databases and everything else which we have given the term “NoSQL” databases.</p>
                             <p>Some examples of SQL databases are MySQl, SQL Server, and PostgreSQL. SQL databases are composed of tables, in which each table has a set of rows and each row a number of columns that store values that are common to all rows in the table. SQL gets its name from the common language used to access SQl databases, the name of the language used being SQL. SQL employs a method for reducing the amount of duplicate data stored in the database tables and upholds a standard of formatting that keeps the data in an optimal structure and form for access and modification. When a programmer applies such rules to a SQL database we call the process normalization. There are different degrees of normalization, but the minimum desired level of normalization by most programmers is 3NF or the “3rd Normal Form”. SQL databases also apply rules for access that are described by the acronym ACID which stands for Atomicity, Consistency, Isolation, and Durability. These are applied to the transaction performed on a SQL database to maintain the integrity of the data in the database. SQL databases utilize transactions which ensure that once a process has begun, the entire process must be completed or else no changes are made to the SQL database. SQL databases are commonly used with monolithic software architectures, but they don’t have to be. SQL databases typically serve as a single source of truth, meaning that the data of a SQL database is found geographically in one place and one place only. One way to increase performance is to divide a SQL database into shards, where the data of the database that most closely serves a people group of a certain geography have their data stored on a server that is physically closer to the user. </p>
@@ -522,17 +522,17 @@
                     </div>
                 }
                 @*Testing*
-                @if (UI.Sections[7].IsVisible)
+                @if (UI.Sections.Dictionary[7].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
-                            @if(UI.Sections[7].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
+                            @if(UI.Sections.Dictionary[7].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Testing                        </div>
-                        <div class="section-content @UI.Sections[7].IsCollapsedContent"> `
+                        <div class="section-content @UI.Sections.Dictionary[7].IsCollapsedContent"> `
                             <p>In web development there are generally three major types of testing: unit testing, integration testing, and end-to-end testing. There are other kinds of tests that can be performed, like usability tests, regression tests, sanity tests, and smoke tests. The goal of tests is to prove your system works the way you intend and expect it to. On the topic of expected behavior I would like to take a detour and talk about Test-Driven Development (TDD).</p>
                             <p><b>Test-Driven Development (TDD)</b> is the name of the software game today and if you don’t know how to do it then you may be left behind. TDD is concerned with unit tests and can better be conceptualized by turning the T into B, giving us Behavior-Driven Development. BDD is accomplished when the method of writing code is to define a number of <b>tests first</b> based on the desired <b>behaviors</b> you wish to see in your application. The tests you create help you nail down the program behavior as your top priority and focus. These tests put the business rules first and give you a means for checking if your code works the way you expect it to.</p>
                             <p>With TDD/BDD (“behavior tests”) you start with the name of the test as the described behavior in human-readable terms, then you use either ”Arrange, Act, Assert” or “Given, When, Then” schemas as guiding steps for the three parts of each test. When you have finished writing the test, create the shells of any of the new methods introduced in your test, throwing new “NotIMplementedException” exceptions for each new method. Then you run the test and make sure that it *fails* (because there is no code for the test to use to satisfy the assertions of the test). Making sure it fails ensures your test works well enough to at minimum not give you a false positive (or no result at all). Once you get the test to fail, then you are ready to start defining the logic of the different methods used in the test. Then once the code is completed, run the tests again and try to get the code to pass the test. It is through TDD/BDD that you as the programmer are focused on what matters most with the business rules at the forefront of your mind, creating a means for testing whether you’ve created the right code, and then all that’s left to do is write the code.</p>
@@ -542,18 +542,18 @@
                     </div>
                 }
                 @*Why Programming?*
-                @if (UI.Sections[13].IsVisible)
+                @if (UI.Sections.Dictionary[13].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
-                            @if(UI.Sections[13].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
+                            @if(UI.Sections.Dictionary[13].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Why Programming?
                         </div>
-                        <div class="section-content @UI.Sections[13].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[13].IsCollapsedContent">
                             <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
                             <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
                             <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
@@ -563,11 +563,11 @@
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
                 @*Contact*@
-                @if (UI.Sections[34].IsVisible)
+                @if (UI.Sections.Dictionary[34].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
-                            @if (UI.Sections[34].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                            @if (UI.Sections.Dictionary[34].IsCollapsedHeader == "collapsed-header")
                             {
                                 <i class="fa fa-chevron-right" />
                             }
@@ -578,7 +578,7 @@
                             &nbsp;
                             Contact
                         </div>
-                        <div class="section-content @UI.Sections[34].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[34].IsCollapsedContent">
                             <Contact />
                         </div>
                     </div>
@@ -586,10 +586,10 @@
                 @if (UI.SectionedPages[1].ASectionIsCurrentlyPromo)
                 {
                     @*
-                    @if (!UI.Sections[0].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
+                            <div class="section-header @UI.Sections.Dictionary[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Overview
@@ -597,60 +597,60 @@
                         </div>
                     }
                     *@
-                    @if (!UI.Sections[14].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
+                            <div class="section-header @UI.Sections.Dictionary[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 About This Web App
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[16].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
+                            <div class="section-header @UI.Sections.Dictionary[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Bee Hive Manager
                             </div>
                         </div>
                     } 
-                    @if (!UI.Sections[15].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
+                            <div class="section-header @UI.Sections.Dictionary[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Hide & Seek Game
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[33].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
+                            <div class="section-header @UI.Sections.Dictionary[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Match Game
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[36].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[36].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                            <div class="section-header @UI.Sections.Dictionary[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Sudoku Solver
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[35].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[35].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
+                            <div class="section-header @UI.Sections.Dictionary[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Counter + Spinners
@@ -658,60 +658,60 @@
                         </div>
                     }
                     @*
-                    @if (!UI.Sections[3].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[3].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
+                            <div class="section-header @UI.Sections.Dictionary[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Front-End
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[4].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
+                            <div class="section-header @UI.Sections.Dictionary[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 UX/UI + Modeling Software
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[5].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
+                            <div class="section-header @UI.Sections.Dictionary[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Cloud Deployment + Containers
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[6].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
+                            <div class="section-header @UI.Sections.Dictionary[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Databases
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[7].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
+                            <div class="section-header @UI.Sections.Dictionary[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Testing
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[13].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
+                            <div class="section-header @UI.Sections.Dictionary[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Why Programming?
@@ -720,10 +720,10 @@
                     }
                     *@
                     @*Contact*@
-                    @if (!UI.Sections[34].IsVisible)
+                    @if (!UI.Sections.Dictionary[34].IsVisible)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                            <div class="section-header @UI.Sections.Dictionary[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Contact

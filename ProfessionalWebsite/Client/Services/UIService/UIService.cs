@@ -7,7 +7,7 @@ public class UIService : IUIService
         Dictionary<int, PanelGroup> panelGroups,
         Dictionary<int, Panel> initPanels,
         Dictionary<int, SectionedPage> sectionedPages,
-        Dictionary<int, Section> sections)
+        Dictionary<int, Section> initSections)
     {
         StartingSectionId = 5037;
         Animations = new Animations(string.Empty);
@@ -15,18 +15,17 @@ public class UIService : IUIService
         PanelGroups = panelGroups;
         Panels = new Panels(initPanels);
         SectionedPages = sectionedPages;
-        Sections = sections;
+        Sections = new Sections(initSections);
 
         Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
-        SectionMgmt.SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
+        Sections.SetBiDirectionalReferencesForSectionedPagesAndSections(SectionedPages);
     }
     public int StartingSectionId { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Animations Animations { get; private set; }
     public Panels Panels { get; private set; }
-    //public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
-    public Dictionary<int, Section> Sections { get; private set; }
+    public Sections Sections { get; private set; }
     public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
@@ -115,7 +114,7 @@ public class UIService : IUIService
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
     public void ToggleSection(int sectionId)
     {
-        SectionMgmt.ToggleSection(sectionId, Sections, SectionedPages);
+        Sections.ToggleSection(sectionId, SectionedPages);
         RaiseEventOnUiServiceChanged();
     }
 

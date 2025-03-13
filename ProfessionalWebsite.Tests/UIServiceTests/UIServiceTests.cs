@@ -130,20 +130,20 @@ public class UIServiceTests
     {
         // Given a user on any given web page
         // and given the default state of the destination sectioned pages relevant to this behavior test...
-        Assert.IsFalse(UiService.Sections[1013].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1004].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1014].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1033].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1013].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1004].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1014].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1033].IsCurrentPromo);
 
         // ...when the user clicks an element that refers to a section (which can be assumed as existing within a sectioned page)...
         UiService.NavigateToSection(1013);
 
         // ...then promote the section (visually moving it to the top above all other sections)
         // and ensure all other sections of the same sectioned page are not promoted/are demoted.
-        Assert.IsTrue(UiService.Sections[1013].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1004].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1014].IsCurrentPromo);
-        Assert.IsFalse(UiService.Sections[1033].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1004].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1014].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1033].IsCurrentPromo);
     }
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllSectionsAreCollapsedSwitchesFromUsingSectionsToUsingHeaderClones()
@@ -165,7 +165,7 @@ public class UIServiceTests
 
         // Given a sectioned page that is displaying its psuedo-headers of its sections...
         UiService.NavigateToSection(1013);
-        Assert.IsTrue(UiService.Sections[1013].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCurrentPromo);
         Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when a user closes/collapses/demotes the promoted section...
@@ -173,7 +173,7 @@ public class UIServiceTests
 
         // ...then the total number of promoted sections equal zero. Based on this,
         // the actual sections are used once again in place of the cloned headers of the sections, which are made invisible.
-        Assert.IsFalse(UiService.Sections[1013].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1013].IsCurrentPromo);
         Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
@@ -183,18 +183,18 @@ public class UIServiceTests
         UiService.NavigateToSection(1013); // 13 is open/promoted
         UiService.ToggleSectionedPage(1);  // all open
         UiService.ToggleSectionedPage(1);  // all closed
-        Assert.IsFalse(UiService.Sections[1013].IsCurrentPromo);
-        Assert.IsTrue(UiService.Sections[1013].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1004].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1007].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1016].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1013].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1004].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1007].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1016].IsCollapsed);
         Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
         UiService.ToggleSection(1013);
 
         // ...then the clicked section is promoted.
-        Assert.IsTrue(UiService.Sections[1013].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCurrentPromo);
     }
     [TestMethod]
     public void TestClickingHeaderOfClosedSectionWhenAllOtherSectionsAreClosedReplacesSectionsWithClonedHeaders()
@@ -203,11 +203,11 @@ public class UIServiceTests
         UiService.NavigateToSection(1013);
         UiService.ToggleSectionedPage(1);
         UiService.ToggleSectionedPage(1);
-        Assert.IsFalse(UiService.Sections[1013].IsCurrentPromo);
-        Assert.IsTrue(UiService.Sections[1013].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1004].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1007].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1016].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1013].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1004].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1007].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1016].IsCollapsed);
         Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the user clicks the header of a section...
@@ -221,7 +221,7 @@ public class UIServiceTests
     {
         // Given a section of a sectioned page is currently promoted...
         UiService.NavigateToSection(1013);
-        Assert.IsTrue(UiService.Sections[1013].IsCurrentPromo);
+        Assert.IsTrue(UiService.Sections.Dictionary[1013].IsCurrentPromo);
         Assert.IsTrue(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
 
         // ...when the mass toggle tool for sections is clicked...
@@ -229,7 +229,7 @@ public class UIServiceTests
 
         // ...then no sections of the sectioned page are promoted any longer
         // and the actual sections are used again instead of the cloned headers of the sections.
-        Assert.IsFalse(UiService.Sections[1013].IsCurrentPromo);
+        Assert.IsFalse(UiService.Sections.Dictionary[1013].IsCurrentPromo);
         Assert.IsFalse(UiService.SectionedPages[1].ASectionIsCurrentlyPromo);
     }
     [TestMethod]
@@ -238,19 +238,19 @@ public class UIServiceTests
         // Given all sections of a sectioned page are open...
         UiService.NavigateToSection(1013);
         UiService.ToggleSectionedPage(1);
-        Assert.IsFalse(UiService.Sections[1001].IsCollapsed);
-        Assert.IsFalse(UiService.Sections[1004].IsCollapsed);
-        Assert.IsFalse(UiService.Sections[1007].IsCollapsed);
-        Assert.IsFalse(UiService.Sections[1016].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1001].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1004].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1007].IsCollapsed);
+        Assert.IsFalse(UiService.Sections.Dictionary[1016].IsCollapsed);
 
         // ...when a user clicks the mass toggle tool for sections of the page...
         UiService.ToggleSectionedPage(1);
 
         // ...then all sections of the sectioned page are closed/collapsed.
-        Assert.IsTrue(UiService.Sections[1001].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1004].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1007].IsCollapsed);
-        Assert.IsTrue(UiService.Sections[1016].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1001].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1004].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1007].IsCollapsed);
+        Assert.IsTrue(UiService.Sections.Dictionary[1016].IsCollapsed);
     }
     [TestMethod]
     public void TestClickingAnElementThatOpensAHardCodedPageMakesThePageAppear()
