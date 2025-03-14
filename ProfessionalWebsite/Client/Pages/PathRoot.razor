@@ -1,13 +1,13 @@
 ﻿
 @page "/"
-@page "/{SectionId:int}"
+@* @page "/{SectionId:int}" *@
 
 @inject UIService UI
 @inject NavigationManager NavigationManager
 
-<SelectDemo SectionId=@SectionId />
+<SelectDemo/>
 
 @code {
-    [Parameter]
-    public int SectionId { get; set; }  // needed to pass value to component
+    //[Parameter]
+    //public int SectionId { get; set; }  // needed to pass value to component
 }

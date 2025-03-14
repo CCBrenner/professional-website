@@ -1,4 +1,6 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI;
+﻿using static System.Collections.Specialized.BitVector32;
+
+namespace ProfessionalWebsite.Client.Services.UI;
 
 public class UIService : IUIService
 {
@@ -19,7 +21,53 @@ public class UIService : IUIService
 
         Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
         Sections.SetBiDirectionalReferencesForSectionedPagesAndSections(SectionedPages);
+
+    //
+        SectionsV2 = InitSections();
     }
+    //public bool SectionIsPromo = false;
+    public Dictionary<int, bool> SectionsV2 { get; private set; }
+    private Dictionary<int, bool> InitSections()
+    {
+        return new()
+        {
+            { 5037, true },
+            { 5038, true },
+        };
+    }
+    public void SetPromoSection(int sectionId)
+    {
+        // Used: From within view contructor, based on relative path indicating SectionId
+        SectionsV2 = InitSections();
+        SectionsV2[sectionId] = true;
+    }
+    public bool ThisSectionIsOpen(int sectionId, int currentSectionIdFromView)
+    {
+        // To be used to render open sections and closed sections
+        return (sectionId == currentSectionIdFromView ||
+                currentSectionIdFromView < 0);
+    }
+    public bool ThisSectionIsClosedAndNoSectionIsPromo(int sectionId, int currentSectionIdFromView)
+    {
+        // To be used to render closed sections when no promo
+        return (sectionId != currentSectionIdFromView
+                && !ASectionIsPromo());
+    }
+    public bool ADifferentSectionOnThisPageIsPromo(int sectionId, int currentSectionIdFromView)
+    {
+        // To be used to render closed sections when there is a promo
+        return (sectionId != currentSectionIdFromView
+                && ASectionIsPromo());
+    }
+    private bool ASectionIsPromo()
+    {
+        int counter = 0;
+        foreach (var section in SectionsV2.Values)
+            if (section)
+                counter++;
+        return counter == 1;
+    }
+    //
     public int StartingSectionId { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Animations Animations { get; private set; }
