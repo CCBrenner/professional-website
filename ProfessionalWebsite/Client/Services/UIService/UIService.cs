@@ -117,6 +117,11 @@ public class UIService : IUIService
         Sections.ToggleSection(sectionId, SectionedPages);
         RaiseEventOnUiServiceChanged();
     }
+    public void PromoteSection(int sectionId)
+    {
+        Sections.PromoteSection(sectionId, SectionedPages);
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.

@@ -52,18 +52,11 @@ public class Sections
     /// <param name="sectionId">ID of section to be made promo section.</param>
     public void PromoteSection(int sectionId, Dictionary<int, SectionedPage> sectionedPages)
     {
-        try
-        {
-            DemoteAllSections(Dictionary, sectionedPages);
-            Section section = Dictionary[sectionId];
-            section.Promote();
-            SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
-            sectionedPage.ASectionIsCurrentlyPromo = true;
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-        }
+        DemoteAllSections(Dictionary, sectionedPages);
+        Section section = Dictionary[sectionId];
+        section.Promote();
+        SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
+        sectionedPage.ASectionIsCurrentlyPromo = true;
     }
     /// <summary>
     /// Returns the ID of the location panel of a sectioned page of the specified section using the section's ID.

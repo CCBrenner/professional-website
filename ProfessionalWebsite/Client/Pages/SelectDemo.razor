@@ -15,9 +15,8 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @UI.Sections.Dictionary[5037].IsCurrentPromo @UI.Sections.Dictionary[5037].IsCurrentPromo
                 @*Select Demo*@
-                @if (UI.Sections.Dictionary[5037].IsVisible && currentPath == "select-demo/5037" || currentPath == "")
+                @if (UI.Sections.Dictionary[5037].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections.Dictionary[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
@@ -63,7 +62,7 @@
                     </div>
                 }
                 @*About UI*@
-                @if (UI.Sections.Dictionary[5038].IsVisible && currentPath == "select-demo/5038" || currentPath == "")
+                @if (UI.Sections.Dictionary[5038].IsVisible)
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections.Dictionary[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
@@ -163,9 +162,21 @@
 
     protected override void OnInitialized()
     {
-        if (SectionId <= 0)
-            SectionId = UI.StartingSectionId;
-        UI.NavigateToSection(SectionId);
+        // For setting the NavButton highlights to what they need to be upon first
+        // load in absence of setting SectionId parameter
+        // if (SectionId < 0)
+        //     UI.NavigateToSection(SectionId);
+
+        if (SectionId > 0) {
+            if (SectionId == 5037) {
+                UI.PromoteSection(5037);
+            }
+            else {
+                UI.PromoteSection(5038);
+            }
+        }
+
+        // For dynamic reload of component when state has changed in the following singletons
         UI.OnUiServiceChanged += UpdateThisComponent;
     }
 
