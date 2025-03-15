@@ -14,7 +14,7 @@ public class Sections
     public Dictionary<int, Section> Dictionary { get; private set; }
     public void CollapseAllShowOne(int sectionId, Dictionary<int, SectionedPage> sectionedPages)
     {
-        DemoteAllSections(Dictionary, sectionedPages);
+        DemoteAllSections(sectionedPages);
 
         Section section = Dictionary[sectionId];
         SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
@@ -41,8 +41,7 @@ public class Sections
     /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
     public void ToggleSection(int sectionId, Dictionary<int, SectionedPage> sectionedPages)
     {
-        Section section = Dictionary[sectionId];
-        section.ToggleCollapse();
+        Dictionary[sectionId].ToggleCollapse();
         PromoteIfOnlyOneExpandedSection(sectionId, sectionedPages);
         UpdateSectionsStatus(sectionId, sectionedPages);
     }
@@ -52,11 +51,10 @@ public class Sections
     /// <param name="sectionId">ID of section to be made promo section.</param>
     public void PromoteSection(int sectionId, Dictionary<int, SectionedPage> sectionedPages)
     {
-        DemoteAllSections(Dictionary, sectionedPages);
+        DemoteAllSections(sectionedPages);
         Section section = Dictionary[sectionId];
+        sectionedPages[section.SectionedPageId].ASectionIsCurrentlyPromo = true;
         section.Promote();
-        SectionedPage sectionedPage = sectionedPages[section.SectionedPageId];
-        sectionedPage.ASectionIsCurrentlyPromo = true;
     }
     /// <summary>
     /// Returns the ID of the location panel of a sectioned page of the specified section using the section's ID.
@@ -79,7 +77,7 @@ public class Sections
     /// <summary>
     /// Removes promo status from all Dictionary.
     /// </summary>
-    private void DemoteAllSections(Dictionary<int, Section> Dictionary, Dictionary<int, SectionedPage> sectionedPages)
+    private void DemoteAllSections(Dictionary<int, SectionedPage> sectionedPages)
     {
         foreach (var section in Dictionary.Values)
             section.Demote();
@@ -133,6 +131,6 @@ public class Sections
         if (expandedSectionsCount == 1)
             PromoteSection(idOfSectionToPromote, sectionedPages);
         else
-            DemoteAllSections(Dictionary, sectionedPages);
+            DemoteAllSections(sectionedPages);
     }
 }

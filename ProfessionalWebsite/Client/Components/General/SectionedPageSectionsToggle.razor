@@ -4,8 +4,8 @@
 @implements IDisposable
 
 <div class="toggle-all-sections-container">
-    <div class="toggle-all-sections" @onclick="(()=>UI.ToggleSectionedPage(PageId))">
-        @if (UI.SectionedPages[PageId].Status == SectionedPageStatus.AllAreOpen)
+    <div class="toggle-all-sections" @onclick="(()=>UI.V2ToggleAllSections())">
+        @if (UI.V2AllSectionsAreOpen())
         { <span class="fa-solid fa-down-left-and-up-right-to-center"></span> }
         else
         { <span class="fa-solid fa-up-right-and-down-left-from-center"></span> }

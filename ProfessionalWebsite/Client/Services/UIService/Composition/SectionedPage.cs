@@ -63,7 +63,7 @@ public partial class SectionedPage
             if (!sec.IsCollapsed)
                 openSections++;
 
-        // set status based on count of expanded sections
+        // set status based on count of expanded sectionsList
         if (openSections == 0)
             Status = SectionedPageStatus.AllAreCollapsed;
         else if (openSections == Sections.Count)

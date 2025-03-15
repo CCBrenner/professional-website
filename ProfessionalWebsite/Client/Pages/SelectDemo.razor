@@ -9,17 +9,17 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Select Demo">
     <DrawerContent>
-        <DrawerNavLinkButton Href="select-demo/5037" ButtonText="Select Demo" OnClickCallback="(()=>UI.NavigateToSection(5037))" />
-        <DrawerNavLinkButton Href="select-demo/5038" ButtonText="About UI" OnClickCallback="(()=>UI.NavigateToSection(5038))" />
+        <DrawerNavLinkButton Href="select-demo/5037" ButtonText="Select Demo" OnClickCallback="(()=>UI.V2PromoteSection(5037))" />
+        <DrawerNavLinkButton Href="select-demo/5038" ButtonText="About UI" OnClickCallback="(()=>UI.V2PromoteSection(5038))" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Select Demo*@
-                @if (UI.Sections.Dictionary[5037].IsVisible)
+                @if (UI.V2SectionIsOpen(5037))
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections.Dictionary[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                        <div class="section-header @UI.V2SectionIsOpenCSS(5037)" @onclick="(()=>UI.V2ToggleSection(5037))">
                             @if (UI.Sections.Dictionary[5037].IsCollapsedHeader == "collapsed-header")
                             {
                                 <i class="fa fa-chevron-right" />
@@ -29,7 +29,7 @@
                                 <i class="fa fa-chevron-down" />
                             }
                             &nbsp;
-                            @UI.Sections.Dictionary[5037].Name
+                            @UI.V2SectionName(5037)
                         </div>
                         <div class="section-content @UI.Sections.Dictionary[5037].IsCollapsedContent">
                             <h3 style="text-align: center;">Which demo do you want to view? </h3>
@@ -61,11 +61,21 @@
                         </div>
                     </div>
                 }
-                @*About UI*@
-                @if (UI.Sections.Dictionary[5038].IsVisible)
+                @if (UI.V2SectionIsClosedAndThereIsNoPromo(5037))
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections.Dictionary[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                        <div class="section-header @UI.V2SectionIsOpenCSS(5037)" @onclick="(()=>UI.V2ToggleSection(5037))">
+                            <i class="fa fa-chevron-right" />
+                            &nbsp;
+                            @UI.V2SectionName(5037)
+                        </div>
+                    </div>
+                }
+                @*About UI*@
+                @if (UI.V2SectionIsOpen(5038))
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.V2SectionIsOpenCSS(5038)" @onclick="(()=>UI.V2ToggleSection(5038))">
                             @if (UI.Sections.Dictionary[5038].IsCollapsedHeader == "collapsed-header")
                             {
                                 <i class="fa fa-chevron-right" />
@@ -75,11 +85,11 @@
                                 <i class="fa fa-chevron-down" />
                             }
                             &nbsp;
-                            <span>@UI.Sections.Dictionary[5038].Name</span>  @*<span> is for eliminating a Visual Studio bug*@
+                            <span>@UI.V2SectionName(5038)</span>  @*<span> is for eliminating a Visual Studio bug*@
                         </div>
-                        <div class="section-content @UI.Sections.Dictionary[5038].IsCollapsedContent">
+                        <div class="section-content @UI.V2SectionIsOpenCSS(5038)">
                             <h3 style="text-align: center;">
-                                <span>@UI.Sections.Dictionary[5038].Name</span>
+                                <span>@UI.V2SectionName(5038)</span>
                             </h3>
                             <ul>
                                 <li>This entire UI was made from scratch using CSS/Flexbox and Bootstrap only. No other UI libraries were used.</li>
@@ -103,25 +113,35 @@
                         </div>
                     </div>
                 }
-                @if (UI.SectionedPages[5].ASectionIsCurrentlyPromo)
+                @if (UI.V2SectionIsClosedAndThereIsNoPromo(5038))
                 {
-                    @if (!UI.Sections.Dictionary[5037].IsCurrentPromo)
+                    <div class="section-container">
+                        <div class="section-header @UI.V2SectionIsOpenCSS(5038)" @onclick="(()=>UI.V2ToggleSection(5038))">
+                            <i class="fa fa-chevron-right" />
+                            &nbsp;
+                            @UI.V2SectionName(5038)
+                        </div>
+                    </div>
+                }
+                @if (UI.V2ASectionIsCurrentlyPromo())
+                {
+                    @if (!UI.V2SectionIsOpen(5037))
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections.Dictionary[5037].IsCollapsedHeader" @onclick="(()=>ToggleSection(5037))">
+                            <div class="section-header @UI.V2SectionIsOpenCSS(5037)" @onclick="(()=>UI.V2ToggleSection(5037))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                @UI.Sections.Dictionary[5037].Name
+                                @UI.V2SectionName(5037)
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections.Dictionary[5038].IsCurrentPromo)
+                    @if (!UI.V2SectionIsOpen(5038))
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections.Dictionary[5038].IsCollapsedHeader" @onclick="(()=>ToggleSection(5038))">
+                            <div class="section-header @UI.V2SectionIsOpenCSS(5038)" @onclick="(()=>UI.V2ToggleSection(5038))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                @UI.Sections.Dictionary[5038].Name
+                                @UI.V2SectionName(5038)
                             </div>
                         </div>
                     }
@@ -147,7 +167,6 @@
                 </div>
             </div>
             <div class="behindpanel @UI.Panels.Dictionary[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
-
         </div>
     </PageContent>
 </DrawerPageTemplate>
@@ -167,17 +186,75 @@
         // if (SectionId < 0)
         //     UI.NavigateToSection(SectionId);
 
-        if (SectionId > 0) {
-            if (SectionId == 5037) {
-                UI.PromoteSection(5037);
-            }
-            else {
-                UI.PromoteSection(5038);
-            }
+        // if (SectionId > 0) {
+        //     if (SectionId == 5037) {
+        //         UI.PromoteSection(5037);
+        //     }
+        //     else {
+        //         UI.PromoteSection(5038);
+        //     }
+        // }
+
+        if (SectionId < 0)
+        {
+            SectionId = 5037;
         }
 
         // For dynamic reload of component when state has changed in the following singletons
         UI.OnUiServiceChanged += UpdateThisComponent;
+    }
+
+    private void PromoteSectionFromView(int sectionId)
+    {
+        //
+        if (sectionId == 5037)
+        {
+            if (!UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
+            if (UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
+        } 
+        if (sectionId == 5038)
+        {
+            if (!UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
+            if (UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
+        }
+        //
+        //
+        foreach (var section in UI.Sections.Dictionary.Values) {
+            if (sectionId == section.Id && !section.IsVisible) UI.ToggleSection(5037);
+            if (sectionId == section.Id && UI.Sections.Dictionary[5038].IsVisible)
+            {
+                if (!section.IsVisible) UI.ToggleSection(5037);
+                if (UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
+            }
+            else
+            {
+                if (!UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
+                if (UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
+            }
+        }
+        //
+
+        // 1 and 1 and visible
+        // 1 and 2 and visible
+
+        // 1 and 1 and invisible
+        // 1 and 2 and invisible
+
+        // 1 and 1 and visible
+        // 1 and 2 and invisible
+
+        // 1 and 1 and invisible
+        // 1 and 2 and visible
+        foreach (var section in UI.Sections.Dictionary.Values)
+        {
+            if (sectionId != section.Id && section.IsVisible) 
+            {
+                UI.ToggleSection(section.Id);
+                continue;
+            }
+            if (sectionId == section.Id && !section.IsVisible)
+                UI.ToggleSection(sectionId);
+        }
     }
 
     void IDisposable.Dispose() =>
