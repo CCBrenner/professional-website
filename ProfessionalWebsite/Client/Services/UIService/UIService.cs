@@ -46,6 +46,18 @@ public class UIService : IUIService
         V2SectionedPage.PromoteSection(sectionId);
         RaiseEventOnUiServiceChanged();
     }
+    public void V2PromoteSectionAndClosePanels(int sectionId)
+    {
+        V2SectionedPage.PromoteSection(sectionId);
+        Panels.DeactivateAllPanels();
+        RaiseEventOnUiServiceChanged();
+    }
+    public void V2LoadSectionsAsOpenAndClosePanels()
+    {
+        V2SectionedPage.OpenAllSections();
+        Panels.DeactivateAllPanels();
+        RaiseEventOnUiServiceChanged();
+    }
     public bool V2SectionIsClosedAndThereIsNoPromo(int sectionId)
     {
         return (!V2SectionedPage.Sections[sectionId].IsOpen

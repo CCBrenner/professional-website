@@ -7,28 +7,28 @@
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\navpanels.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\components\\general\\sectionedpagesectionstoggle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sectionedpagesectionstoggle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\uiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\uiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\v2sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\v2sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\components\\templates\\drawerpagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\templates\\drawerpagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\components\\general\\sectionedpagesectionstoggle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\general\\sectionedpagesectionstoggle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\components\\templates\\drawerpagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\components\\templates\\drawerpagetemplate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\v2section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -170,21 +170,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SectionedPageSectionsToggle.razor",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-15T01:16:31.104Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 11,
@@ -200,13 +187,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "UIService.cs",
               "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
               "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwCMAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAwDYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-12T22:08:12.112Z",
               "EditorCaption": ""
@@ -226,26 +213,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "SelectDemo.razor",
               "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
               "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAB9AAAAAAAAAA==",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAMQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-12T21:56:37.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
               "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAABZAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAGwAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-31T23:47:37.908Z",
               "EditorCaption": ""
@@ -258,7 +245,7 @@
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
               "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor*",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor*",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAIwIkAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAwwIEAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-12T21:51:22.422Z",
               "EditorCaption": ""
@@ -271,7 +258,7 @@
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
               "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
               "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAuwDkAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAlwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-14T23:58:21.607Z",
               "EditorCaption": ""
@@ -279,6 +266,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "SectionedPageSectionsToggle.razor",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Components\\General\\SectionedPageSectionsToggle.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-15T01:16:31.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "DrawerPageTemplate.razor",
               "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Components\\Templates\\DrawerPageTemplate.razor",
               "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Components\\Templates\\DrawerPageTemplate.razor",

@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace ProfessionalWebsite.Client.Services.UI;
 
 public class V2SectionedPage
