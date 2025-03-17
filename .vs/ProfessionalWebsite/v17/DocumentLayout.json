@@ -3,44 +3,48 @@
   "WorkspaceRootPath": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\pages\\selectdemo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\sectionstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\sectionstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\shared\\navpanels.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\shared\\navpanels.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\sectionedpagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\sectionedpagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\sections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\sections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\navmgmt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\navmgmt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\uiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\uiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\panels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\panels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite.tests\\uiservicetests\\uiservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|solutionrelative:professionalwebsite.tests\\uiservicetests\\uiservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\panelstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\panelstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite.tests\\uiservicetests\\mockdatasource\\mocksectionsdatasource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|solutionrelative:professionalwebsite.tests\\uiservicetests\\mockdatasource\\mocksectionsdatasource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\v2sections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\v2sections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite.tests\\uiservicetests\\mockdatasource\\mocksectionedpagesdatasource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1725D55F-3652-46F4-AEE0-F070701240E8}|ProfessionalWebsite.Tests\\ProfessionalWebsite.Tests.csproj|solutionrelative:professionalwebsite.tests\\uiservicetests\\mockdatasource\\mocksectionedpagesdatasource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\composition\\v2sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\composition\\v2sectionedpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\v2sectionstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\v2sectionstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|c:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\professionalwebsite\\client\\services\\uiservice\\datasource\\v2sectionedpagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D65FEA-0A73-4BC6-B127-7647D613E96F}|ProfessionalWebsite\\Client\\ProfessionalWebsite.Client.csproj|solutionrelative:professionalwebsite\\client\\services\\uiservice\\datasource\\v2sectionedpagestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,136 +54,149 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Panels.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Panels.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Panels.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Panels.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Panels.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAADwv3AAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T22:17:55.823Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NavPanels.razor",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Shared\\NavPanels.razor",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIcAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T22:15:45.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "V2SectionedPagesTable.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionedPagesTable.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionedPagesTable.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionedPagesTable.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionedPagesTable.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T21:54:42.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "V2SectionsTable.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionsTable.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionsTable.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionsTable.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\V2SectionsTable.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T21:16:44.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UIService.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAjwDsAAAApAAAAAAAAAA==",
+              "Title": "Sections.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Sections.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Sections.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Sections.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Sections.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T21:16:45.044Z",
+              "WhenOpened": "2025-03-17T23:03:51.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SelectDemo.razor",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor*",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Pages\\SelectDemo.razor*",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAG8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T21:14:04.581Z",
+              "DocumentIndex": 3,
+              "Title": "SectionedPage.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\SectionedPage.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\SectionedPage.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\SectionedPage.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\SectionedPage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T23:03:44.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PanelsTable.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\PanelsTable.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Section.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Section.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Section.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Section.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\Section.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T22:18:17.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "V2SectionedPage.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2SectionedPage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T22:07:16.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Program.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Program.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Program.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T21:15:19.901Z",
+              "WhenOpened": "2025-03-17T23:03:33.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "V2Sections.cs",
-              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2Sections.cs",
-              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2Sections.cs",
-              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2Sections.cs",
-              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\V2Sections.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwBAAAAAbAAAAAAAAAA==",
+              "Title": "NavMgmt.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\NavMgmt.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\NavMgmt.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\NavMgmt.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\Composition\\NavMgmt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T21:14:12.632Z",
+              "WhenOpened": "2025-03-17T23:00:49.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MockSectionsDataSource.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionsDataSource.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionsDataSource.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionsDataSource.cs",
+              "RelativeToolTip": "ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionsDataSource.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:50:16.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UIService.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\UIService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:41:32.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SectionsTable.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionsTable.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionsTable.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionsTable.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionsTable.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:44:56.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SectionedPagesTable.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionedPagesTable.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionedPagesTable.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionedPagesTable.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Services\\UIService\\DataSource\\SectionedPagesTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T23:04:03.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MockSectionedPagesDataSource.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionedPagesDataSource.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionedPagesDataSource.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionedPagesDataSource.cs",
+              "RelativeToolTip": "ProfessionalWebsite.Tests\\UIServiceTests\\MockDataSource\\MockSectionedPagesDataSource.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:48:32.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Program.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite\\Client\\Program.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite\\Client\\Program.cs",
+              "RelativeToolTip": "ProfessionalWebsite\\Client\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:42:03.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UIServiceTests.cs",
+              "DocumentMoniker": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\UIServiceTests.cs",
+              "RelativeDocumentMoniker": "ProfessionalWebsite.Tests\\UIServiceTests\\UIServiceTests.cs",
+              "ToolTip": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\ProfessionalWebsite.Tests\\UIServiceTests\\UIServiceTests.cs",
+              "RelativeToolTip": "ProfessionalWebsite.Tests\\UIServiceTests\\UIServiceTests.cs",
+              "ViewState": "AgIAANoCAAAAAAAAAADwvwQDAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T22:41:08.217Z",
               "EditorCaption": ""
             }
           ]

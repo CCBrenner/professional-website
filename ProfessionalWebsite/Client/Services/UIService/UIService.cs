@@ -3,24 +3,26 @@ namespace ProfessionalWebsite.Client.Services.UI;
 
 public class UIService : IUIService
 {
-    private bool rerenderToggle = true;
-    public UIService()
+    public UIService(
+        List<bool> animList,
+        Dictionary<int, PanelGroup> panelGroups,
+        Dictionary<int, Panel> panels,
+        List<SectionedPage> sectionedPages,
+        List<Section> sections)
     {
         int startingPanelId = 10;
 
         Animations = Animations.Create(string.Empty);
-        IsContinuous = AnimationsTable.Get();
-        PanelGroups = PanelGroupsTable.GetDictionary();
-        Panels = Panels.Create(PanelsTable.GetDictionary());
-        Sections = V2Sections.Create(
-            V2SectionsTable.GetList(), 
-            V2SectionedPagesTable.GetList());
+        IsContinuous = animList;
+        PanelGroups = panelGroups;
+        Panels = Panels.Create(panels);
+        Sections = Sections.Create(sections, sectionedPages);
 
         Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
 
         Panels.Dictionary[startingPanelId].ActivateButton();
     }
-    public V2Sections Sections { get; private set; }
+    public Sections Sections { get; private set; }
     public bool IsCurrentPromo(int sectionId) => Sections.IsCurrentPromo(sectionId);
     public string SectionIsOpenCSS(int sectionId) => Sections.IsOpenCSS(sectionId);
     public bool SectionIsOpen(int sectionId) => Sections.Dictionary[sectionId].IsOpen;
@@ -77,7 +79,7 @@ public class UIService : IUIService
     }
     public bool SectionIsClosedAndThereIsNoPromo(int sectionId)
     {
-        V2Section section = Sections.Dictionary[sectionId];
+        Section section = Sections.Dictionary[sectionId];
         return (!section.IsOpen
                 &&
                 !Sections.ASectionIsCurrentlyPromo(section.PageId));
@@ -178,9 +180,13 @@ public class UIService : IUIService
         Panels.DeactivatePanel(selectedPanelId);
         RaiseEventOnUiServiceChanged();
     }
-    public void SingleRerenderTrigger()
+    public static UIService Create(
+        List<bool> animList, 
+        Dictionary<int, PanelGroup> panelGroups, 
+        Dictionary<int, Panel> panels, 
+        List<SectionedPage> sectionedPages, 
+        List<Section> sections)
     {
-        rerenderToggle = !rerenderToggle;
-        if (rerenderToggle) RaiseEventOnUiServiceChanged();
+        return new(animList, panelGroups, panels, sectionedPages, sections);
     }
 }

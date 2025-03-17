@@ -11,7 +11,7 @@ public static class NavMgmt
         int sectionId, 
         Panels panels, 
         Dictionary<int, PanelGroup> panelGroups, 
-        V2Sections sections)
+        Sections sections)
     {
         sections.PromoteSection(sectionId);
         int locationPanelGroupId = sections.GetLocationPanelGroupId(sectionId);
