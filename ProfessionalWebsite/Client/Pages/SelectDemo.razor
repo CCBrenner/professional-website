@@ -9,8 +9,8 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Select Demo">
     <DrawerContent>
-        <DrawerNavLinkButton Href="select-demo/5037" ButtonText="Select Demo" OnClickCallback="(()=>UI.PromoteSection(5037))" />
-        <DrawerNavLinkButton Href="select-demo/5038" ButtonText="About UI" OnClickCallback="(()=>UI.PromoteSection(5038))" />
+        <DrawerNavLinkButton Href="select-demo/5037" ButtonText="Select Demo" OnClickCallback="(()=>UI.ClickSidebarItem(5037))" />
+        <DrawerNavLinkButton Href="select-demo/5038" ButtonText="About UI" OnClickCallback="(()=>UI.ClickSidebarItem(5038))" />
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
@@ -104,12 +104,13 @@
                                 <li>You may notice that as the width of the viewport/window decreases, the site label in the upper left collapses to make more room for the global nav bar options.</li>
                                 <li>The framework used for this web app is called Blazor. It is component-based like React is, but more object-oriented. It lets you write front-end code in C# instead of JavaScript.</li>
                                 <li>Go checkout the demos if you haven’t yet! Thanks for being here :)</li>
+                                @*
                                 <li>If you want, you can go checkout the code below. In the GitHub repository this is the "select-demo" branch.</li>
                                 <div class="proj-desc-buttons">
                                     <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/select-demo"))'>
                                         View Code
                                     </div>
-                                </div>
+                                </div>*@
                             </ul>
                         </div>
                     </div>
@@ -200,8 +201,6 @@
         {
             SectionId = 5037;
         }
-
-        UI.V2ActivateLocationButtonsOfPanelGroups(10);
 
         // For dynamic reload of component when state has changed in the following singletons
         UI.OnUiServiceChanged += UpdateThisComponent;

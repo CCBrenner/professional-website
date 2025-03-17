@@ -1,4 +1,5 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI;
+﻿
+namespace ProfessionalWebsite.Client.Services.UI;
 
 public class Panels
 {
@@ -108,4 +109,6 @@ public class Panels
             }
         }
     }
+    public void HighlightLocationButton(int locationPanelId) 
+        => Dictionary[locationPanelId].ActivateButton();
 }

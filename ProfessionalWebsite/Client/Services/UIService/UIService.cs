@@ -6,6 +6,8 @@ public class UIService : IUIService
     private bool rerenderToggle = true;
     public UIService()
     {
+        int startingPanelId = 10;
+
         Animations = Animations.Create(string.Empty);
         IsContinuous = AnimationsTable.Get();
         PanelGroups = PanelGroupsTable.GetDictionary();
@@ -15,6 +17,8 @@ public class UIService : IUIService
             V2SectionedPagesTable.GetList());
 
         Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
+
+        Panels.Dictionary[startingPanelId].ActivateButton();
     }
     public V2Sections Sections { get; private set; }
     public bool IsCurrentPromo(int sectionId) => Sections.IsCurrentPromo(sectionId);
@@ -39,16 +43,36 @@ public class UIService : IUIService
         Sections.PromoteSection(sectionId);
         RaiseEventOnUiServiceChanged();
     }
+    public void ClickSidebarItem(int sectionId)
+    {
+        PromoteSection(sectionId);
+
+        var pageId = Sections.Dictionary[sectionId].PageId;
+        var pageLocPanelId = Sections.Pages[pageId].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+    }
     public void PromoteSectionAndClosePanels(int sectionId)
     {
         Sections.PromoteSection(sectionId);
         Panels.DeactivateAllPanels();
         RaiseEventOnUiServiceChanged();
     }
-    public void LoadSectionsAsOpenAndClosePanels(int idOfSectionedPageBeingLoaded)
+    public void NavigateToPromotedSection(int sectionId)
+    {
+        PromoteSectionAndClosePanels(sectionId);
+
+        var pageId = Sections.Dictionary[sectionId].PageId;
+        var pageLocPanelId = Sections.Pages[pageId].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+    }
+    public void NavigateToSectionedPage(int idOfSectionedPageBeingLoaded)
     {
         Sections.OpenAllSections(idOfSectionedPageBeingLoaded);
         Panels.DeactivateAllPanels();
+
+        var pageLocPanelId = Sections.Pages[idOfSectionedPageBeingLoaded].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+
         RaiseEventOnUiServiceChanged();
     }
     public bool SectionIsClosedAndThereIsNoPromo(int sectionId)
