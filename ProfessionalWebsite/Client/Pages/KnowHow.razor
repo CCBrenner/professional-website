@@ -1,4 +1,5 @@
-﻿@inject UIService UI
+﻿@*
+@inject UIService UI
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
@@ -21,7 +22,7 @@
         <DrawerNavLinkButton Href="projectinfo/6" ButtonText="Databases" OnClickCallback="(()=>UI.NavigateToSection(6))" />
         <DrawerNavLinkButton Href="projectinfo/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
         <DrawerNavLinkButton Href="projectinfo/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
-        *@
+        *
         <DrawerNavLinkButton Href="projectinfo/35" ButtonText="Counter + Spinners" OnClickCallback="(()=>UI.NavigateToSection(35))" />
         <DrawerNavLinkButton Href="projectinfo/34" ButtonText="Contact" IconClasses="fa-solid fa-envelope" OnClickCallback="(()=>UI.NavigateToSection(34))"/>
     </DrawerContent>
@@ -83,7 +84,7 @@
                     </div>
                 }
                 *@
-                @*About This Web App*@
+                @*About This Web App*
                 @if (UI.Sections.Dictionary[14].IsVisible)
                 {
                     <div class="section-container">
@@ -115,7 +116,7 @@
                         </div>
                     </div>
                 }
-                @*Sudoku Solver*@
+                @*Sudoku Solver*
                 @if (UI.Sections.Dictionary[36].IsVisible)  
                 {
                     <div class="section-container">
@@ -156,7 +157,7 @@
                             </ul>
                             <div class="sudoku-video">
                                 *Commented-out YouTube Video*
-                                @*<iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>*@
+                                @*<iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>*
                             </div>
                             <ul>
                                 <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>
@@ -177,7 +178,7 @@
                         </div>
                     </div>
                 }
-                @*Bee Hive Manager*@
+                @*Bee Hive Manager*
                 @if (UI.Sections.Dictionary[16].IsVisible)
                 {
                     <div class="section-container">
@@ -261,7 +262,7 @@
                         </div>
                     </div>
                 }
-                @*Hide & Seek*@
+                @*Hide & Seek*
                 @if (UI.Sections.Dictionary[15].IsVisible)
                 {
                     <div class="section-container">
@@ -307,7 +308,7 @@
                         </div>
                     </div>
                 }
-                @*Match Game*@
+                @*Match Game*
                 @if (UI.Sections.Dictionary[33].IsVisible) 
                 {
                     <div class="section-container">
@@ -353,7 +354,7 @@
                         </div>
                     </div>
                 }
-                @* Counter + Spinners *@
+                @* Counter + Spinners *
                 @if (UI.Sections.Dictionary[35].IsVisible)
                 {
                     <div class="section-container">
@@ -562,7 +563,7 @@
                     </div>
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
-                @*Contact*@
+                @*Contact*
                 @if (UI.Sections.Dictionary[34].IsVisible)
                 {
                     <div class="section-container">
@@ -583,7 +584,7 @@
                         </div>
                     </div>
                 }
-                @if (UI.SectionedPages[1].ASectionIsCurrentlyPromo)
+                @if (UI.ASectionIsCurrentlyPromo(1))
                 {
                     @*
                     @if (!UI.Sections.Dictionary[0].IsCurrentPromo)
@@ -596,7 +597,7 @@
                             </div>
                         </div>
                     }
-                    *@
+                    *
                     @if (!UI.Sections.Dictionary[14].IsCurrentPromo)
                     {
                         <div class="section-container">
@@ -719,7 +720,7 @@
                         </div>
                     }
                     *@
-                    @*Contact*@
+                    @*Contact*
                     @if (!UI.Sections.Dictionary[34].IsVisible)
                     {
                         <div class="section-container">
@@ -800,4 +801,4 @@
         UI.ToggleSection(secId);
         Navigation.NavigateTo($"projectinfo/{secId}");
     }
-}
+}*@

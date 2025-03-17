@@ -843,11 +843,11 @@ public class NavServiceTests
         // Uses method that is tested above (RouteUserAndUpdateNav()), so skip testing for that. No test duplicates.
 
         NavService.NavigateToCollapsibleSectionOfOtherPage(2, 6);
-        Assert.AreEqual(false, NavService.SectionedPages[2].Sections[6].IsCollapsed);
-        Assert.AreEqual(true, NavService.SectionedPages[2].Sections[1].IsCollapsed);
-        Assert.AreEqual(true, NavService.SectionedPages[2].Sections[7].IsCollapsed);
-        Assert.AreEqual(true, NavService.SectionedPages[2].Sections[5].IsCollapsed);
-        Assert.AreEqual(true, NavService.SectionedPages[2].Sections[0].IsCollapsed);
+        Assert.AreEqual(false, NavService.Pages[2].Sections[6].IsCollapsed);
+        Assert.AreEqual(true, NavService.Pages[2].Sections[1].IsCollapsed);
+        Assert.AreEqual(true, NavService.Pages[2].Sections[7].IsCollapsed);
+        Assert.AreEqual(true, NavService.Pages[2].Sections[5].IsCollapsed);
+        Assert.AreEqual(true, NavService.Pages[2].Sections[0].IsCollapsed);
     }
     // end NavigateToCollapsibleSectionOfOtherPage() tests
 }*/

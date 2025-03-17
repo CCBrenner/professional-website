@@ -1,11 +1,11 @@
-﻿@inject UIService UI
+﻿@*
+@inject UIService UI
 @inject NavigationManager Navigation
 @implements IDisposable
 
-@*
 @page "/invent"
 @page "/invent/{SectionId:int}"
-*@
+*
 
 <PageTitle>Invent - Collyn Brenner</PageTitle>
 
@@ -23,7 +23,7 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @*Overview*@
+                @*Overview*
                 @if (UI.Sections.Dictionary[26].IsVisible)
                 {
                     <div class="section-container">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 }
-                @*Future Vision App*@
+                @*Future Vision App*
                 @if (UI.Sections.Dictionary[27].IsVisible)
                 {
                     <div class="section-container">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 }
-                @*Unified Faith App*@
+                @*Unified Faith App*
                 @if (UI.Sections.Dictionary[28].IsVisible)
                 {
                     <div class="section-container">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 }
-                @*Hang Out Availability App*@
+                @*Hang Out Availability App*
                 @if (UI.Sections.Dictionary[29].IsVisible)
                 {
                     <div class="section-container">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 }
-                @*Philosophy Orientation App*@
+                @*Philosophy Orientation App*
                 @if (UI.Sections.Dictionary[30].IsVisible)
                 {
                     <div class="section-container">
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 }
-                @*Controller Keyboard Prototype*@
+                @*Controller Keyboard Prototype*
                 @if (UI.Sections.Dictionary[31].IsVisible)
                 {
                     <div class="section-container">
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 }
-                @*Audio Games*@
+                @*Audio Games*
                 @if (UI.Sections.Dictionary[32].IsVisible)
                 {
                     <div class="section-container">
@@ -176,8 +176,8 @@
                         </div>
                     </div>
                 }
-                @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
-                @if (UI.SectionedPages[3].ASectionIsCurrentlyPromo)
+                @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*
+                @if (UI.ASectionIsCurrentlyPromo(3))
                 {
                     @if (!UI.Sections.Dictionary[26].IsCurrentPromo)
                     {
@@ -275,4 +275,4 @@
         UI.ToggleSection(secId);
         Navigation.NavigateTo($"invent/{secId}");
     }
-}
+}*@

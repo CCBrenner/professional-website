@@ -4,7 +4,7 @@ public class Section
 {
     private Section(int id, string name, int sectionedPageId, bool isFirstSectionOfPage = false)
     {
-        // Id convention: SectionedPageId * 1000 + Id * 1 (this implies a limit of 1000 Sections max per SectionedPage)
+        // Id convention: PageId * 1000 + Id * 1 (this implies a limit of 1000 Sections max per SectionedPage)
         Id = id;
         Name = name;
         SectionedPageId = sectionedPageId;

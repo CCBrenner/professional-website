@@ -51,7 +51,7 @@ internal sealed class SectionsTable
             Section.Create(3031, "Controller Keyboard Prototype", invent),
             Section.Create(3032, "Audio Games", invent),
             Section.CreateAsFirstSectionOfPage(5037, "Select Demo", selectDemo),
-            Section.CreateAsFirstSectionOfPage(5038, "About UI", selectDemo),
+            Section.Create(5038, "About UI", selectDemo),
         };
     }
 }

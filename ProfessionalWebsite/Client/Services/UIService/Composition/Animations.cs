@@ -2,7 +2,7 @@
 
 public class Animations
 {
-    public Animations(string initAnimateMain)
+    private Animations(string initAnimateMain)
     {
         AnimateAppContainer = initAnimateMain;
     }
@@ -10,6 +10,7 @@ public class Animations
 
     private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
     private const int DISCONTINUE_BTN_PANEL_ID = 8;
+    public static Animations Create(string initAnimateMain) => new Animations(initAnimateMain);
     public void ToggleAnimation(int animationIndex, List<bool> isContinuous, Panels panels, List<PanelGroup> panelGroupsList)
     {
         if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")

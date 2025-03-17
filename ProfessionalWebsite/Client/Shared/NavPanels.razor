@@ -122,20 +122,20 @@
 @*                                ButtonClickCallback="(()=>UI.NavigateToSection(34))" /> *@
 @*     </div> *@
 @* </NavPanelContainer> *@
-<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.Panels.Dictionary[10].PanelStatus">
+<NavPanelContainer PanelPosition="panel-position-e" NavPanelStatus="@UI.V2PanelIsActive(10)">
     <NavPanelNavLinkButton Href="select-demo/"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-circle-info"
                            ButtonText="Select Demo"
-                           ButtonClickCallback="(()=>UI.V2LoadSectionsAsOpenAndClosePanels())" />
+                           ButtonClickCallback="(()=>UI.LoadSectionsAsOpenAndClosePanels(1))" />
     <div class="panel-scrollablesection">
         <NavPanelNavLinkButton Href="select-demo/5037"
                                ButtonText="Select Demo"
-                               ButtonClickCallback="(()=>UI.V2PromoteSectionAndClosePanels(5037))" />
+                               ButtonClickCallback="(()=>UI.PromoteSectionAndClosePanels(5037))" />
         <NavPanelNavLinkButton Href="select-demo/5038"
                                IconClasses="fa-solid fa-envelope"
                                ButtonText="About UI"
-                               ButtonClickCallback="(()=>UI.V2PromoteSectionAndClosePanels(5038))" />
+                               ButtonClickCallback="(()=>UI.PromoteSectionAndClosePanels(5038))" />
     </div>
 </NavPanelContainer>
 @*

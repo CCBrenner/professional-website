@@ -5,22 +5,17 @@ namespace ProfessionalWebsite.Client.Services.UI;
 
 public class V2SectionedPage
 {
-    public V2SectionedPage()
+    private V2SectionedPage(int id, int locationPanelGroupId)
     {
-        Sections = InitSections(new()
-        {
-            new V2Section(5037, "placeholder5037"),
-            new V2Section(5038, "placeholder5038"),
-        });
+        Id = id;
+        LocationPanelGroupId = locationPanelGroupId;
+        Sections = new();
     }
+    public int Id { get; private set; }
     public Dictionary<int, V2Section> Sections { get; set; }
-    private Dictionary<int, V2Section> InitSections(List<V2Section> sections)
-    {
-        Dictionary<int, V2Section> dictionary = new();
-        foreach (var section in sections)
-            dictionary.Add(section.Id, section);
-        return dictionary;
-    }
+    public int LocationPanelGroupId { get; private set; }
+    public static V2SectionedPage Create(int id, int locationPanelGroupId) 
+        => new V2SectionedPage(id, locationPanelGroupId);
     public void ToggleSection(int sectionId) => Sections[sectionId].Toggle();
     public void OpenSection(int sectionId) => Sections[sectionId].Open();
     public void OpenAllSections()
@@ -53,7 +48,6 @@ public class V2SectionedPage
             return Sections[sectionId].IsOpen;
         return false;
     }
-    public string IsOpenCSS(int sectionId) => Sections[sectionId].IsOpen ? "" : "collapsed-header";  // for section header
     public bool AllSectionsAreOpen()
     {
         foreach (V2Section section in Sections.Values)

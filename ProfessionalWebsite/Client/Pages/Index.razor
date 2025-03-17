@@ -1,12 +1,11 @@
-﻿@inject UIService UI
+﻿@*
+@inject UIService UI
 @inject NavigationManager Navigation
 @implements IDisposable
 
-@*
 @page "/home"
 @page "/collyn"
 @page "/collyn/{SectionId:int}"
-*@
 
 <PageTitle>Home - Collyn Brenner</PageTitle>
 
@@ -15,7 +14,7 @@
         <DrawerNavLinkButton Href="collyn/17" ButtonText="Introduction" OnClickCallback="(()=>UI.NavigateToSection(17))" />
         <DrawerNavLinkButton Href="collyn/18" ButtonText="Employment History" OnClickCallback="(()=>UI.NavigateToSection(18))" />
         <DrawerNavLinkButton Href="collyn/19" ButtonText="Education History" OnClickCallback="(()=>UI.NavigateToSection(19))" />
-        <CascadingValue Value="UI.Sections.Dictionary[20].IsCurrentPromo">
+        <CascadingValue Value="UI.IsCurrentPromo(20)">
             <DrawerNavLinkButton Href="collyn/20" ButtonText='Most Notable "Done"s' OnClickCallback="(()=>UI.NavigateToSection(20))" />
         </CascadingValue>
         <DrawerNavLinkButton Href="collyn/21" ButtonText="Inspirations" OnClickCallback="(()=>UI.NavigateToSection(21))" />
@@ -27,8 +26,8 @@
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
-                @*Introduction*@
-                @if (UI.Sections.Dictionary[17].IsVisible)
+                @*Introduction*
+                @if (UI.SectionIsOpen(17))
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections.Dictionary[17].IsCollapsedHeader" @onclick="(()=>ToggleSection(17))">
@@ -57,8 +56,8 @@
                         </div>
                     </div>
                 }
-                @*Employment History*@
-                @if (UI.Sections.Dictionary[18].IsVisible)
+                @*Employment History*
+                @if (UI.SectionIsOpen(18))
                 {
                     <div class="section-container">
                         <div class="section-header @UI.Sections.Dictionary[18].IsCollapsedHeader" @onclick="(()=>ToggleSection(18))">
@@ -137,7 +136,7 @@
                         </div>
                     </div>
                 }
-                @*Education History*@
+                @*Education History*
                 @if (UI.Sections.Dictionary[19].IsVisible)
                 {
                     <div class="section-container">
@@ -194,7 +193,7 @@
                         </div>
                     </div>
                 }
-                @*Most Notable "Done"s*@
+                @*Most Notable "Done"s*
                 @if (UI.Sections.Dictionary[20].IsVisible)
                 {
                     <div class="section-container">
@@ -217,7 +216,7 @@
                         </div>
                     </div>
                 }
-                @*Inspirations*@
+                @*Inspirations*
                 @if (UI.Sections.Dictionary[21].IsVisible)
                 {
                     <div class="section-container">
@@ -244,7 +243,7 @@
                         </div>
                     </div>
                 }
-                @*Objectives*@
+                @*Objectives*
                 @if (UI.Sections.Dictionary[22].IsVisible)
                 {
                     <div class="section-container">
@@ -264,7 +263,7 @@
                         </div>
                     </div>
                 }
-                @*Contact*@
+                @*Contact*
                 @if (UI.Sections.Dictionary[23].IsVisible)
                 {
                     <div class="section-container">
@@ -281,7 +280,7 @@
                         </div>
                     </div>
                 }
-                @*Feedback*@
+                @*Feedback*
                 @if (UI.Sections.Dictionary[24].IsVisible)
                 {
                     <div class="section-container">
@@ -298,7 +297,7 @@
                         </div>
                     </div>
                 }
-                @*Background*@
+                @*Background*
                 @if (UI.Sections.Dictionary[25].IsVisible)
                 {
                     <div class="section-container">
@@ -327,8 +326,8 @@
                         </div>
                     </div>
                 }
-                @*mock section headers (fake)*@
-                @if (UI.SectionedPages[2].ASectionIsCurrentlyPromo)
+                @*mock section headers (fake)*
+                @if (UI.ASectionIsCurrentlyPromo(2))
                 {
                     @if (!UI.Sections.Dictionary[17].IsCurrentPromo)
                     {
@@ -470,4 +469,4 @@
         showJSCert = !showJSCert;
     private void TogglePHPCert() =>
         showPHPCert = !showPHPCert;
-}
+}*@

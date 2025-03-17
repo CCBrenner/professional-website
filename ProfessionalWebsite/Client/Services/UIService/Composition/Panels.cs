@@ -6,10 +6,11 @@ public class Panels
     Definitions:
         - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
-    public Panels(Dictionary<int, Panel> initPanels)
+    private Panels(Dictionary<int, Panel> initPanels)
     {
         Dictionary = initPanels;
     }
+    public static Panels Create(Dictionary<int, Panel> initPanels) => new Panels(initPanels);
     public Dictionary<int, Panel> Dictionary { get; private set; }
     public void DeactivateAllPanels()
     {
@@ -85,7 +86,7 @@ public class Panels
             }
         }
     }
-    private void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<PanelGroup> panelGroups)
+    public void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<PanelGroup> panelGroups)
     {
         // use this to determine get the group of the deactivated panel:
         int panelGroupIdOfPanelBeingActivated = -1;

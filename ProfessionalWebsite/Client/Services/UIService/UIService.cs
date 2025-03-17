@@ -4,83 +4,69 @@ namespace ProfessionalWebsite.Client.Services.UI;
 public class UIService : IUIService
 {
     private bool rerenderToggle = true;
-    private UIService(
-        List<bool> isContinuous,
-        Dictionary<int, PanelGroup> panelGroups,
-        Dictionary<int, Panel> initPanels,
-        Dictionary<int, SectionedPage> sectionedPages,
-        Dictionary<int, Section> initSections)
+    public UIService()
     {
-        StartingSectionId = 5037;
-        Animations = new Animations(string.Empty);
-        IsContinuous = isContinuous;
-        PanelGroups = panelGroups;
-        Panels = new Panels(initPanels);
-        SectionedPages = sectionedPages;
-        Sections = new Sections(initSections);
+        Animations = Animations.Create(string.Empty);
+        IsContinuous = AnimationsTable.Get();
+        PanelGroups = PanelGroupsTable.GetDictionary();
+        Panels = Panels.Create(PanelsTable.GetDictionary());
+        Sections = V2Sections.Create(
+            V2SectionsTable.GetList(), 
+            V2SectionedPagesTable.GetList());
 
         Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
-        Sections.SetBiDirectionalReferencesForSectionedPagesAndSections(SectionedPages);
-    //
-        V2SectionedPage = new();
     }
-    public V2SectionedPage V2SectionedPage { get; private set; }
-    public bool V2IsCurrentPromo(int sectionId) =>  V2SectionedPage.IsCurrentPromo(sectionId);
-    public string V2SectionIsOpenCSS(int sectionId) =>  V2SectionedPage.IsOpenCSS(sectionId);
-    public bool V2SectionIsOpen(int sectionId) => V2SectionedPage.Sections[sectionId].IsOpen;
-    public void V2ToggleSection(int sectionId)
+    public V2Sections Sections { get; private set; }
+    public bool IsCurrentPromo(int sectionId) => Sections.IsCurrentPromo(sectionId);
+    public string SectionIsOpenCSS(int sectionId) => Sections.IsOpenCSS(sectionId);
+    public bool SectionIsOpen(int sectionId) => Sections.Dictionary[sectionId].IsOpen;
+    public void ToggleSection(int sectionId)
     {
-        V2SectionedPage.Sections[sectionId].Toggle();
+        Sections.Dictionary[sectionId].Toggle();
         RaiseEventOnUiServiceChanged();
     }
-    public string V2SectionName(int sectionId) => V2SectionedPage.Sections[sectionId].Name;
-    public bool V2ASectionIsCurrentlyPromo() => V2SectionedPage.ASectionIsCurrentlyPromo();
-    public bool V2AllSectionsAreOpen() => V2SectionedPage.AllSectionsAreOpen();
-    public void V2ToggleAllSections()
+    public string SectionName(int sectionId) => Sections.Dictionary[sectionId].Name;
+    public bool ASectionIsCurrentlyPromo(int pageId) => Sections.ASectionIsCurrentlyPromo(pageId);
+    public bool AllSectionsAreOpen(int pageId) => Sections.AllSectionsAreOpen(pageId);
+    public string V2PanelIsActive(int panelId) => Panels.Dictionary[panelId].PanelStatus;
+    public void ToggleAllSections(int pageId)
     {
-        V2SectionedPage.ToggleAllSections();
+        Sections.ToggleAllSections(pageId);
         RaiseEventOnUiServiceChanged();
     }
-    public void V2PromoteSection(int sectionId)
+    public void PromoteSection(int sectionId)
     {
-        V2SectionedPage.PromoteSection(sectionId);
+        Sections.PromoteSection(sectionId);
         RaiseEventOnUiServiceChanged();
     }
-    public void V2PromoteSectionAndClosePanels(int sectionId)
+    public void PromoteSectionAndClosePanels(int sectionId)
     {
-        V2SectionedPage.PromoteSection(sectionId);
+        Sections.PromoteSection(sectionId);
         Panels.DeactivateAllPanels();
         RaiseEventOnUiServiceChanged();
     }
-    public void V2LoadSectionsAsOpenAndClosePanels()
+    public void LoadSectionsAsOpenAndClosePanels(int idOfSectionedPageBeingLoaded)
     {
-        V2SectionedPage.OpenAllSections();
+        Sections.OpenAllSections(idOfSectionedPageBeingLoaded);
         Panels.DeactivateAllPanels();
         RaiseEventOnUiServiceChanged();
     }
-    public bool V2SectionIsClosedAndThereIsNoPromo(int sectionId)
+    public bool SectionIsClosedAndThereIsNoPromo(int sectionId)
     {
-        return (!V2SectionedPage.Sections[sectionId].IsOpen
+        V2Section section = Sections.Dictionary[sectionId];
+        return (!section.IsOpen
                 &&
-                !V2SectionedPage.ASectionIsCurrentlyPromo());
+                !Sections.ASectionIsCurrentlyPromo(section.PageId));
     }
+    public void V2ActivateLocationButtonsOfPanelGroups(int panelId)
+        => Panels.ActivateLocationButtonsOfPanelGroups(panelId, PanelGroups.Values.ToList());
     //
-    public int StartingSectionId { get; private set; }
     public List<bool> IsContinuous { get; private set; }
     public Animations Animations { get; private set; }
     public Panels Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
-    public Sections Sections { get; private set; }
-    public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
 
     public event Action<string> OnUiServiceChanged;
-    public static UIService Create(
-        List<bool> isContinuous,
-        Dictionary<int, PanelGroup> panelGroups,
-        Dictionary<int, Panel> panels,
-        Dictionary<int, SectionedPage> sectionedPages,
-        Dictionary<int, Section> sections) =>
-        new(isContinuous, panelGroups, panels, sectionedPages, sections);
 
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke(string.Empty);
     /// <summary>
@@ -119,7 +105,7 @@ public class UIService : IUIService
         Panels.DeactivateAllPanels();
         Panels.ActivateLocationButtonsOfGroups(PanelGroups);
         RaiseEventOnUiServiceChanged();
-        NavMgmt.NavigateToSection(sectionId, Panels, PanelGroups, Sections, SectionedPages);
+        NavMgmt.NavigateToSection(sectionId, Panels, PanelGroups, Sections);
     }
 
     /// <summary>
@@ -150,32 +136,6 @@ public class UIService : IUIService
         Panels.DeactivateAllPanels();
         Panels.ActivateLocationButtonsOfGroups(PanelGroups);
         Panels.UpdateGroupLocationPanel(panelId, PanelGroups);
-        RaiseEventOnUiServiceChanged();
-    }
-
-    /// <summary>
-    /// Collapses/Expands section based on section ID.
-    /// </summary>
-    /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId)
-    {
-        Sections.ToggleSection(sectionId, SectionedPages);
-        RaiseEventOnUiServiceChanged();
-    }
-    public void PromoteSection(int sectionId)
-    {
-        Sections.PromoteSection(sectionId, SectionedPages);
-        RaiseEventOnUiServiceChanged();
-    }
-
-    /// <summary>
-    /// Uses the SectionStatus to determine whether to expand all sectionsList in the sectione page or to collapse all section in the sectinoed page.
-    /// </summary>
-    /// <param name="pageId">ID of sectioned page of which sectionsList are being collapsed/expanded.</param>
-    public void ToggleSectionedPage(int pageId)
-    {
-        var page = SectionedPages[pageId];
-        page.Toggle();
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivateCooperativePanels()

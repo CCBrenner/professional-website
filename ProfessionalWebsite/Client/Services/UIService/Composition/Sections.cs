@@ -7,11 +7,16 @@ public class Sections
             - "sectioned page" : a page that implements according Dictionary (collapse/expand) & utilizes SectionsMgmt for the handling logic of those Dictionary
             - "promoting" : [concerning a section in a sectioned page] expanding it, move it to the top of the page, and collapsing all other Dictionary of the page
     */
-    public Sections(Dictionary<int, Section> initSections)
+    private Sections(Dictionary<int, Section> initSections, Dictionary<int, SectionedPage> sectionedPages)
     {
         Dictionary = initSections;
+        Pages = sectionedPages;
+        SetBiDirectionalReferencesForSectionedPagesAndSections();
     }
     public Dictionary<int, Section> Dictionary { get; private set; }
+    public Dictionary<int, SectionedPage> Pages { get; private set; }
+    public static Sections Create(Dictionary<int, Section> initSections, Dictionary<int, SectionedPage> sectionedPages) 
+        => new Sections(initSections, sectionedPages);
     public void CollapseAllShowOne(int sectionId, Dictionary<int, SectionedPage> sectionedPages)
     {
         DemoteAllSections(sectionedPages);
@@ -65,12 +70,12 @@ public class Sections
     {
         return sectionedPages[Dictionary[sectionId].SectionedPageId].LocationPanelGroupId;
     }
-    public void SetBiDirectionalReferencesForSectionedPagesAndSections(Dictionary<int, SectionedPage> sectionedPages)
+    public void SetBiDirectionalReferencesForSectionedPagesAndSections()
     {
         foreach (var section in Dictionary.Values)
         {
             var sectionedPageId = section.SectionedPageId;
-            section.SetSectionedPageReference(sectionedPages[sectionedPageId]);
+            section.SetSectionedPageReference(Pages[sectionedPageId]);
             section.SectionedPage.AddSectionReference(section);
         }
     }
@@ -133,4 +138,5 @@ public class Sections
         else
             DemoteAllSections(sectionedPages);
     }
+    
 }

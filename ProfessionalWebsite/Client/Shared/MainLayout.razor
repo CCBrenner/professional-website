@@ -106,7 +106,7 @@
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="/" @onclick="(()=>UI.V2LoadSectionsAsOpenAndClosePanels())">
+                <a class="navbar-brand" href="/" @onclick="(()=>UI.LoadSectionsAsOpenAndClosePanels(1))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
@@ -133,52 +133,52 @@
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
-            <article class="animate-app
-                @UI.Panels.Dictionary[7].PanelStatus
-                @blurMainStatus()">
-                <h3>App Animations</h3>
-                <br />
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(0))">
-                        Bombastic
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[0]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(1))">
-                        Sky Walker
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[1]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(2))">
-                        Kitchen Sink
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[2]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(3))">
-                        Flipster
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[3]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(4))">
-                        Asteroid
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[4]" />
-                    &nbsp;Continuous
-                </div>
-            </article>
+            @* <article class="animate-app *@
+            @*     @UI.Panels.Dictionary[7].PanelStatus *@
+            @*     @blurMainStatus()"> *@
+            @*     <h3>App Animations</h3> *@
+            @*     <br /> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(0))"> *@
+            @*             Bombastic *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[0]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(1))"> *@
+            @*             Sky Walker *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[1]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(2))"> *@
+            @*             Kitchen Sink *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[2]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(3))"> *@
+            @*             Flipster *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[3]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(4))"> *@
+            @*             Asteroid *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[4]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @* </article> *@
         </main>
 
         @* Part of Option2 && Option3: QR Code (for lookup via mobile) *@
