@@ -23,4 +23,4 @@ jobs:
       run: docker build ./ProfessionalWebsite/Client -t collynb/blazor-projects:${{ github.sha }}
 
     - name: Push Docker Image to DockerHub
-      run: docker push collynb/collyns-dev-portfolio:${{ github.sha }}
+      run: docker push collynb/blazor-projects:${{ github.sha }}
