@@ -59,6 +59,8 @@ public sealed class BeeHiveView
             interfaceClasses[2] = "btn-primary";
         else if (VisibleUI == EActiveUI.V3)
             interfaceClasses[3] = "btn-primary";
+        else if (VisibleUI == EActiveUI.V4)
+            interfaceClasses[4] = "btn-primary";
     }
 
     public void UpdateSelectedWorkerType(EWorkerType workerType)

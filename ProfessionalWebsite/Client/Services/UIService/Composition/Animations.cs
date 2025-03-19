@@ -11,7 +11,11 @@ public class Animations
     private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
     private const int DISCONTINUE_BTN_PANEL_ID = 8;
     public static Animations Create(string initAnimateMain) => new Animations(initAnimateMain);
-    public void ToggleAnimation(int animationIndex, List<bool> isContinuous, Panels panels, List<PanelGroup> panelGroupsList)
+    public void ToggleAnimation(
+        int animationIndex, 
+        List<bool> isContinuous, 
+        Panels panels, 
+        List<PanelGroup> panelGroupsList)
     {
         if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")
         {
@@ -29,20 +33,28 @@ public class Animations
             AnimateAppContainer = $"main{animationIndex + 1}";
         }
     }
-    public void ToggleContinuousAnimation(int animationIndex, Panels panels, List<PanelGroup> panelGroupsList)
+    public void ToggleContinuousAnimation(
+        int animationIndex, 
+        Panels panels, 
+        List<PanelGroup> panelGroupsList)
     {
-        if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")
+        if (AnimateAppContainer == string.Empty)  // currently no animation
         {
-            SetDiscontinueButton(string.Empty, panels, panelGroupsList);
-            AnimateAppContainer = string.Empty;
-        }
-        else
-        {
-            SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panels, panelGroupsList);
+            // Make it animated
             AnimateAppContainer = $"main{animationIndex + 1}-infinite";
+            SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panels, panelGroupsList);
+        }
+        else  // currently animated (maybe infinite/continuous)
+        {
+            // End the animation
+            AnimateAppContainer = string.Empty;
+            SetDiscontinueButton(string.Empty, panels, panelGroupsList);
         }
     }
-    public void ToggleOnePlayAnimation(int animationIndex, Panels panels, List<PanelGroup> panelGroupsList)
+    public void ToggleOnePlayAnimation(
+        int animationIndex, 
+        Panels panels, 
+        List<PanelGroup> panelGroupsList)
     {
         if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")
         {
@@ -55,12 +67,15 @@ public class Animations
             AnimateAppContainer = $"main{animationIndex + 1}";
         }
     }
-    public string DiscontinueAnimation(Panels panels, List<PanelGroup> panelGroupsList)
+    public void DiscontinueAnimation(Panels panels, List<PanelGroup> panelGroupsList)
     {
         SetDiscontinueButton(string.Empty, panels, panelGroupsList);
-        return string.Empty;
+        AnimateAppContainer = string.Empty;
     }
-    private void SetDiscontinueButton(string discontinue, Panels panels, List<PanelGroup> panelGroupsList)
+    private void SetDiscontinueButton(
+        string discontinue, 
+        Panels panels, 
+        List<PanelGroup> panelGroupsList)
     {
         if (discontinue == string.Empty)
             panels.DeactivatePanel(DISCONTINUE_BTN_PANEL_ID);

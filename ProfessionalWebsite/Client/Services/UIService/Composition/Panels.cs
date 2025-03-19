@@ -51,6 +51,7 @@ public class Panels
         }
         else
         {
+            Dictionary[selectedPanelId].Deactivate();
             DeactivateCooperativePanels();
             ActivateLocationButtonsOfGroups(panelGroups);
         }

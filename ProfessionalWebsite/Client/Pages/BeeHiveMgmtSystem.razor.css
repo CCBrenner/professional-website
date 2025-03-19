@@ -572,9 +572,9 @@
         padding: 0px 40px;
     }
 
-    .v4-report-container {
+/*    .v4-report-container {
         height: calc(100vh - 264px);
-    }
+    }*/
 }
 
 @media (min-width: 1008px) {

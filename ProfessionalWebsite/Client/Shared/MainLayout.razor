@@ -118,7 +118,7 @@
                     @* On hover *@
                     <div class="navbar-brand-onhover">
                         @* <i class="fa-solid fa-envelope"></i> *@
-                        Hey there!
+                        To Home
                     </div>
                 </a>
             </div>
@@ -192,7 +192,7 @@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
         <div class="continuous-animate-stop @UI.Panels.Dictionary[8].PanelStatus">
-            <button class="btn btn-danger" @onclick='UI.DiscontinueAnimation'>Discontinue</button>
+            <button class="btn btn-danger" @onclick='(()=>UI.DiscontinueAnimation())'>Discontinue</button>
         </div>
     </div>
 </div>

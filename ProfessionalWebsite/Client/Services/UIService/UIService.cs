@@ -118,8 +118,11 @@ public class UIService : IUIService
     /// <summary>
     /// Stops continuous animation by chaning the animation class to blank (string.Empty); also hides the Discontinue button by the same means.
     /// </summary>
-    public void DiscontinueAnimation() =>
+    public void DiscontinueAnimation()
+    {
         Animations.DiscontinueAnimation(Panels, PanelGroups.Values.ToList());
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
