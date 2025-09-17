@@ -4,7 +4,7 @@ namespace ProfessionalWebsite.Tests.UIServiceTests;
 
 internal class MockPanelGroupsDataSource
 {
-    public static Dictionary<int, PanelGroup> GetPanelGroupsDict()
+    public static Dictionary<int, PanelGroup> GetDictionary()
     {
         Dictionary<int, PanelGroup> panelGroupsDict = new();
 

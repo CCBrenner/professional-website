@@ -1,4 +1,4 @@
-﻿using ProfessionalWebsite.Client.Classes.HideAndSeekProject;
+﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
 
 namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
 
@@ -12,16 +12,13 @@ public class LocationWithHidingPlaceTests
         var hidingLocation = new LocationWithHidingPlace("Room", "under the bed");
         Assert.AreEqual("Room", hidingLocation.Name);
         Assert.AreEqual("Room", hidingLocation.ToString());
-        Assert.AreEqual("under the bed", hidingLocation.HidingPlace);
+        Assert.AreEqual("under the bed", hidingLocation.HidingPlaceName);
 
         // Hide two opponents in the room then check the room
         Opponent opponent1 = new Opponent("Opponent1");
         Opponent opponent2 = new Opponent("Opponent2");
         hidingLocation.Hide(opponent1);
         hidingLocation.Hide(opponent2);
-        CollectionAssert.AreEqual(new List<Opponent>() { opponent1, opponent2 }, hidingLocation.CheckHidingPlace().ToList());
-
-        // HidingPlace should now be empty
-        CollectionAssert.AreEqual(new List<Opponent>(), hidingLocation.CheckHidingPlace().ToList());
+        CollectionAssert.AreEqual(new List<Opponent>() { opponent1, opponent2 }, hidingLocation.GetHiddenOpponents().ToList());
     }
 }

@@ -4,40 +4,7 @@
 
 <div class="page-container">
     <div class="page">
-
-        @* Part of Option1: This element covers all contents in the viewport if the viewport is not mobile (z-index: 60) *@
-        @* <ClosedStageCurtain /> *@
-
-        @* Part of Option2: On large screens (desktop) shows instructions and animation controls *@
-        @*
-        <div class="left-negative-space">
-            @if (ExternalLayoutControls)
-            {
-                <article class="animate-app external-layout-controls">
-                    <AppAnimations 
-                        FirstAnimationCallback="PlayFirstAnimation"
-                        SecondAnimationCallback="PlaySecondAnimation"
-                        ThirdAnimationCallback="PlayThirdAnimation"
-                        FourthAnimationCallback="PlayFourthAnimation"
-                        FifthAnimationCallback="PlayFifthAnimation" />
-                </article>
-            }
-            else 
-            {
-                <p>
-                    Download this app today on any mobile device using the QR code on the right!
-                </p>
-                <p>&nbsp;</p>
-                <p>
-                    Or use your mobile browser to install this progressive web app (PWA) as an app on your device's homescreen!
-                </p>
-                <br />
-                <button class="btn btn-danger" @onclick="SetExternalLayoutControlsToTrue">Animations</button>
-            }
-        </div>
-        *@
-
-        <main class="main @UI.AnimateMain">
+        <main class="main @UI.Animations.AnimateAppContainer">
 
             @* Alert (proprietary) *@
             @*<div class=""></div>*@
@@ -48,11 +15,11 @@
             @* Panels (z-index: 30) *@
             <NavPanels />
 
-            <div class="anim-icon @UI.Panels[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
+            <div class="anim-icon @UI.Panels.Dictionary[0].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(0))">
                 <span class="fa-solid fa-magnet" aria-hidden="true"></span>
             </div>
 
-            <div class="anim-controls @UI.Panels[0].PanelStatus">
+            <div class="anim-controls @UI.Panels.Dictionary[0].PanelStatus">
                 <h4>Animations</h4>
                 <div class="anim-pair">
                     <div class="anim-regular" @onclick="(()=>UI.ToggleOnePlayAnimation(0))">
@@ -139,19 +106,19 @@
 
             @* original Main items (z-index: auto) *@
             <div class="container-fluid header">
-                <a class="navbar-brand" href="collyn/23" @onclick="(()=>UI.NavigateToSection(23))">
+                <a class="navbar-brand" href="/" @onclick="(()=>UI.NavigateToSectionedPage(1))">
                     <i class="navbar-brand-icon-one fa-solid fa-terminal"></i>
                     &nbsp;
                     @* Only one of the below will show at a time based on CSS *@
-                    <span class="title-size-largest">Collyn Brenner's Developer Portfolio</span>
-                    <span class="title-size-four">Collyn Brenner's Dev Portfolio</span>
-                    <span class="title-size-three">Collyn's Developer Portfolio</span>
-                    <span class="title-size-two">Collyn's Dev Portfolio</span>
-                    <span class="title-size-one">Collyn's Portfolio</span>
+                    <span class="title-size-largest">Collyn Brenner's Projects</span>
+                    <span class="title-size-four">Collyn Brenner's Projects</span>
+                    <span class="title-size-three">Collyn B's Projects</span>
+                    <span class="title-size-two">Collyn B's Projects</span>
+                    <span class="title-size-one">Collyn B's Projects</span>
                     @* On hover *@
                     <div class="navbar-brand-onhover">
-                        <i class="fa-solid fa-envelope"></i>
-                        Contact Me
+                        @* <i class="fa-solid fa-envelope"></i> *@
+                        To Home
                     </div>
                 </a>
             </div>
@@ -166,52 +133,52 @@
             </article>
             
             @* single custom page having controls that manipulate the app w/animations (z-index: auto) *@
-            <article class="animate-app
-                @UI.Panels[7].PanelStatus
-                @blurMainStatus()">
-                <h3>App Animations</h3>
-                <br />
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(0))">
-                        Bombastic
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[0]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(1))">
-                        Sky Walker
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[1]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(2))">
-                        Kitchen Sink
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[2]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(3))">
-                        Flipster
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[3]" />
-                    &nbsp;Continuous
-                </div>
-                <div class="layout-control-item">
-                    <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(4))">
-                        Asteroid
-                    </button>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[4]" />
-                    &nbsp;Continuous
-                </div>
-            </article>
+            @* <article class="animate-app *@
+            @*     @UI.Panels.Dictionary[7].PanelStatus *@
+            @*     @blurMainStatus()"> *@
+            @*     <h3>App Animations</h3> *@
+            @*     <br /> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(0))"> *@
+            @*             Bombastic *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[0]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(1))"> *@
+            @*             Sky Walker *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[1]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(2))"> *@
+            @*             Kitchen Sink *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[2]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(3))"> *@
+            @*             Flipster *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[3]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @*     <div class="layout-control-item"> *@
+            @*         <button class="btn btn-primary" @onclick="(()=>UI.ToggleAnimation(4))"> *@
+            @*             Asteroid *@
+            @*         </button> *@
+            @*         &nbsp;&nbsp; *@
+            @*         <input class="form-check-input" type="checkbox" @bind="@UI.IsContinuous[4]" /> *@
+            @*         &nbsp;Continuous *@
+            @*     </div> *@
+            @* </article> *@
         </main>
 
         @* Part of Option2 && Option3: QR Code (for lookup via mobile) *@
@@ -224,8 +191,8 @@
         *@
 
         @* Discontinue Button (z-index: 50, position: fixed) *@
-        <div class="continuous-animate-stop @UI.Panels[8].PanelStatus">
-            <button class="btn btn-danger" @onclick='UI.DiscontinueAnimation'>Discontinue</button>
+        <div class="continuous-animate-stop @UI.Panels.Dictionary[8].PanelStatus">
+            <button class="btn btn-danger" @onclick='(()=>UI.DiscontinueAnimation())'>Discontinue</button>
         </div>
     </div>
 </div>
@@ -241,21 +208,17 @@
     private string blurMainStatus()
     {
         // if any panels are true, blur main
-        List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
-        foreach (int index in panelIds)
-            if (UI.Panels[index] != null)
-                if (UI.Panels[index].BlurIsActive)
-                    return "content-blur";
+        foreach (var panelPair in UI.Panels.Dictionary.ToList())
+            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel)
+                return "content-blur";
         return "";
     }
     private string behindPanelStatus()
     {
         // if any panels are true, show behind panel
-        List<int> panelIds = new List<int>() { 0, 2, 3, 4, 5, 6 };
-        foreach (int index in panelIds)
-            if (UI.Panels[index] != null)
-                if (UI.Panels[index].BehindPanelIsActive)
-                    return "button-on-show-behind-panel";
+        foreach (var panelPair in UI.Panels.Dictionary.ToList())
+            if (panelPair.Value.BehindPanelIsActive && panelPair.Value.IsCooperativePanel)
+                return "button-on-show-behind-panel";
         return "";
     }
 }

@@ -2,12 +2,10 @@
 
 public interface IUIService
 {
-    string AnimateMain { get; }
     List<bool> IsContinuous { get; }
-    Dictionary<int, Panel> Panels { get; }
+    Panels Panels { get; }
     Dictionary<int, PanelGroup> PanelGroups { get; }
-    public Dictionary<int, Section> Sections { get; }
-    public Dictionary<int, SectionedPage> SectionedPages { get; }
+    public Sections Sections { get; }
     void ActivatePanel(int selectedPanelId);
     void DeactivatePanel(int selectedPanelId);
 }

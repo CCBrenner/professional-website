@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\ProfessionalWebsite.Client.csproj" />
-    <ProjectReference Include="..\Shared\ProfessionalWebsite.Shared.csproj" />
   </ItemGroup>
 
 

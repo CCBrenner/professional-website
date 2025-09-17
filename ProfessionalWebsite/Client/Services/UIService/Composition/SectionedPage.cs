@@ -1,78 +1,67 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI;
+﻿
 
-public partial class SectionedPage
+
+namespace ProfessionalWebsite.Client.Services.UI;
+
+public class SectionedPage
 {
-    private SectionedPage(int id, int locationPanelGroupId, string pagePath)
+    private SectionedPage(int id, int locationPanelGroupId)
     {
         Id = id;
         LocationPanelGroupId = locationPanelGroupId;
-        PagePath = pagePath;
-        ASectionIsCurrentlyPromo = false;
-        Status = SectionedPageStatus.AllAreOpen;
-        SectionsExpanded = Sections.Count;
+        Sections = new();
     }
-
-    public readonly int Id;
-    public readonly int LocationPanelGroupId;
-    public string PagePath { get; private set; }
-    public Dictionary<int, Section> Sections { get; set; } = new();
-
-    public bool ASectionIsCurrentlyPromo { get; set; }
-    public SectionedPageStatus Status { get; set; }
-    public int SectionsExpanded { get; private set; } = 0;
-    public static SectionedPage Create(int id, int locationPanelGroupId, string pagePath) =>
-        new(id, locationPanelGroupId, pagePath);
-    public void Toggle()
+    public int Id { get; private set; }
+    public Dictionary<int, Section> Sections { get; set; }
+    public int LocationPanelGroupId { get; private set; }
+    public static SectionedPage Create(int id, int locationPanelGroupId) 
+        => new SectionedPage(id, locationPanelGroupId);
+    public void ToggleSection(int sectionId) => Sections[sectionId].Toggle();
+    public void OpenSection(int sectionId) => Sections[sectionId].Open();
+    public void OpenAllSections()
     {
-        try
-        {
-            UpdateStatus();  // this change doesn't last the full length of this method
-
-            DemoteSections();
-
-            if (Status == SectionedPageStatus.AllAreOpen)
-            {
-                foreach (var section in Sections.Values)
-                    section.Collapse();
-                Status = SectionedPageStatus.AllAreCollapsed;
-            }
-            else
-            {
-                foreach (var section in Sections.Values)
-                    section.Expand();
-                Status = SectionedPageStatus.AllAreOpen;
-            }
-        }
-        catch (KeyNotFoundException knfEx)
-        {
-            Console.WriteLine($"Error: {knfEx.Message}\n{knfEx.StackTrace}");
-        }
+        foreach (Section section in Sections.Values)
+            section.Open();
     }
-    private void DemoteSections()
+    public void CloseSection(int sectionId) => Sections[sectionId].Close();
+    public void CloseAllSections()
     {
-        foreach (var section in Sections.Values)
-            section.Demote();
-        ASectionIsCurrentlyPromo = false;
+        foreach (Section section in Sections.Values)
+            section.Close();
     }
-    private void UpdateStatus()
+    public void PromoteSection(int sectionId)
     {
-        int openSections = 0;
-
-        // get open section count:
-        foreach (Section sec in Sections.Values)
-            if (!sec.IsCollapsed)
-                openSections++;
-
-        // set status based on count of expanded sections
-        if (openSections == 0)
-            Status = SectionedPageStatus.AllAreCollapsed;
-        else if (openSections == Sections.Count)
-            Status = SectionedPageStatus.AllAreOpen;
-        else
-            Status = SectionedPageStatus.AtLeastOneIsOpen;
+        CloseAllSections();
+        Sections[sectionId].Open();
     }
-    public void AddSectionReference(Section section)
+    public bool ASectionIsCurrentlyPromo()
     {
-        Sections.Add(section.Id, section);
+        int counter = 0;
+        foreach (var section in Sections)
+            if (section.Value.IsOpen)
+                counter++;
+        return counter == 1;
+    }
+    public bool IsCurrentPromo(int sectionId)
+    {
+        if (ASectionIsCurrentlyPromo())
+            return Sections[sectionId].IsOpen;
+        return false;
+    }
+    public bool AllSectionsAreOpen()
+    {
+        foreach (Section section in Sections.Values)
+            if (!section.IsOpen) return false;
+        return true;
+    }
+    public void ToggleAllSections()
+    {
+        // - if some open but not all, then open all
+        // - if all closed, open all
+        // - if all open, close all
+        int openSectionsCount = 0;
+        foreach (Section section in Sections.Values) if (section.IsOpen) openSectionsCount++;
+        if (openSectionsCount == Sections.Count) CloseAllSections();
+        else OpenAllSections();
     }
 }

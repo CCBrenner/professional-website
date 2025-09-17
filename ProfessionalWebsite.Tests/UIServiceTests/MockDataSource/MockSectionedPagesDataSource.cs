@@ -4,21 +4,17 @@ namespace ProfessionalWebsite.Tests.UIServiceTests;
 
 internal class MockSectionedPagesDataSource
 {
-    public static Dictionary<int, SectionedPage> GetSectionedPagesDict()
+    public static Dictionary<int, SectionedPage> GetDictionary()
     {
         Dictionary<int, SectionedPage> sectionedPagesDict = new();
 
-        foreach (SectionedPage sectionedPage in GetSectionedPages())
+        foreach (SectionedPage sectionedPage in GetList())
             sectionedPagesDict.Add(sectionedPage.Id, sectionedPage);
 
         return sectionedPagesDict;
     }
-    public static List<SectionedPage> GetSectionedPages() => new()
+    public static List<SectionedPage> GetList() => new()
     {
-        SectionedPage.Create(0, 2, "projects"),  // not used
-        SectionedPage.Create(1, 3, "knowhow"),
-        SectionedPage.Create(2, 4, "collyn"),
-        SectionedPage.Create(3, 5, "invent"),
-        SectionedPage.Create(4, 6, "articles"),  // not used
+        SectionedPage.Create(5, 10),
     };
 }

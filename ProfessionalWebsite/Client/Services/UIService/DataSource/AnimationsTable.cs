@@ -2,7 +2,7 @@
 
 internal sealed class AnimationsTable
 {
-    internal static List<bool> GetIsContinuous() => new()
+    internal static List<bool> Get() => new()
     {
         false,  // 0:Bombastic
         false,  // 1:Skywalker

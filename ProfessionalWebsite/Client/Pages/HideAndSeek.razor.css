@@ -12,7 +12,8 @@
     width: 100%;
     max-width: 60vh;
     display: flex;
-    justify-content: space-between;
+/*    justify-content: space-between;*/
+    justify-content: center;
 }
 
 .top-row-floating-center > * {

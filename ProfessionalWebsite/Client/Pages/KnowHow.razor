@@ -1,45 +1,48 @@
-﻿@inject UIService UI
+﻿@*
+@inject UIService UI
 @inject NavigationManager Navigation
-
-@page "/knowhow"
-@page "/knowhow/{SectionId:int}"
+@inject IJSRuntime JSRuntime
 
 @implements IDisposable
 
-<PageTitle>Know-How - Collyn Brenner</PageTitle>
+<PageTitle>Project Info - Collyn Brenner</PageTitle>
 
-<DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Know-How">
+<DrawerPageTemplate HeaderIconClasses="fa-solid fa-flask" HeaderText="Project Info">
     <DrawerContent>
-        <DrawerNavLinkButton Href="knowhow/0" ButtonText="Overview" OnClickCallback="(()=>UI.NavigateToSection(0))" />
-        <DrawerNavLinkButton Href="knowhow/14" ButtonText="About This Web App" OnClickCallback="(()=>UI.NavigateToSection(14))" />
-        <DrawerNavLinkButton Href="knowhow/16" ButtonText="Bee Hive Manager System/Game - Project" OnClickCallback="(()=>UI.NavigateToSection(16))" />
-        <DrawerNavLinkButton Href="knowhow/15" ButtonText="Hide & Seek Game - Project" OnClickCallback="(()=>UI.NavigateToSection(15))" />
-        <DrawerNavLinkButton Href="knowhow/33" ButtonText="Match Game - Project" OnClickCallback="(()=>UI.NavigateToSection(33))" />
-        <DrawerNavLinkButton Href="knowhow/3" ButtonText="Front-end" OnClickCallback="(()=>UI.NavigateToSection(3))" />
-        <DrawerNavLinkButton Href="knowhow/1" ButtonText="Back-end" OnClickCallback="(()=>UI.NavigateToSection(1))" />
-        <DrawerNavLinkButton Href="knowhow/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>UI.NavigateToSection(4))" />
-        <DrawerNavLinkButton Href="knowhow/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>UI.NavigateToSection(5))" />
-        <DrawerNavLinkButton Href="knowhow/6" ButtonText="Databases" OnClickCallback="(()=>UI.NavigateToSection(6))" />
-        <DrawerNavLinkButton Href="knowhow/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
-        <DrawerNavLinkButton Href="knowhow/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
-        <DrawerNavLinkButton Href="collyn/23" ButtonText="Contact" IconClasses="fa-solid fa-envelope" />
+        <DrawerNavLinkButton Href="projectinfo/0" ButtonText="About" OnClickCallback="(()=>UI.NavigateToSection(0))" />
+        <DrawerNavLinkButton Href="projectinfo/36" ButtonText="Sudoku Solver" OnClickCallback="(()=>UI.NavigateToSection(36))" />
+        <DrawerNavLinkButton Href="projectinfo/16" ButtonText="Bee Hive Manager" OnClickCallback="(()=>UI.NavigateToSection(16))" />
+        <DrawerNavLinkButton Href="projectinfo/15" ButtonText="Hide & Seek Game" OnClickCallback="(()=>UI.NavigateToSection(15))" />
+        <DrawerNavLinkButton Href="projectinfo/33" ButtonText="Match Game" OnClickCallback="(()=>UI.NavigateToSection(33))" />
+        @*
+        <DrawerNavLinkButton Href="projectinfo/3" ButtonText="Front-end" OnClickCallback="(()=>UI.NavigateToSection(3))" />
+        <DrawerNavLinkButton Href="projectinfo/1" ButtonText="Back-end" OnClickCallback="(()=>UI.NavigateToSection(1))" />
+        <DrawerNavLinkButton Href="projectinfo/4" ButtonText="UX/UI + Modeling Software" OnClickCallback="(()=>UI.NavigateToSection(4))" />
+        <DrawerNavLinkButton Href="projectinfo/5" ButtonText="Cloud Deployment + Containers" OnClickCallback="(()=>UI.NavigateToSection(5))" />
+        <DrawerNavLinkButton Href="projectinfo/6" ButtonText="Databases" OnClickCallback="(()=>UI.NavigateToSection(6))" />
+        <DrawerNavLinkButton Href="projectinfo/7" ButtonText="Testing" OnClickCallback="(()=>UI.NavigateToSection(7))" />
+        <DrawerNavLinkButton Href="projectinfo/13" ButtonText="Why Programming?" OnClickCallback="(()=>UI.NavigateToSection(13))" />
+        *
+        <DrawerNavLinkButton Href="projectinfo/35" ButtonText="Counter + Spinners" OnClickCallback="(()=>UI.NavigateToSection(35))" />
+        <DrawerNavLinkButton Href="projectinfo/34" ButtonText="Contact" IconClasses="fa-solid fa-envelope" OnClickCallback="(()=>UI.NavigateToSection(34))"/>
     </DrawerContent>
     <PageContent>
         <div class="sub-page-container">
             <div class="sections-container">
                 @*Overview*@
-                @if (UI.Sections[0].IsVisible)
+                @*
+                @if (UI.Sections.Dictionary[0].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
-                            @if(UI.Sections[0].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
+                            @if(UI.Sections.Dictionary[0].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Overview
                         </div>
-                        <div class="section-content @UI.Sections[0].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[0].IsCollapsedContent">
                             <h3 class="text-center">Overview</h3>
                             <p>
                                 Software developers need to know many things to be effective in their crafting of software code. Not only this, but they need to have the solutions to many different problems locked down in memory, and not just static memory, but in working memory to be called in at the apprpriate times based on the best design philosophies and principles. For that which the software developer does not have locked in their memory they can make up for in different essential skills such as method of searching for something. These multi-step solutions - can be exponentially useful. This page will give you a sense of what technologies I have worked with thus far, however, please note that i am entirely open to learning about other technologies or more specific domains of a technology as well. Learning is only a matter of time. Changing dependencies shouldn't be something to fear. It should be seen as an opportunity for more to be made possible.
@@ -80,123 +83,136 @@
                         </div>
                     </div>
                 }
-                @*About This Web App*@
-                @if (UI.Sections[14].IsVisible)
+                *@
+                @*About This Web App*
+                @if (UI.Sections.Dictionary[14].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
-                            @if(UI.Sections[14].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
+                            @if(UI.Sections.Dictionary[14].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            About This Web App
+                            About
                         </div>
-                        <div class="section-content @UI.Sections[14].IsCollapsedContent">
-                            <h3 style="text-align: center;">Conception</h3>
+                        <div class="section-content @UI.Sections.Dictionary[14].IsCollapsedContent">
+                            <h3 style="text-align: center;">Welcome to<br/>Collyn's Developer Portfolio PWA!</h3>
                             <br/>
-                            <p>I started construction of this developer portfolio PWA (progressive web app) by first attempting to create a Blazor WASM open-source template that I planned to branch off from to create my own promotional developer portfolio. When I started this project I had never made anything open-source before. I saw making a boilerplate template for the Blazor framework as a potential networking opportunity. You can view the open-source template here: <a href="https://github.com/CCBrenner/MobileNavBlazorWasmTemplate" target="blank">Blazor WASM template</a>.</p>
-                            <p>The open-source template was to employ responsive web design (RWD)  across the three major screen sizes. I wanted to build  navigation that translated across the three devices seamlessly but with the capability to navigate the user from anywhere in the web app to anywhere else, even if the web app built was a large one. This reverted me back to the old days where mobile navigation didn’t take you to another page with the first interaction, but instead offered a menu of where you wanted to go, requiring a minimum of 2 interactions minimum (and I wanted to make sure I tried my best to keep interaction count as close to 2 as possible, no more). I wanted it to have the best UI features that a navigation can have (since navigation is used everywhere in an app, it deserves to have some attention paid to its improvement). I wanted to maintain the kind of design philosophy (or “air”) that Blazor introduced with its starting template’s iconic collapsible sidebar navigation for desktop (which cannily resembles the sidebar of File Explorer on Windows), offering the ability to navigate within the page or to another page when clicked.</p>
-                            <p>I also wanted to do something ambitious. I wanted to raise my web app within the DOM and be able to move the web app‘s housing container in multiple different ways while maintaining full responsiveness of the app within the container. The original idea was to use it as a way to market the installation of the PWA on mobile by displaying a fully-functional mobile aspect ratio PWA for desktop and tablet browsers, allowing the user to interact with the app in the browser while also being given the option to learn more about the app in the negative space of the viewport and to navigate straight to the app’s installation page by scanning a QR code (also located in the negative space) with a mobile device. This idea ended up turning into something else with the introduction of the tablet and desktop RWD breakpoints and UI. The mobile marketing functionality could not be maintained by resizing the housing container because the mobile breakpoints are controlled by CSS media queries, and these are dependent on the viewport size of the browser, particularly the width. Today I am unaware of a way to measure the width of a specific HTML element AND use it in a media query, which would solve this RWD problem. I opted to leave “options” in the template repository for the programmer to work towards the PWA promo site as well as branch the repo at the point of which I was finished with the PWA promo build before starting on the tablet and desktop UI renderings (for cases where the programmer is not interested in building to tablet or desktop and wants to build only for mobile PWA while also having the benefits of promo in the web browser).
-                            </p>
-                            <br/>
-                            <h3 style="text-align: center;">Tools Used</h3>
-                            <br/>
-                            <h4>Programming Language: C#</h4>
-                            <br/>
-                            <h4>Blazor WASM (front-end)</h4>
-                            <p>Blazor Web Assembly (WASM) is an unbiased, Single-Page App (SPA) front-end framework that allows for the writing of front-end code in C# which compiles to Web Assembly language at compile time. It allows for object-oriented programming (OOP) on the front-end without using JavaScript. It is interoperable with JavaScript, meaning you can still utilize JavaScript for functions and features that are not yet possible with C#. With Microsoft’s commitment to becoming a lead cloud service provider, and Blazor (WASM and Server) being their premier front-end framework, it isn’t hard to imagine that Microsoft is working very hard to invest into the innovation of Blazor and its counterpart, ASP.NET, technology. There are a number of things that are done differently in Blazor WASM than in other frameworks due to it using components, OOP, and not using JavaScript.</p>
-                            <br/>
-                            <h4>ASP.NET (back-end)</h4>
-                            <p>ASP.NET is the go-to back-end framework for using Blazor WASM. ASP.NET allows for customization of data delivery at many different levels. In combination with Entity Framework Core as its object relational mapper (ORM) and Blazor as its front-end, this tech stack combination allows for data objects to be completely managed as C# objects, from database to user interface. ASP.NET has made large strides over the last few years, including the introduction of .NET Core which expands the number of platforms that can be targeted to include Linux OS and MacOS systems (with introduction of .NET Core). ASP.NET utilizes the MVC architecture pattern.</p>
-                            <br/>
-                            <h4>Tests</h4>
-                            <p>Blazor WASM allows for testing OOP code in the same way you would test any other C# code in your projects on the back-end. MSTest is the testing utility used for the projects of this web app. Testing in this project was affected by my learning curve in testing regarding the distinction between unit tests (code coverage concept) and test-driven development (TDD) principles. Stated simply, I had thought that TDD included the concept of code coverage as a percentage. It does not.
-                            </p>
-                            <p>    
-                            What TDD actually prescribes is a process where tests are written before code is written to prove code functionality and flexibilty while preserving the ability to refactor the code without requiring tests to change every time the code changes. As a bonus you get tests that you can run to check code functionality at any time plus you get improved seperation of concerns (encapsulation) between "producer" code and consuming code. TDD pays attention were testing matters most: the borders between pieces of code that have distinct responsibilities from each other.
-                            </p>
-                            <p class="btn btn-primary" @onclick="ToggleTestHistoryIsExpanded">Click to @(testHistoryIsExpanded ? "hide" : "view") test progression for this project.</p>
-                            @if (testHistoryIsExpanded)
-                            {
-                                <p> 
-                                Testing for this project went as such:
-                                </p>
-                                <p> 
-                                (1) An attempt at TDD was originally made for a number of parts of this web app (particularly the NavService service). The ideas of code coverage philosophy initially overshadowed and obsurred my understanding of how to effectively utilize tests while maintaining the biggest strength of software: mutabilty. TDD was supposed to accomplish this for me. While trying to use what I thought was TDD, I ran into a problem. I was getting really bogged down in tests with no ROI prospects. I was becoming discouraged and demoralized. Almost every change in the code that I made made required a change in the tests. A major refactoring required completely new tests for all code within the large scope of the refactoring. It didn't make sense to me based on the raving reviews of TDD by other programmers online. The ROI for my time wasn't manifesting, and that seems like a big problem from the business side when considering enterprise developers who supposedly use TDD daily. Something was off.
-                                </p>
-                                <p> 
-                                (2) After major refactoring in an effort to optimize, simplify and augment code capabilities, a better solution was sought for. "Safety nets" as bug-fixing solutions were found as a preferred solution over unit test code coverage because (A) they do not set up barriers that end up creating at least double the work for the programmer with ineffective testing (checking that the code does what I said it does, line-for-line, which aren't really tests), & (B) they instead offer a means for spending more time in the code by making code that informs developers of the issue to such an extent that the bug can easily and quickly be fixed. The safety nets include the required quick-release pipeline as well as quick-reversal of release mechanisms if large issue presented themselves. It is expected that some customers might experience these bugs, but it is an accepted cost as an understanding that the customer should understand that software is a work in-progress that they are a part of. This "safety net" approach encourages the programmer to spend more time in the code, not distrated or discouraged by code coverage unit tests, with a higher perceived risk if things go wrong. It is a motivational tool on the part of the programmer because they understand that big problems need to be mitigated as a top priority and that smaller bugs can be resolved through their appearance in production where necessary. Of course, if bugs can be caught before production this is preferred. Still, this isn't the best solution since it leaves error correction to be visible to the user, and most companies are able to better mitigate this. Another alternative to error handling must exist still, and I still had not cracked the code of how awesome TDD is - I needed to understand how TDD was awesome.
-                                </p>
-                                <p> 
-                                    (3) I felt I hadn't quite understood the hype of programmers that loved to code using TDD. I perceived that I had been doing something wrong concerning TDD if my experience was so much worse than theirs, even despite the supposed skill gap between those who are used to programming in TDD and those who are new to it. A YouTuber whose channel is named "Continuous Delivery" brought me to realize how wrong I had been about TDD, and how easily I had missed the point and purpose of TDD (<a href="https://www.youtube.com/watch?v=W40mpZP9xQQ&t=545s" target="_blank">click here to see video</a>). I had in fact been introduced to the concept of TDD in an unclear manner through the project textbook Head First C#. TDD was introduced there as writing tests first at every level of a class dependency hierarchy, with the basic premise of Red, Green, Refactor (Uncle Bob's Clean Code lessons: <a href="https://www.youtube.com/watch?v=7EmboKQH8lM&list=PLmmYSbUCWJ4x1GO839azG_BBw8rkh-zOj" target="_blank">link</a>). What clarified this for me is what Continuous Delivery had said combined with what Uncle Bob Martin said about TDD. Uncle Bob pointed out that as your code gets more complex, your tests should become more abstract. The consumer is on a need-to-know basis, and the consumer shouldn't need to know anything about the object's implementation details - so why should the test that is testing the consumer methods be required to know any of the implementation details of the object? Both should know only what they are able to use the object/method for and not be required to know anything else. This keeps code simple and modular; it is encapsulation done correctly. This is the shining point of TDD. The tests that are produced in the TDD process are a side effect, even though they are still very useful.
-                                </p>
-                                
-                            <p class="btn btn-primary" @onclick="ToggleTestHistoryIsExpanded">Click to @(testHistoryIsExpanded ? "hide" : "view") test progression for this project.</p>
-                            }
-                            <br/>
-                            <p>
-                                Unfortunately concerning this project, TDD is a process that is meant to be used before any code is written. At the time of writing, I had gotten through manual testing and then later using the safety net approach that it was after I had done the bulk of the desired programming when I finally discovered how TDD is awesome. It is no use to cry over spilt milk. There is still something to be said about the long-term effects of having not used TDD. I will still add tests to the code that would have ended up with tests using TDD as a minimum, and from there I will add tests where deemed necessary or good to have as checks on the code. I understand that corporate production code needs more testing than this, but for my purposes of ensuring code that currently works stays working I would think tests need to prove their usefulness to warrant my time and effort.
-                            </p>
-                            <p>
-                                I am coming to find (and am currently learning more about) how and why TDD being taught instead as BDD (behavior-driven development) is much more useful for programmers in understanding the original point of TDD. BDD and TDD attempt to do the same thing, but with BDD the focus is on the behavior of the system as described using natural language instead of being hyperfocused on using tests to achieve the same ends bu through an unclear means. Both seek to prioritize and meet the requirements of a system using tests to arrive at a given system behavior, but BDD holds that achieving the behavior is more important than how the behavior is achieved. After all, the behavior of the system is what the user cares about, not the implementation details, so since the focus is on system behavior (outcome) and not on the tests (means to unclear ends), there is no confusion about which code is most important to to use tests to drive code design for: the code that is closest to the user, which is the highest level code in the system. The tests for the highest level code are always going to be the most abstract tests since they are the farthest away from the implementation details of how exactly the code does what it does. You can change BDD code easily and know whether the implementation changes have affected the user's experience in one way or another based on what the tests in BDD are testing. BDD tests stand the test of time until the behavior is changed from what it currently is. The code that accomplishes the same behavior can be refactored without needing to change any tests, saving a lot of time for the developer to build other things instead of worrying about code coverage. In fact, testing the highest level code for correct system behavior is code coverage of the greatest amount of code without having to write as much code than if you were to write tests for every block of code. You only need tests as much you would like specifics into what went wrong when a test fails. More tests can give a clearer picture, but you don't need to know if everything is working exactly as expected all of the time. If you write BDD tests and expect that there is code that is not being covered in the test, yet you get the correct behavior, I wonder if that uncovered code (if it exists) is contributing any useful function to your system behavior. If it isn't then it can be eliminated with confidence, affording a systematic means for making your system more lean and more meaningful. if you can't develop software iteratively without changing test all the time, you're doing TDD wrong - but I don't have to make this point if I teach you what BDD is because you just get it implictly based on what BDD is, because it makes sense. Teaching BDD has a higher probability of programmers getting the original intent of TDD right than teaching TDD does. Teach TDD as BDD - that alias should prove to be useful for the majority of programmers, and it will cause all programmers to be better off than they were without BDD.
-                            </p>
-                            <br/>
-                            <h4>Authentication & Authorization - Auth0</h4>
-                            <p>Auth0 is used in this application to demonstrate my ability to incorporate an authentication and authorization mechanism in the Blazor WASM / ASP.NET stack. It allows users to use some functions of the website that operate on and change the data on the backend, particularly in the database.</p>
-                            <br/>
-                            <h4>Azure Cloud PaaS (Web App) & Docker Containers</h4>
-                            <p>In web development as a single-developer, a cloud platform as a service (PaaS) is going to be your best friend. For this project I researched multiple solutions, including Heroku, Linode, AWS, and Azure and boiled my options down to AWS Beanstalk (PaaS) and Azure App Service (PaaS). I chose Azure App Service due to the potential benefits of operating & learning within the same ecosystem (Microsoft) and the unknown benefits that it would bring, even if it costs more than other options. It would also allow me to spend less time worrying about server configuration. Both AWS Beanstalk and Azure Web App were chosen because they were PaaS and had capabilities to expand to IaaS (Infrastructure as a Service) capabilities on-demand. This was considered in anticipation of future projects I work on. It reaps long-term benefits to start well and start strong.</p>
-                            <p>This web app is configured to update whenever updates are made to the web app’s DockerHub repository. This means that Docker files, images, and containers, along with a DockerHub repository, are being used to package, run, and update this web app with a good amount of automation with the ease of a “docker push” CLI command. In a nutshell, Docker containers are created from Docker images, which are created from Docker files. A project’s DockerFile contains commands for building an operating system environment, each command being its own “layer”. Docker layers decrease image build time by skipping layers that have not changed and begin building new layers at the first appearance of an updated layer when compared to a previous build of the image. Docker containers are a great tool for achieving app development and performance consistency across operating systems that are installed and run directly on hardware. Not only this, but it is a good step to have prepared if you want to move your web services to utilize more performance capabilities such as with Kubernetes (automated VM scaling based on resource demand). Docker containers are also fundamental and a great foundation when operating DevOps CI/CD pipelines.</p>
-                            <br/>
-                            <h3 style="text-align: center;">Noteworthy Aspects</h3>
-                            <br/>
-                            <h4>Navigation Bar (and the UI.SectionMgmt singleton)</h4>
-                            <p>The navigation bar takes one interaction to make a navigation panel fade into visibility, and one more for top-level navigation. The option to nest navigation options in an accordion menu is also built to be added to any navigation panel, so that in cases where a user wants to navigate to an even more specific part of the PWA, then the programmer can make this available to them in a structured manner. CSS transition fade also exists for hiding the navigation panels. There exists also a negative space element that appears that blurs and adds a translucent dark shade to the body/page content. This also exists to allow the user to tap/click a larger/closer  target to exit the navigation - a convenience factor. There was also care taken to the highlighting of the navigation buttons. The blur effect was made to assist the user when focusing on the navigation panel options.</p>
-                            <p>A logic was applied so that the navigation would show you where you are at all times (as a good nav should). This includes the location changing when a specific navigation panel is visible temporarily. If the panel is closed, memory of the last location that was kept is then used to revert back automatically to showing the location of the current page. If the user is using a desktop computer, while they are hovering over a button before clicking it will cause the button to be highlighted while maintaining the highlight of the current location. This is done to indicate that the user’s mouse is in the right position to open that specific navigation panel. But once the user clicks that button, the location changes to the navigation panel of the button, making only the clicked button highlighted. All of the above highlight logic is maintained when clicking on a navigation panel button that routes the user to another page as well as when the user taps/clicks the negative space to close the navigation panel. These highlights are also updated when a button with navigation to a different section is tapped/clicked, so that the navigation is updated. All of this is achieved via a UI.SectionMgmt class that is abstracted above the separations of the Shared components and the Page components in Blazor (which also means that it is above all component boundaries and can be used in all components; this functionality is possible because of what Service classes are originally intended to be used for: for inserting data acquired from the backend API for insertion into specific components via the dependency injection (DI) design pattern that Blazor WASM uses extensively).</p>
-                            <br/>
-                            <h4>Cross-page navigation to a section (HTML bookmarks substitute)</h4>
-                            <p>Engineers often make technical assumptions that they believe are true only to find out later that their assumption doesn’t hold water. This reveals the necessity of programmers to allow room for skepticism about everything they believe they know to be true. More specifically, disproven assumptions appear when something that is believed to be true is true in more than one circumstance, but is not true in every circumstance. This is explained simply by Proverbs 21:11 which in summary shows that the gaining of wisdom (what is deemed “experience”) involves making a person less simple than they were before, or to put it another way, make them more enlightened. A person can be more simple in specific areas than other areas of which they are more wise (have a more complete understanding of the complex nature of something else).</p>
-                            <p>I say all of this, because I was made less simple when building this project. I had assumed that I was going to be able to use an HTML navigation technique that involved using the id property of an HTML element to scroll the user to the element with that id via an anchor element that referenced it. I found out much too late that this functionality does not work everywhere bar none. I concluded with about 95% confidence that this is because HTML bookmarks (what the technique is called) only work for moving the entire web page to that location. It does not work within HTML elements that utilize scrolling within themselves (given to them by the CSS property-value “overflow-y: auto”). My requirement of raising my web app in the DOM made HTML bookmarks unusable.</p>
-                            <p>I had to find another solution. I wanted to have pages that had multiple sections in them so that when viewing on desktop the user can click the sidebar and go straight to that  Not being able to use bookmarks, I recognized I still had sections. Instead of moving the whole scrollable page, I found I could move the relevant content to the visible viewport with logic conditionals. Now if you click the sidebar, that section is “promoted” to the top of the page and all others appear collapsed below it in order. This meant that all sections had to be collapsible. I added the ability to collapse from the header of a section by clicking on it as well as a page-scoped control of the sections fully expanded or to be fully collapsed from the same button. Taking another development step forward, I updated the sections logic so that if the user ever had only one section open, it would be promoted to the top of the page just as if it had been clicked on from the sidebar. All of this works across screen sizes, with the exception of the absence of the sidebar for mobile and tablet screen sizes. This portfolio uses three pages with this functionality: “KnowHow”, “Collyn”, and “Invent”. Space was left for the future in which I either turn the other two pages in a sectioned page or if I decide to strip this project down one day and offer it as an open-source template for the benefit of programmers in the Blazor WASM community. The sectioned pages logic exists as its own class but is instantiated in the UI.SectionMgmt class so as to reap the benefits of being modifiable across navigable pages. Yes, this means that state (properties and fields data) are being kept and used in the UI.SectionMgmt service class. For keeping state in the UI.SectionMgmt class to be useful in the context of Blazor as a single instance, this means particularly that the UI.SectionMgmt class has to be “Singleton” scoped in the Program.cs file and injected as a class instead of as an interface for components that consume it (because an interface does not maintain any state within itself; the primary use case for a service class in Blazor WASM requires only functions (methods) for acquiring data from the backend API; Singleton instantiation as a rule and state in the service class are not required in the effective use of the service class’ primary use case).</p>
-                            <br/>
-                            <h4>Raised and Animated web app container</h4>
-                            <p>Blazor separates layout classes as “Shared” components in their own directory, from the navigable page components of the PWA in the “Pages” directory. Since the Shared components are parents of the Page components (because they are for defining the layout and navigation of the project), the PWA had to be raised in the Shared directory, in the layout component. For certain functional reasons concerning navigation, I wanted to use a layering technique, with layers that are the full size of the housing container for the app. Some elements in these layers are positioned with CSS “position: relative”, to maintain position relative to the element’s parent element whenever the housing container resizes and moves. If there are multiple elements between the final positioned element then this kind of positioning must be done between every parent and child between each other, with correct height and width sizing too. Performing element positioning like this requires you to set the size of the container for child elements before positioning the container, because the container positioning is in part based on how large the container is, either vertically or horizontally. RWD would not be possible without the wonderful CSS width and height percentages which are based on the percentage of the child’s parent component width and height. There are more than 5 sibling elements which are children of the housing container which comprise the layers of the PWA. Additionally, forethought was taken in making sure that since CSS z-indexing is integer-based that enough possibilities for new layers with a new z-index could be added. Each layer is 10 z-index indices apart for this reason.</p>
-                            <p>That’s good and all, but what about the animations? Well, the housing container is suspended horizontally and vertically in the center of its parent element using flexbox. (You can’t have a RWD site without flexbox; even Bootstrap uses flexbox.) With flexbox as the foundation to work on, animations are applied to the housing container using CSS animation @@keyframes. @@Keyframes allow you to change the properties of an element once, twice, thrice, more or an infinite number of times. Seamless looping is achieved by making the element’s property values the same at the start and finish of the animation loop. It is set up by percentages so that you can perform exact element state changes with no smoothness or you can ease in and/or out of animation changes. You can also change the beginning and end states of the animation if you want to (as can be seen with “EastIsUp” and “WestIsUp” animations). When you click a certain animation, a class that has an associated animation is applied to the housing container element, instantly starting the property changes being applied to the element. </p>
+                            <p>In an effort to respect your time, here are some facts and features about this progressive web app:</p>
+                            <ul>
+                                <li>This is a Progressive Web App (PWA); you can install it on your device for offline use. (To find out how to install simply perform a quick Google search for PWA installation for your device type.)</li>
+                                <li>This was built on Blazor WebAssembly as a Single Page Application (SPA).</li>
+                                <li>All logic here is implemented using C# in the browser due to interoperability of C# with WebAssembly. No JS was used in the making of this SPA.</li>
+                                <li>This is built using Responsive Web Design (RWD) for the GUI so that this one app can be used on mobile devices, tablets, and desktops/laptops from a single codebase.</li>
+                                <li>You can animate the global container of this PWA by clicking the magnet icon in the upper right corner or by going to <b>Projects > Layout Controls</b>. (These were added using CSS keyframes attached to CSS classes that are toggled on and off. The idea was implemented to discover its feasibiity for marketing purposes, such as providing a QR code behind the main container that would be revealed when the main container changed its viewport size in a certain way.)</li>
+                                <li>No outside UI libraries are being used except for Bootstrap in some places and FontAwesome for the icons. (Bootstrap could have easily been completely replaced with CSS Flexbox but was not for convenience reasons; CSS and CSS Flexbox are used a lot in this PWA.)</li>
+                                <li>The navigation items and menus are custom built and styled. This app was originally built with 5 menu buttons and has been reduced to 2 for this PWA's purpose. The navigation was designed to be a hybrid of mobile app and website navigation, where you have 5 tabs like a mobile app and by tapping you get access to a sub-menu and perhaps sub-sub-menus as well. It was designed with the aim of being reusable. The nav position across the three resolutions utilizes the same component just with different stylings for configuration and positioning.</li>
+                                <li>Management of the UI changes and routing is done by a single UIService which is injected to each applicable page and component to make the proper changes happen with each user interaction. (For routing within a page events are used to make the page reload since the state change happens outside of the page-scoped component.)</li>
+                                <li>The projects to the left and which are contained here utilize many tests for their application logic. Unit tests have been employed for most of these projects.</li>
+                                <li>(Note: The following is for the purpose of transparency and to demonstrate my abbilities; I understand that under normal circumstances this would be a vulnerability to have as publicly visible:) This PWA is containerized using Docker, hosted on Docker hub and drawn on from an Azure App Service offering automated deployment updates whenever the DockerHub repo is updated with a successful "docker push" command to the appropriate repo.</li>
+                                <li>The use of collapsible sections (suhc as "About" and "Bee Hive Manager System/Game") came at the hands of lack of my own foresight in realizing that HTML bookmarks work only for the scrollable viewport and not for inner HTML elements that have been given a scrolling property. I still wanted to offer the user the ability to see the content they wanted at the click of a sidebar button but was pretty far into the development of this GUI. Now, instead of taking the user to the section like bookmarks do a click brings the section to the user. It was a concept I decided to pursue but likely would not employ in ab business application due to the appearance and slight awkwardness of the container moving and collapsing mechanism.</li>
+                            </ul>
                         </div>
                     </div>
                 }
-                @*Bee Hive Mgmt System*@
-                @if (UI.Sections[16].IsVisible)
+                @*Sudoku Solver*
+                @if (UI.Sections.Dictionary[36].IsVisible)  
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
-                            @if (UI.Sections[16].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                            @if (UI.Sections.Dictionary[36].IsCollapsedHeader == "collapsed-header")
+                            {
+                                   <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                   <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            Sudoku Solver
+                        </div>
+                        <div class="section-content @UI.Sections.Dictionary[36].IsCollapsedContent">
+                            <h3 style="text-align: center;">
+                                Sudoku Solver
+                            </h3>
+                            <div class="proj-desc-buttons">
+                                <a href="sudoku-solver" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Go To Solver
+                                </a>
+                                &nbsp;
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/SudokuSolver.razor"))'>
+                                    View Code
+                                </div>
+                            </div>
+                            
+                            <h4>About Sudoku Solver</h4>
+                            <br>
+                            <ul>
+                                <li>The user can choose a puzzle from the list of defaults or enter a custom puzzle and the program will solve it for the user.</li>
+                                <li>One drawback is when the program was converted from console app to Blazor WASM the main solve algorithm had to use the single UI thread for processing the solve, having the result of the whole PWA appears to freeze while it solves the puzzle. I looked into having a webworker take care of this but since I wanted the PWA to be entirely C# with no additional JS I opted to simply give a disclaimer, at least for now. I might change that in the future.</li>
+                                <li>
+                                    To demonstrate the performance of the sudoku solver when multi-threaded processing is available, please checkout this video where multiple puzzles are solved using MSTest in unit tests. The time of completion of each test is also shown:
+                                </li>
+                            </ul>
+                            <div class="sudoku-video">
+                                *Commented-out YouTube Video*
+                                @*<iframe width="560" height="315" src="https://www.youtube.com/embed/NnWOs29nGVk?si=Mls7ccBYH05XSBrn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>*
+                            </div>
+                            <ul>
+                                <li>The solve algorithm operates in brute-force manner, having an initial whitelist of all candidates for each of the 81 cells, then by process data entry and candidate elimination it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct and if there are no more candidates it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell then it assigns that value to the current cell and eliminates candidates, checks if solvable, and if so, it moves on or it tries another candidate or resets and goes back to the previous cell. I the first cell runs out of candidates, then the puzzle has no solution. If it checks on cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and returns the result.</li>
+                                <li>The puzzle as a data structure is a 2-dimensional matrix of Cell objects. It is important that this 3rd dimension (Cell object) be an encapsulated customized object for purposes of data storage and organization that the program can call Cell object methods on no matter which cell the program is currently working with; otherwise with a 3-dimensional matrix you would simply have the first value in the 3rd dimension be the current value and the other values after it be the candidates but without the ability to have attached methods, though I suppose you could go a functional route with this, there would still be the matter of it needing a custom type to confirm the value being operated on is the right value.</li>
+                                <li>The solvability check is based on all cells in each row, each column, and each block/square (I tried to avoid the term "square" since this could be mistaken for a Cell or a Block and these are definitely different things). Through dependency injection each Cell is inserted into its approrpiate row, column, and block object at the start of the solve algorithm as algorithm setup so that each Cell has a row, column, and block that it is reference by and belongs to. It is in this way that the algorithm is not querying on all cells, but only calling a method of a specific row or column or block at any given point in the algorithm to perform operations on the Cells that belong to that grouping.</li>
+                                <li>The unit tests for this program run significantly longer than the other projects here since the unit tests are testing full puzzles in some cases for correct system behavior.</li>
+                            </ul>
+                            <br/>
+                            <h4>Background</h4>
+                            <br />
+                            <p>
+                                I was visiting relatives in Shreveport, LA when my father-in-law (an engineer of many sorts) recommended that since I like solving Sudoku puzzles so much that I should try writing a program that solves them. It was such an irresistable idea that I started orking on the project (as a console app at first) to try and work out how it would even work.
+                            </p>
+                            <p>
+                                After struggling to get it to solve the way that I would normally solve (with a desire to utilize fewer steps than it would take to solve doing brute-force solving, in an effort to not be wasteful of resources and decrease the quantity of steps/solve time), I came to realize that it would take many more steps to try and solve it the way I would normally solve it compared to brute-force solving. A console app is not capable of processing data in a visual way like I can, and to try and work around this deficiency is quite a task. It can be done, but it would require a much larger program (at least based on what I know in my programming experience so far). Brute-force solving showed to have many fewer steps and was also more straightforward in programmatic approach. Other than this, the only notable thing is that I had a hard time deciding what the levels of abstraction were supposed to be when converting from console app to Blazor WASM. I think I settled on a sufficient abstraction structure.
+                            </p>
+                            <br />
+                        </div>
+                    </div>
+                }
+                @*Bee Hive Manager*
+                @if (UI.Sections.Dictionary[16].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections.Dictionary[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
+                            @if (UI.Sections.Dictionary[16].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            Bee Hive Manager System/Game - Project
+                            Bee Hive Manager
                         </div>
-                        <div class="section-content @UI.Sections[16].IsCollapsedContent">
-                            <h3 style="text-align: center;">Bee Hive Manager System/Game</h3>
+                        <div class="section-content @UI.Sections.Dictionary[16].IsCollapsedContent">
+                            <h3 style="text-align: center;">Bee Hive Manager</h3>
                             <div class="proj-desc-buttons">
                                 <a href="beehivemgmtsystem" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/BeeHiveMgmtSystem"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <p>April 26th, 2023</p>
                             <h4>Introducing the Hive</h4>
                             <br />
                             <p>
-                                This project was a part of Chapter 6 of <i>Headfirst C# (4th Edition)</i> by Andrew Stallman and Jennifer Greene. The chapter covered the topic of inheritance in-depth. This project is designed to show how inheritance can be used to require members to be present in child classes through use of a regular or abstract class. In this system, the user is the Queen Bee who inherits from the Bee class. All bees inherit from the Bee class, and each Bee has a job to do and an amount of honey that they consume per shift of work done before doing their job. If they don’t eat, they don’t work - but they will eat what they can. The bees are pretty lazy, so they won’t work unless the QueenBee tells them to as part of her job. If she doesn’t eat (which she of course eats first), then no one else eats and the hive goes bankrupt.
+                            <br>
+                                I programmed this game from Ch6 of the book <i>Headfirst C# (4th Edition)</i> by Andrew Stallman and Jennifer Greene. It taught inheritance through use of a Bee abstract class from which all bees, including the queen (the executive), inherit from. It also taught implementation of interfaces in classes, in particular the IWorker interface for bees that are able to work, demonstrating the purpose of interfaces as contracts. In this case, the abstract Bee class was implemented with the IWorker interface, so all bees had a had a WorkerType and "WorkNextShift()" method. It also taught how OOP could be used to model the BeeHive domain, making the code more expressive in meaning.
                             </p>
                             <p>
-                                There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, EggNurses nurse eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Been makes honey each shift from currently available nectar. If there is no nectar, no honey gets made.The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below
+                                The Queen Bee has different types of bees where each bee type assumes a role in the hive and is able to perform unique functions in the hive compared to the other bees. The bees are pretty lazy, so they won’t work unless the QueenBee tells them to as part of her job. If she doesn’t eat (which she of course eats first), then no one else eats and the hive goes bankrupt.
+                            </p>
+                            <p>
+                                There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, EggNurses nurse eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Bee makes honey each shift from currently available nectar. If there is no nectar, no honey gets made.The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below
                             </p>
                             <div class="wpf-image">
                                 <img src="media/images/beeHiveGame/BeeHiveFeedbackLoopsDiagram.png">
@@ -204,7 +220,6 @@
                             <br />
                             <br />
                             <h4>Bee Hive Build Progression</h4>
-                            <br>
                             <p>
                                 This project was originally written with a WPF front-end (which is coded in XAML). It looked like this once it was all prepared:
                             </p>
@@ -212,63 +227,63 @@
                                 <img src="media/images/beeHiveGame/BeeHiveGameWPF.png">
                             </div>
                             <p>
-                                The classes were built in a normal progression, from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen who is able to do the most out of all the classes. It is the QueenBee’s inherited method “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
-                            </p>
-                            <p>
-                                The system had two modes: a stepwise mode and a real-time mode. The real-time mode involved a timer applied to the “Work Next Shift” button which would simulate being clicked every 1.5 seconds. When the game was moved from WPF (XAML) to Blazor WASM for this WPF, the DispatchTimer was replaced with System. Timers.Timer.
-                            </p>
-                            <p>
-                                The initial project was not intended to be a full game (that was outside of its scope). When it was migrated and adapted to Blazor WASM for this PWA, those aspects of gameplay needed to be introduced into the game. The readability of a plain text paragraph that updated each shift was not ideal for an enjoyable user experience (and it could definitely look nicer too). A BeeHiveController class was introduced to free the data from its plaintext paragraph to have specific styles and positions applied to each data point. (It is understood that controllers are not generally supposed to be responsible for data manipulation, but they are normally used for transferring prepared data to a view. In this case the controller does both. This is due to lack of a better term.)
-                            </p>
-                            <p>
-                                As developments in the game’s view occurred, I left semi-prepared versions of points where the game was somewhat complete as that view’s current idea. This is for the benefit of the user to compare improvements over the progression of the view’s development. In developing the view, reliability was of the utmost concern. Things like spacing, font-size, RWD, related information location, visibility of rates and addition of data markers which build on top of those rates are all examples of the kinds of improvements that went into the game.
-                            </p>
-                            <p>
-                                Late in development when the timer for Blazor WASM was being implemented, the issue of updating the view component became a problem. Since updating the whole component looked to be a problem, the view for version 3 was moved to a separate component. This led to splitting up the view logic across two components. The logic was extracted and housed as a C#-coded singleton with references added for each component. By this point, what I had not realized is that 2 consecutive requirements had eliminated the need for the first requirement. So I ended up moving the version 3 view component markup back into its original component and deleting the other component once I was sure I no longer needed it (this eliminated unneeded complexity). The root of the issue is that the data values were being obtained through C3 property Get methods, and these Get methods had nothing to trigger their method when data in the “model” of the game was updated. What accomplished the triggering of the methods is an event tied to the timer’s elapsed method, so that after all values were updated in the “model”, the event would be triggered, and the subscribed method in the code section of the Razor component can invoke the “StateHasChanged()” razor method that re-renders the component manually - presenting the updated rates in the component.
+                                The classes were built in order from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen who is able to do the most out of all the classes. It is the QueenBee’s inherited method “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
                             </p>
                             <br />
-                            <h4>Project Take Aways</h4>
-                            <br>
+                            <h4>Stepwise Mode and Real-time Mode</h4>
                             <p>
-                                Singletons and DI: Migrating this game and developing its view brought me to appreciate how useful the Singleton and DI design patterns are when used together (I learned about how to code Singletons during this project while learning from ChatGPT). I was able to utilize C#-coded Singletons to house a single instance of code that I wanted referenced in multiple places. I came to see that the UI.SectionMgmt class which I had created for the PWA is useful the way it is because it is a Singleton. I discovered that I don’t need to keep the UI.SectionMgmt class as a registered Blazor WASM service after all - it can be its own code and then be removed from a domain of the project that is supposed to be solely responsible for data request and validation.
-                            </p>
-                            <p>
-                                Tabs Add Space: This is now the second place where I have added a tab-like functionality to the view. Since I am very interested in the development of the future of PWA for mobile devices, and since space seems to be an issue when creating RWD for mobile screens - it appears that in-view tabs have the ability to create space in a compact and easily navigable fashion. You can even use a single component to accomplish this with C#/Razor component conditionals if you are using Blazor WASM. I am now wondering (since I have just witnessed Windows 11’s update to their File Explorer, giving it tabs) that there are likely UI improvements that can make tabs appear nicer or more obvious, the way browsers present them. (When I was in college, I read in a UX/UI book that the best way to do RWD is to start with mobile first. It is much easier to add than to remove things once you have added them. When you aim to optimize for mobile, you are putting the largest user category first (mobile users). When you design mobile-first, you are left with much more space for larger screens, and this is because the designer tries to make the most out of the little space that he has first - a tighter constraint - than if he were to start with more and move to less. No, start with less, and later on the acquisition of more space will be adequately appreciated and utilized even better than previously.)
+                                This BeeHive game includes two modes: a Stepwise mode and a Real-time mode. The Real-time mode uses a timer that simulates a “mouse click” to the “Work Next Shift” button every 1.5 seconds; this can be turned on via the settings in this GUI implementation. The console version and the GUI version utilized different timers for each of their implementations (WPF (XAML) had a Dispatch timer while Blazor WASM uses a System.Timers.Timer).
                             </p>
                             <br />
-                            <h4>Upcoming Plans</h4>
-                            <br>
+                            <h4>Scope-Change</h4>
                             <p>
-                                At this point in time I have created a new PanelMgmt singleton for potentially managing all panels used in the project, so that when one is selected, if any others are open then they will be closed before opening the panel selected. Logic for classes applied to each panel are housed in PanelMgmt (including for activated appearance of the selected button), relieving single components from having to implement their own view panel logic. A new panel’s logic can be created and labeled in the PanelMgmt singleton class and plugged in wherever it is needed through adding a PanelMgmt reference to the component. The UI.SectionMgmt class already manages its own panels in this way, so after I migrate the UI.SectionMgmt class to be an unregistered C#-coded singleton I plan to migrate the UI.SectionMgmt panels to the PanelMgmt singleton, and then with a reference to PanelMgmt in the UI.SectionMgmt class, the UI.SectionMgmt class can tell the PanelMgmt class what to do when certain navigation actions occur.
+                                The original project’s scope was educational for hands-on learning. The version you see here has been expanded beyond the original educational intent of the book project. I updated the paragraph text interface to be broken out into modular aspects of the GUI that held meaning on their own and arranged them to clarify the relationships between the values as the user interacted with the game.
                             </p>
+                            <br />
+                            <h4>UI Versions</h4>
                             <p>
-                                A lot of ideas for this BeeHive game emerged, and the top ideas I want to implement at some point include (1) settings with checkboxes that can make certain rates not visible, (2) add ability to change the game-defining rate and conversion values that were given by the project’s author (as well ability to revert to defaults),  I would like to (3) add a “Worker Lineup” of all workers and the order in which they will work when the next shift starts (since  worker order does matter; a series of small actions does not have the same effect as the sum of the actions happening at one single point in time), and (4) add a “Transaction Ledger” for all transactions that occur for each worker, in order, showing a running balance of the total amount of honey (and nectar, space permitting) that is currently in the Vault.
+                                You will notice that there are a few different versions able to be viewed above the game. All versions of the UI that can be interacted with all pull from the same data, so as you interact with the game, you can see what the state of the game looks like in those other UIs.
+                            </p>
+                            <br />
+                            <h4>Updating Blazor Components from Outside the Component</h4>
+                            <p>
+                                I had to rangle with the Blazor components updating mechanism (StateHasChanged() method). I was wanting to update the view once the data processing had been completed, but I had no way to do that from the singleton of the game which existed outside of the view. I found events to be useful for forcing a re-render whenever the singleton wanted to.
+                            </p>
+                            <br />
+                            <h4>Discovering the Value of Singleton Design Pattern</h4>
+                            <p>
+                                I discovered during this project’s development that singletons are very useful as an OOP design pattern. I also learned that singletons can be used well across multiple Blazor components. I learned from ChatGPT how to code a stand-alone class-based singleton. I also realized that Blazor services which are injected into Blazor components function very much in the same was as the way I was using singletons; to this day (3/19/2024) I haven’t had to use one feature that injected services offer that singletons do not also offer. It has become a matter of preference (and I am sure there are things services can do that singletons cannot).
+                            </p>
+                            <br />
+                            <h4>Creating More GUI Space</h4>
+                            <p>
+                                Additionally I also learned that using tabs can create a lot of UI space that is easily navigable. This became especially useful considering my desire to do mobile-first RWD where screen space on mobile devices is much more limited than on tablets and laptops/desktops. (I usually prefer mobile-first RWD specifically because it was pointed out to me that it is easier to add to an app than to subtract from it.)
                             </p>
                         </div>
                     </div>
                 }
-                @*Hide & Seek*@
-                @if (UI.Sections[15].IsVisible)
+                @*Hide & Seek*
+                @if (UI.Sections.Dictionary[15].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
-                            @if(UI.Sections[15].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
+                            @if(UI.Sections.Dictionary[15].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            Hide & Seek Game - Project
+                            Hide & Seek Game
                         </div>
-                        <div class="section-content @UI.Sections[15].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[15].IsCollapsedContent">
                             <h3 style="text-align: center;">Hide and Seek Game</h3>
                             <div class="proj-desc-buttons">
                                 <a href="hideandseek" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/HideAndSeekProject" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/tree/main/ProfessionalWebsite/Client/Classes/HideAndSeekProject"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <br/>
                             <h4>Introduction</h4>
@@ -293,19 +308,19 @@
                         </div>
                     </div>
                 }
-                @*Match Game*@
-                @if (UI.Sections[33].IsVisible)
+                @*Match Game*
+                @if (UI.Sections.Dictionary[33].IsVisible) 
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
-                            @if(UI.Sections[33].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
+                            @if(UI.Sections.Dictionary[33].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
-                            Match Game - Project
+                            Match Game
                         </div>
-                        <div class="section-content @UI.Sections[33].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[33].IsCollapsedContent">
                             <h3 style="text-align: center;">
                                 Match Game
                             </h3>
@@ -314,9 +329,9 @@
                                     Go To Game
                                 </a>
                                 &nbsp;
-                                <a href="https://github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/MatchGame.razor.cs" target="_blank" class="btn btn-primary">
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/MatchGame.razor.cs"))'>
                                     View Code
-                                </a>
+                                </div>
                             </div>
                             <p>May 11th, 2023</p>
                             <h4>Introduction</h4>
@@ -339,19 +354,61 @@
                         </div>
                     </div>
                 }
-                @*Frontend*@
-                @if (UI.Sections[3].IsVisible)
+                @* Counter + Spinners *
+                @if (UI.Sections.Dictionary[35].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
-                            @if(UI.Sections[3].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
+                            @if (UI.Sections.Dictionary[35].IsCollapsedHeader == "collapsed-header")
+                            {   <i class="fa fa-chevron-right"/>   }
+                            else
+                            {   <i class="fa fa-chevron-down"/>   }
+                            &nbsp;
+                            Counter + Spinners
+                        </div>
+                        <div class="section-content @UI.Sections.Dictionary[35].IsCollapsedContent">
+                            <h4 style="text-align: center;">Counter</h4>
+                            <div class="proj-desc-buttons">
+                                <a href="counter" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Go To Counter
+                                </a>
+                                &nbsp;
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/Counter.razor"))'>
+                                    View Code
+                                </div>
+                            </div>
+                            <p>
+                                Counter is a simple applet that counts in different ways. The origin of Counter is from the default Blazor Web Assembly template which comes with a Counter, but not the one seen here. The counter seen here has been augmented with multiple new abilities including being a quantified visual counter instead of an arabic numeral counter. It also allows the user to count up and down by a custom amount, reset, change color, change shape, and change size.
+                            </p>
+                            <h4 style="text-align: center;">Spinners</h4>
+                            <div class="proj-desc-buttons">
+                                <a href="spinners" class="btn btn-primary" @onclick="(()=>UI.UpdatePanelsWhenNavigating(2))">
+                                    Go To Spinners
+                                </a>
+                                &nbsp;
+                                <div class="btn btn-primary" @onclick='(()=>ActivateDisclaimerPanel("github.com/CCBrenner/professional-website/blob/main/ProfessionalWebsite/Client/Pages/LoadingSpinners.razor"))'>
+                                    View Code
+                                </div>
+                            </div>
+                            <p>
+                                For visual appeal and for seeing what is possible using CSS keyframes. This PWA uses the first spinner in this list on its loading screen (reload this page to view it very briefly). The spin is accomplished by changing the X, Y, and/or Z rotation over a specified period of time. The looping behavior comes as a result of starting and stopping the same position for the spinner's full animation loop.
+                            </p>
+                        </div>
+                    </div>
+                }
+                @*Frontend*
+                @if (UI.Sections.Dictionary[3].IsVisible)
+                {
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections.Dictionary[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
+                            @if(UI.Sections.Dictionary[3].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Front-End
                         </div>
-                        <div class="section-content @UI.Sections[3].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[3].IsCollapsedContent">
                             <p>
                                 My introduction to coding was through FreeCodeCamp using JavaScript. This led me naturally into developing web sites with HTML and CSS along with JS. I would say I have a particular affinity for clean, functional, modular user interfaces that look very nice by themselves and then make the user feel really good through simplicity and handling things for them in ways that communicate thoughtfulness. It is important to make designs intuitive when making interfaces, and this usually means gleaning from many different users and the decisions they make when navigating a GUI. It seems as though the key to an intuitive interface is learning through interaction, enabled by simplistic design, and finding things where you expect them to be. I am glad we now have moved into the age of SPAs and component-based architecture because it allows for UI components to be reused in the same way classes are, reducing code which generally translates into less for the programmer to manage (in many cases).
                             </p>
@@ -364,19 +421,19 @@
                         </div>
                     </div>
                 }
-                @*Back-end*@
-                @if (UI.Sections[1].IsVisible)
+                @*Back-end*
+                @if (UI.Sections.Dictionary[1].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[1].IsCollapsedHeader" @onclick="(()=>ToggleSection(1))">
-                            @if(UI.Sections[1].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[1].IsCollapsedHeader" @onclick="(()=>ToggleSection(1))">
+                            @if(UI.Sections.Dictionary[1].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Back-end
                         </div>
-                        <div class="section-content @UI.Sections[1].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[1].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">Back-end</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -391,19 +448,19 @@
                         </div>
                     </div>
                 }
-                @*UX/UI + Modeling Software*@
-                @if (UI.Sections[4].IsVisible)
+                @*UX/UI + Modeling Software*
+                @if (UI.Sections.Dictionary[4].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
-                            @if(UI.Sections[4].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
+                            @if(UI.Sections.Dictionary[4].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             UX/UI + Modeling Software
                         </div>
-                        <div class="section-content @UI.Sections[4].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[4].IsCollapsedContent">
                             <br/>
                             <h3 class="text-center">UX/UI + Modeling Software</h3>
                             <p style="color: red; text-align: center;">SECTION NOT FINISHED - NEEDS TNU CLASS CONTENT, EXPERIENCE, AND MODELING SOFTWARE</p>
@@ -424,19 +481,19 @@
                         </div>
                     </div>
                 }
-                @*Cloud Deployment + Containers*@
-                @if (UI.Sections[5].IsVisible)
+                @*Cloud Deployment + Containers*
+                @if (UI.Sections.Dictionary[5].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
-                            @if(UI.Sections[5].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
+                            @if(UI.Sections.Dictionary[5].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Cloud Deployment + Containers
                         </div>
-                        <div class="section-content @UI.Sections[5].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[5].IsCollapsedContent">
                             <p>Kubernetes container management and microservices architecture has come to dominate the cloud services industry even to the degree of creating several types of technical certifications for roles within specific cloud infrastructure providers such as AWS and Azure. Docker has become the #1 container tool used by devops teams and other development teams for the streamlining of development and production release pipelines. Leveraging this kind of infrastructure and technology is proving to be high in controllability based on fluctuating application service demands, and so it has become very useful to have knowledge of how development inside of containers benefits a company or organization. The software developer does well when he or she learns how a tool like Docker works to bring many benefits to an application.</p>
                             <p>The cloud has consolidated itself away from the older models of on-site technology infrastructure management. Cloud infrastructure serves many clients instead of just one, and in so doing has increased the level of security and quality of service that can be offered to business. This has also introduced tiered service levels based on the amount of customizability/control/responsibility a business wants to have over the cloud resources it pays to use. The three largest categorizations of cloud services are IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service). IaaS offers the most control, SaaS offers the most out-of-the-box pre-configuration and least control, while PaaS falls somewhere between the other two with benefits and drawbacks of both of the other options.</p>
                             <p>When talking about containers, we are talking about virtual machine environments that can be created on-demand through the use of a template which exists in the form of a container image. Docker offers a way to create such images so that the creation of the container is consistent across every container based on the container image used. The image is composed of layers. The layers allow Docker to reduce the amount of work by skipping over the layers that have not changed and beginning with the first layer in the sequence that has changed (in the case of updating a container). However, the layers are always read in order, so that if layer 3 has changed but layer 5 has not, Docker will begin building at layer three, then go to 4 then go to 5 and so on until all layers have been completed to create the container environment.</p>
@@ -445,19 +502,19 @@
                         </div>
                     </div>
                 }
-                @*Databases*@
-                @if (UI.Sections[6].IsVisible)
+                @*Databases*
+                @if (UI.Sections.Dictionary[6].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
-                            @if(UI.Sections[6].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
+                            @if(UI.Sections.Dictionary[6].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Databases
                         </div>
-                        <div class="section-content @UI.Sections[6].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[6].IsCollapsedContent">
                             <p>With any software program you make, you are going to want to keep the data you want to keep for long-term purposes separate from your system processes. This is the main purpose of databases, to serve as persistent storage for data that your program depends on. The database is often so fundamental to the operation of a system that terms such as data-driven design and domain-driven design (DDD) are common terms software programmers are familiar with today. These terms point to the greatest benefit of the internet, which is that data is accessible to the greatest number of people in the greatest number of ways and in the greatest number of places. And so a database is most concerned with keeping data safe yet accessible. </p>
                             <p>There are two camps that databases fall into. These are SQL databases and everything else which we have given the term “NoSQL” databases.</p>
                             <p>Some examples of SQL databases are MySQl, SQL Server, and PostgreSQL. SQL databases are composed of tables, in which each table has a set of rows and each row a number of columns that store values that are common to all rows in the table. SQL gets its name from the common language used to access SQl databases, the name of the language used being SQL. SQL employs a method for reducing the amount of duplicate data stored in the database tables and upholds a standard of formatting that keeps the data in an optimal structure and form for access and modification. When a programmer applies such rules to a SQL database we call the process normalization. There are different degrees of normalization, but the minimum desired level of normalization by most programmers is 3NF or the “3rd Normal Form”. SQL databases also apply rules for access that are described by the acronym ACID which stands for Atomicity, Consistency, Isolation, and Durability. These are applied to the transaction performed on a SQL database to maintain the integrity of the data in the database. SQL databases utilize transactions which ensure that once a process has begun, the entire process must be completed or else no changes are made to the SQL database. SQL databases are commonly used with monolithic software architectures, but they don’t have to be. SQL databases typically serve as a single source of truth, meaning that the data of a SQL database is found geographically in one place and one place only. One way to increase performance is to divide a SQL database into shards, where the data of the database that most closely serves a people group of a certain geography have their data stored on a server that is physically closer to the user. </p>
@@ -465,18 +522,18 @@
                         </div>
                     </div>
                 }
-                @*Testing*@
-                @if (UI.Sections[7].IsVisible)
+                @*Testing*
+                @if (UI.Sections.Dictionary[7].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
-                            @if(UI.Sections[7].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
+                            @if(UI.Sections.Dictionary[7].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Testing                        </div>
-                        <div class="section-content @UI.Sections[7].IsCollapsedContent"> `
+                        <div class="section-content @UI.Sections.Dictionary[7].IsCollapsedContent"> `
                             <p>In web development there are generally three major types of testing: unit testing, integration testing, and end-to-end testing. There are other kinds of tests that can be performed, like usability tests, regression tests, sanity tests, and smoke tests. The goal of tests is to prove your system works the way you intend and expect it to. On the topic of expected behavior I would like to take a detour and talk about Test-Driven Development (TDD).</p>
                             <p><b>Test-Driven Development (TDD)</b> is the name of the software game today and if you don’t know how to do it then you may be left behind. TDD is concerned with unit tests and can better be conceptualized by turning the T into B, giving us Behavior-Driven Development. BDD is accomplished when the method of writing code is to define a number of <b>tests first</b> based on the desired <b>behaviors</b> you wish to see in your application. The tests you create help you nail down the program behavior as your top priority and focus. These tests put the business rules first and give you a means for checking if your code works the way you expect it to.</p>
                             <p>With TDD/BDD (“behavior tests”) you start with the name of the test as the described behavior in human-readable terms, then you use either ”Arrange, Act, Assert” or “Given, When, Then” schemas as guiding steps for the three parts of each test. When you have finished writing the test, create the shells of any of the new methods introduced in your test, throwing new “NotIMplementedException” exceptions for each new method. Then you run the test and make sure that it *fails* (because there is no code for the test to use to satisfy the assertions of the test). Making sure it fails ensures your test works well enough to at minimum not give you a false positive (or no result at all). Once you get the test to fail, then you are ready to start defining the logic of the different methods used in the test. Then once the code is completed, run the tests again and try to get the code to pass the test. It is through TDD/BDD that you as the programmer are focused on what matters most with the business rules at the forefront of your mind, creating a means for testing whether you’ve created the right code, and then all that’s left to do is write the code.</p>
@@ -485,19 +542,19 @@
                         </div>
                     </div>
                 }
-                @*Why Programming?*@
-                @if (UI.Sections[13].IsVisible)
+                @*Why Programming?*
+                @if (UI.Sections.Dictionary[13].IsVisible)
                 {
                     <div class="section-container">
-                        <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
-                            @if(UI.Sections[13].IsCollapsedHeader == "collapsed-header")
+                        <div class="section-header @UI.Sections.Dictionary[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
+                            @if(UI.Sections.Dictionary[13].IsCollapsedHeader == "collapsed-header")
                             {   <i class="fa fa-chevron-right"/>   }
                             else
                             {   <i class="fa fa-chevron-down"/>   }
                             &nbsp;
                             Why Programming?
                         </div>
-                        <div class="section-content @UI.Sections[13].IsCollapsedContent">
+                        <div class="section-content @UI.Sections.Dictionary[13].IsCollapsedContent">
                             <p>Creating high-capability, highly-accessible technology. Devices that are most used are mobile devices because of high accessibility on-the-go, so I really think the future is in innovating mobile apps to have more space in the UI while maintaining excellent UX</p>
                             <p>Blazor + .NET 8’s customizable hybrid approach to web software infrastructure (having to do with performance)</p>
                             <p>Introduction of gaming UX/UI venturing  gaming as a competitive web UI-building tool (WebGL + Unity, could be enhanced by WASM/Emscripten)</p>
@@ -506,120 +563,194 @@
                     </div>
                 }
                 @*mocks of above sections for user clickability (user won't tell difference between the mocks & originals)*@
-                @if (UI.SectionedPages[1].ASectionIsCurrentlyPromo)
+                @*Contact*
+                @if (UI.Sections.Dictionary[34].IsVisible)
                 {
-                    @if (!UI.Sections[0].IsCurrentPromo)
+                    <div class="section-container">
+                        <div class="section-header @UI.Sections.Dictionary[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                            @if (UI.Sections.Dictionary[34].IsCollapsedHeader == "collapsed-header")
+                            {
+                                <i class="fa fa-chevron-right" />
+                            }
+                            else
+                            {
+                                <i class="fa fa-chevron-down" />
+                            }
+                            &nbsp;
+                            Contact
+                        </div>
+                        <div class="section-content @UI.Sections.Dictionary[34].IsCollapsedContent">
+                            <Contact />
+                        </div>
+                    </div>
+                }
+                @if (UI.ASectionIsCurrentlyPromo(1))
+                {
+                    @*
+                    @if (!UI.Sections.Dictionary[0].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
+                            <div class="section-header @UI.Sections.Dictionary[0].IsCollapsedHeader" @onclick="(()=>ToggleSection(0))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Overview
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[14].IsCurrentPromo)
+                    *
+                    @if (!UI.Sections.Dictionary[14].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
+                            <div class="section-header @UI.Sections.Dictionary[14].IsCollapsedHeader" @onclick="(()=>ToggleSection(14))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 About This Web App
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[16].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[16].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
+                            <div class="section-header @UI.Sections.Dictionary[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(16))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Bee Hive Manager System/Game - Project
+                                Bee Hive Manager
                             </div>
                         </div>
                     } 
-                    @if (!UI.Sections[15].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[15].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
+                            <div class="section-header @UI.Sections.Dictionary[15].IsCollapsedHeader" @onclick="(()=>ToggleSection(15))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Hide & Seek Game - Project
+                                Hide & Seek Game
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[33].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[33].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[16].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
+                            <div class="section-header @UI.Sections.Dictionary[33].IsCollapsedHeader" @onclick="(()=>ToggleSection(33))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
-                                Match Game - Project
+                                Match Game
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[3].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[36].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
+                            <div class="section-header @UI.Sections.Dictionary[36].IsCollapsedHeader" @onclick="(()=>ToggleSection(36))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Sudoku Solver
+                            </div>
+                        </div>
+                    }
+                    @if (!UI.Sections.Dictionary[35].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections.Dictionary[35].IsCollapsedHeader" @onclick="(()=>ToggleSection(35))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Counter + Spinners
+                            </div>
+                        </div>
+                    }
+                    @*
+                    @if (!UI.Sections.Dictionary[3].IsCurrentPromo)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections.Dictionary[3].IsCollapsedHeader" @onclick="(()=>ToggleSection(3))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Front-End
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[4].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[4].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
+                            <div class="section-header @UI.Sections.Dictionary[4].IsCollapsedHeader" @onclick="(()=>ToggleSection(4))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 UX/UI + Modeling Software
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[5].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[5].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
+                            <div class="section-header @UI.Sections.Dictionary[5].IsCollapsedHeader" @onclick="(()=>ToggleSection(5))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Cloud Deployment + Containers
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[6].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[6].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
+                            <div class="section-header @UI.Sections.Dictionary[6].IsCollapsedHeader" @onclick="(()=>ToggleSection(6))">
                                 <i class="fa fa-chevron-right"/>
                                 &nbsp;
                                 Databases
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[7].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[7].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
+                            <div class="section-header @UI.Sections.Dictionary[7].IsCollapsedHeader" @onclick="(()=>ToggleSection(7))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Testing
                             </div>
                         </div>
                     }
-                    @if (!UI.Sections[13].IsCurrentPromo)
+                    @if (!UI.Sections.Dictionary[13].IsCurrentPromo)
                     {
                         <div class="section-container">
-                            <div class="section-header @UI.Sections[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
+                            <div class="section-header @UI.Sections.Dictionary[13].IsCollapsedHeader" @onclick="(()=>ToggleSection(13))">
                                 <i class="fa fa-chevron-right" />
                                 &nbsp;
                                 Why Programming?
                             </div>
                         </div>
                     }
+                    *@
+                    @*Contact*
+                    @if (!UI.Sections.Dictionary[34].IsVisible)
+                    {
+                        <div class="section-container">
+                            <div class="section-header @UI.Sections.Dictionary[34].IsCollapsedHeader" @onclick="(()=>ToggleSection(34))">
+                                <i class="fa fa-chevron-right" />
+                                &nbsp;
+                                Contact
+                            </div>
+                        </div>
+                    }
                 }
                 <SectionedPageSectionsToggle PageId="1"/>
+            </div>
+            <div class="behindpanel @UI.Panels.Dictionary[9].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+            <div class="settings-panel @UI.Panels.Dictionary[9].PanelStatus">
+                <h3 class="text-center">Disclaimer</h3>
+                <p>
+                    The following is publicly viewable source code for this web app. Note that normally this would not at all be allowed by the developer (me, Collyn Brenner) in a business application or website. However, for the purposes of transparency in this web app, which is to demonstrate my capabilities, the source code has been made public for viewing as a rare exception.
+                </p>
+                <p>
+                    I (Collyn Brenner) would otherwise NEVER allow the source code of an active production website or program to be publicly visible.
+                </p>
+                <div class="disclaimer-panel-buttons-container">
+                    <div @onclick="ContinueToViewCode" class="btn btn-primary">Continue</div>
+                    <div class="settings-bottom-container btn btn-secondary">
+                        <div class="settings-close" @onclick="(()=>UI.DeactivatePanel(9))">
+                            Close
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </PageContent>
@@ -627,6 +758,7 @@
 
 @code {
     private bool testHistoryIsExpanded = false;
+    private string viewCodeUrl = string.Empty;
 
     [Parameter]
     public int SectionId { get; set; } = 0;
@@ -636,17 +768,37 @@
         UI.NavigateToSection(SectionId);
         UI.OnUiServiceChanged += UpdateThisComponent;
     }
-    void IDisposable.Dispose()
-    {
+
+    void IDisposable.Dispose() =>
         UI.OnUiServiceChanged -= UpdateThisComponent;
-    }
+
     private void UpdateThisComponent(string meaninglessRequirement) =>
         StateHasChanged();
+
+    private void ActivateDisclaimerPanel(string projectCodeUrl)
+    {
+        UI.ActivatePanel(9);  // Activate the appropriate panel
+        viewCodeUrl = projectCodeUrl;  // URL of unique project to be used upon next navigation
+    }
+
+    private async void ContinueToViewCode()
+    {
+        await OpenViewCodeUrlInNewTab();
+        UI.DeactivatePanel(9);
+        viewCodeUrl = string.Empty;
+    }
+    private async Task OpenViewCodeUrlInNewTab() =>  // Tested: Successful.
+        await JSRuntime.InvokeVoidAsync("open", $"https://{viewCodeUrl}", "_blank");
+
+    private async Task Alert() =>  // tested: Successful.
+        await JSRuntime.InvokeVoidAsync("alert", "This is an alert! Supp");
+
     private void ToggleTestHistoryIsExpanded() =>
         testHistoryIsExpanded = !testHistoryIsExpanded;
+
     private void ToggleSection(int secId)
     {
         UI.ToggleSection(secId);
-        Navigation.NavigateTo($"knowhow/{secId}");
+        Navigation.NavigateTo($"projectinfo/{secId}");
     }
-}
+}*@

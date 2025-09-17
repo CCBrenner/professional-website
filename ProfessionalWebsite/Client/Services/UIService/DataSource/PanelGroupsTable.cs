@@ -2,17 +2,17 @@
 
 internal sealed class PanelGroupsTable
 {
-    internal static Dictionary<int, PanelGroup> GetPanelGroupsDict()
+    internal static Dictionary<int, PanelGroup> GetDictionary()
     {
         Dictionary<int, PanelGroup> panelGroupsDict = new();
 
-        foreach (PanelGroup panelGroup in GetPanelGroups())
+        foreach (PanelGroup panelGroup in GetList())
             panelGroupsDict.Add(panelGroup.Id, panelGroup);
 
         return panelGroupsDict;
     }
-    internal static List<PanelGroup> GetPanelGroups() => new()
+    internal static List<PanelGroup> GetList() => new()
     {
-        PanelGroup.Create(0, 4),  // _nav panels
+        PanelGroup.Create(0, 10),  // _nav panels
     };
 }

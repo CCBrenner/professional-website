@@ -9,9 +9,7 @@ public class Puzzle : IPuzzle
         List<Column> columns,
         List<Block> blocks,
         List<BlockRow> blockRows,
-        List<BlockColumn> blockClumns,
-        TxnLedger ledger,
-        ISolver solver)
+        List<BlockColumn> blockClumns)
     {
         Matrix = puzzleMatrix;
         StartingIntMatrix = MatrixFactory.GetBlankMatrix();
@@ -22,8 +20,6 @@ public class Puzzle : IPuzzle
         Blocks = blocks;
         BlockRows = blockRows;
         BlockClumns = blockClumns;
-        Ledger = ledger;
-        _solver = solver;
     }
 
     public Cell[,] Matrix { get; private set; }
@@ -33,21 +29,20 @@ public class Puzzle : IPuzzle
     public List<Block> Blocks { get; private set; }
     public List<BlockRow> BlockRows { get; private set; }
     public List<BlockColumn> BlockClumns { get; private set; }
-    public TxnLedger Ledger { get; }
-    private ISolver _solver;
-    public decimal StopwatchTime => _solver.StopwatchTime;
-    public bool SolveHasStarted => _solver.SolveHasStarted;
-    public int ProgressPercentage => _solver.ProgressPercentage;
+    //public TxnLedger Ledger { get; }
+    public ISolver Solver { get; private set; }
     public int[,] StartingIntMatrix { get; }
     public int[,] StartingIntMatrixToSuperimpose { get; }
     public bool NoExpectedCellValuesInCells => GetNoExpectedCellValuesInCells();
     public Cell CurrentCell { get; private set; }
     public Cell Cell(int id) => Cells[id - 1];
+    /*
     public static Puzzle CreateWithBruteForceSolver()
     {
         return Create(BruteForceSolver.Create(), TxnLedger.Create());
     }
-    public static Puzzle Create(ISolver solver, TxnLedger ledger)
+    */
+    public static Puzzle Create()
     {
         // CreateWithBruteForceSolver cellMatrix of cellList instead of ints from starting point
         Cell[,] cellMatrix = Services.SudokuService.Cell.CreateCellMatrix();
@@ -76,22 +71,25 @@ public class Puzzle : IPuzzle
         blockColumnList.AssignBlockColumnstoBlocks();
 
         // Inject and create new Puzzle
-        Puzzle puzzle = new(cellMatrix, cellList, rows, columnList, blockList, blockRowList, blockColumnList, ledger, solver);
+        Puzzle puzzle = new(cellMatrix, cellList, rows, columnList, blockList, blockRowList, blockColumnList);
         puzzle.AssignPuzzleReferenceToCells();
-        puzzle.AssignPuzzleReferenceToLedger();
+        //puzzle.AssignPuzzleReferenceToLedger();
 
         return puzzle;
     }
     public bool Solve()
     {
-        bool isSolvable = _solver.Solve(this);
+        ISolver solver = BruteForceSolver.Create(this);
+        bool isSolvable = solver.Solve();
         return isSolvable;
     }
+    /*
     private void AssignPuzzleReferenceToLedger()
     {
         Ledger.AssignPuzzleReference(this);
     }
-    public void PerformCandidateElimination()
+    */
+    public void RemoveCandidates()
     {
         // Eliminate candidates for Given and Confirmed cells
         EliminateCandidatesForGivenAndConfirmedCells();
@@ -160,7 +158,7 @@ public class Puzzle : IPuzzle
     public void UpdateCandidates()
     {
         RehydrateCandidatesOfCells();
-        PerformCandidateElimination();
+        RemoveCandidates();
     }
     private void RehydrateCandidatesOfCells()
     {
@@ -195,4 +193,89 @@ public class Puzzle : IPuzzle
             }
         }
     }
+    public string GetValuesOnlyFormattedString()
+    {
+        string puzzleAsStr = string.Empty;
+        string row;
+
+        for (int i = 0; i < 9; i++)
+        {
+            row = $"[ {Matrix[i, 0].Values[0]} {Matrix[i, 1].Values[0]} {Matrix[i, 2].Values[0]} ]  " +
+                  $"[ {Matrix[i, 3].Values[0]} {Matrix[i, 4].Values[0]} {Matrix[i, 5].Values[0]} ]  " +
+                  $"[ {Matrix[i, 6].Values[0]} {Matrix[i, 7].Values[0]} {Matrix[i, 8].Values[0]} ]\n";
+            puzzleAsStr += row;
+
+            if (i % 3 == 2)
+                puzzleAsStr += "\n";
+        }
+
+        return puzzleAsStr;
+    }
+    public string GetValuesAndMetaDataFormattedString()
+    {
+        string returnStr = string.Empty;
+
+        string row = $"            " +
+            $"  {Columns[0].GetCandidatesAsFormattedString()}  {Columns[1].GetCandidatesAsFormattedString()}  {Columns[2].GetCandidatesAsFormattedString()}    " +
+            $"    {Columns[3].GetCandidatesAsFormattedString()}  {Columns[4].GetCandidatesAsFormattedString()}  {Columns[5].GetCandidatesAsFormattedString()}    " +
+            $"    {Columns[6].GetCandidatesAsFormattedString()}  {Columns[7].GetCandidatesAsFormattedString()}  {Rows[8].GetCandidatesAsFormattedString()}  \n";
+
+        returnStr += row;
+
+        for (int i = 0; i < 9; i++)
+        {
+            row = $"{Rows[i].GetCandidatesAsFormattedString()}  " +
+                         $"[   {Matrix[i, 0].GetAllValues()} {Matrix[i, 1].GetAllValues()} {Matrix[i, 2].GetAllValues()} ] [ " +
+                         $"  {Matrix[i, 3].GetAllValues()} {Matrix[i, 4].GetAllValues()} {Matrix[i, 5].GetAllValues()} ] [ " +
+                         $"  {Matrix[i, 6].GetAllValues()} {Matrix[i, 7].GetAllValues()} {Matrix[i, 8].GetAllValues()} ]\n";
+            returnStr += row;
+
+            if (i % 3 == 2)
+            {
+                string tenSpaces = "          ";
+                row = $"{tenSpaces}  " +
+                    $"    {tenSpaces}{{{Blocks[i - 2].GetCandidatesAsFormattedString()}}}{tenSpaces}" +
+                    $"{tenSpaces}{tenSpaces}{{{Blocks[i - 1].GetCandidatesAsFormattedString()}}}{tenSpaces}" +
+                    $"{tenSpaces}{tenSpaces}{{{Blocks[i].GetCandidatesAsFormattedString()}}}{tenSpaces}\n\n";
+                returnStr += row;
+            }
+        }
+
+        return returnStr;
+    }
+    public string GetCellPreviewAsFormattedString()
+    {
+        string cellPreview = string.Empty;
+
+        foreach (var cell in Cells)
+        {
+            string row = $"Cell: {{ Id:{cell.Id}, Row:{cell.Row}, Column:{cell.Column}, Block:{cell.Block}, BlockRow:{cell.BlockRow}, BlockColumn:{cell.BlockColumn}\n";
+            cellPreview += row;
+            Console.Write(row);
+        }
+
+        return cellPreview;
+    }
+    /*
+    public static string RenderStandardTxnInfo(Puzzle puzzle)
+    {
+        string returnStr;
+        // Print the transactions
+        returnStr = $"Number of Txns in Ledger: {puzzle.Ledger.Txns.Count:N0}\n";
+        returnStr += $"Number of ValueTxns: {puzzle.Ledger.ValueTxns.Count:N0}\n";
+        returnStr += $"Number of CandidateTxns: {puzzle.Ledger.CandidateTxns.Count:N0}\n\n";
+
+        // Print proportions
+        decimal valueTxnsCount = puzzle.Ledger.ValueTxns.Count;
+        decimal txnsCount = puzzle.Ledger.Txns.Count;
+        returnStr += $"ValueTxns % of Txns: {valueTxnsCount / txnsCount:P}\n\n";
+
+        // Print rates
+        returnStr += $"Txns/second: {puzzle.Ledger.Txns.Count / puzzle.StopwatchTime:N1}\n";
+        returnStr += $"ValueTxns/second: {puzzle.Ledger.ValueTxns.Count / puzzle.StopwatchTime:N1}\n";
+        returnStr += $"CandidateTxns/second: {puzzle.Ledger.CandidateTxns.Count / puzzle.StopwatchTime:N1}\n\n";
+
+        return returnStr;
+    }
+    */
 }

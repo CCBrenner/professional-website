@@ -40,7 +40,7 @@ public class SetupTests
 
         // Act
         int[,] seedMatrix = MatrixFactory.CreateMatrixBySuperimposition(intMatrix, superImposeMatrix);
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(seedMatrix);
 
         // Assert
@@ -83,7 +83,7 @@ public class SetupTests
 
         // Act
         int[,] seedMatrix = MatrixFactory.CreateMatrixBySuperimposition(intMatrix, superImposeMatrix);
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(seedMatrix);
 
         // Assert
@@ -111,7 +111,7 @@ public class SetupTests
             { 0, 0, 0,   9, 0, 0,   1, 0, 0 },
             { 0, 8, 0,   0, 5, 0,   6, 0, 0 },
         };
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(intMatrix);
 
         // Act
@@ -150,7 +150,7 @@ public class SetupTests
         };
 
         // Act
-        Puzzle puzzle = Puzzle.CreateWithBruteForceSolver();
+        Puzzle puzzle = Puzzle.Create();
         puzzle.LoadMatrixAsCellValues(intMatrix);
 
         // Assert

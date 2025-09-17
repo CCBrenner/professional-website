@@ -7,30 +7,10 @@ public sealed class SudokuService : ISudoku
     {
         Reset(DEFAULT_PUZZLE);
     }
-    private void Reset(string puzzleBookSelection)
-    {
-        _selectedMatrix = puzzleBookSelection;
-        ConsoleVersion = "gui";
-        Puzzle = Services.SudokuService.Puzzle.CreateWithBruteForceSolver();
-
-        if (_selectedMatrix != DEFAULT_PUZZLE)
-        {
-            int[,] matrixToLoad = PuzzleBook.GetPuzzle(_selectedMatrix);
-            Puzzle.LoadMatrixAsCellValues(matrixToLoad);
-        }
-
-        Puzzles = PuzzleBook.GetPuzzles();
-        LocalConsole = string.Empty;
-        IsSolved = null;
-    }
-    public void ResetCurrent()
-    {
-        Reset(_selectedMatrix);
-    }
     public Dictionary<string, int[,]> Puzzles { get; set; }
     public IPuzzle Puzzle { get; set; }
     public Cell Cell(int id) => Puzzle.Cell(id);
-    public string ConsoleVersion { get; set; }
+    public bool IsConsoleVersion { get; set; }
     private string _selectedMatrix;
     public string SelectedMatrix
     {
@@ -46,21 +26,42 @@ public sealed class SudokuService : ISudoku
     }
     public string LocalConsole { get; set; }
     public bool AlertIsActive { get; set; }
-    public bool SolveHasStarted => Puzzle.SolveHasStarted;
     public bool? IsSolved { get; set; }
-    public decimal? StopwatchTime => Puzzle.StopwatchTime;
-
-    public static SudokuService Create() => new();
-    public void SolveConsole()
+    //public bool SolveHasStarted => Puzzle.SolveHasStarted;
+    //public decimal? StopwatchTime => Puzzle.StopwatchTime;
+    private void Reset(string puzzleBookSelection)
     {
-        throw new NotImplementedException();
+        _selectedMatrix = puzzleBookSelection;
+        IsConsoleVersion = false;
+        Puzzle = Services.SudokuService.Puzzle.Create();
+
+        if (_selectedMatrix != DEFAULT_PUZZLE)
+        {
+            int[,] matrixToLoad = PuzzleBook.GetPuzzle(_selectedMatrix);
+            Puzzle.LoadMatrixAsCellValues(matrixToLoad);
+        }
+
+        Puzzles = PuzzleBook.GetPuzzles();
+        LocalConsole = string.Empty;
+        IsSolved = null;
+    }
+    public void ResetCurrentPuzzle()
+    {
+        Reset(_selectedMatrix);
     }
     public void SolveGui()
     {
         IsSolved = Puzzle.Solve();
     }
+    /*
+    public static SudokuService Create() => new();
+    public void SolveConsole()
+    {
+        throw new NotImplementedException();
+    }
     public void CloseAlert()
     {
         AlertIsActive = false;
     }
+    */
 }

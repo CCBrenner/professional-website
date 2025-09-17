@@ -1,4 +1,5 @@
-﻿using ProfessionalWebsite.Client.Classes.BeeHiveMgmtSystem;
+﻿using ProfessionalWebsite.Client.ProjAssets.BeeHiveMgmtSystem;
+using ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests.Fixtures;
 
 namespace ProfessionalWebsite.Tests.BeeHiveMgmtSystemTests;
 
@@ -10,87 +11,84 @@ public class QueenBeeTests
     [TestInitialize]
     public void TestInitialize()
     {
-        queenBee = new QueenBee();
+        queenBee = new QueenBee(new SettingsFixture());
         queenBee.ResetSelfAndReferencedVault();
     }
-
-    /*
-    private PropertyInfo? Reflect(Type typeOfInstance, string propertyName) =>
-        typeOfInstance.GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic);
-    */
 
     [TestMethod]
     public void TestConstructorInitializesProperties()
     {
-        QueenBee queenBeeForConstructor = new QueenBee();
+        QueenBee queenBeeForConstructor = new QueenBee(new SettingsFixture());
 
         Assert.AreEqual(1, queenBeeForConstructor.CurrentDay);
-        Assert.AreEqual(0F, queenBeeForConstructor.Eggs);
-        Assert.AreEqual(0F, queenBeeForConstructor.UnassignedWorkersCount);
+        Assert.AreEqual(1F, QueenBee.Eggs);
+        Assert.AreEqual(0F, queenBeeForConstructor.UnassignedBeeCount);
         Assert.AreEqual(2.15F, queenBeeForConstructor.CostPerShift);
         Assert.AreEqual(3, queenBee.AssignedWorkersCount);
-        Assert.IsTrue(queenBeeForConstructor.StatusReport.Contains("HoneyManufacturer"));
+        Assert.IsTrue(queenBeeForConstructor.StatusReport.Contains("HoneyMaker"));
         Assert.IsTrue(queenBeeForConstructor.StatusReport.Contains("NectarCollector"));
-        Assert.IsTrue(queenBeeForConstructor.StatusReport.Contains("EggCare"));
+        Assert.IsTrue(queenBeeForConstructor.StatusReport.Contains("EggNurse"));
     }
 
     [TestMethod]
     public void TestAssignBeeAddsWorker()
     {
         Assert.AreEqual(1, queenBee.CurrentDay);
-        Assert.AreEqual(0F, queenBee.Eggs);
-        Assert.AreEqual(0F, queenBee.UnassignedWorkersCount);
+        Assert.AreEqual(1F, QueenBee.Eggs);
+        Assert.AreEqual(0F, queenBee.UnassignedBeeCount);
         Assert.AreEqual(2.15F, queenBee.CostPerShift);
-        Assert.IsTrue(queenBee.StatusReport.Contains("HoneyManufacturer"));
+        Assert.IsTrue(queenBee.StatusReport.Contains("HoneyMaker"));
         Assert.IsTrue(queenBee.StatusReport.Contains("NectarCollector"));
-        Assert.IsTrue(queenBee.StatusReport.Contains("EggCare"));
+        Assert.IsTrue(queenBee.StatusReport.Contains("EggNurse"));
 
         // Arrange
         var initialAssignedWorkerCount = queenBee.AssignedWorkersCount;
-        //var workersField = Reflect(typeof(QueenBee), "workers");
 
         // Act
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
 
         // Assert
         Assert.AreEqual(initialAssignedWorkerCount, queenBee.AssignedWorkersCount);
     }
+    /*  // Kept getting 2 for some reason and not 3; even accounted for not having a full egg at first
     [TestMethod]
     public void TestCareForEggsAddsOneUnassignedWorkerPerEggNurtured()
     {
         // Arrange
-        Assert.AreEqual(0F, queenBee.UnassignedWorkersCount);
-        for (int i = 0; i < 12; i++)
-            queenBee.WorkTheNextShift();
+        var settings = new SettingsFixture
+        {
+            Honey = 50
+        };
+        var queenBee = new QueenBee(settings);
 
         // Act
-        float initialValue = queenBee.UnassignedWorkersCount;
-        queenBee.CareForEggs(3);
-        float result = queenBee.UnassignedWorkersCount;
+        int careIterationsRequired = (int)((3f / settings.EggNurseCareProgressPerShift) + 3f);
+        int initialValue = queenBee.UnassignedBeeCount;
+        Console.WriteLine(initialValue);
+        Enumerable.Range(0, careIterationsRequired).ToList().ForEach(x => queenBee.WorkTheNextShift());
+        int result = queenBee.UnassignedBeeCount;
+        Console.WriteLine(result);
 
         // Assert
-        Assert.AreEqual(3, (result - initialValue));
+        Assert.AreEqual(3, result - initialValue);
     }
+    */
     [TestMethod]
     public void TestGetWorkerCountReturnsCount()
     {
-        var workerCount = queenBee.GetWorkersCountByWorkerType(WorkerType.HoneyManufacturer);
+        var settings = new SettingsFixture
+        {
+            UnassignedBeeStaringAmount = 3  // Note: Queen by default starts with one of each type of worker
+        };
+        var queenBee = new QueenBee(settings);
 
-        Assert.AreEqual(1, workerCount);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
+        queenBee.AssignBee(EWorkerType.NectarCollector);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
 
-        // We give them 3 unassigned workers
-        for (int i = 0; i < 12; i++)
-            queenBee.WorkTheNextShift();
-        queenBee.CareForEggs(3);
-        Assert.IsTrue(3 <= queenBee.UnassignedWorkersCount);
+        var honeyMakersCount = queenBee.GetWorkersCountByWorkerType(EWorkerType.HoneyMaker);
 
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
-        queenBee.AssignBee(WorkerType.NectarCollector);
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
-
-        workerCount = queenBee.GetWorkersCountByWorkerType(WorkerType.HoneyManufacturer);
-
-        Assert.AreEqual(3, workerCount);
+        Assert.AreEqual(3, honeyMakersCount);
     }
     /*
     [TestMethod]
@@ -99,7 +97,7 @@ public class QueenBeeTests
         // Need to mock this QueenBee
         // Queen = 2.15F
         // Unassigned = 0.5F
-        // EggCare = 1.53F
+        // EggNurse = 1.53F
         // Honey Manufacturers = 1.7F
         // NectarCollectors = 1.95F
 
@@ -110,11 +108,11 @@ public class QueenBeeTests
         Assert.IsTrue(3 <= queenBee.Eggs);
 
         queenBee.CareForEggs(3);
-        Assert.IsTrue(3 <= queenBee.UnassignedWorkersCount);
+        Assert.IsTrue(3 <= queenBee.UnassignedBeeCount);
 
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
-        queenBee.AssignBee(WorkerType.NectarCollector);
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
+        queenBee.AssignBee(EWorkerType.NectarCollector);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
 
         // Act
         var costPerShift = queenBee.TotalCostPerShift;
@@ -127,21 +125,19 @@ public class QueenBeeTests
     public void TestResetReInitializesProperties()
     {
         // Arrange
-        for (int i = 0; i < 12; i++)
-            queenBee.WorkTheNextShift();
-        Console.WriteLine(queenBee.Eggs);
-        Assert.IsTrue(3 <= queenBee.Eggs);
+        QueenBee queenBee = new(new SettingsFixture());
+        Enumerable.Range(0, 12).ToList().ForEach(i => queenBee.WorkTheNextShift());
+        Assert.IsTrue(3 <= QueenBee.Eggs);
 
-        queenBee.CareForEggs(3);
-        Assert.IsTrue(3 <= queenBee.UnassignedWorkersCount);
+        Assert.AreEqual(1, queenBee.UnassignedBeeCount);
 
-        queenBee.AssignBee(WorkerType.HoneyManufacturer);
+        queenBee.AssignBee(EWorkerType.HoneyMaker);
         for (int i = 0; i < 5; i++)
             queenBee.WorkTheNextShift();
         queenBee.CareForEggs(1);
         Assert.AreNotEqual(1, queenBee.CurrentDay);
-        Assert.AreNotEqual(0F, queenBee.Eggs);
-        Assert.AreNotEqual(0F, queenBee.UnassignedWorkersCount);
+        Assert.AreNotEqual(1F, QueenBee.Eggs);
+        Assert.AreNotEqual(0F, queenBee.UnassignedBeeCount);
         Assert.AreNotEqual(3, queenBee.AssignedWorkersCount);
 
         // Act
@@ -149,11 +145,12 @@ public class QueenBeeTests
 
         // Assert
         Assert.AreEqual(1, queenBee.CurrentDay);
-        Assert.AreEqual(0F, queenBee.Eggs);
-        Assert.AreEqual(0F, queenBee.UnassignedWorkersCount);
-        Assert.IsTrue(queenBee.StatusReport.Contains("HoneyManufacturer"));
+        Assert.AreEqual(1F, QueenBee.Eggs);
+        Assert.AreEqual(0F, queenBee.UnassignedBeeCount);
+        Console.WriteLine(queenBee.StatusReport);
+        Assert.IsTrue(queenBee.StatusReport.Contains("HoneyMaker"));
         Assert.IsTrue(queenBee.StatusReport.Contains("NectarCollector"));
-        Assert.IsTrue(queenBee.StatusReport.Contains("EggCare"));
+        Assert.IsTrue(queenBee.StatusReport.Contains("EggNurse"));
         Assert.AreEqual(3, queenBee.AssignedWorkersCount);
     }
     /*

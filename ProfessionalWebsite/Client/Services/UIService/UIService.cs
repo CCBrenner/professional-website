@@ -1,39 +1,98 @@
-﻿namespace ProfessionalWebsite.Client.Services.UI;
+﻿
+namespace ProfessionalWebsite.Client.Services.UI;
 
 public class UIService : IUIService
 {
-    private UIService(
-        List<bool> isContinuous, 
-        Dictionary<int, PanelGroup> panelGroups, 
-        Dictionary<int, Panel> panels, 
-        Dictionary<int, SectionedPage> sectionedPages, 
-        Dictionary<int, Section> sections)
-    {
-        AnimateMain = string.Empty;
-        IsContinuous = isContinuous;
-        PanelGroups = panelGroups;
-        Panels = panels;
-        SectionedPages = sectionedPages;
-        Sections = sections;
-
-        PanelMgmt.SetBiDirectionalReferencesForPanelGroupsAndPanels(Panels, PanelGroups);
-        SectionMgmt.SetBiDirectionalReferencesForSectionedPagesAndSections(Sections, SectionedPages);
-    }
-    public string AnimateMain { get; private set; }
-    public List<bool> IsContinuous { get; private set; }
-    public Dictionary<int, Panel> Panels { get; private set; }
-    public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
-    public Dictionary<int, Section> Sections { get; private set; }
-    public Dictionary<int, SectionedPage> SectionedPages { get; private set; }
-
-    public event Action<string> OnUiServiceChanged;
-    public static UIService Create(
-        List<bool> isContinuous,
+    public UIService(
+        List<bool> animList,
         Dictionary<int, PanelGroup> panelGroups,
         Dictionary<int, Panel> panels,
-        Dictionary<int, SectionedPage> sectionedPages,
-        Dictionary<int, Section> sections) => 
-        new(isContinuous, panelGroups, panels, sectionedPages, sections);
+        List<SectionedPage> sectionedPages,
+        List<Section> sections)
+    {
+        int startingPanelId = 10;
+
+        Animations = Animations.Create(string.Empty);
+        IsContinuous = animList;
+        PanelGroups = panelGroups;
+        Panels = Panels.Create(panels);
+        Sections = Sections.Create(sections, sectionedPages);
+
+        Panels.SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
+
+        Panels.Dictionary[startingPanelId].ActivateButton();
+    }
+    public Sections Sections { get; private set; }
+    public bool IsCurrentPromo(int sectionId) => Sections.IsCurrentPromo(sectionId);
+    public string SectionIsOpenCSS(int sectionId) => Sections.IsOpenCSS(sectionId);
+    public bool SectionIsOpen(int sectionId) => Sections.Dictionary[sectionId].IsOpen;
+    public void ToggleSection(int sectionId)
+    {
+        Sections.Dictionary[sectionId].Toggle();
+        RaiseEventOnUiServiceChanged();
+    }
+    public string SectionName(int sectionId) => Sections.Dictionary[sectionId].Name;
+    public bool ASectionIsCurrentlyPromo(int pageId) => Sections.ASectionIsCurrentlyPromo(pageId);
+    public bool AllSectionsAreOpen(int pageId) => Sections.AllSectionsAreOpen(pageId);
+    public string V2PanelIsActive(int panelId) => Panels.Dictionary[panelId].PanelStatus;
+    public void ToggleAllSections(int pageId)
+    {
+        Sections.ToggleAllSections(pageId);
+        RaiseEventOnUiServiceChanged();
+    }
+    public void PromoteSection(int sectionId)
+    {
+        Sections.PromoteSection(sectionId);
+        RaiseEventOnUiServiceChanged();
+    }
+    public void ClickSidebarItem(int sectionId)
+    {
+        PromoteSection(sectionId);
+
+        var pageId = Sections.Dictionary[sectionId].PageId;
+        var pageLocPanelId = Sections.Pages[pageId].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+    }
+    public void PromoteSectionAndClosePanels(int sectionId)
+    {
+        Sections.PromoteSection(sectionId);
+        Panels.DeactivateAllPanels();
+        RaiseEventOnUiServiceChanged();
+    }
+    public void NavigateToPromotedSection(int sectionId)
+    {
+        PromoteSectionAndClosePanels(sectionId);
+
+        var pageId = Sections.Dictionary[sectionId].PageId;
+        var pageLocPanelId = Sections.Pages[pageId].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+    }
+    public void NavigateToSectionedPage(int idOfSectionedPageBeingLoaded)
+    {
+        Sections.OpenAllSections(idOfSectionedPageBeingLoaded);
+        Panels.DeactivateAllPanels();
+
+        var pageLocPanelId = Sections.Pages[idOfSectionedPageBeingLoaded].LocationPanelGroupId;
+        Panels.HighlightLocationButton(pageLocPanelId);
+
+        RaiseEventOnUiServiceChanged();
+    }
+    public bool SectionIsClosedAndThereIsNoPromo(int sectionId)
+    {
+        Section section = Sections.Dictionary[sectionId];
+        return (!section.IsOpen
+                &&
+                !Sections.ASectionIsCurrentlyPromo(section.PageId));
+    }
+    public void V2ActivateLocationButtonsOfPanelGroups(int panelId)
+        => Panels.ActivateLocationButtonsOfPanelGroups(panelId, PanelGroups.Values.ToList());
+    //
+    public List<bool> IsContinuous { get; private set; }
+    public Animations Animations { get; private set; }
+    public Panels Panels { get; private set; }
+    public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
+
+    public event Action<string> OnUiServiceChanged;
 
     private void RaiseEventOnUiServiceChanged() => OnUiServiceChanged?.Invoke(string.Empty);
     /// <summary>
@@ -42,25 +101,28 @@ public class UIService : IUIService
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void ToggleAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleAnimation(animationIndex, AnimateMain, IsContinuous, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleAnimation(animationIndex, IsContinuous, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleOnePlayAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleOnePlayAnimation(animationIndex, AnimateMain, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleOnePlayAnimation(animationIndex, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleContinuousAnimation(int animationIndex)
     {
-        AnimateMain = AnimMgmt.ToggleContinuousAnimation(animationIndex, AnimateMain, Panels, PanelGroups.Values.ToList());
+        Animations.ToggleContinuousAnimation(animationIndex, Panels, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
 
     /// <summary>
     /// Stops continuous animation by chaning the animation class to blank (string.Empty); also hides the Discontinue button by the same means.
     /// </summary>
-    public void DiscontinueAnimation() =>
-        AnimateMain = AnimMgmt.DiscontinueAnimation(Panels, PanelGroups.Values.ToList());
+    public void DiscontinueAnimation()
+    {
+        Animations.DiscontinueAnimation(Panels, PanelGroups.Values.ToList());
+        RaiseEventOnUiServiceChanged();
+    }
 
     /// <summary>
     /// Used to promote a section of a sectioned page that the user is navigating to. Navigation takes place based on the anchor element's href value (this method does not handle that navigation).
@@ -69,8 +131,10 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", this tells components that consume _nav to update themselves because of a state change in _nav. Components must subscribe to the event to receive update commands.</param>
     public void NavigateToSection(int sectionId)
     {
-        DeactivateAllPanels();
-        NavMgmt.NavigateToSection(sectionId, Panels, PanelGroups, Sections, SectionedPages);
+        Panels.DeactivateAllPanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
+        RaiseEventOnUiServiceChanged();
+        NavMgmt.NavigateToSection(sectionId, Panels, PanelGroups, Sections);
     }
 
     /// <summary>
@@ -87,7 +151,7 @@ public class UIService : IUIService
     /// <returns></returns>
     public void TogglePanel(int selectedPanelId)
     {
-        PanelMgmt.TogglePanel(selectedPanelId, Panels, PanelGroups);
+        Panels.TogglePanel(selectedPanelId, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
 
@@ -98,51 +162,34 @@ public class UIService : IUIService
     /// <param name="triggersOnPanelMgmtUpdated">Default "true", causes components that consume _panel to update. Component must subscribe to the event to receive update commands from _panel.</param>
     public void UpdatePanelsWhenNavigating(int panelId)
     {
-        DeactivateAllPanels();
-        PanelMgmt.UpdateGroupLocationPanel(panelId, Panels, PanelGroups);
-        RaiseEventOnUiServiceChanged();
-    }
-
-    /// <summary>
-    /// Collapses/Expands section based on section ID.
-    /// </summary>
-    /// <param name="sectionId">ID of section to be collapsed/expanded.</param>
-    public void ToggleSection(int sectionId)
-    {
-        SectionMgmt.ToggleSection(sectionId, Sections, SectionedPages);
-        RaiseEventOnUiServiceChanged();
-    }
-
-    /// <summary>
-    /// Uses the SectionStatus to determine whether to expand all sections in the sectione page or to collapse all section in the sectinoed page.
-    /// </summary>
-    /// <param name="pageId">ID of sectioned page of which sections are being collapsed/expanded.</param>
-    public void ToggleSectionedPage(int pageId)
-    {
-        var page = SectionedPages[pageId];
-        page.Toggle();
+        Panels.DeactivateAllPanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
+        Panels.UpdateGroupLocationPanel(panelId, PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivateCooperativePanels()
     {
-        PanelMgmt.DeactivateCooperativePanels(Panels.Values.ToList());
-        PanelMgmt.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
+        Panels.DeactivateCooperativePanels();
+        Panels.ActivateLocationButtonsOfGroups(PanelGroups);
         RaiseEventOnUiServiceChanged();
     }
     public void ActivatePanel(int selectedPanelId)
     {
-        PanelMgmt.ActivatePanel(selectedPanelId, Panels, PanelGroups.Values.ToList());
+        Panels.ActivatePanel(selectedPanelId, PanelGroups.Values.ToList());
         RaiseEventOnUiServiceChanged();
     }
     public void DeactivatePanel(int selectedPanelId)
     {
-        PanelMgmt.DeactivatePanel(selectedPanelId, Panels);
+        Panels.DeactivatePanel(selectedPanelId);
         RaiseEventOnUiServiceChanged();
     }
-    private void DeactivateAllPanels()
+    public static UIService Create(
+        List<bool> animList, 
+        Dictionary<int, PanelGroup> panelGroups, 
+        Dictionary<int, Panel> panels, 
+        List<SectionedPage> sectionedPages, 
+        List<Section> sections)
     {
-        PanelMgmt.DeactivateAllPanels(Panels.Values.ToList());
-        PanelMgmt.ActivateLocationButtonsOfGroups(Panels, PanelGroups);
-        RaiseEventOnUiServiceChanged();
+        return new(animList, panelGroups, panels, sectionedPages, sections);
     }
 }

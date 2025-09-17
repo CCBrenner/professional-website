@@ -68,7 +68,7 @@ public class Block : CellAggregate
 
             if (cellsWithCandidate.Count == 2 || cellsWithCandidate.Count == 3)
             {
-                // Check if they exist in a line (all in the same row or the same column)
+                // CheckForOpponents if they exist in a line (all in the same row or the same column)
                 Row? commonRow = Cell.GetCommonRow(cellsWithCandidate);
                 Column? commonColumn = Cell.GetCommonColumn(cellsWithCandidate);
 

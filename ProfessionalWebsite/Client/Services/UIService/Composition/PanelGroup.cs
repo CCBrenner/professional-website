@@ -11,7 +11,8 @@ public class PanelGroup
     public readonly int Id;
     public int LocationPanelId;
     public Dictionary<int, Panel> Panels = new();
-    public static PanelGroup Create(int id, int startingLocation) => new(id, startingLocation);
+    public static PanelGroup Create(int id, int startingLocationPanel) => 
+        new(id, startingLocationPanel);
 
     public void AddPanelReference(Panel panel)
     {

@@ -100,7 +100,7 @@ public class Cell
     }
     public int SetExpectedValue(int expectedValue)
     {
-        int previousValue = Value;  // store for later
+        //int previousValue = Value;  // store for later
 
         if (!IsCandidate(expectedValue) && ValueStatus != ValueStatus.Given)
         {
@@ -110,6 +110,7 @@ public class Cell
         Value = expectedValue;
         ValueStatus = ValueStatus.Expected;
 
+        /*
         if (Puzzle is not null)
         {
             if (previousValue != Value)
@@ -117,6 +118,7 @@ public class Cell
                 Puzzle.Ledger.RecordNewTxn(Id, 0, previousValue, Value);
             }
         }
+        */
 
         return Value;
     }
@@ -127,7 +129,7 @@ public class Cell
     }
     public int EliminateCandidate(int candidate)
     {
-        int previousValue = Values[candidate];
+        //int previousValue = Values[candidate];
 
         if (candidate == 0 || candidate > 9)
         {
@@ -136,10 +138,12 @@ public class Cell
 
         Values[candidate] = NonPossibilityPlaceholderValue;
 
+        /*
         if (previousValue != Values[candidate])
         {
             Puzzle.Ledger.RecordNewTxn(Id, candidate, previousValue, Values[candidate]);
         }
+        */
 
         return candidate;
     }
@@ -355,7 +359,7 @@ public class Cell
         {
             for (int j = 0; j < 9; j++)
             {
-                matrix[i, j] = Cell.Create(i + 1, j + 1);
+                matrix[i, j] = Create(i + 1, j + 1);
             }
         }
 
@@ -411,12 +415,16 @@ public class Cell
     {
         for (int i = 1; i < Values.Count(); i++)
         {
-            int previousValue = Values[i];
+            //int previousValue = Values[i];
+            
             Values[i] = i;
+            
+            /*
             if (previousValue != Values[i])
             {
                 Puzzle.Ledger.RecordNewTxn(Id, i, previousValue, Values[i]);
             }
+            */
         }
     }
     public void ResetValue()
@@ -426,6 +434,10 @@ public class Cell
     public void SetValueStatusToGiven()
     {
         ValueStatus = ValueStatus.Given;
+    }
+    public void ResetCandidateTracking()
+    {
+        TriedCandidates = new List<int>();
     }
     public void EliminateAllNonValueCandidates()
     {

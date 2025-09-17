@@ -78,4 +78,31 @@ public class TxnLedger
     {
         Puzzle = puzzle;
     }
+    public string RenderTxns(int startingIndex = 1, int finishingIndex = 1000000000)
+    {
+        string returnStr = string.Empty;
+        int count = 0;
+        for (int i = startingIndex; i <= finishingIndex; i++)
+        {
+            returnStr += $"{Txns[i - 1].GetDetails()}\n";
+            count++;
+        }
+        return $"{returnStr}Total Results: {count}";
+    }
+    
+    public string RenderValueTxns(int startingIndex = 1, int finishingIndex = 1000000000)
+    {
+        string returnStr = string.Empty;
+        int end = Txns.Count < finishingIndex ? Txns.Count + 1 : finishingIndex;
+        int count = 0;
+        for (int i = startingIndex; i < end; i++)
+        {
+            if (Txns[i - 1].IndexOfValue == 0)
+            {
+                returnStr += $"{Txns[i - 1].GetDetails()}\n";
+                count++;
+            }
+        }
+        return $"{returnStr}Total Results: {count}";
+    }
 }
