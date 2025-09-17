@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\dev\\gh_repos\\ccbrenner_professional-website\\professional-website\\",
@@ -9,4 +10,17 @@
       "DocumentGroups": []
     }
   ]
+=======
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\dev\\gh_repos\\ccbrenner_professional-website_select-demo\\professional-website\\",
+  "Documents": [],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": []
+    }
+  ]
+>>>>>>> dd78908e3871e0915f6cfcde1e4391618ac793a1
 }

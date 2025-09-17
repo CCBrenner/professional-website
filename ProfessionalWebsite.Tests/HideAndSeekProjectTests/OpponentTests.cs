@@ -34,7 +34,7 @@ public class OpponentTests
         House.Random = new MockRandomWithValueList(new int[] { 0, 1 });
         opponent1.Hide();
         var downstairsBathroom = (LocationWithHidingPlace)House.GetLocationByName("Downstairs Bathroom");
-        Assert.AreEqual(opponent1, downstairsBathroom.CheckHidingPlace().ToList()[0]);
+        Assert.AreEqual(opponent1, downstairsBathroom.GetHiddenOpponents().ToList()[0]);
 
         Opponent opponent2 = new Opponent("Opponent2");
         Assert.AreEqual("Opponent2", opponent2.Name);
@@ -42,6 +42,6 @@ public class OpponentTests
         House.Random = new MockRandomWithValueList(new int[] { 0, 1, 2, 3 });
         opponent2.Hide();
         var kitchen = (LocationWithHidingPlace)House.GetLocationByName("Kitchen");
-        Assert.AreEqual(opponent2, kitchen.CheckHidingPlace().ToList()[0]);
+        Assert.AreEqual(opponent2, kitchen.GetHiddenOpponents().ToList()[0]);
     }
 }

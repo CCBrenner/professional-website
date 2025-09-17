@@ -107,7 +107,7 @@ public class HouseTests
         attic.Hide(new Opponent("Opponent4"));
 
         House.ClearHidingPlaces();
-        Assert.AreEqual(0, garage.CheckHidingPlace().Count());
-        Assert.AreEqual(0, attic.CheckHidingPlace().Count());
+        Assert.AreEqual(0, garage.GetHiddenOpponents().Count());
+        Assert.AreEqual(0, attic.GetHiddenOpponents().Count());
     }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
 
 namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
@@ -141,3 +142,159 @@ public class SaveGameTests
         Assert.AreEqual("Loaded current game from \"mysavedgame.json\"", gameController.ParseInput("load mySavedGame"));
     }
 }
+=======
+﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
+
+namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
+
+[TestClass]
+public class SaveGameTests
+{
+    GameController gameController;
+    Opponent joe;
+    Opponent bob;
+    Opponent ana;
+    Opponent owen;
+    Opponent jimmy;
+
+    [TestInitialize]
+    public void Initializer()
+    {
+        gameController = new GameController();
+
+        Assert.IsFalse(gameController.GameIsOver);
+
+        // Clear the hiding places and hide the opponents in different rooms
+        House.ClearHidingPlaces();
+
+        var garage = House.GetLocationWithHidingPlaceByName("Garage");
+        joe = gameController.Opponents.ToList()[0];
+        garage.Hide(joe);
+        Assert.AreEqual(1, garage.HidingPlace.Count);
+
+        var kitchen = House.GetLocationWithHidingPlaceByName("Kitchen");
+        bob = gameController.Opponents.ToList()[1];
+        kitchen.Hide(bob);
+        jimmy = gameController.Opponents.ToList()[4];
+        kitchen.Hide(jimmy);
+        Assert.AreEqual(2, kitchen.HidingPlace.Count);
+
+        var attic = House.GetLocationWithHidingPlaceByName("Attic");
+        ana = gameController.Opponents.ToList()[2];
+        attic.Hide(ana);
+        owen = gameController.Opponents.ToList()[3];
+        attic.Hide(owen);
+        Assert.AreEqual(2, attic.HidingPlace.Count);
+
+        Assert.AreEqual(1, gameController.MoveNumber);
+        gameController.ParseInput("Check");  // Entry
+        gameController.ParseInput("Out");
+        gameController.ParseInput("check");  // Garage
+        gameController.ParseInput("In");
+        gameController.ParseInput("East");
+        gameController.ParseInput("North");
+        gameController.ParseInput("check");  // Downstairs Bathroom
+        gameController.ParseInput("South");
+        gameController.ParseInput("Northwest");
+        Assert.AreEqual(10, gameController.MoveNumber);
+        Assert.AreEqual("You found 2 opponents hiding next to the stove.<br>", gameController.ParseInput("check"));
+        Assert.AreEqual(11, gameController.MoveNumber);
+        Assert.AreEqual($"You are in the Kitchen. You see the following exits:<br>" +
+            $"<br> - the Hallway is to the Southeast" +
+            $"<br><br>Someone could hide next to the stove<br>", gameController.Status);
+        Assert.AreEqual($"Opponents Found: Joe, Bob, Jimmy" +
+            $"<br>Hidden Opponents Remaining: 2", gameController.GameProgress);
+        Assert.AreEqual("11: Which direction do you want to go? (or click 'Check')", gameController.Prompt);
+        Assert.AreEqual(11, gameController.MoveNumber);
+    }
+
+    [TestMethod]
+    public void TestParseInput()
+    {
+        // Verify the hiding locations of the remaining opponents
+        List<Opponent> atticHiders = (House.GetLocationByName("Attic") as LocationWithHidingPlace).HidingPlace;
+        Assert.AreEqual(ana, atticHiders[0]);
+        Assert.AreEqual(owen, atticHiders[1]);
+
+        // Provide correct response if the saved file is not there
+        Assert.AreEqual("Could not load game: Saved file of name \"my_saved_game.json\" not found", gameController.ParseInput("load my_saved_game"));
+
+        // Save the state of the game to a file with given name located in 
+        Assert.AreEqual("Saved current game to \"my_saved_game.json\"", gameController.ParseInput("save my_saved_game"));
+
+        // Start a new game
+        gameController = new GameController();
+        Assert.IsFalse(gameController.GameIsOver);
+        House.ClearHidingPlaces();
+
+        // Hide opponents in different rooms than the original game to verify hiding place "state has loaded" later on
+        joe = gameController.Opponents.ToList()[0];
+        (House.GetLocationByName("Attic") as LocationWithHidingPlace).Hide(joe);
+        bob = gameController.Opponents.ToList()[1];
+        (House.GetLocationByName("Garage") as LocationWithHidingPlace).Hide(bob);
+        ana = gameController.Opponents.ToList()[2];
+        (House.GetLocationByName("Downstairs Bathroom") as LocationWithHidingPlace).Hide(ana);
+        owen = gameController.Opponents.ToList()[3];
+        (House.GetLocationByName("Kitchen") as LocationWithHidingPlace).Hide(owen);
+        jimmy = gameController.Opponents.ToList()[4];
+        (House.GetLocationByName("Downstairs Bathroom") as LocationWithHidingPlace).Hide(jimmy);
+        Assert.AreEqual(1, gameController.MoveNumber);
+
+        // Check all of the game state variables that are relevant to resuming the game
+        Assert.AreEqual("Loaded current game from \"my_saved_game.json\"", gameController.ParseInput("load my_saved_game"));
+        Assert.AreEqual($"You are in the Kitchen. You see the following exits:<br>" +
+            $"<br> - the Hallway is to the Southeast" +
+            $"<br><br>Someone could hide next to the stove<br>", gameController.Status);
+        Assert.AreEqual($"Opponents Found: Joe, Bob, Jimmy" +
+            $"<br>Hidden Opponents Remaining: 2", gameController.GameProgress);
+        Assert.AreEqual("11: Which direction do you want to go? (or click 'Check')", gameController.Prompt);
+        Assert.AreEqual(11, gameController.MoveNumber);
+
+        // Verify the hiding locations of the remaining opponents
+        atticHiders = (House.GetLocationByName("Attic") as LocationWithHidingPlace).HidingPlace;
+        Console.WriteLine(string.Join(", ", atticHiders));
+        Assert.AreEqual(ana.Name, atticHiders[0].Name);
+        Assert.IsInstanceOfType(atticHiders[0], typeof(Opponent));
+        Assert.AreEqual(owen.Name, atticHiders[1].Name);
+        Assert.IsInstanceOfType(atticHiders[1], typeof(Opponent));
+
+        // Test that file has been deleted after it has been loaded so as not to load the game again in the future
+        Assert.AreEqual("Could not load game: Saved file of name \"my_saved_game.json\" not found", gameController.ParseInput("load my_saved_game"));
+    }
+    [TestMethod]
+    public void TestHandleInvalidSymbols()
+    {
+        Assert.AreEqual("Could not save game to \"my saved game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("save my saved game"));
+        Assert.AreEqual("Could not load game from \"my saved game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("load my saved game"));
+
+        Assert.AreEqual("Could not save game to \"file a.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("save file a"));
+        Assert.AreEqual("Could not load game from \"file a.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("load file a"));
+
+        Assert.AreEqual("Could not save game to \"my\\saved/game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("save my\\saved/game"));
+        Assert.AreEqual("Could not load game from \"my\\saved/game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("load my\\saved/game"));
+
+        Assert.AreEqual("Could not save game to \"my saved//game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("save my saved//game"));
+        Assert.AreEqual("Could not load game from \"my saved//game.json\": " +
+            "Invalid characters detected. Please remove slashes and/or spaces from file name.", gameController.ParseInput("load my saved//game"));
+
+        Assert.AreEqual("Saved current game to \"my_saved_game.json\"", gameController.ParseInput("save my_saved_game.json"));
+        Assert.AreEqual("Loaded current game from \"my_saved_game.json\"", gameController.ParseInput("load my_saved_game.json"));
+
+        Assert.AreEqual("Saved current game to \"my_saved_game.json\"", gameController.ParseInput("save my_saved_game"));
+        Assert.AreEqual("Loaded current game from \"my_saved_game.json\"", gameController.ParseInput("load my_saved_game"));
+
+        Assert.AreEqual("Saved current game to \"mysavedgame.json\"", gameController.ParseInput("save mySavedGame.json"));
+        Assert.AreEqual("Loaded current game from \"mysavedgame.json\"", gameController.ParseInput("load mySavedGame.json"));
+
+        Assert.AreEqual("Saved current game to \"mysavedgame.json\"", gameController.ParseInput("save mySavedGame"));
+        Assert.AreEqual("Loaded current game from \"mysavedgame.json\"", gameController.ParseInput("load mySavedGame"));
+    }
+}
+>>>>>>> dd78908e3871e0915f6cfcde1e4391618ac793a1
