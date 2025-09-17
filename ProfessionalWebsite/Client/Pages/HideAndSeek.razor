@@ -1,4 +1,4 @@
-﻿@using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject
+﻿@using ProfessionalWebsite.Client.FEProjectControllers.HideAndSeekProject
 
 <PageTitle>Hide & Seek - Collyn Brenner</PageTitle>
 
@@ -12,12 +12,12 @@
             @*         </div> *@
             @*     </a> *@
             @* </div> *@
-            <button class="btn @interfaceClasses[0]" @onclick="ShowOriginalUi">Original UI</button>
-            <button class="btn @interfaceClasses[1]" @onclick="ShowCurrentUi">Current UI</button>
+            <button class="btn @selectUiCSS[UiVersion.One]" @onclick="(()=>SetUi(UiVersion.One))">Original UI</button>
+            <button class="btn @selectUiCSS[UiVersion.Two]" @onclick="(()=>SetUi(UiVersion.Two))">Current UI</button>
             @* <div class="top-row-corners"></div> *@
         </div>
     </div>
-    @if (interfaceClasses[0] == "btn-primary")
+    @if (CurrentUiVersion == UiVersion.One)
     {
         <div class="container">
             <br />
@@ -26,14 +26,14 @@
                     <div class="row">
                         <label class="text-center">Game Status</label>
                         <textarea rows="12">
-                            @((MarkupString)Status.Replace("<br>","&#10;"))
+                            @((MarkupString)StatusV1.Replace("<br>", "&#10;"))
                         </textarea>
                     </div>
                     <br />
                     <div class="row">
                         <label class="text-center">Game Progress</label>
                         <textarea rows="3">
-                            @((MarkupString)gameController.GameProgress.Replace("<br>", "&#10;"))
+                            @((MarkupString)GameProgress.Replace("<br>", "&#10;"))
                         </textarea>
                     </div>
                 </div>
@@ -42,30 +42,30 @@
                     <div class="row">
                         <div class="col-6 w-100">
                             <label class="text-center  w-100">Directions</label>
-                            <select @bind="gameController.SelectedDirection" size="8" class="w-100 text-center">
-                                @for (int i = 0; i < gameController.CurrentLocation.Exits.Count(); i++)
+                            <select @bind="SelectedDirection" size="8" class="w-100 text-center">
+                                @for (int i = 0; i < CurrentLocation.Exits.Count(); i++)
                                 {
-                                    <option value="@gameController.CurrentLocation.Exits.ToList()[i].Key">
-                                        @gameController.CurrentLocation.Exits.ToList()[i].Key
+                                    <option value="@CurrentLocation.Exits.ToList()[i].Key">
+                                        @CurrentLocation.Exits.ToList()[i].Key
                                     </option>
                                 }
                             </select>
-                            <button class="btn btn-primary w-100 my-2" @onclick="Move">
+                            <button class="btn btn-primary w-100 my-2" @onclick="(()=>Move(SelectedDirection))">
                                 Move
                             </button>
-                            <button class="btn btn-info text-light w-100 my-2" @onclick="Check">
+                            <button class="btn btn-info text-light w-100 my-2" @onclick="CheckForOpponents">
                                 Check
                             </button>
-                            <input class="text-center w-100 mt-2" type="text" placeholder="filename for Save" @bind=gameController.FileNameToBeSaved />
+                            <input class="text-center w-100 mt-2" type="text" placeholder="filename for Save" @bind=FileNameToBeSaved />
                             <button class="btn btn-dark w-100 mb-2" @onclick="Save">
                                 Save
                             </button>
-                            <input class="text-center w-100 mt-2" type="text" placeholder="filename for Load" @bind=gameController.FileNameToBeLoaded />
+                            <input class="text-center w-100 mt-2" type="text" placeholder="filename for Load" @bind=FileNameToBeLoaded />
                             <button class="btn btn-secondary w-100 mb-2" @onclick="Load">
                                 Load
                             </button>
-                            <button class="btn btn-danger w-100 my-2" @onclick="NewGame">
-                                New Game
+                            <button class="btn btn-danger w-100 my-2" @onclick="SetNewGame">
+                                Restart
                             </button>
                         </div>
                     </div>
@@ -74,21 +74,21 @@
             </div>
         </div>
     }
-    else
+    @if (CurrentUiVersion == UiVersion.Two)
     {
         <div class="current-ui-container">
             <div class="text-prompts-container-container">
                 <div class="text-prompts-container">
                     <div class="text-prompts">
                         <p class="game-progress">
-                            @((MarkupString)gameController.GameProgress)
+                            @((MarkupString)GameProgress)
                         </p>
                         <p style="padding: 0px 40px 14px 40px">
-                            @((MarkupString)Status
-                            .Replace(" (or click 'Check')", "")
-                            .Replace(
-                                "Press \"Restart\" to restart to restart the game or press \"Quit\" to quit.", 
-                                "<br>Click the red restart button to play again"))
+                            @((MarkupString)StatusV1
+                                .Replace(" (or click 'Check')", "")
+                                .Replace(
+                                    "Press \"Restart\" to restart to restart the game or press \"Quit\" to quit.", 
+                                    "<br>Click the red restart button to play again"))
                         </p>
                     </div>
                 </div>
@@ -97,74 +97,86 @@
                 <div class="controls-backdrop">
                     <div class="save-load">
                         <button class="btn btn-secondary saveloadcontrol-button" @onclick="ShowSaveOptions">
-                            @if (ControllerOptions == "save game")
+                            @if (IsCurrentControls(ControlsOption.SaveGame))
                             { <span class="fa-solid fa-gamepad"></span> }
                             else
                             { <span class="fa-solid fa-floppy-disk"></span> }
                         </button>
                         <button class="btn btn-secondary saveloadcontrol-button" @onclick="ShowLoadOptions">
-                            @if (ControllerOptions == "load game")
+                            @if (IsCurrentControls(ControlsOption.LoadGame))
                             { <span class="fa-solid fa-gamepad"></span> }
                             else
                             { <span class="fa-solid fa-upload"></span> }
                         </button>
-                        <button class="btn btn-danger saveloadcontrol-button" @onclick="NewGame">
+                        <button class="btn btn-danger saveloadcontrol-button" @onclick="SetNewGame">
                             <span class="fa-solid fa-rotate"></span>
                         </button>
                     </div>
 
-                    @if (ControllerOptions == "play")
+                    @if (IsCurrentControls(ControlsOption.Play))
                     {
                         <div class="directions-container">
                             <div class="directions-row">
-                                <div class="direction @directions[0]" @onclick="(()=>Move(Direction.Northwest))">NW</div>
-                                <div class="direction @directions[1]" @onclick="(()=>Move(Direction.North))">N</div>
-                                <div class="direction @directions[2]" @onclick="(()=>Move(Direction.Northeast))">NE</div>
+                                <div class="direction @GetDirectionCSS(Direction.Northwest)"
+                                @onclick="(()=>Move(Direction.Northwest))">NW</div>
+                                <div class="direction @GetDirectionCSS(Direction.North)"
+                                @onclick="(()=>Move(Direction.North))">N</div>
+                                <div class="direction @GetDirectionCSS(Direction.Northeast)"
+                                @onclick="(()=>Move(Direction.Northeast))">NE</div>
                             </div>
                             <div class="directions-row">
-                                <div class="direction @directions[3]" @onclick="(()=>Move(Direction.West))">W</div>
-                                <div class="direction search-button" @onclick="Check">
+                                <div class="direction @GetDirectionCSS(Direction.West)" 
+                                @onclick="(()=>Move(Direction.West))">W</div>
+                                <div class="direction search-button" @onclick="CheckForOpponents">
                                     <span class="fa-solid fa-magnifying-glass"></span>
                                 </div>
-                                <div class="direction @directions[4]" @onclick="(()=>Move(Direction.East))">E</div>
+                                <div class="direction @GetDirectionCSS(Direction.East)" 
+                                @onclick="(()=>Move(Direction.East))">E</div>
                             </div>
                             <div class="directions-row">
-                                <div class="direction @directions[5]" @onclick="(()=>Move(Direction.Southwest))">SW</div>
-                                <div class="direction @directions[6]" @onclick="(()=>Move(Direction.South))">S</div>
-                                <div class="direction @directions[7]" @onclick="(()=>Move(Direction.Southeast))">SE</div>
+                                <div class="direction @GetDirectionCSS(Direction.Southwest)" 
+                                @onclick="(()=>Move(Direction.Southwest))">SW</div>
+                                <div class="direction @GetDirectionCSS(Direction.South)"
+                                @onclick="(()=>Move(Direction.South))">S</div>
+                                <div class="direction @GetDirectionCSS(Direction.Southeast)"
+                                @onclick="(()=>Move(Direction.Southeast))">SE</div>
                             </div>
                         </div>
                         <div class="noncompass-directions-container">
                             <div class="directions-row">
-                                <div class="direction @directions[8]" @onclick="(()=>Move(Direction.Up))">
+                                <div class="direction @GetDirectionCSS(Direction.Up)" 
+                                @onclick="(()=>Move(Direction.Up))">
                                     <span class="fa-solid fa-arrow-up"></span>
                                 </div>
-                                <div class="direction @directions[10]" @onclick="(()=>Move(Direction.In))">In</div>
+                                <div class="direction @GetDirectionCSS(Direction.In)"
+                                @onclick="(()=>Move(Direction.In))">In</div>
                             </div>
                             <div class="directions-row">
-                                <div class="direction @directions[9]" @onclick="(()=>Move(Direction.Down))">
+                                <div class="direction @GetDirectionCSS(Direction.Down)"
+                                @onclick="(()=>Move(Direction.Down))">
                                     <span class="fa-solid fa-arrow-down"></span>
                                 </div>
-                                <div class="direction @directions[11]" @onclick="(()=>Move(Direction.Out))">Out</div>
+                                <div class="direction @GetDirectionCSS(Direction.Out)"
+                                @onclick="(()=>Move(Direction.Out))">Out</div>
                             </div>
                         </div>
                     }
-                    else if(ControllerOptions == "save game")
+                    @if (IsCurrentControls(ControlsOption.SaveGame))
                     {
                         <div class="input-saveload-container">
-                            <input class="text-center short-input" type="text" placeholder="filename for Save" @bind=gameController.FileNameToBeSaved />
+                            <input class="text-center short-input" type="text" placeholder="filename for Save" @bind=FileNameToBeSaved />
                             <button class="btn btn-dark" @onclick="Save">
                                 Save
                             </button>
                         </div>
                     }
-                    else if (ControllerOptions == "load game")
+                    @if (IsCurrentControls(ControlsOption.LoadGame))
                     {
                         <div class="input-saveload-container">
-                            <input class="text-center short-input" type="text" placeholder="filename for Load" @bind=gameController.FileNameToBeLoaded />
+                            <input class="text-center short-input" type="text" placeholder="filename for Load" @bind=FileNameToBeLoaded />
                             <button class="btn btn-dark" @onclick="Load">
                                 Load
-                        </button>
+                            </button>
                         </div>
                     }
                 </div>
@@ -173,138 +185,4 @@
     }
 </ProjectsPageTemplate>
 
-@code
-{
-    private List<string> interfaceClasses = new List<string>() { "btn-secondary", "btn-primary", };
-    private List<string> directions = new List<string>()
-    {
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-        "button-inactive",
-    };
-
-    private string ControllerOptions = "play";
-
-    GameController gameController = new GameController();
-
-    public string Status => !gameController.GameOver
-    ? gameController.ParsedOutput + "<br>" + gameController.Status + "<br>" + gameController.Prompt
-    : gameController.ParsedOutput + "<br>" + gameController.Status;
-
-    protected override void OnInitialized() =>
-        UpdateDirections();
-
-    private void ShowOriginalUi()
-    {
-        interfaceClasses[0] = "btn-primary";
-        interfaceClasses[1] = "btn-secondary";
-    }
-    private void ShowCurrentUi()
-    {
-        interfaceClasses[0] = "btn-secondary";
-        interfaceClasses[1] = "btn-primary";
-    }
-
-    private void Move()
-    {
-        if (!gameController.GameOver)
-        {
-            gameController.ParsedOutput = gameController.ParseInput(gameController.SelectedDirection.ToString());
-            gameController.SelectedDirection = gameController.CurrentLocation.Exits.ToList()[0].Key;
-            UpdateDirections();
-        }
-    }
-
-    private void Move(Direction direction)
-    {
-        if (!gameController.GameOver)
-        {
-            gameController.ParsedOutput = gameController.ParseInput(direction.ToString());
-            gameController.SelectedDirection = gameController.CurrentLocation.Exits.ToList()[0].Key;
-            UpdateDirections();
-        }
-    }
-
-    public void Check()
-    {
-        if (!gameController.GameOver)
-        {
-            gameController.ParsedOutput = gameController.ParseInput("check");
-        }
-    }
-
-    private void ShowSaveOptions() =>
-        ControllerOptions = ControllerOptions == "save game" ? "play" : "save game";
-
-    public void Save() =>
-        gameController.ParsedOutput = gameController.ParseInput($"save {gameController.FileNameToBeSaved}");
-
-    private void ShowLoadOptions() =>
-        ControllerOptions = ControllerOptions == "load game" ? "play" : "load game";
-
-    public void Load() =>
-        gameController.ParsedOutput = gameController.ParseInput($"load {gameController.FileNameToBeLoaded}");
-
-    public void NewGame()
-    {
-        gameController = new GameController();
-        UpdateDirections();
-        ControllerOptions = "play";
-    }
-
-    private void UpdateDirections()
-    {
-        directions = directions.Select(x => x = "button-inactive").ToList();
-        foreach (var exit in gameController.CurrentLocation.Exits)
-        {
-            switch (exit.Key)
-            {
-                case Direction.Northwest:
-                    directions[0] = "button-selectable";
-                    break;
-                case Direction.North:
-                    directions[1] = "button-selectable";
-                    break;
-                case Direction.Northeast:
-                    directions[2] = "button-selectable";
-                    break;
-                case Direction.West:
-                    directions[3] = "button-selectable";
-                    break;
-                case Direction.East:
-                    directions[4] = "button-selectable";
-                    break;
-                case Direction.Southwest:
-                    directions[5] = "button-selectable";
-                    break;
-                case Direction.South:
-                    directions[6] = "button-selectable";
-                    break;
-                case Direction.Southeast:
-                    directions[7] = "button-selectable";
-                    break;
-                case Direction.Up:
-                    directions[8] = "button-selectable";
-                    break;
-                case Direction.Down:
-                    directions[9] = "button-selectable";
-                    break;
-                case Direction.In:
-                    directions[10] = "button-selectable";
-                    break;
-                case Direction.Out:
-                    directions[11] = "button-selectable";
-                    break;
-            }
-        }
-    }
-}
+@code { }

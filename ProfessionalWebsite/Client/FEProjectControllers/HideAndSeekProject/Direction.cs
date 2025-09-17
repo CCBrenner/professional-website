@@ -1,4 +1,4 @@
-﻿namespace ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
+﻿namespace ProfessionalWebsite.Client.FEProjectControllers.HideAndSeekProject;
 
 public enum Direction
 {

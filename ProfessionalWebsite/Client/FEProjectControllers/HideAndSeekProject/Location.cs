@@ -1,10 +1,27 @@
-﻿namespace ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
+﻿namespace ProfessionalWebsite.Client.FEProjectControllers.HideAndSeekProject;
 
 public class Location
 {
-    public Location(string name) => Name = name;
+    private const string NULL_LOCATION = "Null Location";
+    private const string NON_HIDING_PLACE = "19827049729943";
+    private Location(string name, string nameOfHidingPlace)
+    {
+        Name = name;
+        HidingPlace = new(nameOfHidingPlace);
+        Exits = new();
+    }
+    public static Location Create(string name) =>
+        new(name, NON_HIDING_PLACE);
+    public static Location Create(string name, string nameOfHidingPlace) =>
+        new(name, nameOfHidingPlace);
+    public static Location CreateNullLocation() =>
+        new(NULL_LOCATION, NON_HIDING_PLACE);    
     public string Name { get; set; }
-    public IDictionary<Direction, Location> Exits { get; private set; } = new Dictionary<Direction, Location>();
+    public Dictionary<Direction, Location> Exits { get; private set; }
+    public HidingPlace HidingPlace { get; private set; }
+    public bool IsNullLocation => Name == NULL_LOCATION;
+    public bool HasHidingPlace => HidingPlace.Name != NON_HIDING_PLACE;
+
     public override string ToString() => Name;
     public IEnumerable<string> ExitList =>
         Exits

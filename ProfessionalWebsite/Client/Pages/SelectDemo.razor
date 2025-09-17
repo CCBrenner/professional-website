@@ -183,20 +183,6 @@
 
     protected override void OnInitialized()
     {
-        // For setting the NavButton highlights to what they need to be upon first
-        // load in absence of setting SectionId parameter
-        // if (SectionId < 0)
-        //     UI.NavigateToSection(SectionId);
-
-        // if (SectionId > 0) {
-        //     if (SectionId == 5037) {
-        //         UI.PromoteSection(5037);
-        //     }
-        //     else {
-        //         UI.PromoteSection(5038);
-        //     }
-        // }
-
         if (SectionId < 0)
         {
             SectionId = 5037;
@@ -205,59 +191,6 @@
         // For dynamic reload of component when state has changed in the following singletons
         UI.OnUiServiceChanged += UpdateThisComponent;
     }
-
-    // private void PromoteSectionFromView(int sectionId)
-    // {
-        
-    //     if (sectionId == 5037)
-    //     {
-    //         if (!UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
-    //         if (UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
-    //     } 
-    //     if (sectionId == 5038)
-    //     {
-    //         if (!UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
-    //         if (UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
-    //     }
-        
-        
-    //     foreach (var section in UI.Sections.Dictionary.Values) {
-    //         if (sectionId == section.Id && !section.IsVisible) UI.ToggleSection(5037);
-    //         if (sectionId == section.Id && UI.Sections.Dictionary[5038].IsVisible)
-    //         {
-    //             if (!section.IsVisible) UI.ToggleSection(5037);
-    //             if (UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
-    //         }
-    //         else
-    //         {
-    //             if (!UI.Sections.Dictionary[5038].IsVisible) UI.ToggleSection(5038);
-    //             if (UI.Sections.Dictionary[5037].IsVisible) UI.ToggleSection(5037);
-    //         }
-    //     }
-        
-
-    //     1 and 1 and visible
-    //     1 and 2 and visible
-
-    //     1 and 1 and invisible
-    //     1 and 2 and invisible
-
-    //     1 and 1 and visible
-    //     1 and 2 and invisible
-
-    //     1 and 1 and invisible
-    //     1 and 2 and visible
-    //     foreach (var section in UI.Sections.Dictionary.Values)
-    //     {
-    //         if (sectionId != section.Id && section.IsVisible) 
-    //         {
-    //             UI.ToggleSection(section.Id);
-    //             continue;
-    //         }
-    //         if (sectionId == section.Id && !section.IsVisible)
-    //             UI.ToggleSection(sectionId);
-    //     }
-    // }
 
     void IDisposable.Dispose() =>
         UI.OnUiServiceChanged -= UpdateThisComponent;

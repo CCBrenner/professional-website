@@ -1,11 +1,15 @@
-﻿using ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
-namespace ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
+namespace ProfessionalWebsite.Client.FEProjectControllers.HideAndSeekProject;
 
 public class Opponent
 {
-    public Opponent(string name) => Name = name;
+    public Opponent(string name)
+    {
+        Name = name;
+        Id = Guid.NewGuid();
+    }
+    public Guid Id { get; init; }
     public readonly string Name;
     public override string ToString() => Name;
     public void Hide()
@@ -17,9 +21,9 @@ public class Opponent
             currentLocation = House.RandomExit(currentLocation);
         while (true)
         {
-            if (currentLocation.GetType() == typeof(LocationWithHidingPlace))
+            if (currentLocation.HasHidingPlace)
             {
-                ((LocationWithHidingPlace)currentLocation).Hide(this);
+                currentLocation.HidingPlace.Hide(this);
                 break;
             }
             else
@@ -28,10 +32,8 @@ public class Opponent
             }
         }
 
-        (currentLocation as LocationWithHidingPlace).Hide(this);
-
         Debug.WriteLine($"{Name} is hiding " +
-            $"{(currentLocation as LocationWithHidingPlace).HidingPlace} " +
+            $"{currentLocation.HidingPlace.Name} " +
             $"in the {currentLocation.Name}");
     }
 }

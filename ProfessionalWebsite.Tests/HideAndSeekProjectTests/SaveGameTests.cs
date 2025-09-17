@@ -5,7 +5,7 @@ namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
 [TestClass]
 public class SaveGameTests
 {
-    GameController gameController;
+    Controller gameController;
     Opponent joe;
     Opponent bob;
     Opponent ana;
@@ -15,7 +15,7 @@ public class SaveGameTests
     [TestInitialize]
     public void Initializer()
     {
-        gameController = new GameController();
+        gameController = new Controller();
 
         Assert.IsFalse(gameController.GameOver);
 
@@ -67,7 +67,7 @@ public class SaveGameTests
         Assert.AreEqual("Saved current game to \"my_saved_game.json\"", gameController.ParseInput("save my_saved_game"));
 
         // Start a new game
-        gameController = new GameController();
+        gameController = new Controller();
         Assert.IsFalse(gameController.GameOver);
         House.ClearHidingPlaces();
 
@@ -84,7 +84,7 @@ public class SaveGameTests
         (House.GetLocationByName("Downstairs Bathroom") as LocationWithHidingPlace).Hide(jimmy);
         Assert.AreEqual(1, gameController.MoveNumber);
 
-        // Check all of the game state variables that are relevant to resuming the game
+        // CheckForOpponents all of the game state variables that are relevant to resuming the game
         Assert.AreEqual("Loaded current game from \"my_saved_game.json\"", gameController.ParseInput("load my_saved_game"));
         Assert.AreEqual($"You are in the Kitchen. You see the following exits:<br>" +
             $"<br> - the Hallway is to the Southeast" +

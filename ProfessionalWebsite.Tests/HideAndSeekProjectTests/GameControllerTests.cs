@@ -5,10 +5,10 @@ namespace ProfessionalWebsite.Tests.HideAndSeekProjectTests;
 [TestClass]
 public class GameControllerTests
 {
-    GameController gameController;
+    Controller gameController;
 
     [TestInitialize]
-    public void Initialize() => gameController = new GameController();
+    public void Initialize() => gameController = new Controller();
     [TestMethod]
     public void TestMovement()
     {
@@ -104,12 +104,12 @@ public class GameControllerTests
         var jimmy = gameController.Opponents.ToList()[4];
         (House.GetLocationByName("Kitchen") as LocationWithHidingPlace).Hide(jimmy);
 
-        // Check the Entry -- there are no hiding players there
+        // CheckForOpponents the Entry -- there are no hiding players there
         Assert.AreEqual(1, gameController.MoveNumber);
         Assert.AreEqual("There is no hiding place in the Entry<br>", gameController.ParseInput("Check"));
         Assert.AreEqual(2, gameController.MoveNumber);
 
-        // Move to the Garage
+        // IfCanMoveThenMove to the Garage
         gameController.ParseInput("Out");
         Assert.AreEqual(3, gameController.MoveNumber);
 
@@ -123,16 +123,16 @@ public class GameControllerTests
         Assert.AreEqual("4: Which direction do you want to go? (or click 'Check')", gameController.Prompt);
         Assert.AreEqual(4, gameController.MoveNumber);
 
-        // Move to the bathroom, where no one is hiding
+        // IfCanMoveThenMove to the bathroom, where no one is hiding
         gameController.ParseInput("In");
         gameController.ParseInput("East");
         gameController.ParseInput("North");
 
-        // Check the Bathroom to make sure no one is hiding there
+        // CheckForOpponents the Bathroom to make sure no one is hiding there
         Assert.AreEqual("Nobody was hiding behind the door<br>", gameController.ParseInput("check"));
         Assert.AreEqual(8, gameController.MoveNumber);
 
-        // Check the Donwstairs Bathroom to make sure no one is hiding there
+        // CheckForOpponents the Donwstairs Bathroom to make sure no one is hiding there
         gameController.ParseInput("South");
         gameController.ParseInput("Northwest");
         Assert.AreEqual("You found 2 opponents hiding next to the stove.<br>", gameController.ParseInput("check"));
@@ -155,7 +155,7 @@ public class GameControllerTests
         Assert.AreEqual("Nobody was hiding inside a cabinet<br>", gameController.ParseInput("check"));
         Assert.AreEqual(15, gameController.MoveNumber);
 
-        // Check the Attic to find the last two opponents
+        // CheckForOpponents the Attic to find the last two opponents
         gameController.ParseInput("North");
         gameController.ParseInput("Up");
         Assert.AreEqual(17, gameController.MoveNumber);

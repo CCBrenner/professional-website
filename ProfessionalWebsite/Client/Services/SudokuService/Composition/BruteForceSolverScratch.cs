@@ -244,7 +244,7 @@ public class BruteForceSolverScratch : ISolver
                 _puzzle.Ledger.RecordNewTxn(CurrentCell.Id, 0, previousValue, CurrentCell.Value);
             }
 
-            // Move:
+            // V1_Move:
             MoveToPreviousCell();
 
             // Update available candidates, particularly adding candidates to the cell we just left:

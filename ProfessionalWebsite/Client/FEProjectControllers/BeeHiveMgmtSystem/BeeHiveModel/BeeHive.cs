@@ -27,7 +27,7 @@ public class BeeHive
     public Vault Vault = Vault.Instance;
     public QueenBee Queen { get; private set; }
 
-    // For using values in view only
+    // For using values in View only
     public NectarCollector NectarCollectorBee { get; private set; }
     public HoneyMaker HoneyMakerBee { get; private set; }
     public EggNurse EggCareBee { get; private set; }

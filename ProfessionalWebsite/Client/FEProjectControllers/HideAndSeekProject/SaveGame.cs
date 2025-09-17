@@ -1,40 +1,34 @@
 ﻿using Newtonsoft.Json;
 
-namespace ProfessionalWebsite.Client.ProjAssets.HideAndSeekProject;
+namespace ProfessionalWebsite.Client.FEProjectControllers.HideAndSeekProject;
 
 public class SaveGame
 {
-    // Key = Opponent.Name, Value = LocationWithHidingPlace.HidingPlace
     public Dictionary<string, string> OpponentsInHidingLocations { get; set; }
     public List<string> FoundOpponents { get; set; }
     public string CurrentLocationName { get; set; }
     public int MoveNumber { get; set; }
     public string Status { get; set; }
 
-    public string Save(GameController gameController, string nameForSavedFile)
+    public string Save(SaveData saveData, string nameForSavedFile)
     {
         nameForSavedFile = nameForSavedFile.Split('.')[0];  // if loaded with extension attached to filename, take only the filename
 
         Dictionary<string, string> opponentsInHidingLocations = new();
+
         foreach (Location location in House.Locations)
-        {
-            if (location.GetType() == typeof(LocationWithHidingPlace))
-            {
-                var locWithHidingPlace = (LocationWithHidingPlace)location;
-                foreach (Opponent opponent in locWithHidingPlace.OpponentsHiddenHere)
-                {
+            if (location.HasHidingPlace)
+                foreach (Opponent opponent in location.HidingPlace.HiddenOpponents)
                     opponentsInHidingLocations.Add(opponent.Name, location.Name);
-                }
-            }
-        }
+
         OpponentsInHidingLocations = opponentsInHidingLocations;
 
-        CurrentLocationName = gameController.CurrentLocation.Name;
-        MoveNumber = gameController.MoveNumber;
-        Status = gameController.Status;
-        List<string> foundOpponents = new List<string>();
+        CurrentLocationName = saveData.CurrentLocation.Name;
+        MoveNumber = saveData.MoveNumber;
+        Status = saveData.Status;
+        List<string> foundOpponents = new();
 
-        foreach (Opponent opponent in gameController.FoundOpponents) foundOpponents.Add(opponent.Name);
+        foreach (Opponent opponent in saveData.FoundOpponents) foundOpponents.Add(opponent.Name);
         FoundOpponents = foundOpponents;
 
         string savedGame = JsonConvert.SerializeObject(this);
