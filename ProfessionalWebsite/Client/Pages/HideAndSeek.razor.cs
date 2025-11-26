@@ -137,8 +137,8 @@ public partial class HideAndSeek
             ? ControlsOption.Play
             : ControlsOption.LoadGame;
     public void ShowGameControls() => currentControls = ControlsOption.Play;
-    public event Action<string> OnGameChanged;
-    public void RaiseEventOnGameChanged() => OnGameChanged?.Invoke("Game has changed.");
+    //public event Action<string> OnGameChanged;
+    //public void RaiseEventOnGameChanged() => OnGameChanged?.Invoke("Game has changed.");
     public string Prompt => $"{MoveNumber}: Which direction do you want to go? (or click 'Check')";
     public bool GameIsOver => Opponents.Count() <= FoundOpponents.Count();
     public string GameProgress => $"Opponents Found: {string.Join(", ", FoundOpponents)}" +
@@ -149,7 +149,7 @@ public partial class HideAndSeek
         if (CurrentLocation.Exits.TryGetValue(exitDirection, out Location? location))
         {
             CurrentLocation = location;
-            RaiseEventOnGameChanged();
+            //RaiseEventOnGameChanged();
             return true;
         }
         return false;
@@ -157,7 +157,7 @@ public partial class HideAndSeek
     public void Save()
     {
         ParsedOutput = ParseInput($"save {FileNameToBeSaved}");
-        RaiseEventOnGameChanged();
+        //RaiseEventOnGameChanged();
     }
     private string Save(string nameForSavedFile)
     {
@@ -168,7 +168,7 @@ public partial class HideAndSeek
     public void Load()
     {
         ParsedOutput = ParseInput($"load {FileNameToBeLoaded}");
-        RaiseEventOnGameChanged();
+        //RaiseEventOnGameChanged();
     }
     private string Load(string nameOfFileToLoad)
     {
@@ -253,6 +253,6 @@ public partial class HideAndSeek
         Console.WriteLine("Checked for Opponents");
         if (!GameIsOver)
             ParsedOutput = ParseInput("check");
-        RaiseEventOnGameChanged();
+        //RaiseEventOnGameChanged();
     }
 }
