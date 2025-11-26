@@ -1,0 +1,23 @@
+
+services:
+
+  app:
+    image: "collynb/collyns-dev-portfolio:latest"
+    build: .
+    environment:
+      - APP_PORT
+    restart: unless-stopped
+    networks:
+      - ccb-pro-net
+
+  cloudflare_tunnel:
+    image: "cloudflare/cloudflared:latest"
+    command: tunnel --no-autoupdate run --token ${TBQ_CLOUDFLARE_TUNNEL_TOKEN}
+    restart: unless-stopped
+    networks:
+      - ccb-pro-net
+    depends_on:
+      - app
+
+networks:
+  ccb-pro-net: {}
