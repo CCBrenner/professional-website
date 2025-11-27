@@ -3,7 +3,7 @@ services:
 
   app:
     image: "collynb/collyns-dev-portfolio:latest"
-    build: .
+    # build: .
     environment:
       - APP_PORT
     restart: unless-stopped
