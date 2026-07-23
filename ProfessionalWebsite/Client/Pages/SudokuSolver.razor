@@ -39,10 +39,15 @@
             </div>
         </div>
 
-        Is Solved?: @SudokuService.IsSolved
+        @if (@SudokuService.StopwatchTimeInSeconds != 0)
+        {
+            <div style="padding-top: 16px">
+                Time Solved: @SudokuService.StopwatchTimeInSeconds seconds
+            </div>
+        }
 
         <div class="hint">
-            Click the "Solve"" button once to begin solving. Due to the solver using the only thread available once it 
+            Click the "Solve" button once to begin solving. Due to the solver using the only thread available once it 
             starts (it is synchronous), you will not be able to interact with this page until the solver is done solving.
             <br /><br />
             Try selecting a puzzle from the Puzzle Book above!

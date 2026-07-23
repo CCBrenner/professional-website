@@ -77,11 +77,11 @@ public class Puzzle : IPuzzle
 
         return puzzle;
     }
-    public bool Solve()
+    public double Solve()
     {
         ISolver solver = BruteForceSolver.Create(this);
-        bool isSolvable = solver.Solve();
-        return isSolvable;
+        double stopwatchTimeInSeconds = solver.Solve();
+        return stopwatchTimeInSeconds;
     }
     /*
     private void AssignPuzzleReferenceToLedger()

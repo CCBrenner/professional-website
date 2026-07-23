@@ -6,7 +6,7 @@ public interface IPuzzle
     List<Cell> Cells { get; }
     ISolver Solver { get; }
     Cell Cell(int id);
-    bool Solve();
+    double Solve();
     void LoadMatrixAsCellValues(int[,] matrixToLoad);
     void RemoveCandidates();
     void UpdateCandidates();

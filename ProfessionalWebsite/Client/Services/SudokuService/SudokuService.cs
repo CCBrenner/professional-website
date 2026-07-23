@@ -26,7 +26,7 @@ public sealed class SudokuService : ISudoku
     }
     public string LocalConsole { get; set; }
     public bool AlertIsActive { get; set; }
-    public bool? IsSolved { get; set; }
+    public double StopwatchTimeInSeconds { get; set; }
     //public bool SolveHasStarted => Puzzle.SolveHasStarted;
     //public decimal? StopwatchTime => Puzzle.StopwatchTime;
     private void Reset(string puzzleBookSelection)
@@ -43,7 +43,7 @@ public sealed class SudokuService : ISudoku
 
         Puzzles = PuzzleBook.GetPuzzles();
         LocalConsole = string.Empty;
-        IsSolved = null;
+        StopwatchTimeInSeconds = 0;
     }
     public void ResetCurrentPuzzle()
     {
@@ -51,7 +51,7 @@ public sealed class SudokuService : ISudoku
     }
     public void SolveGui()
     {
-        IsSolved = Puzzle.Solve();
+        StopwatchTimeInSeconds = Puzzle.Solve();
     }
     /*
     public static SudokuService Create() => new();

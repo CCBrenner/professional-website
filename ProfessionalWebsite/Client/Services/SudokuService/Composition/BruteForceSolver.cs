@@ -1,6 +1,4 @@
-﻿using ProfessionalWebsite.Client.Services.SudokuService;
-using System.Timers;
-
+﻿
 namespace ProfessionalWebsite.Client.Services.SudokuService;
 
 public class BruteForceSolver : ISolver
@@ -23,25 +21,21 @@ public class BruteForceSolver : ISolver
         PreviousCells = new();
         CurrentCell = RemainingCells.Pop();
         PuzzleIsSolvable = true;
-        StopwatchTime = 0;
-
-        Timer = new(100);  // every tenth of a second
-        SetupTimer();
+        StopwatchTimeInSeconds = 0;
     }
 
     private Puzzle puzzle;
-    public System.Timers.Timer Timer { get; private set; }
     public Cell CurrentCell { get; private set; }
     public Stack<Cell> RemainingCells { get; private set; }
     public Stack<Cell> PreviousCells { get; private set; }
     public bool PuzzleIsSolvable { get; private set; }
-    public decimal StopwatchTime { get; private set; }
+    public double StopwatchTimeInSeconds { get; private set; }
 
     public static BruteForceSolver Create(Puzzle puzzle) => new(puzzle);
 
-    public bool Solve()
+    public double Solve()
     {
-        Timer.Start();
+        DateTime startDateTime = DateTime.Now;
 
         int loopCounter = 1;
         int candidate;
@@ -84,20 +78,14 @@ public class BruteForceSolver : ISolver
             GoToNextCell();
         }
 
-        Timer.Stop();
+        DateTime endDateTime = DateTime.Now;
+        TimeSpan difference = endDateTime - startDateTime;
+        StopwatchTimeInSeconds = difference.TotalSeconds;
 
         // return true if puzzle is solved; false if could not be solved
-        return PuzzleIsSolvable;
-    }
-
-    private void SetupTimer()
-    {
-        Timer.Elapsed += TimerElapsed;
-    }
-
-    private void TimerElapsed(object? sender, ElapsedEventArgs e)
-    {
-        StopwatchTime += 0.1M;
+        if (PuzzleIsSolvable)
+            return StopwatchTimeInSeconds;
+        return 0;
     }
 
     private int Backtrack()
