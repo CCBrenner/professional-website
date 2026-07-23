@@ -397,6 +397,9 @@
     .main {
         height: 100%;
     }
+    .main8, .main9 {
+        height: 100vw;
+    }
     .header {
         padding: 0px 14px;
         display: flex;
