@@ -17,7 +17,7 @@ public class Animations
         Panels panels, 
         List<PanelGroup> panelGroupsList)
     {
-        if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")
+        if (AnimateAppContainer == $"main{animationIndex}-infinite" || AnimateAppContainer == $"main{animationIndex}")
         {
             SetDiscontinueButton(string.Empty, panels, panelGroupsList);
             AnimateAppContainer = string.Empty;
@@ -25,12 +25,12 @@ public class Animations
         else if (isContinuous[animationIndex])
         {
             SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panels, panelGroupsList);
-            AnimateAppContainer = $"main{animationIndex + 1}-infinite";
+            AnimateAppContainer = $"main{animationIndex}-infinite";
         }
         else
         {
             SetDiscontinueButton(string.Empty, panels, panelGroupsList);
-            AnimateAppContainer = $"main{animationIndex + 1}";
+            AnimateAppContainer = $"main{animationIndex}";
         }
     }
     public void ToggleContinuousAnimation(
@@ -41,7 +41,7 @@ public class Animations
         if (AnimateAppContainer == string.Empty)  // currently no animation
         {
             // Make it animated
-            AnimateAppContainer = $"main{animationIndex + 1}-infinite";
+            AnimateAppContainer = $"main{animationIndex}-infinite";
             SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panels, panelGroupsList);
         }
         else  // currently animated (maybe infinite/continuous)
@@ -56,7 +56,7 @@ public class Animations
         Panels panels, 
         List<PanelGroup> panelGroupsList)
     {
-        if (AnimateAppContainer == $"main{animationIndex + 1}-infinite" || AnimateAppContainer == $"main{animationIndex + 1}")
+        if (AnimateAppContainer == $"main{animationIndex}-infinite" || AnimateAppContainer == $"main{animationIndex}")
         {
             SetDiscontinueButton(string.Empty, panels, panelGroupsList);
             AnimateAppContainer = string.Empty;
@@ -64,7 +64,7 @@ public class Animations
         else
         {
             SetDiscontinueButton(string.Empty, panels, panelGroupsList);
-            AnimateAppContainer = $"main{animationIndex + 1}";
+            AnimateAppContainer = $"main{animationIndex}";
         }
     }
     public void DiscontinueAnimation(Panels panels, List<PanelGroup> panelGroupsList)
