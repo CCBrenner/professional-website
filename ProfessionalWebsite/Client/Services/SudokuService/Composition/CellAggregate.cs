@@ -103,7 +103,7 @@ public abstract class CellAggregate
             {
                 if (cell.Value != 0)
                 {
-                    int possiblityToEliminate = cell.Value;
+                    int possiblityToEliminate = cell.Value ?? 0;
                     candidatesToEliminate.Add(possiblityToEliminate);
                 }
             }

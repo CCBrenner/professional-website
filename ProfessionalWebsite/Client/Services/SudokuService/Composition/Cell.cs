@@ -9,7 +9,7 @@ public class Cell
         BlockId = GetBlockId(RowId, ColumnId);
         Id = GetCellId(RowId, ColumnId);
 
-        Values = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };  // [0] is "Value"; all others are Candidates
+        Values = new int?[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };  // [0] is "Value"; all others are Candidates
         ValueStatus = ValueStatus.Undefined;
 
         PositivePencilMarkings = new int[10];
@@ -33,8 +33,8 @@ public class Cell
     public BlockRow BlockRow => Block.BlockRow;
     public BlockRow BlockColumn => Block.BlockRow;
     public Puzzle Puzzle { get; private set; }
-    public int[] Values { get; private set; }  // [0] is "Value"; all others are Candidates
-    public int Value
+    public int?[] Values { get; private set; }  // [0] is "Value"; all others are Candidates
+    public int? Value
     {
         get
         {
@@ -56,7 +56,7 @@ public class Cell
 
             for (int i = 1; i < Values.Count(); i++)
             {
-                sortedSet.Add(Values[i]);
+                sortedSet.Add(Values[i] ?? 0);
             }
 
             List<int> result = sortedSet.ToList();
@@ -83,7 +83,7 @@ public class Cell
             if (val != 0)
             {
                 candidateCount++;
-                savedValueFromIteration = val;
+                savedValueFromIteration = val ?? 0;
             }
         }
 
@@ -120,12 +120,12 @@ public class Cell
         }
         */
 
-        return Value;
+        return Value ?? 0;
     }
     public int SetExpectedValueAsPlayback(Txn txn)
     {
         Values[txn.IndexOfValue] = txn.New;
-        return Values[txn.IndexOfValue];
+        return Values[txn.IndexOfValue] ?? 0;
     }
     public int EliminateCandidate(int candidate)
     {
@@ -328,7 +328,7 @@ public class Cell
         {
             if (cell is not null)
             {
-                tempArray[cell.Value] = 0;
+                tempArray[cell.Value ?? 0] = 0;
             }
         }
 

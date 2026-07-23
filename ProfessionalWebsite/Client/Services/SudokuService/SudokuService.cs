@@ -41,6 +41,7 @@ public sealed class SudokuService : ISudoku
             Puzzle.LoadMatrixAsCellValues(matrixToLoad);
         }
 
+        Puzzle.SetCellValuesOfZeroToNull();
         Puzzles = PuzzleBook.GetPuzzles();
         LocalConsole = string.Empty;
         StopwatchTimeInSeconds = 0;
@@ -51,6 +52,7 @@ public sealed class SudokuService : ISudoku
     }
     public void SolveGui()
     {
+        Puzzle.SetCellValuesOfNullToZero();
         StopwatchTimeInSeconds = Puzzle.Solve();
     }
     /*

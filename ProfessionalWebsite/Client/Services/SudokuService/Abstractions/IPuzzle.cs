@@ -10,4 +10,6 @@ public interface IPuzzle
     void LoadMatrixAsCellValues(int[,] matrixToLoad);
     void RemoveCandidates();
     void UpdateCandidates();
+    void SetCellValuesOfZeroToNull();
+    void SetCellValuesOfNullToZero();
 }

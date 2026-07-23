@@ -278,4 +278,25 @@ public class Puzzle : IPuzzle
         return returnStr;
     }
     */
+    void IPuzzle.SetCellValuesOfZeroToNull()
+    {
+        foreach (Cell cell in Cells)
+        {
+            if (cell.Value == 0)
+            {
+                cell.Value = null;
+            }
+        }
+    }
+    void IPuzzle.SetCellValuesOfNullToZero()
+    {
+        foreach (Cell cell in Cells)
+        {
+            if (cell.Value == null)
+            {
+                cell.Value = 0;
+            }
+        }
+
+    }
 }
