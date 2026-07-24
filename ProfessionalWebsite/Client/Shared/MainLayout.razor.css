@@ -22,7 +22,7 @@
 
 .behind-panel {
     height: var(--app-container-height);
-    z-index: 20;
+    z-index: 1;
     display: none;
     position: fixed;
     left: 0px;

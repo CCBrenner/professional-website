@@ -209,7 +209,7 @@
     {
         // if any panels are true, blur main
         foreach (var panelPair in UI.Panels.Dictionary.ToList())
-            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel)
+            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel && panelPair.Value.Id != 1)
                 return "content-blur";
         return "";
     }
