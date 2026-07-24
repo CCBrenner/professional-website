@@ -16,7 +16,7 @@ public class HoneyMaker : Bee
     public override float CostPerShift { get; set; }
     public float UnassignedBeeCostPerShift { get; private set; }
 
-    public override float GetCostOfThisShift() => 
+    public override float GetShiftCost() => 
         Vault.Instance.Nectar >= NectarProcessedPerShift ? CostPerShift : UnassignedBeeCostPerShift;
     public override void WorkTheNextShift()
     {

@@ -10,7 +10,7 @@ public abstract class Bee : IWorker
     public EWorkerType Job { get; set; }
 
     public abstract float CostPerShift { get; set; }
-    public abstract float GetCostOfThisShift();
+    public abstract float GetShiftCost();
 
     public virtual void WorkTheNextShift()
     {

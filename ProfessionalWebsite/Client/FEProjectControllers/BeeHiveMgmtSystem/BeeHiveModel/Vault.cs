@@ -67,9 +67,10 @@ public sealed class Vault
         Nectar -= amountToConvert;
         Honey += amountToConvert * NectarConversionRatio;
     }
-    public bool ConsumeHoney(float consumptionAmount)
+    public bool ConsumeHoney(float consumptionAmount)  // Does this include unassigned bees? or is it only worker bees?
     {
-        if (consumptionAmount > Honey) return false;
+        if (consumptionAmount > Honey)
+            return false;
         Honey -= consumptionAmount;
         return true;
     }

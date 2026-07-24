@@ -27,7 +27,8 @@ public sealed class QueenBee : Bee
         TimerIsBeingUsed = settings.TimerIsBeingUsed;
         TimerRunning = settings.TimerRunning;
 
-        UpdateStatusReport();
+        if (!settings.isGuiVersion)
+            UpdateStatusReport();
 
         InitializeTimer();
     }
@@ -42,7 +43,8 @@ public sealed class QueenBee : Bee
         Eggs = settings.StartingAmountOfEggs;
         EggConversionProgress = settings.InitialEggConversionProgress;
         CurrentDay = settings.StartingDay;
-        UpdateStatusReport();
+        if (!settings.isGuiVersion)
+            UpdateStatusReport();
         InitializeTimer();
     }
     public void ResetSelfAndReferencedVault()
@@ -74,7 +76,7 @@ public sealed class QueenBee : Bee
         get 
         {
             float totalCost = CostPerShift + (HoneyConsumedPerUnassignedBee * UnassignedBeeCount);  // queen and unassigned workers
-            foreach (Bee worker in workers) totalCost += worker.GetCostOfThisShift();  // assigned workers
+            foreach (Bee worker in workers) totalCost += worker.GetShiftCost();  // assigned workers
             return totalCost;
         }
     }
@@ -103,33 +105,50 @@ public sealed class QueenBee : Bee
                 settings.EggNurseCostPerShift, 
                 settings.HoneyConsumedPerUnassignedBee,
                 settings.EggNurseCareProgressPerShift));
-        UpdateStatusReport();
+        if (!settings.isGuiVersion)
+            UpdateStatusReport();
     }
 
-    public override float GetCostOfThisShift() => CostPerShift;
+    public override float GetShiftCost()
+    {
+        return CostPerShift;
+    }
     public override void WorkTheNextShift()
     {
         if (HiveIsBankrupt) return;
-        if (vault.ConsumeHoney(CostPerShift)) DoJob();
+        bool queenBeeCanWork = vault.ConsumeHoney(CostPerShift);
+        if (queenBeeCanWork)
+            DoJob();
         UpdateHiveIsBankrupt();
     }
     protected override void DoJob()
     {
-        LayEggs();
-        OrderBeesToDoTheirJobs();
-        FeedUnassignedBees();
+        // Do today's work:
+        LayEggs();  // has to happen, whether there is honey or not
+        FeedUnassignedBees();  // must feed unassigned bees before worker bees because they have to survive (and there is no bee dying logic currently)
+        OrderBeesToDoTheirJobs(); // bees eat if they can, and if they do eat then they also do their jobs
+
+        // Today ends; set up the next day
         CurrentDay++;
-        UpdateStatusReport();
-        if (TimerIsBeingUsed) RestartTimer();
+        if (!settings.isGuiVersion)
+            UpdateStatusReport();
+        if (TimerIsBeingUsed)
+            RestartTimer();
     }
-    private float LayEggs() => Eggs += EggsProducedPerShift;
+    private void LayEggs()
+    {
+        Eggs += EggsProducedPerShift;
+    }
     private void OrderBeesToDoTheirJobs()
     {
         foreach (IWorker worker in workers)
             worker.WorkTheNextShift();
     }
 
-    private void FeedUnassignedBees() => vault.ConsumeHoney(UnassignedBeeCount * HoneyConsumedPerUnassignedBee);
+    private void FeedUnassignedBees()
+    {
+        vault.ConsumeHoney(UnassignedBeeCount * HoneyConsumedPerUnassignedBee);
+    }
     private void UpdateStatusReport()
     {
         StatusReport = $"{vault.StatusReport}" +
@@ -159,7 +178,10 @@ public sealed class QueenBee : Bee
             if (worker.Job == workerType) count += 1;
         return count;
     }
-    private void UpdateHiveIsBankrupt() => HiveIsBankrupt = vault.Honey < CostPerShift ? true : false;
+    private void UpdateHiveIsBankrupt()
+    {
+        HiveIsBankrupt = vault.Honey < CostPerShift;
+    }
 
     private void AddWorker(IWorker newWorker)
     {

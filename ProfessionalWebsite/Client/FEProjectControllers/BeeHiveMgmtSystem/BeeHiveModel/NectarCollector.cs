@@ -13,7 +13,7 @@ public class NectarCollector : Bee
     public float NectarCollectedPerShift { get; private set; }
     public override float CostPerShift { get; set; }
 
-    public override float GetCostOfThisShift() => CostPerShift;
+    public override float GetShiftCost() => CostPerShift;
     protected override void DoJob() =>
         vault.CollectNectar(NectarCollectedPerShift);
 }

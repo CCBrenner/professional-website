@@ -30,4 +30,5 @@ public class Settings : IBeeHiveSettings
     public float HoneyConsumedPerUnassignedBee { get; set; } = 0.5F;
     public bool TimerIsBeingUsed { get; set; } = false;
     public bool TimerRunning { get; set; } = false;
+    public bool isGuiVersion { get; set; } = true;
 }

@@ -2,6 +2,8 @@
 
 public interface IBeeHiveSettings
 {
+    bool isGuiVersion { get; set; }  // 'false' = is CLI version
+
     // Vault:
     float NectarConversionRatio { get; set; }
     float LowLevelWarning { get; set; }

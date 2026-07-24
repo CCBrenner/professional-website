@@ -17,7 +17,7 @@ public class EggNurse : Bee
     public override float CostPerShift { get; set; }
     public float UnassignedBeeCostPerShift { get; private set; }
 
-    public override float GetCostOfThisShift() => QueenBee.Eggs >= 1 ? CostPerShift : UnassignedBeeCostPerShift;
+    public override float GetShiftCost() => QueenBee.Eggs >= 1 ? CostPerShift : UnassignedBeeCostPerShift;
     public override void WorkTheNextShift()
     {
         if (QueenBee.Eggs >= 1)
