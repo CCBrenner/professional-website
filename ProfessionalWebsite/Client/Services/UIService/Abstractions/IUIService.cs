@@ -2,7 +2,6 @@
 
 public interface IUIService
 {
-    List<bool> IsContinuous { get; }
     PanelService PanelService { get; }
     public SectionService SectionService { get; }
     void ActivatePanel(int selectedPanelId);

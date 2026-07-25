@@ -2,18 +2,22 @@
 
 public class AnimationService
 {
-    private AnimationService(string initAnimateMain)
-    {
-        AnimateAppContainer = initAnimateMain;
-    }
-    public string AnimateAppContainer { get; private set; }
-
     private const string DISCONTINUE_BTN_ACTIVE_CLASS_NAME = "discontinue-button-on";
     private const int DISCONTINUE_BTN_PANEL_ID = 8;
-    public static AnimationService Create(string initAnimateMain) => new AnimationService(initAnimateMain);
+    private AnimationService()
+    {
+        AnimateAppContainer = string.Empty;
+        IsContinuous = AnimationsTable.Get();
+    }
+    public static AnimationService Create()
+    {
+        return new AnimationService();
+    }
+    public string AnimateAppContainer { get; private set; }
+    public List<bool> IsContinuous { get; private set; }
+
     public void ToggleOneTimeAnimation(
         int animationIndex, 
-        List<bool> isContinuous, 
         PanelService panelsService)
     {
         List<PanelGroup> panelGroupsList = panelsService.PanelGroups.Values.ToList();
@@ -23,7 +27,7 @@ public class AnimationService
             SetDiscontinueButton(string.Empty, panelsService, panelGroupsList);
             AnimateAppContainer = string.Empty;
         }
-        else if (isContinuous[animationIndex])
+        else if (IsContinuous[animationIndex])
         {
             SetDiscontinueButton(DISCONTINUE_BTN_ACTIVE_CLASS_NAME, panelsService, panelGroupsList);
             AnimateAppContainer = $"main{animationIndex}-infinite";

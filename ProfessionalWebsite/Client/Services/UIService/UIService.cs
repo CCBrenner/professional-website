@@ -4,29 +4,33 @@ namespace ProfessionalWebsite.Client.Services.UI;
 public class UIService : IUIService
 {
     public UIService(
-        List<bool> animList,
         Dictionary<int, Panel> panels,
         List<SectionedPage> sectionedPages,
         List<Section> sections)
     {
         int startingPanelId = 10;
 
-        AnimationService = AnimationService.Create(string.Empty);
-        IsContinuous = animList;
-
+        AnimationService = AnimationService.Create();
         PanelService = PanelService.Create(panels, startingPanelId);
         SectionService = SectionService.Create(sections, sectionedPages);
     }
+    public static UIService Create(
+        Dictionary<int, Panel> panels,
+        List<SectionedPage> sectionedPages,
+        List<Section> sections)
+    {
+        return new(panels, sectionedPages, sections);
+    }
+
+    public event Action<string> OnUiServiceChanged;
+    public SectionService SectionService { get; private set; }
+    public AnimationService AnimationService { get; private set; }
+    public PanelService PanelService { get; private set; }
+
     private void RaiseEventOnUiServiceChanged()
     {
         OnUiServiceChanged?.Invoke(string.Empty);
     }
-    public event Action<string> OnUiServiceChanged;
-    public SectionService SectionService { get; private set; }
-    public AnimationService AnimationService { get; private set; }
-    public List<bool> IsContinuous { get; private set; }
-    public PanelService PanelService { get; private set; }
-
     public bool IsCurrentPromo(int sectionId)
     {
         return SectionService.IsCurrentPromo(sectionId);
@@ -119,7 +123,7 @@ public class UIService : IUIService
     /// <param name="animationIndex">Index of the animation to be applied to the main container.</param>
     public void ToggleAnimation(int animationIndex)
     {
-        AnimationService.ToggleOneTimeAnimation(animationIndex, IsContinuous, PanelService);
+        AnimationService.ToggleOneTimeAnimation(animationIndex, PanelService);
         RaiseEventOnUiServiceChanged();
     }
     public void ToggleOnePlayAnimation(int animationIndex)
@@ -202,13 +206,5 @@ public class UIService : IUIService
     {
         PanelService.DeactivatePanel(selectedPanelId);
         RaiseEventOnUiServiceChanged();
-    }
-    public static UIService Create(
-        List<bool> animList, 
-        Dictionary<int, Panel> panels, 
-        List<SectionedPage> sectionedPages, 
-        List<Section> sections)
-    {
-        return new(animList, panels, sectionedPages, sections);
     }
 }
