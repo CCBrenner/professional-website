@@ -14,7 +14,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<CounterService>();
 builder.Services.AddSingleton(sp => UIService.Create(
     AnimationsTable.Get(),
-    PanelGroupsTable.GetDictionary(),
     PanelsTable.GetDictionary(),
     SectionedPagesTable.GetList(),
     SectionsTable.GetList()));

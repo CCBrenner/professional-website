@@ -9,22 +9,20 @@ public static class NavMgmt
     */
     public static void NavigateToSection(
         int sectionId, 
-        Panels panels, 
-        Dictionary<int, PanelGroup> panelGroups, 
-        Sections sections)
+        PanelService panelService, 
+        SectionService sections)
     {
         sections.PromoteSection(sectionId);
         int locationPanelGroupId = sections.GetLocationPanelGroupId(sectionId);
         if (locationPanelGroupId < 0) return;
-        panels.UpdateGroupLocationPanel(locationPanelGroupId, panelGroups);
+        panelService.UpdateGroupLocationPanel(locationPanelGroupId);
     }
     public static void NavigateToHardCodedPage(
         int hardcodedPanelId, 
         int navGroupPanelId, 
-        Panels panels, 
-        Dictionary<int, PanelGroup> panelGroups)
+        PanelService panelService)
     {
-        panels.UpdateGroupLocationPanel(navGroupPanelId, panelGroups);
-        panels.ActivatePanel(hardcodedPanelId, panelGroups.Values.ToList());
+        panelService.UpdateGroupLocationPanel(navGroupPanelId);
+        panelService.ActivatePanel(hardcodedPanelId);
     }
 }

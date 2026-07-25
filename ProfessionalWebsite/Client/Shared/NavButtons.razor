@@ -3,11 +3,11 @@
 
 <div class="container-one">
     <div class="container-two">
-        <div class="nav-button @UI.Panels.Dictionary[2].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(2))">
+        <div class="nav-button @UI.PanelService.Panels[2].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(2))">
             <span class="button-icon fa-solid fa-flask" aria-hidden="true"></span>
             <span class="button-label">Projects</span>
         </div>
-        <div class="nav-button @UI.Panels.Dictionary[10].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(10))">
+        <div class="nav-button @UI.PanelService.Panels[10].PanelButtonStatus" @onclick="(()=>UI.TogglePanel(10))">
             <span class="button-icon fa-solid fa-circle-info" aria-hidden="true"></span>
             <span class="button-label">Select Demo</span>
         </div>

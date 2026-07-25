@@ -1,28 +1,35 @@
 ﻿
 namespace ProfessionalWebsite.Client.Services.UI;
 
-public class Panels
+public class PanelService
 {
     /*
     Definitions:
         - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
-    private Panels(Dictionary<int, Panel> initPanels)
+    private PanelService(Dictionary<int, Panel> initPanels, int startingPanelId)
     {
-        Dictionary = initPanels;
+        Panels = initPanels;
+        PanelGroups = PanelGroupsTable.GetDictionary();
+        SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
+        Panels[startingPanelId].ActivateButton();
     }
-    public static Panels Create(Dictionary<int, Panel> initPanels) => new Panels(initPanels);
-    public Dictionary<int, Panel> Dictionary { get; private set; }
+    public static PanelService Create(Dictionary<int, Panel> initPanels, int startingPanelId)
+    {
+        return new PanelService(initPanels, startingPanelId);
+    }
+    public Dictionary<int, Panel> Panels { get; private set; }
+    public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
     public void DeactivateAllPanels()
     {
-        foreach (var pair in Dictionary.ToList())
+        foreach (var pair in Panels.ToList())
         {
             pair.Value.Deactivate();
         }
     }
     public void DeactivateCooperativePanels()
     {
-        foreach (var pair in Dictionary.ToList())
+        foreach (var pair in Panels.ToList())
         {
             if (pair.Value.IsCooperativePanel)
             {
@@ -32,52 +39,52 @@ public class Panels
     }
     public void DeactivatePanel(int selectedPanelId)
     {
-        Dictionary[selectedPanelId].Deactivate();
+        Panels[selectedPanelId].Deactivate();
     }
-    public void ActivatePanel(int selectedPanelId, List<PanelGroup> panelGroupsList)
+    public void ActivatePanel(int selectedPanelId)
     {
-        var panelsList = Dictionary.Values.ToList();
+        var panelsList = Panels.Values.ToList();
         DeactivateCooperativePanels();
-        ActivateLocationButtonsOfPanelGroups(selectedPanelId, panelGroupsList);
-        Dictionary[selectedPanelId].Activate();
+        ActivateLocationButtonsOfPanelGroups(selectedPanelId);
+        Panels[selectedPanelId].Activate();
     }
-    public void TogglePanel(int selectedPanelId, Dictionary<int, PanelGroup> panelGroups)
+    public void TogglePanel(int selectedPanelId)
     {
-        if (Dictionary[selectedPanelId].PanelStatus == string.Empty)
+        if (Panels[selectedPanelId].PanelStatus == string.Empty)
         {
             DeactivateCooperativePanels();
-            ActivateLocationButtonsOfPanelGroups(selectedPanelId, panelGroups.Values.ToList());
-            Dictionary[selectedPanelId].Activate();
+            ActivateLocationButtonsOfPanelGroups(selectedPanelId);
+            Panels[selectedPanelId].Activate();
         }
         else
         {
-            Dictionary[selectedPanelId].Deactivate();
+            Panels[selectedPanelId].Deactivate();
             DeactivateCooperativePanels();
-            ActivateLocationButtonsOfGroups(panelGroups);
+            ActivateLocationButtonsOfGroups();
         }
     }
-    public void UpdateGroupLocationPanel(int panelId, Dictionary<int, PanelGroup> panelGroups)
+    public void UpdateGroupLocationPanel(int panelId)
     {
-        int pgId = Dictionary[panelId].PanelGroupId;
+        int pgId = Panels[panelId].PanelGroupId;
         if (pgId < 0) return;  // will be -1 if independent panel (has no specificed group)
-        int lpId = panelGroups[pgId].LocationPanelId;
-        Dictionary[lpId].Deactivate();
-        panelGroups[pgId].LocationPanelId = panelId;
-        Dictionary[panelId].ActivateButton();
+        int lpId = PanelGroups[pgId].LocationPanelId;
+        Panels[lpId].Deactivate();
+        PanelGroups[pgId].LocationPanelId = panelId;
+        Panels[panelId].ActivateButton();
     }
-    public void ActivateLocationButtonsOfGroups(Dictionary<int, PanelGroup> panelGroups)
+    public void ActivateLocationButtonsOfGroups()
     {
-        foreach (PanelGroup panelGroup in panelGroups.Values)
+        foreach (PanelGroup panelGroup in PanelGroups.Values)
         {
             int panelId = panelGroup.LocationPanelId;
-            Panel panel = Dictionary[panelId];
+            Panel panel = Panels[panelId];
             panel.ActivateButton();
         }
     }
 
     public void SetBiDirectionalReferencesForPanelGroupsAndPanels(Dictionary<int, PanelGroup> panelGroups)
     {
-        foreach (var panel in Dictionary.Values)
+        foreach (var panel in Panels.Values)
         {
             if (panel.PanelGroupId != -1)
             {
@@ -88,13 +95,15 @@ public class Panels
             }
         }
     }
-    public void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated, List<PanelGroup> panelGroups)
+    public void ActivateLocationButtonsOfPanelGroups(int idOfPanelBeingActivated)
     {
+        List<PanelGroup> panelGroups = PanelGroups.Values.ToList();
+
         // use this to determine get the group of the deactivated panel:
         int panelGroupIdOfPanelBeingActivated = -1;
 
         // get the group of the activated panel:
-        foreach (var pair in Dictionary.ToList())
+        foreach (var pair in Panels.ToList())
             if (idOfPanelBeingActivated == pair.Value.Id)
                 panelGroupIdOfPanelBeingActivated = pair.Value.PanelGroupId;
 
@@ -105,11 +114,11 @@ public class Panels
             if (panelGroupIdOfPanelBeingActivated != panelGroup.Id)
             {
                 int panelId = panelGroup.LocationPanelId;
-                Panel panel = Dictionary[panelId];
+                Panel panel = Panels[panelId];
                 panel.ActivateButton();
             }
         }
     }
     public void HighlightLocationButton(int locationPanelId) 
-        => Dictionary[locationPanelId].ActivateButton();
+        => Panels[locationPanelId].ActivateButton();
 }

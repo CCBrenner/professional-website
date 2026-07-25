@@ -1,8 +1,8 @@
 ﻿namespace ProfessionalWebsite.Client.Services.UI;
 
-public class Sections
+public class SectionService
 {
-    private Sections(List<Section> sections, List<SectionedPage> sectionedPages)
+    private SectionService(List<Section> sections, List<SectionedPage> sectionedPages)
     {
         Pages = new();
         foreach (SectionedPage page in sectionedPages)
@@ -18,8 +18,8 @@ public class Sections
     }
     public Dictionary<int, SectionedPage> Pages { get; set; }
     public Dictionary<int, Section> Dictionary { get; set; }
-    public static Sections Create(List<Section> sections, List<SectionedPage> sectionedPages) 
-        => new Sections(sections, sectionedPages);
+    public static SectionService Create(List<Section> sections, List<SectionedPage> sectionedPages) 
+        => new SectionService(sections, sectionedPages);
     public string IsOpenCSS(int sectionId) => Dictionary[sectionId].IsOpen ? "" : "collapsed-header";  // for section header
 
     public bool IsCurrentPromo(int sectionId)

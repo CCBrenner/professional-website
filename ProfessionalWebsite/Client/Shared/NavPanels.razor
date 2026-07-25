@@ -1,7 +1,7 @@
 ﻿@implements IDisposable
 @inject UIService UI
 
-<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.Panels.Dictionary[2].PanelStatus">
+<NavPanelContainer PanelPosition="" NavPanelStatus="@UI.PanelService.Panels[2].PanelStatus">
     <NavPanelNavLinkButton Href="sudoku-solver"
                            TopLvlClasses="panel-header"
                            IconClasses="fa-solid fa-flask"
