@@ -2,12 +2,12 @@
 
 public class SectionService
 {
-    private SectionService(List<Section> sections, List<SectionedPage> sectionedPages)
+    private SectionService()
     {
         Pages = new();
-        foreach (SectionedPage page in sectionedPages)
+        foreach (SectionedPage page in SectionedPagesTable.GetList())
             Pages.Add(page.Id, page);
-        foreach (var section in sections)
+        foreach (var section in SectionsTable.GetList())
             Pages[section.PageId].Sections.Add(section.Id, section);
 
         Dictionary = new();
@@ -16,10 +16,12 @@ public class SectionService
                 Dictionary.Add(sectionPair.Key, sectionPair.Value);
 
     }
+    public static SectionService Create()
+    {
+        return new();
+    }
     public Dictionary<int, SectionedPage> Pages { get; set; }
     public Dictionary<int, Section> Dictionary { get; set; }
-    public static SectionService Create(List<Section> sections, List<SectionedPage> sectionedPages) 
-        => new SectionService(sections, sectionedPages);
     public string IsOpenCSS(int sectionId) => Dictionary[sectionId].IsOpen ? "" : "collapsed-header";  // for section header
 
     public bool IsCurrentPromo(int sectionId)

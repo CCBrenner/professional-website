@@ -7,16 +7,16 @@ public class PanelService
     Definitions:
         - "cooperative" vs. "independent" panels: "cooperative" panels are panels that can only ever be "on" if all other cooperative panels are turned "off". "Independent" panels can stay on while a cooperative panel is on as well as when all cooperative panels are turned off. Overrides do exist for behavior of each, but defaults reflect what is described above.
     */
-    private PanelService(Dictionary<int, Panel> initPanels, int startingPanelId)
+    private PanelService(int startingPanelId)
     {
-        Panels = initPanels;
+        Panels = PanelsTable.GetDictionary();
         PanelGroups = PanelGroupsTable.GetDictionary();
         SetBiDirectionalReferencesForPanelGroupsAndPanels(PanelGroups);
         Panels[startingPanelId].ActivateButton();
     }
-    public static PanelService Create(Dictionary<int, Panel> initPanels, int startingPanelId)
+    public static PanelService Create(int startingPanelId)
     {
-        return new PanelService(initPanels, startingPanelId);
+        return new PanelService(startingPanelId);
     }
     public Dictionary<int, Panel> Panels { get; private set; }
     public Dictionary<int, PanelGroup> PanelGroups { get; private set; }
