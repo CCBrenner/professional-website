@@ -77,5 +77,6 @@ internal sealed class PanelsTable
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
+        Panel.CreateCooperativePanel(11),  // BeeHive introduction
     };
 }

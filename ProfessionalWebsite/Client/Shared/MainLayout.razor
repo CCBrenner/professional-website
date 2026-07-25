@@ -146,18 +146,23 @@
 </div>
 
 @code {
-    protected override void OnInitialized() =>
+    protected override void OnInitialized()
+    {
         UI.OnUiServiceChanged += UpdateThisComponent;
-    void IDisposable.Dispose() =>
+    }
+    void IDisposable.Dispose()
+    {
         UI.OnUiServiceChanged += UpdateThisComponent;
-    private void UpdateThisComponent(string meaningless) =>
+    }
+    private void UpdateThisComponent(string meaningless)
+    {
         StateHasChanged();
-
+    }
     private string blurMainStatus()
     {
         // if any panels are true, blur main
         foreach (var panelPair in UI.PanelService.Panels.ToList())
-            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel && panelPair.Value.Id != 1)
+            if (panelPair.Value.BlurIsActive && panelPair.Value.IsCooperativePanel && panelPair.Value.Id != 1 && panelPair.Value.Id != 11)
                 return "content-blur";
         return "";
     }

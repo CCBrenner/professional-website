@@ -8,7 +8,7 @@
 <ProjectsPageTemplate>
     <div class="positioning-container">
         <div class="game-container">
-            <div class="game-container-items @UI.PanelService.Panels[1].BlurStatus">
+            <div class="game-container-items @UI.PanelService.Panels[1].BlurStatus @UI.PanelService.Panels[11].BlurStatus">
                 <div class="topmost-buttons">
                     @* <a href="projectinfo/16"> *@
                         @* <div class="top-corner-button-containers"> *@
@@ -390,20 +390,28 @@
                                     <div>Vault Report</div>
                                     <div style="visibility:hidden">Day: @BeeHiveController.Instance.CurrentDay</div>
                                 </div>
+                                @if (BeeHiveController.Instance.VaultNotification != "")
+                                {
+                                    <div class="row-flex-v3">
+                                        <div class="field-flex text-center" style="color: red;">
+                                            @BeeHiveController.Instance.VaultNotification
+                                        </div>
+                                    </div>
+                                }
                                 <div class="row-flex-v3t">
                                     <div class="v4-details-pod">
                                         <div>
                                             Honey: @BeeHiveController.Instance.VaultHoney.ToString("N2")
                                         </div>
                                         <div>
-                                            in: @BeeHiveController.Instance.HoneyAdditionRate.ToString("N2") |
-                                            out: @BeeHiveController.Instance.ConsumptionRate.ToString("N2") |
-                                            chg:
+                                            IN: @BeeHiveController.Instance.HoneyAdditionRate.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            Δ:
                                             @if (BeeHiveController.Instance.HoneyTrajectory > 0)
                                             {
                                                 <span>+</span>
                                             }
-                                            @BeeHiveController.Instance.HoneyTrajectory.ToString("N2")
+                                            @BeeHiveController.Instance.HoneyTrajectory.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            OUT: @BeeHiveController.Instance.ConsumptionRate.ToString("N2")
                                         </div>
                                     </div>
                                 </div>
@@ -413,38 +421,30 @@
                                             Nectar: @BeeHiveController.Instance.VaultNectar.ToString("N2")
                                         </div>
                                         <div>
-                                            in: @BeeHiveController.Instance.NectarCollectionRate.ToString("N2") |
-                                            out: @BeeHiveController.Instance.NectarReductionRate.ToString("N2") |
-                                            chg:
+                                            IN: @BeeHiveController.Instance.NectarCollectionRate.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            Δ:
                                             @if (BeeHiveController.Instance.NectarTrajectory > 0)
                                             {
                                                 <span>+</span>
                                             }
-                                            @BeeHiveController.Instance.NectarTrajectory.ToString("N2")
+                                            @BeeHiveController.Instance.NectarTrajectory.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            OUT: @BeeHiveController.Instance.NectarReductionRate.ToString("N2")
                                         </div>
                                     </div>
                                 </div>
-                                @if (BeeHiveController.Instance.VaultNotification != "")
-                                {
-                                    <div class="row-flex-v3">
-                                        <div class="field-flex text-center" style="color: red;">
-                                            @BeeHiveController.Instance.VaultNotification
-                                        </div>
-                                    </div>
-                                }
                                 <div class="text-center v4-report-header">Queen Bee Report</div>
                                 <div class="row-flex-v3">
                                     <div class="v4-details-pod">
                                         <div>Eggs: @BeeHiveController.Instance.Eggs.ToString("N0")</div>
                                         <div>
-                                            in: @BeeHiveController.Instance.EggsPerShift.ToString("N2") |
-                                            out: @BeeHiveController.Instance.EggToUnassignedConversionRate.ToString("N2") |
-                                            chg:
+                                            IN: @BeeHiveController.Instance.EggsPerShift.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            Δ:
                                             @if (BeeHiveController.Instance.EggChangeRate > 0)
                                             {
                                                 <span>+</span>
                                             }
-                                            @BeeHiveController.Instance.EggChangeRate.ToString("N2")
+                                            @BeeHiveController.Instance.EggChangeRate.ToString("N2")&nbsp;&nbsp;|&nbsp;&nbsp;
+                                            OUT: @BeeHiveController.Instance.EggToUnassignedConversionRate.ToString("N2")
                                         </div>
                                     </div>
                                 </div>
@@ -474,12 +474,12 @@
                                         <div>EN</div>
                                     </div>
                                 </div>
-                                <div class="row-flex-v3">
+                                @* <div class="row-flex-v3">
                                     <div class="v4-details-pod">
                                         <div>Make the most Honey</div>
                                         <div>without going Bankrupt!</div>
                                     </div>
-                                </div>
+                                </div> *@
                                 @*
                                 <div class="row-flex-v3">
                                     <div class="v4-details-pod">
@@ -502,11 +502,9 @@
                                     }
                                     else if (BeeHiveController.Instance.TimerIsBeingUsed && !BeeHiveController.Instance.TimerRunning)
                                     {
-                                        <div style="color: #eee; padding: 18px;">Pressing "Start" will reset your game.</div>
-                                        <br />
                                         <div class="start-with-timer-on" @onclick="BeeHiveView.Instance.StartTimer">Start</div>
-                                        <br />
-                                        <div style="color: #eee; padding: 18px;">To play un-timed version, deselect "Timed Game Play" setting in settings.</div>
+                                        @* <div style="color: #eee; padding: 6px;">Pressing "Start" will restart the game.</div> *@
+                                        <div style="color: #eee; padding: 6px;">(To play un-timed version, deselect "Use Timer" in settings.)</div>
                                     }
                                     else
                                     {
@@ -524,9 +522,12 @@
                                                 <div>Nurse</div>
                                             </div>
                                         </div>
-                                        <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
-                                            Work Next Shift
-                                        </div>
+                                        @if (!BeeHiveController.Instance.TimerIsBeingUsed)
+                                        {
+                                            <div class="btn control-button-work-v3" @onclick="BeeHiveView.Instance.WorkShift">
+                                                Work Next Shift
+                                            </div>
+                                        }
                                     }
                                     </div>
                                 </div>
@@ -537,6 +538,7 @@
             </div>
         </div>
         <div class="behindpanel @UI.PanelService.Panels[1].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
+        <div class="behindpanel @UI.PanelService.Panels[11].BehindPanelStatus" @onclick="UI.DeactivateCooperativePanels"></div>
         <div class="settings-panel-container">
             <div class="settings-panel @UI.PanelService.Panels[1].PanelStatus">
                 <h3 class="text-center">BeeHive Settings</h3>
@@ -556,6 +558,56 @@
                 </div>
             </div>
         </div>
+        <div class="introduction-panel-container">
+            <div class="introduction-panel @UI.PanelService.Panels[11].PanelStatus">
+                <h3 class="text-center">Weclome to the Hive!</h3>
+                <br />
+                <div class="introduction-scrollable-section">
+                    <div class="">
+                        In this game, you are the Queen Bee.
+                        <br/><br/>
+                        Your goal is to maximize honey production while 
+                        preventing the economic collapse of your hive!
+                        <br /><br />
+                        As the Queen Bee, you lay an egg once every few days. Then each egg is nursed 
+                        by your nurse bees. Egg nurses help the egg mature. The more egg nurses there are, 
+                        the faster each egg matures. Once mature, each egg hatches and a new bee is born!
+                        <br /><br />
+                        But each newborn bee is a SLACKER! It is your job as Queen Bee to boss 
+                        the bees of your hive around and make sure they do their work.
+                        <br /><br />
+                        You can order bees to make honey, collect nectar or nurse eggs. Once a bee
+                        has an assigned job, it works that same job forever. (Bees don't switch 
+                        professions, in case you didn't know.)
+                        <br /><br />
+                        Watch out though! Each bee can do their job only if there is enough honey 
+                        in the vault, and each bee eats before they do their job each day. This
+                        means in the same day, some bees may eat enough to work while other bees that come 
+                        after them might not have enough to eat if the vault becomes empty in the middle of the day.
+                        <br /><br />
+                        Bees eat in this order: (1) Queen Bee, (2) Unassigned bees, 
+                        (3) worker bees (*in the order they were assigned their jobs)
+                        <br /><br />
+                        You start out with 1 of each kind of worker bee (3 kinds) and zero eggs.
+                        <br /><br />
+                        Alternatively, you can hire someone else to boss the bees around for you so that 
+                        all you have to do is manage the worker assignments. The guy your hired doesn't like 
+                        to wait around though - he's very consistent at bossing around bees! 
+                        This version of the game can be enabled/disabled via the gear icon (settings).
+                        <br /><br />
+                        The Queen Bee, who eats first, has to have enough honey to eat each day or else 
+                        she dies (and the hive goes bankrupt).
+                        <br /><br />
+                        Will your hive thrive? Will your hive survive!? You decide!!!
+                    </div>
+                </div>
+                <div class="introduction-bottom-container">
+                    <div class="introduction-close" @onclick="(()=>UI.DeactivatePanel(11))">
+                        Boss Around Some Bees
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </ProjectsPageTemplate>
 
@@ -564,6 +616,7 @@
 
     protected override void OnInitialized()
     {
+        UI.ActivatePanel(11);  // Introduction panel
         BeeHiveController.Instance.BeeHive.Queen.OnTimerInterval += UpdateV3View;
         UI.OnUiServiceChanged += UpdateThisComponent;
     }

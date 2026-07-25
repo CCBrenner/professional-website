@@ -338,6 +338,7 @@
     border-radius: 8px;
     padding: 4px 10px;
     width: 70%;
+    text-align: center;
 }
 
 .rates-and-conversions {
@@ -364,7 +365,9 @@
     background-color: darkblue;
     border-radius: 8px;
     padding: 4px 10px;
+    margin: 16px 0;
     width: 70%;
+    text-align: center;
 }
 
 .behindpanel {
@@ -376,7 +379,7 @@
     height: 100%;
 }
 
-.settings-panel {
+.settings-panel, .introduction-panel {
     position: absolute;
     top: 20px;
     bottom: 70px;
@@ -395,21 +398,29 @@
     flex-direction: column;
 }
 
-.settings-scrollable-section {
+.introduction-panel {
+    text-align: left;
+}
+
+.settings-scrollable-section, .introduction-scrollable-section {
     overflow-y: auto;
     /*max-height: calc(var(--content-height) - 210px);
     height: calc(var(--content-height) - 80px);*/
     flex: 1;
 }
 
-.settings-bottom-container {
+.settings-bottom-container, .introduction-bottom-container {
     display: flex;
     justify-content: end;
     width: 100%;
     padding-top: 10px;
 }
 
-.settings-close {
+.introduction-bottom-container {
+    justify-content: center;
+}
+
+.settings-close, .introduction-close {
     background-color: navy;
     width: 30%;
     height: 40px;
@@ -419,6 +430,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.introduction-close {
+    width: 60%;
 }
 
 .v4-text-prompts-container {
@@ -546,7 +561,7 @@
 }
 
 @media (min-width: 540px) {
-    .settings-panel {
+    .settings-panel, .introduction-panel {
         left: calc(50% - 260px);
     }
 }

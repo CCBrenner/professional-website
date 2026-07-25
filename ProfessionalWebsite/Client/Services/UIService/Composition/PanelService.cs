@@ -43,7 +43,6 @@ public class PanelService
     }
     public void ActivatePanel(int selectedPanelId)
     {
-        var panelsList = Panels.Values.ToList();
         DeactivateCooperativePanels();
         ActivateLocationButtonsOfPanelGroups(selectedPanelId);
         Panels[selectedPanelId].Activate();
