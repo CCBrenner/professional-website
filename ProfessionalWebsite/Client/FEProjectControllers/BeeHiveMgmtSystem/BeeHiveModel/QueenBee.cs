@@ -27,9 +27,6 @@ public sealed class QueenBee : Bee
         TimerIsBeingUsed = settings.TimerIsBeingUsed;
         TimerRunning = settings.TimerRunning;
 
-        if (!settings.isGuiVersion)
-            UpdateStatusReport();
-
         InitializeTimer();
     }
     public void Reset()
@@ -43,8 +40,6 @@ public sealed class QueenBee : Bee
         Eggs = settings.StartingAmountOfEggs;
         EggConversionProgress = settings.InitialEggConversionProgress;
         CurrentDay = settings.StartingDay;
-        if (!settings.isGuiVersion)
-            UpdateStatusReport();
         InitializeTimer();
     }
     public void ResetSelfAndReferencedVault()
@@ -68,7 +63,7 @@ public sealed class QueenBee : Bee
 
     public int AssignedWorkersCount { get { return workers.Count; } }
     public int UnassignedBeeCount { get; private set; }
-    public string StatusReport { get; private set; }
+    public string StatusReport => BuildStatusReport();
     public override float CostPerShift { get; set; }
     public bool HiveIsBankrupt { get; private set; } = false;
     public float TotalCostPerShift
@@ -105,8 +100,6 @@ public sealed class QueenBee : Bee
                 settings.EggNurseCostPerShift, 
                 settings.HoneyConsumedPerUnassignedBee,
                 settings.EggNurseCareProgressPerShift));
-        if (!settings.isGuiVersion)
-            UpdateStatusReport();
     }
 
     public override float GetShiftCost()
@@ -130,8 +123,6 @@ public sealed class QueenBee : Bee
 
         // Today ends; set up the next day
         CurrentDay++;
-        if (!settings.isGuiVersion)
-            UpdateStatusReport();
         if (TimerIsBeingUsed)
             RestartTimer();
     }
@@ -149,9 +140,9 @@ public sealed class QueenBee : Bee
     {
         vault.ConsumeHoney(UnassignedBeeCount * HoneyConsumedPerUnassignedBee);
     }
-    private void UpdateStatusReport()
+    private string BuildStatusReport()
     {
-        StatusReport = $"{vault.StatusReport}" +
+        return $"{vault.StatusReport}" +
             $"\n\nQueen's report:" +
             $"\nEgg count: {Eggs}" +
             $"\nUnassigned workers: {UnassignedBeeCount}" +
@@ -159,8 +150,6 @@ public sealed class QueenBee : Bee
             $"\n{WorkerStatus(EWorkerType.NectarCollector)}" +
             $"\n{WorkerStatus(EWorkerType.EggNurse)}" +
             $"\nTOTAL WORKERS: {workers.Count}";
-        //OnPropertyChanged("StatusReport");  // This is saying "invoke OnPropertyChanged()" and "the reference
-        // is the tag that has "StatusReport" as its Binding"
     }
 
     public void CareForEggs(float eggsToConvert)  // Only EggNurse calls this method
