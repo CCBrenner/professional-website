@@ -100,6 +100,8 @@ public partial class HideAndSeek
     public string Status() => ParsedOutput + "<br>" + status + (GameIsOver ? "" : "<br>" + Prompt);
     public bool IsCurrentControls(ControlsOption option) => currentControls == option;
     public string GetDirectionCSS(Direction direction) => directionsCSS[direction];
+    public bool CanSearch => CurrentLocation.HasHidingPlace && !GameIsOver;
+    public string SearchButtonCSS => CanSearch ? "search-button" : "button-inactive";
     public void ResetDirections()
     {
         foreach (var key in directionsCSS.Keys)
@@ -248,6 +250,11 @@ public partial class HideAndSeek
     }
     private string MentionHidingPlace(Location location) =>
         location.HasHidingPlace ? $"<br>Someone could hide {location.HidingPlace.Name}<br>" : string.Empty;
+    public void SearchIfPossible()
+    {
+        if (CanSearch)
+            CheckForOpponents();
+    }
     public void CheckForOpponents()
     {
         Console.WriteLine("Checked for Opponents");

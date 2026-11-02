@@ -149,7 +149,7 @@
                             <div class="directions-row">
                                 <div class="direction @GetDirectionCSS(Direction.West)" 
                                 @onclick="(()=>Move(Direction.West))">W</div>
-                                <div class="direction search-button" @onclick="CheckForOpponents">
+                                <div class="direction @SearchButtonCSS" aria-disabled="@(CanSearch ? "false" : "true")" @onclick="SearchIfPossible">
                                     <span class="fa-solid fa-magnifying-glass"></span>
                                 </div>
                                 <div class="direction @GetDirectionCSS(Direction.East)" 
