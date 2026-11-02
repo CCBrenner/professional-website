@@ -26,13 +26,6 @@ internal sealed class PanelsTable
             behindPanelStatusClassName: "button-on-show-behind-panel",
             panelButtonClassName: "highlight-button"
         ),
-        //Panel.CreateCooperativePanel(3,   // "knowhow" page
-        //    panelGroupId: 0,
-        //    panelActiveStatusClassName: "panel-visible",
-        //    blurStatusClassName: "content-blur",
-        //    behindPanelStatusClassName: "button-on-show-behind-panel",
-        //    panelButtonClassName: "highlight-button"
-        //),
         //Panel.CreateCooperativePanel(4,   // "collyn" page
         //    panelGroupId: 0,
         //    panelActiveStatusClassName: "panel-visible",

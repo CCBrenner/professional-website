@@ -45,32 +45,6 @@
     align-items: center;
 }
 
-.info-button-container {
-    height: 38px;
-    width: 38px;
-    margin: 0 10px 0 10px;
-}
-
-.info-button {
-    height: 38px;
-    width: 38px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #6c757d;
-    border-radius: 0.25rem;
-    color: #eee;
-}
-
-    .info-button > a {
-        text-decoration: none;
-        color: #eee;
-    }
-
-    .info-button:hover {
-        cursor: pointer;
-    }
-
 .puzzle-selector {
     min-width: 220px;
     text-align: center;

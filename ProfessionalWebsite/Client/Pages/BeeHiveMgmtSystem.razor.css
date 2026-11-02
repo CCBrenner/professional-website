@@ -379,7 +379,7 @@
     height: 100%;
 }
 
-.settings-panel, .introduction-panel {
+.settings-panel {
     position: absolute;
     top: 20px;
     bottom: 70px;
@@ -398,29 +398,21 @@
     flex-direction: column;
 }
 
-.introduction-panel {
-    text-align: left;
-}
-
-.settings-scrollable-section, .introduction-scrollable-section {
+.settings-scrollable-section {
     overflow-y: auto;
     /*max-height: calc(var(--content-height) - 210px);
     height: calc(var(--content-height) - 80px);*/
     flex: 1;
 }
 
-.settings-bottom-container, .introduction-bottom-container {
+.settings-bottom-container {
     display: flex;
     justify-content: end;
     width: 100%;
     padding-top: 10px;
 }
 
-.introduction-bottom-container {
-    justify-content: center;
-}
-
-.settings-close, .introduction-close {
+.settings-close {
     background-color: navy;
     width: 30%;
     height: 40px;
@@ -432,8 +424,70 @@
     justify-content: center;
 }
 
-.introduction-close {
-    width: 60%;
+/* Introduction dialog: same look as the project info dialog (ProjectInfoDialog) */
+.introduction-panel {
+    position: absolute;
+    top: 20px;
+    bottom: 70px;
+    left: 10px;
+    right: 10px;
+    max-width: 520px;
+    z-index: 4;
+    background-color: #f7f7f7;
+    color: #222;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    text-align: left;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-image: linear-gradient(145deg, rgb(5, 39, 103) -5%, red 120%);
+    color: #eee;
+}
+
+    .introduction-header h2 {
+        margin: 0px;
+        font-size: 1.25rem;
+    }
+
+.introduction-back {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #eee;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+    .introduction-back:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+
+.introduction-scrollable-section {
+    overflow-y: auto;
+    flex: 1;
+    padding: 16px 20px;
+    line-height: 1.6;
+}
+
+.introduction-bottom-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 16px;
+    border-top: 1px solid #ddd;
 }
 
 .v4-text-prompts-container {

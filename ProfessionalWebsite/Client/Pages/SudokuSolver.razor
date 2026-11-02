@@ -3,16 +3,27 @@
 <PageTitle>Sudoku Solver - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
+    <ProjectInfoDialog Title="Sudoku Solver">
+        <h3>About Sudoku Solver</h3>
+        <ul>
+            <li>The user can choose a puzzle from the list of defaults or enter a custom puzzle, and the program will solve it for the user.</li>
+            <li>One drawback: when the program was converted from a console app to Blazor WASM, the main solve algorithm had to use the single UI thread to process the solve, so the whole PWA appears to freeze while it solves the puzzle. I looked into having a web worker take care of this, but since I wanted the PWA to be entirely C# with no additional JS, I opted to simply give a disclaimer, at least for now. I might change that in the future.</li>
+            <li>The solve algorithm operates in a brute-force manner, having an initial whitelist of all candidates for each of the 81 cells; then, through data entry and candidate elimination, it determines if a solution is still possible. If it is possible, then it moves to the next cell. If it is not possible, it treats the current cell's value as not correct, and if there are no more candidates, it resets the current cell, goes back to the previous cell and tries the next candidate value. If there is another candidate available for the current cell, then it assigns that value to the current cell, eliminates candidates and checks if the puzzle is solvable; if so, it moves on, or else it tries another candidate or resets and goes back to the previous cell. If the first cell runs out of candidates, then the puzzle has no solution. If it checks cell 81 and finds that the puzzle is solvable, then the puzzle has been solved and the result is returned.</li>
+            <li>The puzzle as a data structure is a 2-dimensional matrix of Cell objects. It is important that this 3rd dimension (the Cell object) be an encapsulated, customized object for purposes of data storage and organization, so that the program can call Cell object methods no matter which cell the program is currently working with. Otherwise, with a 3-dimensional matrix you would simply have the first value in the 3rd dimension be the current value and the values after it be the candidates, but without the ability to have attached methods. Though I suppose you could go a functional route with this, there would still be the matter of needing a custom type to confirm the value being operated on is the right value.</li>
+            <li>The solvability check is based on all cells in each row, each column, and each block/square (I tried to avoid the term "square" since this could be mistaken for a Cell or a Block, and these are definitely different things). Through dependency injection, each Cell is inserted into its appropriate row, column, and block object at the start of the solve algorithm as part of the algorithm's setup, so that each Cell has a row, column, and block that it is referenced by and belongs to. In this way, the algorithm is not querying all cells, but only calling a method of a specific row, column or block at any given point in the algorithm to perform operations on the Cells that belong to that grouping.</li>
+            <li>The unit tests for this program run significantly longer than those of the other projects here, since in some cases the unit tests solve full puzzles to confirm correct system behavior.</li>
+        </ul>
+        <h3>Background</h3>
+        <p>
+            I was visiting relatives in Shreveport, LA when my father-in-law (an engineer of many sorts) recommended that, since I like solving Sudoku puzzles so much, I should try writing a program that solves them. It was such an irresistible idea that I started working on the project (as a console app at first) to try and work out how it would even work.
+        </p>
+        <p>
+            After struggling to get it to solve the way that I would normally solve (with a desire to use fewer steps than brute-force solving would take, in an effort to not be wasteful of resources and to decrease the number of steps and the solve time), I came to realize that it would take many more steps to try and solve it the way I would normally solve it compared to brute-force solving. A console app is not capable of processing data in a visual way like I can, and trying to work around this deficiency is quite a task. It can be done, but it would require a much larger program (at least based on what I know in my programming experience so far). Brute-force solving turned out to take far fewer steps and was also more straightforward in its programmatic approach. Other than this, the only notable thing is that I had a hard time deciding what the levels of abstraction were supposed to be when converting from a console app to Blazor WASM. I think I settled on a sufficient abstraction structure.
+        </p>
+    </ProjectInfoDialog>
     <div class="comp-container">
         <div class="top-row display-horizontal">
             <div class="top-row-menu">
-                @* <div class="info-button-container"> *@
-                @*     <a href="projectinfo/36"> *@
-                @*         <div class="info-button"> *@
-                @*             <span class="fa-solid fa-circle-info"></span> *@
-                @*         </div> *@
-                @*     </a> *@
-                @* </div> *@
                 <div class="display-horizontal">
                     <span class="puzzle-book-label">Puzzle Book&nbsp;</span>
                     <select class="form-select form-select-sm puzzle-selector" @bind="SudokuService.SelectedMatrix">

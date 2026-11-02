@@ -3,18 +3,40 @@
 <PageTitle>Hide & Seek - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
+    <ProjectInfoDialog Title="Hide & Seek">
+        <h3>Introduction</h3>
+        <p>
+            This project was introduced at the end of Chapter 10 of the <i>Head First C# (4th Edition)</i> textbook course by Andrew Stellman and Jennifer Greene (12 chapters total). Chapter 10 covered how to read and write files, particularly how to use streams in C#. If you would like to view the project’s PDF instructions which were used to make this application, please <a href="https://github.com/head-first-csharp/fourth-edition/blob/master/Downloadable_projects/Chapter_10_project.pdf" target="_blank" rel="noopener noreferrer">click here (link)</a>.
+        </p>
+        <h3>Hide and Seek Game Design</h3>
+        <p>
+            The classic childhood game hide and seek is featured in this application. The user moves through the house, searching for five virtual players that are hiding in a number of different hiding spots throughout the three-story house. The game was originally designed to be played as a command line interface (CLI) game (consisting of text prompts by the application and text responses/commands from the user playing the game). After the game was fully built for CLI, it was then converted to having a graphical user interface (GUI) in Blazor WebAssembly, a front-end web framework which uses C# instead of JavaScript. When this game was added to this website, the original UI was kept and the game was then given an improved GUI that was much more responsive across screen sizes (a concern of keeping this progressive web app (PWA) compliant with responsive web design (RWD)).
+        </p>
+        <p>
+            This project in particular highlights the use of a StreamWriter to save and load mid-game data to the user’s local machine. Test-driven development (TDD) was used in the development of the application (a process which involves writing unit tests first, making them fail, then writing code until the tests no longer fail). The classes that were foundational dependencies (meaning all other classes rely on their being functional) were coded first, and then the classes that use those classes, which are dependencies for other classes, were built, and so on. This is the supposed “proper” way of coding OOP (object-oriented programming) entities when a dependency tree exists.
+        </p>
+        <p>
+            The classes that are used are the GameController, House, Location, LocationWithHidingPlace, and Opponent classes. It also includes a Direction enum. An enum is a list of limited variations of the same object type. The enums infer/suggest a relationship and possible interchangeability between the enum’s values to be used somewhere in the code. The name of the enum, in this case “Direction”, becomes the data type that each of these values share. In this case, rooms (“Location”s) are linked together. Each location has a list of exits. Each exit is a passageway (the link) between rooms. Each exit is a Direction value. For two Locations that are linked, each Location has an exit with the opposite corresponding Direction value. For instance, the Entry has a “Direction.Out” exit that leads to the Garage, while the Garage has a “Direction.In” exit that leads to the Entry. The House class is a static class (a class that requires all class members to be static; it cannot be instantiated but can be used by referring directly to the class, such as “House.GetLocationNames()”). The House class houses all locations that the player can navigate through. Since the Locations (rooms) are instantiated in the House class, this means all Location connections are created in the House class as well. Certain locations have additional members which include a hiding space where multiple opponents (instances of the Opponent class) can hide. These “LocationWithHidingPlace” instances inherit from Location and make this possible.
+        </p>
+        <p>
+            All of the above is accessible via the GameController. The GameController provides the interface for the view/program to obtain the necessary text or data feedback that the game involves. In the CLI version of this Hide and Seek game, the game program exists in a loop which runs through generating a prompt with the current game status, the available exits and whether there is a hiding place in the player's current location, and then asks the player where they want to go. The user responds by checking an available hiding place or with one of the available directions - <b>not</b> with the name of the room (an important distinction for later versions of the game). At any point in time the user can save the game with the “save {filename}” command, or load a previously saved game with the “load {filename}” command. These functions are included in the GameController class.
+        </p>
+        <h3>Moving from CLI to GUI</h3>
+        <p>
+            The project authors suggested switching the CLI to a GUI so that the developer (me) could gain experience converting a program to use a new interface. I opted to do so, choosing to use Blazor WASM for the implementation. It was not difficult to move the project assets (mostly the classes) over to the Blazor project. I experienced a learning curve with Blazor when using data binding, particularly for the list of available exits, which the user selects first before moving to a new location via the selected exit (two separate interactions). It was a simple GUI, and it gave the game a 2D interface for interaction - a step up in user experience.
+        </p>
+        <h3>Moving the v1 GUI to This PWA with a v2 GUI</h3>
+        <p>
+            When adding the game to this progressive web app (PWA), I decided to include the Original UI so as to compare it to the newly created UI (called “Current UI”) that I wanted for this PWA. I had grown in my knowledge and skills with Blazor since the first version of the UI was made, and I came to find that the first version of the UI was not responsive enough. It needed to be fully responsive for this PWA.
+        </p>
+        <p>
+            To improve the user experience (UX) of the player, I chose to use a virtual GUI controller made up of the directions the player could select, and to have the text prompts and game status all appear on the screen above it - kind of like a handheld gaming device of the 1990s and 2000s. This maximized the amount of screen space I could use by minimizing the space taken up by the controls of the original UI - something that would be particularly important for mobile users when considering readability and minimizing the number of required interactions. You will notice on this point that the user no longer has to select AND move - the player can move with one tap or click instead of two. Feedback is something that can be useful for users, and in this case, feedback about which directions they are able to go through is presented to them by lighting up the available exit directions in the controller (a feedback function that virtual controllers have much more readily available than physical controllers do). This is important to note: a key aspect of the original game is that the user chooses the <u>direction</u> they want to go and <u>not</u> the location. Locations can change with every room the player visits, which would not be able to be captured as information feedback to the user through the controller (at least not without major modifications to the controller, ultimately ruining the controller design due to lack of space for more than 2 letters) - but if the player navigates using a limited number of directions, then the same directions can be presented in the controller without issue when moving between locations. This early design decision in the first version of the game by the project authors made a huge impact on the final UI, which in turn affects the experience the player receives.
+        </p>
+    </ProjectInfoDialog>
     <div class="top-row">
         <div class="top-row-floating-center">
-            @* <div class="top-row-corners"> *@
-            @*     <a href="projectinfo/15"> *@
-            @*         <div class="top-corner-button-containers "> *@
-            @*             <span class="fa-solid fa-circle-info"></span> *@
-            @*         </div> *@
-            @*     </a> *@
-            @* </div> *@
             <button class="btn @selectUiCSS[UiVersion.One]" @onclick="(()=>SetUi(UiVersion.One))">Original UI</button>
             <button class="btn @selectUiCSS[UiVersion.Two]" @onclick="(()=>SetUi(UiVersion.Two))">Current UI</button>
-            @* <div class="top-row-corners"></div> *@
         </div>
     </div>
     @if (CurrentUiVersion == UiVersion.One)

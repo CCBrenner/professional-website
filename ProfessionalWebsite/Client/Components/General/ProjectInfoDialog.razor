@@ -1,0 +1,38 @@
+@* Info icon (top-right of the page) that opens a closable dialog with the project's write-up *@
+<div class="project-info-anchor">
+    <button type="button" class="project-info-button" title="About this project" aria-label="About this project" @onclick="Open">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+    </button>
+</div>
+
+@* Always rendered so it can fade in/out like PanelService panels; clicking the blurred backdrop closes it *@
+<div class="project-info-backdrop @(isOpen ? "project-info-visible" : "")" aria-hidden="@(!isOpen)" @onclick="Close">
+    <div class="project-info-dialog" role="dialog" aria-modal="true" aria-labelledby="@titleId" @onclick:stopPropagation="true">
+        <div class="project-info-header">
+            <button type="button" class="project-info-back" title="Back" aria-label="Back" @onclick="Close">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <h2 id="@titleId">@Title</h2>
+        </div>
+        <div class="project-info-body">
+            @ChildContent
+        </div>
+        <div class="project-info-footer">
+            <button type="button" class="btn btn-primary" @onclick="Close">Close</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private bool isOpen = false;
+    private readonly string titleId = $"project-info-title-{Guid.NewGuid():N}";
+
+    private void Open() => isOpen = true;
+    private void Close() => isOpen = false;
+}

@@ -20,30 +20,6 @@
     margin: 0px 3px;
 }
 
-.top-row-corners {
-    flex: 1;
-}
-
-.top-corner-button-containers {
-    height: 38px;
-    width: 38px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #6c757d;
-    border-radius: 0.25rem;
-    color: #eee;
-}
-
-    .top-corner-button-containers > a {
-        text-decoration: none;
-        color: #eee;
-    }
-
-    .top-corner-button-containers:hover {
-        cursor: pointer;
-    }
-
 .current-ui-container {
     height: calc(100% - 90px);
     display: flex;

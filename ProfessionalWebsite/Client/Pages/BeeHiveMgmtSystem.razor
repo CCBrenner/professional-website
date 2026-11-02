@@ -6,15 +6,56 @@
 <PageTitle>BeeHive Management System - Collyn Brenner</PageTitle>
 
 <ProjectsPageTemplate>
+    <ProjectInfoDialog Title="Bee Hive Manager">
+        <p class="project-info-date">April 26th, 2023</p>
+        <h3>Introducing the Hive</h3>
+        <p>
+            I programmed this game from Ch. 6 of the book <i>Head First C# (4th Edition)</i> by Andrew Stellman and Jennifer Greene. It taught inheritance through the use of a Bee abstract class from which all bees, including the queen (the executive), inherit. It also taught implementation of interfaces in classes, in particular the IWorker interface for bees that are able to work, demonstrating the purpose of interfaces as contracts. In this case, the abstract Bee class was implemented with the IWorker interface, so all bees had a WorkerType and a "WorkNextShift()" method. It also taught how OOP could be used to model the BeeHive domain, making the code more expressive in meaning.
+        </p>
+        <p>
+            The Queen Bee has different types of bees, where each bee type assumes a role in the hive and is able to perform unique functions in the hive compared to the other bees. The bees are pretty lazy, so they won’t work unless the QueenBee tells them to as part of her job. If she doesn’t eat (and she of course eats first), then no one else eats and the hive goes bankrupt.
+        </p>
+        <p>
+            There are three jobs in the hive: Honey Manufacturer, Nectar Collector, and Egg Nurse. When the QueenBee lays eggs, Egg Nurses nurse the eggs until they become Unassigned Worker Bees. The QueenBee is responsible for assigning the worker bees in a manner that keeps her hive running smoothly. The Honey Manufacturer Bee makes honey each shift from the currently available nectar. If there is no nectar, no honey gets made. The Nectar Collector collects nectar from flowers in the field. All of the jobs of the bees work in a number of economic loops, as can be seen below:
+        </p>
+        <img src="media/images/beeHiveGame/BeeHiveFeedbackLoopsDiagram.png" alt="Diagram of the economic feedback loops between the bees' jobs">
+        <h3>Bee Hive Build Progression</h3>
+        <p>
+            This project was originally written with a WPF front-end (which is coded in XAML). It looked like this once it was all prepared:
+        </p>
+        <img src="media/images/beeHiveGame/BeeHiveGameWPF.png" alt="The original WPF version of the Bee Hive game">
+        <p>
+            The classes were built in order from the HoneyVault static class, to the Bee as an abstract class, to the three worker types that inherit Bee, and finally to the Queen, who is able to do the most out of all the classes. It is the QueenBee’s inherited “WorkNextShift” method that gets called when the user clicks the “WorkNextShift” button, causing a series of actions to take place in the hive from this single action.
+        </p>
+        <h3>Stepwise Mode and Real-time Mode</h3>
+        <p>
+            This BeeHive game includes two modes: a Stepwise mode and a Real-time mode. The Real-time mode uses a timer that simulates a “mouse click” on the “Work Next Shift” button every 1.5 seconds; this can be turned on via the settings in this GUI implementation. The console version and the GUI version used different timers for their implementations (WPF (XAML) had a DispatcherTimer while Blazor WASM uses a System.Timers.Timer).
+        </p>
+        <h3>Scope-Change</h3>
+        <p>
+            The original project’s scope was educational, for hands-on learning. The version you see here has been expanded beyond the original educational intent of the book project. I updated the paragraph text interface to be broken out into modular aspects of the GUI that held meaning on their own, and arranged them to clarify the relationships between the values as the user interacts with the game.
+        </p>
+        <h3>UI Versions</h3>
+        <p>
+            You will notice that there are a few different versions of the UI that can be selected at the top of the game. All versions of the UI pull from the same data, so as you interact with the game, you can see what the state of the game looks like in those other UIs.
+        </p>
+        <h3>Updating Blazor Components from Outside the Component</h3>
+        <p>
+            I had to wrangle with the Blazor component update mechanism (the StateHasChanged() method). I wanted to update the view once the data processing had been completed, but I had no way to do that from the singleton of the game, which existed outside of the view. I found events to be useful for forcing a re-render whenever the singleton wanted to.
+        </p>
+        <h3>Discovering the Value of the Singleton Design Pattern</h3>
+        <p>
+            I discovered during this project’s development that singletons are very useful as an OOP design pattern. I also learned that singletons can be used well across multiple Blazor components. I learned from ChatGPT how to code a stand-alone class-based singleton. I also realized that Blazor services which are injected into Blazor components function very much in the same way as the way I was using singletons; to this day (3/19/2024) I haven’t had to use a single feature that injected services offer that singletons do not also offer. It has become a matter of preference (and I am sure there are things services can do that singletons cannot).
+        </p>
+        <h3>Creating More GUI Space</h3>
+        <p>
+            Additionally, I learned that using tabs can create a lot of UI space that is easily navigable. This became especially useful considering my desire to do mobile-first RWD, where screen space on mobile devices is much more limited than on tablets and laptops/desktops. (I usually prefer mobile-first RWD specifically because it was pointed out to me that it is easier to add to an app than to subtract from it.)
+        </p>
+    </ProjectInfoDialog>
     <div class="positioning-container">
         <div class="game-container">
             <div class="game-container-items @UI.PanelService.Panels[1].BlurStatus @UI.PanelService.Panels[11].BlurStatus">
                 <div class="topmost-buttons">
-                    @* <a href="projectinfo/16"> *@
-                        @* <div class="top-corner-button-containers"> *@
-                        @*    <span class="fa-solid fa-circle-info"></span> *@
-                        @* </div> *@
-                    @* </a> *@
                     <div class="version-buttons-container">
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[1]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V1))">V1</button>
                         <button class="btn @BeeHiveView.Instance.interfaceClasses[2]" @onclick="(()=>BeeHiveView.Instance.SetVisibleUI(EActiveUI.V2))">V2</button>
@@ -559,9 +600,13 @@
             </div>
         </div>
         <div class="introduction-panel-container">
-            <div class="introduction-panel @UI.PanelService.Panels[11].PanelStatus">
-                <h3 class="text-center">Welcome to the Hive!</h3>
-                <br />
+            <div class="introduction-panel @UI.PanelService.Panels[11].PanelStatus" role="dialog" aria-labelledby="introduction-title">
+                <div class="introduction-header">
+                    <button type="button" class="introduction-back" title="Back" aria-label="Back" @onclick="(()=>UI.DeactivatePanel(11))">
+                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <h2 id="introduction-title">Welcome to the Hive!</h2>
+                </div>
                 <div class="introduction-scrollable-section">
                     <div class="">
                         In this game, you are the Queen Bee.
@@ -602,9 +647,9 @@
                     </div>
                 </div>
                 <div class="introduction-bottom-container">
-                    <div class="introduction-close" @onclick="(()=>UI.DeactivatePanel(11))">
+                    <button type="button" class="btn btn-primary" @onclick="(()=>UI.DeactivatePanel(11))">
                         Boss Around Some Bees
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
