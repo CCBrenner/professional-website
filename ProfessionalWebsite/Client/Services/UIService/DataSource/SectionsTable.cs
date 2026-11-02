@@ -18,6 +18,7 @@ public class SectionsTable
 
         return new()
         {
+            Section.Create(5036, "GitHub Profile", selectDemoPage),
             Section.Create(5037, "Select Demo", selectDemoPage),
             Section.Create(5038, "About UI", selectDemoPage),
         };
