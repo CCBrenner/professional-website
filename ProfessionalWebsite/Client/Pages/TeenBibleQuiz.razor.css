@@ -1,0 +1,26 @@
+.project-info {
+    max-width: 75ch;
+    margin: 0px auto;
+    padding: 16px 12px 40px 12px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.project-info h1 {
+    margin-bottom: 8px;
+}
+
+.project-meta {
+    margin-bottom: 24px;
+    opacity: 0.85;
+}
+
+.project-info p {
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .project-info {
+        padding: 32px 40px 56px 40px;
+    }
+}

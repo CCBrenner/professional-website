@@ -90,7 +90,7 @@ public partial class HideAndSeek
     public string StatusV1 =>
         GameIsOver
             ? $"You won the game in {MoveNumber} moves!" +
-                $"<br>Press \"Restart\" to restart to restart the game or press \"Quit\" to quit."
+                $"<br>Press \"Restart\" to restart the game or press \"Quit\" to quit."
             : $"You are {HandleLandingGrammar(CurrentLocation.Name)} the {CurrentLocation.Name}. " +
                 $"You see the following exits:" +
                 $"<br><br>" +
