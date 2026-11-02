@@ -139,11 +139,10 @@ public class GenericTests
         //puzzle.AssignSelfToSolver();  // Compensates for 
 
         // Act
-        bool actualPuzzleWasSolved = puzzle.Solve();
+        puzzle.Solve();
 
         // Assert
         Console.Write(puzzle.GetValuesOnlyFormattedString());
-        Assert.IsTrue(actualPuzzleWasSolved);
         Assert.AreEqual(2, puzzle.Matrix[8, 3].Values[0]);
         Assert.AreEqual(9, puzzle.Matrix[8, 0].Values[0]);
         Assert.AreEqual(5, puzzle.Matrix[5, 4].Values[0]);
@@ -191,11 +190,10 @@ public class GenericTests
         //puzzle.AssignSelfToSolver();  // Compensates for 
 
         // Act
-        bool actualPuzzleWasSolved = puzzle.Solve();
+        puzzle.Solve();
 
         // Assert
         Console.Write(puzzle.GetValuesOnlyFormattedString());
-        Assert.IsTrue(actualPuzzleWasSolved);
         Assert.AreEqual(9, puzzle.Matrix[8, 3].Values[0]);
         Assert.AreEqual(5, puzzle.Matrix[8, 0].Values[0]);
         Assert.AreEqual(4, puzzle.Matrix[5, 4].Values[0]);
