@@ -2,6 +2,12 @@
 
 <DrawerPageTemplate HeaderIconClasses="fa-solid fa-diagram-project" HeaderText="Projects">
     <DrawerContent>
+        <DrawerNavLinkButton Href="qview"
+                             ButtonText="QView"
+                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+        <DrawerNavLinkButton Href="teen-bible-quiz"
+                             ButtonText="TeenBibleQuiz.com"
+                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="sudoku-solver"
                              ButtonText="Sudoku Solver"
                              OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
@@ -15,6 +21,9 @@
         @*                      ButtonText="This PWA" /> *@
         <DrawerNavLinkButton Href="matchgame"
                              ButtonText="Match Game"
+                             OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
+        <DrawerNavLinkButton Href="about-this-site"
+                             ButtonText="About This Site"
                              OnClickCallback="(()=>UI.UpdatePanelsWhenNavigating(0))" />
         <DrawerNavLinkButton Href="counter"
                              ButtonText="Counter"

@@ -123,11 +123,18 @@ a, .btn-link {
 .loading-container {
     color: #eee;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     height: 95vh;
     font-size: 2rem;
     z-index: 2;
+}
+
+.loading-title {
+    width: auto;
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 7vw, 4rem);
 }
 
 .loader {
@@ -174,10 +181,6 @@ a {
         --app-container-height-percent: var(--app-container-breakpoint1-height-percent);
         --app-container-width: var(--app-container-breakpoint1-width);
         --panel-height: var(--panel-height-tablet);
-    }
-
-    .loading-container {
-        font-size: 4rem;
     }
 
     .loader {

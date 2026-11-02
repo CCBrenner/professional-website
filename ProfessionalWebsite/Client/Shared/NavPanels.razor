@@ -12,6 +12,12 @@
                                IconClasses="fa-solid fa-chart-line"
                                ButtonText="Statistics"
         ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />*@
+        <NavPanelNavLinkButton Href="qview"
+                               ButtonText="QView"
+                               ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
+        <NavPanelNavLinkButton Href="teen-bible-quiz"
+                               ButtonText="TeenBibleQuiz.com"
+                               ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
         <NavPanelNavLinkButton Href="sudoku-solver"
                                ButtonText="Sudoku Solver"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
@@ -26,6 +32,9 @@
         @*                        ButtonClickCallback="(()=>UI.NavigateToSection(14))" /> *@
         <NavPanelNavLinkButton Href="matchgame"
                                ButtonText="Match Game"
+                               ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
+        <NavPanelNavLinkButton Href="about-this-site"
+                               ButtonText="About This Site"
                                ButtonClickCallback="(()=>UI.UpdatePanelsWhenNavigating(2))" />
       @*<NavPanelNavLinkButton Href="twodecks"
                                ButtonText="Two Decks"
@@ -132,10 +141,6 @@
         <NavPanelNavLinkButton Href="select-demo/5037"
                                ButtonText="Select Demo"
                                ButtonClickCallback="(()=>UI.NavigateToPromotedSection(5037))" />
-        <NavPanelNavLinkButton Href="select-demo/5038"
-                               IconClasses="fa-solid fa-envelope"
-                               ButtonText="About UI"
-                               ButtonClickCallback="(()=>UI.NavigateToPromotedSection(5038))" />
     </div>
 </NavPanelContainer>
 @*

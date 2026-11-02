@@ -1,0 +1,29 @@
+.about-site {
+    max-width: 75ch;
+    margin: 0px auto;
+    padding: 16px 12px 40px 12px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.about-site h1 {
+    margin-bottom: 16px;
+}
+
+.about-site p {
+    margin-bottom: 12px;
+}
+
+.about-site ul {
+    padding-left: 24px;
+}
+
+.about-site li {
+    margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+    .about-site {
+        padding: 32px 40px 56px 40px;
+    }
+}

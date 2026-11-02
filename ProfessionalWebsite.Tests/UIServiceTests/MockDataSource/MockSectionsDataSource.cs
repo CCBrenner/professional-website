@@ -21,7 +21,6 @@ internal class MockSectionsDataSource
         return new()
         {
             Section.Create(5037, "Select Demo", selectDemoPage),
-            Section.Create(5038, "About UI", selectDemoPage),
         };
     }
 }
